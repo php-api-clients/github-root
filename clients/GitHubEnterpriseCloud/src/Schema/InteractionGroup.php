@@ -1,21 +1,16 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class InteractionGroup
 {
-    public const SCHEMA_JSON = '{"enum":["existing_users","contributors_only","collaborators_only"],"type":"string","description":"The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.","examples":["collaborators_only"]}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = 'The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.';
+    public const SCHEMA_JSON         = '{"enum":["existing_users","contributors_only","collaborators_only"],"type":"string","description":"The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.","examples":["collaborators_only"]}';
+    public const SCHEMA_TITLE        = '';
+    public const SCHEMA_DESCRIPTION  = 'The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.';
     public const SCHEMA_EXAMPLE_DATA = '[]';
+
     public function __construct()
     {
     }

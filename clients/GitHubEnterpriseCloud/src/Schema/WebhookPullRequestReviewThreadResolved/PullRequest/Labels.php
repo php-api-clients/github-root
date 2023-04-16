@@ -1,15 +1,11 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookPullRequestReviewThreadResolved\PullRequest;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
+
 final readonly class Labels extends Schema\AliasAbstract\Abstractcbfbc5da410a0d57b65a397e98165a46
 {
 }

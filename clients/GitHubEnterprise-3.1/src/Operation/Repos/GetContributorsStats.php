@@ -1,44 +1,56 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\Repos;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+use Rx\Observable;
+use Rx\Scheduler\ImmediateScheduler;
+
+use function explode;
+use function json_decode;
+use function str_replace;
+
 final class GetContributorsStats
 {
-    public const OPERATION_ID = 'repos/get-contributors-stats';
+    public const OPERATION_ID    = 'repos/get-contributors-stats';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/stats/contributors';
-    private const METHOD = 'GET';
-    private const PATH = '/repos/{owner}/{repo}/stats/contributors';
+    private const METHOD         = 'GET';
+    private const PATH           = '/repos/{owner}/{repo}/stats/contributors';
     /**The account owner of the repository. The name is not case sensitive.**/
     private string $owner;
     /**The name of the repository. The name is not case sensitive.**/
     private string $repo;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors $hydrator, string $owner, string $repo)
+
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors $hydrator, string $owner, string $repo)
     {
-        $this->owner = $owner;
-        $this->repo = $repo;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}'), array($this->owner, $this->repo), self::PATH));
+        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
     }
+
     /**
-     * @return \Rx\Observable<Schema\ContributorActivity>|Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202
+     * @return Observable<Schema\ContributorActivity>|Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202
      */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable|Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202
+    public function createResponse(ResponseInterface $response): Observable|Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -52,20 +64,25 @@ final class GetContributorsStats
                     **/
                     case 200:
                         foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, \cebe\openapi\Reader::readFromJson(Schema\ContributorActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\ContributorActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         }
-                        return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\ContributorActivity {
+
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\ContributorActivity {
                             return $this->hydrator->hydrateObject(Schema\ContributorActivity::class, $body);
                         });
                     /**
                      * Accepted
                     **/
+
                     case 202:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         return $this->hydrator->hydrateObject(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202::class, $body);
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestUnassigned\PullRequest;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+
 final readonly class Milestone extends Schema\AliasAbstract\Abstract8581ccf99f48f90be152de2f393fac6e
 {
 }

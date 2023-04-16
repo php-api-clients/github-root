@@ -1,21 +1,28 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\Pulls;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+
+use function explode;
+use function json_decode;
+use function str_replace;
+
 final class ListRequestedReviewers
 {
-    public const OPERATION_ID = 'pulls/list-requested-reviewers';
+    public const OPERATION_ID    = 'pulls/list-requested-reviewers';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers';
-    private const METHOD = 'GET';
-    private const PATH = '/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers';
+    private const METHOD         = 'GET';
+    private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers';
     private string $owner;
     private string $repo;
     private int $pullNumber;
@@ -23,28 +30,28 @@ final class ListRequestedReviewers
     private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers $hydrator, string $owner, string $repo, int $pullNumber, int $perPage = 30, int $page = 1)
+
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\RequestedReviewers $hydrator, string $owner, string $repo, int $pullNumber, int $perPage = 30, int $page = 1)
     {
-        $this->owner = $owner;
-        $this->repo = $repo;
-        $this->pullNumber = $pullNumber;
-        $this->perPage = $perPage;
-        $this->page = $page;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->pullNumber              = $pullNumber;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{pull_number}', '{per_page}', '{page}'), array($this->owner, $this->repo, $this->pullNumber, $this->perPage, $this->page), self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->pullNumber, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
     }
-    /**
-     * @return Schema\PullRequestReviewRequest
-     */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\PullRequestReviewRequest
+
+    public function createResponse(ResponseInterface $response): Schema\PullRequestReviewRequest
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -54,11 +61,14 @@ final class ListRequestedReviewers
                      * Response
                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\PullRequestReviewRequest::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PullRequestReviewRequest::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         return $this->hydrator->hydrateObject(Schema\PullRequestReviewRequest::class, $body);
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

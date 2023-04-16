@@ -1,21 +1,16 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Schema\WebhookSponsorshipEdited\Changes;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
 final readonly class PrivacyLevel
 {
-    public const SCHEMA_JSON = '{"required":["from"],"type":"object","properties":{"from":{"type":"string","description":"The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy."}}}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = '';
+    public const SCHEMA_JSON         = '{"required":["from"],"type":"object","properties":{"from":{"type":"string","description":"The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy."}}}';
+    public const SCHEMA_TITLE        = '';
+    public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":"generated_from_null"}';
+
     /**
      * from: The `edited` event types include the details about the change when someone edits a sponsorship to change the privacy.
      */

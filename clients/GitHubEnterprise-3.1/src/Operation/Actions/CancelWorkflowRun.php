@@ -1,47 +1,55 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+
+use function explode;
+use function json_decode;
+use function str_replace;
+
 final class CancelWorkflowRun
 {
-    public const OPERATION_ID = 'actions/cancel-workflow-run';
+    public const OPERATION_ID    = 'actions/cancel-workflow-run';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel';
-    private const METHOD = 'POST';
-    private const PATH = '/repos/{owner}/{repo}/actions/runs/{run_id}/cancel';
+    private const METHOD         = 'POST';
+    private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/cancel';
     /**The account owner of the repository. The name is not case sensitive.**/
     private string $owner;
     /**The name of the repository. The name is not case sensitive.**/
     private string $repo;
     /**The unique identifier of the workflow run.**/
     private int $runId;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel $hydrator, string $owner, string $repo, int $runId)
+
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Cancel $hydrator, string $owner, string $repo, int $runId)
     {
-        $this->owner = $owner;
-        $this->repo = $repo;
-        $this->runId = $runId;
+        $this->owner                   = $owner;
+        $this->repo                    = $repo;
+        $this->runId                   = $runId;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{owner}', '{repo}', '{run_id}'), array($this->owner, $this->repo, $this->runId), self::PATH));
+        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
-    /**
-     * @return Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202
-     */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202
+
+    public function createResponse(ResponseInterface $response): Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -51,17 +59,22 @@ final class CancelWorkflowRun
                      * Response
                     **/
                     case 202:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         return $this->hydrator->hydrateObject(Schema\Operation\Actions\CancelWorkflowRun\Response\Applicationjson\H202::class, $body);
                     /**
                      * Conflict
                     **/
+
                     case 409:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         throw new ErrorSchemas\BasicError(409, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

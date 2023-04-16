@@ -1,488 +1,600 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubAE\Router\Get;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
 use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
-use ApiClients\Client\GitHubAE\Router;
-use ApiClients\Client\GitHubAE\ChunkSize;
+use ApiClients\Client\GitHubAE\Schema\Feed;
+use ApiClients\Client\GitHubAE\Schema\Operation\Activity\ListReposStarredByUser\Response\Applicationjson\H200;
+use ApiClients\Client\GitHubAE\Schema\RepositorySubscription;
+use ApiClients\Client\GitHubAE\Schema\Thread;
+use ApiClients\Client\GitHubAE\Schema\ThreadSubscription;
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use EventSauce\ObjectHydrator\ObjectMapper;
+use InvalidArgumentException;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\ResponseInterface;
+use React\Http\Browser;
+use Rx\Observable;
+
+use function array_key_exists;
+
 final class Activity
 {
-    /**
-     * @var array<class-string, \EventSauce\ObjectHydrator\ObjectMapper>
-     */
-    private array $hydrator = array();
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
-    private readonly \ApiClients\Client\GitHubAE\Hydrators $hydrators;
-    private readonly \React\Http\Browser $browser;
-    private readonly \ApiClients\Contracts\HTTP\Headers\AuthenticationInterface $authentication;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, \ApiClients\Client\GitHubAE\Hydrators $hydrators, \React\Http\Browser $browser, \ApiClients\Contracts\HTTP\Headers\AuthenticationInterface $authentication)
+    /** @var array<class-string, ObjectMapper> */
+    private array $hydrator = [];
+    private readonly SchemaValidator $requestSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
+    private readonly Hydrators $hydrators;
+    private readonly Browser $browser;
+    private readonly AuthenticationInterface $authentication;
+
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrators $hydrators, Browser $browser, AuthenticationInterface $authentication)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrators = $hydrators;
-        $this->browser = $browser;
-        $this->authentication = $authentication;
+        $this->hydrators               = $hydrators;
+        $this->browser                 = $browser;
+        $this->authentication          = $authentication;
     }
+
     public function listReposStarredByAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('sort', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: sort');
+            throw new InvalidArgumentException('Missing mandatory field: sort');
         }
+
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
         if (array_key_exists('direction', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: direction');
+            throw new InvalidArgumentException('Missing mandatory field: direction');
         }
+
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\User\Starred::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\User\Starred::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\User\Starred::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Starred();
         }
+
         $operation = new Operation\Activity\ListReposStarredByAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Starred::class], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function listWatchedReposForAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\User\Subscriptions::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\User\Subscriptions::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\User\Subscriptions::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Subscriptions();
         }
+
         $operation = new Operation\Activity\ListWatchedReposForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Subscriptions::class], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function getThread(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('thread_id', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: thread_id');
+            throw new InvalidArgumentException('Missing mandatory field: thread_id');
         }
+
         $arguments['thread_id'] = $params['thread_id'];
         unset($params['thread_id']);
-        if (\array_key_exists(Hydrator\Operation\Notifications\Threads\CbThreadIdRcb::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Notifications\Threads\CbThreadIdRcb::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb();
         }
+
         $operation = new Operation\Activity\GetThread($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb::class], $arguments['thread_id']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\Thread {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Thread {
             return $operation->createResponse($response);
         });
     }
+
     public function listEventsForAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('username', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: username');
+            throw new InvalidArgumentException('Missing mandatory field: username');
         }
+
         $arguments['username'] = $params['username'];
         unset($params['username']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Events::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Events::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events();
         }
+
         $operation = new Operation\Activity\ListEventsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events::class], $arguments['username'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function listReposStarredByUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('username', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: username');
+            throw new InvalidArgumentException('Missing mandatory field: username');
         }
+
         $arguments['username'] = $params['username'];
         unset($params['username']);
         if (array_key_exists('sort', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: sort');
+            throw new InvalidArgumentException('Missing mandatory field: sort');
         }
+
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
         if (array_key_exists('direction', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: direction');
+            throw new InvalidArgumentException('Missing mandatory field: direction');
         }
+
         $arguments['direction'] = $params['direction'];
         unset($params['direction']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Starred::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Starred::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Starred::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Starred();
         }
+
         $operation = new Operation\Activity\ListReposStarredByUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Starred::class], $arguments['username'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\Operation\Activity\ListReposStarredByUser\Response\Applicationjson\H200 {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H200 {
             return $operation->createResponse($response);
         });
     }
+
     public function listReposWatchedByUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('username', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: username');
+            throw new InvalidArgumentException('Missing mandatory field: username');
         }
+
         $arguments['username'] = $params['username'];
         unset($params['username']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Subscriptions::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Subscriptions::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Subscriptions::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Subscriptions();
         }
+
         $operation = new Operation\Activity\ListReposWatchedByUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Subscriptions::class], $arguments['username'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function listOrgEventsForAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('username', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: username');
+            throw new InvalidArgumentException('Missing mandatory field: username');
         }
+
         $arguments['username'] = $params['username'];
         unset($params['username']);
         if (array_key_exists('org', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: org');
+            throw new InvalidArgumentException('Missing mandatory field: org');
         }
+
         $arguments['org'] = $params['org'];
         unset($params['org']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Events🌀Orgs🌀CbOrgRcb();
         }
+
         $operation = new Operation\Activity\ListOrgEventsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Events\Orgs\CbOrgRcb::class], $arguments['username'], $arguments['org'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function getFeeds(array $params)
     {
-        $arguments = array();
-        if (\array_key_exists(Hydrator\Operation\Feeds::class, $this->hydrator) == false) {
+        $arguments = [];
+        if (array_key_exists(Hydrator\Operation\Feeds::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Feeds::class] = $this->hydrators->getObjectMapperOperation🌀Feeds();
         }
+
         $operation = new Operation\Activity\GetFeeds($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Feeds::class]);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\Feed {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Feed {
             return $operation->createResponse($response);
         });
     }
+
     public function listNotificationsForAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('since', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: since');
+            throw new InvalidArgumentException('Missing mandatory field: since');
         }
+
         $arguments['since'] = $params['since'];
         unset($params['since']);
         if (array_key_exists('before', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: before');
+            throw new InvalidArgumentException('Missing mandatory field: before');
         }
+
         $arguments['before'] = $params['before'];
         unset($params['before']);
         if (array_key_exists('all', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: all');
+            throw new InvalidArgumentException('Missing mandatory field: all');
         }
+
         $arguments['all'] = $params['all'];
         unset($params['all']);
         if (array_key_exists('participating', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: participating');
+            throw new InvalidArgumentException('Missing mandatory field: participating');
         }
+
         $arguments['participating'] = $params['participating'];
         unset($params['participating']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (\array_key_exists(Hydrator\Operation\Notifications::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Notifications::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Notifications::class] = $this->hydrators->getObjectMapperOperation🌀Notifications();
         }
+
         $operation = new Operation\Activity\ListNotificationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications::class], $arguments['since'], $arguments['before'], $arguments['all'], $arguments['participating'], $arguments['page'], $arguments['per_page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function getThreadSubscriptionForAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('thread_id', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: thread_id');
+            throw new InvalidArgumentException('Missing mandatory field: thread_id');
         }
+
         $arguments['thread_id'] = $params['thread_id'];
         unset($params['thread_id']);
-        if (\array_key_exists(Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class] = $this->hydrators->getObjectMapperOperation🌀Notifications🌀Threads🌀CbThreadIdRcb🌀Subscription();
         }
+
         $operation = new Operation\Activity\GetThreadSubscriptionForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Notifications\Threads\CbThreadIdRcb\Subscription::class], $arguments['thread_id']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\ThreadSubscription {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ThreadSubscription {
             return $operation->createResponse($response);
         });
     }
+
     public function listRepoEvents(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('owner', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: owner');
+            throw new InvalidArgumentException('Missing mandatory field: owner');
         }
+
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
         if (array_key_exists('repo', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: repo');
+            throw new InvalidArgumentException('Missing mandatory field: repo');
         }
+
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Events();
         }
+
         $operation = new Operation\Activity\ListRepoEvents($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Events::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function listRepoNotificationsForAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('owner', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: owner');
+            throw new InvalidArgumentException('Missing mandatory field: owner');
         }
+
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
         if (array_key_exists('repo', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: repo');
+            throw new InvalidArgumentException('Missing mandatory field: repo');
         }
+
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
         if (array_key_exists('since', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: since');
+            throw new InvalidArgumentException('Missing mandatory field: since');
         }
+
         $arguments['since'] = $params['since'];
         unset($params['since']);
         if (array_key_exists('before', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: before');
+            throw new InvalidArgumentException('Missing mandatory field: before');
         }
+
         $arguments['before'] = $params['before'];
         unset($params['before']);
         if (array_key_exists('all', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: all');
+            throw new InvalidArgumentException('Missing mandatory field: all');
         }
+
         $arguments['all'] = $params['all'];
         unset($params['all']);
         if (array_key_exists('participating', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: participating');
+            throw new InvalidArgumentException('Missing mandatory field: participating');
         }
+
         $arguments['participating'] = $params['participating'];
         unset($params['participating']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Notifications();
         }
+
         $operation = new Operation\Activity\ListRepoNotificationsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Notifications::class], $arguments['owner'], $arguments['repo'], $arguments['since'], $arguments['before'], $arguments['all'], $arguments['participating'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function listStargazersForRepo(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('owner', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: owner');
+            throw new InvalidArgumentException('Missing mandatory field: owner');
         }
+
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
         if (array_key_exists('repo', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: repo');
+            throw new InvalidArgumentException('Missing mandatory field: repo');
         }
+
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Stargazers();
         }
+
         $operation = new Operation\Activity\ListStargazersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stargazers::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\Operation\Activity\ListStargazersForRepo\Response\Applicationjson\H200 {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubAE\Schema\Operation\Activity\ListStargazersForRepo\Response\Applicationjson\H200 {
             return $operation->createResponse($response);
         });
     }
+
     public function listWatchersForRepo(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('owner', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: owner');
+            throw new InvalidArgumentException('Missing mandatory field: owner');
         }
+
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
         if (array_key_exists('repo', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: repo');
+            throw new InvalidArgumentException('Missing mandatory field: repo');
         }
+
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
         if (array_key_exists('per_page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: per_page');
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
         }
+
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
         if (array_key_exists('page', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: page');
+            throw new InvalidArgumentException('Missing mandatory field: page');
         }
+
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (\array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscribers();
         }
+
         $operation = new Operation\Activity\ListWatchersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscribers::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }
+
     public function getRepoSubscription(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('owner', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: owner');
+            throw new InvalidArgumentException('Missing mandatory field: owner');
         }
+
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
         if (array_key_exists('repo', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: repo');
+            throw new InvalidArgumentException('Missing mandatory field: repo');
         }
+
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (\array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Subscription();
         }
+
         $operation = new Operation\Activity\GetRepoSubscription($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Subscription::class], $arguments['owner'], $arguments['repo']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \ApiClients\Client\GitHubAE\Schema\RepositorySubscription {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RepositorySubscription {
             return $operation->createResponse($response);
         });
     }
+
     public function checkRepoIsStarredByAuthenticatedUser(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('owner', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: owner');
+            throw new InvalidArgumentException('Missing mandatory field: owner');
         }
+
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
         if (array_key_exists('repo', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: repo');
+            throw new InvalidArgumentException('Missing mandatory field: repo');
         }
+
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (\array_key_exists(Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Starred🌀CbOwnerRcb🌀CbRepoRcb();
         }
+
         $operation = new Operation\Activity\CheckRepoIsStarredByAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Starred\CbOwnerRcb\CbRepoRcb::class], $arguments['owner'], $arguments['repo']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
             return $operation->createResponse($response);
         });
     }

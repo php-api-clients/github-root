@@ -1,15 +1,11 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\ContainerMetadata;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
+
 final readonly class Tag extends Schema\AliasAbstract\Abstractaca2abf11486b1698ab0e7a74b4f1024
 {
 }

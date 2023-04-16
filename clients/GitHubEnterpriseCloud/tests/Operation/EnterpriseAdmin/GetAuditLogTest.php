@@ -1,40 +1,46 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Client;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetAuditLog;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
-final class GetAuditLogTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use Prophecy\Argument;
+use React\Http\Browser;
+use React\Http\Message\Response;
+use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
+
+use function React\Promise\resolve;
+
+final class GetAuditLogTest extends AsyncTestCase
 {
     /**
      * @test
      */
-    public function httpCode_200_responseContentType_application_json()
+    public function httpCode_200_responseContentType_application_json(): void
     {
-        $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/json'), '[' . (Schema\AuditLogEvent::SCHEMA_EXAMPLE_DATA . ']'));
-        $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
-        $auth->authHeader(\Prophecy\Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
-        $browser = $this->prophesize(\React\Http\Browser::class);
-        $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/enterprises/generated_null/audit-log?phrase=generated_null&include=generated_null&after=generated_null&before=generated_null&order=generated_null&page=13&per_page=13', \Prophecy\Argument::type('array'), \Prophecy\Argument::any())->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetAuditLog::OPERATION_MATCH, (static function (array $data) : array {
+        $response = new Response(200, ['Content-Type' => 'application/json'], '[' . Schema\AuditLogEvent::SCHEMA_EXAMPLE_DATA . ']');
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/enterprises/generated_null/audit-log?phrase=generated_null&include=generated_null&after=generated_null&before=generated_null&order=generated_null&page=13&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $client->call(GetAuditLog::OPERATION_MATCH, (static function (array $data): array {
             $data['enterprise'] = 'generated_null';
-            $data['phrase'] = 'generated_null';
-            $data['include'] = 'generated_null';
-            $data['after'] = 'generated_null';
-            $data['before'] = 'generated_null';
-            $data['order'] = 'generated_null';
-            $data['page'] = 13;
-            $data['per_page'] = 13;
+            $data['phrase']     = 'generated_null';
+            $data['include']    = 'generated_null';
+            $data['after']      = 'generated_null';
+            $data['before']     = 'generated_null';
+            $data['order']      = 'generated_null';
+            $data['page']       = 13;
+            $data['per_page']   = 13;
+
             return $data;
-        })(array()));
+        })([]));
     }
 }

@@ -1,21 +1,31 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\SecretScanning;
 
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+use Rx\Observable;
+use Rx\Scheduler\ImmediateScheduler;
+
+use function explode;
+use function json_decode;
+use function str_replace;
+
 final class ListAlertsForOrg
 {
-    public const OPERATION_ID = 'secret-scanning/list-alerts-for-org';
+    public const OPERATION_ID    = 'secret-scanning/list-alerts-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/secret-scanning/alerts';
-    private const METHOD = 'GET';
-    private const PATH = '/orgs/{org}/secret-scanning/alerts';
+    private const METHOD         = 'GET';
+    private const PATH           = '/orgs/{org}/secret-scanning/alerts';
     /**The organization name. The name is not case sensitive.**/
     private string $org;
     /**Set to `open` or `resolved` to only list secret scanning alerts in a specific state.**/
@@ -30,29 +40,32 @@ final class ListAlertsForOrg
     private int $page;
     /**The number of results per page (max 100).**/
     private int $perPage;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts $hydrator, string $org, string $state, string $secretType, string $resolution, int $page = 1, int $perPage = 30)
+
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts $hydrator, string $org, string $state, string $secretType, string $resolution, int $page = 1, int $perPage = 30)
     {
-        $this->org = $org;
-        $this->state = $state;
-        $this->secretType = $secretType;
-        $this->resolution = $resolution;
-        $this->page = $page;
-        $this->perPage = $perPage;
+        $this->org                     = $org;
+        $this->state                   = $state;
+        $this->secretType              = $secretType;
+        $this->resolution              = $resolution;
+        $this->page                    = $page;
+        $this->perPage                 = $perPage;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{state}', '{secret_type}', '{resolution}', '{page}', '{per_page}'), array($this->org, $this->state, $this->secretType, $this->resolution, $this->page, $this->perPage), self::PATH . '?state={state}&secret_type={secret_type}&resolution={resolution}&page={page}&per_page={per_page}'));
+        return new Request(self::METHOD, str_replace(['{org}', '{state}', '{secret_type}', '{resolution}', '{page}', '{per_page}'], [$this->org, $this->state, $this->secretType, $this->resolution, $this->page, $this->perPage], self::PATH . '?state={state}&secret_type={secret_type}&resolution={resolution}&page={page}&per_page={per_page}'));
     }
+
     /**
-     * @return \Rx\Observable<Schema\OrganizationSecretScanningAlert>
+     * @return Observable<Schema\OrganizationSecretScanningAlert>
      */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Rx\Observable
+    public function createResponse(ResponseInterface $response): Observable
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -63,26 +76,33 @@ final class ListAlertsForOrg
                     **/
                     case 200:
                         foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, \cebe\openapi\Reader::readFromJson(Schema\OrganizationSecretScanningAlert::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\OrganizationSecretScanningAlert::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
                         }
-                        return \Rx\Observable::fromArray($body, new \Rx\Scheduler\ImmediateScheduler())->map(function (array $body) : Schema\OrganizationSecretScanningAlert {
+
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\OrganizationSecretScanningAlert {
                             return $this->hydrator->hydrateObject(Schema\OrganizationSecretScanningAlert::class, $body);
                         });
                     /**
                      * Resource not found
                     **/
+
                     case 404:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                     /**
                      * Service unavailable
                     **/
+
                     case 503:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         throw new ErrorSchemas\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503(503, $this->hydrator->hydrateObject(Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class, $body));
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
+
 final readonly class ConfigWas extends Schema\AliasAbstract\Abstract01fc056eed58c88fe1c507fcd84dd4b7
 {
 }

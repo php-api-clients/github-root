@@ -1,15 +1,11 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+
 final readonly class Base extends Schema\AliasAbstract\Abstract13338dcca034809c09a31a19d96cd66e
 {
 }

@@ -1,53 +1,61 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
-final class WebHooks implements \ApiClients\Contracts\OpenAPI\WebHooksInterface
+use ApiClients\Contracts\OpenAPI\WebHooksInterface;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use RuntimeException;
+
+use function strtolower;
+
+final class WebHooks implements WebHooksInterface
 {
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
+    private readonly SchemaValidator $requestSchemaValidator;
     private readonly Hydrators $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, Hydrators $hydrator)
+
+    public function __construct(SchemaValidator $requestSchemaValidator, Hydrators $hydrator)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator               = $hydrator;
     }
+
     /**
-     * @template H
      * @param class-string<H> $className
+     *
      * @return H
+     *
+     * @template H
      */
-    public function hydrateWebHook(string $className, array $data) : object
+    public function hydrateWebHook(string $className, array $data): object
     {
         return $this->hydrator->hydrateObject($className, $data);
     }
+
     /**
      * @return array{className: class-string, data: mixed}
      */
-    public function serializeWebHook(object $object) : array
+    public function serializeWebHook(object $object): array
     {
-        return array('className' => $object::class, 'data' => $this->hydrator->serializeObject($object));
+        return ['className' => $object::class, 'data' => $this->hydrator->serializeObject($object)];
     }
+
     /**
-     * @return 
+     * @return
      */
-    public function resolve(array $headers, array $data) : object
+    public function resolve(array $headers, array $data): object
     {
-        $headers = (static function ($headers) : array {
-            $flatHeaders = array();
+        $headers = (static function ($headers): array {
+            $flatHeaders = [];
             foreach ($headers as $key => $value) {
                 $flatHeaders[strtolower($key)] = $value;
             }
+
             return $flatHeaders;
         })($headers);
-        $error = new \RuntimeException('No event matching given headers and data');
+        $error   = new RuntimeException('No event matching given headers and data');
+
         throw $error;
     }
 }

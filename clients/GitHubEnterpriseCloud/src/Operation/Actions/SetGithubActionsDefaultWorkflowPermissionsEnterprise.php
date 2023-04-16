@@ -1,38 +1,43 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+
+use function json_encode;
+use function str_replace;
+
 final class SetGithubActionsDefaultWorkflowPermissionsEnterprise
 {
-    public const OPERATION_ID = 'actions/set-github-actions-default-workflow-permissions-enterprise';
+    public const OPERATION_ID    = 'actions/set-github-actions-default-workflow-permissions-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/workflow';
-    private const METHOD = 'PUT';
-    private const PATH = '/enterprises/{enterprise}/actions/permissions/workflow';
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
+    private const METHOD         = 'PUT';
+    private const PATH           = '/enterprises/{enterprise}/actions/permissions/workflow';
+    private readonly SchemaValidator $requestSchemaValidator;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, string $enterprise)
+
+    public function __construct(SchemaValidator $requestSchemaValidator, string $enterprise)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->enterprise = $enterprise;
+        $this->enterprise             = $enterprise;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\ActionsSetDefaultWorkflowPermissions::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}'), array($this->enterprise), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\ActionsSetDefaultWorkflowPermissions::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
-    /**
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Psr\Http\Message\ResponseInterface
+
+    public function createResponse(ResponseInterface $response): ResponseInterface
     {
         return $response;
     }

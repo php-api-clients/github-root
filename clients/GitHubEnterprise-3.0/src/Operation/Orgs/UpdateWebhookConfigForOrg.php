@@ -1,45 +1,54 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\Orgs;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+
+use function explode;
+use function json_decode;
+use function json_encode;
+use function str_replace;
+
 final class UpdateWebhookConfigForOrg
 {
-    public const OPERATION_ID = 'orgs/update-webhook-config-for-org';
+    public const OPERATION_ID    = 'orgs/update-webhook-config-for-org';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/hooks/{hook_id}/config';
-    private const METHOD = 'PATCH';
-    private const PATH = '/orgs/{org}/hooks/{hook_id}/config';
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
+    private const METHOD         = 'PATCH';
+    private const PATH           = '/orgs/{org}/hooks/{hook_id}/config';
+    private readonly SchemaValidator $requestSchemaValidator;
     private string $org;
     private int $hookId;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config $hydrator, string $org, int $hookId)
+
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Hooks\CbHookIdRcb\Config $hydrator, string $org, int $hookId)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->org = $org;
-        $this->hookId = $hookId;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->org                     = $org;
+        $this->hookId                  = $hookId;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Orgs\UpdateWebhookConfigForOrg\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{hook_id}'), array($this->org, $this->hookId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\UpdateWebhookConfigForOrg\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+        return new Request(self::METHOD, str_replace(['{org}', '{hook_id}'], [$this->org, $this->hookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
-    /**
-     * @return Schema\WebhookConfig
-     */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\WebhookConfig
+
+    public function createResponse(ResponseInterface $response): Schema\WebhookConfig
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -49,11 +58,14 @@ final class UpdateWebhookConfigForOrg
                      * Response
                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\WebhookConfig::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\WebhookConfig::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         return $this->hydrator->hydrateObject(Schema\WebhookConfig::class, $body);
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

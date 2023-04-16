@@ -1,44 +1,51 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+
+use function explode;
+use function json_decode;
+use function str_replace;
+
 final class GetGlobalWebhook
 {
-    public const OPERATION_ID = 'enterprise-admin/get-global-webhook';
+    public const OPERATION_ID    = 'enterprise-admin/get-global-webhook';
     public const OPERATION_MATCH = 'GET /admin/hooks/{hook_id}';
-    private const METHOD = 'GET';
-    private const PATH = '/admin/hooks/{hook_id}';
+    private const METHOD         = 'GET';
+    private const PATH           = '/admin/hooks/{hook_id}';
     /**The unique identifier of the hook.**/
     private int $hookId;
     /**This API is under preview and subject to change.**/
     private string $accept;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
+
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
     {
-        $this->hookId = $hookId;
-        $this->accept = $accept;
+        $this->hookId                  = $hookId;
+        $this->accept                  = $accept;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{hook_id}'), array($this->hookId), self::PATH));
+        return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH));
     }
-    /**
-     * @return Schema\GlobalHook
-     */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\GlobalHook
+
+    public function createResponse(ResponseInterface $response): Schema\GlobalHook
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -48,11 +55,14 @@ final class GetGlobalWebhook
                      * Response
                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         return $this->hydrator->hydrateObject(Schema\GlobalHook::class, $body);
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

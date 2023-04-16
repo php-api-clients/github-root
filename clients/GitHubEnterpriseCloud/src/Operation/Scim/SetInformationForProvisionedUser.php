@@ -1,44 +1,57 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\Scim;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+
+use function explode;
+use function json_decode;
+use function json_encode;
+use function str_replace;
+
 final class SetInformationForProvisionedUser
 {
-    public const OPERATION_ID = 'scim/set-information-for-provisioned-user';
+    public const OPERATION_ID    = 'scim/set-information-for-provisioned-user';
     public const OPERATION_MATCH = 'PUT /scim/v2/organizations/{org}/Users/{scim_user_id}';
-    private const METHOD = 'PUT';
-    private const PATH = '/scim/v2/organizations/{org}/Users/{scim_user_id}';
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
+    private const METHOD         = 'PUT';
+    private const PATH           = '/scim/v2/organizations/{org}/Users/{scim_user_id}';
+    private readonly SchemaValidator $requestSchemaValidator;
     /**The organization name. The name is not case sensitive.**/
     private string $org;
     /**The unique identifier of the SCIM user.**/
     private string $scimUserId;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb $hydrator, string $org, string $scimUserId)
+
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb $hydrator, string $org, string $scimUserId)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->org = $org;
-        $this->scimUserId = $scimUserId;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
+        $this->org                     = $org;
+        $this->scimUserId              = $scimUserId;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{org}', '{scim_user_id}'), array($this->org, $this->scimUserId), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Scim\SetInformationForProvisionedUser\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+        return new Request(self::METHOD, str_replace(['{org}', '{scim_user_id}'], [$this->org, $this->scimUserId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : mixed
+
+    public function createResponse(ResponseInterface $response): mixed
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -48,17 +61,22 @@ final class SetInformationForProvisionedUser
                      * Resource not found
                     **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         throw new ErrorSchemas\ScimError(404, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     /**
                      * Forbidden
                     **/
+
                     case 403:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         throw new ErrorSchemas\ScimError(403, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

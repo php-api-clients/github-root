@@ -1,21 +1,16 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubAE\Schema\AliasAbstract;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
-use ApiClients\Client\GitHubAE\Router;
-use ApiClients\Client\GitHubAE\ChunkSize;
 abstract readonly class Abstract45fc12bc3634c3a1ed56d5c4bb2ea678
 {
-    public const SCHEMA_JSON = '{"required":["title","body"],"type":"object","properties":{"title":{"type":"string","description":"The discussion post\'s title."},"body":{"type":"string","description":"The discussion post\'s body text."},"private":{"type":"boolean","description":"Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.","default":false}}}';
-    public const SCHEMA_TITLE = '';
-    public const SCHEMA_DESCRIPTION = '';
+    public const SCHEMA_JSON         = '{"required":["title","body"],"type":"object","properties":{"title":{"type":"string","description":"The discussion post\'s title."},"body":{"type":"string","description":"The discussion post\'s body text."},"private":{"type":"boolean","description":"Private posts are only visible to team members, organization owners, and team maintainers. Public posts are visible to all members of the organization. Set to `true` to create a private post.","default":false}}}';
+    public const SCHEMA_TITLE        = '';
+    public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"title":"generated_title_null","body":"generated_body_null","private":false}';
+
     /**
      * title: The discussion post's title.
      * body: The discussion post's body text.

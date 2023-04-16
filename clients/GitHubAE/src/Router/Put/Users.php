@@ -1,48 +1,57 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubAE\Router\Put;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
 use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
-use ApiClients\Client\GitHubAE\Router;
-use ApiClients\Client\GitHubAE\ChunkSize;
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use EventSauce\ObjectHydrator\ObjectMapper;
+use InvalidArgumentException;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\ResponseInterface;
+use React\Http\Browser;
+
+use function array_key_exists;
+
 final class Users
 {
-    /**
-     * @var array<class-string, \EventSauce\ObjectHydrator\ObjectMapper>
-     */
-    private array $hydrator = array();
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
-    private readonly \ApiClients\Client\GitHubAE\Hydrators $hydrators;
-    private readonly \React\Http\Browser $browser;
-    private readonly \ApiClients\Contracts\HTTP\Headers\AuthenticationInterface $authentication;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, \ApiClients\Client\GitHubAE\Hydrators $hydrators, \React\Http\Browser $browser, \ApiClients\Contracts\HTTP\Headers\AuthenticationInterface $authentication)
+    /** @var array<class-string, ObjectMapper> */
+    private array $hydrator = [];
+    private readonly SchemaValidator $requestSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
+    private readonly Hydrators $hydrators;
+    private readonly Browser $browser;
+    private readonly AuthenticationInterface $authentication;
+
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrators $hydrators, Browser $browser, AuthenticationInterface $authentication)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrators = $hydrators;
-        $this->browser = $browser;
-        $this->authentication = $authentication;
+        $this->hydrators               = $hydrators;
+        $this->browser                 = $browser;
+        $this->authentication          = $authentication;
     }
+
     public function follow(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('username', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: username');
+            throw new InvalidArgumentException('Missing mandatory field: username');
         }
+
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (\array_key_exists(Hydrator\Operation\User\Following\CbUsernameRcb::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\User\Following\CbUsernameRcb::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀CbUsernameRcb();
         }
+
         $operation = new Operation\Users\Follow($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class], $arguments['username']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : mixed {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
             return $operation->createResponse($response);
         });
     }

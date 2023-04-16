@@ -1,5 +1,9 @@
 <?php
 
+use WyriHaximus\SubSplitTools\Files;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
 const CLIENTS_PATH =  'clients/';
 const CLIENTS_ROOT =  __DIR__ . '/../' . CLIENTS_PATH;
 const SKELLETON_ROOT = __DIR__ . '/../skelleton/';
@@ -85,33 +89,11 @@ foreach ($clients as $client) {
         'target-branch' => $client['branch'],
     ];
 
-    if (file_exists(CLIENTS_ROOT . $client['path'])) {
-        continue;
-    }
-
-    foreach ([
-        ...glob(SKELLETON_ROOT . '**', GLOB_NOSORT),
-        ...glob(SKELLETON_ROOT . '**/*', GLOB_NOSORT),
-    ] as $fileName) {
-        if (!is_file($fileName)) {
-            continue;
-        }
-
-        $newFilename = CLIENTS_ROOT . $client['path'] . DIRECTORY_SEPARATOR . substr($fileName, strlen(SKELLETON_ROOT));
-
-        @mkdir(dirname($newFilename), 0744, true);
-        file_put_contents(
-            $newFilename,
-            str_replace(
-                array_map(
-                    static fn (string $key): string => '{{ ' . $key . ' }}',
-                    array_keys($client),
-                ),
-                array_values($client),
-                file_get_contents($fileName),
-            )
-        );
-    }
+    Files::setUp(
+        SKELLETON_ROOT,
+        CLIENTS_ROOT . $client['path'],
+        $client,
+    );
 }
 
 file_put_contents(

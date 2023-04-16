@@ -1,15 +1,11 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubAE\Schema\WebhookSponsorshipEdited\Sponsorship;
 
-use ApiClients\Client\GitHubAE\Error as ErrorSchemas;
-use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
-use ApiClients\Client\GitHubAE\WebHook;
-use ApiClients\Client\GitHubAE\Router;
-use ApiClients\Client\GitHubAE\ChunkSize;
+
 final readonly class Tier extends Schema\AliasAbstract\Abstract6f013b0abd1e38816cb4a3da59904ae0
 {
 }

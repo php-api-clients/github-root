@@ -1,21 +1,28 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+use RuntimeException;
+
+use function explode;
+use function json_decode;
+use function str_replace;
+
 final class ListSelfHostedRunnerGroupsForEnterprise
 {
-    public const OPERATION_ID = 'enterprise-admin/list-self-hosted-runner-groups-for-enterprise';
+    public const OPERATION_ID    = 'enterprise-admin/list-self-hosted-runner-groups-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runner-groups';
-    private const METHOD = 'GET';
-    private const PATH = '/enterprises/{enterprise}/actions/runner-groups';
+    private const METHOD         = 'GET';
+    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
     /**Only return runner groups that are allowed to be used by this organization.**/
@@ -24,27 +31,27 @@ final class ListSelfHostedRunnerGroupsForEnterprise
     private int $perPage;
     /**Page number of the results to fetch.**/
     private int $page;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups $hydrator;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups $hydrator, string $enterprise, string $visibleToOrganization, int $perPage = 30, int $page = 1)
+
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerGroups $hydrator, string $enterprise, string $visibleToOrganization, int $perPage = 30, int $page = 1)
     {
-        $this->enterprise = $enterprise;
-        $this->visibleToOrganization = $visibleToOrganization;
-        $this->perPage = $perPage;
-        $this->page = $page;
+        $this->enterprise              = $enterprise;
+        $this->visibleToOrganization   = $visibleToOrganization;
+        $this->perPage                 = $perPage;
+        $this->page                    = $page;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator = $hydrator;
+        $this->hydrator                = $hydrator;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}', '{visible_to_organization}', '{per_page}', '{page}'), array($this->enterprise, $this->visibleToOrganization, $this->perPage, $this->page), self::PATH . '?visible_to_organization={visible_to_organization}&per_page={per_page}&page={page}'));
+        return new Request(self::METHOD, str_replace(['{enterprise}', '{visible_to_organization}', '{per_page}', '{page}'], [$this->enterprise, $this->visibleToOrganization, $this->perPage, $this->page], self::PATH . '?visible_to_organization={visible_to_organization}&per_page={per_page}&page={page}'));
     }
-    /**
-     * @return Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200
-     */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200
+
+    public function createResponse(ResponseInterface $response): Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200
     {
-        $code = $response->getStatusCode();
+        $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
@@ -54,11 +61,14 @@ final class ListSelfHostedRunnerGroupsForEnterprise
                      * Response
                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, \cebe\openapi\Reader::readFromJson(Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
                         return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\Applicationjson\H200::class, $body);
                 }
+
                 break;
         }
-        throw new \RuntimeException('Unable to find matching response code and content type');
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

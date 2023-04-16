@@ -1,33 +1,40 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Teams;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Client;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\CreateOrUpdateIdpGroupConnectionsInOrg;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
-use ApiClients\Client\GitHubEnterpriseCloud\Router;
-use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
-final class CreateOrUpdateIdpGroupConnectionsInOrgTest extends \WyriHaximus\AsyncTestUtilities\AsyncTestCase
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use Prophecy\Argument;
+use React\Http\Browser;
+use React\Http\Message\Response;
+use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
+
+use function json_decode;
+use function React\Promise\resolve;
+
+final class CreateOrUpdateIdpGroupConnectionsInOrgTest extends AsyncTestCase
 {
     /**
      * @test
      */
-    public function httpCode_200_requestContentType_application_json_responseContentType_application_json()
+    public function httpCode_200_requestContentType_application_json_responseContentType_application_json(): void
     {
-        $response = new \React\Http\Message\Response(200, array('Content-Type' => 'application/json'), Schema\GroupMapping::SCHEMA_EXAMPLE_DATA);
-        $auth = $this->prophesize(\ApiClients\Contracts\HTTP\Headers\AuthenticationInterface::class);
-        $auth->authHeader(\Prophecy\Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
-        $browser = $this->prophesize(\React\Http\Browser::class);
-        $browser->withBase(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->withFollowRedirects(\Prophecy\Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated_null/teams/generated_null/team-sync/group-mappings', \Prophecy\Argument::type('array'), Schema\Teams\CreateOrUpdateIdpGroupConnectionsInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(\React\Promise\resolve($response))->shouldBeCalled();
-        $client = new \ApiClients\Client\GitHubEnterpriseCloud\Client($auth->reveal(), $browser->reveal());
-        $client->call(\ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\CreateOrUpdateIdpGroupConnectionsInOrg::OPERATION_MATCH, (static function (array $data) : array {
-            $data['org'] = 'generated_null';
+        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\GroupMapping::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('PATCH', '/orgs/generated_null/teams/generated_null/team-sync/group-mappings', Argument::type('array'), Schema\Teams\CreateOrUpdateIdpGroupConnectionsInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $client->call(CreateOrUpdateIdpGroupConnectionsInOrg::OPERATION_MATCH, (static function (array $data): array {
+            $data['org']       = 'generated_null';
             $data['team_slug'] = 'generated_null';
+
             return $data;
         })(json_decode(Schema\Teams\CreateOrUpdateIdpGroupConnectionsInOrg\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
     }

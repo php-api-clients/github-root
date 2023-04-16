@@ -1,63 +1,76 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use EventSauce\ObjectHydrator\ObjectMapper;
+use InvalidArgumentException;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\ResponseInterface;
+use React\Http\Browser;
+use Rx\Observable;
+
+use function array_key_exists;
+
 final class DependencyGraph
 {
-    /**
-     * @var array<class-string, \EventSauce\ObjectHydrator\ObjectMapper>
-     */
-    private array $hydrator = array();
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator;
-    private readonly \ApiClients\Client\GitHubEnterprise\Hydrators $hydrators;
-    private readonly \React\Http\Browser $browser;
-    private readonly \ApiClients\Contracts\HTTP\Headers\AuthenticationInterface $authentication;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, \League\OpenAPIValidation\Schema\SchemaValidator $responseSchemaValidator, \ApiClients\Client\GitHubEnterprise\Hydrators $hydrators, \React\Http\Browser $browser, \ApiClients\Contracts\HTTP\Headers\AuthenticationInterface $authentication)
+    /** @var array<class-string, ObjectMapper> */
+    private array $hydrator = [];
+    private readonly SchemaValidator $requestSchemaValidator;
+    private readonly SchemaValidator $responseSchemaValidator;
+    private readonly Hydrators $hydrators;
+    private readonly Browser $browser;
+    private readonly AuthenticationInterface $authentication;
+
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrators $hydrators, Browser $browser, AuthenticationInterface $authentication)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
+        $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrators = $hydrators;
-        $this->browser = $browser;
-        $this->authentication = $authentication;
+        $this->hydrators               = $hydrators;
+        $this->browser                 = $browser;
+        $this->authentication          = $authentication;
     }
+
     public function diffRange(array $params)
     {
-        $arguments = array();
+        $arguments = [];
         if (array_key_exists('owner', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: owner');
+            throw new InvalidArgumentException('Missing mandatory field: owner');
         }
+
         $arguments['owner'] = $params['owner'];
         unset($params['owner']);
         if (array_key_exists('repo', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: repo');
+            throw new InvalidArgumentException('Missing mandatory field: repo');
         }
+
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
         if (array_key_exists('basehead', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: basehead');
+            throw new InvalidArgumentException('Missing mandatory field: basehead');
         }
+
         $arguments['basehead'] = $params['basehead'];
         unset($params['basehead']);
         if (array_key_exists('name', $params) === false) {
-            throw new \InvalidArgumentException('Missing mandatory field: name');
+            throw new InvalidArgumentException('Missing mandatory field: name');
         }
+
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        if (\array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\DependencyGraph\Compare\CbBaseheadRcb::class, $this->hydrator) == false) {
+        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\DependencyGraph\Compare\CbBaseheadRcb::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\DependencyGraph\Compare\CbBaseheadRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀DependencyGraph🌀Compare🌀CbBaseheadRcb();
         }
+
         $operation = new Operation\DependencyGraph\DiffRange($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\DependencyGraph\Compare\CbBaseheadRcb::class], $arguments['owner'], $arguments['repo'], $arguments['basehead'], $arguments['name']);
-        $request = $operation->createRequest($params);
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(function (\Psr\Http\Message\ResponseInterface $response) use($operation) : \Rx\Observable {
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         });
     }

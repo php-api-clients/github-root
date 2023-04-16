@@ -1,38 +1,43 @@
 <?php
 
-declare (strict_types=1);
+declare(strict_types=1);
+
 namespace ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Client\GitHubEnterprise\WebHook;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Client\GitHubEnterprise\ChunkSize;
+use cebe\openapi\Reader;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use RingCentral\Psr7\Request;
+
+use function json_encode;
+use function str_replace;
+
 final class SetSelectedOrganizationsEnabledGithubActionsEnterprise
 {
-    public const OPERATION_ID = 'enterprise-admin/set-selected-organizations-enabled-github-actions-enterprise';
+    public const OPERATION_ID    = 'enterprise-admin/set-selected-organizations-enabled-github-actions-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/organizations';
-    private const METHOD = 'PUT';
-    private const PATH = '/enterprises/{enterprise}/actions/permissions/organizations';
-    private readonly \League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator;
+    private const METHOD         = 'PUT';
+    private const PATH           = '/enterprises/{enterprise}/actions/permissions/organizations';
+    private readonly SchemaValidator $requestSchemaValidator;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
     private string $enterprise;
-    public function __construct(\League\OpenAPIValidation\Schema\SchemaValidator $requestSchemaValidator, string $enterprise)
+
+    public function __construct(SchemaValidator $requestSchemaValidator, string $enterprise)
     {
         $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->enterprise = $enterprise;
+        $this->enterprise             = $enterprise;
     }
-    public function createRequest(array $data = array()) : \Psr\Http\Message\RequestInterface
+
+    public function createRequest(array $data = []): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, \cebe\openapi\Reader::readFromJson(Schema\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-        return new \RingCentral\Psr7\Request(self::METHOD, \str_replace(array('{enterprise}'), array($this->enterprise), self::PATH), array('Content-Type' => 'application/json'), json_encode($data));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
-    /**
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function createResponse(\Psr\Http\Message\ResponseInterface $response) : \Psr\Http\Message\ResponseInterface
+
+    public function createResponse(ResponseInterface $response): ResponseInterface
     {
         return $response;
     }
