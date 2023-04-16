@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
+use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\ChunkSize;
 final readonly class H403 extends Schema\AliasAbstract\Abstractf694556e3cc88993a89f1ed7afdf4e13
 {
 }

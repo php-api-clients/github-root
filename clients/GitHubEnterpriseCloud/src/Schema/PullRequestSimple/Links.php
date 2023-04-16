@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class Links extends Schema\AliasAbstract\Abstract7041333d2b9b5cd76273fdfd58068e3b
 {
 }

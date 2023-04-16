@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class LockBranch
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"enabled":{"type":"boolean","default":false}},"description":"Whether to set the branch as read-only. If this is true, users will not be able to push to the branch."}';

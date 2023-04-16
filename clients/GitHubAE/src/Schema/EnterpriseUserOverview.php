@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\ChunkSize;
 final readonly class EnterpriseUserOverview
 {
     public const SCHEMA_JSON = '{"title":"Enterprise User Stats","required":["total_users","admin_users","suspended_users"],"type":"object","properties":{"total_users":{"type":"integer"},"admin_users":{"type":"integer"},"suspended_users":{"type":"integer"}}}';

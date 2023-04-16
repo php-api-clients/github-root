@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class Pulls
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"total_pulls":{"type":"integer"},"merged_pulls":{"type":"integer"},"mergeable_pulls":{"type":"integer"},"unmergeable_pulls":{"type":"integer"}}}';

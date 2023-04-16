@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
+use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\ChunkSize;
 final readonly class Applicationjson extends Schema\AliasAbstract\Abstractd306c0f97ad38ce2771f5121300af4eb
 {
 }

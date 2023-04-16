@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\ChunkSize;
 final readonly class Parents extends Schema\AliasAbstract\Abstractb84d28b17786e0453136b62e5df48315
 {
 }

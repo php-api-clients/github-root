@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\ChunkSize;
 abstract readonly class Abstract4d4265e3514e6ba6c4d32f0e80494f2c
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"admin":{"type":"boolean"},"maintain":{"type":"boolean"},"push":{"type":"boolean"},"triage":{"type":"boolean"},"pull":{"type":"boolean"}}}';

@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
+use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\ChunkSize;
 final readonly class H200
 {
     public const SCHEMA_JSON = '{"required":["host","location","git"],"type":"object","properties":{"host":{"type":"string"},"location":{"type":"string"},"git":{"required":["sync_status","last_sync"],"type":"object","properties":{"sync_status":{"enum":["offline","inactive","in_sync","not_in_sync"],"type":"string"},"last_sync":{"type":"string","format":"date-time"}}}},"description":"Status for a cache replica"}';

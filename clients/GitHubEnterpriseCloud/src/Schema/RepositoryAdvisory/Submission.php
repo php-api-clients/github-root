@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class Submission
 {
     public const SCHEMA_JSON = '{"required":["accepted"],"type":["object","null"],"properties":{"accepted":{"type":"boolean","description":"Whether a private vulnerability report was accepted by the repository\'s administrators.","readOnly":true}},"readOnly":true}';

@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class ExternalRefs
 {
     public const SCHEMA_JSON = '{"required":["referenceCategory","referenceLocator","referenceType"],"type":"object","properties":{"referenceCategory":{"type":"string","description":"The category of reference to an external resource this reference refers to.","examples":["PACKAGE-MANAGER"]},"referenceLocator":{"type":"string","description":"A locator for the particular external resource this reference refers to.","examples":["pkg:gem\\/rails@6.0.1"]},"referenceType":{"type":"string","description":"The category of reference to an external resource this reference refers to.","examples":["purl"]}}}';

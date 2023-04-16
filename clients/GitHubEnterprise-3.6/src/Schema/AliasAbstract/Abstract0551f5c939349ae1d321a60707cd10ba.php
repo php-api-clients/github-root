@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
+use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\ChunkSize;
 abstract readonly class Abstract0551f5c939349ae1d321a60707cd10ba
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{},"description":"The GitHub repository where the script is kept.","additionalProperties":true}';

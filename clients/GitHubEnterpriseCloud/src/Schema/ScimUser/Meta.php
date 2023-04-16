@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class Meta
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"resourceType":{"type":"string","examples":["User"]},"created":{"type":"string","format":"date-time","examples":["2019-01-24T22:45:36.000Z"]},"lastModified":{"type":"string","format":"date-time","examples":["2019-01-24T22:45:36.000Z"]},"location":{"type":"string","format":"uri","examples":["https:\\/\\/api.github.com\\/scim\\/v2\\/organizations\\/myorg-123abc55141bfd8f\\/Users\\/c42772b5-2029-11e9-8543-9264a97dec8d"]}}}';

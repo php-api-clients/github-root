@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
+use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\ChunkSize;
 final readonly class ActionsCacheUsagePolicyEnterprise
 {
     public const SCHEMA_JSON = '{"title":"Actions cache usage policy for an enterprise","type":"object","properties":{"repo_cache_size_limit_in_gb":{"type":"integer","description":"For repositories in an enterprise, the default size limit for the sum of all caches in a repository, in gigabytes.","examples":[10]},"max_repo_cache_size_limit_in_gb":{"type":"integer","description":"For repositories in an enterprise, the maximum value that can be set as the limit for the sum of all caches in a repository, in gigabytes.","examples":[15]}},"description":"GitHub Actions cache usage policy for an enterprise."}';

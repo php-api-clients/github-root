@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Operation;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\WebHook;
+use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\ChunkSize;
 final readonly class ApiOverview
 {
     public const SCHEMA_JSON = '{"title":"Api Overview","required":["verifiable_password_authentication"],"type":"object","properties":{"verifiable_password_authentication":{"type":"boolean","examples":[true]},"ssh_key_fingerprints":{"type":"object","properties":{"SHA256_RSA":{"type":"string"},"SHA256_DSA":{"type":"string"},"SHA256_ECDSA":{"type":"string"},"SHA256_ED25519":{"type":"string"}}},"hooks":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"web":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"api":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"git":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"packages":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"pages":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"importer":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"actions":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]},"dependabot":{"type":"array","items":{"type":"string"},"examples":["192.0.2.1"]}},"description":"Api Overview"}';

@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
+use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\ChunkSize;
 final readonly class Applicationjson
 {
     public const SCHEMA_JSON = '{"required":["login"],"type":"object","properties":{"login":{"type":"string","description":"The user\'s username."},"email":{"type":"string","description":"**Required for built-in authentication.** The user\'s email\\naddress. This parameter can be omitted when using CAS, LDAP, or SAML.\\nFor more information, see \\"[About authentication for your enterprise](https:\\/\\/docs.github.com\\/enterprise-server@3.6\\/admin\\/identity-and-access-management\\/managing-iam-for-your-enterprise\\/about-authentication-for-your-enterprise).\\""}}}';

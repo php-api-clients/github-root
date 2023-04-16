@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class CodeScanningDefaultSetupUpdateResponse
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"run_id":{"type":"integer","description":"ID of the corresponding run."},"run_url":{"type":"string","description":"URL of the corresponding run."}},"description":"You can use `run_url` to track the status of the run. This includes a property status and conclusion.\\nYou should not rely on this always being an actions workflow run object."}';

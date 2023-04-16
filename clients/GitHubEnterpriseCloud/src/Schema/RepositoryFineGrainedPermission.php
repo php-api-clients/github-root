@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class RepositoryFineGrainedPermission
 {
     public const SCHEMA_JSON = '{"title":"Repository Fine-Grained Permission","required":["name","description"],"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"}},"description":"A fine-grained permission that protects repository resources."}';

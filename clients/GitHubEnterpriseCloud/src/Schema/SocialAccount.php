@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class SocialAccount
 {
     public const SCHEMA_JSON = '{"title":"Social account","required":["provider","url"],"type":"object","properties":{"provider":{"type":"string","examples":["linkedin"]},"url":{"type":"string","examples":["https:\\/\\/www.linkedin.com\\/company\\/github\\/"]}},"description":"Social media account"}';

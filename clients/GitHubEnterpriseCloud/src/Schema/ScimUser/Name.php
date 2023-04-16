@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\WebHook;
+use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\ChunkSize;
 final readonly class Name
 {
     public const SCHEMA_JSON = '{"type":"object","properties":{"givenName":{"type":["string","null"]},"familyName":{"type":["string","null"]},"formatted":{"type":["string","null"]}},"example":{"givenName":"Jane","familyName":"User"}}';

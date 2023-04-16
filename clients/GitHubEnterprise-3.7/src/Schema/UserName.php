@@ -8,6 +8,8 @@ use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\WebHook;
+use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\ChunkSize;
 final readonly class UserName
 {
     public const SCHEMA_JSON = '{"required":["familyName","givenName"],"type":"object","properties":{"formatted":{"type":"string","description":"The full name, including all middle names, titles, and suffixes as appropriate, formatted for display.","examples":["Ms. Mona Lisa Octocat"]},"familyName":{"type":"string","description":"The family name of the user.","examples":["Octocat"]},"givenName":{"type":"string","description":"The given name of the user.","examples":["Mona"]},"middleName":{"type":"string","description":"The middle name(s) of the user.","examples":["Lisa"]}}}';
