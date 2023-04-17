@@ -208,6 +208,8 @@ final class Hydrators implements ObjectMapper
     private ?Hydrator\Operation\Orgs\CbOrgRcb\PublicMembers\CbUsernameRcb $operation🌀Orgs🌀CbOrgRcb🌀PublicMembers🌀CbUsernameRcb                                                                                                                                                                 = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\Repos $operation🌀Orgs🌀CbOrgRcb🌀Repos                                                                                                                                                                                                             = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\RepositoryFineGrainedPermissions $operation🌀Orgs🌀CbOrgRcb🌀RepositoryFineGrainedPermissions                                                                                                                                                       = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Rulesets $operation🌀Orgs🌀CbOrgRcb🌀Rulesets                                                                                                                                                                                                       = null;
+    private ?Hydrator\Operation\Orgs\CbOrgRcb\Rulesets\CbRulesetIdRcb $operation🌀Orgs🌀CbOrgRcb🌀Rulesets🌀CbRulesetIdRcb                                                                                                                                                                         = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts $operation🌀Orgs🌀CbOrgRcb🌀SecretScanning🌀Alerts                                                                                                                                                                             = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\SecurityManagers $operation🌀Orgs🌀CbOrgRcb🌀SecurityManagers                                                                                                                                                                                       = null;
     private ?Hydrator\Operation\Orgs\CbOrgRcb\SecurityDashManagers\Teams\CbTeamSlugRcb $operation🌀Orgs🌀CbOrgRcb🌀SecurityDashManagers🌀Teams🌀CbTeamSlugRcb                                                                                                                                       = null;
@@ -484,6 +486,9 @@ final class Hydrators implements ObjectMapper
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Assets $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Assets                                                                                                                                 = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Reactions                                                                                                                           = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions\CbReactionIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Reactions🌀CbReactionIdRcb                                                                                           = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rules\Branches\CbBranchRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rules🌀Branches🌀CbBranchRcb                                                                                                                                         = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets                                                                                                                                                                             = null;
+    private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets\CbRulesetIdRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets🌀CbRulesetIdRcb                                                                                                                                               = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretScanning\Alerts $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts                                                                                                                                                   = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretDashScanning🌀Alerts🌀CbAlertNumberRcb                                                                                                         = null;
     private ?Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretDashScanning\Alerts\CbAlertNumberRcb\Locations $operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Locations                                                                                     = null;
@@ -808,6 +813,7 @@ final class Hydrators implements ObjectMapper
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Orgs\\ConvertMemberToOutsideCollaborator\\Response\\Applicationjson\\H202', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Orgs\\RemoveOutsideCollaborator\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion\\Metadata', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion\\Metadata\\Container', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion\\Metadata\\Docker' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Packages🌀CbPackageTypeRcb🌀CbPackageNameRcb🌀Versions()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Projects()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRulesetBypassActor', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRulesetConditions', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRulesetConditions\\RefName', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleCreation' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Rulesets()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupMapping', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupMapping\\Groups' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀TeamSync🌀Groups()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamFull', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization\\Plan' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamDiscussion' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions()->hydrateObject($className, $payload),
@@ -933,6 +939,7 @@ final class Hydrators implements ObjectMapper
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ContentFile', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ContentFile\\Links' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Release', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ReleaseAsset' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ReleaseNotesContent' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀GenerateNotes()->hydrateObject($className, $payload),
+            'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRule' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rules🌀Branches🌀CbBranchRcb()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\SecretScanningAlert' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\SecretScanningLocation', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\SecretScanningLocationCommit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Locations()->hydrateObject($className, $payload),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Identifiers', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Submission', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisoryVulnerability', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisoryVulnerability\\Package', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Cvss', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Cwes', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Credits', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisoryCredit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecurityAdvisories()->hydrateObject($className, $payload),
@@ -1175,6 +1182,7 @@ final class Hydrators implements ObjectMapper
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Orgs\\ConvertMemberToOutsideCollaborator\\Response\\Applicationjson\\H202', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operation\\Orgs\\RemoveOutsideCollaborator\\Response\\Applicationjson\\H422' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀OutsideCollaborators🌀CbUsernameRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion\\Metadata', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion\\Metadata\\Container', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\PackageVersion\\Metadata\\Docker' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Packages🌀CbPackageTypeRcb🌀CbPackageNameRcb🌀Versions()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Projects()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRulesetBypassActor', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRulesetConditions', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRulesetConditions\\RefName', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleCreation' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Rulesets()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupMapping', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupMapping\\Groups' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀TeamSync🌀Groups()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamFull', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamOrganization\\Plan' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\TeamDiscussion' => $this->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions()->serializeObject($object),
@@ -1300,6 +1308,7 @@ final class Hydrators implements ObjectMapper
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ContentFile', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ContentFile\\Links' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Readme()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Release', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ReleaseAsset' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ReleaseNotesContent' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀GenerateNotes()->serializeObject($object),
+            'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRule' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rules🌀Branches🌀CbBranchRcb()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\SecretScanningAlert' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\SecretScanningLocation', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\SecretScanningLocationCommit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretDashScanning🌀Alerts🌀CbAlertNumberRcb🌀Locations()->serializeObject($object),
             'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Identifiers', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Submission', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisoryVulnerability', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisoryVulnerability\\Package', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Cvss', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Cwes', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisory\\Credits', 'ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryAdvisoryCredit' => $this->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecurityAdvisories()->serializeObject($object),
@@ -3212,6 +3221,24 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Orgs🌀CbOrgRcb🌀RepositoryFineGrainedPermissions;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Rulesets(): Hydrator\Operation\Orgs\CbOrgRcb\Rulesets
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Rulesets instanceof Hydrator\Operation\Orgs\CbOrgRcb\Rulesets === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Rulesets = new Hydrator\Operation\Orgs\CbOrgRcb\Rulesets();
+        }
+
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Rulesets;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Rulesets🌀CbRulesetIdRcb(): Hydrator\Operation\Orgs\CbOrgRcb\Rulesets\CbRulesetIdRcb
+    {
+        if ($this->operation🌀Orgs🌀CbOrgRcb🌀Rulesets🌀CbRulesetIdRcb instanceof Hydrator\Operation\Orgs\CbOrgRcb\Rulesets\CbRulesetIdRcb === false) {
+            $this->operation🌀Orgs🌀CbOrgRcb🌀Rulesets🌀CbRulesetIdRcb = new Hydrator\Operation\Orgs\CbOrgRcb\Rulesets\CbRulesetIdRcb();
+        }
+
+        return $this->operation🌀Orgs🌀CbOrgRcb🌀Rulesets🌀CbRulesetIdRcb;
     }
 
     public function getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀SecretScanning🌀Alerts(): Hydrator\Operation\Orgs\CbOrgRcb\SecretScanning\Alerts
@@ -5696,6 +5723,33 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Reactions🌀CbReactionIdRcb;
+    }
+
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rules🌀Branches🌀CbBranchRcb(): Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rules\Branches\CbBranchRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rules🌀Branches🌀CbBranchRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rules\Branches\CbBranchRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rules🌀Branches🌀CbBranchRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rules\Branches\CbBranchRcb();
+        }
+
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rules🌀Branches🌀CbBranchRcb;
+    }
+
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets(): Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets();
+        }
+
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets;
+    }
+
+    public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets🌀CbRulesetIdRcb(): Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets\CbRulesetIdRcb
+    {
+        if ($this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets🌀CbRulesetIdRcb instanceof Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets\CbRulesetIdRcb === false) {
+            $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets🌀CbRulesetIdRcb = new Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Rulesets\CbRulesetIdRcb();
+        }
+
+        return $this->operation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Rulesets🌀CbRulesetIdRcb;
     }
 
     public function getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀SecretScanning🌀Alerts(): Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\SecretScanning\Alerts

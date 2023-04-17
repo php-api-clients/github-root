@@ -26,6 +26,4 @@ endif
 
 generate-clients:
 	$(DOCKER_RUN) php utils/client-skelleton-setup.php
-	$(DOCKER_RUN) ls ./clients | xargs -I % $(DOCKER_RUN) php ./vendor/bin/openapi-client-generator ./clients/%/etc/openapi-generator-config.yaml
-	$(DOCKER_RUN) ls ./clients | xargs -I % $(DOCKER_RUN) composer install --working-dir=./clients/% -o --no-progress --no-ansi
-	$(DOCKER_RUN) ls ./clients | xargs -I % bash -c 'cd "./clients/%" && $(DOCKER_RUN) make cs-fix'
+	$(DOCKER_RUN) ls ./clients | xargs -I % bash -c '($(DOCKER_RUN) php ./vendor/bin/openapi-client-generator ./clients/%/etc/openapi-generator-config.yaml && cd "./clients/%" && ($(DOCKER_RUN) composer install -o --no-progress --no-ansi || $(DOCKER_RUN) composer update -W -o --no-progress --no-ansi) && $(DOCKER_RUN) make cs-fix) || true'
