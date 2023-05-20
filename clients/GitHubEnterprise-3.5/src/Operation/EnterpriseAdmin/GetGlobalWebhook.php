@@ -23,19 +23,19 @@ final class GetGlobalWebhook
     public const OPERATION_MATCH = 'GET /admin/hooks/{hook_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/admin/hooks/{hook_id}';
-    /**The unique identifier of the hook.**/
+    /**The unique identifier of the hook. **/
     private int $hookId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator;
+    private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator, int $hookId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId)
     {
         $this->hookId                  = $hookId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH));
     }
@@ -50,9 +50,9 @@ final class GetGlobalWebhook
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\GlobalHook::class, $body);
                 }

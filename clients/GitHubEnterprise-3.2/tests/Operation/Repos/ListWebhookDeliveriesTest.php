@@ -6,7 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Repos;
 
 use ApiClients\Client\GitHubEnterprise\Client;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Operation\Repos\ListWebhookDeliveries;
+use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
@@ -14,6 +14,7 @@ use React\Http\Browser;
 use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+use function React\Async\await;
 use function React\Promise\resolve;
 
 final class ListWebhookDeliveriesTest extends AsyncTestCase
@@ -21,31 +22,7 @@ final class ListWebhookDeliveriesTest extends AsyncTestCase
     /**
      * @test
      */
-    public function httpCode_200_responseContentType_application_json(): void
-    {
-        $response = new Response(200, ['Content-Type' => 'application/json'], '[' . Schema\HookDeliveryItem::SCHEMA_EXAMPLE_DATA . ']');
-        $auth     = $this->prophesize(AuthenticationInterface::class);
-        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
-        $browser = $this->prophesize(Browser::class);
-        $browser->withBase(Argument::any())->willReturn($browser->reveal());
-        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/hooks/13/deliveries?cursor=generated_null&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
-        $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListWebhookDeliveries::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']    = 'generated_null';
-            $data['repo']     = 'generated_null';
-            $data['hook_id']  = 13;
-            $data['cursor']   = 'generated_null';
-            $data['per_page'] = 13;
-
-            return $data;
-        })([]));
-    }
-
-    /**
-     * @test
-     */
-    public function httpCode_400_responseContentType_application_json(): void
+    public function call_httpCode_400_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
         $response = new Response(400, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
@@ -54,14 +31,14 @@ final class ListWebhookDeliveriesTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/hooks/13/deliveries?cursor=generated_null&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/hooks/7/deliveries?cursor=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListWebhookDeliveries::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']    = 'generated_null';
-            $data['repo']     = 'generated_null';
-            $data['hook_id']  = 13;
-            $data['cursor']   = 'generated_null';
-            $data['per_page'] = 13;
+        $result = $client->call(Operation\Repos\ListWebhookDeliveries::OPERATION_MATCH, (static function (array $data): array {
+            $data['owner']    = 'generated';
+            $data['repo']     = 'generated';
+            $data['hook_id']  = 7;
+            $data['cursor']   = 'generated';
+            $data['per_page'] = 8;
 
             return $data;
         })([]));
@@ -70,7 +47,24 @@ final class ListWebhookDeliveriesTest extends AsyncTestCase
     /**
      * @test
      */
-    public function httpCode_400_responseContentType_application_scim_json(): void
+    public function operations_httpCode_400_responseContentType_application_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\BasicError::class);
+        $response = new Response(400, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/hooks/7/deliveries?cursor=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->repos()->listWebhookDeliveries('generated', 'generated', 7, 'generated', 8));
+    }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
         $response = new Response(400, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
@@ -79,14 +73,14 @@ final class ListWebhookDeliveriesTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/hooks/13/deliveries?cursor=generated_null&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/hooks/7/deliveries?cursor=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListWebhookDeliveries::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']    = 'generated_null';
-            $data['repo']     = 'generated_null';
-            $data['hook_id']  = 13;
-            $data['cursor']   = 'generated_null';
-            $data['per_page'] = 13;
+        $result = $client->call(Operation\Repos\ListWebhookDeliveries::OPERATION_MATCH, (static function (array $data): array {
+            $data['owner']    = 'generated';
+            $data['repo']     = 'generated';
+            $data['hook_id']  = 7;
+            $data['cursor']   = 'generated';
+            $data['per_page'] = 8;
 
             return $data;
         })([]));
@@ -95,7 +89,24 @@ final class ListWebhookDeliveriesTest extends AsyncTestCase
     /**
      * @test
      */
-    public function httpCode_422_responseContentType_application_json(): void
+    public function operations_httpCode_400_responseContentType_application_scim_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\ScimError::class);
+        $response = new Response(400, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/hooks/7/deliveries?cursor=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->repos()->listWebhookDeliveries('generated', 'generated', 7, 'generated', 8));
+    }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationError::class);
         $response = new Response(422, ['Content-Type' => 'application/json'], Schema\ValidationError::SCHEMA_EXAMPLE_DATA);
@@ -104,16 +115,33 @@ final class ListWebhookDeliveriesTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/hooks/13/deliveries?cursor=generated_null&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/hooks/7/deliveries?cursor=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListWebhookDeliveries::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']    = 'generated_null';
-            $data['repo']     = 'generated_null';
-            $data['hook_id']  = 13;
-            $data['cursor']   = 'generated_null';
-            $data['per_page'] = 13;
+        $result = $client->call(Operation\Repos\ListWebhookDeliveries::OPERATION_MATCH, (static function (array $data): array {
+            $data['owner']    = 'generated';
+            $data['repo']     = 'generated';
+            $data['hook_id']  = 7;
+            $data['cursor']   = 'generated';
+            $data['per_page'] = 8;
 
             return $data;
         })([]));
+    }
+
+    /**
+     * @test
+     */
+    public function operations_httpCode_422_responseContentType_application_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\ValidationError::class);
+        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\ValidationError::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/hooks/7/deliveries?cursor=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->repos()->listWebhookDeliveries('generated', 'generated', 7, 'generated', 8));
     }
 }

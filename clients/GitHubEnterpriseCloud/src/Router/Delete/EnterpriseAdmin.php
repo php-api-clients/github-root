@@ -6,13 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\Applicationjson\H200;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -51,12 +49,9 @@ final class EnterpriseAdmin
 
         $arguments['org_id'] = $params['org_id'];
         unset($params['org_id']);
-        $operation = new Operation\EnterpriseAdmin\DisableSelectedOrganizationGithubActionsEnterprise($arguments['enterprise'], $arguments['org_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\DisableSelectedOrganizationGithubActionsEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
     public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params)
@@ -74,16 +69,13 @@ final class EnterpriseAdmin
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels();
         }
 
-        $operation = new Operation\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $arguments['enterprise'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
     public function deleteSelfHostedRunnerGroupFromEnterprise(array $params)
@@ -101,12 +93,9 @@ final class EnterpriseAdmin
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operation = new Operation\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise($arguments['enterprise'], $arguments['runner_group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
     public function deleteSelfHostedRunnerFromEnterprise(array $params)
@@ -124,12 +113,9 @@ final class EnterpriseAdmin
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operation = new Operation\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise($arguments['enterprise'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
     public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params)
@@ -153,12 +139,9 @@ final class EnterpriseAdmin
 
         $arguments['org_id'] = $params['org_id'];
         unset($params['org_id']);
-        $operation = new Operation\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
     }
 
     public function removeSelfHostedRunnerFromGroupForEnterprise(array $params)
@@ -182,12 +165,9 @@ final class EnterpriseAdmin
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operation = new Operation\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
     public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params)
@@ -211,15 +191,12 @@ final class EnterpriseAdmin
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels🌀CbNameRcb();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name();
         }
 
-        $operation = new Operation\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class], $arguments['enterprise'], $arguments['runner_id'], $arguments['name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_id'], $arguments['name']);
     }
 }

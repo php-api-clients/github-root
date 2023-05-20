@@ -1,29 +1,48 @@
 # set all to phony
 SHELL=bash
 
+# If the first argument is "run"...
+ifeq (generate-client,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "run"
+  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(RUN_ARGS):;@:)
+endif
+
 .PHONY: *
 
 DOCKER_CGROUP:=$(shell cat /proc/1/cgroup | grep docker | wc -l)
 COMPOSER_CACHE_DIR=$(shell composer config --global cache-dir -q || echo ${HOME}/.composer/cache)
 
-ifneq ("$(wildcard /.dockerenv)","")
+ifneq ("$(wildcard /.you-are-in-a-wyrihaximus.net-php-docker-image)","")
     IN_DOCKER=TRUE
-else ifneq ("$(DOCKER_CGROUP)","0")
-	IN_DOCKER=TRUE
 else
-    IN_DOCKER=FALSe
+    IN_DOCKER=FALSE
 endif
 
 ifeq ("$(IN_DOCKER)","TRUE")
 	DOCKER_RUN=
+	DOCKER_SHELL=
 else
-	DOCKER_RUN=docker run --rm -i \
+	DOCKER_RUN=docker run --rm -t \
+		-v "`pwd`:`pwd`" \
+		-v "${COMPOSER_CACHE_DIR}:/home/app/.composer/cache" \
+		-w "`pwd`" \
+		"wyrihaximusnet/php:8.2-nts-alpine-slim-dev"
+	DOCKER_SHELL=docker run --rm -it \
 		-v "`pwd`:`pwd`" \
 		-v "${COMPOSER_CACHE_DIR}:/home/app/.composer/cache" \
 		-w "`pwd`" \
 		"wyrihaximusnet/php:8.2-nts-alpine-slim-dev"
 endif
 
+shell: ## Provides Shell access in the expected environment ###
+	$(DOCKER_SHELL) ash
+
 generate-clients:
 	$(DOCKER_RUN) php utils/client-skelleton-setup.php
-	$(DOCKER_RUN) ls ./clients | xargs -I % bash -c '($(DOCKER_RUN) php ./vendor/bin/openapi-client-generator ./clients/%/etc/openapi-generator-config.yaml && cd "./clients/%" && ($(DOCKER_RUN) composer install -o --no-progress --no-ansi || $(DOCKER_RUN) composer update -W -o --no-progress --no-ansi) && $(DOCKER_RUN) make cs-fix) || true'
+	ls ./clients | xargs -I % $(MAKE) generate-client %
+
+generate-client:
+	$(DOCKER_RUN) php ./vendor/bin/openapi-client-generator ./clients/$(RUN_ARGS)/etc/openapi-generator-config.yaml
+	$(DOCKER_RUN) bash -c 'cd clients/$(RUN_ARGS) && composer install -o --no-progress --no-ansi && (make cs-fix || true)'

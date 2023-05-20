@@ -23,14 +23,14 @@ final class ListLinkedExternalIdpGroupsToTeamForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/external-groups';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/external-groups';
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**The slug of the team name.**/
+    /**The slug of the team name. **/
     private string $teamSlug;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\ExternalDashGroups $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\ExternalDashGroups $hydrator, string $org, string $teamSlug)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups $hydrator, string $org, string $teamSlug)
     {
         $this->org                     = $org;
         $this->teamSlug                = $teamSlug;
@@ -38,7 +38,7 @@ final class ListLinkedExternalIdpGroupsToTeamForOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], self::PATH));
     }
@@ -53,9 +53,9 @@ final class ListLinkedExternalIdpGroupsToTeamForOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ExternalGroups::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ExternalGroups::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\ExternalGroups::class, $body);
                 }

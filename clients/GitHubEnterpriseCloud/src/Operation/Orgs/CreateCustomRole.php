@@ -26,12 +26,12 @@ final class CreateCustomRole
     private const METHOD         = 'POST';
     private const PATH           = '/orgs/{org}/custom_roles';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\CustomRoles $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\CustomRoles $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\CustomRoles $hydrator, string $org)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\CustomRoles $hydrator, string $org)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->org                     = $org;
@@ -39,7 +39,7 @@ final class CreateCustomRole
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OrganizationCustomRepositoryRoleCreateSchema::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
@@ -56,25 +56,25 @@ final class CreateCustomRole
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrganizationCustomRepositoryRole::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrganizationCustomRepositoryRole::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\OrganizationCustomRepositoryRole::class, $body);
                     /**
                      * Validation failed, or the endpoint has been spammed.
-                    **/
+                     **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

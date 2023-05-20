@@ -25,12 +25,12 @@ final class GetArtifact
     private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}';
     private string $owner;
     private string $repo;
-    /**artifact_id parameter**/
+    /**artifact_id parameter **/
     private int $artifactId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb $hydrator, string $owner, string $repo, int $artifactId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId $hydrator, string $owner, string $repo, int $artifactId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -39,7 +39,7 @@ final class GetArtifact
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}'], [$this->owner, $this->repo, $this->artifactId], self::PATH));
     }
@@ -54,9 +54,9 @@ final class GetArtifact
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Artifact::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Artifact::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Artifact::class, $body);
                 }

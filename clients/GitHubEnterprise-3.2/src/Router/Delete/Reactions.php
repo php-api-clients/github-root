@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -44,16 +43,13 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        if (array_key_exists(Hydrator\Operation\Reactions\CbReactionIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Reactions\CbReactionIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Reactions🌀CbReactionIdRcb();
+        if (array_key_exists(Hydrator\Operation\Reactions\ReactionId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Reactions\ReactionId::class] = $this->hydrators->getObjectMapperOperation🌀Reactions🌀ReactionId();
         }
 
-        $operation = new Operation\Reactions\DeleteLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Reactions\CbReactionIdRcb::class], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Reactions\ReactionId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['reaction_id']);
     }
 
     public function deleteForCommitComment(array $params)
@@ -83,12 +79,9 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operation = new Operation\Reactions\DeleteForCommitComment($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteForCommitComment($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
     public function deleteForIssue(array $params)
@@ -118,12 +111,9 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operation = new Operation\Reactions\DeleteForIssue($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteForIssue($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['reaction_id']);
     }
 
     public function deleteForRelease(array $params)
@@ -153,12 +143,9 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operation = new Operation\Reactions\DeleteForRelease($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteForRelease($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['reaction_id']);
     }
 
     public function deleteForTeamDiscussion(array $params)
@@ -188,12 +175,9 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operation = new Operation\Reactions\DeleteForTeamDiscussion($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteForTeamDiscussion($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['reaction_id']);
     }
 
     public function deleteForIssueComment(array $params)
@@ -223,12 +207,9 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operation = new Operation\Reactions\DeleteForIssueComment($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteForIssueComment($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
     public function deleteForPullRequestComment(array $params)
@@ -258,12 +239,9 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operation = new Operation\Reactions\DeleteForPullRequestComment($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteForPullRequestComment($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
     public function deleteForTeamDiscussionComment(array $params)
@@ -299,11 +277,8 @@ final class Reactions
 
         $arguments['reaction_id'] = $params['reaction_id'];
         unset($params['reaction_id']);
-        $operation = new Operation\Reactions\DeleteForTeamDiscussionComment($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['reaction_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\DeleteForTeamDiscussionComment($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['reaction_id']);
     }
 }

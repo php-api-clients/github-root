@@ -24,14 +24,14 @@ final class GetProvisioningInformationForEnterpriseGroup
     public const OPERATION_MATCH = 'GET /scim/v2/Groups/{scim_group_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/scim/v2/Groups/{scim_group_id}';
-    /**A unique identifier of the SCIM group.**/
+    /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
-    /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time.**/
+    /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time. **/
     private string $excludedAttributes;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator;
+    private readonly Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\CbScimGroupIdRcb $hydrator, string $scimGroupId, string $excludedAttributes)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId, string $excludedAttributes)
     {
         $this->scimGroupId             = $scimGroupId;
         $this->excludedAttributes      = $excludedAttributes;
@@ -39,12 +39,15 @@ final class GetProvisioningInformationForEnterpriseGroup
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{scim_group_id}', '{excludedAttributes}'], [$this->scimGroupId, $this->excludedAttributes], self::PATH . '?excludedAttributes={excludedAttributes}'));
     }
 
-    public function createResponse(ResponseInterface $response): mixed
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -54,38 +57,52 @@ final class GetProvisioningInformationForEnterpriseGroup
                 switch ($code) {
                     /**
                      * Bad request
-                    **/
+                     **/
                     case 400:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                     /**
                      * Too many requests
-                    **/
+                     **/
 
                     case 429:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ScimError(429, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     /**
                      * Internal server error
-                    **/
+                     **/
 
                     case 500:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ScimError(500, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Authorization failure
+             **/
+            case 401:
+                return ['code' => 401];
+            /**
+             * Permission denied
+             **/
+
+            case 403:
+                return ['code' => 403];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -27,9 +27,9 @@ final class CheckPermissionsForRepoLegacy
     private string $owner;
     private string $repo;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator;
+    private readonly Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb $hydrator, int $teamId, string $owner, string $repo)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo $hydrator, int $teamId, string $owner, string $repo)
     {
         $this->teamId                  = $teamId;
         $this->owner                   = $owner;
@@ -38,12 +38,15 @@ final class CheckPermissionsForRepoLegacy
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{team_id}', '{owner}', '{repo}'], [$this->teamId, $this->owner, $this->repo], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\TeamRepository
+    /**
+     * @return Schema\TeamRepository|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\TeamRepository|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,14 +56,28 @@ final class CheckPermissionsForRepoLegacy
                 switch ($code) {
                     /**
                      * Alternative response with extra repository information
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamRepository::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\TeamRepository::class, $body);
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Response if repository is managed by this team
+             **/
+            case 204:
+                return ['code' => 204];
+            /**
+             * Not Found if repository is not managed by this team
+             **/
+
+            case 404:
+                return ['code' => 404];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

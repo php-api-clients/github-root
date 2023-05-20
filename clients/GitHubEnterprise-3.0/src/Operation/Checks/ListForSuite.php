@@ -25,22 +25,22 @@ final class ListForSuite
     private const PATH           = '/repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs';
     private string $owner;
     private string $repo;
-    /**check_suite_id parameter**/
+    /**check_suite_id parameter **/
     private int $checkSuiteId;
-    /**Returns check runs with the specified `name`.**/
+    /**Returns check runs with the specified `name`. **/
     private string $checkName;
-    /**Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`.**/
+    /**Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`. **/
     private string $status;
-    /**Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`.**/
+    /**Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`. **/
     private string $filter;
-    /**Results per page (max 100)**/
+    /**Results per page (max 100) **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\CheckRuns $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb\CheckDashRuns $hydrator, string $owner, string $repo, int $checkSuiteId, string $checkName, string $status, string $filter = 'latest', int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\CheckRuns $hydrator, string $owner, string $repo, int $checkSuiteId, string $checkName, string $status, string $filter = 'latest', int $perPage = 30, int $page = 1)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -54,12 +54,12 @@ final class ListForSuite
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{check_suite_id}', '{check_name}', '{status}', '{filter}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->checkSuiteId, $this->checkName, $this->status, $this->filter, $this->perPage, $this->page], self::PATH . '?check_name={check_name}&status={status}&filter={filter}&per_page={per_page}&page={page}'));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Checks\ListForSuite\Response\Applicationjson\H200
+    public function createResponse(ResponseInterface $response): Schema\Operations\Checks\ListForSuite\Response\ApplicationJson\Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -69,11 +69,11 @@ final class ListForSuite
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Checks\ListForSuite\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Checks\ListForSuite\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Checks\ListForSuite\Response\Applicationjson\H200::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Checks\ListForSuite\Response\ApplicationJson\Ok::class, $body);
                 }
 
                 break;

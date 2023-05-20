@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -16,7 +17,7 @@ final class DeleteGlobalWebhook
     public const OPERATION_MATCH = 'DELETE /admin/hooks/{hook_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/admin/hooks/{hook_id}';
-    /**The unique identifier of the hook.**/
+    /**The unique identifier of the hook. **/
     private int $hookId;
 
     public function __construct(int $hookId)
@@ -24,13 +25,25 @@ final class DeleteGlobalWebhook
         $this->hookId = $hookId;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

@@ -6,14 +6,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
-use ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\CreateOrUpdateRepoSecret\Response\Applicationjson\H201;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -46,12 +43,9 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operation = new Operation\Actions\SetGithubActionsPermissionsOrganization($this->requestSchemaValidator, $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetGithubActionsPermissionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $params);
     }
 
     public function setSelectedRepositoriesEnabledGithubActionsOrganization(array $params)
@@ -63,12 +57,9 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operation = new Operation\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization($this->requestSchemaValidator, $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $params);
     }
 
     public function setAllowedActionsOrganization(array $params)
@@ -80,12 +71,9 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operation = new Operation\Actions\SetAllowedActionsOrganization($this->requestSchemaValidator, $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetAllowedActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $params);
     }
 
     public function createOrUpdateOrgSecret(array $params)
@@ -103,16 +91,13 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName();
         }
 
-        $operation = new Operation\Actions\CreateOrUpdateOrgSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['org'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\CreateOrUpdateOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EmptyObject {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
     public function setGithubActionsPermissionsRepository(array $params)
@@ -130,12 +115,9 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operation = new Operation\Actions\SetGithubActionsPermissionsRepository($this->requestSchemaValidator, $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetGithubActionsPermissionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
     public function enableSelectedRepositoryGithubActionsOrganization(array $params)
@@ -153,12 +135,9 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operation = new Operation\Actions\EnableSelectedRepositoryGithubActionsOrganization($arguments['org'], $arguments['repository_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\EnableSelectedRepositoryGithubActionsOrganization($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['repository_id']);
     }
 
     public function setRepoAccessToSelfHostedRunnerGroupInOrg(array $params)
@@ -176,12 +155,9 @@ final class Actions
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operation = new Operation\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg($this->requestSchemaValidator, $arguments['org'], $arguments['runner_group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
     public function setSelfHostedRunnersInGroupForOrg(array $params)
@@ -199,12 +175,9 @@ final class Actions
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operation = new Operation\Actions\SetSelfHostedRunnersInGroupForOrg($this->requestSchemaValidator, $arguments['org'], $arguments['runner_group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetSelfHostedRunnersInGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
     public function setSelectedReposForOrgSecret(array $params)
@@ -222,12 +195,9 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operation = new Operation\Actions\SetSelectedReposForOrgSecret($this->requestSchemaValidator, $arguments['org'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetSelectedReposForOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
     public function setAllowedActionsRepository(array $params)
@@ -245,12 +215,9 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operation = new Operation\Actions\SetAllowedActionsRepository($this->requestSchemaValidator, $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\SetAllowedActionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
     public function createOrUpdateRepoSecret(array $params)
@@ -274,16 +241,13 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀SecretName();
         }
 
-        $operation = new Operation\Actions\CreateOrUpdateRepoSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\CreateOrUpdateRepoSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H201 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name'], $params);
     }
 
     public function addRepoAccessToSelfHostedRunnerGroupInOrg(array $params)
@@ -307,12 +271,9 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operation = new Operation\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
     }
 
     public function addSelfHostedRunnerToGroupForOrg(array $params)
@@ -336,12 +297,9 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operation = new Operation\Actions\AddSelfHostedRunnerToGroupForOrg($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\AddSelfHostedRunnerToGroupForOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
     public function addSelectedRepoToOrgSecret(array $params)
@@ -365,12 +323,9 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operation = new Operation\Actions\AddSelectedRepoToOrgSecret($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\AddSelectedRepoToOrgSecret($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }
 
     public function disableWorkflow(array $params)
@@ -394,12 +349,9 @@ final class Actions
 
         $arguments['workflow_id'] = $params['workflow_id'];
         unset($params['workflow_id']);
-        $operation = new Operation\Actions\DisableWorkflow($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DisableWorkflow($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
     public function enableWorkflow(array $params)
@@ -423,11 +375,8 @@ final class Actions
 
         $arguments['workflow_id'] = $params['workflow_id'];
         unset($params['workflow_id']);
-        $operation = new Operation\Actions\EnableWorkflow($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\EnableWorkflow($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 }

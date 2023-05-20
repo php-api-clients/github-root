@@ -25,12 +25,12 @@ final class UpdateLdapMappingForTeam
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/ldap/teams/{team_id}/mapping';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The unique identifier of the team.**/
+    /**The unique identifier of the team. **/
     private int $teamId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Mapping $hydrator;
+    private readonly Hydrator\Operation\Admin\Ldap\Teams\TeamId\Mapping $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Teams\CbTeamIdRcb\Mapping $hydrator, int $teamId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Teams\TeamId\Mapping $hydrator, int $teamId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->teamId                  = $teamId;
@@ -38,9 +38,9 @@ final class UpdateLdapMappingForTeam
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{team_id}'], [$this->teamId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -55,9 +55,9 @@ final class UpdateLdapMappingForTeam
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\LdapMappingTeam::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\LdapMappingTeam::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\LdapMappingTeam::class, $body);
                 }

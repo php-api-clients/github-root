@@ -23,19 +23,19 @@ final class GetSharedStorageBillingGhe
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/settings/billing/shared-storage';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprises/{enterprise}/settings/billing/shared-storage';
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\SharedStorage $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\SharedStorage $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\SharedStorage $hydrator, string $enterprise)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\SharedStorage $hydrator, string $enterprise)
     {
         $this->enterprise              = $enterprise;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
     }
@@ -50,9 +50,9 @@ final class GetSharedStorageBillingGhe
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CombinedBillingUsage::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CombinedBillingUsage::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\CombinedBillingUsage::class, $body);
                 }

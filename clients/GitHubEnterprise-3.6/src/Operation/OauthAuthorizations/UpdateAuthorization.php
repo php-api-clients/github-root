@@ -26,12 +26,12 @@ final class UpdateAuthorization
     private const METHOD         = 'PATCH';
     private const PATH           = '/authorizations/{authorization_id}';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The unique identifier of the authorization.**/
+    /**The unique identifier of the authorization. **/
     private int $authorizationId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator;
+    private readonly Hydrator\Operation\Authorizations\AuthorizationId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\CbAuthorizationIdRcb $hydrator, int $authorizationId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\AuthorizationId $hydrator, int $authorizationId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->authorizationId         = $authorizationId;
@@ -39,9 +39,9 @@ final class UpdateAuthorization
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\UpdateAuthorization\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\UpdateAuthorization\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{authorization_id}'], [$this->authorizationId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -56,17 +56,17 @@ final class UpdateAuthorization
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                     /**
                      * Validation failed, or the endpoint has been spammed.
-                    **/
+                     **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                 }

@@ -26,12 +26,12 @@ final class UpdateGlobalWebhook
     private const PATH           = '/admin/hooks/{hook_id}';
     private readonly SchemaValidator $requestSchemaValidator;
     private int $hookId;
-    /**This API is under preview and subject to change.**/
+    /**This API is under preview and subject to change. **/
     private string $accept;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator;
+    private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->hookId                  = $hookId;
@@ -40,9 +40,9 @@ final class UpdateGlobalWebhook
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateGlobalWebhook\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateGlobalWebhook\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -57,9 +57,9 @@ final class UpdateGlobalWebhook
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook2::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook2::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\GlobalHook2::class, $body);
                 }

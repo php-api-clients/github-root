@@ -25,12 +25,12 @@ final class ReRunWorkflow
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/rerun';
     private string $owner;
     private string $repo;
-    /**The id of the workflow run.**/
+    /**The id of the workflow run. **/
     private int $runId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Rerun $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Rerun $hydrator, string $owner, string $repo, int $runId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Rerun $hydrator, string $owner, string $repo, int $runId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -39,12 +39,12 @@ final class ReRunWorkflow
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Actions\ReRunWorkflow\Response\Applicationjson\H201
+    public function createResponse(ResponseInterface $response): Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -54,11 +54,11 @@ final class ReRunWorkflow
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Actions\ReRunWorkflow\Response\Applicationjson\H201::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Actions\ReRunWorkflow\Response\Applicationjson\H201::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::class, $body);
                 }
 
                 break;

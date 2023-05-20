@@ -4,8 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\AuditLogEvent;
 
-use ApiClients\Client\GitHubEnterprise\Schema;
-
-final readonly class Config extends Schema\AliasAbstract\Abstract01fc056eed58c88fe1c507fcd84dd4b7
+final readonly class Config
 {
+    public const SCHEMA_JSON         = '{"type":"object"}';
+    public const SCHEMA_TITLE        = '';
+    public const SCHEMA_DESCRIPTION  = '';
+    public const SCHEMA_EXAMPLE_DATA = '[]';
+
+    public function __construct()
+    {
+    }
 }

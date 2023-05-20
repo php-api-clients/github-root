@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -16,7 +17,7 @@ final class DeletePublicKey
     public const OPERATION_MATCH = 'DELETE /admin/keys/{key_ids}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/admin/keys/{key_ids}';
-    /**The unique identifier of the key.**/
+    /**The unique identifier of the key. **/
     private string $keyIds;
 
     public function __construct(string $keyIds)
@@ -24,13 +25,25 @@ final class DeletePublicKey
         $this->keyIds = $keyIds;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{key_ids}'], [$this->keyIds], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

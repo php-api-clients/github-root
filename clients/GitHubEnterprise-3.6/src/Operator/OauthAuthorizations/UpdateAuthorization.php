@@ -1,0 +1,38 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApiClients\Client\GitHubEnterprise\Operator\OauthAuthorizations;
+
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\ResponseInterface;
+use React\Http\Browser;
+use React\Promise\PromiseInterface;
+
+final readonly class UpdateAuthorization
+{
+    public const OPERATION_ID    = 'oauth-authorizations/update-authorization';
+    public const OPERATION_MATCH = 'PATCH /authorizations/{authorization_id}';
+    private const METHOD         = 'PATCH';
+    private const PATH           = '/authorizations/{authorization_id}';
+
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations\AuthorizationId $hydrator)
+    {
+    }
+
+    /**
+     * @return PromiseInterface<Authorization>
+     **/
+    public function call(int $authorizationId, array $params): PromiseInterface
+    {
+        $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\UpdateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $authorizationId);
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Authorization {
+            return $operation->createResponse($response);
+        });
+    }
+}

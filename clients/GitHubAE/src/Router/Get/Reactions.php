@@ -6,14 +6,12 @@ namespace ApiClients\Client\GitHubAE\Router\Get;
 
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
-use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use Rx\Observable;
 
 use function array_key_exists;
 
@@ -75,16 +73,13 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Comments🌀CbCommentIdRcb🌀Reactions();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId\Reactions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments🌀CommentId🌀Reactions();
         }
 
-        $operation = new Operation\Reactions\ListForCommitComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Comments\CbCommentIdRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\ListForCommitComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId\Reactions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listForIssue(array $params)
@@ -126,16 +121,13 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀CbIssueNumberRcb🌀Reactions();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Reactions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Reactions();
         }
 
-        $operation = new Operation\Reactions\ListForIssue($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\ListForIssue($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Reactions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listForRelease(array $params)
@@ -177,16 +169,13 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Releases🌀CbReleaseIdRcb🌀Reactions();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Reactions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Reactions();
         }
 
-        $operation = new Operation\Reactions\ListForRelease($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Releases\CbReleaseIdRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\ListForRelease($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Reactions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listForTeamDiscussionInOrg(array $params)
@@ -228,16 +217,9 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Reactions();
-        }
+        $operator = new Operator\Reactions\ListForTeamDiscussionInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Reactions\ListForTeamDiscussionInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Reactions::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listForIssueComment(array $params)
@@ -279,16 +261,13 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Issues🌀Comments🌀CbCommentIdRcb🌀Reactions();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Issues\Comments\CommentId\Reactions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\Comments\CommentId\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀Comments🌀CommentId🌀Reactions();
         }
 
-        $operation = new Operation\Reactions\ListForIssueComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\Comments\CbCommentIdRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\ListForIssueComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\Comments\CommentId\Reactions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listForPullRequestReviewComment(array $params)
@@ -330,16 +309,13 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Pulls🌀Comments🌀CbCommentIdRcb🌀Reactions();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId\Reactions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments🌀CommentId🌀Reactions();
         }
 
-        $operation = new Operation\Reactions\ListForPullRequestReviewComment($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb\Reactions::class], $arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Reactions\ListForPullRequestReviewComment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId\Reactions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listForTeamDiscussionCommentInOrg(array $params)
@@ -387,15 +363,8 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb🌀Reactions();
-        }
+        $operator = new Operator\Reactions\ListForTeamDiscussionCommentInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Reactions\ListForTeamDiscussionCommentInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb\Reactions::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 }

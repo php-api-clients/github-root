@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\Teams;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -17,7 +18,7 @@ final class RemoveMembershipForUserInOrg
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/memberships/{username}';
     private string $org;
-    /**team_slug parameter**/
+    /**team_slug parameter **/
     private string $teamSlug;
     private string $username;
 
@@ -28,13 +29,31 @@ final class RemoveMembershipForUserInOrg
         $this->username = $username;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{username}'], [$this->org, $this->teamSlug, $this->username], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+            /**
+             * Forbidden if team synchronization is set up
+             **/
+
+            case 403:
+                return ['code' => 403];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

@@ -6,18 +6,12 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\GpgKey;
-use ApiClients\Client\GitHubEnterprise\Schema\Hovercard;
-use ApiClients\Client\GitHubEnterprise\Schema\Key;
-use ApiClients\Client\GitHubEnterprise\Schema\Operation\Users\GetByUsername\Response\Applicationjson\H200;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use Rx\Observable;
 
 use function array_key_exists;
 
@@ -59,12 +53,9 @@ final class Users
             $this->hydrator[Hydrator\Operation\User\Emails::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Emails();
         }
 
-        $operation = new Operation\Users\ListEmailsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Emails::class], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\ListEmailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Emails::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
     public function listFollowersForAuthenticatedUser(array $params)
@@ -86,12 +77,9 @@ final class Users
             $this->hydrator[Hydrator\Operation\User\Followers::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Followers();
         }
 
-        $operation = new Operation\Users\ListFollowersForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Followers::class], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\ListFollowersForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Followers::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
     public function listFollowedByAuthenticatedUser(array $params)
@@ -113,12 +101,9 @@ final class Users
             $this->hydrator[Hydrator\Operation\User\Following::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following();
         }
 
-        $operation = new Operation\Users\ListFollowedByAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following::class], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\ListFollowedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
     public function listGpgKeysForAuthenticatedUser(array $params)
@@ -140,12 +125,9 @@ final class Users
             $this->hydrator[Hydrator\Operation\User\GpgKeys::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys();
         }
 
-        $operation = new Operation\Users\ListGpgKeysForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys::class], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\ListGpgKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
     public function listPublicSshKeysForAuthenticatedUser(array $params)
@@ -167,12 +149,9 @@ final class Users
             $this->hydrator[Hydrator\Operation\User\Keys::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys();
         }
 
-        $operation = new Operation\Users\ListPublicSshKeysForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys::class], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\ListPublicSshKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
     public function listPublicEmailsForAuthenticatedUser(array $params)
@@ -194,12 +173,9 @@ final class Users
             $this->hydrator[Hydrator\Operation\User\PublicEmails::class] = $this->hydrators->getObjectMapperOperation🌀User🌀PublicEmails();
         }
 
-        $operation = new Operation\Users\ListPublicEmailsForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\PublicEmails::class], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\ListPublicEmailsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\PublicEmails::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
     public function getByUsername(array $params)
@@ -211,16 +187,13 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb();
+        if (array_key_exists(Hydrator\Operation\Users\Username::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username();
         }
 
-        $operation = new Operation\Users\GetByUsername($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb::class], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\GetByUsername($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username']);
     }
 
     public function checkPersonIsFollowedByAuthenticated(array $params)
@@ -232,16 +205,13 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\User\Following\CbUsernameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀CbUsernameRcb();
+        if (array_key_exists(Hydrator\Operation\User\Following\Username::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\Following\Username::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username();
         }
 
-        $operation = new Operation\Users\CheckPersonIsFollowedByAuthenticated($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\CheckPersonIsFollowedByAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following\Username::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username']);
     }
 
     public function getGpgKeyForAuthenticatedUser(array $params)
@@ -253,16 +223,13 @@ final class Users
 
         $arguments['gpg_key_id'] = $params['gpg_key_id'];
         unset($params['gpg_key_id']);
-        if (array_key_exists(Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb();
+        if (array_key_exists(Hydrator\Operation\User\GpgKeys\GpgKeyId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\GpgKeys\GpgKeyId::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId();
         }
 
-        $operation = new Operation\Users\GetGpgKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class], $arguments['gpg_key_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\GetGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys\GpgKeyId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GpgKey {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['gpg_key_id']);
     }
 
     public function getPublicSshKeyForAuthenticatedUser(array $params)
@@ -274,16 +241,13 @@ final class Users
 
         $arguments['key_id'] = $params['key_id'];
         unset($params['key_id']);
-        if (array_key_exists(Hydrator\Operation\User\Keys\CbKeyIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\Keys\CbKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀CbKeyIdRcb();
+        if (array_key_exists(Hydrator\Operation\User\Keys\KeyId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\Keys\KeyId::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId();
         }
 
-        $operation = new Operation\Users\GetPublicSshKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys\CbKeyIdRcb::class], $arguments['key_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\GetPublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys\KeyId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Key {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['key_id']);
     }
 
     public function listFollowersForUser(array $params)
@@ -307,16 +271,9 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Followers::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Followers::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Followers();
-        }
+        $operator = new Operator\Users\ListFollowersForUser($this->browser, $this->authentication);
 
-        $operation = new Operation\Users\ListFollowersForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Followers::class], $arguments['username'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listFollowingForUser(array $params)
@@ -340,16 +297,9 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Following::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Following::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Following();
-        }
+        $operator = new Operator\Users\ListFollowingForUser($this->browser, $this->authentication);
 
-        $operation = new Operation\Users\ListFollowingForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Following::class], $arguments['username'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listGpgKeysForUser(array $params)
@@ -373,16 +323,9 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\GpgKeys::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\GpgKeys::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀GpgKeys();
-        }
+        $operator = new Operator\Users\ListGpgKeysForUser($this->browser, $this->authentication);
 
-        $operation = new Operation\Users\ListGpgKeysForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\GpgKeys::class], $arguments['username'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getContextForUser(array $params)
@@ -406,16 +349,13 @@ final class Users
 
         $arguments['subject_id'] = $params['subject_id'];
         unset($params['subject_id']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Hovercard::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Hovercard::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Hovercard();
+        if (array_key_exists(Hydrator\Operation\Users\Username\Hovercard::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Hovercard::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Hovercard();
         }
 
-        $operation = new Operation\Users\GetContextForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Hovercard::class], $arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\GetContextForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Hovercard::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Hovercard {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
     }
 
     public function listPublicKeysForUser(array $params)
@@ -439,31 +379,20 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Keys::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Keys();
-        }
+        $operator = new Operator\Users\ListPublicKeysForUser($this->browser, $this->authentication);
 
-        $operation = new Operation\Users\ListPublicKeysForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Keys::class], $arguments['username'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getAuthenticated(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\User::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\User::class] = $this->hydrators->getObjectMapperOperation🌀User();
         }
 
-        $operation = new Operation\Users\GetAuthenticated($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Users\GetAuthenticated\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call();
     }
 
     public function list_(array $params)
@@ -481,16 +410,9 @@ final class Users
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Users::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users::class] = $this->hydrators->getObjectMapperOperation🌀Users();
-        }
+        $operator = new Operator\Users\List_($this->browser, $this->authentication);
 
-        $operation = new Operation\Users\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users::class], $arguments['since'], $arguments['per_page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['since'], $arguments['per_page']);
     }
 
     public function checkFollowingForUser(array $params)
@@ -508,11 +430,8 @@ final class Users
 
         $arguments['target_user'] = $params['target_user'];
         unset($params['target_user']);
-        $operation = new Operation\Users\CheckFollowingForUser($arguments['username'], $arguments['target_user']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\CheckFollowingForUser($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username'], $arguments['target_user']);
     }
 }

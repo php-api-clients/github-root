@@ -26,13 +26,13 @@ final class AddOrUpdateMembershipForUserInOrg
     private const PATH           = '/orgs/{org}/teams/{team_slug}/memberships/{username}';
     private readonly SchemaValidator $requestSchemaValidator;
     private string $org;
-    /**team_slug parameter**/
+    /**team_slug parameter **/
     private string $teamSlug;
     private string $username;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb $hydrator, string $org, string $teamSlug, string $username)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username $hydrator, string $org, string $teamSlug, string $username)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->org                     = $org;
@@ -42,14 +42,17 @@ final class AddOrUpdateMembershipForUserInOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\AddOrUpdateMembershipForUserInOrg\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\AddOrUpdateMembershipForUserInOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{username}'], [$this->org, $this->teamSlug, $this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\TeamMembership
+    /**
+     * @return Schema\TeamMembership|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\TeamMembership|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -59,14 +62,28 @@ final class AddOrUpdateMembershipForUserInOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamMembership::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamMembership::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\TeamMembership::class, $body);
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Forbidden if team synchronization is set up
+             **/
+            case 403:
+                return ['code' => 403];
+            /**
+             * Unprocessable Entity if you attempt to add an organization to a team
+             **/
+
+            case 422:
+                return ['code' => 422];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

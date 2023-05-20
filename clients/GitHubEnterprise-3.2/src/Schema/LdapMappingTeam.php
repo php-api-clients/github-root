@@ -11,9 +11,9 @@ final readonly class LdapMappingTeam
     public const SCHEMA_JSON         = '{"type":"object","properties":{"ldap_dn":{"type":"string"},"id":{"type":"integer"},"node_id":{"type":"string"},"url":{"type":"string"},"html_url":{"type":"string"},"name":{"type":"string"},"slug":{"type":"string"},"description":{"type":["string","null"]},"privacy":{"type":"string"},"permission":{"type":"string"},"members_url":{"type":"string"},"repositories_url":{"type":"string"},"parent":{"type":["null"]}}}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"ldap_dn":"generated_ldap_dn_null","id":13,"node_id":"generated_node_id_null","url":"generated_url_null","html_url":"generated_html_url_null","name":"generated_name_null","slug":"generated_slug_null","description":"generated_description_null","privacy":"generated_privacy_null","permission":"generated_permission_null","members_url":"generated_members_url_null","repositories_url":"generated_repositories_url_null","parent":null}';
+    public const SCHEMA_EXAMPLE_DATA = '{"ldap_dn":"generated","id":2,"node_id":"generated","url":"generated","html_url":"generated","name":"generated","slug":"generated","description":"generated","privacy":"generated","permission":"generated","members_url":"generated","repositories_url":"generated","parent":"generated"}';
 
-    public function __construct(#[MapFrom('ldap_dn')] public ?string $ldapDn, public ?int $id, #[MapFrom('node_id')] public ?string $nodeId, public ?string $url, #[MapFrom('html_url')] public ?string $htmlUrl, public ?string $name, public ?string $slug, public ?string $description, public ?string $privacy, public ?string $permission, #[MapFrom('members_url')] public ?string $membersUrl, #[MapFrom('repositories_url')] public ?string $repositoriesUrl, public mixed $parent)
+    public function __construct(#[MapFrom('ldap_dn')] public ?string $ldapDn, public ?int $id, #[MapFrom('node_id')] public ?string $nodeId, public ?string $url, #[MapFrom('html_url')] public ?string $htmlUrl, public ?string $name, public ?string $slug, public ?string $description, public ?string $privacy, public ?string $permission, #[MapFrom('members_url')] public ?string $membersUrl, #[MapFrom('repositories_url')] public ?string $repositoriesUrl, public string $parent)
     {
     }
 }

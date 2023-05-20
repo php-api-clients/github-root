@@ -27,9 +27,9 @@ final class GetWebhookConfigForRepo
     private string $repo;
     private int $hookId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Config $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Hooks\CbHookIdRcb\Config $hydrator, string $owner, string $repo, int $hookId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Config $hydrator, string $owner, string $repo, int $hookId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -38,7 +38,7 @@ final class GetWebhookConfigForRepo
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{hook_id}'], [$this->owner, $this->repo, $this->hookId], self::PATH));
     }
@@ -53,9 +53,9 @@ final class GetWebhookConfigForRepo
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\WebhookConfig::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\WebhookConfig::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\WebhookConfig::class, $body);
                 }

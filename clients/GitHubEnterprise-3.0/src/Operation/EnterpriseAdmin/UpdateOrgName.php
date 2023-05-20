@@ -27,9 +27,9 @@ final class UpdateOrgName
     private readonly SchemaValidator $requestSchemaValidator;
     private string $org;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Organizations\CbOrgRcb $hydrator;
+    private readonly Hydrator\Operation\Admin\Organizations\Org $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Organizations\CbOrgRcb $hydrator, string $org)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Organizations\Org $hydrator, string $org)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->org                     = $org;
@@ -37,14 +37,14 @@ final class UpdateOrgName
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateOrgName\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateOrgName\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202
+    public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -54,11 +54,11 @@ final class UpdateOrgName
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 202:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted::class, $body);
                 }
 
                 break;

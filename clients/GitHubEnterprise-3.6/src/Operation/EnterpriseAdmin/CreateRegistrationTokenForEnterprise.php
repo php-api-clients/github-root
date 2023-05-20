@@ -23,19 +23,19 @@ final class CreateRegistrationTokenForEnterprise
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runners/registration-token';
     private const METHOD         = 'POST';
     private const PATH           = '/enterprises/{enterprise}/actions/runners/registration-token';
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RegistrationToken $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\RegistrationToken $hydrator, string $enterprise)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RegistrationToken $hydrator, string $enterprise)
     {
         $this->enterprise              = $enterprise;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
     }
@@ -50,9 +50,9 @@ final class CreateRegistrationTokenForEnterprise
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AuthenticationToken::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AuthenticationToken::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\AuthenticationToken::class, $body);
                 }

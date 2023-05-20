@@ -24,13 +24,13 @@ final class GetDownloadStatusForPreReceiveEnvironmentStreaming
     public const OPERATION_MATCH = 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest';
     private const METHOD         = 'GET';
     private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest';
-    /**The unique identifier of the pre-receive environment.**/
+    /**The unique identifier of the pre-receive environment. **/
     private int $preReceiveEnvironmentId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest $hydrator;
+    private readonly Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest $hydrator;
     private readonly Browser $browser;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb\Downloads\Latest $hydrator, Browser $browser, int $preReceiveEnvironmentId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest $hydrator, Browser $browser, int $preReceiveEnvironmentId)
     {
         $this->preReceiveEnvironmentId = $preReceiveEnvironmentId;
         $this->responseSchemaValidator = $responseSchemaValidator;
@@ -38,7 +38,7 @@ final class GetDownloadStatusForPreReceiveEnvironmentStreaming
         $this->browser                 = $browser;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{pre_receive_environment_id}'], [$this->preReceiveEnvironmentId], self::PATH));
     }
@@ -53,9 +53,9 @@ final class GetDownloadStatusForPreReceiveEnvironmentStreaming
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\PreReceiveEnvironmentDownloadStatus::class, $body);
                 }

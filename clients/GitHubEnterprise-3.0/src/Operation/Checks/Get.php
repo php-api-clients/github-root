@@ -25,12 +25,12 @@ final class Get
     private const PATH           = '/repos/{owner}/{repo}/check-runs/{check_run_id}';
     private string $owner;
     private string $repo;
-    /**check_run_id parameter**/
+    /**check_run_id parameter **/
     private int $checkRunId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashRuns\CbCheckRunIdRcb $hydrator, string $owner, string $repo, int $checkRunId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator, string $owner, string $repo, int $checkRunId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -39,7 +39,7 @@ final class Get
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{check_run_id}'], [$this->owner, $this->repo, $this->checkRunId], self::PATH));
     }
@@ -54,9 +54,9 @@ final class Get
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CheckRun::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CheckRun::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\CheckRun::class, $body);
                 }

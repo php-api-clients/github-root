@@ -27,7 +27,7 @@ class Projects implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationErrorSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationErrorSimple($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️Applicationjson⚡️H415($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️ApplicationJson⚡️UnsupportedMediaType($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -599,7 +599,7 @@ class Projects implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️Applicationjson⚡️H415(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️ApplicationJson⚡️UnsupportedMediaType(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType
     {
         $properties = []; 
         $missingFields = [];
@@ -627,17 +627,17 @@ class Projects implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -676,7 +676,7 @@ class Projects implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ValidationErrorSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationErrorSimple($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️Applicationjson⚡️H415($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️ApplicationJson⚡️UnsupportedMediaType($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1019,9 +1019,9 @@ class Projects implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operation⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️Applicationjson⚡️H415(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️ApplicationJson⚡️UnsupportedMediaType(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operation\Reactions\CreateForCommitComment\Response\Applicationjson\H415);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType);
         $result = [];
 
         $message = $object->message;

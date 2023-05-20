@@ -6,7 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterprise\Client;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise;
+use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
@@ -15,6 +15,7 @@ use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
 use function json_decode;
+use function React\Async\await;
 use function React\Promise\resolve;
 
 final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTestCase
@@ -22,28 +23,44 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
     /**
      * @test
      */
-    public function httpCode_200_requestContentType_application_json_responseContentType_application_json(): void
+    public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/enterprises/generated_null/actions/runners/13/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/enterprises/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(AddCustomLabelsToSelfHostedRunnerForEnterprise::OPERATION_MATCH, (static function (array $data): array {
-            $data['enterprise'] = 'generated_null';
-            $data['runner_id']  = 13;
+        $result = $client->call(Operation\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise::OPERATION_MATCH, (static function (array $data): array {
+            $data['enterprise'] = 'generated';
+            $data['runner_id']  = 9;
 
             return $data;
-        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
      * @test
      */
-    public function httpCode_404_requestContentType_application_json_responseContentType_application_json(): void
+    public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
+    {
+        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('POST', '/enterprises/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->enterpriseAdmin()->addCustomLabelsToSelfHostedRunnerForEnterprise('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+    }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
         $response = new Response(404, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
@@ -52,20 +69,37 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/enterprises/generated_null/actions/runners/13/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/enterprises/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(AddCustomLabelsToSelfHostedRunnerForEnterprise::OPERATION_MATCH, (static function (array $data): array {
-            $data['enterprise'] = 'generated_null';
-            $data['runner_id']  = 13;
+        $result = $client->call(Operation\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise::OPERATION_MATCH, (static function (array $data): array {
+            $data['enterprise'] = 'generated';
+            $data['runner_id']  = 9;
 
             return $data;
-        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
      * @test
      */
-    public function httpCode_422_requestContentType_application_json_responseContentType_application_json(): void
+    public function operations_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('POST', '/enterprises/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->enterpriseAdmin()->addCustomLabelsToSelfHostedRunnerForEnterprise('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+    }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationErrorSimple::class);
         $response = new Response(422, ['Content-Type' => 'application/json'], Schema\ValidationErrorSimple::SCHEMA_EXAMPLE_DATA);
@@ -74,13 +108,30 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/enterprises/generated_null/actions/runners/13/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\Applicationjson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/enterprises/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(AddCustomLabelsToSelfHostedRunnerForEnterprise::OPERATION_MATCH, (static function (array $data): array {
-            $data['enterprise'] = 'generated_null';
-            $data['runner_id']  = 13;
+        $result = $client->call(Operation\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise::OPERATION_MATCH, (static function (array $data): array {
+            $data['enterprise'] = 'generated';
+            $data['runner_id']  = 9;
 
             return $data;
-        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\Applicationjson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+    }
+
+    /**
+     * @test
+     */
+    public function operations_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\ValidationErrorSimple::class);
+        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\ValidationErrorSimple::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('POST', '/enterprises/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->enterpriseAdmin()->addCustomLabelsToSelfHostedRunnerForEnterprise('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 }

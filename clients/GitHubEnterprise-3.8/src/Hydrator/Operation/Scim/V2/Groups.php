@@ -24,9 +24,8 @@ class Groups implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseGroupList($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\GroupResponse' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse⚡️Members($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\GroupResponse' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -66,16 +65,6 @@ class Groups implements ObjectMapper
                 goto after_resources;
             }
 
-            static $resourcesCaster1;
-
-            if ($resourcesCaster1 === null) {
-                $resourcesCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GroupResponse',
-));
-            }
-
-            $value = $resourcesCaster1->cast($value, $this);
-
             $properties['resources'] = $value;
 
             after_resources:
@@ -114,135 +103,6 @@ class Groups implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['schemas'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'schemas';
-                goto after_schemas;
-            }
-
-            $properties['schemas'] = $value;
-
-            after_schemas:
-
-            $value = $payload['external_id'] ?? null;
-
-            if ($value === null) {
-                $properties['externalId'] = null;
-                goto after_externalId;
-            }
-
-            $properties['externalId'] = $value;
-
-            after_externalId:
-
-            $value = $payload['display_name'] ?? null;
-
-            if ($value === null) {
-                $properties['displayName'] = null;
-                goto after_displayName;
-            }
-
-            $properties['displayName'] = $value;
-
-            after_displayName:
-
-            $value = $payload['members'] ?? null;
-
-            if ($value === null) {
-                $properties['members'] = null;
-                goto after_members;
-            }
-
-            static $membersCaster1;
-
-            if ($membersCaster1 === null) {
-                $membersCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GroupResponse\\Members',
-));
-            }
-
-            $value = $membersCaster1->cast($value, $this);
-
-            $properties['members'] = $value;
-
-            after_members:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GroupResponse', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GroupResponse::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GroupResponse', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse⚡️Members(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['value'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'value';
-                goto after_value;
-            }
-
-            $properties['value'] = $value;
-
-            after_value:
-
-            $value = $payload['ref'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'ref';
-                goto after_ref;
-            }
-
-            $properties['ref'] = $value;
-
-            after_ref:
-
-            $value = $payload['display'] ?? null;
-
-            if ($value === null) {
-                $properties['display'] = null;
-                goto after_display;
-            }
-
-            $properties['display'] = $value;
-
-            after_display:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -332,6 +192,71 @@ class Groups implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ScimError', $exception, stack: $this->hydrationStack);
         }
     }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['schemas'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'schemas';
+                goto after_schemas;
+            }
+
+            $properties['schemas'] = $value;
+
+            after_schemas:
+
+            $value = $payload['external_id'] ?? null;
+
+            if ($value === null) {
+                $properties['externalId'] = null;
+                goto after_externalId;
+            }
+
+            $properties['externalId'] = $value;
+
+            after_externalId:
+
+            $value = $payload['display_name'] ?? null;
+
+            if ($value === null) {
+                $properties['displayName'] = null;
+                goto after_displayName;
+            }
+
+            $properties['displayName'] = $value;
+
+            after_displayName:
+
+            $value = $payload['members'] ?? null;
+
+            if ($value === null) {
+                $properties['members'] = null;
+                goto after_members;
+            }
+
+            $properties['members'] = $value;
+
+            after_members:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GroupResponse', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GroupResponse::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GroupResponse', $exception, stack: $this->hydrationStack);
+        }
+    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -365,9 +290,8 @@ class Groups implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ScimEnterpriseGroupList' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimEnterpriseGroupList($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\GroupResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse⚡️Members($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ScimError($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\GroupResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -466,8 +390,7 @@ class Groups implements ObjectMapper
         static $resourcesSerializer0;
 
         if ($resourcesSerializer0 === null) {
-            $resourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GroupResponse',
+            $resourcesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
@@ -481,85 +404,6 @@ class Groups implements ObjectMapper
         
         $itemsPerPage = $object->itemsPerPage;
         after_itemsPerPage:        $result['items_per_page'] = $itemsPerPage;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse);
-        $result = [];
-
-        $schemas = $object->schemas;
-        static $schemasSerializer0;
-
-        if ($schemasSerializer0 === null) {
-            $schemasSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
-));
-        }
-        
-        $schemas = $schemasSerializer0->serialize($schemas, $this);
-        after_schemas:        $result['schemas'] = $schemas;
-
-        
-        $externalId = $object->externalId;
-
-        if ($externalId === null) {
-            goto after_externalId;
-        }
-        after_externalId:        $result['external_id'] = $externalId;
-
-        
-        $displayName = $object->displayName;
-
-        if ($displayName === null) {
-            goto after_displayName;
-        }
-        after_displayName:        $result['display_name'] = $displayName;
-
-        
-        $members = $object->members;
-
-        if ($members === null) {
-            goto after_members;
-        }
-        static $membersSerializer0;
-
-        if ($membersSerializer0 === null) {
-            $membersSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\GroupResponse\\Members',
-));
-        }
-        
-        $members = $membersSerializer0->serialize($members, $this);
-        after_members:        $result['members'] = $members;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse⚡️Members(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse\Members);
-        $result = [];
-
-        $value = $object->value;
-        after_value:        $result['value'] = $value;
-
-        
-        $ref = $object->ref;
-        after_ref:        $result['ref'] = $ref;
-
-        
-        $display = $object->display;
-
-        if ($display === null) {
-            goto after_display;
-        }
-        after_display:        $result['display'] = $display;
 
 
         return $result;
@@ -625,6 +469,59 @@ class Groups implements ObjectMapper
         
         $schemas = $schemasSerializer0->serialize($schemas, $this);
         after_schemas:        $result['schemas'] = $schemas;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GroupResponse(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GroupResponse);
+        $result = [];
+
+        $schemas = $object->schemas;
+        static $schemasSerializer0;
+
+        if ($schemasSerializer0 === null) {
+            $schemasSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $schemas = $schemasSerializer0->serialize($schemas, $this);
+        after_schemas:        $result['schemas'] = $schemas;
+
+        
+        $externalId = $object->externalId;
+
+        if ($externalId === null) {
+            goto after_externalId;
+        }
+        after_externalId:        $result['external_id'] = $externalId;
+
+        
+        $displayName = $object->displayName;
+
+        if ($displayName === null) {
+            goto after_displayName;
+        }
+        after_displayName:        $result['display_name'] = $displayName;
+
+        
+        $members = $object->members;
+
+        if ($members === null) {
+            goto after_members;
+        }
+        static $membersSerializer0;
+
+        if ($membersSerializer0 === null) {
+            $membersSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $members = $membersSerializer0->serialize($members, $this);
+        after_members:        $result['members'] = $members;
 
 
         return $result;

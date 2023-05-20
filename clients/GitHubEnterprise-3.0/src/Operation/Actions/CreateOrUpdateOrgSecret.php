@@ -26,12 +26,12 @@ final class CreateOrUpdateOrgSecret
     private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}';
     private readonly SchemaValidator $requestSchemaValidator;
     private string $org;
-    /**secret_name parameter**/
+    /**secret_name parameter **/
     private string $secretName;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb $hydrator, string $org, string $secretName)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName $hydrator, string $org, string $secretName)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->org                     = $org;
@@ -40,14 +40,17 @@ final class CreateOrUpdateOrgSecret
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\CreateOrUpdateOrgSecret\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\CreateOrUpdateOrgSecret\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{org}', '{secret_name}'], [$this->org, $this->secretName], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\EmptyObject
+    /**
+     * @return Schema\EmptyObject|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\EmptyObject|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -57,14 +60,22 @@ final class CreateOrUpdateOrgSecret
                 switch ($code) {
                     /**
                      * Response when creating a secret
-                    **/
+                     **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\EmptyObject::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\EmptyObject::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\EmptyObject::class, $body);
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Response when updating a secret
+             **/
+            case 204:
+                return ['code' => 204];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

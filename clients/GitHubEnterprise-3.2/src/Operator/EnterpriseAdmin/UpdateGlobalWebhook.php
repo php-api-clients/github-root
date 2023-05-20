@@ -1,0 +1,38 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApiClients\Client\GitHubEnterprise\Operator\EnterpriseAdmin;
+
+use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook2;
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\ResponseInterface;
+use React\Http\Browser;
+use React\Promise\PromiseInterface;
+
+final readonly class UpdateGlobalWebhook
+{
+    public const OPERATION_ID    = 'enterprise-admin/update-global-webhook';
+    public const OPERATION_MATCH = 'PATCH /admin/hooks/{hook_id}';
+    private const METHOD         = 'PATCH';
+    private const PATH           = '/admin/hooks/{hook_id}';
+
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Hooks\HookId $hydrator)
+    {
+    }
+
+    /**
+     * @return PromiseInterface<GlobalHook2>
+     **/
+    public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json', array $params): PromiseInterface
+    {
+        $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $hookId, $accept);
+        $request   = $operation->createRequest($params);
+
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GlobalHook2 {
+            return $operation->createResponse($response);
+        });
+    }
+}

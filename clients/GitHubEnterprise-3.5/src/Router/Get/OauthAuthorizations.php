@@ -6,16 +6,12 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
-use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use Rx\Observable;
 
 use function array_key_exists;
 
@@ -63,12 +59,9 @@ final class OauthAuthorizations
             $this->hydrator[Hydrator\Operation\Applications\Grants::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants();
         }
 
-        $operation = new Operation\OauthAuthorizations\ListGrants($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\Grants::class], $arguments['client_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\OauthAuthorizations\ListGrants($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\Grants::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['client_id'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getAuthorization(array $params)
@@ -80,16 +73,13 @@ final class OauthAuthorizations
 
         $arguments['authorization_id'] = $params['authorization_id'];
         unset($params['authorization_id']);
-        if (array_key_exists(Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀CbAuthorizationIdRcb();
+        if (array_key_exists(Hydrator\Operation\Authorizations\AuthorizationId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Authorizations\AuthorizationId::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀AuthorizationId();
         }
 
-        $operation = new Operation\OauthAuthorizations\GetAuthorization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\CbAuthorizationIdRcb::class], $arguments['authorization_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\OauthAuthorizations\GetAuthorization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\AuthorizationId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Authorization {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['authorization_id']);
     }
 
     public function getGrant(array $params)
@@ -101,16 +91,13 @@ final class OauthAuthorizations
 
         $arguments['grant_id'] = $params['grant_id'];
         unset($params['grant_id']);
-        if (array_key_exists(Hydrator\Operation\Applications\Grants\CbGrantIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Applications\Grants\CbGrantIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants🌀CbGrantIdRcb();
+        if (array_key_exists(Hydrator\Operation\Applications\Grants\GrantId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Applications\Grants\GrantId::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants🌀GrantId();
         }
 
-        $operation = new Operation\OauthAuthorizations\GetGrant($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\Grants\CbGrantIdRcb::class], $arguments['grant_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\OauthAuthorizations\GetGrant($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\Grants\GrantId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ApplicationGrant {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['grant_id']);
     }
 
     public function listAuthorizations(array $params)
@@ -138,11 +125,8 @@ final class OauthAuthorizations
             $this->hydrator[Hydrator\Operation\Authorizations::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations();
         }
 
-        $operation = new Operation\OauthAuthorizations\ListAuthorizations($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations::class], $arguments['client_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\OauthAuthorizations\ListAuthorizations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['client_id'], $arguments['per_page'], $arguments['page']);
     }
 }

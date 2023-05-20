@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -50,12 +49,9 @@ final class Teams
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        $operation = new Operation\Teams\DeleteInOrg($arguments['org'], $arguments['team_slug']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\DeleteInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
     public function deleteDiscussionLegacy(array $params)
@@ -73,12 +69,9 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operation = new Operation\Teams\DeleteDiscussionLegacy($arguments['team_id'], $arguments['discussion_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\DeleteDiscussionLegacy($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['discussion_number']);
     }
 
     public function removeMemberLegacy(array $params)
@@ -96,12 +89,9 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operation = new Operation\Teams\RemoveMemberLegacy($arguments['team_id'], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\RemoveMemberLegacy($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['username']);
     }
 
     public function removeMembershipForUserLegacy(array $params)
@@ -119,12 +109,9 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operation = new Operation\Teams\RemoveMembershipForUserLegacy($arguments['team_id'], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\RemoveMembershipForUserLegacy($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['username']);
     }
 
     public function removeProjectLegacy(array $params)
@@ -142,16 +129,13 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Projects\ProjectId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects\ProjectId::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects🌀ProjectId();
         }
 
-        $operation = new Operation\Teams\RemoveProjectLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class], $arguments['team_id'], $arguments['project_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\RemoveProjectLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects\ProjectId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['project_id']);
     }
 
     public function deleteDiscussionInOrg(array $params)
@@ -175,12 +159,9 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        $operation = new Operation\Teams\DeleteDiscussionInOrg($arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\DeleteDiscussionInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
     }
 
     public function removeMembershipForUserInOrg(array $params)
@@ -204,12 +185,9 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operation = new Operation\Teams\RemoveMembershipForUserInOrg($arguments['org'], $arguments['team_slug'], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\RemoveMembershipForUserInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['username']);
     }
 
     public function removeProjectInOrg(array $params)
@@ -233,12 +211,9 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        $operation = new Operation\Teams\RemoveProjectInOrg($arguments['org'], $arguments['team_slug'], $arguments['project_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\RemoveProjectInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['project_id']);
     }
 
     public function deleteDiscussionCommentLegacy(array $params)
@@ -262,12 +237,9 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operation = new Operation\Teams\DeleteDiscussionCommentLegacy($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\DeleteDiscussionCommentLegacy($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 
     public function unlinkExternalIdpGroupFromTeamForOrg(array $params)
@@ -285,12 +257,9 @@ final class Teams
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        $operation = new Operation\Teams\UnlinkExternalIdpGroupFromTeamForOrg($arguments['org'], $arguments['team_slug']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\UnlinkExternalIdpGroupFromTeamForOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
     public function removeRepoLegacy(array $params)
@@ -314,12 +283,9 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operation = new Operation\Teams\RemoveRepoLegacy($arguments['team_id'], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\RemoveRepoLegacy($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['owner'], $arguments['repo']);
     }
 
     public function removeRepoInOrg(array $params)
@@ -349,12 +315,9 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operation = new Operation\Teams\RemoveRepoInOrg($arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\RemoveRepoInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
     }
 
     public function deleteLegacy(array $params)
@@ -366,16 +329,13 @@ final class Teams
 
         $arguments['team_id'] = $params['team_id'];
         unset($params['team_id']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId();
         }
 
-        $operation = new Operation\Teams\DeleteLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class], $arguments['team_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\DeleteLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id']);
     }
 
     public function deleteDiscussionCommentInOrg(array $params)
@@ -405,11 +365,8 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        $operation = new Operation\Teams\DeleteDiscussionCommentInOrg($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\DeleteDiscussionCommentInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 }

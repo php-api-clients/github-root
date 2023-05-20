@@ -32,12 +32,12 @@ final class Root
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace([], [], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Meta\Root\Response\Applicationjson\H200
+    public function createResponse(ResponseInterface $response): Schema\Operations\Meta\Root\Response\ApplicationJson\Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -47,11 +47,11 @@ final class Root
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Meta\Root\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Meta\Root\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Meta\Root\Response\Applicationjson\H200::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Meta\Root\Response\ApplicationJson\Ok::class, $body);
                 }
 
                 break;

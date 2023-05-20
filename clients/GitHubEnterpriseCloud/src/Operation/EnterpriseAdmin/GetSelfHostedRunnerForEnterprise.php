@@ -23,14 +23,14 @@ final class GetSelfHostedRunnerForEnterprise
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runners/{runner_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}';
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    /**Unique identifier of the self-hosted runner.**/
+    /**Unique identifier of the self-hosted runner. **/
     private int $runnerId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Runners\CbRunnerIdRcb $hydrator, string $enterprise, int $runnerId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId $hydrator, string $enterprise, int $runnerId)
     {
         $this->enterprise              = $enterprise;
         $this->runnerId                = $runnerId;
@@ -38,7 +38,7 @@ final class GetSelfHostedRunnerForEnterprise
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], self::PATH));
     }
@@ -53,9 +53,9 @@ final class GetSelfHostedRunnerForEnterprise
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Runner::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Runner::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Runner::class, $body);
                 }
