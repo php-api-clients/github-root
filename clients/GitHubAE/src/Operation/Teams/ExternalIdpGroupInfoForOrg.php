@@ -23,14 +23,14 @@ final class ExternalIdpGroupInfoForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/external-group/{group_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/external-group/{group_id}';
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**The unique identifier of the group.**/
+    /**The unique identifier of the group. **/
     private int $groupId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb $hydrator, string $org, int $groupId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId $hydrator, string $org, int $groupId)
     {
         $this->org                     = $org;
         $this->groupId                 = $groupId;
@@ -38,7 +38,7 @@ final class ExternalIdpGroupInfoForOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{group_id}'], [$this->org, $this->groupId], self::PATH));
     }
@@ -53,9 +53,9 @@ final class ExternalIdpGroupInfoForOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ExternalGroup::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ExternalGroup::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\ExternalGroup::class, $body);
                 }

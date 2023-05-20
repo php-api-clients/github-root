@@ -6,16 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\CombinedBillingUsage;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\PackagesBillingUsage;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -48,16 +43,13 @@ final class Billing
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\Actions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\Actions::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Settings🌀Billing🌀Actions();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Actions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Actions::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Actions();
         }
 
-        $operation = new Operation\Billing\GetGithubActionsBillingGhe($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\Actions::class], $arguments['enterprise']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubActionsBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Actions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise']);
     }
 
     public function getGithubAdvancedSecurityBillingGhe(array $params)
@@ -81,16 +73,13 @@ final class Billing
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\AdvancedSecurity::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\AdvancedSecurity::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Settings🌀Billing🌀AdvancedSecurity();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\AdvancedSecurity::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\AdvancedSecurity::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀AdvancedSecurity();
         }
 
-        $operation = new Operation\Billing\GetGithubAdvancedSecurityBillingGhe($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\AdvancedSecurity::class], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubAdvancedSecurityBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\AdvancedSecurity::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): AdvancedSecurityActiveCommitters {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getGithubPackagesBillingGhe(array $params)
@@ -102,16 +91,13 @@ final class Billing
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\Packages::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\Packages::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Settings🌀Billing🌀Packages();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Packages::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Packages::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Packages();
         }
 
-        $operation = new Operation\Billing\GetGithubPackagesBillingGhe($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\Packages::class], $arguments['enterprise']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubPackagesBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Packages::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PackagesBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise']);
     }
 
     public function getSharedStorageBillingGhe(array $params)
@@ -123,16 +109,13 @@ final class Billing
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\SharedStorage::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\SharedStorage::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Settings🌀Billing🌀SharedStorage();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\SharedStorage::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\SharedStorage::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀SharedStorage();
         }
 
-        $operation = new Operation\Billing\GetSharedStorageBillingGhe($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\SharedStorage::class], $arguments['enterprise']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetSharedStorageBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\SharedStorage::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): CombinedBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise']);
     }
 
     public function getGithubActionsBillingOrg(array $params)
@@ -144,16 +127,13 @@ final class Billing
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\Actions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\Actions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Settings🌀Billing🌀Actions();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Settings\Billing\Actions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\Actions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Actions();
         }
 
-        $operation = new Operation\Billing\GetGithubActionsBillingOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\Actions::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubActionsBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\Actions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 
     public function getGithubAdvancedSecurityBillingOrg(array $params)
@@ -177,16 +157,13 @@ final class Billing
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\AdvancedSecurity::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\AdvancedSecurity::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Settings🌀Billing🌀AdvancedSecurity();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Settings\Billing\AdvancedSecurity::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\AdvancedSecurity::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀AdvancedSecurity();
         }
 
-        $operation = new Operation\Billing\GetGithubAdvancedSecurityBillingOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\AdvancedSecurity::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubAdvancedSecurityBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\AdvancedSecurity::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): AdvancedSecurityActiveCommitters {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getGithubPackagesBillingOrg(array $params)
@@ -198,16 +175,13 @@ final class Billing
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\Packages::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\Packages::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Settings🌀Billing🌀Packages();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Settings\Billing\Packages::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\Packages::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Packages();
         }
 
-        $operation = new Operation\Billing\GetGithubPackagesBillingOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\Packages::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubPackagesBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\Packages::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PackagesBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 
     public function getSharedStorageBillingOrg(array $params)
@@ -219,16 +193,13 @@ final class Billing
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\SharedStorage::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\SharedStorage::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Settings🌀Billing🌀SharedStorage();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Settings\Billing\SharedStorage::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\SharedStorage::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀SharedStorage();
         }
 
-        $operation = new Operation\Billing\GetSharedStorageBillingOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\SharedStorage::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetSharedStorageBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Settings\Billing\SharedStorage::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): CombinedBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 
     public function getGithubActionsBillingUser(array $params)
@@ -240,16 +211,13 @@ final class Billing
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\Actions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\Actions::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Settings🌀Billing🌀Actions();
+        if (array_key_exists(Hydrator\Operation\Users\Username\Settings\Billing\Actions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Settings\Billing\Actions::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Actions();
         }
 
-        $operation = new Operation\Billing\GetGithubActionsBillingUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\Actions::class], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubActionsBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Settings\Billing\Actions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username']);
     }
 
     public function getGithubPackagesBillingUser(array $params)
@@ -261,16 +229,13 @@ final class Billing
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\Packages::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\Packages::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Settings🌀Billing🌀Packages();
+        if (array_key_exists(Hydrator\Operation\Users\Username\Settings\Billing\Packages::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Settings\Billing\Packages::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Packages();
         }
 
-        $operation = new Operation\Billing\GetGithubPackagesBillingUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\Packages::class], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetGithubPackagesBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Settings\Billing\Packages::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PackagesBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username']);
     }
 
     public function getSharedStorageBillingUser(array $params)
@@ -282,15 +247,12 @@ final class Billing
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\SharedStorage::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\SharedStorage::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀CbUsernameRcb🌀Settings🌀Billing🌀SharedStorage();
+        if (array_key_exists(Hydrator\Operation\Users\Username\Settings\Billing\SharedStorage::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Settings\Billing\SharedStorage::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀SharedStorage();
         }
 
-        $operation = new Operation\Billing\GetSharedStorageBillingUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\CbUsernameRcb\Settings\Billing\SharedStorage::class], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Billing\GetSharedStorageBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Settings\Billing\SharedStorage::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): CombinedBillingUsage {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username']);
     }
 }

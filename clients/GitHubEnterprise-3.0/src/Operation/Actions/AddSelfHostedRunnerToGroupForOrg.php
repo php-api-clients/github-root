@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\Actions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -17,9 +18,9 @@ final class AddSelfHostedRunnerToGroupForOrg
     private const METHOD         = 'PUT';
     private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
     private string $org;
-    /**Unique identifier of the self-hosted runner group.**/
+    /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
-    /**Unique identifier of the self-hosted runner.**/
+    /**Unique identifier of the self-hosted runner. **/
     private int $runnerId;
 
     public function __construct(string $org, int $runnerGroupId, int $runnerId)
@@ -29,13 +30,25 @@ final class AddSelfHostedRunnerToGroupForOrg
         $this->runnerId      = $runnerId;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}', '{runner_id}'], [$this->org, $this->runnerGroupId, $this->runnerId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

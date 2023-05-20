@@ -23,24 +23,24 @@ final class ListCustomRoles
     public const OPERATION_MATCH = 'GET /organizations/{organization_id}/custom_roles';
     private const METHOD         = 'GET';
     private const PATH           = '/organizations/{organization_id}/custom_roles';
-    /**The unique identifier of the organization.**/
+    /**The unique identifier of the organization. **/
     private string $organizationId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Organizations\CbOrganizationIdRcb\CustomRoles $hydrator;
+    private readonly Hydrator\Operation\Organizations\OrganizationId\CustomRoles $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Organizations\CbOrganizationIdRcb\CustomRoles $hydrator, string $organizationId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Organizations\OrganizationId\CustomRoles $hydrator, string $organizationId)
     {
         $this->organizationId          = $organizationId;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{organization_id}'], [$this->organizationId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Orgs\ListCustomRoles\Response\Applicationjson\H200
+    public function createResponse(ResponseInterface $response): Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -50,11 +50,11 @@ final class ListCustomRoles
                 switch ($code) {
                     /**
                      * Response - list of custom role names
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Orgs\ListCustomRoles\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Orgs\ListCustomRoles\Response\Applicationjson\H200::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok::class, $body);
                 }
 
                 break;

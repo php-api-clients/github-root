@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -56,15 +55,12 @@ final class SecretScanning
 
         $arguments['enablement'] = $params['enablement'];
         unset($params['enablement']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\CbSecurityProductRcb\CbEnablementRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\CbSecurityProductRcb\CbEnablementRcb::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀CbSecurityProductRcb🌀CbEnablementRcb();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\SecurityProduct\Enablement::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\SecurityProduct\Enablement::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀SecurityProduct🌀Enablement();
         }
 
-        $operation = new Operation\SecretScanning\PostSecurityProductEnablementForEnterprise($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\CbSecurityProductRcb\CbEnablementRcb::class], $arguments['enterprise'], $arguments['security_product'], $arguments['enablement']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\SecretScanning\PostSecurityProductEnablementForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\SecurityProduct\Enablement::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['security_product'], $arguments['enablement']);
     }
 }

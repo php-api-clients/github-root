@@ -19,7 +19,7 @@ final class DownloadArtifact
     private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
     private string $owner;
     private string $repo;
-    /**artifact_id parameter**/
+    /**artifact_id parameter **/
     private int $artifactId;
     private string $archiveFormat;
 
@@ -31,7 +31,7 @@ final class DownloadArtifact
         $this->archiveFormat = $archiveFormat;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], self::PATH));
     }
@@ -45,7 +45,7 @@ final class DownloadArtifact
         switch ($code) {
             /**
              * Response
-            **/
+             **/
             case 302:
                 return ['code' => 302, 'location' => $response->getHeaderLine('Location')];
         }

@@ -23,19 +23,19 @@ final class GetActionsCacheUsagePolicyForEnterprise
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/cache/usage-policy';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprises/{enterprise}/actions/cache/usage-policy';
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Cache\UsagePolicy $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Cache\UsagePolicy $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\Cache\UsagePolicy $hydrator, string $enterprise)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Cache\UsagePolicy $hydrator, string $enterprise)
     {
         $this->enterprise              = $enterprise;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
     }
@@ -50,9 +50,9 @@ final class GetActionsCacheUsagePolicyForEnterprise
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsCacheUsagePolicyEnterprise::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsCacheUsagePolicyEnterprise::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\ActionsCacheUsagePolicyEnterprise::class, $body);
                 }

@@ -19,7 +19,7 @@ final class DownloadWorkflowRunLogs
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/logs';
     private string $owner;
     private string $repo;
-    /**The id of the workflow run.**/
+    /**The id of the workflow run. **/
     private int $runId;
 
     public function __construct(string $owner, string $repo, int $runId)
@@ -29,7 +29,7 @@ final class DownloadWorkflowRunLogs
         $this->runId = $runId;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
@@ -43,7 +43,7 @@ final class DownloadWorkflowRunLogs
         switch ($code) {
             /**
              * Response
-            **/
+             **/
             case 302:
                 return ['code' => 302, 'location' => $response->getHeaderLine('Location')];
         }

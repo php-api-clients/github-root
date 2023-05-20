@@ -3,10 +3,14 @@ state:
   additionalFiles:
     - composer.json
     - composer.lock
-spec: {{ specUrl }}
+spec: ../../../{{ specPath }}
 namespace:
   source: ApiClients\Client\{{ namespace }}
   test: ApiClients\Tests\Client\{{ namespace }}
+entryPoints:
+  call: true
+  operations: true
+  webHooks: true
 destination:
   root: ../
   source: src

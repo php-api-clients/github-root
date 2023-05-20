@@ -25,7 +25,7 @@ final class DownloadWorkflowRunLogsStreaming
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/logs';
     private string $owner;
     private string $repo;
-    /**The id of the workflow run.**/
+    /**The id of the workflow run. **/
     private int $runId;
     private readonly Browser $browser;
 
@@ -37,7 +37,7 @@ final class DownloadWorkflowRunLogsStreaming
         $this->browser = $browser;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
@@ -51,7 +51,7 @@ final class DownloadWorkflowRunLogsStreaming
         switch ($code) {
             /**
              * Response
-            **/
+             **/
             case 302:
                 $stream = new Subject();
                 $this->browser->requestStreaming('GET', $response->getHeaderLine('location'))->then(static function (ResponseInterface $response) use ($stream): void {

@@ -1,0 +1,53 @@
+name: "Generate: GitHubEnterprise-3.3"
+on:
+  push:
+  schedule:
+    - cron:  '3 3 * * *'
+jobs:
+  generate-githubenterprise-3_3:
+    runs-on: ubuntu-latest
+    container:
+      image: wyrihaximusnet/php:8.2-nts-alpine-slim-dev-root
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ramsey/composer-install@v2
+      - uses: ramsey/composer-install@v2
+        with:
+          working-directory: "clients/GitHubEnterprise-3.3"
+      - name: Download current spec file
+        run: |
+          rm etc/specs/GitHubEnterprise-3.3/previous.spec.yaml || true
+          mv etc/specs/GitHubEnterprise-3.3/current.spec.yaml etc/specs/GitHubEnterprise-3.3/previous.spec.yaml
+          curl -o etc/specs/GitHubEnterprise-3.3/current.spec.yaml https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghes-3.3/ghes-3.3.yaml
+      - name: Look current up spec version
+        id: look-current-up-spec-version
+        uses: mikefarah/yq@v4.33.3
+        with:
+          cmd: yq '.info.version' 'etc/specs/GitHubEnterprise-3.3/current.spec.yaml'
+      - name: Look previous up spec version
+        id: look-previous-up-spec-version
+        uses: mikefarah/yq@v4.33.3
+        with:
+          cmd: yq '.info.version' 'etc/specs/GitHubEnterprise-3.3/previous.spec.yaml'
+      - name: Generate spec diff
+        id: spec-diff
+        run: |
+          curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh 
+          delimiter="$(openssl rand -hex 8)"
+          echo "diff<<${delimiter}" >> "${GITHUB_OUTPUT}"
+          echo "$(openapi-changes summary --no-color --no-logo etc/specs/GitHubEnterprise-3.3/current.spec.yaml etc/specs/GitHubEnterprise-3.3/previous.spec.yaml || true)" >> "${GITHUB_OUTPUT}"
+          echo "${delimiter}" >> "${GITHUB_OUTPUT}"
+      - name: Update Client to ${{ steps.look-current-up-spec-version.outputs.result }}
+        run: |
+          make generate-client GitHubEnterprise-3.3
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: "GitHubEnterprise-3.3/from-${{ steps.look-current-up-spec-version.outputs.result }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}"
+          token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
+          labels: |
+            Automated PR
+            New Version
+            automerge
+          title: "[GitHubEnterprise-3.3] Update to ${{ steps.look-current-up-spec-version.outputs.result }} from ${{ steps.look-previous-up-spec-version.outputs.result }}"
+          body: ${{ steps.spec-diff.outputs.diff }}

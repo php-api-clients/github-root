@@ -3,10 +3,14 @@ state:
   additionalFiles:
     - composer.json
     - composer.lock
-spec: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/github.ae/github.ae.yaml
+spec: ../../../etc/specs/GitHubAE/current.spec.yaml
 namespace:
   source: ApiClients\Client\GitHubAE
   test: ApiClients\Tests\Client\GitHubAE
+entryPoints:
+  call: true
+  operations: true
+  webHooks: true
 destination:
   root: ../
   source: src

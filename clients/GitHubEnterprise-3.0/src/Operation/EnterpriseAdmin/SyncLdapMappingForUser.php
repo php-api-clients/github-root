@@ -25,21 +25,21 @@ final class SyncLdapMappingForUser
     private const PATH           = '/admin/ldap/users/{username}/sync';
     private string $username;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync $hydrator;
+    private readonly Hydrator\Operation\Admin\Ldap\Users\Username\Sync $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Sync $hydrator, string $username)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Users\Username\Sync $hydrator, string $username)
     {
         $this->username                = $username;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201
+    public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,11 +49,11 @@ final class SyncLdapMappingForUser
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\EnterpriseAdmin\SyncLdapMappingForUser\Response\Applicationjson\H201::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created::class, $body);
                 }
 
                 break;

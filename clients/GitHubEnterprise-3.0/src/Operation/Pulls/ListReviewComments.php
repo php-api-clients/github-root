@@ -4,19 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation\Pulls;
 
-use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Schema;
-use cebe\openapi\Reader;
-use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
-use RuntimeException;
-use Rx\Observable;
-use Rx\Scheduler\ImmediateScheduler;
 
-use function explode;
-use function json_decode;
 use function str_replace;
 
 final class ListReviewComments
@@ -28,65 +19,36 @@ final class ListReviewComments
     private string $owner;
     private string $repo;
     private int $pullNumber;
-    /**Can be either `asc` or `desc`. Ignored without `sort` parameter.**/
+    /**Can be either `asc` or `desc`. Ignored without `sort` parameter. **/
     private string $direction;
-    /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.**/
+    /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
     private string $since;
-    /**One of `created` (when the repository was starred) or `updated` (when it was last pushed to).**/
+    /**One of `created` (when the repository was starred) or `updated` (when it was last pushed to). **/
     private string $sort;
-    /**Results per page (max 100)**/
+    /**Results per page (max 100) **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\CbPullNumberRcb\Comments $hydrator, string $owner, string $repo, int $pullNumber, string $direction, string $since, string $sort = 'created', int $perPage = 30, int $page = 1)
+    public function __construct(string $owner, string $repo, int $pullNumber, string $direction, string $since, string $sort = 'created', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->pullNumber              = $pullNumber;
-        $this->direction               = $direction;
-        $this->since                   = $since;
-        $this->sort                    = $sort;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner      = $owner;
+        $this->repo       = $repo;
+        $this->pullNumber = $pullNumber;
+        $this->direction  = $direction;
+        $this->since      = $since;
+        $this->sort       = $sort;
+        $this->perPage    = $perPage;
+        $this->page       = $page;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}', '{direction}', '{since}', '{sort}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->pullNumber, $this->direction, $this->since, $this->sort, $this->perPage, $this->page], self::PATH . '?direction={direction}&since={since}&sort={sort}&per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return Observable<Schema\PullRequestReviewComment>
-     */
-    public function createResponse(ResponseInterface $response): Observable
+    public function createResponse(ResponseInterface $response): ResponseInterface
     {
-        $code          = $response->getStatusCode();
-        [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
-        switch ($contentType) {
-            case 'application/json':
-                $body = json_decode($response->getBody()->getContents(), true);
-                switch ($code) {
-                    /**
-                     * Response
-                    **/
-                    case 200:
-                        foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\PullRequestReviewComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        }
-
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\PullRequestReviewComment {
-                            return $this->hydrator->hydrateObject(Schema\PullRequestReviewComment::class, $body);
-                        });
-                }
-
-                break;
-        }
-
-        throw new RuntimeException('Unable to find matching response code and content type');
+        return $response;
     }
 }

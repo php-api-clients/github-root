@@ -11,12 +11,8 @@ final readonly class Subkeys
     public const SCHEMA_JSON         = '{"type":"object","properties":{"id":{"type":"integer"},"primary_key_id":{"type":"integer"},"key_id":{"type":"string"},"public_key":{"type":"string"},"emails":{"type":"array","items":{}},"subkeys":{"type":"array","items":{}},"can_sign":{"type":"boolean"},"can_encrypt_comms":{"type":"boolean"},"can_encrypt_storage":{"type":"boolean"},"can_certify":{"type":"boolean"},"created_at":{"type":"string"},"expires_at":{"type":["string","null"]},"raw_key":{"type":["string","null"]}}}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"id":13,"primary_key_id":13,"key_id":"generated_key_id_null","public_key":"generated_public_key_null","emails":[null],"subkeys":[null],"can_sign":false,"can_encrypt_comms":false,"can_encrypt_storage":false,"can_certify":false,"created_at":"generated_created_at_null","expires_at":"generated_expires_at_null","raw_key":"generated_raw_key_null"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"id":2,"primary_key_id":14,"key_id":"generated","public_key":"generated","emails":["generated","generated"],"subkeys":["generated","generated"],"can_sign":false,"can_encrypt_comms":false,"can_encrypt_storage":false,"can_certify":false,"created_at":"generated","expires_at":"generated","raw_key":"generated"}';
 
-    /**
-     * @param ?array<mixed> $emails
-     * @param ?array<mixed> $subkeys
-     */
     public function __construct(public ?int $id, #[MapFrom('primary_key_id')] public ?int $primaryKeyId, #[MapFrom('key_id')] public ?string $keyId, #[MapFrom('public_key')] public ?string $publicKey, public ?array $emails, public ?array $subkeys, #[MapFrom('can_sign')] public ?bool $canSign, #[MapFrom('can_encrypt_comms')] public ?bool $canEncryptComms, #[MapFrom('can_encrypt_storage')] public ?bool $canEncryptStorage, #[MapFrom('can_certify')] public ?bool $canCertify, #[MapFrom('created_at')] public ?string $createdAt, #[MapFrom('expires_at')] public ?string $expiresAt, #[MapFrom('raw_key')] public ?string $rawKey)
     {
     }

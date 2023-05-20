@@ -27,9 +27,9 @@ final class ConvertMemberToOutsideCollaborator
     private string $org;
     private string $username;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\OutsideCollaborators\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\OutsideCollaborators\CbUsernameRcb $hydrator, string $org, string $username)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\OutsideCollaborators\Username $hydrator, string $org, string $username)
     {
         $this->org                     = $org;
         $this->username                = $username;
@@ -37,12 +37,15 @@ final class ConvertMemberToOutsideCollaborator
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{username}'], [$this->org, $this->username], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Orgs\ConvertMemberToOutsideCollaborator\Response\Applicationjson\H202
+    /**
+     * @return Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,22 +55,36 @@ final class ConvertMemberToOutsideCollaborator
                 switch ($code) {
                     /**
                      * User is getting converted asynchronously
-                    **/
+                     **/
                     case 202:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Orgs\ConvertMemberToOutsideCollaborator\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Orgs\ConvertMemberToOutsideCollaborator\Response\Applicationjson\H202::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::class, $body);
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * User was converted
+             **/
+            case 204:
+                return ['code' => 204];
+            /**
+             * Forbidden if user is the last owner of the organization or not a member of the organization
+             **/
+
+            case 403:
+                return ['code' => 403];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -27,9 +27,9 @@ final class GetPagesBuild
     private string $repo;
     private int $buildId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\CbBuildIdRcb $hydrator, string $owner, string $repo, int $buildId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator, string $owner, string $repo, int $buildId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -38,7 +38,7 @@ final class GetPagesBuild
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{build_id}'], [$this->owner, $this->repo, $this->buildId], self::PATH));
     }
@@ -53,9 +53,9 @@ final class GetPagesBuild
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PageBuild::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PageBuild::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\PageBuild::class, $body);
                 }

@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\Repos;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -18,7 +19,7 @@ final class DeleteDeployKey
     private const PATH           = '/repos/{owner}/{repo}/keys/{key_id}';
     private string $owner;
     private string $repo;
-    /**key_id parameter**/
+    /**key_id parameter **/
     private int $keyId;
 
     public function __construct(string $owner, string $repo, int $keyId)
@@ -28,13 +29,25 @@ final class DeleteDeployKey
         $this->keyId = $keyId;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{key_id}'], [$this->owner, $this->repo, $this->keyId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

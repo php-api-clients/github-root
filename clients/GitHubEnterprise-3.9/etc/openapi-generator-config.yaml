@@ -1,0 +1,30 @@
+state:
+  file: etc/openapi-client-generator.state
+  additionalFiles:
+    - composer.json
+    - composer.lock
+spec: ../../../etc/specs/GitHubEnterprise-3.9/current.spec.yaml
+namespace:
+  source: ApiClients\Client\GitHubEnterprise
+  test: ApiClients\Tests\Client\GitHubEnterprise
+entryPoints:
+  call: true
+  operations: true
+  webHooks: true
+destination:
+  root: ../
+  source: src
+  test: tests
+templates:
+  dir: ../templates
+schemas:
+  allowDuplication: true
+  useAliasesForDuplication: true
+contentType:
+  - ApiClients\Tools\OpenApiClientGenerator\ContentType\Json
+  - ApiClients\Tools\OpenApiClientGenerator\ContentType\Raw
+voter:
+  listOperation:
+    - ApiClients\Tools\OpenApiClientGenerator\Voter\ListOperation\PageAndPerPageInQuery
+  streamOperation:
+    - ApiClients\Tools\OpenApiClientGenerator\Voter\StreamOperation\DownloadInOperationId

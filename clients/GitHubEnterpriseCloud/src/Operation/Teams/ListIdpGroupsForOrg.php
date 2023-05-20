@@ -23,18 +23,18 @@ final class ListIdpGroupsForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/team-sync/groups';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/team-sync/groups';
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**Page token**/
+    /**Page token **/
     private string $page;
-    /**Filters the results to return only those that begin with the value specified by this parameter. For example, a value of `ab` will return results that begin with "ab".**/
+    /**Filters the results to return only those that begin with the value specified by this parameter. For example, a value of `ab` will return results that begin with "ab". **/
     private string $q;
-    /**The number of results per page (max 100).**/
+    /**The number of results per page (max 100). **/
     private int $perPage;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\TeamSync\Groups $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\TeamSync\Groups $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\TeamSync\Groups $hydrator, string $org, string $page, string $q, int $perPage = 30)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\TeamSync\Groups $hydrator, string $org, string $page, string $q, int $perPage = 30)
     {
         $this->org                     = $org;
         $this->page                    = $page;
@@ -44,7 +44,7 @@ final class ListIdpGroupsForOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{page}', '{q}', '{per_page}'], [$this->org, $this->page, $this->q, $this->perPage], self::PATH . '?page={page}&q={q}&per_page={per_page}'));
     }
@@ -59,9 +59,9 @@ final class ListIdpGroupsForOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GroupMapping::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GroupMapping::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\GroupMapping::class, $body);
                 }

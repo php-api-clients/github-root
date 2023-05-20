@@ -25,7 +25,7 @@ final class DownloadArtifactStreaming
     private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
     private string $owner;
     private string $repo;
-    /**artifact_id parameter**/
+    /**artifact_id parameter **/
     private int $artifactId;
     private string $archiveFormat;
     private readonly Browser $browser;
@@ -39,7 +39,7 @@ final class DownloadArtifactStreaming
         $this->browser       = $browser;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], self::PATH));
     }
@@ -53,7 +53,7 @@ final class DownloadArtifactStreaming
         switch ($code) {
             /**
              * Response
-            **/
+             **/
             case 302:
                 $stream = new Subject();
                 $this->browser->requestStreaming('GET', $response->getHeaderLine('location'))->then(static function (ResponseInterface $response) use ($stream): void {

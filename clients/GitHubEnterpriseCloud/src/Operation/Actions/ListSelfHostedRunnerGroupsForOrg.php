@@ -23,18 +23,18 @@ final class ListSelfHostedRunnerGroupsForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/runner-groups';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/runner-groups';
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**Only return runner groups that are allowed to be used by this repository.**/
+    /**Only return runner groups that are allowed to be used by this repository. **/
     private string $visibleToRepository;
-    /**The number of results per page (max 100).**/
+    /**The number of results per page (max 100). **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups $hydrator, string $org, string $visibleToRepository, int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RunnerGroups $hydrator, string $org, string $visibleToRepository, int $perPage = 30, int $page = 1)
     {
         $this->org                     = $org;
         $this->visibleToRepository     = $visibleToRepository;
@@ -44,12 +44,12 @@ final class ListSelfHostedRunnerGroupsForOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{visible_to_repository}', '{per_page}', '{page}'], [$this->org, $this->visibleToRepository, $this->perPage, $this->page], self::PATH . '?visible_to_repository={visible_to_repository}&per_page={per_page}&page={page}'));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200
+    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -59,11 +59,11 @@ final class ListSelfHostedRunnerGroupsForOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok::class, $body);
                 }
 
                 break;

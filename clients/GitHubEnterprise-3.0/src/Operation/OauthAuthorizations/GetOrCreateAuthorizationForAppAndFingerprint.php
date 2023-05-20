@@ -26,13 +26,13 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
     private const METHOD         = 'PUT';
     private const PATH           = '/authorizations/clients/{client_id}/{fingerprint}';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The client ID of your GitHub app.**/
+    /**The client ID of your GitHub app. **/
     private string $clientId;
     private string $fingerprint;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb $hydrator;
+    private readonly Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb $hydrator, string $clientId, string $fingerprint)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint $hydrator, string $clientId, string $fingerprint)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->clientId                = $clientId;
@@ -41,9 +41,9 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{client_id}', '{fingerprint}'], [$this->clientId, $this->fingerprint], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -58,25 +58,25 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
                 switch ($code) {
                     /**
                      * if returning an existing token
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                     /**
                      * Response if returning a new token
-                    **/
+                     **/
 
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                     /**
                      * Validation failed
-                    **/
+                     **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                 }

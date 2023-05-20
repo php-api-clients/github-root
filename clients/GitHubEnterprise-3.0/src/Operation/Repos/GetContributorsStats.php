@@ -12,8 +12,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
 use RuntimeException;
-use Rx\Observable;
-use Rx\Scheduler\ImmediateScheduler;
 
 use function explode;
 use function json_decode;
@@ -28,9 +26,9 @@ final class GetContributorsStats
     private string $owner;
     private string $repo;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Stats\Contributors $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Stats\Contributors $hydrator, string $owner, string $repo)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Stats\Contributors $hydrator, string $owner, string $repo)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -38,15 +36,15 @@ final class GetContributorsStats
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
     }
 
     /**
-     * @return Observable<Schema\ContributorActivity>|Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202
+     * @return Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code: int}
      */
-    public function createResponse(ResponseInterface $response): Observable|Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202
+    public function createResponse(ResponseInterface $response): Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,30 +53,23 @@ final class GetContributorsStats
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
-                     * *   `w` - Start of the week, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).
-                    *   `a` - Number of additions
-                    *   `d` - Number of deletions
-                    *   `c` - Number of commits
-                    **/
-                    case 200:
-                        foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\ContributorActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        }
-
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\ContributorActivity {
-                            return $this->hydrator->hydrateObject(Schema\ContributorActivity::class, $body);
-                        });
-                    /**
                      * Accepted
-                    **/
-
+                     **/
                     case 202:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Repos\GetCodeFrequencyStats\Response\Applicationjson\H202::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted::class, $body);
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * A header with no content is returned.
+             **/
+            case 204:
+                return ['code' => 204];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

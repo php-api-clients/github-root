@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\Apps;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -16,7 +17,7 @@ final class RevokeAuthorizationForApplication
     public const OPERATION_MATCH = 'DELETE /applications/{client_id}/tokens/{access_token}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/applications/{client_id}/tokens/{access_token}';
-    /**The client ID of your GitHub app.**/
+    /**The client ID of your GitHub app. **/
     private string $clientId;
     private string $accessToken;
 
@@ -26,13 +27,25 @@ final class RevokeAuthorizationForApplication
         $this->accessToken = $accessToken;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{client_id}', '{access_token}'], [$this->clientId, $this->accessToken], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

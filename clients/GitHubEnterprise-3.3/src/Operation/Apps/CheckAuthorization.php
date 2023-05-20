@@ -24,13 +24,13 @@ final class CheckAuthorization
     public const OPERATION_MATCH = 'GET /applications/{client_id}/tokens/{access_token}';
     private const METHOD         = 'GET';
     private const PATH           = '/applications/{client_id}/tokens/{access_token}';
-    /**The client ID of the GitHub app.**/
+    /**The client ID of the GitHub app. **/
     private string $clientId;
     private string $accessToken;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb $hydrator;
+    private readonly Hydrator\Operation\Applications\ClientId\Tokens\AccessToken $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb $hydrator, string $clientId, string $accessToken)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\ClientId\Tokens\AccessToken $hydrator, string $clientId, string $accessToken)
     {
         $this->clientId                = $clientId;
         $this->accessToken             = $accessToken;
@@ -38,12 +38,12 @@ final class CheckAuthorization
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{client_id}', '{access_token}'], [$this->clientId, $this->accessToken], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200
+    public function createResponse(ResponseInterface $response): Schema\Authorization
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -53,17 +53,17 @@ final class CheckAuthorization
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Apps\CheckAuthorization\Response\Applicationjson\H200::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

@@ -3,10 +3,14 @@ state:
   additionalFiles:
     - composer.json
     - composer.lock
-spec: https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghec/ghec.yaml
+spec: ../../../etc/specs/GitHubEnterpriseCloud/current.spec.yaml
 namespace:
   source: ApiClients\Client\GitHubEnterpriseCloud
   test: ApiClients\Tests\Client\GitHubEnterpriseCloud
+entryPoints:
+  call: true
+  operations: true
+  webHooks: true
 destination:
   root: ../
   source: src

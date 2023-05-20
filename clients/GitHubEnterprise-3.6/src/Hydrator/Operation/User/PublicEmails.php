@@ -23,78 +23,12 @@ class PublicEmails implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterprise\Schema\Email' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Email($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Email(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Email
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['email'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'email';
-                goto after_email;
-            }
-
-            $properties['email'] = $value;
-
-            after_email:
-
-            $value = $payload['primary'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'primary';
-                goto after_primary;
-            }
-
-            $properties['primary'] = $value;
-
-            after_primary:
-
-            $value = $payload['verified'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'verified';
-                goto after_verified;
-            }
-
-            $properties['verified'] = $value;
-
-            after_verified:
-
-            $value = $payload['visibility'] ?? null;
-
-            if ($value === null) {
-                $properties['visibility'] = null;
-                goto after_visibility;
-            }
-
-            $properties['visibility'] = $value;
-
-            after_visibility:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Email', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Email::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Email(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Email', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
     {
         $properties = []; 
@@ -190,7 +124,6 @@ class PublicEmails implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Email' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Email($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -262,35 +195,6 @@ class PublicEmails implements ObjectMapper
         }
         
         return $serializer->serialize($value, $this);
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Email(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Email);
-        $result = [];
-
-        $email = $object->email;
-        after_email:        $result['email'] = $email;
-
-        
-        $primary = $object->primary;
-        after_primary:        $result['primary'] = $primary;
-
-        
-        $verified = $object->verified;
-        after_verified:        $result['verified'] = $verified;
-
-        
-        $visibility = $object->visibility;
-
-        if ($visibility === null) {
-            goto after_visibility;
-        }
-        after_visibility:        $result['visibility'] = $visibility;
-
-
-        return $result;
     }
 
 
