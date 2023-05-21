@@ -25,12 +25,12 @@ final class GetWorkflow
     private const PATH           = '/repos/{owner}/{repo}/actions/workflows/{workflow_id}';
     private string $owner;
     private string $repo;
-    /**The ID of the workflow. You can also pass the workflow file name as a string.**/
+    /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb $hydrator, string $owner, string $repo, $workflowId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId $hydrator, string $owner, string $repo, $workflowId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -39,7 +39,7 @@ final class GetWorkflow
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{workflow_id}'], [$this->owner, $this->repo, $this->workflowId], self::PATH));
     }
@@ -54,9 +54,9 @@ final class GetWorkflow
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Workflow::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Workflow::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Workflow::class, $body);
                 }

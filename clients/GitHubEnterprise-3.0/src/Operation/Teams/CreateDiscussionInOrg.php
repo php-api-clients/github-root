@@ -26,12 +26,12 @@ final class CreateDiscussionInOrg
     private const PATH           = '/orgs/{org}/teams/{team_slug}/discussions';
     private readonly SchemaValidator $requestSchemaValidator;
     private string $org;
-    /**team_slug parameter**/
+    /**team_slug parameter **/
     private string $teamSlug;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions $hydrator, string $org, string $teamSlug)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions $hydrator, string $org, string $teamSlug)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->org                     = $org;
@@ -40,9 +40,9 @@ final class CreateDiscussionInOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\CreateDiscussionInOrg\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\CreateDiscussionInOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -57,9 +57,9 @@ final class CreateDiscussionInOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamDiscussion::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamDiscussion::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\TeamDiscussion::class, $body);
                 }

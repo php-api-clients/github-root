@@ -29,9 +29,9 @@ final class AddOrUpdateProjectPermissionsLegacy
     private int $teamId;
     private int $projectId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb $hydrator;
+    private readonly Hydrator\Operation\Teams\TeamId\Projects\ProjectId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb $hydrator, int $teamId, int $projectId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Projects\ProjectId $hydrator, int $teamId, int $projectId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->teamId                  = $teamId;
@@ -40,14 +40,17 @@ final class AddOrUpdateProjectPermissionsLegacy
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\AddOrUpdateProjectPermissionsLegacy\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\AddOrUpdateProjectPermissionsLegacy\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{team_id}', '{project_id}'], [$this->teamId, $this->projectId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): mixed
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -57,30 +60,38 @@ final class AddOrUpdateProjectPermissionsLegacy
                 switch ($code) {
                     /**
                      * Forbidden if the project is not owned by the organization
-                    **/
+                     **/
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        throw new ErrorSchemas\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403(403, $this->hydrator->hydrateObject(Schema\Operation\Teams\AddOrUpdateProjectPermissionsLegacy\Response\Applicationjson\H403::class, $body));
+                        throw new ErrorSchemas\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity(403, $this->hydrator->hydrateObject(Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity::class, $body));
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                     /**
                      * Validation failed
-                    **/
+                     **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

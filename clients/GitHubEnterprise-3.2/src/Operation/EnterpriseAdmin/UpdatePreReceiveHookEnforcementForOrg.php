@@ -25,14 +25,14 @@ final class UpdatePreReceiveHookEnforcementForOrg
     private const METHOD         = 'PATCH';
     private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**The unique identifier of the pre-receive hook.**/
+    /**The unique identifier of the pre-receive hook. **/
     private int $preReceiveHookId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator, string $org, int $preReceiveHookId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, string $org, int $preReceiveHookId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->org                     = $org;
@@ -41,9 +41,9 @@ final class UpdatePreReceiveHookEnforcementForOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForOrg\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -58,9 +58,9 @@ final class UpdatePreReceiveHookEnforcementForOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrgPreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrgPreReceiveHook::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\OrgPreReceiveHook::class, $body);
                 }

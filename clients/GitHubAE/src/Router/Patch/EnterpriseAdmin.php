@@ -6,17 +6,11 @@ namespace ApiClients\Client\GitHubAE\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema\Announcement;
-use ApiClients\Client\GitHubAE\Schema\GlobalHook2;
-use ApiClients\Client\GitHubAE\Schema\Operation\EnterpriseAdmin\UpdateOrgName\Response\Applicationjson\H202;
-use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment;
-use ApiClients\Client\GitHubAE\Schema\RunnerGroupsEnterprise;
+use ApiClients\Client\GitHubAE\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -49,16 +43,13 @@ final class EnterpriseAdmin
 
         $arguments['hook_id'] = $params['hook_id'];
         unset($params['hook_id']);
-        if (array_key_exists(Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks🌀CbHookIdRcb();
+        if (array_key_exists(Hydrator\Operation\Admin\Hooks\HookId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\Hooks\HookId::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks🌀HookId();
         }
 
-        $operation = new Operation\EnterpriseAdmin\UpdateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks\CbHookIdRcb::class], $arguments['hook_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\UpdateGlobalWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks\HookId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GlobalHook2 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['hook_id'], $params);
     }
 
     public function updateOrgName(array $params)
@@ -70,16 +61,13 @@ final class EnterpriseAdmin
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Admin\Organizations\CbOrgRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Admin\Organizations\CbOrgRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations🌀CbOrgRcb();
+        if (array_key_exists(Hydrator\Operation\Admin\Organizations\Org::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\Organizations\Org::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations🌀Org();
         }
 
-        $operation = new Operation\EnterpriseAdmin\UpdateOrgName($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Organizations\CbOrgRcb::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\UpdateOrgName($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Organizations\Org::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H202 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $params);
     }
 
     public function updatePreReceiveEnvironment(array $params)
@@ -91,31 +79,24 @@ final class EnterpriseAdmin
 
         $arguments['pre_receive_environment_id'] = $params['pre_receive_environment_id'];
         unset($params['pre_receive_environment_id']);
-        if (array_key_exists(Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreDashReceiveDashEnvironments🌀CbPreReceiveEnvironmentIdRcb();
+        if (array_key_exists(Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments🌀PreReceiveEnvironmentId();
         }
 
-        $operation = new Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreDashReceiveDashEnvironments\CbPreReceiveEnvironmentIdRcb::class], $arguments['pre_receive_environment_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\UpdatePreReceiveEnvironment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PreReceiveEnvironment {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['pre_receive_environment_id'], $params);
     }
 
     public function setAnnouncement(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\Enterprise\Announcement::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement();
         }
 
-        $operation = new Operation\EnterpriseAdmin\SetAnnouncement($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\SetAnnouncement($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Announcement {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($params);
     }
 
     public function updateSelfHostedRunnerGroupForEnterprise(array $params)
@@ -133,15 +114,12 @@ final class EnterpriseAdmin
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀CbEnterpriseRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb();
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups\RunnerGroupId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups\RunnerGroupId::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId();
         }
 
-        $operation = new Operation\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $arguments['enterprise'], $arguments['runner_group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups\RunnerGroupId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RunnerGroupsEnterprise {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 }

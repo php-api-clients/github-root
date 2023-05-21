@@ -6,14 +6,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheList;
-use ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\Applicationjson\H200;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -52,12 +49,9 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operation = new Operation\Actions\DisableSelectedRepositoryGithubActionsOrganization($arguments['org'], $arguments['repository_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DisableSelectedRepositoryGithubActionsOrganization($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['repository_id']);
     }
 
     public function removeAllCustomLabelsFromSelfHostedRunnerForOrg(array $params)
@@ -75,16 +69,13 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId\Labels::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels();
         }
 
-        $operation = new Operation\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $arguments['org'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId\Labels::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
     public function deleteArtifact(array $params)
@@ -108,12 +99,9 @@ final class Actions
 
         $arguments['artifact_id'] = $params['artifact_id'];
         unset($params['artifact_id']);
-        $operation = new Operation\Actions\DeleteArtifact($arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteArtifact($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
     }
 
     public function deleteActionsCacheById(array $params)
@@ -137,12 +125,9 @@ final class Actions
 
         $arguments['cache_id'] = $params['cache_id'];
         unset($params['cache_id']);
-        $operation = new Operation\Actions\DeleteActionsCacheById($arguments['owner'], $arguments['repo'], $arguments['cache_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteActionsCacheById($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['cache_id']);
     }
 
     public function deleteSelfHostedRunnerFromRepo(array $params)
@@ -166,12 +151,9 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operation = new Operation\Actions\DeleteSelfHostedRunnerFromRepo($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteSelfHostedRunnerFromRepo($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
     public function deleteWorkflowRun(array $params)
@@ -195,12 +177,9 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operation = new Operation\Actions\DeleteWorkflowRun($arguments['owner'], $arguments['repo'], $arguments['run_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteWorkflowRun($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
     public function deleteRepoSecret(array $params)
@@ -224,12 +203,9 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operation = new Operation\Actions\DeleteRepoSecret($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteRepoSecret($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
 
     public function deleteEnvironmentSecret(array $params)
@@ -253,12 +229,9 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operation = new Operation\Actions\DeleteEnvironmentSecret($arguments['repository_id'], $arguments['environment_name'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteEnvironmentSecret($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['secret_name']);
     }
 
     public function deleteSelfHostedRunnerGroupFromOrg(array $params)
@@ -276,12 +249,9 @@ final class Actions
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operation = new Operation\Actions\DeleteSelfHostedRunnerGroupFromOrg($arguments['org'], $arguments['runner_group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteSelfHostedRunnerGroupFromOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id']);
     }
 
     public function deleteSelfHostedRunnerFromOrg(array $params)
@@ -299,12 +269,9 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operation = new Operation\Actions\DeleteSelfHostedRunnerFromOrg($arguments['org'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteSelfHostedRunnerFromOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
     public function deleteOrgSecret(array $params)
@@ -322,12 +289,9 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        $operation = new Operation\Actions\DeleteOrgSecret($arguments['org'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteOrgSecret($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
     public function deleteActionsCacheByKey(array $params)
@@ -357,16 +321,13 @@ final class Actions
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Caches::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Caches::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Caches();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Caches::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Caches::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Caches();
         }
 
-        $operation = new Operation\Actions\DeleteActionsCacheByKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Caches::class], $arguments['owner'], $arguments['repo'], $arguments['key'], $arguments['ref']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteActionsCacheByKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Caches::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsCacheList {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key'], $arguments['ref']);
     }
 
     public function removeRepoAccessToSelfHostedRunnerGroupInOrg(array $params)
@@ -390,12 +351,9 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operation = new Operation\Actions\RemoveRepoAccessToSelfHostedRunnerGroupInOrg($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\RemoveRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
     }
 
     public function removeSelfHostedRunnerFromGroupForOrg(array $params)
@@ -419,12 +377,9 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operation = new Operation\Actions\RemoveSelfHostedRunnerFromGroupForOrg($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\RemoveSelfHostedRunnerFromGroupForOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
     public function removeCustomLabelFromSelfHostedRunnerForOrg(array $params)
@@ -448,16 +403,13 @@ final class Actions
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels🌀CbNameRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId\Labels\Name::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId\Labels\Name::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name();
         }
 
-        $operation = new Operation\Actions\RemoveCustomLabelFromSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class], $arguments['org'], $arguments['runner_id'], $arguments['name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId\Labels\Name::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_id'], $arguments['name']);
     }
 
     public function removeSelectedRepoFromOrgSecret(array $params)
@@ -481,12 +433,9 @@ final class Actions
 
         $arguments['repository_id'] = $params['repository_id'];
         unset($params['repository_id']);
-        $operation = new Operation\Actions\RemoveSelectedRepoFromOrgSecret($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\RemoveSelectedRepoFromOrgSecret($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }
 
     public function removeAllCustomLabelsFromSelfHostedRunnerForRepo(array $params)
@@ -510,16 +459,13 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId\Labels::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels();
         }
 
-        $operation = new Operation\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels::class], $arguments['owner'], $arguments['repo'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId\Labels::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
     public function deleteWorkflowRunLogs(array $params)
@@ -543,16 +489,13 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Logs::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Logs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Logs();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Logs::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Logs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Logs();
         }
 
-        $operation = new Operation\Actions\DeleteWorkflowRunLogs($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Logs::class], $arguments['owner'], $arguments['repo'], $arguments['run_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DeleteWorkflowRunLogs($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Logs::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
     public function removeCustomLabelFromSelfHostedRunnerForRepo(array $params)
@@ -582,15 +525,12 @@ final class Actions
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb🌀Labels🌀CbNameRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId\Labels\Name::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId\Labels\Name::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name();
         }
 
-        $operation = new Operation\Actions\RemoveCustomLabelFromSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb\Labels\CbNameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['runner_id'], $arguments['name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId\Labels\Name::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id'], $arguments['name']);
     }
 }

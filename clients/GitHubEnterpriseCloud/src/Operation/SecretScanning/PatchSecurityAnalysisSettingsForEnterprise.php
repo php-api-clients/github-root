@@ -26,12 +26,12 @@ final class PatchSecurityAnalysisSettingsForEnterprise
     private const METHOD         = 'PATCH';
     private const PATH           = '/enterprises/{enterprise}/code_security_and_analysis';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\CodeSecurityAndAnalysis $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\CodeSecurityAndAnalysis $hydrator, string $enterprise)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator, string $enterprise)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->enterprise              = $enterprise;
@@ -39,14 +39,17 @@ final class PatchSecurityAnalysisSettingsForEnterprise
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\SecretScanning\PatchSecurityAnalysisSettingsForEnterprise\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\SecretScanning\PatchSecurityAnalysisSettingsForEnterprise\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): mixed
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -56,14 +59,28 @@ final class PatchSecurityAnalysisSettingsForEnterprise
                 switch ($code) {
                     /**
                      * Resource not found
-                    **/
+                     **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Action started
+             **/
+            case 204:
+                return ['code' => 204];
+            /**
+             * The action could not be taken due to an in progress enablement, or a policy is preventing enablement
+             **/
+
+            case 422:
+                return ['code' => 422];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -44,16 +43,13 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\User\Following\CbUsernameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀CbUsernameRcb();
+        if (array_key_exists(Hydrator\Operation\User\Following\Username::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\Following\Username::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username();
         }
 
-        $operation = new Operation\Users\Unfollow($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\Unfollow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following\Username::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username']);
     }
 
     public function deleteGpgKeyForAuthenticatedUser(array $params)
@@ -65,16 +61,13 @@ final class Users
 
         $arguments['gpg_key_id'] = $params['gpg_key_id'];
         unset($params['gpg_key_id']);
-        if (array_key_exists(Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀CbGpgKeyIdRcb();
+        if (array_key_exists(Hydrator\Operation\User\GpgKeys\GpgKeyId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\GpgKeys\GpgKeyId::class] = $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId();
         }
 
-        $operation = new Operation\Users\DeleteGpgKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys\CbGpgKeyIdRcb::class], $arguments['gpg_key_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\DeleteGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\GpgKeys\GpgKeyId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['gpg_key_id']);
     }
 
     public function deletePublicSshKeyForAuthenticatedUser(array $params)
@@ -86,16 +79,13 @@ final class Users
 
         $arguments['key_id'] = $params['key_id'];
         unset($params['key_id']);
-        if (array_key_exists(Hydrator\Operation\User\Keys\CbKeyIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\Keys\CbKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀CbKeyIdRcb();
+        if (array_key_exists(Hydrator\Operation\User\Keys\KeyId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\Keys\KeyId::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId();
         }
 
-        $operation = new Operation\Users\DeletePublicSshKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys\CbKeyIdRcb::class], $arguments['key_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\DeletePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Keys\KeyId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['key_id']);
     }
 
     public function deleteSshSigningKeyForAuthenticatedUser(array $params)
@@ -107,30 +97,23 @@ final class Users
 
         $arguments['ssh_signing_key_id'] = $params['ssh_signing_key_id'];
         unset($params['ssh_signing_key_id']);
-        if (array_key_exists(Hydrator\Operation\User\SshSigningKeys\CbSshSigningKeyIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\SshSigningKeys\CbSshSigningKeyIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys🌀CbSshSigningKeyIdRcb();
+        if (array_key_exists(Hydrator\Operation\User\SshSigningKeys\SshSigningKeyId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\SshSigningKeys\SshSigningKeyId::class] = $this->hydrators->getObjectMapperOperation🌀User🌀SshSigningKeys🌀SshSigningKeyId();
         }
 
-        $operation = new Operation\Users\DeleteSshSigningKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\SshSigningKeys\CbSshSigningKeyIdRcb::class], $arguments['ssh_signing_key_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\DeleteSshSigningKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\SshSigningKeys\SshSigningKeyId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['ssh_signing_key_id']);
     }
 
     public function deleteEmailForAuthenticatedUser(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\User\Emails::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\User\Emails::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Emails();
         }
 
-        $operation = new Operation\Users\DeleteEmailForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Emails::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\DeleteEmailForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Emails::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($params);
     }
 }

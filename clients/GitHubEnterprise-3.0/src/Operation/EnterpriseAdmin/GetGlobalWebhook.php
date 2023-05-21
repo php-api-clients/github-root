@@ -24,12 +24,12 @@ final class GetGlobalWebhook
     private const METHOD         = 'GET';
     private const PATH           = '/admin/hooks/{hook_id}';
     private int $hookId;
-    /**This API is under preview and subject to change.**/
+    /**This API is under preview and subject to change. **/
     private string $accept;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator;
+    private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\CbHookIdRcb $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
     {
         $this->hookId                  = $hookId;
         $this->accept                  = $accept;
@@ -37,7 +37,7 @@ final class GetGlobalWebhook
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH));
     }
@@ -52,9 +52,9 @@ final class GetGlobalWebhook
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\GlobalHook::class, $body);
                 }

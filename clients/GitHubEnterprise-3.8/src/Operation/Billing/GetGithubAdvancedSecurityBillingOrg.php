@@ -24,16 +24,16 @@ final class GetGithubAdvancedSecurityBillingOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/settings/billing/advanced-security';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/settings/billing/advanced-security';
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**The number of results per page (max 100).**/
+    /**The number of results per page (max 100). **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\AdvancedSecurity $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Settings\Billing\AdvancedSecurity $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Settings\Billing\AdvancedSecurity $hydrator, string $org, int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Settings\Billing\AdvancedSecurity $hydrator, string $org, int $perPage = 30, int $page = 1)
     {
         $this->org                     = $org;
         $this->perPage                 = $perPage;
@@ -42,7 +42,7 @@ final class GetGithubAdvancedSecurityBillingOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{per_page}', '{page}'], [$this->org, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
     }
@@ -57,17 +57,17 @@ final class GetGithubAdvancedSecurityBillingOrg
                 switch ($code) {
                     /**
                      * Success
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AdvancedSecurityActiveCommitters::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AdvancedSecurityActiveCommitters::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\AdvancedSecurityActiveCommitters::class, $body);
                     /**
                      * Response if GitHub Advanced Security is not enabled for this repository
-                    **/
+                     **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

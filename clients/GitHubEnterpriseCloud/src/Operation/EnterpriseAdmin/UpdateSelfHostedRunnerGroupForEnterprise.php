@@ -25,14 +25,14 @@ final class UpdateSelfHostedRunnerGroupForEnterprise
     private const METHOD         = 'PATCH';
     private const PATH           = '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    /**Unique identifier of the self-hosted runner group.**/
+    /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups\RunnerGroupId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator, string $enterprise, int $runnerGroupId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups\RunnerGroupId $hydrator, string $enterprise, int $runnerGroupId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->enterprise              = $enterprise;
@@ -41,9 +41,9 @@ final class UpdateSelfHostedRunnerGroupForEnterprise
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_group_id}'], [$this->enterprise, $this->runnerGroupId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -58,9 +58,9 @@ final class UpdateSelfHostedRunnerGroupForEnterprise
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RunnerGroupsEnterprise::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RunnerGroupsEnterprise::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\RunnerGroupsEnterprise::class, $body);
                 }

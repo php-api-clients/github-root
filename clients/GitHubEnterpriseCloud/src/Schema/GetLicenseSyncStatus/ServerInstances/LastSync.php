@@ -9,7 +9,7 @@ final readonly class LastSync
     public const SCHEMA_JSON         = '{"type":"object","properties":{"date":{"type":"string"},"status":{"type":"string"},"error":{"type":"string"}}}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"date":"generated_date_null","status":"generated_status_null","error":"generated_error_null"}';
+    public const SCHEMA_EXAMPLE_DATA = '{"date":"generated","status":"generated","error":"generated"}';
 
     public function __construct(public ?string $date, public ?string $status, public ?string $error)
     {

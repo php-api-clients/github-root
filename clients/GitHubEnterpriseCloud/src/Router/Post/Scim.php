@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -44,15 +43,12 @@ final class Scim
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀CbOrgRcb🌀Users();
+        if (array_key_exists(Hydrator\Operation\Scim\V2\Organizations\Org\Users::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\Org\Users::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users();
         }
 
-        $operation = new Operation\Scim\ProvisionAndInviteUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Scim\ProvisionAndInviteUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\Org\Users::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $params);
     }
 }

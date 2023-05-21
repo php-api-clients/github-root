@@ -27,9 +27,9 @@ final class RemoveMember
     private string $org;
     private string $username;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Members\CbUsernameRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Members\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Members\CbUsernameRcb $hydrator, string $org, string $username)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Members\Username $hydrator, string $org, string $username)
     {
         $this->org                     = $org;
         $this->username                = $username;
@@ -37,12 +37,15 @@ final class RemoveMember
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{username}'], [$this->org, $this->username], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): mixed
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,14 +55,22 @@ final class RemoveMember
                 switch ($code) {
                     /**
                      * Forbidden
-                    **/
+                     **/
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

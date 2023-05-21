@@ -23,15 +23,79 @@ class Keys implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterprise\Schema\Key' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Key($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Key' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Key($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['message'] ?? null;
+
+            if ($value === null) {
+                $properties['message'] = null;
+                goto after_message;
+            }
+
+            $properties['message'] = $value;
+
+            after_message:
+
+            $value = $payload['documentation_url'] ?? null;
+
+            if ($value === null) {
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
+            }
+
+            $properties['documentationUrl'] = $value;
+
+            after_documentationUrl:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\BasicError(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Key(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Key
     {
         $properties = []; 
@@ -130,71 +194,6 @@ class Keys implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BasicError
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['message'] ?? null;
-
-            if ($value === null) {
-                $properties['message'] = null;
-                goto after_message;
-            }
-
-            $properties['message'] = $value;
-
-            after_message:
-
-            $value = $payload['documentation_url'] ?? null;
-
-            if ($value === null) {
-                $properties['documentationUrl'] = null;
-                goto after_documentationUrl;
-            }
-
-            $properties['documentationUrl'] = $value;
-
-            after_documentationUrl:
-
-            $value = $payload['url'] ?? null;
-
-            if ($value === null) {
-                $properties['url'] = null;
-                goto after_url;
-            }
-
-            $properties['url'] = $value;
-
-            after_url:
-
-            $value = $payload['status'] ?? null;
-
-            if ($value === null) {
-                $properties['status'] = null;
-                goto after_status;
-            }
-
-            $properties['status'] = $value;
-
-            after_status:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\BasicError(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BasicError', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError
     {
         $properties = []; 
@@ -229,16 +228,6 @@ class Keys implements ObjectMapper
                 goto after_errors;
             }
 
-            static $errorsCaster1;
-
-            if ($errorsCaster1 === null) {
-                $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
-));
-            }
-
-            $value = $errorsCaster1->cast($value, $this);
-
             $properties['errors'] = $value;
 
             after_errors:
@@ -255,93 +244,6 @@ class Keys implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['resource'] ?? null;
-
-            if ($value === null) {
-                $properties['resource'] = null;
-                goto after_resource;
-            }
-
-            $properties['resource'] = $value;
-
-            after_resource:
-
-            $value = $payload['field'] ?? null;
-
-            if ($value === null) {
-                $properties['field'] = null;
-                goto after_field;
-            }
-
-            $properties['field'] = $value;
-
-            after_field:
-
-            $value = $payload['message'] ?? null;
-
-            if ($value === null) {
-                $properties['message'] = null;
-                goto after_message;
-            }
-
-            $properties['message'] = $value;
-
-            after_message:
-
-            $value = $payload['code'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'code';
-                goto after_code;
-            }
-
-            $properties['code'] = $value;
-
-            after_code:
-
-            $value = $payload['index'] ?? null;
-
-            if ($value === null) {
-                $properties['index'] = null;
-                goto after_index;
-            }
-
-            $properties['index'] = $value;
-
-            after_index:
-
-            $value = $payload['value'] ?? null;
-
-            if ($value === null) {
-                $properties['value'] = null;
-                goto after_value;
-            }
-
-            $properties['value'] = $value;
-
-            after_value:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -376,10 +278,9 @@ class Keys implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Key' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Key($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Key' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Key($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -453,43 +354,6 @@ class Keys implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Key(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Key);
-        $result = [];
-
-        $key = $object->key;
-        after_key:        $result['key'] = $key;
-
-        
-        $id = $object->id;
-        after_id:        $result['id'] = $id;
-
-        
-        $url = $object->url;
-        after_url:        $result['url'] = $url;
-
-        
-        $title = $object->title;
-        after_title:        $result['title'] = $title;
-
-        
-        $createdAt = $object->createdAt;
-        after_createdAt:        $result['created_at'] = $createdAt;
-
-        
-        $verified = $object->verified;
-        after_verified:        $result['verified'] = $verified;
-
-        
-        $readOnly = $object->readOnly;
-        after_readOnly:        $result['read_only'] = $readOnly;
-
-
-        return $result;
-    }
-
-
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BasicError);
@@ -531,6 +395,43 @@ class Keys implements ObjectMapper
     }
 
 
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Key(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Key);
+        $result = [];
+
+        $key = $object->key;
+        after_key:        $result['key'] = $key;
+
+        
+        $id = $object->id;
+        after_id:        $result['id'] = $id;
+
+        
+        $url = $object->url;
+        after_url:        $result['url'] = $url;
+
+        
+        $title = $object->title;
+        after_title:        $result['title'] = $title;
+
+        
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        
+        $verified = $object->verified;
+        after_verified:        $result['verified'] = $verified;
+
+        
+        $readOnly = $object->readOnly;
+        after_readOnly:        $result['read_only'] = $readOnly;
+
+
+        return $result;
+    }
+
+
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ValidationError);
@@ -552,66 +453,12 @@ class Keys implements ObjectMapper
         static $errorsSerializer0;
 
         if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ValidationError\\Errors',
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
         $errors = $errorsSerializer0->serialize($errors, $this);
         after_errors:        $result['errors'] = $errors;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ValidationError\Errors);
-        $result = [];
-
-        $resource = $object->resource;
-
-        if ($resource === null) {
-            goto after_resource;
-        }
-        after_resource:        $result['resource'] = $resource;
-
-        
-        $field = $object->field;
-
-        if ($field === null) {
-            goto after_field;
-        }
-        after_field:        $result['field'] = $field;
-
-        
-        $message = $object->message;
-
-        if ($message === null) {
-            goto after_message;
-        }
-        after_message:        $result['message'] = $message;
-
-        
-        $code = $object->code;
-        after_code:        $result['code'] = $code;
-
-        
-        $index = $object->index;
-
-        if ($index === null) {
-            goto after_index;
-        }
-        after_index:        $result['index'] = $index;
-
-        
-        $value = $object->value;
-
-        if ($value === null) {
-            goto after_value;
-        }
-        after_value:        $result['value'] = $value;
 
 
         return $result;

@@ -24,12 +24,12 @@ final class GetPreReceiveHookForOrg
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     private string $org;
-    /**pre_receive_hook_id parameter**/
+    /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator, string $org, int $preReceiveHookId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, string $org, int $preReceiveHookId)
     {
         $this->org                     = $org;
         $this->preReceiveHookId        = $preReceiveHookId;
@@ -37,7 +37,7 @@ final class GetPreReceiveHookForOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], self::PATH));
     }
@@ -52,9 +52,9 @@ final class GetPreReceiveHookForOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrgPreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrgPreReceiveHook::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\OrgPreReceiveHook::class, $body);
                 }

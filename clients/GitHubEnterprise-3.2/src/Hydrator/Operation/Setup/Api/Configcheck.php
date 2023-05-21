@@ -24,7 +24,6 @@ class Configcheck implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -53,16 +52,6 @@ class Configcheck implements ObjectMapper
                 goto after_progress;
             }
 
-            static $progressCaster1;
-
-            if ($progressCaster1 === null) {
-                $progressCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus\\Progress',
-));
-            }
-
-            $value = $progressCaster1->cast($value, $this);
-
             $properties['progress'] = $value;
 
             after_progress:
@@ -79,49 +68,6 @@ class Configcheck implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['status'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'status';
-                goto after_status;
-            }
-
-            $properties['status'] = $value;
-
-            after_status:
-
-            $value = $payload['key'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'key';
-                goto after_key;
-            }
-
-            $properties['key'] = $value;
-
-            after_key:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -157,7 +103,6 @@ class Configcheck implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -252,30 +197,12 @@ class Configcheck implements ObjectMapper
         static $progressSerializer0;
 
         if ($progressSerializer0 === null) {
-            $progressSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubEnterprise\\Schema\\ConfigurationStatus\\Progress',
+            $progressSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
 ));
         }
         
         $progress = $progressSerializer0->serialize($progress, $this);
         after_progress:        $result['progress'] = $progress;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ConfigurationStatus⚡️Progress(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus\Progress);
-        $result = [];
-
-        $status = $object->status;
-        after_status:        $result['status'] = $status;
-
-        
-        $key = $object->key;
-        after_key:        $result['key'] = $key;
 
 
         return $result;

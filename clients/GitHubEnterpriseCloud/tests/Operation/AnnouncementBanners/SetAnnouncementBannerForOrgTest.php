@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\AnnouncementBanners;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Client;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation\AnnouncementBanners\SetAnnouncementBannerForOrg;
+use ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
@@ -14,6 +14,7 @@ use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
 use function json_decode;
+use function React\Async\await;
 use function React\Promise\resolve;
 
 final class SetAnnouncementBannerForOrgTest extends AsyncTestCase
@@ -21,7 +22,7 @@ final class SetAnnouncementBannerForOrgTest extends AsyncTestCase
     /**
      * @test
      */
-    public function httpCode_200_requestContentType_application_json_responseContentType_application_json(): void
+    public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\AnnouncementBanner::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
@@ -29,12 +30,28 @@ final class SetAnnouncementBannerForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated_null/announcement', Argument::type('array'), Schema\Announcement::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/announcement', Argument::type('array'), Schema\Announcement::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(SetAnnouncementBannerForOrg::OPERATION_MATCH, (static function (array $data): array {
-            $data['org'] = 'generated_null';
+        $result = $client->call(Operation\AnnouncementBanners\SetAnnouncementBannerForOrg::OPERATION_MATCH, (static function (array $data): array {
+            $data['org'] = 'generated';
 
             return $data;
         })(json_decode(Schema\Announcement::SCHEMA_EXAMPLE_DATA, true)));
+    }
+
+    /**
+     * @test
+     */
+    public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
+    {
+        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\AnnouncementBanner::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('PATCH', '/orgs/generated/announcement', Argument::type('array'), Schema\Announcement::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->announcementBanners()->setAnnouncementBannerForOrg('generated', json_decode(Schema\Announcement::SCHEMA_EXAMPLE_DATA, true)));
     }
 }

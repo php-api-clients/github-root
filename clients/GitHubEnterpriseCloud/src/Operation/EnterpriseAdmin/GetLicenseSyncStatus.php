@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -23,24 +21,24 @@ final class GetLicenseSyncStatus
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/license-sync-status';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprises/{enterprise}/license-sync-status';
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\LicenseSyncStatus $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\LicenseSyncStatus $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\LicenseSyncStatus $hydrator, string $enterprise)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\LicenseSyncStatus $hydrator, string $enterprise)
     {
         $this->enterprise              = $enterprise;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\GetLicenseSyncStatus
+    public function createResponse(ResponseInterface $response): string
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -48,13 +46,8 @@ final class GetLicenseSyncStatus
             case 'application/json':
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
-                    /**
-                     * License Sync Status Response
-                    **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GetLicenseSyncStatus::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-
-                        return $this->hydrator->hydrateObject(Schema\GetLicenseSyncStatus::class, $body);
+                        return $body;
                 }
 
                 break;

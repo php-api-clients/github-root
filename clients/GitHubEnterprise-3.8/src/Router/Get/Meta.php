@@ -6,15 +6,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\ApiOverview;
-use ApiClients\Client\GitHubEnterprise\Schema\Operation\Meta\GetZen\Response\Textplain\H200;
-use ApiClients\Client\GitHubEnterprise\Schema\Root;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -40,32 +36,24 @@ final class Meta
 
     public function root(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\Root::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Root::class] = $this->hydrators->getObjectMapperOperation🌀Root();
         }
 
-        $operation = new Operation\Meta\Root($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Root::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Meta\Root($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Root::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Root {
-            return $operation->createResponse($response);
-        });
+        return $operator->call();
     }
 
     public function get(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\Meta::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Meta::class] = $this->hydrators->getObjectMapperOperation🌀Meta();
         }
 
-        $operation = new Operation\Meta\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Meta::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Meta\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Meta::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ApiOverview {
-            return $operation->createResponse($response);
-        });
+        return $operator->call();
     }
 
     public function getOctocat(array $params)
@@ -77,26 +65,19 @@ final class Meta
 
         $arguments['s'] = $params['s'];
         unset($params['s']);
-        $operation = new Operation\Meta\GetOctocat($arguments['s']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Meta\GetOctocat($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['s']);
     }
 
     public function getZen(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\Zen::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Zen::class] = $this->hydrators->getObjectMapperOperation🌀Zen();
         }
 
-        $operation = new Operation\Meta\GetZen($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Zen::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Meta\GetZen($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Zen::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call();
     }
 }

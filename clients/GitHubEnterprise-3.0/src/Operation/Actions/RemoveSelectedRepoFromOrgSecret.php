@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\Actions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -17,7 +18,7 @@ final class RemoveSelectedRepoFromOrgSecret
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}';
     private string $org;
-    /**secret_name parameter**/
+    /**secret_name parameter **/
     private string $secretName;
     private int $repositoryId;
 
@@ -28,13 +29,31 @@ final class RemoveSelectedRepoFromOrgSecret
         $this->repositoryId = $repositoryId;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{secret_name}', '{repository_id}'], [$this->org, $this->secretName, $this->repositoryId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response when repository was removed from the selected list
+             **/
+            case 204:
+                return ['code' => 204];
+            /**
+             * Conflict when visibility type not set to selected
+             **/
+
+            case 409:
+                return ['code' => 409];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

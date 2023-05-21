@@ -25,16 +25,16 @@ final class GetAllowedActionsOrganization
     private const PATH           = '/orgs/{org}/actions/permissions/selected-actions';
     private string $org;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions $hydrator, string $org)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions $hydrator, string $org)
     {
         $this->org                     = $org;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
     }
@@ -49,9 +49,9 @@ final class GetAllowedActionsOrganization
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\SelectedActions::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\SelectedActions::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\SelectedActions::class, $body);
                 }

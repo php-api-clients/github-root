@@ -25,7 +25,7 @@ final class DownloadJobLogsForWorkflowRunStreaming
     private const PATH           = '/repos/{owner}/{repo}/actions/jobs/{job_id}/logs';
     private string $owner;
     private string $repo;
-    /**job_id parameter**/
+    /**job_id parameter **/
     private int $jobId;
     private readonly Browser $browser;
 
@@ -37,7 +37,7 @@ final class DownloadJobLogsForWorkflowRunStreaming
         $this->browser = $browser;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], self::PATH));
     }
@@ -51,7 +51,7 @@ final class DownloadJobLogsForWorkflowRunStreaming
         switch ($code) {
             /**
              * Response
-            **/
+             **/
             case 302:
                 $stream = new Subject();
                 $this->browser->requestStreaming('GET', $response->getHeaderLine('location'))->then(static function (ResponseInterface $response) use ($stream): void {

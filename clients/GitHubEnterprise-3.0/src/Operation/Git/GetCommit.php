@@ -26,12 +26,12 @@ final class GetCommit
     private const PATH           = '/repos/{owner}/{repo}/git/commits/{commit_sha}';
     private string $owner;
     private string $repo;
-    /**commit_sha parameter**/
+    /**commit_sha parameter **/
     private string $commitSha;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Commits\CommitSha $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Git\Commits\CbCommitShaRcb $hydrator, string $owner, string $repo, string $commitSha)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Git\Commits\CommitSha $hydrator, string $owner, string $repo, string $commitSha)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -40,7 +40,7 @@ final class GetCommit
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{commit_sha}'], [$this->owner, $this->repo, $this->commitSha], self::PATH));
     }
@@ -55,17 +55,17 @@ final class GetCommit
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GitCommit::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GitCommit::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\GitCommit::class, $body);
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

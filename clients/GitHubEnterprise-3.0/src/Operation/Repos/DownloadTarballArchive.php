@@ -28,7 +28,7 @@ final class DownloadTarballArchive
         $this->ref   = $ref;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], self::PATH));
     }
@@ -42,7 +42,7 @@ final class DownloadTarballArchive
         switch ($code) {
             /**
              * Response
-            **/
+             **/
             case 302:
                 return ['code' => 302, 'location' => $response->getHeaderLine('Location')];
         }

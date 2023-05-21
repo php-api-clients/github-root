@@ -6,13 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\DependencyGraph\CreateRepositorySnapshot\Response\Applicationjson\H201;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -51,15 +49,12 @@ final class DependencyGraph
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\DependencyGraph\Snapshots::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\DependencyGraph\Snapshots::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀DependencyGraph🌀Snapshots();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\DependencyGraph\Snapshots::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\DependencyGraph\Snapshots::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀DependencyGraph🌀Snapshots();
         }
 
-        $operation = new Operation\DependencyGraph\CreateRepositorySnapshot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\DependencyGraph\Snapshots::class], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\DependencyGraph\CreateRepositorySnapshot($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\DependencyGraph\Snapshots::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H201 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 }

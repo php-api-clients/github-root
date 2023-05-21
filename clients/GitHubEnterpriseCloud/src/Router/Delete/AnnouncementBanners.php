@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -43,12 +42,9 @@ final class AnnouncementBanners
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        $operation = new Operation\AnnouncementBanners\RemoveAnnouncementBannerForEnterprise($arguments['enterprise']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\AnnouncementBanners\RemoveAnnouncementBannerForEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise']);
     }
 
     public function removeAnnouncementBannerForOrg(array $params)
@@ -60,11 +56,8 @@ final class AnnouncementBanners
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operation = new Operation\AnnouncementBanners\RemoveAnnouncementBannerForOrg($arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\AnnouncementBanners\RemoveAnnouncementBannerForOrg($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 }

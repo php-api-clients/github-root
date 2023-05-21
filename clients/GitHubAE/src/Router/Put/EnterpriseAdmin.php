@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Router\Put;
 
 use ApiClients\Client\GitHubAE\Hydrators;
-use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -43,12 +42,9 @@ final class EnterpriseAdmin
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        $operation = new Operation\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise($this->requestSchemaValidator, $arguments['enterprise']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $params);
     }
 
     public function setSelectedOrganizationsEnabledGithubActionsEnterprise(array $params)
@@ -60,12 +56,9 @@ final class EnterpriseAdmin
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        $operation = new Operation\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise($this->requestSchemaValidator, $arguments['enterprise']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $params);
     }
 
     public function setAllowedActionsEnterprise(array $params)
@@ -77,12 +70,9 @@ final class EnterpriseAdmin
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        $operation = new Operation\EnterpriseAdmin\SetAllowedActionsEnterprise($this->requestSchemaValidator, $arguments['enterprise']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\SetAllowedActionsEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $params);
     }
 
     public function enableSelectedOrganizationGithubActionsEnterprise(array $params)
@@ -100,12 +90,9 @@ final class EnterpriseAdmin
 
         $arguments['org_id'] = $params['org_id'];
         unset($params['org_id']);
-        $operation = new Operation\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise($arguments['enterprise'], $arguments['org_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
     public function setSelfHostedRunnersInGroupForEnterprise(array $params)
@@ -123,12 +110,9 @@ final class EnterpriseAdmin
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        $operation = new Operation\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise($this->requestSchemaValidator, $arguments['enterprise'], $arguments['runner_group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
     public function addSelfHostedRunnerToGroupForEnterprise(array $params)
@@ -152,12 +136,9 @@ final class EnterpriseAdmin
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        $operation = new Operation\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
     public function suspendUser(array $params)
@@ -169,11 +150,8 @@ final class EnterpriseAdmin
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operation = new Operation\EnterpriseAdmin\SuspendUser($this->requestSchemaValidator, $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\EnterpriseAdmin\SuspendUser($this->browser, $this->authentication, $this->requestSchemaValidator);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username'], $params);
     }
 }

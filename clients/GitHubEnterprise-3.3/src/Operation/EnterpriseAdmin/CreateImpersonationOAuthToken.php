@@ -25,12 +25,12 @@ final class CreateImpersonationOAuthToken
     private const METHOD         = 'POST';
     private const PATH           = '/admin/users/{username}/authorizations';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The handle for the GitHub user account.**/
+    /**The handle for the GitHub user account. **/
     private string $username;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations $hydrator;
+    private readonly Hydrator\Operation\Admin\Users\Username\Authorizations $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Users\CbUsernameRcb\Authorizations $hydrator, string $username)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Users\Username\Authorizations $hydrator, string $username)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->username                = $username;
@@ -38,9 +38,9 @@ final class CreateImpersonationOAuthToken
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -55,17 +55,17 @@ final class CreateImpersonationOAuthToken
                 switch ($code) {
                     /**
                      * Response when creating a new impersonation OAuth token
-                    **/
+                     **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                     /**
                      * Response when getting an existing impersonation OAuth token
-                    **/
+                     **/
 
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                 }

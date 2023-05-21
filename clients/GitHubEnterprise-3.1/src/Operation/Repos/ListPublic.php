@@ -13,8 +13,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
 use RuntimeException;
-use Rx\Observable;
-use Rx\Scheduler\ImmediateScheduler;
 
 use function explode;
 use function json_decode;
@@ -26,9 +24,9 @@ final class ListPublic
     public const OPERATION_MATCH = 'GET /repositories';
     private const METHOD         = 'GET';
     private const PATH           = '/repositories';
-    /**A repository ID. Only return repositories with an ID greater than this ID.**/
+    /**A repository ID. Only return repositories with an ID greater than this ID. **/
     private int $since;
-    /**Specifies the types of repositories to return. This endpoint will only list repositories available to all users on the enterprise.**/
+    /**Specifies the types of repositories to return. This endpoint will only list repositories available to all users on the enterprise. **/
     private string $visibility;
     private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repositories $hydrator;
@@ -41,15 +39,15 @@ final class ListPublic
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{since}', '{visibility}'], [$this->since, $this->visibility], self::PATH . '?since={since}&visibility={visibility}'));
     }
 
     /**
-     * @return Observable<Schema\MinimalRepository>
+     * @return array{code: int}
      */
-    public function createResponse(ResponseInterface $response): Observable
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -58,27 +56,23 @@ final class ListPublic
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
-                     * Response
-                    **/
-                    case 200:
-                        foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\MinimalRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        }
-
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\MinimalRepository {
-                            return $this->hydrator->hydrateObject(Schema\MinimalRepository::class, $body);
-                        });
-                    /**
                      * Validation failed
-                    **/
-
+                     **/
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Not modified
+             **/
+            case 304:
+                return ['code' => 304];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

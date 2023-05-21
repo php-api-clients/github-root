@@ -6,16 +6,11 @@ namespace ApiClients\Client\GitHubAE\Router\Post;
 
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
-use ApiClients\Client\GitHubAE\Operation;
-use ApiClients\Client\GitHubAE\Schema\Authorization;
-use ApiClients\Client\GitHubAE\Schema\InstallationToken;
-use ApiClients\Client\GitHubAE\Schema\Operation\Apps\CreateFromManifest\Response\Applicationjson\H201;
-use ApiClients\Client\GitHubAE\Schema\Operation\Apps\RedeliverWebhookDelivery\Response\Applicationjson\H202;
+use ApiClients\Client\GitHubAE\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -48,16 +43,13 @@ final class Apps
 
         $arguments['installation_id'] = $params['installation_id'];
         unset($params['installation_id']);
-        if (array_key_exists(Hydrator\Operation\App\Installations\CbInstallationIdRcb\AccessTokens::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb\AccessTokens::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀CbInstallationIdRcb🌀AccessTokens();
+        if (array_key_exists(Hydrator\Operation\App\Installations\InstallationId\AccessTokens::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\App\Installations\InstallationId\AccessTokens::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Installations🌀InstallationId🌀AccessTokens();
         }
 
-        $operation = new Operation\Apps\CreateInstallationAccessToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations\CbInstallationIdRcb\AccessTokens::class], $arguments['installation_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Apps\CreateInstallationAccessToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations\InstallationId\AccessTokens::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): InstallationToken {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['installation_id'], $params);
     }
 
     public function resetAuthorization(array $params)
@@ -75,16 +67,13 @@ final class Apps
 
         $arguments['access_token'] = $params['access_token'];
         unset($params['access_token']);
-        if (array_key_exists(Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Tokens🌀CbAccessTokenRcb();
+        if (array_key_exists(Hydrator\Operation\Applications\ClientId\Tokens\AccessToken::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Applications\ClientId\Tokens\AccessToken::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Tokens🌀AccessToken();
         }
 
-        $operation = new Operation\Apps\ResetAuthorization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Tokens\CbAccessTokenRcb::class], $arguments['client_id'], $arguments['access_token']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Apps\ResetAuthorization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\ClientId\Tokens\AccessToken::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Authorization {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
     public function createFromManifest(array $params)
@@ -96,16 +85,13 @@ final class Apps
 
         $arguments['code'] = $params['code'];
         unset($params['code']);
-        if (array_key_exists(Hydrator\Operation\AppManifests\CbCodeRcb\Conversions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\AppManifests\CbCodeRcb\Conversions::class] = $this->hydrators->getObjectMapperOperation🌀AppManifests🌀CbCodeRcb🌀Conversions();
+        if (array_key_exists(Hydrator\Operation\AppManifests\Code\Conversions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\AppManifests\Code\Conversions::class] = $this->hydrators->getObjectMapperOperation🌀AppManifests🌀Code🌀Conversions();
         }
 
-        $operation = new Operation\Apps\CreateFromManifest($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\AppManifests\CbCodeRcb\Conversions::class], $arguments['code']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Apps\CreateFromManifest($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\AppManifests\Code\Conversions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H201 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['code']);
     }
 
     public function checkToken(array $params)
@@ -117,16 +103,13 @@ final class Apps
 
         $arguments['client_id'] = $params['client_id'];
         unset($params['client_id']);
-        if (array_key_exists(Hydrator\Operation\Applications\CbClientIdRcb\Token::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀CbClientIdRcb🌀Token();
+        if (array_key_exists(Hydrator\Operation\Applications\ClientId\Token::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Applications\ClientId\Token::class] = $this->hydrators->getObjectMapperOperation🌀Applications🌀ClientId🌀Token();
         }
 
-        $operation = new Operation\Apps\CheckToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\CbClientIdRcb\Token::class], $arguments['client_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Apps\CheckToken($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Applications\ClientId\Token::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Authorization {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['client_id'], $params);
     }
 
     public function redeliverWebhookDelivery(array $params)
@@ -138,15 +121,12 @@ final class Apps
 
         $arguments['delivery_id'] = $params['delivery_id'];
         unset($params['delivery_id']);
-        if (array_key_exists(Hydrator\Operation\App\Hook\Deliveries\CbDeliveryIdRcb\Attempts::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\CbDeliveryIdRcb\Attempts::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀CbDeliveryIdRcb🌀Attempts();
+        if (array_key_exists(Hydrator\Operation\App\Hook\Deliveries\DeliveryId\Attempts::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\DeliveryId\Attempts::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Deliveries🌀DeliveryId🌀Attempts();
         }
 
-        $operation = new Operation\Apps\RedeliverWebhookDelivery($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\CbDeliveryIdRcb\Attempts::class], $arguments['delivery_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Apps\RedeliverWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Hook\Deliveries\DeliveryId\Attempts::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H202 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['delivery_id']);
     }
 }

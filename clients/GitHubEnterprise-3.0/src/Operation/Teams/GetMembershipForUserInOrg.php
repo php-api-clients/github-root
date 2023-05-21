@@ -24,13 +24,13 @@ final class GetMembershipForUserInOrg
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/memberships/{username}';
     private string $org;
-    /**team_slug parameter**/
+    /**team_slug parameter **/
     private string $teamSlug;
     private string $username;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb $hydrator, string $org, string $teamSlug, string $username)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username $hydrator, string $org, string $teamSlug, string $username)
     {
         $this->org                     = $org;
         $this->teamSlug                = $teamSlug;
@@ -39,12 +39,15 @@ final class GetMembershipForUserInOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{username}'], [$this->org, $this->teamSlug, $this->username], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\TeamMembership
+    /**
+     * @return Schema\TeamMembership|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\TeamMembership|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -54,14 +57,22 @@ final class GetMembershipForUserInOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamMembership::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamMembership::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\TeamMembership::class, $body);
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * if user has no team membership
+             **/
+            case 404:
+                return ['code' => 404];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -13,8 +13,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
 use RuntimeException;
-use Rx\Observable;
-use Rx\Scheduler\ImmediateScheduler;
 
 use function explode;
 use function json_decode;
@@ -30,12 +28,12 @@ final class SetLabels
     private readonly SchemaValidator $requestSchemaValidator;
     private string $owner;
     private string $repo;
-    /**issue_number parameter**/
+    /**issue_number parameter **/
     private int $issueNumber;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb\Labels $hydrator, string $owner, string $repo, int $issueNumber)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator, string $owner, string $repo, int $issueNumber)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->owner                   = $owner;
@@ -45,17 +43,14 @@ final class SetLabels
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\SetLabels\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\SetLabels\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}'], [$this->owner, $this->repo, $this->issueNumber], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Observable<Schema\Label>
-     */
-    public function createResponse(ResponseInterface $response): Observable
+    public function createResponse(ResponseInterface $response): mixed
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -64,30 +59,18 @@ final class SetLabels
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
-                     * Response
-                    **/
-                    case 200:
-                        foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\Label::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        }
-
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\Label {
-                            return $this->hydrator->hydrateObject(Schema\Label::class, $body);
-                        });
-                    /**
                      * Gone
-                    **/
-
+                     **/
                     case 410:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(410, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                     /**
                      * Validation failed
-                    **/
+                     **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                 }

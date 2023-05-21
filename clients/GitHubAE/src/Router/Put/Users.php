@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHubAE\Router\Put;
 
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
-use ApiClients\Client\GitHubAE\Operation;
+use ApiClients\Client\GitHubAE\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -44,15 +43,12 @@ final class Users
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\User\Following\CbUsernameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀CbUsernameRcb();
+        if (array_key_exists(Hydrator\Operation\User\Following\Username::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\User\Following\Username::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username();
         }
 
-        $operation = new Operation\Users\Follow($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following\CbUsernameRcb::class], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Users\Follow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Following\Username::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['username']);
     }
 }

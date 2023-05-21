@@ -1,41 +1,22 @@
 <?php
 
+use Symfony\Component\Yaml\Yaml;
 use WyriHaximus\SubSplitTools\Files;
 
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 const CLIENTS_PATH =  'clients/';
 const CLIENTS_ROOT =  __DIR__ . '/../' . CLIENTS_PATH;
+const SPECS_RELATIVE = 'etc/specs/';
+const SPECS_ROOT =  __DIR__ . '/../' . SPECS_RELATIVE;
 const SKELLETON_ROOT = __DIR__ . '/../skelleton/';
 const SUBSPLIT_CONFIG_PATH = __DIR__ . '/../etc/config.subsplit-publish.json';
 const GHES_PREFIX = 'descriptions-next/ghes-';
+const WORKFLOW_PATH = __DIR__ . '/../.github/workflows/';
+const WORKFLOW_SKELETON = __DIR__ . '/../etc/workflow-skeleton/';
 
 /** @var array<array{specUrl: string, fullName: string, namespace: string, packageName: string}> $clients */
 $clients = [];
-$clients[] = [
-    'specUrl' => 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/api.github.com/api.github.com.yaml',
-    'fullName' => 'GitHub',
-    'namespace' => 'GitHub',
-    'path' => 'GitHub',
-    'packageName' => 'github',
-    'branch' => 'v0.2.x',
-];
-$clients[] = [
-    'specUrl' => 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghec/ghec.yaml',
-    'fullName' => 'GitHub Enterprise Cloud',
-    'namespace' => 'GitHubEnterpriseCloud',
-    'path' => 'GitHubEnterpriseCloud',
-    'packageName' => 'github-enterprise-cloud',
-    'branch' => 'v0.1.x',
-];
-$clients[] = [
-    'specUrl' => 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/github.ae/github.ae.yaml',
-    'fullName' => 'GitHub AE',
-    'namespace' => 'GitHubAE',
-    'path' => 'GitHubAE',
-    'packageName' => 'github-ae',
-    'branch' => 'v0.1.x',
-];
 
 foreach (json_decode(
     file_get_contents(
@@ -80,8 +61,39 @@ foreach (json_decode(
     ];
 }
 
+$clients[] = [
+    'specUrl' => 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/api.github.com/api.github.com.yaml',
+    'fullName' => 'GitHub',
+    'namespace' => 'GitHub',
+    'path' => 'GitHub',
+    'packageName' => 'github',
+    'branch' => 'v0.2.x',
+];
+$clients[] = [
+    'specUrl' => 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghec/ghec.yaml',
+    'fullName' => 'GitHub Enterprise Cloud',
+    'namespace' => 'GitHubEnterpriseCloud',
+    'path' => 'GitHubEnterpriseCloud',
+    'packageName' => 'github-enterprise-cloud',
+    'branch' => 'v0.1.x',
+];
+$clients[] = [
+    'specUrl' => 'https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/github.ae/github.ae.yaml',
+    'fullName' => 'GitHub AE',
+    'namespace' => 'GitHubAE',
+    'path' => 'GitHubAE',
+    'packageName' => 'github-ae',
+    'branch' => 'v0.1.x',
+];
+
+if (!file_exists(SPECS_ROOT)) {
+    mkdir(SPECS_ROOT);
+}
+
 $subSplitConfig = [];
-foreach ($clients as $client) {
+foreach ($clients as $hour => $client) {
+    $client['hour'] = $hour;
+    $client['specPath'] = SPECS_RELATIVE . $client['path'] . '/current.spec.yaml';
     $subSplitConfig[$client['fullName']] = [
         'name' => $client['packageName'],
         'directory' => CLIENTS_PATH . $client['path'],
@@ -92,6 +104,25 @@ foreach ($clients as $client) {
     Files::setUp(
         SKELLETON_ROOT,
         CLIENTS_ROOT . $client['path'],
+        $client,
+    );
+
+    if (!file_exists(SPECS_ROOT . $client['path'])) {
+        mkdir(SPECS_ROOT . $client['path']);
+    }
+
+    if (!file_exists(SPECS_ROOT . $client['path'] . '/current.spec.yaml')) {
+        \Safe\file_put_contents(
+            SPECS_ROOT . $client['path'] . '/current.spec.yaml',
+            \Safe\file_get_contents(
+                $client['specUrl'],
+            ),
+        );
+    }
+
+    Files::setUp(
+        WORKFLOW_SKELETON,
+        WORKFLOW_PATH,
         $client,
     );
 }

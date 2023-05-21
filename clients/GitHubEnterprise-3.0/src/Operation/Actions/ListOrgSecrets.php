@@ -24,14 +24,14 @@ final class ListOrgSecrets
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/secrets';
     private string $org;
-    /**Results per page (max 100)**/
+    /**Results per page (max 100) **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets $hydrator, string $org, int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Secrets $hydrator, string $org, int $perPage = 30, int $page = 1)
     {
         $this->org                     = $org;
         $this->perPage                 = $perPage;
@@ -40,12 +40,12 @@ final class ListOrgSecrets
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{per_page}', '{page}'], [$this->org, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operation\Actions\ListOrgSecrets\Response\Applicationjson\H200
+    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,11 +55,11 @@ final class ListOrgSecrets
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operation\Actions\ListOrgSecrets\Response\Applicationjson\H200::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operation\Actions\ListOrgSecrets\Response\Applicationjson\H200::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok::class, $body);
                 }
 
                 break;

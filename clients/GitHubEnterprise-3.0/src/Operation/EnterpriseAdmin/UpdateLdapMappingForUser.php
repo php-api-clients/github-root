@@ -27,9 +27,9 @@ final class UpdateLdapMappingForUser
     private readonly SchemaValidator $requestSchemaValidator;
     private string $username;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Mapping $hydrator;
+    private readonly Hydrator\Operation\Admin\Ldap\Users\Username\Mapping $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Users\CbUsernameRcb\Mapping $hydrator, string $username)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Users\Username\Mapping $hydrator, string $username)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->username                = $username;
@@ -37,9 +37,9 @@ final class UpdateLdapMappingForUser
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -54,9 +54,9 @@ final class UpdateLdapMappingForUser
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\LdapMappingUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\LdapMappingUser::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\LdapMappingUser::class, $body);
                 }

@@ -13,8 +13,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
 use RuntimeException;
-use Rx\Observable;
-use Rx\Scheduler\ImmediateScheduler;
 
 use function explode;
 use function json_decode;
@@ -28,16 +26,16 @@ final class ListContributors
     private const PATH           = '/repos/{owner}/{repo}/contributors';
     private string $owner;
     private string $repo;
-    /**Set to `1` or `true` to include anonymous contributors in results.**/
+    /**Set to `1` or `true` to include anonymous contributors in results. **/
     private string $anon;
-    /**Results per page (max 100)**/
+    /**Results per page (max 100) **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contributors $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Contributors $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Contributors $hydrator, string $owner, string $repo, string $anon, int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Contributors $hydrator, string $owner, string $repo, string $anon, int $perPage = 30, int $page = 1)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -48,15 +46,15 @@ final class ListContributors
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{anon}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->anon, $this->perPage, $this->page], self::PATH . '?anon={anon}&per_page={per_page}&page={page}'));
     }
 
     /**
-     * @return Observable<Schema\Contributor>
+     * @return array{code: int}
      */
-    public function createResponse(ResponseInterface $response): Observable
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -65,35 +63,31 @@ final class ListContributors
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
-                     * if repository contains content
-                    **/
-                    case 200:
-                        foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\Contributor::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        }
-
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\Contributor {
-                            return $this->hydrator->hydrateObject(Schema\Contributor::class, $body);
-                        });
-                    /**
                      * Forbidden
-                    **/
-
+                     **/
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Response if repository is empty
+             **/
+            case 204:
+                return ['code' => 204];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

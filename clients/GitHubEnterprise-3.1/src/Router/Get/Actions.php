@@ -6,27 +6,12 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\ActionsOrganizationPermissions;
-use ApiClients\Client\GitHubEnterprise\Schema\ActionsPublicKey;
-use ApiClients\Client\GitHubEnterprise\Schema\ActionsRepositoryPermissions;
-use ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret;
-use ApiClients\Client\GitHubEnterprise\Schema\Artifact;
-use ApiClients\Client\GitHubEnterprise\Schema\Job;
-use ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\Applicationjson\H200;
-use ApiClients\Client\GitHubEnterprise\Schema\OrganizationActionsSecret;
-use ApiClients\Client\GitHubEnterprise\Schema\Runner;
-use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg;
-use ApiClients\Client\GitHubEnterprise\Schema\SelectedActions;
-use ApiClients\Client\GitHubEnterprise\Schema\Workflow;
-use ApiClients\Client\GitHubEnterprise\Schema\WorkflowRun;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use Rx\Observable;
 
 use function array_key_exists;
 
@@ -70,16 +55,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀Repositories();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Permissions\Repositories::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Permissions\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories();
         }
 
-        $operation = new Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\Repositories::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Permissions\Repositories::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getAllowedActionsOrganization(array $params)
@@ -91,16 +73,13 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions🌀SelectedActions();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀SelectedActions();
         }
 
-        $operation = new Operation\Actions\GetAllowedActionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions\SelectedActions::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetAllowedActionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): SelectedActions {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 
     public function getSelfHostedRunnerGroupForOrg(array $params)
@@ -118,16 +97,13 @@ final class Actions
 
         $arguments['runner_group_id'] = $params['runner_group_id'];
         unset($params['runner_group_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId();
         }
 
-        $operation = new Operation\Actions\GetSelfHostedRunnerGroupForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb::class], $arguments['org'], $arguments['runner_group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RunnerGroupsOrg {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id']);
     }
 
     public function listRunnerApplicationsForOrg(array $params)
@@ -139,16 +115,9 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀Downloads();
-        }
+        $operator = new Operator\Actions\ListRunnerApplicationsForOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Actions\ListRunnerApplicationsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\Downloads::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 
     public function getSelfHostedRunnerForOrg(array $params)
@@ -166,16 +135,13 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners🌀CbRunnerIdRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId();
         }
 
-        $operation = new Operation\Actions\GetSelfHostedRunnerForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners\CbRunnerIdRcb::class], $arguments['org'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\RunnerId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Runner {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
     public function getOrgPublicKey(array $params)
@@ -187,16 +153,13 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\PublicKey::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀PublicKey();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Secrets\PublicKey::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀PublicKey();
         }
 
-        $operation = new Operation\Actions\GetOrgPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\PublicKey::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetOrgPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\PublicKey::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsPublicKey {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 
     public function getOrgSecret(array $params)
@@ -214,16 +177,13 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName();
         }
 
-        $operation = new Operation\Actions\GetOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['org'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): OrganizationActionsSecret {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
     public function listArtifactsForRepo(array $params)
@@ -253,16 +213,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts();
         }
 
-        $operation = new Operation\Actions\ListArtifactsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListArtifactsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListArtifactsForRepo\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getGithubActionsPermissionsRepository(array $params)
@@ -280,16 +237,13 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions();
         }
 
-        $operation = new Operation\Actions\GetGithubActionsPermissionsRepository($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions::class], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetGithubActionsPermissionsRepository($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsRepositoryPermissions {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
     public function listSelfHostedRunnersForRepo(array $params)
@@ -319,16 +273,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runners::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners();
         }
 
-        $operation = new Operation\Actions\ListSelfHostedRunnersForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListSelfHostedRunnersForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnersForRepo\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listWorkflowRunsForRepo(array $params)
@@ -394,16 +345,13 @@ final class Actions
 
         $arguments['exclude_pull_requests'] = $params['exclude_pull_requests'];
         unset($params['exclude_pull_requests']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs();
         }
 
-        $operation = new Operation\Actions\ListWorkflowRunsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs::class], $arguments['owner'], $arguments['repo'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListWorkflowRunsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListWorkflowRunsForRepo\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
     public function listRepoSecrets(array $params)
@@ -433,16 +381,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets();
         }
 
-        $operation = new Operation\Actions\ListRepoSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListRepoSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListRepoSecrets\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listRepoWorkflows(array $params)
@@ -472,16 +417,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows();
         }
 
-        $operation = new Operation\Actions\ListRepoWorkflows($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows::class], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListRepoWorkflows($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListRepoWorkflows\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
     public function getGithubActionsPermissionsOrganization(array $params)
@@ -493,16 +435,13 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Permissions();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Permissions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Permissions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions();
         }
 
-        $operation = new Operation\Actions\GetGithubActionsPermissionsOrganization($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Permissions::class], $arguments['org']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetGithubActionsPermissionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Permissions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsOrganizationPermissions {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org']);
     }
 
     public function listSelfHostedRunnerGroupsForOrg(array $params)
@@ -526,16 +465,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerGroups();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RunnerGroups::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups();
         }
 
-        $operation = new Operation\Actions\ListSelfHostedRunnerGroupsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerGroups::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListSelfHostedRunnerGroupsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnerGroupsForOrg\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listSelfHostedRunnersForOrg(array $params)
@@ -559,16 +495,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Runners();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Runners::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners();
         }
 
-        $operation = new Operation\Actions\ListSelfHostedRunnersForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Runners::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListSelfHostedRunnersForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnersForOrg\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listOrgSecrets(array $params)
@@ -592,16 +525,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Secrets::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets();
         }
 
-        $operation = new Operation\Actions\ListOrgSecrets($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListOrgSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListOrgSecrets\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listRepoAccessToSelfHostedRunnerGroupInOrg(array $params)
@@ -631,16 +561,13 @@ final class Actions
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Repositories();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories();
         }
 
-        $operation = new Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Repositories::class], $arguments['org'], $arguments['runner_group_id'], $arguments['page'], $arguments['per_page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['page'], $arguments['per_page']);
     }
 
     public function listSelfHostedRunnersInGroupForOrg(array $params)
@@ -670,16 +597,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀RunnerDashGroups🌀CbRunnerGroupIdRcb🌀Runners();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Runners::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Runners::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners();
         }
 
-        $operation = new Operation\Actions\ListSelfHostedRunnersInGroupForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb\Runners::class], $arguments['org'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListSelfHostedRunnersInGroupForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Runners::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelfHostedRunnersInGroupForOrg\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listSelectedReposForOrgSecret(array $params)
@@ -709,16 +633,13 @@ final class Actions
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Actions🌀Secrets🌀CbSecretNameRcb🌀Repositories();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName\Repositories::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName🌀Repositories();
         }
 
-        $operation = new Operation\Actions\ListSelectedReposForOrgSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Actions\Secrets\CbSecretNameRcb\Repositories::class], $arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListSelectedReposForOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName\Repositories::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListSelectedReposForOrgSecret\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
     public function getArtifact(array $params)
@@ -742,16 +663,13 @@ final class Actions
 
         $arguments['artifact_id'] = $params['artifact_id'];
         unset($params['artifact_id']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId();
         }
 
-        $operation = new Operation\Actions\GetArtifact($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetArtifact($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Artifact {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
     }
 
     public function getJobForWorkflowRun(array $params)
@@ -775,16 +693,13 @@ final class Actions
 
         $arguments['job_id'] = $params['job_id'];
         unset($params['job_id']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Jobs🌀CbJobIdRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Jobs🌀JobId();
         }
 
-        $operation = new Operation\Actions\GetJobForWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Jobs\CbJobIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['job_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetJobForWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Job {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
     public function getAllowedActionsRepository(array $params)
@@ -802,16 +717,13 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Permissions🌀SelectedActions();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\SelectedActions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\SelectedActions::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀SelectedActions();
         }
 
-        $operation = new Operation\Actions\GetAllowedActionsRepository($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Permissions\SelectedActions::class], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetAllowedActionsRepository($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\SelectedActions::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): SelectedActions {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
     public function listRunnerApplicationsForRepo(array $params)
@@ -829,16 +741,9 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀Downloads();
-        }
+        $operator = new Operator\Actions\ListRunnerApplicationsForRepo($this->browser, $this->authentication);
 
-        $operation = new Operation\Actions\ListRunnerApplicationsForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\Downloads::class], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
     public function getSelfHostedRunnerForRepo(array $params)
@@ -862,16 +767,13 @@ final class Actions
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runners🌀CbRunnerIdRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId();
         }
 
-        $operation = new Operation\Actions\GetSelfHostedRunnerForRepo($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runners\CbRunnerIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['runner_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Runner {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
     public function getWorkflowRun(array $params)
@@ -901,16 +803,13 @@ final class Actions
 
         $arguments['exclude_pull_requests'] = $params['exclude_pull_requests'];
         unset($params['exclude_pull_requests']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId();
         }
 
-        $operation = new Operation\Actions\GetWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['exclude_pull_requests']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): WorkflowRun {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['exclude_pull_requests']);
     }
 
     public function getRepoPublicKey(array $params)
@@ -928,16 +827,13 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀PublicKey();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\PublicKey::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\PublicKey::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀PublicKey();
         }
 
-        $operation = new Operation\Actions\GetRepoPublicKey($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\PublicKey::class], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetRepoPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\PublicKey::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsPublicKey {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
     public function getRepoSecret(array $params)
@@ -961,16 +857,13 @@ final class Actions
 
         $arguments['secret_name'] = $params['secret_name'];
         unset($params['secret_name']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Secrets🌀CbSecretNameRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀SecretName();
         }
 
-        $operation = new Operation\Actions\GetRepoSecret($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb::class], $arguments['owner'], $arguments['repo'], $arguments['secret_name']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetRepoSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsSecret {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
 
     public function getWorkflow(array $params)
@@ -994,16 +887,13 @@ final class Actions
 
         $arguments['workflow_id'] = $params['workflow_id'];
         unset($params['workflow_id']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows🌀WorkflowId();
         }
 
-        $operation = new Operation\Actions\GetWorkflow($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb::class], $arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\GetWorkflow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Workflow {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
     public function downloadArtifact(array $params)
@@ -1033,16 +923,13 @@ final class Actions
 
         $arguments['archive_format'] = $params['archive_format'];
         unset($params['archive_format']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb🌀CbArchiveFormatRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId🌀ArchiveFormat();
         }
 
-        $operation = new Operation\Actions\DownloadArtifact($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb::class], $arguments['owner'], $arguments['repo'], $arguments['artifact_id'], $arguments['archive_format']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DownloadArtifact($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id'], $arguments['archive_format']);
     }
 
     public function downloadJobLogsForWorkflowRun(array $params)
@@ -1066,12 +953,9 @@ final class Actions
 
         $arguments['job_id'] = $params['job_id'];
         unset($params['job_id']);
-        $operation = new Operation\Actions\DownloadJobLogsForWorkflowRun($arguments['owner'], $arguments['repo'], $arguments['job_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DownloadJobLogsForWorkflowRun($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
     public function listWorkflowRunArtifacts(array $params)
@@ -1107,16 +991,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Artifacts();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Artifacts::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Artifacts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Artifacts();
         }
 
-        $operation = new Operation\Actions\ListWorkflowRunArtifacts($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Artifacts::class], $arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListWorkflowRunArtifacts($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Artifacts::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListWorkflowRunArtifacts\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listJobsForWorkflowRun(array $params)
@@ -1158,16 +1039,13 @@ final class Actions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Runs🌀CbRunIdRcb🌀Jobs();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Jobs::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Jobs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Jobs();
         }
 
-        $operation = new Operation\Actions\ListJobsForWorkflowRun($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Runs\CbRunIdRcb\Jobs::class], $arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListJobsForWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Jobs::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListJobsForWorkflowRun\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
 
     public function downloadWorkflowRunLogs(array $params)
@@ -1191,12 +1069,9 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operation = new Operation\Actions\DownloadWorkflowRunLogs($arguments['owner'], $arguments['repo'], $arguments['run_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DownloadWorkflowRunLogs($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
     public function listWorkflowRuns(array $params)
@@ -1268,16 +1143,13 @@ final class Actions
 
         $arguments['exclude_pull_requests'] = $params['exclude_pull_requests'];
         unset($params['exclude_pull_requests']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Workflows🌀CbWorkflowIdRcb🌀Runs();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Runs::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Runs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows🌀WorkflowId🌀Runs();
         }
 
-        $operation = new Operation\Actions\ListWorkflowRuns($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Workflows\CbWorkflowIdRcb\Runs::class], $arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\ListWorkflowRuns($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Runs::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Operation\Actions\ListWorkflowRuns\Response\Applicationjson\H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
     public function downloadArtifactStreaming(array $params)
@@ -1307,16 +1179,13 @@ final class Actions
 
         $arguments['archive_format'] = $params['archive_format'];
         unset($params['archive_format']);
-        if (array_key_exists(Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀CbOwnerRcb🌀CbRepoRcb🌀Actions🌀Artifacts🌀CbArtifactIdRcb🌀CbArchiveFormatRcb();
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId🌀ArchiveFormat();
         }
 
-        $operation = new Operation\Actions\DownloadArtifactStreaming($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Artifacts\CbArtifactIdRcb\CbArchiveFormatRcb::class], $this->browser, $arguments['owner'], $arguments['repo'], $arguments['artifact_id'], $arguments['archive_format']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DownloadArtifactStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id'], $arguments['archive_format']);
     }
 
     public function downloadJobLogsForWorkflowRunStreaming(array $params)
@@ -1340,12 +1209,9 @@ final class Actions
 
         $arguments['job_id'] = $params['job_id'];
         unset($params['job_id']);
-        $operation = new Operation\Actions\DownloadJobLogsForWorkflowRunStreaming($this->browser, $arguments['owner'], $arguments['repo'], $arguments['job_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DownloadJobLogsForWorkflowRunStreaming($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
     public function downloadWorkflowRunLogsStreaming(array $params)
@@ -1369,11 +1235,8 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operation = new Operation\Actions\DownloadWorkflowRunLogsStreaming($this->browser, $arguments['owner'], $arguments['repo'], $arguments['run_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Actions\DownloadWorkflowRunLogsStreaming($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 }

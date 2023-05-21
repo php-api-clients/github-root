@@ -26,12 +26,12 @@ final class Get
     private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}';
     private string $owner;
     private string $repo;
-    /**issue_number parameter**/
+    /**issue_number parameter **/
     private int $issueNumber;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues\CbIssueNumberRcb $hydrator, string $owner, string $repo, int $issueNumber)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber $hydrator, string $owner, string $repo, int $issueNumber)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -40,12 +40,15 @@ final class Get
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}'], [$this->owner, $this->repo, $this->issueNumber], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Issue|Schema\BasicError
+    /**
+     * @return Schema\Issue|Schema\BasicError|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\Issue|Schema\BasicError|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,38 +58,46 @@ final class Get
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Issue::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Issue::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\Issue::class, $body);
                     /**
                      * Moved permanently
-                    **/
+                     **/
 
                     case 301:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                     /**
                      * Gone
-                    **/
+                     **/
 
                     case 410:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(410, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Not modified
+             **/
+            case 304:
+                return ['code' => 304];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

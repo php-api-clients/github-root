@@ -13,8 +13,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
 use RuntimeException;
-use Rx\Observable;
-use Rx\Scheduler\ImmediateScheduler;
 
 use function explode;
 use function json_decode;
@@ -28,32 +26,32 @@ final class ListForRepo
     private const PATH           = '/repos/{owner}/{repo}/issues';
     private string $owner;
     private string $repo;
-    /**If an `integer` is passed, it should refer to a milestone by its `number` field. If the string `*` is passed, issues with any milestone are accepted. If the string `none` is passed, issues without milestones are returned.**/
+    /**If an `integer` is passed, it should refer to a milestone by its `number` field. If the string `*` is passed, issues with any milestone are accepted. If the string `none` is passed, issues without milestones are returned. **/
     private string $milestone;
-    /**Can be the name of a user. Pass in `none` for issues with no assigned user, and `*` for issues assigned to any user.**/
+    /**Can be the name of a user. Pass in `none` for issues with no assigned user, and `*` for issues assigned to any user. **/
     private string $assignee;
-    /**The user that created the issue.**/
+    /**The user that created the issue. **/
     private string $creator;
-    /**A user that's mentioned in the issue.**/
+    /**A user that's mentioned in the issue. **/
     private string $mentioned;
-    /**A list of comma separated label names. Example: `bug,ui,@high`**/
+    /**A list of comma separated label names. Example: `bug,ui,@high` **/
     private string $labels;
-    /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.**/
+    /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
     private string $since;
-    /**Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`.**/
+    /**Indicates the state of the issues to return. Can be either `open`, `closed`, or `all`. **/
     private string $state;
-    /**What to sort results by. Can be either `created`, `updated`, `comments`.**/
+    /**What to sort results by. Can be either `created`, `updated`, `comments`. **/
     private string $sort;
-    /**One of `asc` (ascending) or `desc` (descending).**/
+    /**One of `asc` (ascending) or `desc` (descending). **/
     private string $direction;
-    /**Results per page (max 100)**/
+    /**Results per page (max 100) **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Issues $hydrator, string $owner, string $repo, string $milestone, string $assignee, string $creator, string $mentioned, string $labels, string $since, string $state = 'open', string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues $hydrator, string $owner, string $repo, string $milestone, string $assignee, string $creator, string $mentioned, string $labels, string $since, string $state = 'open', string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -72,15 +70,12 @@ final class ListForRepo
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{milestone}', '{assignee}', '{creator}', '{mentioned}', '{labels}', '{since}', '{state}', '{sort}', '{direction}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->milestone, $this->assignee, $this->creator, $this->mentioned, $this->labels, $this->since, $this->state, $this->sort, $this->direction, $this->perPage, $this->page], self::PATH . '?milestone={milestone}&assignee={assignee}&creator={creator}&mentioned={mentioned}&labels={labels}&since={since}&state={state}&sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return Observable<Schema\Issue>|Schema\BasicError
-     */
-    public function createResponse(ResponseInterface $response): Observable|Schema\BasicError
+    public function createResponse(ResponseInterface $response): Schema\BasicError
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -89,38 +84,26 @@ final class ListForRepo
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
-                     * Response
-                    **/
-                    case 200:
-                        foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\Issue::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        }
-
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\Issue {
-                            return $this->hydrator->hydrateObject(Schema\Issue::class, $body);
-                        });
-                    /**
                      * Moved permanently
-                    **/
-
+                     **/
                     case 301:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\BasicError::class, $body);
                     /**
                      * Validation failed
-                    **/
+                     **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

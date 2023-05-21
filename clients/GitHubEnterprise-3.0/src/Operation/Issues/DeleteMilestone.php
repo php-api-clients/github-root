@@ -26,12 +26,12 @@ final class DeleteMilestone
     private const PATH           = '/repos/{owner}/{repo}/milestones/{milestone_number}';
     private string $owner;
     private string $repo;
-    /**milestone_number parameter**/
+    /**milestone_number parameter **/
     private int $milestoneNumber;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Milestones\CbMilestoneNumberRcb $hydrator, string $owner, string $repo, int $milestoneNumber)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator, string $owner, string $repo, int $milestoneNumber)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -40,12 +40,15 @@ final class DeleteMilestone
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{milestone_number}'], [$this->owner, $this->repo, $this->milestoneNumber], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): mixed
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,14 +58,22 @@ final class DeleteMilestone
                 switch ($code) {
                     /**
                      * Resource not found
-                    **/
+                     **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

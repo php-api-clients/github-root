@@ -23,22 +23,140 @@ class Repos implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
+            'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
+                'ApiClients\Client\GitHubAE\Schema\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($payload),
                 'ApiClients\Client\GitHubAE\Schema\LicenseSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\GitHubAE\Schema\ValidationError\Errors' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors($payload),
-                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\ScimError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ScimError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubAE\Schema\ValidationError
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['message'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'message';
+                goto after_message;
+            }
+
+            $properties['message'] = $value;
+
+            after_message:
+
+            $value = $payload['documentation_url'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'documentation_url';
+                goto after_documentationUrl;
+            }
+
+            $properties['documentationUrl'] = $value;
+
+            after_documentationUrl:
+
+            $value = $payload['errors'] ?? null;
+
+            if ($value === null) {
+                $properties['errors'] = null;
+                goto after_errors;
+            }
+
+            $properties['errors'] = $value;
+
+            after_errors:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\ValidationError(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['message'] ?? null;
+
+            if ($value === null) {
+                $properties['message'] = null;
+                goto after_message;
+            }
+
+            $properties['message'] = $value;
+
+            after_message:
+
+            $value = $payload['documentation_url'] ?? null;
+
+            if ($value === null) {
+                $properties['documentationUrl'] = null;
+                goto after_documentationUrl;
+            }
+
+            $properties['documentationUrl'] = $value;
+
+            after_documentationUrl:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
     private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository
     {
         $properties = []; 
@@ -2779,222 +2897,6 @@ class Repos implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError(array $payload): \ApiClients\Client\GitHubAE\Schema\ValidationError
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['message'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'message';
-                goto after_message;
-            }
-
-            $properties['message'] = $value;
-
-            after_message:
-
-            $value = $payload['documentation_url'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'documentation_url';
-                goto after_documentationUrl;
-            }
-
-            $properties['documentationUrl'] = $value;
-
-            after_documentationUrl:
-
-            $value = $payload['errors'] ?? null;
-
-            if ($value === null) {
-                $properties['errors'] = null;
-                goto after_errors;
-            }
-
-            static $errorsCaster1;
-
-            if ($errorsCaster1 === null) {
-                $errorsCaster1 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
-));
-            }
-
-            $value = $errorsCaster1->cast($value, $this);
-
-            $properties['errors'] = $value;
-
-            after_errors:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ValidationError::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubAE\Schema\ValidationError(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors(array $payload): \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['resource'] ?? null;
-
-            if ($value === null) {
-                $properties['resource'] = null;
-                goto after_resource;
-            }
-
-            $properties['resource'] = $value;
-
-            after_resource:
-
-            $value = $payload['field'] ?? null;
-
-            if ($value === null) {
-                $properties['field'] = null;
-                goto after_field;
-            }
-
-            $properties['field'] = $value;
-
-            after_field:
-
-            $value = $payload['message'] ?? null;
-
-            if ($value === null) {
-                $properties['message'] = null;
-                goto after_message;
-            }
-
-            $properties['message'] = $value;
-
-            after_message:
-
-            $value = $payload['code'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'code';
-                goto after_code;
-            }
-
-            $properties['code'] = $value;
-
-            after_code:
-
-            $value = $payload['index'] ?? null;
-
-            if ($value === null) {
-                $properties['index'] = null;
-                goto after_index;
-            }
-
-            $properties['index'] = $value;
-
-            after_index:
-
-            $value = $payload['value'] ?? null;
-
-            if ($value === null) {
-                $properties['value'] = null;
-                goto after_value;
-            }
-
-            $properties['value'] = $value;
-
-            after_value:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ValidationError\Errors::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ValidationError\Errors', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['message'] ?? null;
-
-            if ($value === null) {
-                $properties['message'] = null;
-                goto after_message;
-            }
-
-            $properties['message'] = $value;
-
-            after_message:
-
-            $value = $payload['documentation_url'] ?? null;
-
-            if ($value === null) {
-                $properties['documentationUrl'] = null;
-                goto after_documentationUrl;
-            }
-
-            $properties['documentationUrl'] = $value;
-
-            after_documentationUrl:
-
-            $value = $payload['url'] ?? null;
-
-            if ($value === null) {
-                $properties['url'] = null;
-                goto after_url;
-            }
-
-            $properties['url'] = $value;
-
-            after_url:
-
-            $value = $payload['status'] ?? null;
-
-            if ($value === null) {
-                $properties['status'] = null;
-                goto after_status;
-            }
-
-            $properties['status'] = $value;
-
-            after_status:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
     private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ScimError(array $payload): \ApiClients\Client\GitHubAE\Schema\ScimError
     {
         $properties = []; 
@@ -3112,6 +3014,8 @@ class Repos implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
+            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubAE\Schema\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository($object),
             'ApiClients\Client\GitHubAE\Schema\LicenseSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️LicenseSimple($object),
             'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
@@ -3119,9 +3023,6 @@ class Repos implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository($object),
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($object),
             'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
-            'ApiClients\Client\GitHubAE\Schema\ValidationError\Errors' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors($object),
-            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubAE\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ScimError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -3193,6 +3094,80 @@ class Repos implements ObjectMapper
         }
         
         return $serializer->serialize($value, $this);
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ValidationError);
+        $result = [];
+
+        $message = $object->message;
+        after_message:        $result['message'] = $message;
+
+        
+        $documentationUrl = $object->documentationUrl;
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
+
+        
+        $errors = $object->errors;
+
+        if ($errors === null) {
+            goto after_errors;
+        }
+        static $errorsSerializer0;
+
+        if ($errorsSerializer0 === null) {
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $errors = $errorsSerializer0->serialize($errors, $this);
+        after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
+        $result = [];
+
+        $message = $object->message;
+
+        if ($message === null) {
+            goto after_message;
+        }
+        after_message:        $result['message'] = $message;
+
+        
+        $documentationUrl = $object->documentationUrl;
+
+        if ($documentationUrl === null) {
+            goto after_documentationUrl;
+        }
+        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
+
+        
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+        after_url:        $result['url'] = $url;
+
+        
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+        after_status:        $result['status'] = $status;
+
+
+        return $result;
     }
 
 
@@ -4764,134 +4739,6 @@ class Repos implements ObjectMapper
             goto after_pull;
         }
         after_pull:        $result['pull'] = $pull;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ValidationError);
-        $result = [];
-
-        $message = $object->message;
-        after_message:        $result['message'] = $message;
-
-        
-        $documentationUrl = $object->documentationUrl;
-        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
-
-        
-        $errors = $object->errors;
-
-        if ($errors === null) {
-            goto after_errors;
-        }
-        static $errorsSerializer0;
-
-        if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertyCasters\CastListToType(...array (
-  0 => 'ApiClients\\Client\\GitHubAE\\Schema\\ValidationError\\Errors',
-));
-        }
-        
-        $errors = $errorsSerializer0->serialize($errors, $this);
-        after_errors:        $result['errors'] = $errors;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError⚡️Errors(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ValidationError\Errors);
-        $result = [];
-
-        $resource = $object->resource;
-
-        if ($resource === null) {
-            goto after_resource;
-        }
-        after_resource:        $result['resource'] = $resource;
-
-        
-        $field = $object->field;
-
-        if ($field === null) {
-            goto after_field;
-        }
-        after_field:        $result['field'] = $field;
-
-        
-        $message = $object->message;
-
-        if ($message === null) {
-            goto after_message;
-        }
-        after_message:        $result['message'] = $message;
-
-        
-        $code = $object->code;
-        after_code:        $result['code'] = $code;
-
-        
-        $index = $object->index;
-
-        if ($index === null) {
-            goto after_index;
-        }
-        after_index:        $result['index'] = $index;
-
-        
-        $value = $object->value;
-
-        if ($value === null) {
-            goto after_value;
-        }
-        after_value:        $result['value'] = $value;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
-        $result = [];
-
-        $message = $object->message;
-
-        if ($message === null) {
-            goto after_message;
-        }
-        after_message:        $result['message'] = $message;
-
-        
-        $documentationUrl = $object->documentationUrl;
-
-        if ($documentationUrl === null) {
-            goto after_documentationUrl;
-        }
-        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
-
-        
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
-
-        
-        $status = $object->status;
-
-        if ($status === null) {
-            goto after_status;
-        }
-        after_status:        $result['status'] = $status;
 
 
         return $result;

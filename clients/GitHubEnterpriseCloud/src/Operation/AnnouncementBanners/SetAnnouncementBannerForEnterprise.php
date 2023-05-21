@@ -25,12 +25,12 @@ final class SetAnnouncementBannerForEnterprise
     private const METHOD         = 'PATCH';
     private const PATH           = '/enterprises/{enterprise}/announcement';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Announcement $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\Announcement $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Announcement $hydrator, string $enterprise)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Announcement $hydrator, string $enterprise)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->enterprise              = $enterprise;
@@ -38,7 +38,7 @@ final class SetAnnouncementBannerForEnterprise
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Announcement::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
@@ -55,9 +55,9 @@ final class SetAnnouncementBannerForEnterprise
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AnnouncementBanner::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AnnouncementBanner::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\AnnouncementBanner::class, $body);
                 }

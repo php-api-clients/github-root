@@ -6,13 +6,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -51,16 +49,13 @@ final class OauthAuthorizations
 
         $arguments['fingerprint'] = $params['fingerprint'];
         unset($params['fingerprint']);
-        if (array_key_exists(Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀CbClientIdRcb🌀CbFingerprintRcb();
+        if (array_key_exists(Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀ClientId🌀Fingerprint();
         }
 
-        $operation = new Operation\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb\CbFingerprintRcb::class], $arguments['client_id'], $arguments['fingerprint']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Authorization {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['client_id'], $arguments['fingerprint'], $params);
     }
 
     public function getOrCreateAuthorizationForApp(array $params)
@@ -72,15 +67,12 @@ final class OauthAuthorizations
 
         $arguments['client_id'] = $params['client_id'];
         unset($params['client_id']);
-        if (array_key_exists(Hydrator\Operation\Authorizations\Clients\CbClientIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀CbClientIdRcb();
+        if (array_key_exists(Hydrator\Operation\Authorizations\Clients\ClientId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Authorizations\Clients\ClientId::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀ClientId();
         }
 
-        $operation = new Operation\OauthAuthorizations\GetOrCreateAuthorizationForApp($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\CbClientIdRcb::class], $arguments['client_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\OauthAuthorizations\GetOrCreateAuthorizationForApp($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations\Clients\ClientId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Authorization {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['client_id'], $params);
     }
 }

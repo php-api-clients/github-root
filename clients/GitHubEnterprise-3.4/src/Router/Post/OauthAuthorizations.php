@@ -6,12 +6,10 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operation;
-use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -37,16 +35,12 @@ final class OauthAuthorizations
 
     public function createAuthorization(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\Authorizations::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Authorizations::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations();
         }
 
-        $operation = new Operation\OauthAuthorizations\CreateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\OauthAuthorizations\CreateAuthorization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Authorizations::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Authorization {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($params);
     }
 }

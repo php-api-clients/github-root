@@ -24,14 +24,14 @@ final class DeleteUserFromOrg
     public const OPERATION_MATCH = 'DELETE /scim/v2/organizations/{org}/Users/{scim_user_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/scim/v2/organizations/{org}/Users/{scim_user_id}';
-    /**The organization name. The name is not case sensitive.**/
+    /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**The unique identifier of the SCIM user.**/
+    /**The unique identifier of the SCIM user. **/
     private string $scimUserId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb $hydrator;
+    private readonly Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb $hydrator, string $org, string $scimUserId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId $hydrator, string $org, string $scimUserId)
     {
         $this->org                     = $org;
         $this->scimUserId              = $scimUserId;
@@ -39,12 +39,15 @@ final class DeleteUserFromOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{scim_user_id}'], [$this->org, $this->scimUserId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): mixed
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -54,22 +57,36 @@ final class DeleteUserFromOrg
                 switch ($code) {
                     /**
                      * Resource not found
-                    **/
+                     **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ScimError(404, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     /**
                      * Forbidden
-                    **/
+                     **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ScimError(403, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+            /**
+             * Not modified
+             **/
+
+            case 304:
+                return ['code' => 304];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

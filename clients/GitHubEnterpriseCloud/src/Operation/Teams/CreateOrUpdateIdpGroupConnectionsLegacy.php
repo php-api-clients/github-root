@@ -26,12 +26,12 @@ final class CreateOrUpdateIdpGroupConnectionsLegacy
     private const METHOD         = 'PATCH';
     private const PATH           = '/teams/{team_id}/team-sync/group-mappings';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**The unique identifier of the team.**/
+    /**The unique identifier of the team. **/
     private int $teamId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\CbTeamIdRcb\TeamDashSync\GroupDashMappings $hydrator;
+    private readonly Hydrator\Operation\Teams\TeamId\TeamSync\GroupMappings $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\CbTeamIdRcb\TeamDashSync\GroupDashMappings $hydrator, int $teamId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\TeamSync\GroupMappings $hydrator, int $teamId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->teamId                  = $teamId;
@@ -39,9 +39,9 @@ final class CreateOrUpdateIdpGroupConnectionsLegacy
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\CreateOrUpdateIdpGroupConnectionsLegacy\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\CreateOrUpdateIdpGroupConnectionsLegacy\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{team_id}'], [$this->teamId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -56,25 +56,25 @@ final class CreateOrUpdateIdpGroupConnectionsLegacy
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GroupMapping::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GroupMapping::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\GroupMapping::class, $body);
                     /**
                      * Validation failed, or the endpoint has been spammed.
-                    **/
+                     **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\ValidationError(422, $this->hydrator->hydrateObject(Schema\ValidationError::class, $body));
                     /**
                      * Forbidden
-                    **/
+                     **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

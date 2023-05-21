@@ -6,23 +6,12 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroups;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussionComment;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamFull;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamMembership;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamProject;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamRepository;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use Rx\Observable;
 
 use function array_key_exists;
 
@@ -72,16 +61,13 @@ final class Teams
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\ExternalGroups::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\ExternalGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀ExternalGroups();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\ExternalGroups::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\ExternalGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀ExternalGroups();
         }
 
-        $operation = new Operation\Teams\ListExternalIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\ExternalGroups::class], $arguments['org'], $arguments['page'], $arguments['display_name'], $arguments['per_page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListExternalIdpGroupsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\ExternalGroups::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ExternalGroups {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['page'], $arguments['display_name'], $arguments['per_page']);
     }
 
     public function list_(array $params)
@@ -105,16 +91,13 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams();
         }
 
-        $operation = new Operation\Teams\List_($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams::class], $arguments['org'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listDiscussionsLegacy(array $params)
@@ -144,16 +127,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions();
-        }
+        $operator = new Operator\Teams\ListDiscussionsLegacy($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListDiscussionsLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions::class], $arguments['team_id'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listPendingInvitationsLegacy(array $params)
@@ -177,16 +153,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Invitations::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Invitations::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Invitations();
-        }
+        $operator = new Operator\Teams\ListPendingInvitationsLegacy($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListPendingInvitationsLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Invitations::class], $arguments['team_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listMembersLegacy(array $params)
@@ -216,16 +185,13 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Members::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Members::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Members();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Members::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Members::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Members();
         }
 
-        $operation = new Operation\Teams\ListMembersLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Members::class], $arguments['team_id'], $arguments['role'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListMembersLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Members::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listProjectsLegacy(array $params)
@@ -249,16 +215,13 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Projects::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Projects();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Projects::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects();
         }
 
-        $operation = new Operation\Teams\ListProjectsLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects::class], $arguments['team_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListProjectsLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listReposLegacy(array $params)
@@ -282,16 +245,13 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Repos::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Repos();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Repos::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos();
         }
 
-        $operation = new Operation\Teams\ListReposLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos::class], $arguments['team_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListReposLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Repos::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listChildLegacy(array $params)
@@ -315,16 +275,13 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Teams::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Teams();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Teams::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Teams();
         }
 
-        $operation = new Operation\Teams\ListChildLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Teams::class], $arguments['team_id'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListChildLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Teams::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
     public function externalIdpGroupInfoForOrg(array $params)
@@ -342,16 +299,13 @@ final class Teams
 
         $arguments['group_id'] = $params['group_id'];
         unset($params['group_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀ExternalDashGroup🌀CbGroupIdRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀ExternalGroup🌀GroupId();
         }
 
-        $operation = new Operation\Teams\ExternalIdpGroupInfoForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\ExternalDashGroup\CbGroupIdRcb::class], $arguments['org'], $arguments['group_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ExternalIdpGroupInfoForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ExternalGroup {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['group_id']);
     }
 
     public function listIdpGroupsForOrg(array $params)
@@ -381,16 +335,13 @@ final class Teams
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\TeamSync\Groups::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\TeamSync\Groups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀TeamSync🌀Groups();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\TeamSync\Groups::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\TeamSync\Groups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀TeamSync🌀Groups();
         }
 
-        $operation = new Operation\Teams\ListIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\TeamSync\Groups::class], $arguments['org'], $arguments['page'], $arguments['q'], $arguments['per_page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListIdpGroupsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\TeamSync\Groups::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['page'], $arguments['q'], $arguments['per_page']);
     }
 
     public function getByName(array $params)
@@ -408,16 +359,13 @@ final class Teams
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug();
         }
 
-        $operation = new Operation\Teams\GetByName($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb::class], $arguments['org'], $arguments['team_slug']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetByName($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamFull {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
     public function getDiscussionLegacy(array $params)
@@ -435,16 +383,13 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber();
         }
 
-        $operation = new Operation\Teams\GetDiscussionLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb::class], $arguments['team_id'], $arguments['discussion_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetDiscussionLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamDiscussion {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['discussion_number']);
     }
 
     public function getMemberLegacy(array $params)
@@ -462,12 +407,9 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        $operation = new Operation\Teams\GetMemberLegacy($arguments['team_id'], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetMemberLegacy($this->browser, $this->authentication);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['username']);
     }
 
     public function getMembershipForUserLegacy(array $params)
@@ -485,16 +427,13 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Memberships🌀CbUsernameRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Memberships\Username::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Memberships\Username::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Memberships🌀Username();
         }
 
-        $operation = new Operation\Teams\GetMembershipForUserLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Memberships\CbUsernameRcb::class], $arguments['team_id'], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetMembershipForUserLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Memberships\Username::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamMembership {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['username']);
     }
 
     public function checkPermissionsForProjectLegacy(array $params)
@@ -512,16 +451,13 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Projects🌀CbProjectIdRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Projects\ProjectId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects\ProjectId::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects🌀ProjectId();
         }
 
-        $operation = new Operation\Teams\CheckPermissionsForProjectLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Projects\CbProjectIdRcb::class], $arguments['team_id'], $arguments['project_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\CheckPermissionsForProjectLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects\ProjectId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamProject {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['project_id']);
     }
 
     public function listIdpGroupsForLegacy(array $params)
@@ -533,16 +469,13 @@ final class Teams
 
         $arguments['team_id'] = $params['team_id'];
         unset($params['team_id']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\TeamDashSync\GroupDashMappings::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\TeamDashSync\GroupDashMappings::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀TeamDashSync🌀GroupDashMappings();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\TeamSync\GroupMappings::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\TeamSync\GroupMappings::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀TeamSync🌀GroupMappings();
         }
 
-        $operation = new Operation\Teams\ListIdpGroupsForLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\TeamDashSync\GroupDashMappings::class], $arguments['team_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListIdpGroupsForLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\TeamSync\GroupMappings::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id']);
     }
 
     public function getLegacy(array $params)
@@ -554,16 +487,13 @@ final class Teams
 
         $arguments['team_id'] = $params['team_id'];
         unset($params['team_id']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId();
         }
 
-        $operation = new Operation\Teams\GetLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb::class], $arguments['team_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamFull {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id']);
     }
 
     public function listForAuthenticatedUser(array $params)
@@ -585,12 +515,9 @@ final class Teams
             $this->hydrator[Hydrator\Operation\User\Teams::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Teams();
         }
 
-        $operation = new Operation\Teams\ListForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Teams::class], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Teams::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
     public function listDiscussionsInOrg(array $params)
@@ -632,16 +559,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions();
-        }
+        $operator = new Operator\Teams\ListDiscussionsInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListDiscussionsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions::class], $arguments['org'], $arguments['team_slug'], $arguments['pinned'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['pinned'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listLinkedExternalIdpGroupsToTeamForOrg(array $params)
@@ -659,16 +579,13 @@ final class Teams
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\ExternalDashGroups::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\ExternalDashGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀ExternalDashGroups();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀ExternalGroups();
         }
 
-        $operation = new Operation\Teams\ListLinkedExternalIdpGroupsToTeamForOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\ExternalDashGroups::class], $arguments['org'], $arguments['team_slug']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListLinkedExternalIdpGroupsToTeamForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ExternalGroups {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
     public function listPendingInvitationsInOrg(array $params)
@@ -698,16 +615,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Invitations::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Invitations::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Invitations();
-        }
+        $operator = new Operator\Teams\ListPendingInvitationsInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListPendingInvitationsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Invitations::class], $arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listMembersInOrg(array $params)
@@ -743,16 +653,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Members();
-        }
+        $operator = new Operator\Teams\ListMembersInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListMembersInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Members::class], $arguments['org'], $arguments['team_slug'], $arguments['role'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listProjectsInOrg(array $params)
@@ -782,16 +685,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects();
-        }
+        $operator = new Operator\Teams\ListProjectsInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListProjectsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects::class], $arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listReposInOrg(array $params)
@@ -821,16 +717,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos();
-        }
+        $operator = new Operator\Teams\ListReposInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListReposInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos::class], $arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listChildInOrg(array $params)
@@ -860,16 +749,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Teams();
-        }
+        $operator = new Operator\Teams\ListChildInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListChildInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Teams::class], $arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listDiscussionCommentsLegacy(array $params)
@@ -905,16 +787,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments();
-        }
+        $operator = new Operator\Teams\ListDiscussionCommentsLegacy($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListDiscussionCommentsLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $arguments['team_id'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
     public function checkPermissionsForRepoLegacy(array $params)
@@ -938,16 +813,13 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos🌀Owner🌀Repo();
         }
 
-        $operation = new Operation\Teams\CheckPermissionsForRepoLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Repos\CbOwnerRcb\CbRepoRcb::class], $arguments['team_id'], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\CheckPermissionsForRepoLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamRepository {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['owner'], $arguments['repo']);
     }
 
     public function getDiscussionInOrg(array $params)
@@ -971,16 +843,13 @@ final class Teams
 
         $arguments['discussion_number'] = $params['discussion_number'];
         unset($params['discussion_number']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber();
         }
 
-        $operation = new Operation\Teams\GetDiscussionInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetDiscussionInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamDiscussion {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
     }
 
     public function getMembershipForUserInOrg(array $params)
@@ -1004,16 +873,13 @@ final class Teams
 
         $arguments['username'] = $params['username'];
         unset($params['username']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Memberships🌀CbUsernameRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Memberships🌀Username();
         }
 
-        $operation = new Operation\Teams\GetMembershipForUserInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Memberships\CbUsernameRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['username']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetMembershipForUserInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamMembership {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['username']);
     }
 
     public function checkPermissionsForProjectInOrg(array $params)
@@ -1037,16 +903,13 @@ final class Teams
 
         $arguments['project_id'] = $params['project_id'];
         unset($params['project_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Projects🌀CbProjectIdRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects\ProjectId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects\ProjectId::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects🌀ProjectId();
         }
 
-        $operation = new Operation\Teams\CheckPermissionsForProjectInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Projects\CbProjectIdRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['project_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\CheckPermissionsForProjectInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects\ProjectId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamProject {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['project_id']);
     }
 
     public function listIdpGroupsInOrg(array $params)
@@ -1064,16 +927,13 @@ final class Teams
 
         $arguments['team_slug'] = $params['team_slug'];
         unset($params['team_slug']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\TeamDashSync\GroupDashMappings::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\TeamDashSync\GroupDashMappings::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀TeamDashSync🌀GroupDashMappings();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\TeamSync\GroupMappings::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\TeamSync\GroupMappings::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀TeamSync🌀GroupMappings();
         }
 
-        $operation = new Operation\Teams\ListIdpGroupsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\TeamDashSync\GroupDashMappings::class], $arguments['org'], $arguments['team_slug']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\ListIdpGroupsInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\TeamSync\GroupMappings::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
     public function getDiscussionCommentLegacy(array $params)
@@ -1097,16 +957,13 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        if (array_key_exists(Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀CbTeamIdRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb();
+        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber();
         }
 
-        $operation = new Operation\Teams\GetDiscussionCommentLegacy($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\CbTeamIdRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetDiscussionCommentLegacy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamDiscussionComment {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 
     public function listDiscussionCommentsInOrg(array $params)
@@ -1148,16 +1005,9 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments();
-        }
+        $operator = new Operator\Teams\ListDiscussionCommentsInOrg($this->browser, $this->authentication);
 
-        $operation = new Operation\Teams\ListDiscussionCommentsInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
-        $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
     public function checkPermissionsForRepoInOrg(array $params)
@@ -1187,16 +1037,13 @@ final class Teams
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Repos🌀CbOwnerRcb🌀CbRepoRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos\Owner\Repo::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos\Owner\Repo::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos🌀Owner🌀Repo();
         }
 
-        $operation = new Operation\Teams\CheckPermissionsForRepoInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Repos\CbOwnerRcb\CbRepoRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\CheckPermissionsForRepoInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos\Owner\Repo::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamRepository {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
     }
 
     public function getDiscussionCommentInOrg(array $params)
@@ -1226,15 +1073,12 @@ final class Teams
 
         $arguments['comment_number'] = $params['comment_number'];
         unset($params['comment_number']);
-        if (array_key_exists(Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀CbOrgRcb🌀Teams🌀CbTeamSlugRcb🌀Discussions🌀CbDiscussionNumberRcb🌀Comments🌀CbCommentNumberRcb();
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber();
         }
 
-        $operation = new Operation\Teams\GetDiscussionCommentInOrg($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\CbOrgRcb\Teams\CbTeamSlugRcb\Discussions\CbDiscussionNumberRcb\Comments\CbCommentNumberRcb::class], $arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Teams\GetDiscussionCommentInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): TeamDiscussionComment {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 }

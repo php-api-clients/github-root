@@ -25,12 +25,12 @@ final class UpdatePreReceiveHook
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/pre-receive-hooks/{pre_receive_hook_id}';
     private readonly SchemaValidator $requestSchemaValidator;
-    /**pre_receive_hook_id parameter**/
+    /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator;
+    private readonly Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreDashReceiveDashHooks\CbPreReceiveHookIdRcb $hydrator, int $preReceiveHookId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator, int $preReceiveHookId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->preReceiveHookId        = $preReceiveHookId;
@@ -38,9 +38,9 @@ final class UpdatePreReceiveHook
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdatePreReceiveHook\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdatePreReceiveHook\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{pre_receive_hook_id}'], [$this->preReceiveHookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -55,9 +55,9 @@ final class UpdatePreReceiveHook
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PreReceiveHook::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\PreReceiveHook::class, $body);
                 }

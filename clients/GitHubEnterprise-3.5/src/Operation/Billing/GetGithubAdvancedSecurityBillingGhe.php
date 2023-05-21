@@ -24,16 +24,16 @@ final class GetGithubAdvancedSecurityBillingGhe
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/settings/billing/advanced-security';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprises/{enterprise}/settings/billing/advanced-security';
-    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id.**/
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    /**The number of results per page (max 100).**/
+    /**The number of results per page (max 100). **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\AdvancedSecurity $hydrator;
+    private readonly Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\AdvancedSecurity $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\CbEnterpriseRcb\Settings\Billing\AdvancedSecurity $hydrator, string $enterprise, int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\AdvancedSecurity $hydrator, string $enterprise, int $perPage = 30, int $page = 1)
     {
         $this->enterprise              = $enterprise;
         $this->perPage                 = $perPage;
@@ -42,7 +42,7 @@ final class GetGithubAdvancedSecurityBillingGhe
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{enterprise}', '{per_page}', '{page}'], [$this->enterprise, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
     }
@@ -57,17 +57,17 @@ final class GetGithubAdvancedSecurityBillingGhe
                 switch ($code) {
                     /**
                      * Success
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AdvancedSecurityActiveCommitters::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AdvancedSecurityActiveCommitters::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\AdvancedSecurityActiveCommitters::class, $body);
                     /**
                      * Response if GitHub Advanced Security is not enabled for this repository
-                    **/
+                     **/
 
                     case 403:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(403, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

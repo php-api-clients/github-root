@@ -24,12 +24,12 @@ final class GetSelfHostedRunnerGroupForOrg
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}';
     private string $org;
-    /**Unique identifier of the self-hosted runner group.**/
+    /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Actions\RunnerDashGroups\CbRunnerGroupIdRcb $hydrator, string $org, int $runnerGroupId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId $hydrator, string $org, int $runnerGroupId)
     {
         $this->org                     = $org;
         $this->runnerGroupId           = $runnerGroupId;
@@ -37,7 +37,7 @@ final class GetSelfHostedRunnerGroupForOrg
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}'], [$this->org, $this->runnerGroupId], self::PATH));
     }
@@ -52,9 +52,9 @@ final class GetSelfHostedRunnerGroupForOrg
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RunnerGroupsOrg::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RunnerGroupsOrg::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\RunnerGroupsOrg::class, $body);
                 }

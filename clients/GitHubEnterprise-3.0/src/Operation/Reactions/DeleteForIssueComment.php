@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\Reactions;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -18,7 +19,7 @@ final class DeleteForIssueComment
     private const PATH           = '/repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}';
     private string $owner;
     private string $repo;
-    /**comment_id parameter**/
+    /**comment_id parameter **/
     private int $commentId;
     private int $reactionId;
 
@@ -30,13 +31,25 @@ final class DeleteForIssueComment
         $this->reactionId = $reactionId;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}', '{reaction_id}'], [$this->owner, $this->repo, $this->commentId, $this->reactionId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Response
+             **/
+            case 204:
+                return ['code' => 204];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }

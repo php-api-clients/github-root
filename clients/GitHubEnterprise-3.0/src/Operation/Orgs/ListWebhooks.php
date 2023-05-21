@@ -13,8 +13,6 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
 use RuntimeException;
-use Rx\Observable;
-use Rx\Scheduler\ImmediateScheduler;
 
 use function explode;
 use function json_decode;
@@ -27,14 +25,14 @@ final class ListWebhooks
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/hooks';
     private string $org;
-    /**Results per page (max 100)**/
+    /**Results per page (max 100) **/
     private int $perPage;
-    /**Page number of the results to fetch.**/
+    /**Page number of the results to fetch. **/
     private int $page;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\CbOrgRcb\Hooks $hydrator;
+    private readonly Hydrator\Operation\Orgs\Org\Hooks $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\CbOrgRcb\Hooks $hydrator, string $org, int $perPage = 30, int $page = 1)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Hooks $hydrator, string $org, int $perPage = 30, int $page = 1)
     {
         $this->org                     = $org;
         $this->perPage                 = $perPage;
@@ -43,15 +41,12 @@ final class ListWebhooks
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{org}', '{per_page}', '{page}'], [$this->org, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return Observable<Schema\OrgHook>
-     */
-    public function createResponse(ResponseInterface $response): Observable
+    public function createResponse(ResponseInterface $response): mixed
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -60,22 +55,10 @@ final class ListWebhooks
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
-                     * Response
-                    **/
-                    case 200:
-                        foreach ($body as $bodyItem) {
-                            $this->responseSchemaValidator->validate($bodyItem, Reader::readFromJson(Schema\OrgHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
-                        }
-
-                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\OrgHook {
-                            return $this->hydrator->hydrateObject(Schema\OrgHook::class, $body);
-                        });
-                    /**
                      * Resource not found
-                    **/
-
+                     **/
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

@@ -27,12 +27,12 @@ final class UpdateReviewComment
     private readonly SchemaValidator $requestSchemaValidator;
     private string $owner;
     private string $repo;
-    /**comment_id parameter**/
+    /**comment_id parameter **/
     private int $commentId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pulls\Comments\CbCommentIdRcb $hydrator, string $owner, string $repo, int $commentId)
+    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator, string $owner, string $repo, int $commentId)
     {
         $this->requestSchemaValidator  = $requestSchemaValidator;
         $this->owner                   = $owner;
@@ -42,9 +42,9 @@ final class UpdateReviewComment
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Pulls\UpdateReviewComment\Request\Applicationjson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Pulls\UpdateReviewComment\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
@@ -59,9 +59,9 @@ final class UpdateReviewComment
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PullRequestReviewComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PullRequestReviewComment::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\PullRequestReviewComment::class, $body);
                 }

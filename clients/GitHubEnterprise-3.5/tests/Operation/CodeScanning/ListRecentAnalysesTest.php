@@ -6,7 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\CodeScanning;
 
 use ApiClients\Client\GitHubEnterprise\Client;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
-use ApiClients\Client\GitHubEnterprise\Operation\CodeScanning\ListRecentAnalyses;
+use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use Prophecy\Argument;
@@ -14,6 +14,7 @@ use React\Http\Browser;
 use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+use function React\Async\await;
 use function React\Promise\resolve;
 
 final class ListRecentAnalysesTest extends AsyncTestCase
@@ -21,34 +22,7 @@ final class ListRecentAnalysesTest extends AsyncTestCase
     /**
      * @test
      */
-    public function httpCode_200_responseContentType_application_json(): void
-    {
-        $response = new Response(200, ['Content-Type' => 'application/json'], '[' . Schema\CodeScanningAnalysis::SCHEMA_EXAMPLE_DATA . ']');
-        $auth     = $this->prophesize(AuthenticationInterface::class);
-        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
-        $browser = $this->prophesize(Browser::class);
-        $browser->withBase(Argument::any())->willReturn($browser->reveal());
-        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/analyses?tool_name=generated_null&tool_guid=&ref=generated_null&sarif_id=generated_null&page=13&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
-        $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListRecentAnalyses::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']     = 'generated_null';
-            $data['repo']      = 'generated_null';
-            $data['tool_name'] = 'generated_null';
-            $data['tool_guid'] = null;
-            $data['ref']       = 'generated_null';
-            $data['sarif_id']  = 'generated_null';
-            $data['page']      = 13;
-            $data['per_page']  = 13;
-
-            return $data;
-        })([]));
-    }
-
-    /**
-     * @test
-     */
-    public function httpCode_403_responseContentType_application_json(): void
+    public function call_httpCode_403_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
         $response = new Response(403, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
@@ -57,17 +31,17 @@ final class ListRecentAnalysesTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/analyses?tool_name=generated_null&tool_guid=&ref=generated_null&sarif_id=generated_null&page=13&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/code-scanning/analyses?tool_name=generated&tool_guid=&ref=generated&sarif_id=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListRecentAnalyses::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']     = 'generated_null';
-            $data['repo']      = 'generated_null';
-            $data['tool_name'] = 'generated_null';
+        $result = $client->call(Operation\CodeScanning\ListRecentAnalyses::OPERATION_MATCH, (static function (array $data): array {
+            $data['owner']     = 'generated';
+            $data['repo']      = 'generated';
+            $data['tool_name'] = 'generated';
             $data['tool_guid'] = null;
-            $data['ref']       = 'generated_null';
-            $data['sarif_id']  = 'generated_null';
-            $data['page']      = 13;
-            $data['per_page']  = 13;
+            $data['ref']       = 'generated';
+            $data['sarif_id']  = 'generated';
+            $data['page']      = 4;
+            $data['per_page']  = 8;
 
             return $data;
         })([]));
@@ -76,7 +50,24 @@ final class ListRecentAnalysesTest extends AsyncTestCase
     /**
      * @test
      */
-    public function httpCode_404_responseContentType_application_json(): void
+    public function operations_httpCode_403_responseContentType_application_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\BasicError::class);
+        $response = new Response(403, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/code-scanning/analyses?tool_name=generated&tool_guid=&ref=generated&sarif_id=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->codeScanning()->listRecentAnalyses('generated', 'generated', 'generated', null, 'generated', 'generated', 4, 8));
+    }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
         $response = new Response(404, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
@@ -85,17 +76,17 @@ final class ListRecentAnalysesTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/analyses?tool_name=generated_null&tool_guid=&ref=generated_null&sarif_id=generated_null&page=13&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/code-scanning/analyses?tool_name=generated&tool_guid=&ref=generated&sarif_id=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListRecentAnalyses::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']     = 'generated_null';
-            $data['repo']      = 'generated_null';
-            $data['tool_name'] = 'generated_null';
+        $result = $client->call(Operation\CodeScanning\ListRecentAnalyses::OPERATION_MATCH, (static function (array $data): array {
+            $data['owner']     = 'generated';
+            $data['repo']      = 'generated';
+            $data['tool_name'] = 'generated';
             $data['tool_guid'] = null;
-            $data['ref']       = 'generated_null';
-            $data['sarif_id']  = 'generated_null';
-            $data['page']      = 13;
-            $data['per_page']  = 13;
+            $data['ref']       = 'generated';
+            $data['sarif_id']  = 'generated';
+            $data['page']      = 4;
+            $data['per_page']  = 8;
 
             return $data;
         })([]));
@@ -104,28 +95,62 @@ final class ListRecentAnalysesTest extends AsyncTestCase
     /**
      * @test
      */
-    public function httpCode_503_responseContentType_application_json(): void
+    public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::class);
-        $response = new Response(503, ['Content-Type' => 'application/json'], Schema\Operation\SecretScanning\ListAlertsForEnterprise\Response\Applicationjson\H503::SCHEMA_EXAMPLE_DATA);
+        self::expectException(ErrorSchemas\BasicError::class);
+        $response = new Response(404, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated_null/generated_null/code-scanning/analyses?tool_name=generated_null&tool_guid=&ref=generated_null&sarif_id=generated_null&page=13&per_page=13', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/code-scanning/analyses?tool_name=generated&tool_guid=&ref=generated&sarif_id=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $client->call(ListRecentAnalyses::OPERATION_MATCH, (static function (array $data): array {
-            $data['owner']     = 'generated_null';
-            $data['repo']      = 'generated_null';
-            $data['tool_name'] = 'generated_null';
+        $result = await($client->operations()->codeScanning()->listRecentAnalyses('generated', 'generated', 'generated', null, 'generated', 'generated', 4, 8));
+    }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_503_responseContentType_application_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/code-scanning/analyses?tool_name=generated&tool_guid=&ref=generated&sarif_id=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = $client->call(Operation\CodeScanning\ListRecentAnalyses::OPERATION_MATCH, (static function (array $data): array {
+            $data['owner']     = 'generated';
+            $data['repo']      = 'generated';
+            $data['tool_name'] = 'generated';
             $data['tool_guid'] = null;
-            $data['ref']       = 'generated_null';
-            $data['sarif_id']  = 'generated_null';
-            $data['page']      = 13;
-            $data['per_page']  = 13;
+            $data['ref']       = 'generated';
+            $data['sarif_id']  = 'generated';
+            $data['page']      = 4;
+            $data['per_page']  = 8;
 
             return $data;
         })([]));
+    }
+
+    /**
+     * @test
+     */
+    public function operations_httpCode_503_responseContentType_application_json_zero(): void
+    {
+        self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
+        $response = new Response(503, ['Content-Type' => 'application/json'], Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::SCHEMA_EXAMPLE_DATA);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/code-scanning/analyses?tool_name=generated&tool_guid=&ref=generated&sarif_id=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->codeScanning()->listRecentAnalyses('generated', 'generated', 'generated', null, 'generated', 'generated', 4, 8));
     }
 }

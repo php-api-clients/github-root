@@ -25,12 +25,12 @@ final class GetSuite
     private const PATH           = '/repos/{owner}/{repo}/check-suites/{check_suite_id}';
     private string $owner;
     private string $repo;
-    /**check_suite_id parameter**/
+    /**check_suite_id parameter **/
     private int $checkSuiteId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\CheckDashSuites\CbCheckSuiteIdRcb $hydrator, string $owner, string $repo, int $checkSuiteId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId $hydrator, string $owner, string $repo, int $checkSuiteId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -39,7 +39,7 @@ final class GetSuite
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{check_suite_id}'], [$this->owner, $this->repo, $this->checkSuiteId], self::PATH));
     }
@@ -54,9 +54,9 @@ final class GetSuite
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CheckSuite::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CheckSuite::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\CheckSuite::class, $body);
                 }

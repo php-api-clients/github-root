@@ -26,9 +26,9 @@ final class GetLatestPagesBuild
     private string $owner;
     private string $repo;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\Latest $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Pages\Builds\Latest $hydrator, string $owner, string $repo)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\Latest $hydrator, string $owner, string $repo)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -36,7 +36,7 @@ final class GetLatestPagesBuild
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
     }
@@ -51,9 +51,9 @@ final class GetLatestPagesBuild
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PageBuild::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PageBuild::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\PageBuild::class, $body);
                 }

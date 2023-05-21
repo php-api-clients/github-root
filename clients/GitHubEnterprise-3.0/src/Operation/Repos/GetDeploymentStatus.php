@@ -26,13 +26,13 @@ final class GetDeploymentStatus
     private const PATH           = '/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}';
     private string $owner;
     private string $repo;
-    /**deployment_id parameter**/
+    /**deployment_id parameter **/
     private int $deploymentId;
     private int $statusId;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Deployments\CbDeploymentIdRcb\Statuses\CbStatusIdRcb $hydrator, string $owner, string $repo, int $deploymentId, int $statusId)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator, string $owner, string $repo, int $deploymentId, int $statusId)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -42,7 +42,7 @@ final class GetDeploymentStatus
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{deployment_id}', '{status_id}'], [$this->owner, $this->repo, $this->deploymentId, $this->statusId], self::PATH));
     }
@@ -57,17 +57,17 @@ final class GetDeploymentStatus
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\DeploymentStatus::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\DeploymentStatus::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\DeploymentStatus::class, $body);
                     /**
                      * Resource not found
-                    **/
+                     **/
 
                     case 404:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }

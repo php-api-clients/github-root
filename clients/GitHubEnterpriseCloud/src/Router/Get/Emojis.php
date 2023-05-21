@@ -6,12 +6,10 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operation\Emojis\Get\Response\Applicationjson\H200;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -37,16 +35,12 @@ final class Emojis
 
     public function get(array $params)
     {
-        $arguments = [];
         if (array_key_exists(Hydrator\Operation\Emojis::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Emojis::class] = $this->hydrators->getObjectMapperOperation🌀Emojis();
         }
 
-        $operation = new Operation\Emojis\Get($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Emojis::class]);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Emojis\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Emojis::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): H200 {
-            return $operation->createResponse($response);
-        });
+        return $operator->call();
     }
 }

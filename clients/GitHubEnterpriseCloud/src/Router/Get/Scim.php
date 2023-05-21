@@ -6,12 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operation;
+use ApiClients\Client\GitHubEnterpriseCloud\Operator;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 
 use function array_key_exists;
@@ -62,16 +61,13 @@ final class Scim
 
         $arguments['filter'] = $params['filter'];
         unset($params['filter']);
-        if (array_key_exists(Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀CbOrgRcb🌀Users();
+        if (array_key_exists(Hydrator\Operation\Scim\V2\Organizations\Org\Users::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\Org\Users::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users();
         }
 
-        $operation = new Operation\Scim\ListProvisionedIdentities($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users::class], $arguments['org'], $arguments['startIndex'], $arguments['count'], $arguments['filter']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Scim\ListProvisionedIdentities($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\Org\Users::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['startIndex'], $arguments['count'], $arguments['filter']);
     }
 
     public function getProvisioningInformationForUser(array $params)
@@ -89,15 +85,12 @@ final class Scim
 
         $arguments['scim_user_id'] = $params['scim_user_id'];
         unset($params['scim_user_id']);
-        if (array_key_exists(Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀CbOrgRcb🌀Users🌀CbScimUserIdRcb();
+        if (array_key_exists(Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users🌀ScimUserId();
         }
 
-        $operation = new Operation\Scim\GetProvisioningInformationForUser($this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\CbOrgRcb\Users\CbScimUserIdRcb::class], $arguments['org'], $arguments['scim_user_id']);
-        $request   = $operation->createRequest($params);
+        $operator = new Operator\Scim\GetProvisioningInformationForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId::class]);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): mixed {
-            return $operation->createResponse($response);
-        });
+        return $operator->call($arguments['org'], $arguments['scim_user_id']);
     }
 }

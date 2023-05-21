@@ -25,12 +25,12 @@ final class GetRepoSecret
     private const PATH           = '/repos/{owner}/{repo}/actions/secrets/{secret_name}';
     private string $owner;
     private string $repo;
-    /**secret_name parameter**/
+    /**secret_name parameter **/
     private string $secretName;
     private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb $hydrator;
+    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\CbOwnerRcb\CbRepoRcb\Actions\Secrets\CbSecretNameRcb $hydrator, string $owner, string $repo, string $secretName)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator, string $owner, string $repo, string $secretName)
     {
         $this->owner                   = $owner;
         $this->repo                    = $repo;
@@ -39,7 +39,7 @@ final class GetRepoSecret
         $this->hydrator                = $hydrator;
     }
 
-    public function createRequest(array $data = []): RequestInterface
+    public function createRequest(): RequestInterface
     {
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{secret_name}'], [$this->owner, $this->repo, $this->secretName], self::PATH));
     }
@@ -54,9 +54,9 @@ final class GetRepoSecret
                 switch ($code) {
                     /**
                      * Response
-                    **/
+                     **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsSecret::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ActionsSecret::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         return $this->hydrator->hydrateObject(Schema\ActionsSecret::class, $body);
                 }
