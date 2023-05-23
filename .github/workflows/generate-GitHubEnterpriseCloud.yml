@@ -47,7 +47,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: "GitHubEnterpriseCloud/from-${{ steps.look-current-up-spec-version.outputs.result }}-hash-${{ steps.spec-hash.outputs.current }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}"-hash-${{ steps.spec-hash.outputs.current }}
+          branch: "GitHubEnterpriseCloud/from-${{ steps.look-current-up-spec-version.outputs.result }}-hash-${{ steps.spec-hash.outputs.current }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}-hash-${{ steps.spec-hash.outputs.current }}"
           token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
           labels: |
             Automated PR
