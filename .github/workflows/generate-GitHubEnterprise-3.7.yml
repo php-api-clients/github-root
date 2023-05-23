@@ -18,6 +18,11 @@ jobs:
           rm etc/specs/GitHubEnterprise-3.7/previous.spec.yaml || true
           mv etc/specs/GitHubEnterprise-3.7/current.spec.yaml etc/specs/GitHubEnterprise-3.7/previous.spec.yaml
           curl -o etc/specs/GitHubEnterprise-3.7/current.spec.yaml https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghes-3.7/ghes-3.7.yaml
+      - name: Hash specs
+        id: spec-hash
+        run: |
+          echo "current=php -r 'echo md5(file_get_contents("etc/specs/GitHubEnterprise-3.7/current.spec.yaml"));'" >> "$GITHUB_OUTPUT"
+          echo "previous=php -r 'echo md5(file_get_contents("etc/specs/GitHubEnterprise-3.7/previous.spec.yaml"));'" >> "$GITHUB_OUTPUT"
       - name: Look current up spec version
         id: look-current-up-spec-version
         uses: mikefarah/yq@v4.33.3
@@ -42,11 +47,17 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: "GitHubEnterprise-3.7/from-${{ steps.look-current-up-spec-version.outputs.result }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}"
+          branch: "GitHubEnterprise-3.7/from-${{ steps.look-current-up-spec-version.outputs.result }}-hash-${{ steps.spec-hash.outputs.current }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}"-hash-${{ steps.spec-hash.outputs.current }}
           token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
           labels: |
             Automated PR
             New Version
             automerge
-          title: "[GitHubEnterprise-3.7] Update to ${{ steps.look-current-up-spec-version.outputs.result }} from ${{ steps.look-previous-up-spec-version.outputs.result }}"
-          body: ${{ steps.spec-diff.outputs.diff }}
+          title: "[GitHubEnterprise-3.7] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})"
+          body: |
+            Detected Schema changes:
+            ${{ steps.spec-diff.outputs.diff }}
+          commit-message: |
+            [GitHubEnterprise-3.7] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})
+            Detected Schema changes:
+            ${{ steps.spec-diff.outputs.diff }}
