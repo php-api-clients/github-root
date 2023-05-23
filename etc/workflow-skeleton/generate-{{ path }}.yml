@@ -18,6 +18,11 @@ jobs:
           rm etc/specs/{{ path }}/previous.spec.yaml || true
           mv etc/specs/{{ path }}/current.spec.yaml etc/specs/{{ path }}/previous.spec.yaml
           curl -o etc/specs/{{ path }}/current.spec.yaml {{ specUrl }}
+      - name: Hash specs
+        id: spec-hash
+        run: |
+          echo "current=php -r 'echo md5(file_get_contents("etc/specs/{{ path }}/current.spec.yaml"));'" >> "$GITHUB_OUTPUT"
+          echo "previous=php -r 'echo md5(file_get_contents("etc/specs/{{ path }}/previous.spec.yaml"));'" >> "$GITHUB_OUTPUT"
       - name: Look current up spec version
         id: look-current-up-spec-version
         uses: mikefarah/yq@v4.33.3
@@ -42,11 +47,17 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: "{{ path }}/from-{{ "${{ steps.look-current-up-spec-version.outputs.result }}" }}-from-{{ "${{ steps.look-previous-up-spec-version.outputs.result }}" }}"
+          branch: "{{ path }}/from-{{ "${{ steps.look-current-up-spec-version.outputs.result }}" }}-hash-{{ "${{ steps.spec-hash.outputs.current }}" }}-from-{{ "${{ steps.look-previous-up-spec-version.outputs.result }}" }}"-hash-{{ "${{ steps.spec-hash.outputs.current }}" }}
           token: {{ "${{ secrets.SUBSPLIT_GITHUB_TOKEN }}" }}
           labels: |
             Automated PR
             New Version
             automerge
-          title: "[{{ path }}] Update to {{ "${{ steps.look-current-up-spec-version.outputs.result }}" }} from {{ "${{ steps.look-previous-up-spec-version.outputs.result }}" }}"
-          body: {{ "${{ steps.spec-diff.outputs.diff }}" }}
+          title: "[{{ path }}] Update to {{ "${{ steps.look-current-up-spec-version.outputs.result }}" }} (hash: {{ "${{ steps.spec-hash.outputs.current }}" }}) from {{ "${{ steps.look-previous-up-spec-version.outputs.result }}" }} (hash: {{ "${{ steps.spec-hash.outputs.previous }}" }})"
+          body: |
+            Detected Schema changes:
+            {{ "${{ steps.spec-diff.outputs.diff }}" }}
+          commit-message: |
+            [{{ path }}] Update to {{ "${{ steps.look-current-up-spec-version.outputs.result }}" }} (hash: {{ "${{ steps.spec-hash.outputs.current }}" }}) from {{ "${{ steps.look-previous-up-spec-version.outputs.result }}" }} (hash: {{ "${{ steps.spec-hash.outputs.previous }}" }})
+            Detected Schema changes:
+            {{ "${{ steps.spec-diff.outputs.diff }}" }}
