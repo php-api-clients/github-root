@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\CancelWorkflowRun\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -24,14 +24,14 @@ final readonly class CancelWorkflowRun
     }
 
     /**
-     * @return PromiseInterface<NotFound>
+     * @return PromiseInterface<Json>
      **/
     public function call(string $owner, string $repo, int $runId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\CancelWorkflowRun($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $runId);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): NotFound {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Json {
             return $operation->createResponse($response);
         });
     }

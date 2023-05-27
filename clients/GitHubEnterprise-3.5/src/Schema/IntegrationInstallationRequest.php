@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema;
 
+use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\IntegrationInstallationRequest\Account;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
@@ -18,7 +19,7 @@ final readonly class IntegrationInstallationRequest
      * id: Unique identifier of the request installation.
      * requester: A GitHub user.
      */
-    public function __construct(public int $id, #[MapFrom('node_id')] public ?string $nodeId, public Schema\SimpleUser|Schema\Enterprise $account, public Schema\SimpleUser $requester, #[MapFrom('created_at')] public string $createdAt)
+    public function __construct(public int $id, #[MapFrom('node_id')] public ?string $nodeId, #[Account] public Schema\SimpleUser|Schema\Enterprise $account, public Schema\SimpleUser $requester, #[MapFrom('created_at')] public string $createdAt)
     {
     }
 }

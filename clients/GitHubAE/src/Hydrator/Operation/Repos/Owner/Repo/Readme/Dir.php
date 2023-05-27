@@ -24,7 +24,7 @@ class Dir implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubAE\Schema\ContentFile' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile($payload),
-                'ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($payload),
+                'ApiClients\Client\GitHubAE\Schema\ContentFile\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile⚡️Links($payload),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -168,7 +168,7 @@ class Dir implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'links';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -216,7 +216,7 @@ class Dir implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(array $payload): \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile⚡️Links(array $payload): \ApiClients\Client\GitHubAE\Schema\ContentFile\Links
     {
         $properties = []; 
         $missingFields = [];
@@ -255,17 +255,17 @@ class Dir implements ObjectMapper
             after_self:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentFile\Links', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\ContentFile\Links::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\ContentFile\Links(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ContentFile\Links', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -420,7 +420,7 @@ class Dir implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubAE\Schema\ContentFile' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile($object),
-            'ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($object),
+            'ApiClients\Client\GitHubAE\Schema\ContentFile\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile⚡️Links($object),
             'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -558,7 +558,7 @@ class Dir implements ObjectMapper
 
         
         $links = $object->links;
-        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($links);
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile⚡️Links($links);
         after_links:        $result['_links'] = $links;
 
         
@@ -582,9 +582,9 @@ class Dir implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ContentFile⚡️Links(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ContentTree\Entries\Links);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\ContentFile\Links);
         $result = [];
 
         $git = $object->git;

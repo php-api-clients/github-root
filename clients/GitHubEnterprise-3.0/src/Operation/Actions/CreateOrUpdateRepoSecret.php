@@ -50,9 +50,9 @@ final class CreateOrUpdateRepoSecret
     }
 
     /**
-     * @return Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound|array{code: int}
+     * @return Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json|array{code: int}
      */
-    public function createResponse(ResponseInterface $response): Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound|array
+    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -64,9 +64,9 @@ final class CreateOrUpdateRepoSecret
                      * Response when creating a secret
                      **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json::class, $body);
                 }
 
                 break;

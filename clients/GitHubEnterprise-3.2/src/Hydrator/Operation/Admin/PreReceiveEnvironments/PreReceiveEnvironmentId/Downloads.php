@@ -24,7 +24,8 @@ class Downloads implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironmentDownloadStatus($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownload⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownloadStreaming⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -95,7 +96,7 @@ class Downloads implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownload⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json
     {
         $properties = []; 
         $missingFields = [];
@@ -123,17 +124,60 @@ class Downloads implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownloadStreaming⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['message'] ?? null;
+
+            if ($value === null) {
+                $properties['message'] = null;
+                goto after_message;
+            }
+
+            $properties['message'] = $value;
+
+            after_message:
+
+            $value = $payload['errors'] ?? null;
+
+            if ($value === null) {
+                $properties['errors'] = null;
+                goto after_errors;
+            }
+
+            $properties['errors'] = $value;
+
+            after_errors:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -169,7 +213,8 @@ class Downloads implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironmentDownloadStatus($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownload⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownloadStreaming⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -284,9 +329,42 @@ class Downloads implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownload⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json);
+        $result = [];
+
+        $message = $object->message;
+
+        if ($message === null) {
+            goto after_message;
+        }
+        after_message:        $result['message'] = $message;
+
+        
+        $errors = $object->errors;
+
+        if ($errors === null) {
+            goto after_errors;
+        }
+        static $errorsSerializer0;
+
+        if ($errorsSerializer0 === null) {
+            $errorsSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $errors = $errorsSerializer0->serialize($errors, $this);
+        after_errors:        $result['errors'] = $errors;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownloadStreaming⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json);
         $result = [];
 
         $message = $object->message;

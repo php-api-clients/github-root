@@ -26,7 +26,7 @@ class TeamSlug implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\TeamFull' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamFull($payload),
                 'ApiClients\Client\GitHubAE\Schema\TeamSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple($payload),
                 'ApiClients\Client\GitHubAE\Schema\TeamOrganization' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization($payload),
-                'ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationFull⚡️Plan($payload),
+                'ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization⚡️Plan($payload),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -835,7 +835,7 @@ class TeamSlug implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'plan';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationFull⚡️Plan($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization⚡️Plan($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1004,7 +1004,7 @@ class TeamSlug implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationFull⚡️Plan(array $payload): \ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization⚡️Plan(array $payload): \ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan
     {
         $properties = []; 
         $missingFields = [];
@@ -1065,17 +1065,17 @@ class TeamSlug implements ObjectMapper
             after_seats:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1232,7 +1232,7 @@ class TeamSlug implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\TeamFull' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamFull($object),
             'ApiClients\Client\GitHubAE\Schema\TeamSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamSimple($object),
             'ApiClients\Client\GitHubAE\Schema\TeamOrganization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization($object),
-            'ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationFull⚡️Plan($object),
+            'ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization⚡️Plan($object),
             'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -1694,7 +1694,7 @@ class TeamSlug implements ObjectMapper
         if ($plan === null) {
             goto after_plan;
         }
-        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationFull⚡️Plan($plan);
+        $plan = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization⚡️Plan($plan);
         after_plan:        $result['plan'] = $plan;
 
         
@@ -1802,9 +1802,9 @@ class TeamSlug implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️OrganizationFull⚡️Plan(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamOrganization⚡️Plan(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\OrganizationFull\Plan);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\TeamOrganization\Plan);
         $result = [];
 
         $name = $object->name;

@@ -4,19 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
+use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet13B495F0\TietFB087B4C\Tiet6F3F0AF6\Tiet4B857A97
 {
-    public const SCHEMA_JSON         = '{"required":["ldap_dn"],"type":"object","properties":{"ldap_dn":{"type":"string","description":"The [distinguished name](https:\\/\\/www.ldap.com\\/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team."}}}';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"ldap_dn":"generated"}';
-
-    /**
-     * ldapDn: The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.
-     */
-    public function __construct(#[MapFrom('ldap_dn')] public string $ldapDn)
-    {
-    }
 }

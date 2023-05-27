@@ -63,9 +63,9 @@ final class StartPreReceiveEnvironmentDownloadStreaming
                      **/
 
                     case 422:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        throw new ErrorSchemas\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity(422, $this->hydrator->hydrateObject(Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::class, $body));
+                        throw new ErrorSchemas\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json(422, $this->hydrator->hydrateObject(Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json::class, $body));
                 }
 
                 break;

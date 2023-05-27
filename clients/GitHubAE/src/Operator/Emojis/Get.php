@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operator\Emojis;
 
 use ApiClients\Client\GitHubAE\Hydrator;
-use ApiClients\Client\GitHubAE\Schema\WebhookRubygemsMetadata\Metadata;
+use ApiClients\Client\GitHubAE\Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -24,14 +24,14 @@ final readonly class Get
     }
 
     /**
-     * @return PromiseInterface<(Metadata|array)>
+     * @return PromiseInterface<(Json|array)>
      **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Emojis\Get($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Metadata|array {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Json|array {
             return $operation->createResponse($response);
         });
     }

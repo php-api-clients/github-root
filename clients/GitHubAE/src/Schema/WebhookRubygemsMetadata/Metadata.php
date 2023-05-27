@@ -4,14 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Schema\WebhookRubygemsMetadata;
 
-final readonly class Metadata
-{
-    public const SCHEMA_JSON         = '{"type":"object","additionalProperties":{"type":"string"}}';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
+use ApiClients\Client\GitHubAE\Schema;
 
-    public function __construct()
-    {
-    }
+final readonly class Metadata extends Schema\AliasAbstract\Tiet79A542C6\Tiet0FEA0A93\Tiet9B2FF624\Tiet1FC22CD9
+{
 }

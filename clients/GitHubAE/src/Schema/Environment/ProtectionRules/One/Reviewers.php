@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Schema\Environment\ProtectionRules\One;
 
+use ApiClients\Client\GitHubAE\Attribute\CastUnionToType\Schema\Environment\ProtectionRules\One\Reviewers\Reviewer;
 use ApiClients\Client\GitHubAE\Schema;
 
 final readonly class Reviewers
@@ -16,7 +17,7 @@ final readonly class Reviewers
     /**
      * type: The type of reviewer.
      */
-    public function __construct(public ?string $type, public null|Schema\SimpleUser|Schema\Team $reviewer)
+    public function __construct(public ?string $type, #[Reviewer] public null|Schema\SimpleUser|Schema\Team $reviewer)
     {
     }
 }

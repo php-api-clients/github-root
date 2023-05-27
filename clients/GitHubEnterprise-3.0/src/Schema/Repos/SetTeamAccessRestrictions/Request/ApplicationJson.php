@@ -4,14 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\Repos\SetTeamAccessRestrictions\Request;
 
-final readonly class ApplicationJson
-{
-    public const SCHEMA_JSON         = '{"oneOf":[{"required":["teams"],"type":"object","properties":{"teams":{"type":"array","items":{"type":"string"},"description":"teams parameter"}},"example":{"teams":["my-team"]}},{"type":"array","items":{"type":"string"},"description":"teams parameter"}]}';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
+use ApiClients\Client\GitHubEnterprise\Schema;
 
-    public function __construct()
-    {
-    }
+final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet9317DD25\Tiet25342858\TietBE77BCAD\Tiet419AAC90
+{
 }

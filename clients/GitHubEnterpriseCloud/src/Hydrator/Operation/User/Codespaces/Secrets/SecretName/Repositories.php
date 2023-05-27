@@ -23,14 +23,14 @@ class Repositories implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Actions⚡️ListSelectedReposForOrgSecret⚡️Response⚡️ApplicationJson⚡️Ok($payload),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Codespaces⚡️ListRepositoriesForSecretForAuthenticatedUser⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Actions⚡️ListSelectedReposForOrgSecret⚡️Response⚡️ApplicationJson⚡️Ok(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Codespaces⚡️ListRepositoriesForSecretForAuthenticatedUser⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json
     {
         $properties = []; 
         $missingFields = [];
@@ -58,17 +58,17 @@ class Repositories implements ObjectMapper
             after_repositories:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -168,7 +168,7 @@ class Repositories implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Actions⚡️ListSelectedReposForOrgSecret⚡️Response⚡️ApplicationJson⚡️Ok($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Codespaces⚡️ListRepositoriesForSecretForAuthenticatedUser⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -243,9 +243,9 @@ class Repositories implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Actions⚡️ListSelectedReposForOrgSecret⚡️Response⚡️ApplicationJson⚡️Ok(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Codespaces⚡️ListRepositoriesForSecretForAuthenticatedUser⚡️Response⚡️ApplicationJson⚡️Ok⚡️Application⚡️Json(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListRepositoriesForSecretForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json);
         $result = [];
 
         $totalCount = $object->totalCount;

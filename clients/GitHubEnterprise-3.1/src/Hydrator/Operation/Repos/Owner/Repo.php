@@ -34,7 +34,7 @@ class Repo implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConductSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConductSimple($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Repos⚡️Delete⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -4059,7 +4059,7 @@ class Repo implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Repos⚡️Delete⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json
     {
         $properties = []; 
         $missingFields = [];
@@ -4087,17 +4087,17 @@ class Repo implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4197,7 +4197,7 @@ class Repo implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConductSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConductSimple($object),
             'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Repos⚡️Delete⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
@@ -6410,9 +6410,9 @@ class Repo implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Repos⚡️Delete⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\Delete\Response\ApplicationJson\Forbidden\Application\Json);
         $result = [];
 
         $message = $object->message;

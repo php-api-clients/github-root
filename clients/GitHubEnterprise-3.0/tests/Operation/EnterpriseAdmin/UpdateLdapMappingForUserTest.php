@@ -30,13 +30,13 @@ final class UpdateLdapMappingForUserTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/admin/ldap/users/generated/mapping', Argument::type('array'), Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/admin/ldap/users/generated/mapping', Argument::type('array'), Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\EnterpriseAdmin\UpdateLdapMappingForUser::OPERATION_MATCH, (static function (array $data): array {
             $data['username'] = 'generated';
 
             return $data;
-        })(json_decode(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -50,8 +50,8 @@ final class UpdateLdapMappingForUserTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/admin/ldap/users/generated/mapping', Argument::type('array'), Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/admin/ldap/users/generated/mapping', Argument::type('array'), Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->updateLdapMappingForUser('generated', json_decode(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        $result = await($client->operations()->enterpriseAdmin()->updateLdapMappingForUser('generated', json_decode(Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 }

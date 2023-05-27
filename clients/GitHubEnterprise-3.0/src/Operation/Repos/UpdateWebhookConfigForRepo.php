@@ -43,7 +43,7 @@ final class UpdateWebhookConfigForRepo
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\UpdateWebhookConfigForOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\UpdateWebhookConfigForRepo\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{hook_id}'], [$this->owner, $this->repo, $this->hookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }

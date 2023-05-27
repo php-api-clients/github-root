@@ -39,7 +39,7 @@ class Settings implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -508,7 +508,7 @@ class Settings implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'pages';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1722,7 +1722,7 @@ class Settings implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages
     {
         $properties = []; 
         $missingFields = [];
@@ -1739,17 +1739,17 @@ class Settings implements ObjectMapper
             after_enabled:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1952,7 +1952,7 @@ class Settings implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Ntp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Ntp($object),
             'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Snmp' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Snmp($object),
             'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Syslog' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Syslog($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($object),
             'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($object),
             'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -2292,7 +2292,7 @@ class Settings implements ObjectMapper
         if ($pages === null) {
             goto after_pages;
         }
-        $pages = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory($pages);
+        $pages = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($pages);
         after_pages:        $result['pages'] = $pages;
 
         
@@ -3070,9 +3070,9 @@ class Settings implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BranchProtection⚡️RequiredLinearHistory(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\BranchProtection\RequiredLinearHistory);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages);
         $result = [];
 
         $enabled = $object->enabled;

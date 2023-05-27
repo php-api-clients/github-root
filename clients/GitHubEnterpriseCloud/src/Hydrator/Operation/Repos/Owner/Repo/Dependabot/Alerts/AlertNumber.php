@@ -24,7 +24,7 @@ class AlertNumber implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert⚡️Dependency($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertPackage' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertPackage($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertSecurityAdvisory' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertSecurityAdvisory($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertSecurityAdvisory\Cvss' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertSecurityAdvisory⚡️Cvss($payload),
@@ -76,7 +76,7 @@ class AlertNumber implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'dependency';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert⚡️Dependency($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -261,7 +261,7 @@ class AlertNumber implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert⚡️Dependency(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency
     {
         $properties = []; 
         $missingFields = [];
@@ -309,17 +309,17 @@ class AlertNumber implements ObjectMapper
             after_scope:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1187,7 +1187,7 @@ class AlertNumber implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert⚡️Dependency($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertPackage' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertPackage($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertSecurityAdvisory' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertSecurityAdvisory($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertSecurityAdvisory\Cvss' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertSecurityAdvisory⚡️Cvss($object),
@@ -1284,7 +1284,7 @@ class AlertNumber implements ObjectMapper
 
         
         $dependency = $object->dependency;
-        $dependency = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency($dependency);
+        $dependency = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert⚡️Dependency($dependency);
         after_dependency:        $result['dependency'] = $dependency;
 
         
@@ -1367,9 +1367,9 @@ class AlertNumber implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlertWithRepository⚡️Dependency(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️DependabotAlert⚡️Dependency(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlertWithRepository\Dependency);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert\Dependency);
         $result = [];
 
         $package = $object->package;

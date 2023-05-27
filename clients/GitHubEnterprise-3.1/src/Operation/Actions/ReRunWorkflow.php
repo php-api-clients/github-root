@@ -51,7 +51,7 @@ final class ReRunWorkflow
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound
+    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -63,9 +63,9 @@ final class ReRunWorkflow
                      * Response
                      **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json::class, $body);
                 }
 
                 break;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Attribute\CastUnionToType\Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson\Operations\Value;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
 final readonly class Operations
@@ -13,7 +14,7 @@ final readonly class Operations
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"op":"replace","path":"generated","value":null}';
 
-    public function __construct(public string $op, public ?string $path, public null|Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson\Operations\Value\Zero|array|string $value)
+    public function __construct(public string $op, public ?string $path, #[Value] public null|Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson\Operations\Value\Zero|array|string $value)
     {
     }
 }

@@ -29,7 +29,7 @@ final class RemoveAuthorizedSshKey
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\AddAuthorizedSshKey\Request\ApplicationXWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\RemoveAuthorizedSshKey\Request\ApplicationXWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }

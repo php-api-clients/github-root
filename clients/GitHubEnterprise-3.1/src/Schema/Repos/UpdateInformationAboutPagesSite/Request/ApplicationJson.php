@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\Repos\UpdateInformationAboutPagesSite\Request;
 
+use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
@@ -19,7 +20,7 @@ final readonly class ApplicationJson
      * httpsEnforced: Specify whether HTTPS should be enforced for the repository.
      * public: Configures access controls for the GitHub Pages site. If public is set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. This includes anyone in your Enterprise if the repository is set to `internal` visibility. This feature is only available to repositories in an organization on an Enterprise plan.
      */
-    public function __construct(public ?string $cname, #[MapFrom('https_enforced')] public ?bool $httpsEnforced, public ?bool $public, public null|string|Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One $source)
+    public function __construct(public ?string $cname, #[MapFrom('https_enforced')] public ?bool $httpsEnforced, public ?bool $public, #[Source] public null|string|Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One $source)
     {
     }
 }

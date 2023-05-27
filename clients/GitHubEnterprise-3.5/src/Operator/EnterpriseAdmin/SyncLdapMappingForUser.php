@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\SyncLdapMappingForUser\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -24,14 +24,14 @@ final readonly class SyncLdapMappingForUser
     }
 
     /**
-     * @return PromiseInterface<Created>
+     * @return PromiseInterface<Json>
      **/
     public function call(string $username): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SyncLdapMappingForUser($this->responseSchemaValidator, $this->hydrator, $username);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Created {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Json {
             return $operation->createResponse($response);
         });
     }

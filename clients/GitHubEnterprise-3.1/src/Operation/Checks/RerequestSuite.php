@@ -46,7 +46,7 @@ final class RerequestSuite
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{check_suite_id}'], [$this->owner, $this->repo, $this->checkSuiteId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound
+    public function createResponse(ResponseInterface $response): Schema\Operations\Checks\RerequestSuite\Response\ApplicationJson\Created\Application\Json
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -58,9 +58,9 @@ final class RerequestSuite
                      * Response
                      **/
                     case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Checks\RerequestSuite\Response\ApplicationJson\Created\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Checks\RerequestSuite\Response\ApplicationJson\Created\Application\Json::class, $body);
                 }
 
                 break;

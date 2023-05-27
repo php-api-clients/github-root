@@ -73,7 +73,7 @@ final class ListWorkflowRuns
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{workflow_id}', '{actor}', '{branch}', '{event}', '{status}', '{created}', '{check_suite_id}', '{per_page}', '{page}', '{exclude_pull_requests}'], [$this->owner, $this->repo, $this->workflowId, $this->actor, $this->branch, $this->event, $this->status, $this->created, $this->checkSuiteId, $this->perPage, $this->page, $this->excludePullRequests], self::PATH . '?actor={actor}&branch={branch}&event={event}&status={status}&created={created}&check_suite_id={check_suite_id}&per_page={per_page}&page={page}&exclude_pull_requests={exclude_pull_requests}'));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok
+    public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -85,9 +85,9 @@ final class ListWorkflowRuns
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json::class, $body);
                 }
 
                 break;

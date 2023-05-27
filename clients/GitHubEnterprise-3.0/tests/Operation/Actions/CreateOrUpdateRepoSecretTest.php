@@ -24,7 +24,7 @@ final class CreateOrUpdateRepoSecretTest extends AsyncTestCase
      */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -46,7 +46,7 @@ final class CreateOrUpdateRepoSecretTest extends AsyncTestCase
      */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);

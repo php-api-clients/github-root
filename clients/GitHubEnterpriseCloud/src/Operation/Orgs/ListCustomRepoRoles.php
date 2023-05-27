@@ -40,7 +40,7 @@ final class ListCustomRepoRoles
         return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok
+    public function createResponse(ResponseInterface $response): Schema\Operations\Orgs\ListCustomRepoRoles\Response\ApplicationJson\Ok\Application\Json
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +52,9 @@ final class ListCustomRepoRoles
                      * Response - list of custom role names
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Orgs\ListCustomRepoRoles\Response\ApplicationJson\Ok\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Orgs\ListCustomRepoRoles\Response\ApplicationJson\Ok\Application\Json::class, $body);
                 }
 
                 break;

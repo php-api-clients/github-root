@@ -40,7 +40,7 @@ final class RedeliverWebhookDelivery
         return new Request(self::METHOD, str_replace(['{delivery_id}'], [$this->deliveryId], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\AuditLogEvent\Config
+    public function createResponse(ResponseInterface $response): Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -52,9 +52,9 @@ final class RedeliverWebhookDelivery
                      * Accepted
                      **/
                     case 202:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AuditLogEvent\Config::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\AuditLogEvent\Config::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json::class, $body);
                     /**
                      * Bad Request
                      **/

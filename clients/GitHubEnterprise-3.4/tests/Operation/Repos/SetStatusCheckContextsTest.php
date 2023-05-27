@@ -32,7 +32,7 @@ final class SetStatusCheckContextsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Repos\SetStatusCheckContexts::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']  = 'generated';
@@ -40,7 +40,7 @@ final class SetStatusCheckContextsTest extends AsyncTestCase
             $data['branch'] = 'generated';
 
             return $data;
-        })(json_decode(Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -55,9 +55,9 @@ final class SetStatusCheckContextsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->repos()->setStatusCheckContexts('generated', 'generated', 'generated', json_decode(Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA, true)));
+        $result = await($client->operations()->repos()->setStatusCheckContexts('generated', 'generated', 'generated', json_decode(Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -72,7 +72,7 @@ final class SetStatusCheckContextsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Repos\SetStatusCheckContexts::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']  = 'generated';
@@ -80,7 +80,7 @@ final class SetStatusCheckContextsTest extends AsyncTestCase
             $data['branch'] = 'generated';
 
             return $data;
-        })(json_decode(Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -95,8 +95,8 @@ final class SetStatusCheckContextsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/repos/generated/generated/branches/generated/protection/required_status_checks/contexts', Argument::type('array'), Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->repos()->setStatusCheckContexts('generated', 'generated', 'generated', json_decode(Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA, true)));
+        $result = await($client->operations()->repos()->setStatusCheckContexts('generated', 'generated', 'generated', json_decode(Schema\Repos\SetStatusCheckContexts\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 }

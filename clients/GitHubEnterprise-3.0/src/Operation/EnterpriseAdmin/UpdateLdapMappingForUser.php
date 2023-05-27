@@ -39,7 +39,7 @@ final class UpdateLdapMappingForUser
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }

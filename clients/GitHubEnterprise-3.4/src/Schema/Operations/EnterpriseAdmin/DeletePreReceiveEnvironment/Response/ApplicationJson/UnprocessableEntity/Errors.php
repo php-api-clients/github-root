@@ -4,14 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity;
 
-final readonly class Errors
-{
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"resource":{"type":"string"},"code":{"type":"string"},"message":{"type":"string"}}}';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"resource":"generated","code":"generated","message":"generated"}';
+use ApiClients\Client\GitHubEnterprise\Schema;
 
-    public function __construct(public ?string $resource, public ?string $code, public ?string $message)
-    {
-    }
+final readonly class Errors extends Schema\AliasAbstract\Tiet6AD9D360\Tiet3354CA40\Tiet81307CAB\Tiet441ABD7E
+{
 }

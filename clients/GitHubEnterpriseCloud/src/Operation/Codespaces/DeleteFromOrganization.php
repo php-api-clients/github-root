@@ -48,9 +48,9 @@ final class DeleteFromOrganization
     }
 
     /**
-     * @return Schema\AuditLogEvent\Config|array{code: int}
+     * @return Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json|array{code: int}
      */
-    public function createResponse(ResponseInterface $response): Schema\AuditLogEvent\Config|array
+    public function createResponse(ResponseInterface $response): Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -62,9 +62,9 @@ final class DeleteFromOrganization
                      * Accepted
                      **/
                     case 202:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AuditLogEvent\Config::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\AuditLogEvent\Config::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json::class, $body);
                     /**
                      * Internal Error
                      **/

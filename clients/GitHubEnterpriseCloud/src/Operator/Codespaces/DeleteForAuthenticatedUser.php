@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operator\Codespaces;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogEvent\Config;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\DeleteForAuthenticatedUser\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -24,14 +24,14 @@ final readonly class DeleteForAuthenticatedUser
     }
 
     /**
-     * @return PromiseInterface<(Config|array)>
+     * @return PromiseInterface<(Json|array)>
      **/
     public function call(string $codespaceName): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\DeleteForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $codespaceName);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Config|array {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Json|array {
             return $operation->createResponse($response);
         });
     }

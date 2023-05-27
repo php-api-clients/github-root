@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Schema\Operations\Gists\CheckIsStarred\Response\ApplicationJson\NotFound;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -24,14 +24,14 @@ final readonly class CreateOrUpdateRepoSecret
     }
 
     /**
-     * @return PromiseInterface<(NotFound|array)>
+     * @return PromiseInterface<(Json|array)>
      **/
     public function call(string $owner, string $repo, string $secretName, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\CreateOrUpdateRepoSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $secretName);
         $request   = $operation->createRequest($params);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): NotFound|array {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Json|array {
             return $operation->createResponse($response);
         });
     }

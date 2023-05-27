@@ -60,8 +60,8 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
      */
     public function call_httpCode_422_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::class);
-        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::SCHEMA_EXAMPLE_DATA);
+        self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);
+        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -81,8 +81,8 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
      */
     public function operations_httpCode_422_responseContentType_application_json_zero(): void
     {
-        self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::class);
-        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::SCHEMA_EXAMPLE_DATA);
+        self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);
+        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);

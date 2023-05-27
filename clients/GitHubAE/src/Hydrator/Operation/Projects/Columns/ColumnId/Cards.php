@@ -26,7 +26,7 @@ class Cards implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\ProjectCard' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProjectCard($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
-                'ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️MoveCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️CreateCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable⚡️Application⚡️Json($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -522,7 +522,7 @@ class Cards implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️MoveCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable(array $payload): \ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️CreateCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable⚡️Application⚡️Json(array $payload): \ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json
     {
         $properties = []; 
         $missingFields = [];
@@ -572,17 +572,17 @@ class Cards implements ObjectMapper
             after_errors:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -620,7 +620,7 @@ class Cards implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubAE\Schema\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProjectCard($object),
             'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
-            'ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️MoveCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable($object),
+            'ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️CreateCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable⚡️Application⚡️Json($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -930,9 +930,9 @@ class Cards implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️MoveCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Projects⚡️CreateCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable⚡️Application⚡️Json(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\ServiceUnavailable);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json);
         $result = [];
 
         $code = $object->code;

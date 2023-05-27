@@ -31,14 +31,14 @@ final class AddCustomLabelsToSelfHostedRunnerForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Actions\AddCustomLabelsToSelfHostedRunnerForOrg::OPERATION_MATCH, (static function (array $data): array {
             $data['org']       = 'generated';
             $data['runner_id'] = 9;
 
             return $data;
-        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -52,9 +52,9 @@ final class AddCustomLabelsToSelfHostedRunnerForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        $result = await($client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg('generated', 9, json_decode(Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -69,14 +69,14 @@ final class AddCustomLabelsToSelfHostedRunnerForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Actions\AddCustomLabelsToSelfHostedRunnerForOrg::OPERATION_MATCH, (static function (array $data): array {
             $data['org']       = 'generated';
             $data['runner_id'] = 9;
 
             return $data;
-        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -91,9 +91,9 @@ final class AddCustomLabelsToSelfHostedRunnerForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        $result = await($client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg('generated', 9, json_decode(Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -108,14 +108,14 @@ final class AddCustomLabelsToSelfHostedRunnerForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Actions\AddCustomLabelsToSelfHostedRunnerForOrg::OPERATION_MATCH, (static function (array $data): array {
             $data['org']       = 'generated';
             $data['runner_id'] = 9;
 
             return $data;
-        })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /**
@@ -130,8 +130,8 @@ final class AddCustomLabelsToSelfHostedRunnerForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/actions/runners/9/labels', Argument::type('array'), Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        $result = await($client->operations()->actions()->addCustomLabelsToSelfHostedRunnerForOrg('generated', 9, json_decode(Schema\Actions\AddCustomLabelsToSelfHostedRunnerForOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 }

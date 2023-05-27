@@ -4,14 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\ApplicationJson;
 
-final readonly class ScriptRepository
-{
-    public const SCHEMA_JSON         = '{"type":"object","properties":{},"description":"The GitHub repository where the script is kept.","additionalProperties":true}';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The GitHub repository where the script is kept.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
+use ApiClients\Client\GitHubEnterprise\Schema;
 
-    public function __construct()
-    {
-    }
+final readonly class ScriptRepository extends Schema\AliasAbstract\Tiet0551F5C9\Tiet39349AE1\TietD321A607\Tiet07CD10BA
+{
 }

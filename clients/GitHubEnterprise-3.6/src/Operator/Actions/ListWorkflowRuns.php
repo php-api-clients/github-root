@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -24,14 +24,14 @@ final readonly class ListWorkflowRuns
     }
 
     /**
-     * @return PromiseInterface<Ok>
+     * @return PromiseInterface<Json>
      **/
     public function call(string $owner, string $repo, $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, int $perPage = 30, int $page = 1, bool $excludePullRequests = false): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\ListWorkflowRuns($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $workflowId, $actor, $branch, $event, $status, $created, $checkSuiteId, $perPage, $page, $excludePullRequests);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Ok {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Json {
             return $operation->createResponse($response);
         });
     }

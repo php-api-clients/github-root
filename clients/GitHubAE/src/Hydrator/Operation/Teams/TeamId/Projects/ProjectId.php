@@ -26,7 +26,7 @@ class ProjectId implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\TeamProject' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamProject($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\TeamProject\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamProject⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity($payload),
+                'ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json($payload),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -555,7 +555,7 @@ class ProjectId implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity(array $payload): \ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json(array $payload): \ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json
     {
         $properties = []; 
         $missingFields = [];
@@ -583,17 +583,17 @@ class ProjectId implements ObjectMapper
             after_documentationUrl:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity(...$properties);
+            return new \ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -750,7 +750,7 @@ class ProjectId implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\TeamProject' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamProject($object),
             'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
             'ApiClients\Client\GitHubAE\Schema\TeamProject\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️TeamProject⚡️Permissions($object),
-            'ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity($object),
+            'ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json($object),
             'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
@@ -1043,9 +1043,9 @@ class ProjectId implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Orgs⚡️RemoveOutsideCollaborator⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Teams⚡️AddOrUpdateProjectPermissionsLegacy⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Application⚡️Json(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RemoveOutsideCollaborator\Response\ApplicationJson\UnprocessableEntity);
+        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\Operations\Teams\AddOrUpdateProjectPermissionsLegacy\Response\ApplicationJson\Forbidden\Application\Json);
         $result = [];
 
         $message = $object->message;

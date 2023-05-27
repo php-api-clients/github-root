@@ -24,13 +24,14 @@ class Path implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Links($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Content' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Content($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Content\Links' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Content⚡️Links($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Author($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Committer($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Tree' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Tree($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Verification' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Verification($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
@@ -165,7 +166,7 @@ class Path implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'links';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Links($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -191,7 +192,7 @@ class Path implements ObjectMapper
     }
 
         
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Links(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links
     {
         $properties = []; 
         $missingFields = [];
@@ -230,17 +231,17 @@ class Path implements ObjectMapper
             after_self:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -644,7 +645,7 @@ class Path implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'committer';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Author($value);
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Committer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -782,6 +783,60 @@ class Path implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Author(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Author', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Committer(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['date'] ?? null;
+
+            if ($value === null) {
+                $properties['date'] = null;
+                goto after_date;
+            }
+
+            $properties['date'] = $value;
+
+            after_date:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1033,13 +1088,14 @@ class Path implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree($object),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Links($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Content' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Content($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Content\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Content⚡️Links($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Author($object),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Committer($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Tree' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Tree($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Verification($object),
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
@@ -1187,7 +1243,7 @@ class Path implements ObjectMapper
 
         
         $links = $object->links;
-        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links($links);
+        $links = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Links($links);
         after_links:        $result['_links'] = $links;
 
 
@@ -1195,9 +1251,9 @@ class Path implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Entries⚡️Links(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ContentTree⚡️Links(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Entries\Links);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentTree\Links);
         $result = [];
 
         $git = $object->git;
@@ -1462,7 +1518,7 @@ class Path implements ObjectMapper
         if ($committer === null) {
             goto after_committer;
         }
-        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Author($committer);
+        $committer = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Committer($committer);
         after_committer:        $result['committer'] = $committer;
 
         
@@ -1515,6 +1571,39 @@ class Path implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Author(mixed $object): mixed
     {
         \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Author);
+        $result = [];
+
+        $date = $object->date;
+
+        if ($date === null) {
+            goto after_date;
+        }
+        after_date:        $result['date'] = $date;
+
+        
+        $name = $object->name;
+
+        if ($name === null) {
+            goto after_name;
+        }
+        after_name:        $result['name'] = $name;
+
+        
+        $email = $object->email;
+
+        if ($email === null) {
+            goto after_email;
+        }
+        after_email:        $result['email'] = $email;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FileCommit⚡️Commit⚡️Committer(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit\Commit\Committer);
         $result = [];
 
         $date = $object->date;
