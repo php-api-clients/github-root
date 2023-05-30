@@ -3,6 +3,8 @@ state:
   additionalFiles:
     - composer.json
     - composer.lock
+    - ../../composer.json
+    - ../../composer.lock
 spec: ../../../{{ specPath }}
 namespace:
   source: ApiClients\Client\{{ namespace }}
