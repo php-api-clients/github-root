@@ -45,9 +45,9 @@ final class GetProvisioningInformationForEnterpriseGroup
     }
 
     /**
-     * @return array{code: int}
+     * @return Schema\GroupResponse|array{code: int}
      */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): Schema\GroupResponse|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -70,6 +70,43 @@ final class GetProvisioningInformationForEnterpriseGroup
                         $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(404, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                    /**
+                     * Too many requests
+                     **/
+
+                    case 429:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(429, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Internal server error
+                     **/
+
+                    case 500:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(500, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                }
+
+                break;
+            case 'application/scim+json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Success, a group was found
+                     **/
+                    case 200:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GroupResponse::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        return $this->hydrator->hydrateObject(Schema\GroupResponse::class, $body);
+                    /**
+                     * Bad request
+                     **/
+
+                    case 400:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                     /**
                      * Too many requests
                      **/
