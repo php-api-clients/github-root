@@ -1,7 +1,7 @@
 name: "Generate: GitHubEnterpriseCloud"
 on:
   schedule:
-    - cron:  '11 13 * * *'
+    - cron:  '13 11 * * *'
 jobs:
   generate-githubenterprisecloud:
     runs-on: ubuntu-latest

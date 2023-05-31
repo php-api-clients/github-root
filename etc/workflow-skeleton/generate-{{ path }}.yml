@@ -1,7 +1,7 @@
 name: "Generate: {{ path }}"
 on:
   schedule:
-    - cron:  '{{ hour }} 13 * * *'
+    - cron:  '13 {{ hour }} * * *'
 jobs:
   generate-{{ path|replace({".": "_"})|lower }}:
     runs-on: ubuntu-latest
