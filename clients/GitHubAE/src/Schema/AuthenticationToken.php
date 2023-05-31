@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Schema;
 
+use ApiClients\Client\GitHubAE\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
 final readonly class AuthenticationToken
@@ -19,7 +20,7 @@ final readonly class AuthenticationToken
      * repositories: The repositories this token has access to
      * repositorySelection: Describe whether all repositories have been selected or there's a selection involved
      */
-    public function __construct(public string $token, #[MapFrom('expires_at')] public string $expiresAt, public string $permissions, public ?array $repositories, #[MapFrom('single_file')] public ?string $singleFile, #[MapFrom('repository_selection')] public ?string $repositorySelection)
+    public function __construct(public string $token, #[MapFrom('expires_at')] public string $expiresAt, public ?Schema\AuthenticationToken\Permissions $permissions, public ?array $repositories, #[MapFrom('single_file')] public ?string $singleFile, #[MapFrom('repository_selection')] public ?string $repositorySelection)
     {
     }
 }

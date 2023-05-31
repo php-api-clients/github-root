@@ -74,6 +74,19 @@ final class RedeliverWebhookDelivery
                 }
 
                 break;
+            case 'application/scim+json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Bad Request
+                     **/
+                    case 400:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                }
+
+                break;
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
