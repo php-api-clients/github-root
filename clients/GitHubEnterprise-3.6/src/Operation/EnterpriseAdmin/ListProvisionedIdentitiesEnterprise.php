@@ -51,9 +51,9 @@ final class ListProvisionedIdentitiesEnterprise
     }
 
     /**
-     * @return array{code: int}
+     * @return Schema\ScimEnterpriseUserList|array{code: int}
      */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): Schema\ScimEnterpriseUserList|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -64,6 +64,43 @@ final class ListProvisionedIdentitiesEnterprise
                     /**
                      * Bad request
                      **/
+                    case 400:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Too many requests
+                     **/
+
+                    case 429:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(429, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Internal server error
+                     **/
+
+                    case 500:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(500, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                }
+
+                break;
+            case 'application/scim+json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Success, either users were found or not found
+                     **/
+                    case 200:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimEnterpriseUserList::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        return $this->hydrator->hydrateObject(Schema\ScimEnterpriseUserList::class, $body);
+                    /**
+                     * Bad request
+                     **/
+
                     case 400:
                         $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
