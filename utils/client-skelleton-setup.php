@@ -92,7 +92,7 @@ if (!file_exists(SPECS_ROOT)) {
 
 $subSplitConfig = [];
 foreach ($clients as $hour => $client) {
-    $client['hour'] = $hour;
+    $client['hour'] = $hour + 1;
     $client['specPath'] = SPECS_RELATIVE . $client['path'] . '/current.spec.yaml';
     $subSplitConfig[$client['fullName']] = [
         'name' => $client['packageName'],
