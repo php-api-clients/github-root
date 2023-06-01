@@ -30,6 +30,8 @@ class GistId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\Gists\Get\Response\ApplicationJson\Forbidden\Block' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Gists⚡️Get⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Block($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Files' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️Files($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf\Files' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️ForkOf⚡️Files($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -173,8 +175,17 @@ class GistId implements ObjectMapper
             $value = $payload['files'] ?? null;
 
             if ($value === null) {
-                $missingFields[] = 'files';
+                $properties['files'] = null;
                 goto after_files;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'files';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️Files($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
             }
 
             $properties['files'] = $value;
@@ -403,6 +414,15 @@ class GistId implements ObjectMapper
             if ($value === null) {
                 $missingFields[] = 'files';
                 goto after_files;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'files';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️ForkOf⚡️Files($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
             }
 
             $properties['files'] = $value;
@@ -1050,6 +1070,48 @@ class GistId implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
     }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️Files(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Files
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Files', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Files::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Files(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GistSimple\Files', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️ForkOf⚡️Files(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf\Files
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf\Files', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf\Files::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf\Files(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GistSimple\ForkOf\Files', $exception, stack: $this->hydrationStack);
+        }
+    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -1273,6 +1335,11 @@ class GistId implements ObjectMapper
 
         
         $files = $object->files;
+
+        if ($files === null) {
+            goto after_files;
+        }
+        $files = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️Files($files);
         after_files:        $result['files'] = $files;
 
         
@@ -1391,6 +1458,7 @@ class GistId implements ObjectMapper
 
         
         $files = $object->files;
+        $files = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GistSimple⚡️ForkOf⚡️Files($files);
         after_files:        $result['files'] = $files;
 
         
