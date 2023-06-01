@@ -39,8 +39,10 @@ endif
 shell: ## Provides Shell access in the expected environment ###
 	$(DOCKER_SHELL) ash
 
-generate-clients:
+setup-clients:
 	$(DOCKER_RUN) php utils/client-skelleton-setup.php
+
+generate-clients: setup-clients
 	ls ./clients | xargs -I % $(MAKE) generate-client %
 
 generate-client:

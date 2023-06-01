@@ -1,0 +1,30 @@
+name: "Generate: GitHubEnterpriseCloud"
+on:
+  schedule:
+    - cron:  '13 0 * * *'
+jobs:
+  generate-githubenterprisecloud:
+    runs-on: ubuntu-latest
+    container:
+      image: wyrihaximusnet/php:8.2-nts-alpine-slim-dev-root
+    steps:
+      - name: Get current time
+        uses: josStorer/get-current-time@v2
+        id: current-time
+        with:
+          format: "YYYY/MM/DD"
+      - uses: actions/checkout@v3
+      - uses: ramsey/composer-install@v2
+      - name: Set up clients
+        run: make setup-clients
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          branch: "setup-clients/${{ steps.current-time.outputs.formattedTime }}"
+          token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
+          labels: |
+            Automated PR
+            automerge
+          title: "[SetUp] Updated clients base"
+          commit-message: |
+            [SetUp] Updated clients base
