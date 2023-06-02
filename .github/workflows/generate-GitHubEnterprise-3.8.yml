@@ -1,7 +1,7 @@
 name: "Generate: GitHubEnterprise-3.8"
 on:
   schedule:
-    - cron:  '13 8 * * *'
+    - cron:  '13 9 * * *'
 jobs:
   generate-githubenterprise-3_8:
     runs-on: ubuntu-latest
