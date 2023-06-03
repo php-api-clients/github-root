@@ -65,6 +65,14 @@ final class Create
 
                         return $this->hydrator->hydrateObject(Schema\Issue::class, $body);
                     /**
+                     * Bad Request
+                     **/
+
+                    case 400:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\BasicError(400, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                    /**
                      * Forbidden
                      **/
 
@@ -104,6 +112,19 @@ final class Create
                         $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
                         throw new ErrorSchemas\BasicError(410, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
+                }
+
+                break;
+            case 'application/scim+json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Bad Request
+                     **/
+                    case 400:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
                 }
 
                 break;
