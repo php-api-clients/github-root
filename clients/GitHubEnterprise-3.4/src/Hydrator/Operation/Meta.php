@@ -24,6 +24,7 @@ class Meta implements ObjectMapper
     {
         return match($className) {
             'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -67,6 +68,26 @@ class Meta implements ObjectMapper
 
             after_dependabot:
 
+            $value = $payload['domains'] ?? null;
+
+            if ($value === null) {
+                $properties['domains'] = null;
+                goto after_domains;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'domains';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['domains'] = $value;
+
+            after_domains:
+
             $value = $payload['installed_version'] ?? null;
 
             if ($value === null) {
@@ -90,6 +111,71 @@ class Meta implements ObjectMapper
             return new \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview(...$properties);
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+            $value = $payload['website'] ?? null;
+
+            if ($value === null) {
+                $properties['website'] = null;
+                goto after_website;
+            }
+
+            $properties['website'] = $value;
+
+            after_website:
+
+            $value = $payload['codespaces'] ?? null;
+
+            if ($value === null) {
+                $properties['codespaces'] = null;
+                goto after_codespaces;
+            }
+
+            $properties['codespaces'] = $value;
+
+            after_codespaces:
+
+            $value = $payload['copilot'] ?? null;
+
+            if ($value === null) {
+                $properties['copilot'] = null;
+                goto after_copilot;
+            }
+
+            $properties['copilot'] = $value;
+
+            after_copilot:
+
+            $value = $payload['packages'] ?? null;
+
+            if ($value === null) {
+                $properties['packages'] = null;
+                goto after_packages;
+            }
+
+            $properties['packages'] = $value;
+
+            after_packages:
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -125,6 +211,7 @@ class Meta implements ObjectMapper
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
             'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -239,12 +326,94 @@ class Meta implements ObjectMapper
         after_dependabot:        $result['dependabot'] = $dependabot;
 
         
+        $domains = $object->domains;
+
+        if ($domains === null) {
+            goto after_domains;
+        }
+        $domains = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains($domains);
+        after_domains:        $result['domains'] = $domains;
+
+        
         $installedVersion = $object->installedVersion;
 
         if ($installedVersion === null) {
             goto after_installedVersion;
         }
         after_installedVersion:        $result['installed_version'] = $installedVersion;
+
+
+        return $result;
+    }
+
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ApiOverview⚡️Domains(mixed $object): mixed
+    {
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ApiOverview\Domains);
+        $result = [];
+
+        $website = $object->website;
+
+        if ($website === null) {
+            goto after_website;
+        }
+        static $websiteSerializer0;
+
+        if ($websiteSerializer0 === null) {
+            $websiteSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $website = $websiteSerializer0->serialize($website, $this);
+        after_website:        $result['website'] = $website;
+
+        
+        $codespaces = $object->codespaces;
+
+        if ($codespaces === null) {
+            goto after_codespaces;
+        }
+        static $codespacesSerializer0;
+
+        if ($codespacesSerializer0 === null) {
+            $codespacesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $codespaces = $codespacesSerializer0->serialize($codespaces, $this);
+        after_codespaces:        $result['codespaces'] = $codespaces;
+
+        
+        $copilot = $object->copilot;
+
+        if ($copilot === null) {
+            goto after_copilot;
+        }
+        static $copilotSerializer0;
+
+        if ($copilotSerializer0 === null) {
+            $copilotSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $copilot = $copilotSerializer0->serialize($copilot, $this);
+        after_copilot:        $result['copilot'] = $copilot;
+
+        
+        $packages = $object->packages;
+
+        if ($packages === null) {
+            goto after_packages;
+        }
+        static $packagesSerializer0;
+
+        if ($packagesSerializer0 === null) {
+            $packagesSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $packages = $packagesSerializer0->serialize($packages, $this);
+        after_packages:        $result['packages'] = $packages;
 
 
         return $result;
