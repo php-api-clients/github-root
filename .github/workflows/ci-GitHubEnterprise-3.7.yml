@@ -1,0 +1,18 @@
+name: "CI: GitHubEnterprise-3.7"
+on:
+  pull_request:
+    paths:
+      - "clients/GitHubEnterprise-3.7/**"
+## This workflow needs the `pull-request` permissions to work for the package diffing
+## Refs: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#permissions
+permissions:
+  pull-requests: write
+  contents: read
+jobs:
+  ci:
+    name: Continuous Integration
+    uses: WyriHaximus/github-workflows/.github/workflows/package.yaml@working-directory
+    with:
+      disableMarkdownLinkCheck: true
+      disableSetMilestone: true
+      workingDirectory: "clients/GitHubEnterprise-3.7"
