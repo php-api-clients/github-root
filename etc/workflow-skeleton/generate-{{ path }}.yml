@@ -21,8 +21,8 @@ jobs:
       - name: Hash specs
         id: spec-hash
         run: |
-          php -r 'file_put_contents(getenv('GITHUB_OUTPUT'), "current=" . md5(file_get_contents("etc/specs/{{ path }}/current.spec.yaml")) . "\n", FILE_APPEND);'
-          php -r 'file_put_contents(getenv('GITHUB_OUTPUT'), "previous=" . md5(file_get_contents("etc/specs/{{ path }}/previous.spec.yaml")) . "\n", FILE_APPEND);'
+          php -r 'file_put_contents(getenv("GITHUB_OUTPUT"), "current=" . md5(file_get_contents("etc/specs/{{ path }}/current.spec.yaml")) . "\n", FILE_APPEND);'
+          php -r 'file_put_contents(getenv("GITHUB_OUTPUT"), "previous=" . md5(file_get_contents("etc/specs/{{ path }}/previous.spec.yaml")) . "\n", FILE_APPEND);'
       - name: Look current up spec version
         id: look-current-up-spec-version
         uses: mikefarah/yq@v4.33.3
