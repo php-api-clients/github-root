@@ -1,4 +1,4 @@
-name: "Generate: GitHubEnterpriseCloud"
+name: "Set up Clients"
 on:
   schedule:
     - cron:  '13 0 * * *'
