@@ -1,3 +1,5 @@
+name: "Sub split clients to their respective repositories"
+
 on:
   push:
     branches:
