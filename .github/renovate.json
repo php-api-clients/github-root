@@ -1,0 +1,508 @@
+{
+    "$schema": "https:\/\/docs.renovatebot.com\/renovate-schema.json",
+    "packageRules": [
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "composer.json"
+            ],
+            "branchPrefix": "renovate\/root\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "composer.json"
+            ],
+            "branchPrefix": "renovate\/root\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "composer.json"
+            ],
+            "branchPrefix": "renovate\/root\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "skelleton\/composer.json"
+            ],
+            "branchPrefix": "renovate\/skelleton\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "skelleton\/composer.json"
+            ],
+            "branchPrefix": "renovate\/skelleton\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "skelleton\/composer.json"
+            ],
+            "branchPrefix": "renovate\/skelleton\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.0\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.0\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.0\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.1\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.1\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.1\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.2\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.2\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.2\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.3\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.3\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.3\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.4\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.4\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.4\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.5\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.5\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.5\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.6\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.6\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.6\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.7\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.7\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.7\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.8\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.8\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.8\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.9\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.9\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterprise-3.9\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHub\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHub\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHub\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHub\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHub\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHub\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubEnterpriseCloud\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubEnterpriseCloud\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubEnterpriseCloud\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchPaths": [
+                "clients\/GitHubAE\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubAE\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "rangeStrategy": "bump",
+            "matchPaths": [
+                "clients\/GitHubAE\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubAE\/"
+        },
+        {
+            "managers": [
+                "composer"
+            ],
+            "matchPackageNames": [
+                "php"
+            ],
+            "enabled": false,
+            "matchPaths": [
+                "clients\/GitHubAE\/composer.json"
+            ],
+            "branchPrefix": "renovate\/GitHubAE\/"
+        }
+    ],
+    "extends": [
+        "config:base",
+        ":widenPeerDependencies",
+        ":rebaseStalePrs",
+        ":prHourlyLimitNone",
+        ":prConcurrentLimitNone",
+        "group:phpstan"
+    ]
+}
