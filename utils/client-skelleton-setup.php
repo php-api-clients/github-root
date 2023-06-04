@@ -11,6 +11,7 @@ const SPECS_RELATIVE = 'etc/specs/';
 const SPECS_ROOT =  __DIR__ . '/../' . SPECS_RELATIVE;
 const SKELLETON_ROOT = __DIR__ . '/../skelleton/';
 const SUBSPLIT_CONFIG_PATH = __DIR__ . '/../etc/config.subsplit-publish.json';
+const RENOVATE_CONFIG_PATH = __DIR__ . '/../.github/renovate.json';
 const GHES_PREFIX = 'descriptions-next/ghes-';
 const WORKFLOW_PATH = __DIR__ . '/../.github/workflows/';
 const WORKFLOW_SKELETON = __DIR__ . '/../etc/workflow-skeleton/';
@@ -91,6 +92,50 @@ if (!file_exists(SPECS_ROOT)) {
 }
 
 $subSplitConfig = [];
+$renovatePackageRules = [];
+
+// The root package
+$renovatePackageRules[] = [
+    'managers' =>  ['composer'],
+    'rangeStrategy' =>  'in-range-only',
+    'matchPaths' => ['composer.json'],
+    'branchPrefix' => 'renovate/root/',
+];
+$renovatePackageRules[] = [
+    'managers' => ['composer'],
+    'rangeStrategy' => 'bump',
+    'matchPaths' => ['composer.json'],
+    'branchPrefix' => 'renovate/root/',
+];
+$renovatePackageRules[] = [
+    'managers' => ['composer'],
+    'matchPackageNames' => ['php'],
+    'enabled' => false,
+    'matchPaths' => ['composer.json'],
+    'branchPrefix' => 'renovate/root/',
+];
+
+// The Skelleton
+$renovatePackageRules[] = [
+    'managers' =>  ['composer'],
+    'rangeStrategy' =>  'in-range-only',
+    'matchPaths' => ['skelleton/composer.json'],
+    'branchPrefix' => 'renovate/skelleton/',
+];
+$renovatePackageRules[] = [
+    'managers' => ['composer'],
+    'rangeStrategy' => 'bump',
+    'matchPaths' => ['skelleton/composer.json'],
+    'branchPrefix' => 'renovate/skelleton/',
+];
+$renovatePackageRules[] = [
+    'managers' => ['composer'],
+    'matchPackageNames' => ['php'],
+    'enabled' => false,
+    'matchPaths' => ['skelleton/composer.json'],
+    'branchPrefix' => 'renovate/skelleton/',
+];
+
 foreach ($clients as $hour => $client) {
     $client['hour'] = $hour + 1;
     $client['specPath'] = SPECS_RELATIVE . $client['path'] . '/current.spec.yaml';
@@ -99,6 +144,26 @@ foreach ($clients as $hour => $client) {
         'directory' => CLIENTS_PATH . $client['path'],
         'target' => 'git@github.com:php-api-clients/' . $client['packageName'] . '.git',
         'target-branch' => $client['branch'],
+    ];
+
+    $renovatePackageRules[] = [
+        'managers' =>  ['composer'],
+        'rangeStrategy' =>  'in-range-only',
+        'matchPaths' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
+        'branchPrefix' => 'renovate/' . $client['path'] . '/',
+    ];
+    $renovatePackageRules[] = [
+        'managers' => ['composer'],
+        'rangeStrategy' => 'bump',
+        'matchPaths' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
+        'branchPrefix' => 'renovate/' . $client['path'] . '/',
+    ];
+    $renovatePackageRules[] = [
+        'managers' => ['composer'],
+        'matchPackageNames' => ['php'],
+        'enabled' => false,
+        'matchPaths' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
+        'branchPrefix' => 'renovate/' . $client['path'] . '/',
     ];
 
     Files::setUp(
@@ -132,6 +197,25 @@ file_put_contents(
     json_encode(
         [
             'sub-splits' => array_values($subSplitConfig),
+        ],
+        JSON_PRETTY_PRINT,
+    ) . PHP_EOL,
+);
+
+file_put_contents(
+    RENOVATE_CONFIG_PATH,
+    json_encode(
+        [
+            '$schema' => 'https://docs.renovatebot.com/renovate-schema.json',
+            'packageRules' => $renovatePackageRules,
+            'extends' => [
+                "config:base",
+                ":widenPeerDependencies",
+                ":rebaseStalePrs",
+                ":prHourlyLimitNone",
+                ":prConcurrentLimitNone",
+                "group:phpstan"
+            ],
         ],
         JSON_PRETTY_PRINT,
     ) . PHP_EOL,
