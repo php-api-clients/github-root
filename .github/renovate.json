@@ -9,7 +9,8 @@
             "matchPaths": [
                 "composer.json"
             ],
-            "branchPrefix": "renovate\/root\/"
+            "branchPrefix": "renovate\/root\/",
+            "commitMessagePrefix": "[ROOT]"
         },
         {
             "managers": [
@@ -19,7 +20,8 @@
             "matchPaths": [
                 "composer.json"
             ],
-            "branchPrefix": "renovate\/root\/"
+            "branchPrefix": "renovate\/root\/",
+            "commitMessagePrefix": "[ROOT]"
         },
         {
             "managers": [
@@ -32,7 +34,8 @@
             "matchPaths": [
                 "composer.json"
             ],
-            "branchPrefix": "renovate\/root\/"
+            "branchPrefix": "renovate\/root\/",
+            "commitMessagePrefix": "[ROOT]"
         },
         {
             "managers": [
@@ -42,7 +45,8 @@
             "matchPaths": [
                 "skelleton\/composer.json"
             ],
-            "branchPrefix": "renovate\/skelleton\/"
+            "branchPrefix": "renovate\/skelleton\/",
+            "commitMessagePrefix": "[\ud83e\ude7b]"
         },
         {
             "managers": [
@@ -52,7 +56,8 @@
             "matchPaths": [
                 "skelleton\/composer.json"
             ],
-            "branchPrefix": "renovate\/skelleton\/"
+            "branchPrefix": "renovate\/skelleton\/",
+            "commitMessagePrefix": "[\ud83e\ude7b]"
         },
         {
             "managers": [
@@ -65,7 +70,8 @@
             "matchPaths": [
                 "skelleton\/composer.json"
             ],
-            "branchPrefix": "renovate\/skelleton\/"
+            "branchPrefix": "renovate\/skelleton\/",
+            "commitMessagePrefix": "[\ud83e\ude7b]"
         },
         {
             "managers": [
@@ -75,7 +81,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]"
         },
         {
             "managers": [
@@ -85,7 +92,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]"
         },
         {
             "managers": [
@@ -98,7 +106,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]"
         },
         {
             "managers": [
@@ -108,7 +117,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]"
         },
         {
             "managers": [
@@ -118,7 +128,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]"
         },
         {
             "managers": [
@@ -131,7 +142,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]"
         },
         {
             "managers": [
@@ -141,7 +153,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]"
         },
         {
             "managers": [
@@ -151,7 +164,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]"
         },
         {
             "managers": [
@@ -164,7 +178,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]"
         },
         {
             "managers": [
@@ -174,7 +189,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]"
         },
         {
             "managers": [
@@ -184,7 +200,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]"
         },
         {
             "managers": [
@@ -197,7 +214,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]"
         },
         {
             "managers": [
@@ -207,7 +225,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]"
         },
         {
             "managers": [
@@ -217,7 +236,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]"
         },
         {
             "managers": [
@@ -230,7 +250,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]"
         },
         {
             "managers": [
@@ -240,7 +261,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]"
         },
         {
             "managers": [
@@ -250,7 +272,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]"
         },
         {
             "managers": [
@@ -263,7 +286,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]"
         },
         {
             "managers": [
@@ -273,7 +297,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]"
         },
         {
             "managers": [
@@ -283,7 +308,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]"
         },
         {
             "managers": [
@@ -296,7 +322,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]"
         },
         {
             "managers": [
@@ -306,7 +333,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]"
         },
         {
             "managers": [
@@ -316,7 +344,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]"
         },
         {
             "managers": [
@@ -329,7 +358,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]"
         },
         {
             "managers": [
@@ -339,7 +369,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]"
         },
         {
             "managers": [
@@ -349,7 +380,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]"
         },
         {
             "managers": [
@@ -362,7 +394,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]"
         },
         {
             "managers": [
@@ -372,7 +405,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]"
         },
         {
             "managers": [
@@ -382,7 +416,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]"
         },
         {
             "managers": [
@@ -395,7 +430,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/"
+            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]"
         },
         {
             "managers": [
@@ -405,7 +441,8 @@
             "matchPaths": [
                 "clients\/GitHub\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHub\/"
+            "branchPrefix": "renovate\/GitHub\/",
+            "commitMessagePrefix": "[GitHub]"
         },
         {
             "managers": [
@@ -415,7 +452,8 @@
             "matchPaths": [
                 "clients\/GitHub\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHub\/"
+            "branchPrefix": "renovate\/GitHub\/",
+            "commitMessagePrefix": "[GitHub]"
         },
         {
             "managers": [
@@ -428,7 +466,8 @@
             "matchPaths": [
                 "clients\/GitHub\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHub\/"
+            "branchPrefix": "renovate\/GitHub\/",
+            "commitMessagePrefix": "[GitHub]"
         },
         {
             "managers": [
@@ -438,7 +477,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/"
+            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]"
         },
         {
             "managers": [
@@ -448,7 +488,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/"
+            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]"
         },
         {
             "managers": [
@@ -461,7 +502,8 @@
             "matchPaths": [
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/"
+            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]"
         },
         {
             "managers": [
@@ -471,7 +513,8 @@
             "matchPaths": [
                 "clients\/GitHubAE\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubAE\/"
+            "branchPrefix": "renovate\/GitHubAE\/",
+            "commitMessagePrefix": "[GitHubAE]"
         },
         {
             "managers": [
@@ -481,7 +524,8 @@
             "matchPaths": [
                 "clients\/GitHubAE\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubAE\/"
+            "branchPrefix": "renovate\/GitHubAE\/",
+            "commitMessagePrefix": "[GitHubAE]"
         },
         {
             "managers": [
@@ -494,7 +538,8 @@
             "matchPaths": [
                 "clients\/GitHubAE\/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubAE\/"
+            "branchPrefix": "renovate\/GitHubAE\/",
+            "commitMessagePrefix": "[GitHubAE]"
         }
     ],
     "extends": [
