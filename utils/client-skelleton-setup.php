@@ -100,14 +100,14 @@ $renovatePackageRules[] = [
     'rangeStrategy' =>  'in-range-only',
     'matchPaths' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
-    'commitMessagePrefix' => '[ROOT]',
+    'commitMessagePrefix' => '[🪵]',
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
     'rangeStrategy' => 'bump',
     'matchPaths' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
-    'commitMessagePrefix' => '[ROOT]',
+    'commitMessagePrefix' => '[🪵]',
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
@@ -115,7 +115,7 @@ $renovatePackageRules[] = [
     'enabled' => false,
     'matchPaths' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
-    'commitMessagePrefix' => '[ROOT]',
+    'commitMessagePrefix' => '[🪵]',
 ];
 
 // The Skelleton
