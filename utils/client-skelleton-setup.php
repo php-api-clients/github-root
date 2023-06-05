@@ -124,14 +124,14 @@ $renovatePackageRules[] = [
     'rangeStrategy' =>  'in-range-only',
     'matchPaths' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
-    'commitMessagePrefix' => '[🩻]',
+    'commitMessagePrefix' => '[☠️]',
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
     'rangeStrategy' => 'bump',
     'matchPaths' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
-    'commitMessagePrefix' => '[🩻]',
+    'commitMessagePrefix' => '[☠️]',
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
@@ -139,7 +139,7 @@ $renovatePackageRules[] = [
     'enabled' => false,
     'matchPaths' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
-    'commitMessagePrefix' => '[🩻]',
+    'commitMessagePrefix' => '[☠️]',
 ];
 
 foreach ($clients as $hour => $client) {

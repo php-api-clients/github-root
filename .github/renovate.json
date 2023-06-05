@@ -46,7 +46,7 @@
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
-            "commitMessagePrefix": "[\ud83e\ude7b]"
+            "commitMessagePrefix": "[\u2620\ufe0f]"
         },
         {
             "managers": [
@@ -57,7 +57,7 @@
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
-            "commitMessagePrefix": "[\ud83e\ude7b]"
+            "commitMessagePrefix": "[\u2620\ufe0f]"
         },
         {
             "managers": [
@@ -71,7 +71,7 @@
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
-            "commitMessagePrefix": "[\ud83e\ude7b]"
+            "commitMessagePrefix": "[\u2620\ufe0f]"
         },
         {
             "managers": [
