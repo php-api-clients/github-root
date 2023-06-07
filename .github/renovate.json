@@ -10,7 +10,7 @@
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
-            "commitMessagePrefix": "[ROOT]"
+            "commitMessagePrefix": "[\ud83e\udeb5]"
         },
         {
             "managers": [
@@ -21,7 +21,7 @@
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
-            "commitMessagePrefix": "[ROOT]"
+            "commitMessagePrefix": "[\ud83e\udeb5]"
         },
         {
             "managers": [
@@ -35,7 +35,7 @@
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
-            "commitMessagePrefix": "[ROOT]"
+            "commitMessagePrefix": "[\ud83e\udeb5]"
         },
         {
             "managers": [
