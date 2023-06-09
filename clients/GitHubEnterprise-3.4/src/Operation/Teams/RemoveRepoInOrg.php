@@ -23,7 +23,7 @@ final class RemoveRepoInOrg
     private string $teamSlug;
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
 
     public function __construct(string $org, string $teamSlug, string $owner, string $repo)
