@@ -26,7 +26,7 @@ final class GetTag
     private const PATH           = '/repos/{owner}/{repo}/git/tags/{tag_sha}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     private string $tagSha;
     private readonly SchemaValidator $responseSchemaValidator;
