@@ -19,7 +19,7 @@ final class DeleteActionsCacheById
     private const PATH           = '/repos/{owner}/{repo}/actions/caches/{cache_id}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The unique identifier of the GitHub Actions cache. **/
     private int $cacheId;
