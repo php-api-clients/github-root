@@ -25,7 +25,7 @@ final class ListWorkflowRunsForRepo
     private const PATH           = '/repos/{owner}/{repo}/actions/runs';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**Returns someone's workflow runs. Use the login for the user who created the `push` associated with the check suite or workflow run. **/
     private string $actor;

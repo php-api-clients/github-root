@@ -26,7 +26,7 @@ final class GetTree
     private const PATH           = '/repos/{owner}/{repo}/git/trees/{tree_sha}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     private string $treeSha;
     /**Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `"true"`, and `"false"`. Omit this parameter to prevent recursively returning objects or subtrees. **/

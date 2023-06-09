@@ -26,7 +26,7 @@ final class DiffRange
     private const PATH           = '/repos/{owner}/{repo}/dependency-graph/compare/{basehead}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The base and head Git revisions to compare. The Git revisions will be resolved to commit SHAs. Named revisions will be resolved to their corresponding HEAD commits, and an appropriate merge base will be determined. This parameter expects the format `{base}...{head}`. **/
     private string $basehead;
