@@ -18,7 +18,7 @@
     "wyrihaximus/subsplit-tools": "dev-main"
   },
   "require-dev": {
-    "wyrihaximus/async-test-utilities": "^6.1",
+    "wyrihaximus/async-test-utilities": "^7.0.1",
     "api-clients/openapi-client-generator": "dev-master"
   },
   "autoload": {
