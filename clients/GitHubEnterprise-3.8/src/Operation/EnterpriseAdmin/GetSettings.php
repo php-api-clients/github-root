@@ -37,7 +37,10 @@ final class GetSettings
         return new Request(self::METHOD, str_replace([], [], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\EnterpriseSettings
+    /**
+     * @return Schema\EnterpriseSettings|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\EnterpriseSettings|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,6 +58,14 @@ final class GetSettings
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Unauthorized
+             **/
+            case 401:
+                return ['code' => 401];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

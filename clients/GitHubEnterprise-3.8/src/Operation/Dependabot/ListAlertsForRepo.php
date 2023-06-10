@@ -26,7 +26,7 @@ final class ListAlertsForRepo
     private const PATH           = '/repos/{owner}/{repo}/dependabot/alerts';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**A comma-separated list of states. If specified, only alerts with these states will be returned.
 

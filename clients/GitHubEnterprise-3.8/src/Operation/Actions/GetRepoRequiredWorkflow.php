@@ -26,7 +26,7 @@ final class GetRepoRequiredWorkflow
     private const PATH           = '/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The ID of the required workflow that has run at least once in a repository. **/
     private int $requiredWorkflowIdForRepo;
