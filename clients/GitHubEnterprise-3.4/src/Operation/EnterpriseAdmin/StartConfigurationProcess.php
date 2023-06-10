@@ -39,6 +39,12 @@ final class StartConfigurationProcess
              **/
             case 202:
                 return ['code' => 202];
+            /**
+             * Unauthorized
+             **/
+
+            case 401:
+                return ['code' => 401];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

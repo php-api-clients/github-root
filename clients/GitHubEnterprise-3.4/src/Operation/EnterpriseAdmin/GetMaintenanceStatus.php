@@ -37,7 +37,10 @@ final class GetMaintenanceStatus
         return new Request(self::METHOD, str_replace([], [], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus
+    /**
+     * @return Schema\MaintenanceStatus|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,6 +58,14 @@ final class GetMaintenanceStatus
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Unauthorized
+             **/
+            case 401:
+                return ['code' => 401];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
