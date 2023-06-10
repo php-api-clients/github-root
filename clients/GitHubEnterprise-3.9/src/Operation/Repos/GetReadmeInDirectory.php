@@ -26,7 +26,7 @@ final class GetReadmeInDirectory
     private const PATH           = '/repos/{owner}/{repo}/readme/{dir}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The alternate path to look for a README file **/
     private string $dir;

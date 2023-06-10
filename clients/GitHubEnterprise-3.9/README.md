@@ -3343,18 +3343,45 @@ $client->operations()->licenses()->get(        license: 'generated',
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/licenses#get-a-license).
 
 
+### enterprise-admin/get-config-nodes
+
+Get all GHES node metadata for all nodes
+
+Using the `call` method:
+```php
+$client->call('GET /manage/v1/config/nodes', [
+        'uuid' => 'generated',
+        'cluster_roles' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getConfigNodes(        uuid: 'generated',
+        cluster_roles: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-config-nodes).
+
+
 ### enterprise-admin/get-replication-status
 
 Get the status of services running on all replica nodes
 
 Using the `call` method:
 ```php
-$client->call('GET /manage/v1/replication/status');
+$client->call('GET /manage/v1/replication/status', [
+        'uuid' => 'generated',
+        'cluster_roles' => 'generated',
+]);
 ```
 
 Operations method:
 ```php
-$client->operations()->enterpriseAdmin()->getReplicationStatus();
+$client->operations()->enterpriseAdmin()->getReplicationStatus(        uuid: 'generated',
+        cluster_roles: 'generated',
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-replication-status).
@@ -3362,16 +3389,21 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### enterprise-admin/get-version
 
-Get all GHES release version for all nodes
+Get all GHES release versions for all nodes
 
 Using the `call` method:
 ```php
-$client->call('GET /manage/v1/version');
+$client->call('GET /manage/v1/version', [
+        'uuid' => 'generated',
+        'cluster_roles' => 'generated',
+]);
 ```
 
 Operations method:
 ```php
-$client->operations()->enterpriseAdmin()->getVersion();
+$client->operations()->enterpriseAdmin()->getVersion(        uuid: 'generated',
+        cluster_roles: 'generated',
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-version).

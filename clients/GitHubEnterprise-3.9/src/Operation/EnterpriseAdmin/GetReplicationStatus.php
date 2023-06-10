@@ -23,21 +23,30 @@ final class GetReplicationStatus
     public const OPERATION_MATCH = 'GET /manage/v1/replication/status';
     private const METHOD         = 'GET';
     private const PATH           = '/manage/v1/replication/status';
+    /**The UUID which identifies a node. **/
+    private string $uuid;
+    /**The cluster roles from the cluster configuration file. **/
+    private string $clusterRoles;
     private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Manage\V1\Replication\Status $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Manage\V1\Replication\Status $hydrator)
+    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Manage\V1\Replication\Status $hydrator, string $uuid, string $clusterRoles)
     {
+        $this->uuid                    = $uuid;
+        $this->clusterRoles            = $clusterRoles;
         $this->responseSchemaValidator = $responseSchemaValidator;
         $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace([], [], self::PATH));
+        return new Request(self::METHOD, str_replace(['{uuid}', '{cluster_roles}'], [$this->uuid, $this->clusterRoles], self::PATH . '?uuid={uuid}&cluster_roles={cluster_roles}'));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ReplicationStatus
+    /**
+     * @return Schema\GhesReplicationStatus|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\GhesReplicationStatus|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,12 +58,20 @@ final class GetReplicationStatus
                      * Response
                      **/
                     case 200:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ReplicationStatus::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GhesReplicationStatus::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\ReplicationStatus::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\GhesReplicationStatus::class, $body);
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Unauthorized
+             **/
+            case 401:
+                return ['code' => 401];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

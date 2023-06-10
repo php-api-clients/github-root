@@ -25,7 +25,7 @@ final class GetRepoVariable
     private const PATH           = '/repos/{owner}/{repo}/actions/variables/{name}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The name of the variable. **/
     private string $name;

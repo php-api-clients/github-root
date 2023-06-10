@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus\Nodes;
+namespace ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus\Nodes;
 
 final readonly class Services
 {

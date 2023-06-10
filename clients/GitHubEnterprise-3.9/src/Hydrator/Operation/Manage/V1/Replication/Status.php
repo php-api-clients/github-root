@@ -23,13 +23,13 @@ class Status implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match($className) {
-            'ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ReplicationStatus($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GhesReplicationStatus($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
     
             
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ReplicationStatus(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GhesReplicationStatus(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus
     {
         $properties = []; 
         $missingFields = [];
@@ -57,17 +57,17 @@ class Status implements ObjectMapper
             after_nodes:
 
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus(...$properties);
         } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus', $exception, stack: $this->hydrationStack);
         }
     }
     
@@ -102,7 +102,7 @@ class Status implements ObjectMapper
             'DateTime' => $this->serializeValueDateTime($object),
             'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
             'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ReplicationStatus($object),
+            'ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GhesReplicationStatus($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -176,9 +176,9 @@ class Status implements ObjectMapper
     }
 
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ReplicationStatus(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GhesReplicationStatus(mixed $object): mixed
     {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\ReplicationStatus);
+        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\GhesReplicationStatus);
         $result = [];
 
         $status = $object->status;
