@@ -25,7 +25,7 @@ final class EnableLfsForRepo
     private const PATH           = '/repos/{owner}/{repo}/lfs';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\Owner\Repo\Lfs $hydrator;

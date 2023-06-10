@@ -22,14 +22,14 @@ final readonly class AddAuthorizedSshKey
     }
 
     /**
-     * @return PromiseInterface<ResponseInterface>
+     * @return PromiseInterface<array>
      **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\AddAuthorizedSshKey($this->requestSchemaValidator);
         $request   = $operation->createRequest($params);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
             return $operation->createResponse($response);
         });
     }
