@@ -26,7 +26,7 @@ final class GetAllTopics
     private const PATH           = '/repos/{owner}/{repo}/topics';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**Page number of the results to fetch. **/
     private int $page;

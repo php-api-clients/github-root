@@ -26,7 +26,7 @@ final class GetWebhookDelivery
     private const PATH           = '/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The unique identifier of the hook. **/
     private int $hookId;

@@ -25,7 +25,7 @@ final class ListSelfHostedRunnersForRepo
     private const PATH           = '/repos/{owner}/{repo}/actions/runners';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The number of results per page (max 100). **/
     private int $perPage;

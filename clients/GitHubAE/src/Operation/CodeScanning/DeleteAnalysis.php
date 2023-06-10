@@ -26,7 +26,7 @@ final class DeleteAnalysis
     private const PATH           = '/repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The ID of the analysis, as returned from the `GET /repos/{owner}/{repo}/code-scanning/analyses` operation. **/
     private int $analysisId;

@@ -27,7 +27,7 @@ final class CreateDeploymentBranchPolicy
     private readonly SchemaValidator $requestSchemaValidator;
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The name of the environment. **/
     private string $environmentName;

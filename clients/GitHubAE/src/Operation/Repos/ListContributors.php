@@ -26,7 +26,7 @@ final class ListContributors
     private const PATH           = '/repos/{owner}/{repo}/contributors';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**Set to `1` or `true` to include anonymous contributors in results. **/
     private string $anon;
