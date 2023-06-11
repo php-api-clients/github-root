@@ -26,7 +26,6 @@ class ReleaseId implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\Release' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Release($payload),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($payload),
-                'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -705,71 +704,6 @@ class ReleaseId implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\ReactionRollup', $exception, stack: $this->hydrationStack);
         }
     }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(array $payload): \ApiClients\Client\GitHubAE\Schema\BasicError
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['message'] ?? null;
-
-            if ($value === null) {
-                $properties['message'] = null;
-                goto after_message;
-            }
-
-            $properties['message'] = $value;
-
-            after_message:
-
-            $value = $payload['documentation_url'] ?? null;
-
-            if ($value === null) {
-                $properties['documentationUrl'] = null;
-                goto after_documentationUrl;
-            }
-
-            $properties['documentationUrl'] = $value;
-
-            after_documentationUrl:
-
-            $value = $payload['url'] ?? null;
-
-            if ($value === null) {
-                $properties['url'] = null;
-                goto after_url;
-            }
-
-            $properties['url'] = $value;
-
-            after_url:
-
-            $value = $payload['status'] ?? null;
-
-            if ($value === null) {
-                $properties['status'] = null;
-                goto after_status;
-            }
-
-            $properties['status'] = $value;
-
-            after_status:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\BasicError::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubAE\Schema\BasicError(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\BasicError', $exception, stack: $this->hydrationStack);
-        }
-    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -805,7 +739,6 @@ class ReleaseId implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\Release' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Release($object),
             'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
             'ApiClients\Client\GitHubAE\Schema\ReactionRollup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ReactionRollup($object),
-            'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -1182,47 +1115,6 @@ class ReleaseId implements ObjectMapper
         
         $rocket = $object->rocket;
         after_rocket:        $result['rocket'] = $rocket;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubAE\Schema\BasicError);
-        $result = [];
-
-        $message = $object->message;
-
-        if ($message === null) {
-            goto after_message;
-        }
-        after_message:        $result['message'] = $message;
-
-        
-        $documentationUrl = $object->documentationUrl;
-
-        if ($documentationUrl === null) {
-            goto after_documentationUrl;
-        }
-        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
-
-        
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-        after_url:        $result['url'] = $url;
-
-        
-        $status = $object->status;
-
-        if ($status === null) {
-            goto after_status;
-        }
-        after_status:        $result['status'] = $status;
 
 
         return $result;

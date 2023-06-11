@@ -26,7 +26,7 @@ final class GetDeployKey
     private const PATH           = '/repos/{owner}/{repo}/keys/{key_id}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The unique identifier of the key. **/
     private int $keyId;
