@@ -24,14 +24,14 @@ final readonly class EnableOrDisableMaintenanceMode
     }
 
     /**
-     * @return PromiseInterface<MaintenanceStatus>
+     * @return PromiseInterface<(MaintenanceStatus|array)>
      **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\EnableOrDisableMaintenanceMode($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest($params);
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): MaintenanceStatus {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): MaintenanceStatus|array {
             return $operation->createResponse($response);
         });
     }

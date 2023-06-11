@@ -47,6 +47,12 @@ final class SetSettings
              **/
             case 204:
                 return ['code' => 204];
+            /**
+             * Unauthorized
+             **/
+
+            case 401:
+                return ['code' => 401];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
