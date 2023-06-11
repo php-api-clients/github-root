@@ -24,14 +24,14 @@ final readonly class GetConfigurationStatus
     }
 
     /**
-     * @return PromiseInterface<ConfigurationStatus>
+     * @return PromiseInterface<(ConfigurationStatus|array)>
      **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ConfigurationStatus {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ConfigurationStatus|array {
             return $operation->createResponse($response);
         });
     }
