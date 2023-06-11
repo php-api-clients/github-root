@@ -23,15 +23,18 @@ final class GetReplicationStatusTest extends AsyncTestCase
      */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\ReplicationStatus::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\GhesReplicationStatus::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/manage/v1/replication/status', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/manage/v1/replication/status?uuid=generated&cluster_roles=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\EnterpriseAdmin\GetReplicationStatus::OPERATION_MATCH, (static function (array $data): array {
+            $data['uuid']          = 'generated';
+            $data['cluster_roles'] = 'generated';
+
             return $data;
         })([]));
     }
@@ -41,14 +44,53 @@ final class GetReplicationStatusTest extends AsyncTestCase
      */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\ReplicationStatus::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(200, ['Content-Type' => 'application/json'], Schema\GhesReplicationStatus::SCHEMA_EXAMPLE_DATA);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/manage/v1/replication/status', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/manage/v1/replication/status?uuid=generated&cluster_roles=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->getReplicationStatus());
+        $result = await($client->operations()->enterpriseAdmin()->getReplicationStatus('generated', 'generated'));
+    }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_401_empty(): void
+    {
+        $response = new Response(401, []);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/manage/v1/replication/status?uuid=generated&cluster_roles=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = $client->call(Operation\EnterpriseAdmin\GetReplicationStatus::OPERATION_MATCH, (static function (array $data): array {
+            $data['uuid']          = 'generated';
+            $data['cluster_roles'] = 'generated';
+
+            return $data;
+        })([]));
+    }
+
+    /**
+     * @test
+     */
+    public function operations_httpCode_401_empty(): void
+    {
+        $response = new Response(401, []);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/manage/v1/replication/status?uuid=generated&cluster_roles=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->enterpriseAdmin()->getReplicationStatus('generated', 'generated'));
+        self::assertArrayHasKey('code', $result);
+        self::assertSame(401, $result['code']);
     }
 }

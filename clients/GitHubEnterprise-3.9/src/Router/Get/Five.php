@@ -124,7 +124,17 @@ final class Five
                 }
             } elseif ($pathChunks[1] === 'manage') {
                 if ($pathChunks[2] === 'v1') {
-                    if ($pathChunks[3] === 'replication') {
+                    if ($pathChunks[3] === 'config') {
+                        if ($pathChunks[4] === 'nodes') {
+                            if ($call === 'GET /manage/v1/config/nodes') {
+                                if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
+                                    $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
+                                }
+
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->getConfigNodes($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'replication') {
                         if ($pathChunks[4] === 'status') {
                             if ($call === 'GET /manage/v1/replication/status') {
                                 if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {

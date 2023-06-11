@@ -24,14 +24,14 @@ final readonly class GetSettings
     }
 
     /**
-     * @return PromiseInterface<EnterpriseSettings>
+     * @return PromiseInterface<(EnterpriseSettings|array)>
      **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetSettings($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseSettings {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseSettings|array {
             return $operation->createResponse($response);
         });
     }

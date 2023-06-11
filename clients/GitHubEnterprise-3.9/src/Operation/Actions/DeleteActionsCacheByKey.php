@@ -25,7 +25,7 @@ final class DeleteActionsCacheByKey
     private const PATH           = '/repos/{owner}/{repo}/actions/caches';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**A key for identifying the cache. **/
     private string $key;

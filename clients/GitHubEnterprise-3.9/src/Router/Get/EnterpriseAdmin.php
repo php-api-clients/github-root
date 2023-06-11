@@ -431,9 +431,22 @@ final class EnterpriseAdmin
 
     public function getVersion(array $params)
     {
+        $arguments = [];
+        if (array_key_exists('uuid', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: uuid');
+        }
+
+        $arguments['uuid'] = $params['uuid'];
+        unset($params['uuid']);
+        if (array_key_exists('cluster_roles', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: cluster_roles');
+        }
+
+        $arguments['cluster_roles'] = $params['cluster_roles'];
+        unset($params['cluster_roles']);
         $operator = new Operator\EnterpriseAdmin\GetVersion($this->browser, $this->authentication);
 
-        return $operator->call();
+        return $operator->call($arguments['uuid'], $arguments['cluster_roles']);
     }
 
     public function listPreReceiveHooksForOrg(array $params)
@@ -821,15 +834,52 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
+    public function getConfigNodes(array $params)
+    {
+        $arguments = [];
+        if (array_key_exists('uuid', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: uuid');
+        }
+
+        $arguments['uuid'] = $params['uuid'];
+        unset($params['uuid']);
+        if (array_key_exists('cluster_roles', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: cluster_roles');
+        }
+
+        $arguments['cluster_roles'] = $params['cluster_roles'];
+        unset($params['cluster_roles']);
+        if (array_key_exists(Hydrator\Operation\Manage\V1\Config\Nodes::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Manage\V1\Config\Nodes::class] = $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Config🌀Nodes();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\GetConfigNodes($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Manage\V1\Config\Nodes::class]);
+
+        return $operator->call($arguments['uuid'], $arguments['cluster_roles']);
+    }
+
     public function getReplicationStatus(array $params)
     {
+        $arguments = [];
+        if (array_key_exists('uuid', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: uuid');
+        }
+
+        $arguments['uuid'] = $params['uuid'];
+        unset($params['uuid']);
+        if (array_key_exists('cluster_roles', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: cluster_roles');
+        }
+
+        $arguments['cluster_roles'] = $params['cluster_roles'];
+        unset($params['cluster_roles']);
         if (array_key_exists(Hydrator\Operation\Manage\V1\Replication\Status::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Manage\V1\Replication\Status::class] = $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Replication🌀Status();
         }
 
         $operator = new Operator\EnterpriseAdmin\GetReplicationStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Manage\V1\Replication\Status::class]);
 
-        return $operator->call();
+        return $operator->call($arguments['uuid'], $arguments['cluster_roles']);
     }
 
     public function getPreReceiveHookForOrg(array $params)

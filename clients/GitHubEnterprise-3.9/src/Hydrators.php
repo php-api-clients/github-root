@@ -116,6 +116,7 @@ final class Hydrators implements ObjectMapper
     private ?Hydrator\Operation\Issues $operation🌀Issues                                                                                                                                                                                     = null;
     private ?Hydrator\Operation\Licenses $operation🌀Licenses                                                                                                                                                                                 = null;
     private ?Hydrator\Operation\Licenses\License $operation🌀Licenses🌀License                                                                                                                                                                 = null;
+    private ?Hydrator\Operation\Manage\V1\Config\Nodes $operation🌀Manage🌀V1🌀Config🌀Nodes                                                                                                                                                     = null;
     private ?Hydrator\Operation\Manage\V1\Replication\Status $operation🌀Manage🌀V1🌀Replication🌀Status                                                                                                                                         = null;
     private ?Hydrator\Operation\Manage\V1\Version $operation🌀Manage🌀V1🌀Version                                                                                                                                                               = null;
     private ?Hydrator\Operation\Markdown $operation🌀Markdown                                                                                                                                                                                 = null;
@@ -652,7 +653,8 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\GitignoreTemplate' => $this->getObjectMapperOperation🌀Gitignore🌀Templates🌀Name()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Apps\\ListReposAccessibleToInstallation\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Installation🌀Repositories()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\License' => $this->getObjectMapperOperation🌀Licenses🌀License()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ReplicationStatus' => $this->getObjectMapperOperation🌀Manage🌀V1🌀Replication🌀Status()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\GhesConfigNodes' => $this->getObjectMapperOperation🌀Manage🌀V1🌀Config🌀Nodes()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\GhesReplicationStatus' => $this->getObjectMapperOperation🌀Manage🌀V1🌀Replication🌀Status()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ApiOverview', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ApiOverview\\Domains' => $this->getObjectMapperOperation🌀Meta()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Activity\\MarkNotificationsAsRead\\Response\\ApplicationJson\\Accepted' => $this->getObjectMapperOperation🌀Notifications()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository\\Permissions', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository\\License', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\AdvancedSecurity', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\SecretScanning', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\SecretScanningPushProtection', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread\\Subject' => $this->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId()->hydrateObject($className, $payload),
@@ -913,7 +915,8 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\GitignoreTemplate' => $this->getObjectMapperOperation🌀Gitignore🌀Templates🌀Name()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Apps\\ListReposAccessibleToInstallation\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Installation🌀Repositories()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\License' => $this->getObjectMapperOperation🌀Licenses🌀License()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ReplicationStatus' => $this->getObjectMapperOperation🌀Manage🌀V1🌀Replication🌀Status()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\GhesConfigNodes' => $this->getObjectMapperOperation🌀Manage🌀V1🌀Config🌀Nodes()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\GhesReplicationStatus' => $this->getObjectMapperOperation🌀Manage🌀V1🌀Replication🌀Status()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ApiOverview', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ApiOverview\\Domains' => $this->getObjectMapperOperation🌀Meta()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Activity\\MarkNotificationsAsRead\\Response\\ApplicationJson\\Accepted' => $this->getObjectMapperOperation🌀Notifications()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository\\Permissions', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\MinimalRepository\\License', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\AdvancedSecurity', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\SecretScanning', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SecurityAndAnalysis\\SecretScanningPushProtection', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Thread\\Subject' => $this->getObjectMapperOperation🌀Notifications🌀Threads🌀ThreadId()->serializeObject($object),
@@ -2063,6 +2066,15 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Licenses🌀License;
+    }
+
+    public function getObjectMapperOperation🌀Manage🌀V1🌀Config🌀Nodes(): Hydrator\Operation\Manage\V1\Config\Nodes
+    {
+        if ($this->operation🌀Manage🌀V1🌀Config🌀Nodes instanceof Hydrator\Operation\Manage\V1\Config\Nodes === false) {
+            $this->operation🌀Manage🌀V1🌀Config🌀Nodes = new Hydrator\Operation\Manage\V1\Config\Nodes();
+        }
+
+        return $this->operation🌀Manage🌀V1🌀Config🌀Nodes;
     }
 
     public function getObjectMapperOperation🌀Manage🌀V1🌀Replication🌀Status(): Hydrator\Operation\Manage\V1\Replication\Status
