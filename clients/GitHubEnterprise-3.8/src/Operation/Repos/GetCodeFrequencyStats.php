@@ -25,7 +25,7 @@ final class GetCodeFrequencyStats
     private const PATH           = '/repos/{owner}/{repo}/stats/code_frequency';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     private readonly SchemaValidator $responseSchemaValidator;
     private readonly Hydrator\Operation\Repos\Owner\Repo\Stats\CodeFrequency $hydrator;

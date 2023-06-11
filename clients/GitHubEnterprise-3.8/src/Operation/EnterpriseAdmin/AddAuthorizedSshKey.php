@@ -10,6 +10,7 @@ use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function json_encode;
 use function str_replace;
@@ -34,8 +35,20 @@ final class AddAuthorizedSshKey
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Unauthorized
+             **/
+            case 401:
+                return ['code' => 401];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }
