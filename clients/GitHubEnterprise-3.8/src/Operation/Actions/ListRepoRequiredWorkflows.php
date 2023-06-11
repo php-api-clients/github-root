@@ -26,7 +26,7 @@ final class ListRepoRequiredWorkflows
     private const PATH           = '/repos/{org}/{repo}/actions/required_workflows';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The number of results per page (max 100). **/
     private int $perPage;
