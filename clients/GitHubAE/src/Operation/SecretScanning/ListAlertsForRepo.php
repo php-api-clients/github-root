@@ -26,7 +26,7 @@ final class ListAlertsForRepo
     private const PATH           = '/repos/{owner}/{repo}/secret-scanning/alerts';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**Set to `open` or `resolved` to only list secret scanning alerts in a specific state. **/
     private string $state;

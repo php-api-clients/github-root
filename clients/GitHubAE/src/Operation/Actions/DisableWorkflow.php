@@ -19,7 +19,7 @@ final class DisableWorkflow
     private const PATH           = '/repos/{owner}/{repo}/actions/workflows/{workflow_id}/disable';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
