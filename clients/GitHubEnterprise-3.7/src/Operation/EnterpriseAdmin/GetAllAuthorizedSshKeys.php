@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
+use RuntimeException;
 
 use function str_replace;
 
@@ -26,8 +27,20 @@ final class GetAllAuthorizedSshKeys
         return new Request(self::METHOD, str_replace([], [], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): ResponseInterface
+    /**
+     * @return array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): array
     {
-        return $response;
+        $code = $response->getStatusCode();
+        switch ($code) {
+            /**
+             * Unauthorized
+             **/
+            case 401:
+                return ['code' => 401];
+        }
+
+        throw new RuntimeException('Unable to find matching response code and content type');
     }
 }
