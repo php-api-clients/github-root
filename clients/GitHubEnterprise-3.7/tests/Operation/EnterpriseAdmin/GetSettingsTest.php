@@ -51,4 +51,40 @@ final class GetSettingsTest extends AsyncTestCase
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = await($client->operations()->enterpriseAdmin()->getSettings());
     }
+
+    /**
+     * @test
+     */
+    public function call_httpCode_401_empty(): void
+    {
+        $response = new Response(401, []);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/setup/api/settings', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = $client->call(Operation\EnterpriseAdmin\GetSettings::OPERATION_MATCH, (static function (array $data): array {
+            return $data;
+        })([]));
+    }
+
+    /**
+     * @test
+     */
+    public function operations_httpCode_401_empty(): void
+    {
+        $response = new Response(401, []);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/setup/api/settings', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = await($client->operations()->enterpriseAdmin()->getSettings());
+        self::assertArrayHasKey('code', $result);
+        self::assertSame(401, $result['code']);
+    }
 }

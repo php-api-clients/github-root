@@ -26,7 +26,7 @@ final class GetRef
     private const PATH           = '/repos/{owner}/{repo}/git/ref/{ref}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**ref parameter **/
     private string $ref;

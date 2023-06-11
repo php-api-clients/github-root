@@ -25,7 +25,7 @@ final class CodeownersErrors
     private const PATH           = '/repos/{owner}/{repo}/codeowners/errors';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**A branch, tag or commit name used to determine which version of the CODEOWNERS file to use. Default: the repository's default branch (e.g. `main`) **/
     private string $ref;

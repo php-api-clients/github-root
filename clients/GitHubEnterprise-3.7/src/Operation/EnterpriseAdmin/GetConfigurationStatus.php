@@ -37,7 +37,10 @@ final class GetConfigurationStatus
         return new Request(self::METHOD, str_replace([], [], self::PATH));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ConfigurationStatus
+    /**
+     * @return Schema\ConfigurationStatus|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\ConfigurationStatus|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -55,6 +58,14 @@ final class GetConfigurationStatus
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Unauthorized
+             **/
+            case 401:
+                return ['code' => 401];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
