@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Repos;
 
 use ApiClients\Client\GitHubEnterprise\Client;
-use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Operation;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -60,10 +59,9 @@ final class GetReleaseTest extends AsyncTestCase
     /**
      * @test
      */
-    public function call_httpCode_404_responseContentType_application_json_zero(): void
+    public function call_httpCode_401_empty(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(401, []);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -83,10 +81,9 @@ final class GetReleaseTest extends AsyncTestCase
     /**
      * @test
      */
-    public function operations_httpCode_404_responseContentType_application_json_zero(): void
+    public function operations_httpCode_401_empty(): void
     {
-        self::expectException(ErrorSchemas\BasicError::class);
-        $response = new Response(404, ['Content-Type' => 'application/json'], Schema\BasicError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(401, []);
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -95,5 +92,7 @@ final class GetReleaseTest extends AsyncTestCase
         $browser->request('GET', '/repos/generated/generated/releases/10', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = await($client->operations()->repos()->getRelease('generated', 'generated', 10));
+        self::assertArrayHasKey('code', $result);
+        self::assertSame(401, $result['code']);
     }
 }
