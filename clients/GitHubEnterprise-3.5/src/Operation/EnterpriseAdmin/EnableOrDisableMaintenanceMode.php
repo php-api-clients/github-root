@@ -42,7 +42,10 @@ final class EnableOrDisableMaintenanceMode
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus
+    /**
+     * @return Schema\MaintenanceStatus|array{code: int}
+     */
+    public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -60,6 +63,14 @@ final class EnableOrDisableMaintenanceMode
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Unauthorized
+             **/
+            case 401:
+                return ['code' => 401];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

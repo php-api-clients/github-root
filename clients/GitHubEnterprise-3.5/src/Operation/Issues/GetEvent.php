@@ -26,7 +26,7 @@ final class GetEvent
     private const PATH           = '/repos/{owner}/{repo}/issues/events/{event_id}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     private int $eventId;
     private readonly SchemaValidator $responseSchemaValidator;
