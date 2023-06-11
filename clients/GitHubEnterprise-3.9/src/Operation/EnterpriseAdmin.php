@@ -768,22 +768,31 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\GetAuditLog::class]->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
     }
 
-    public function getReplicationStatus(): PromiseInterface
+    public function getConfigNodes(string $uuid, string $clusterRoles): PromiseInterface
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\GetConfigNodes::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\GetConfigNodes::class] = new Operator\EnterpriseAdmin\GetConfigNodes($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Config🌀Nodes());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\GetConfigNodes::class]->call($uuid, $clusterRoles);
+    }
+
+    public function getReplicationStatus(string $uuid, string $clusterRoles): PromiseInterface
     {
         if (array_key_exists(Operator\EnterpriseAdmin\GetReplicationStatus::class, $this->operator) === false) {
             $this->operator[Operator\EnterpriseAdmin\GetReplicationStatus::class] = new Operator\EnterpriseAdmin\GetReplicationStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Replication🌀Status());
         }
 
-        return $this->operator[Operator\EnterpriseAdmin\GetReplicationStatus::class]->call();
+        return $this->operator[Operator\EnterpriseAdmin\GetReplicationStatus::class]->call($uuid, $clusterRoles);
     }
 
-    public function getVersion(): PromiseInterface
+    public function getVersion(string $uuid, string $clusterRoles): PromiseInterface
     {
         if (array_key_exists(Operator\EnterpriseAdmin\GetVersion::class, $this->operator) === false) {
             $this->operator[Operator\EnterpriseAdmin\GetVersion::class] = new Operator\EnterpriseAdmin\GetVersion($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Manage🌀V1🌀Version());
         }
 
-        return $this->operator[Operator\EnterpriseAdmin\GetVersion::class]->call();
+        return $this->operator[Operator\EnterpriseAdmin\GetVersion::class]->call($uuid, $clusterRoles);
     }
 
     public function listPreReceiveHooksForOrg(string $org, int $perPage, int $page, string $direction, string $sort): PromiseInterface

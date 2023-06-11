@@ -21,14 +21,14 @@ final readonly class GetVersion
     }
 
     /**
-     * @return PromiseInterface<ResponseInterface>
+     * @return PromiseInterface<array>
      **/
-    public function call(): PromiseInterface
+    public function call(string $uuid, string $clusterRoles): PromiseInterface
     {
-        $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetVersion();
+        $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetVersion($uuid, $clusterRoles);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ResponseInterface {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
             return $operation->createResponse($response);
         });
     }

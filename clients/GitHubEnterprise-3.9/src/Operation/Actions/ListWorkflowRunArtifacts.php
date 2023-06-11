@@ -25,7 +25,7 @@ final class ListWorkflowRunArtifacts
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/artifacts';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
-    /**The name of the repository. The name is not case sensitive. **/
+    /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
     /**The unique identifier of the workflow run. **/
     private int $runId;
