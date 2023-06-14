@@ -3,6 +3,17 @@
     "packageRules": [
         {
             "managers": [
+                "github-actions"
+            ],
+            "matchPaths": [
+                ".github\/workflows\/",
+                "etc\/workflow-skeleton\/"
+            ],
+            "branchPrefix": "renovate\/actions\/",
+            "commitMessagePrefix": "[\ud83d\udc19]"
+        },
+        {
+            "managers": [
                 "composer"
             ],
             "rangeStrategy": "in-range-only",

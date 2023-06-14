@@ -94,6 +94,17 @@ if (!file_exists(SPECS_ROOT)) {
 $subSplitConfig = [];
 $renovatePackageRules = [];
 
+// GitHub Actions
+$renovatePackageRules[] = [
+    'managers' => ['github-actions'],
+    'matchPaths' => [
+        '.github/workflows/',
+        'etc/workflow-skeleton/',
+    ],
+    'branchPrefix' => 'renovate/actions/',
+    'commitMessagePrefix' => '[🐙]',
+];
+
 // The root package
 $renovatePackageRules[] = [
     'managers' =>  ['composer'],
