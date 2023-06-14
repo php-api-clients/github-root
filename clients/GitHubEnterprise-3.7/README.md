@@ -12142,7 +12142,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### git/get-commit
 
-Get a commit
+Get a commit object
 
 Using the `call` method:
 ```php
