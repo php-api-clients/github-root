@@ -27,7 +27,7 @@ final class ListForRef
     private string $owner;
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
-    /**ref parameter **/
+    /**The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation. **/
     private string $ref;
     /**Returns check runs with the specified `name`. **/
     private string $checkName;
