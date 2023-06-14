@@ -1,8 +1,10 @@
-name: "CI: GitHubEnterprise-3.1"
+name: "CI: GitHubEnterpriseCloud"
 on:
   pull_request:
     paths:
-      - "clients/GitHubEnterprise-3.1/**"
+      - ".github/workflows/ci-GitHubEnterpriseCloud.yaml"
+      - ".github/workflows/generate-GitHubEnterpriseCloud.yaml"
+      - "clients/GitHubEnterpriseCloud/**"
 ## This workflow needs the `pull-request` permissions to work for the package diffing
 ## Refs: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#permissions
 permissions:
@@ -15,4 +17,4 @@ jobs:
     with:
       disableMarkdownLinkCheck: true
       disableSetMilestone: true
-      workingDirectory: "clients/GitHubEnterprise-3.1"
+      workingDirectory: "clients/GitHubEnterpriseCloud"
