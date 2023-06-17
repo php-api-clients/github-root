@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubAE\Schema\WebhookBranchProtectionRuleEdited;
 
 use ApiClients\Client\GitHubAE\Schema;
 
-final readonly class Rule extends Schema\AliasAbstract\Tiet9613743A\Tiet2CBC1BCC\Tiet73581675\TietEB2D64A5
+final readonly class Rule extends Schema\AliasAbstract\Tiet608D4038\TietAD0D466D\Tiet0EE41914\TietF088731C
 {
 }
