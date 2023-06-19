@@ -13,7 +13,9 @@ final readonly class OrgPreReceiveHook
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":2,"name":"generated","enforcement":"generated","configuration_url":"generated","allow_downstream_configuration":false}';
 
-    public function __construct(public ?int $id, public ?string $name, public ?string $enforcement, #[MapFrom('configuration_url')] public ?string $configurationUrl, #[MapFrom('allow_downstream_configuration')] public ?bool $allowDownstreamConfiguration)
+    public function __construct(public int|null $id, public string|null $name, public string|null $enforcement, #[MapFrom('configuration_url')]
+    public string|null $configurationUrl, #[MapFrom('allow_downstream_configuration')]
+    public bool|null $allowDownstreamConfiguration,)
     {
     }
 }

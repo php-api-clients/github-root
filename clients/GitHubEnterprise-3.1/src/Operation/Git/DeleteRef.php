@@ -30,16 +30,12 @@ final class DeleteRef
     private string $repo;
     /**ref parameter **/
     private string $ref;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Refs\Ref $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Git\Refs\Ref $hydrator, string $owner, string $repo, string $ref)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Refs\Ref $hydrator, string $owner, string $repo, string $ref)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->ref                     = $ref;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->ref   = $ref;
     }
 
     public function createRequest(): RequestInterface
@@ -47,9 +43,7 @@ final class DeleteRef
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

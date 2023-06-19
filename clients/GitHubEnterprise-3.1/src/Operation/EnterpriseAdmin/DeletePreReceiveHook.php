@@ -30,9 +30,7 @@ final class DeletePreReceiveHook
         return new Request(self::METHOD, str_replace(['{pre_receive_hook_id}'], [$this->preReceiveHookId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

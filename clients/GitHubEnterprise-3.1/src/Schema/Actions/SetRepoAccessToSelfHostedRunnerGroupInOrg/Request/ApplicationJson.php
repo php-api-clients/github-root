@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * selectedRepositoryIds: List of repository IDs that can access the runner group.
      */
-    public function __construct(#[MapFrom('selected_repository_ids')] public array $selectedRepositoryIds)
+    public function __construct(#[MapFrom('selected_repository_ids')]
+    public array $selectedRepositoryIds,)
     {
     }
 }

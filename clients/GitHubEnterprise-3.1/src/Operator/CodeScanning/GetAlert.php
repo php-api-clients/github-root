@@ -23,9 +23,7 @@ final readonly class GetAlert
     {
     }
 
-    /**
-     * @return PromiseInterface<CodeScanningAlert>
-     **/
+    /** @return PromiseInterface<CodeScanningAlert> **/
     public function call(string $owner, string $repo, int $alertNumber): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\CodeScanning\GetAlert($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $alertNumber);

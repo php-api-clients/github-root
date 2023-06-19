@@ -23,9 +23,7 @@ final readonly class GetCommitActivityStats
     {
     }
 
-    /**
-     * @return PromiseInterface<(Accepted|array)>
-     **/
+    /** @return PromiseInterface<(Accepted|array)> **/
     public function call(string $owner, string $repo): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\GetCommitActivityStats($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

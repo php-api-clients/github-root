@@ -38,7 +38,26 @@ final readonly class PullRequestReviewComment
      * originalLine: The line of the blob to which the comment applies. The last line of the range for a multi-line comment
      * side: The side of the diff to which the comment applies. The side of the last line of the range for a multi-line comment
      */
-    public function __construct(public string $url, #[MapFrom('pull_request_review_id')] public ?int $pullRequestReviewId, public int $id, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('diff_hunk')] public string $diffHunk, public string $path, public int $position, #[MapFrom('original_position')] public int $originalPosition, #[MapFrom('commit_id')] public string $commitId, #[MapFrom('original_commit_id')] public string $originalCommitId, #[MapFrom('in_reply_to_id')] public ?int $inReplyToId, public Schema\SimpleUser $user, public string $body, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('pull_request_url')] public string $pullRequestUrl, #[MapFrom('author_association')] public string $authorAssociation, #[MapFrom('_links')] public Schema\PullRequestReviewComment\Links $links, #[MapFrom('start_line')] public ?int $startLine, #[MapFrom('original_start_line')] public ?int $originalStartLine, #[MapFrom('start_side')] public ?string $startSide, public ?int $line, #[MapFrom('original_line')] public ?int $originalLine, public ?string $side, public ?Schema\ReactionRollup $reactions, #[MapFrom('body_html')] public ?string $bodyHtml, #[MapFrom('body_text')] public ?string $bodyText)
+    public function __construct(public string $url, #[MapFrom('pull_request_review_id')]
+    public int|null $pullRequestReviewId, public int $id, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('diff_hunk')]
+    public string $diffHunk, public string $path, public int $position, #[MapFrom('original_position')]
+    public int $originalPosition, #[MapFrom('commit_id')]
+    public string $commitId, #[MapFrom('original_commit_id')]
+    public string $originalCommitId, #[MapFrom('in_reply_to_id')]
+    public int|null $inReplyToId, public Schema\SimpleUser $user, public string $body, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('pull_request_url')]
+    public string $pullRequestUrl, #[MapFrom('author_association')]
+    public string $authorAssociation, #[MapFrom('_links')]
+    public Schema\PullRequestReviewComment\Links $links, #[MapFrom('start_line')]
+    public int|null $startLine, #[MapFrom('original_start_line')]
+    public int|null $originalStartLine, #[MapFrom('start_side')]
+    public string|null $startSide, public int|null $line, #[MapFrom('original_line')]
+    public int|null $originalLine, public string|null $side, public Schema\ReactionRollup|null $reactions, #[MapFrom('body_html')]
+    public string|null $bodyHtml, #[MapFrom('body_text')]
+    public string|null $bodyText,)
     {
     }
 }

@@ -30,9 +30,7 @@ final class DeletePublicKey
         return new Request(self::METHOD, str_replace(['{key_ids}'], [$this->keyIds], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

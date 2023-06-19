@@ -13,7 +13,13 @@ final readonly class Smtp
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"address":"generated","authentication":"generated","port":"generated","domain":"generated","username":"generated","user_name":"generated","enable_starttls_auto":false,"password":"generated","discard-to-noreply-address":false,"support_address":"generated","support_address_type":"generated","noreply_address":"generated"}';
 
-    public function __construct(public ?bool $enabled, public ?string $address, public ?string $authentication, public ?string $port, public ?string $domain, public ?string $username, #[MapFrom('user_name')] public ?string $userName, #[MapFrom('enable_starttls_auto')] public ?bool $enableStarttlsAuto, public ?string $password, #[MapFrom('discard-to-noreply-address')] public ?bool $discardMinToMinNoreplyMinAddress, #[MapFrom('support_address')] public ?string $supportAddress, #[MapFrom('support_address_type')] public ?string $supportAddressType, #[MapFrom('noreply_address')] public ?string $noreplyAddress)
+    public function __construct(public bool|null $enabled, public string|null $address, public string|null $authentication, public string|null $port, public string|null $domain, public string|null $username, #[MapFrom('user_name')]
+    public string|null $userName, #[MapFrom('enable_starttls_auto')]
+    public bool|null $enableStarttlsAuto, public string|null $password, #[MapFrom('discard-to-noreply-address')]
+    public bool|null $discardMinToMinNoreplyMinAddress, #[MapFrom('support_address')]
+    public string|null $supportAddress, #[MapFrom('support_address_type')]
+    public string|null $supportAddressType, #[MapFrom('noreply_address')]
+    public string|null $noreplyAddress,)
     {
     }
 }

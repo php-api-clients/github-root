@@ -36,9 +36,7 @@ final class DownloadWorkflowRunLogs
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
 
-    /**
-     * @return array{code: int,location: string}
-     */
+    /** @return array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

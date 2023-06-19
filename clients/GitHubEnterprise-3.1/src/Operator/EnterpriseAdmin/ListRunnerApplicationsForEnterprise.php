@@ -20,9 +20,7 @@ final readonly class ListRunnerApplicationsForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListRunnerApplicationsForEnterprise($enterprise);

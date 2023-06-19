@@ -20,9 +20,7 @@ final readonly class ListPublicKeys
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $since, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPublicKeys($since, $perPage, $page, $direction, $sort);

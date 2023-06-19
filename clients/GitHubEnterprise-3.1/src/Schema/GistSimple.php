@@ -18,7 +18,17 @@ final readonly class GistSimple
      * forkOf: Gist
      * owner: Simple User
      */
-    public function __construct(public ?array $forks, public ?array $history, #[MapFrom('fork_of')] public ?Schema\GistSimple\ForkOf $forkOf, public ?string $url, #[MapFrom('forks_url')] public ?string $forksUrl, #[MapFrom('commits_url')] public ?string $commitsUrl, public ?string $id, #[MapFrom('node_id')] public ?string $nodeId, #[MapFrom('git_pull_url')] public ?string $gitPullUrl, #[MapFrom('git_push_url')] public ?string $gitPushUrl, #[MapFrom('html_url')] public ?string $htmlUrl, public ?Schema\GistSimple\Files $files, public ?bool $public, #[MapFrom('created_at')] public ?string $createdAt, #[MapFrom('updated_at')] public ?string $updatedAt, public ?string $description, public ?int $comments, public ?string $user, #[MapFrom('comments_url')] public ?string $commentsUrl, public ?Schema\SimpleUser $owner, public ?bool $truncated)
+    public function __construct(public array|null $forks, public array|null $history, #[MapFrom('fork_of')]
+    public Schema\GistSimple\ForkOf|null $forkOf, public string|null $url, #[MapFrom('forks_url')]
+    public string|null $forksUrl, #[MapFrom('commits_url')]
+    public string|null $commitsUrl, public string|null $id, #[MapFrom('node_id')]
+    public string|null $nodeId, #[MapFrom('git_pull_url')]
+    public string|null $gitPullUrl, #[MapFrom('git_push_url')]
+    public string|null $gitPushUrl, #[MapFrom('html_url')]
+    public string|null $htmlUrl, public Schema\GistSimple\Files|null $files, public bool|null $public, #[MapFrom('created_at')]
+    public string|null $createdAt, #[MapFrom('updated_at')]
+    public string|null $updatedAt, public string|null $description, public int|null $comments, public string|null $user, #[MapFrom('comments_url')]
+    public string|null $commentsUrl, public Schema\SimpleUser|null $owner, public bool|null $truncated,)
     {
     }
 }

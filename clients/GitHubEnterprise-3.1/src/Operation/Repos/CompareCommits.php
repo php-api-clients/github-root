@@ -30,16 +30,12 @@ final class CompareCommits
     private string $repo;
     /**The base branch and head branch to compare. This parameter expects the format `{base}...{head}`. **/
     private string $basehead;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Compare\Basehead $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Compare\Basehead $hydrator, string $owner, string $repo, string $basehead)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Compare\Basehead $hydrator, string $owner, string $repo, string $basehead)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->basehead                = $basehead;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner    = $owner;
+        $this->repo     = $repo;
+        $this->basehead = $basehead;
     }
 
     public function createRequest(): RequestInterface

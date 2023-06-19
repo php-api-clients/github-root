@@ -32,7 +32,20 @@ final readonly class ApplicationJson
      * hasDownloads: Whether downloads are enabled.
      * isTemplate: Whether this repository acts as a template that can be used to generate new repositories.
      */
-    public function __construct(public string $name, public ?string $description, public ?string $homepage, public ?bool $private, #[MapFrom('has_issues')] public ?bool $hasIssues, #[MapFrom('has_projects')] public ?bool $hasProjects, #[MapFrom('has_wiki')] public ?bool $hasWiki, #[MapFrom('team_id')] public ?int $teamId, #[MapFrom('auto_init')] public ?bool $autoInit, #[MapFrom('gitignore_template')] public ?string $gitignoreTemplate, #[MapFrom('license_template')] public ?string $licenseTemplate, #[MapFrom('allow_squash_merge')] public ?bool $allowSquashMerge, #[MapFrom('allow_merge_commit')] public ?bool $allowMergeCommit, #[MapFrom('allow_rebase_merge')] public ?bool $allowRebaseMerge, #[MapFrom('delete_branch_on_merge')] public ?bool $deleteBranchOnMerge, #[MapFrom('has_downloads')] public ?bool $hasDownloads, #[MapFrom('is_template')] public ?bool $isTemplate)
+    public function __construct(public string $name, public string|null $description, public string|null $homepage, public bool|null $private, #[MapFrom('has_issues')]
+    public bool|null $hasIssues, #[MapFrom('has_projects')]
+    public bool|null $hasProjects, #[MapFrom('has_wiki')]
+    public bool|null $hasWiki, #[MapFrom('team_id')]
+    public int|null $teamId, #[MapFrom('auto_init')]
+    public bool|null $autoInit, #[MapFrom('gitignore_template')]
+    public string|null $gitignoreTemplate, #[MapFrom('license_template')]
+    public string|null $licenseTemplate, #[MapFrom('allow_squash_merge')]
+    public bool|null $allowSquashMerge, #[MapFrom('allow_merge_commit')]
+    public bool|null $allowMergeCommit, #[MapFrom('allow_rebase_merge')]
+    public bool|null $allowRebaseMerge, #[MapFrom('delete_branch_on_merge')]
+    public bool|null $deleteBranchOnMerge, #[MapFrom('has_downloads')]
+    public bool|null $hasDownloads, #[MapFrom('is_template')]
+    public bool|null $isTemplate,)
     {
     }
 }

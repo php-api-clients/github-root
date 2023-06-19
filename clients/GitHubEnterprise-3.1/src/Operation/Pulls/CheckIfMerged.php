@@ -36,9 +36,7 @@ final class CheckIfMerged
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}'], [$this->owner, $this->repo, $this->pullNumber], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

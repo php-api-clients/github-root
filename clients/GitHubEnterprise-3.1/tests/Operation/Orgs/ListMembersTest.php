@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class ListMembersTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationError::class);
@@ -44,9 +42,7 @@ final class ListMembersTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationError::class);
@@ -61,9 +57,7 @@ final class ListMembersTest extends AsyncTestCase
         $result = await($client->operations()->orgs()->listMembers('generated', 'generated', 'generated', 8, 4));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_302_empty(): void
     {
         $response = new Response(302, ['Location' => 'https://api.github.com/orgs/github/public_members']);
@@ -85,9 +79,7 @@ final class ListMembersTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_302_empty(): void
     {
         $response = new Response(302, ['Location' => 'https://api.github.com/orgs/github/public_members']);

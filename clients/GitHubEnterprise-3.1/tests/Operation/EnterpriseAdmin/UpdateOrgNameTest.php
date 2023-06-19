@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class UpdateOrgNameTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_202_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(202, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted::SCHEMA_EXAMPLE_DATA);
@@ -39,9 +37,7 @@ final class UpdateOrgNameTest extends AsyncTestCase
         })(json_decode(Schema\EnterpriseAdmin\UpdateOrgName\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_202_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(202, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted::SCHEMA_EXAMPLE_DATA);

@@ -23,13 +23,9 @@ final class GetMaintenanceStatus
     public const OPERATION_MATCH = 'GET /setup/api/maintenance';
     private const METHOD         = 'GET';
     private const PATH           = '/setup/api/maintenance';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Setup\Api\Maintenance $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Setup\Api\Maintenance $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

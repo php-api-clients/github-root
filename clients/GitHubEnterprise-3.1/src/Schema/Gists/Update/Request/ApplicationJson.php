@@ -17,7 +17,7 @@ final readonly class ApplicationJson
      * description: Description of the gist
      * files: Names of files to be updated
      */
-    public function __construct(public ?string $description, public ?Schema\Gists\Update\Request\ApplicationJson\Files $files)
+    public function __construct(public string|null $description, public Schema\Gists\Update\Request\ApplicationJson\Files|null $files)
     {
     }
 }
