@@ -26,14 +26,10 @@ final class DeleteThreadSubscription
     private const PATH           = '/notifications/threads/{thread_id}/subscription';
     /**thread_id parameter **/
     private int $threadId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Notifications\Threads\ThreadId\Subscription $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Notifications\Threads\ThreadId\Subscription $hydrator, int $threadId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Notifications\Threads\ThreadId\Subscription $hydrator, int $threadId)
     {
-        $this->threadId                = $threadId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->threadId = $threadId;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +37,7 @@ final class DeleteThreadSubscription
         return new Request(self::METHOD, str_replace(['{thread_id}'], [$this->threadId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

@@ -17,15 +17,9 @@ final class RemoveCollaborator
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/collaborators/{username}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/collaborators/{username}';
-    private string $owner;
-    private string $repo;
-    private string $username;
 
-    public function __construct(string $owner, string $repo, string $username)
+    public function __construct(private string $owner, private string $repo, private string $username)
     {
-        $this->owner    = $owner;
-        $this->repo     = $repo;
-        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface
@@ -33,9 +27,7 @@ final class RemoveCollaborator
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{username}'], [$this->owner, $this->repo, $this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

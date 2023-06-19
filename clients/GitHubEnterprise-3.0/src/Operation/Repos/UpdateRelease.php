@@ -24,22 +24,12 @@ final class UpdateRelease
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/releases/{release_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/repos/{owner}/{repo}/releases/{release_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**release_id parameter **/
     private int $releaseId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator, string $owner, string $repo, int $releaseId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator, private string $owner, private string $repo, int $releaseId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->releaseId               = $releaseId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->releaseId = $releaseId;
     }
 
     public function createRequest(array $data): RequestInterface

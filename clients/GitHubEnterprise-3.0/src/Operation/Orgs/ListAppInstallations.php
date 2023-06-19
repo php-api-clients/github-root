@@ -23,21 +23,15 @@ final class ListAppInstallations
     public const OPERATION_MATCH = 'GET /orgs/{org}/installations';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/installations';
-    private string $org;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Installations $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Installations $hydrator, string $org, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Installations $hydrator, private string $org, int $perPage = 30, int $page = 1)
     {
-        $this->org                     = $org;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface

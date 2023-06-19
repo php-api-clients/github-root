@@ -23,9 +23,7 @@ final readonly class UpdateAuthorization
     {
     }
 
-    /**
-     * @return PromiseInterface<Authorization>
-     **/
+    /** @return PromiseInterface<Authorization> **/
     public function call(int $authorizationId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\UpdateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $authorizationId);

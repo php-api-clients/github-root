@@ -21,18 +21,12 @@ final class CreateWorkflowDispatch
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, string $owner, string $repo, $workflowId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private string $owner, private string $repo, $workflowId)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->owner                  = $owner;
-        $this->repo                   = $repo;
-        $this->workflowId             = $workflowId;
+        $this->workflowId = $workflowId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -42,9 +36,7 @@ final class CreateWorkflowDispatch
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{workflow_id}'], [$this->owner, $this->repo, $this->workflowId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

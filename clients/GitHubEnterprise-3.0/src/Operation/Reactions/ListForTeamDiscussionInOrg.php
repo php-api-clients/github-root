@@ -16,10 +16,8 @@ final class ListForTeamDiscussionInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private int $discussionNumber;
     /**Returns a single [reaction type](https://docs.github.com/enterprise-server@3.0/rest/reference/reactions#reaction-types). Omit this parameter to list all reactions to a team discussion. **/
     private string $content;
     /**Results per page (max 100) **/
@@ -27,14 +25,12 @@ final class ListForTeamDiscussionInOrg
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $org, string $teamSlug, int $discussionNumber, string $content, int $perPage = 30, int $page = 1)
+    public function __construct(private string $org, string $teamSlug, private int $discussionNumber, string $content, int $perPage = 30, int $page = 1)
     {
-        $this->org              = $org;
-        $this->teamSlug         = $teamSlug;
-        $this->discussionNumber = $discussionNumber;
-        $this->content          = $content;
-        $this->perPage          = $perPage;
-        $this->page             = $page;
+        $this->teamSlug = $teamSlug;
+        $this->content  = $content;
+        $this->perPage  = $perPage;
+        $this->page     = $page;
     }
 
     public function createRequest(): RequestInterface

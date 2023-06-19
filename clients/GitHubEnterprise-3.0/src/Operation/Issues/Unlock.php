@@ -24,20 +24,12 @@ final class Unlock
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/lock';
-    private string $owner;
-    private string $repo;
     /**issue_number parameter **/
     private int $issueNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Lock $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Lock $hydrator, string $owner, string $repo, int $issueNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Lock $hydrator, private string $owner, private string $repo, int $issueNumber)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->issueNumber = $issueNumber;
     }
 
     public function createRequest(): RequestInterface
@@ -45,9 +37,7 @@ final class Unlock
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}'], [$this->owner, $this->repo, $this->issueNumber], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

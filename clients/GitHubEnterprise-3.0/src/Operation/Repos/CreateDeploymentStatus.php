@@ -25,22 +25,12 @@ final class CreateDeploymentStatus
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/deployments/{deployment_id}/statuses';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**deployment_id parameter **/
     private int $deploymentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses $hydrator, string $owner, string $repo, int $deploymentId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses $hydrator, private string $owner, private string $repo, int $deploymentId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->deploymentId            = $deploymentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->deploymentId = $deploymentId;
     }
 
     public function createRequest(array $data): RequestInterface

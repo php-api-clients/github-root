@@ -23,15 +23,9 @@ final class GetUserInstallation
     public const OPERATION_MATCH = 'GET /users/{username}/installation';
     private const METHOD         = 'GET';
     private const PATH           = '/users/{username}/installation';
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Users\Username\Installation $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Users\Username\Installation $hydrator, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Users\Username\Installation $hydrator, private string $username)
     {
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

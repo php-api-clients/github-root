@@ -23,18 +23,12 @@ final class GetSelfHostedRunnerGroupForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}';
-    private string $org;
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId $hydrator, string $org, int $runnerGroupId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId $hydrator, private string $org, int $runnerGroupId)
     {
-        $this->org                     = $org;
-        $this->runnerGroupId           = $runnerGroupId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->runnerGroupId = $runnerGroupId;
     }
 
     public function createRequest(): RequestInterface

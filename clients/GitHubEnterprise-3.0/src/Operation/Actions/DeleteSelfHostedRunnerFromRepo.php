@@ -17,15 +17,11 @@ final class DeleteSelfHostedRunnerFromRepo
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/actions/runners/{runner_id}';
-    private string $owner;
-    private string $repo;
     /**Unique identifier of the self-hosted runner. **/
     private int $runnerId;
 
-    public function __construct(string $owner, string $repo, int $runnerId)
+    public function __construct(private string $owner, private string $repo, int $runnerId)
     {
-        $this->owner    = $owner;
-        $this->repo     = $repo;
         $this->runnerId = $runnerId;
     }
 
@@ -34,9 +30,7 @@ final class DeleteSelfHostedRunnerFromRepo
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{runner_id}'], [$this->owner, $this->repo, $this->runnerId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

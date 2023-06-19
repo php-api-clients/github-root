@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * autoTriggerChecks: Enables or disables automatic creation of CheckSuite events upon pushes to the repository. Enabled by default. See the [`auto_trigger_checks` object](https://docs.github.com/enterprise-server@3.0/rest/reference/checks#auto_trigger_checks-object) description for details.
      */
-    public function __construct(#[MapFrom('auto_trigger_checks')] public ?array $autoTriggerChecks)
+    public function __construct(#[MapFrom('auto_trigger_checks')]
+    public array|null $autoTriggerChecks,)
     {
     }
 }

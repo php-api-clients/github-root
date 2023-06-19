@@ -24,15 +24,9 @@ final class StartPreReceiveEnvironmentDownload
     public const OPERATION_MATCH = 'POST /admin/pre-receive-environments/{pre_receive_environment_id}/downloads';
     private const METHOD         = 'POST';
     private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads';
-    private int $preReceiveEnvironmentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads $hydrator, int $preReceiveEnvironmentId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads $hydrator, private int $preReceiveEnvironmentId)
     {
-        $this->preReceiveEnvironmentId = $preReceiveEnvironmentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -24,23 +24,15 @@ final class GetAllTopics
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/topics';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/topics';
-    private string $owner;
-    private string $repo;
     /**Page number of the results to fetch. **/
     private int $page;
     /**Results per page (max 100) **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Topics $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Topics $hydrator, string $owner, string $repo, int $page = 1, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Topics $hydrator, private string $owner, private string $repo, int $page = 1, int $perPage = 30)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->page    = $page;
+        $this->perPage = $perPage;
     }
 
     public function createRequest(): RequestInterface

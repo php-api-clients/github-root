@@ -24,17 +24,9 @@ final class GetMembershipForUser
     public const OPERATION_MATCH = 'GET /orgs/{org}/memberships/{username}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/memberships/{username}';
-    private string $org;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Memberships\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Memberships\Username $hydrator, string $org, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Memberships\Username $hydrator, private string $org, private string $username)
     {
-        $this->org                     = $org;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -26,14 +26,10 @@ final class DeleteGrant
     private const PATH           = '/applications/grants/{grant_id}';
     /**grant_id parameter **/
     private int $grantId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Applications\Grants\GrantId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\Grants\GrantId $hydrator, int $grantId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Applications\Grants\GrantId $hydrator, int $grantId)
     {
-        $this->grantId                 = $grantId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->grantId = $grantId;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +37,7 @@ final class DeleteGrant
         return new Request(self::METHOD, str_replace(['{grant_id}'], [$this->grantId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

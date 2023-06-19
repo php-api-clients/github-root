@@ -24,18 +24,12 @@ final class GetByName
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug $hydrator, string $org, string $teamSlug)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug $hydrator, private string $org, string $teamSlug)
     {
-        $this->org                     = $org;
-        $this->teamSlug                = $teamSlug;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(): RequestInterface

@@ -23,9 +23,7 @@ final readonly class GetGithubActionsPermissionsEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<ActionsEnterprisePermissions>
-     **/
+    /** @return PromiseInterface<ActionsEnterprisePermissions> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

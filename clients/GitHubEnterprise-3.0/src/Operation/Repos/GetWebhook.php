@@ -24,19 +24,9 @@ final class GetWebhook
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/hooks/{hook_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/hooks/{hook_id}';
-    private string $owner;
-    private string $repo;
-    private int $hookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId $hydrator, string $owner, string $repo, int $hookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId $hydrator, private string $owner, private string $repo, private int $hookId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->hookId                  = $hookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

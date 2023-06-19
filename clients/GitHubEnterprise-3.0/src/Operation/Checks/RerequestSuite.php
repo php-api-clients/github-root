@@ -23,20 +23,12 @@ final class RerequestSuite
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest';
-    private string $owner;
-    private string $repo;
     /**check_suite_id parameter **/
     private int $checkSuiteId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\Rerequest $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\Rerequest $hydrator, string $owner, string $repo, int $checkSuiteId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\Rerequest $hydrator, private string $owner, private string $repo, int $checkSuiteId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->checkSuiteId            = $checkSuiteId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->checkSuiteId = $checkSuiteId;
     }
 
     public function createRequest(): RequestInterface

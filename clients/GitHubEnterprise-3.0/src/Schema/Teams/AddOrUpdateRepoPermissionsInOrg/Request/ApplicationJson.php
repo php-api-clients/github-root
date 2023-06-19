@@ -21,7 +21,7 @@ final readonly class ApplicationJson
 
     If no permission is specified, the team's `permission` attribute will be used to determine what permission to grant the team on this repository.
      */
-    public function __construct(public ?string $permission)
+    public function __construct(public string|null $permission)
     {
     }
 }

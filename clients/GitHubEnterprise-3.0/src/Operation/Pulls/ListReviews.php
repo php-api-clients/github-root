@@ -16,21 +16,15 @@ final class ListReviews
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/reviews';
-    private string $owner;
-    private string $repo;
-    private int $pullNumber;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $owner, string $repo, int $pullNumber, int $perPage = 30, int $page = 1)
+    public function __construct(private string $owner, private string $repo, private int $pullNumber, int $perPage = 30, int $page = 1)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
-        $this->pullNumber = $pullNumber;
-        $this->perPage    = $perPage;
-        $this->page       = $page;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface

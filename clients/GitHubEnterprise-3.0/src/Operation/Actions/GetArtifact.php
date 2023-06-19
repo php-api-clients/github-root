@@ -23,20 +23,12 @@ final class GetArtifact
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}';
-    private string $owner;
-    private string $repo;
     /**artifact_id parameter **/
     private int $artifactId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId $hydrator, string $owner, string $repo, int $artifactId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId $hydrator, private string $owner, private string $repo, int $artifactId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->artifactId              = $artifactId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->artifactId = $artifactId;
     }
 
     public function createRequest(): RequestInterface

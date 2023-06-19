@@ -24,17 +24,9 @@ final class RemoveMembershipForUser
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/memberships/{username}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/memberships/{username}';
-    private string $org;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Memberships\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Memberships\Username $hydrator, string $org, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Memberships\Username $hydrator, private string $org, private string $username)
     {
-        $this->org                     = $org;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +34,7 @@ final class RemoveMembershipForUser
         return new Request(self::METHOD, str_replace(['{org}', '{username}'], [$this->org, $this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

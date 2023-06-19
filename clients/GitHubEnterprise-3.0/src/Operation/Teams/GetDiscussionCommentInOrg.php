@@ -23,22 +23,12 @@ final class GetDiscussionCommentInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private int $discussionNumber;
-    private int $commentNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator, string $org, string $teamSlug, int $discussionNumber, int $commentNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator, private string $org, string $teamSlug, private int $discussionNumber, private int $commentNumber)
     {
-        $this->org                     = $org;
-        $this->teamSlug                = $teamSlug;
-        $this->discussionNumber        = $discussionNumber;
-        $this->commentNumber           = $commentNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(): RequestInterface

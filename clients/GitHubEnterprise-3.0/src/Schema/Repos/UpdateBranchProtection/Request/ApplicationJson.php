@@ -25,7 +25,14 @@ final readonly class ApplicationJson
      * requiredConversationResolution: Requires all conversations on code to be resolved before a pull request can be merged into a branch that matches this rule. Set to `false` to disable. Default: `false`.
      * contexts: The list of status checks to require in order to merge into this branch.
      */
-    public function __construct(#[MapFrom('required_status_checks')] public ?Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredStatusChecks $requiredStatusChecks, #[MapFrom('enforce_admins')] public ?bool $enforceAdmins, #[MapFrom('required_pull_request_reviews')] public ?Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews $requiredPullRequestReviews, public ?Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\Restrictions $restrictions, #[MapFrom('required_linear_history')] public ?bool $requiredLinearHistory, #[MapFrom('allow_force_pushes')] public ?bool $allowForcePushes, #[MapFrom('allow_deletions')] public ?bool $allowDeletions, #[MapFrom('required_conversation_resolution')] public ?bool $requiredConversationResolution, public ?array $contexts)
+    public function __construct(#[MapFrom('required_status_checks')]
+    public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredStatusChecks|null $requiredStatusChecks, #[MapFrom('enforce_admins')]
+    public bool|null $enforceAdmins, #[MapFrom('required_pull_request_reviews')]
+    public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews|null $requiredPullRequestReviews, public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\Restrictions|null $restrictions, #[MapFrom('required_linear_history')]
+    public bool|null $requiredLinearHistory, #[MapFrom('allow_force_pushes')]
+    public bool|null $allowForcePushes, #[MapFrom('allow_deletions')]
+    public bool|null $allowDeletions, #[MapFrom('required_conversation_resolution')]
+    public bool|null $requiredConversationResolution, public array|null $contexts,)
     {
     }
 }

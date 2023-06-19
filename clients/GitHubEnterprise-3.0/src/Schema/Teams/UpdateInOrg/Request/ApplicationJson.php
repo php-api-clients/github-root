@@ -28,7 +28,8 @@ final readonly class ApplicationJson
     \* `admin` - team members can pull, push and administer newly-added repositories.
      * parentTeamId: The ID of a team to set as the parent team.
      */
-    public function __construct(public ?string $name, public ?string $description, public ?string $privacy, public ?string $permission, #[MapFrom('parent_team_id')] public ?int $parentTeamId)
+    public function __construct(public string|null $name, public string|null $description, public string|null $privacy, public string|null $permission, #[MapFrom('parent_team_id')]
+    public int|null $parentTeamId,)
     {
     }
 }

@@ -24,26 +24,18 @@ final class ListForks
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/forks';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/forks';
-    private string $owner;
-    private string $repo;
     /**The sort order. Can be either `newest`, `oldest`, or `stargazers`. **/
     private string $sort;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Forks $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Forks $hydrator, string $owner, string $repo, string $sort = 'newest', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Forks $hydrator, private string $owner, private string $repo, string $sort = 'newest', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->sort                    = $sort;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->sort    = $sort;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface

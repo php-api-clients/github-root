@@ -20,9 +20,7 @@ final readonly class DeleteGlobalWebhook
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json'): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteGlobalWebhook($hookId, $accept);

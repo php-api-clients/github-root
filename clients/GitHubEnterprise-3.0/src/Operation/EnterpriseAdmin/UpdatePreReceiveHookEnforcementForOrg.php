@@ -24,20 +24,12 @@ final class UpdatePreReceiveHookEnforcementForOrg
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $org;
     /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, string $org, int $preReceiveHookId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, private string $org, int $preReceiveHookId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->org                     = $org;
-        $this->preReceiveHookId        = $preReceiveHookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->preReceiveHookId = $preReceiveHookId;
     }
 
     public function createRequest(array $data): RequestInterface

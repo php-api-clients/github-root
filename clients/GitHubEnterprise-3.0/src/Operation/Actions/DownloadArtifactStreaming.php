@@ -23,20 +23,12 @@ final class DownloadArtifactStreaming
     public const OPERATION_MATCH = 'STREAM /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
-    private string $owner;
-    private string $repo;
     /**artifact_id parameter **/
     private int $artifactId;
-    private string $archiveFormat;
-    private readonly Browser $browser;
 
-    public function __construct(Browser $browser, string $owner, string $repo, int $artifactId, string $archiveFormat)
+    public function __construct(private readonly Browser $browser, private string $owner, private string $repo, int $artifactId, private string $archiveFormat)
     {
-        $this->owner         = $owner;
-        $this->repo          = $repo;
-        $this->artifactId    = $artifactId;
-        $this->archiveFormat = $archiveFormat;
-        $this->browser       = $browser;
+        $this->artifactId = $artifactId;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +36,7 @@ final class DownloadArtifactStreaming
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], self::PATH));
     }
 
-    /**
-     * @return Observable<string>
-     */
+    /** @return Observable<string> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code = $response->getStatusCode();

@@ -24,17 +24,9 @@ final class CreateSelfHostedRunnerGroupForOrg
     public const OPERATION_MATCH = 'POST /orgs/{org}/actions/runner-groups';
     private const METHOD         = 'POST';
     private const PATH           = '/orgs/{org}/actions/runner-groups';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $org;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RunnerGroups $hydrator, string $org)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups $hydrator, private string $org)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->org                     = $org;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

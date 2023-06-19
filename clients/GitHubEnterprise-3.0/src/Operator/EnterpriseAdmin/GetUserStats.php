@@ -23,9 +23,7 @@ final readonly class GetUserStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseUserOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseUserOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetUserStats($this->responseSchemaValidator, $this->hydrator);

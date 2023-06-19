@@ -24,26 +24,18 @@ final class ListLabelsOnIssue
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/{issue_number}/labels';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/labels';
-    private string $owner;
-    private string $repo;
     /**issue_number parameter **/
     private int $issueNumber;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator, string $owner, string $repo, int $issueNumber, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator, private string $owner, private string $repo, int $issueNumber, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->issueNumber = $issueNumber;
+        $this->perPage     = $perPage;
+        $this->page        = $page;
     }
 
     public function createRequest(): RequestInterface

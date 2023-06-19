@@ -26,14 +26,10 @@ final class GetThread
     private const PATH           = '/notifications/threads/{thread_id}';
     /**thread_id parameter **/
     private int $threadId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Notifications\Threads\ThreadId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Notifications\Threads\ThreadId $hydrator, int $threadId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Notifications\Threads\ThreadId $hydrator, int $threadId)
     {
-        $this->threadId                = $threadId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->threadId = $threadId;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +37,7 @@ final class GetThread
         return new Request(self::METHOD, str_replace(['{thread_id}'], [$this->threadId], self::PATH));
     }
 
-    /**
-     * @return Schema\Thread|array{code: int}
-     */
+    /** @return Schema\Thread|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Thread|array
     {
         $code          = $response->getStatusCode();

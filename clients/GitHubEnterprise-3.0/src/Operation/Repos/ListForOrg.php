@@ -16,7 +16,6 @@ final class ListForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/repos';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/repos';
-    private string $org;
     /**Specifies the types of repositories you want returned. Can be one of `all`, `public`, `private`, `forks`, `sources`, `member`, `internal`. Note: For GitHub AE, can be one of `all`, `private`, `forks`, `sources`, `member`, `internal`. Default: `all`. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, `type` can also be `internal`. However, the `internal` value is not yet supported when a GitHub App calls this API with an installation access token. **/
     private string $type;
     /**Can be one of `asc` or `desc`. Default: when using `full_name`: `asc`, otherwise `desc` **/
@@ -28,9 +27,8 @@ final class ListForOrg
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $org, string $type, string $direction, string $sort = 'created', int $perPage = 30, int $page = 1)
+    public function __construct(private string $org, string $type, string $direction, string $sort = 'created', int $perPage = 30, int $page = 1)
     {
-        $this->org       = $org;
         $this->type      = $type;
         $this->direction = $direction;
         $this->sort      = $sort;

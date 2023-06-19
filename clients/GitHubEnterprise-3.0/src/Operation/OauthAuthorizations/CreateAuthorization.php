@@ -25,15 +25,9 @@ final class CreateAuthorization
     public const OPERATION_MATCH = 'POST /authorizations';
     private const METHOD         = 'POST';
     private const PATH           = '/authorizations';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Authorizations $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations $hydrator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Authorizations $hydrator)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -43,9 +37,7 @@ final class CreateAuthorization
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\Authorization|array{code: int}
-     */
+    /** @return Schema\Authorization|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Authorization|array
     {
         $code          = $response->getStatusCode();

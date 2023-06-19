@@ -16,8 +16,6 @@ final class ListForTeamDiscussionLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}/discussions/{discussion_number}/reactions';
     private const METHOD         = 'GET';
     private const PATH           = '/teams/{team_id}/discussions/{discussion_number}/reactions';
-    private int $teamId;
-    private int $discussionNumber;
     /**Returns a single [reaction type](https://docs.github.com/enterprise-server@3.0/rest/reference/reactions#reaction-types). Omit this parameter to list all reactions to a team discussion. **/
     private string $content;
     /**Results per page (max 100) **/
@@ -25,13 +23,11 @@ final class ListForTeamDiscussionLegacy
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(int $teamId, int $discussionNumber, string $content, int $perPage = 30, int $page = 1)
+    public function __construct(private int $teamId, private int $discussionNumber, string $content, int $perPage = 30, int $page = 1)
     {
-        $this->teamId           = $teamId;
-        $this->discussionNumber = $discussionNumber;
-        $this->content          = $content;
-        $this->perPage          = $perPage;
-        $this->page             = $page;
+        $this->content = $content;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface

@@ -24,8 +24,6 @@ final class ListForIssue
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/{issue_number}/reactions';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/reactions';
-    private string $owner;
-    private string $repo;
     /**issue_number parameter **/
     private int $issueNumber;
     /**Returns a single [reaction type](https://docs.github.com/enterprise-server@3.0/rest/reference/reactions#reaction-types). Omit this parameter to list all reactions to an issue. **/
@@ -34,19 +32,13 @@ final class ListForIssue
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Reactions $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Reactions $hydrator, string $owner, string $repo, int $issueNumber, string $content, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Reactions $hydrator, private string $owner, private string $repo, int $issueNumber, string $content, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->content                 = $content;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->issueNumber = $issueNumber;
+        $this->content     = $content;
+        $this->perPage     = $perPage;
+        $this->page        = $page;
     }
 
     public function createRequest(): RequestInterface

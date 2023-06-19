@@ -26,16 +26,10 @@ final class RemoveRepoFromInstallationForAuthenticatedUser
     private const PATH           = '/user/installations/{installation_id}/repositories/{repository_id}';
     /**installation_id parameter **/
     private int $installationId;
-    private int $repositoryId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\User\Installations\InstallationId\Repositories\RepositoryId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\User\Installations\InstallationId\Repositories\RepositoryId $hydrator, int $installationId, int $repositoryId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\User\Installations\InstallationId\Repositories\RepositoryId $hydrator, int $installationId, private int $repositoryId)
     {
-        $this->installationId          = $installationId;
-        $this->repositoryId            = $repositoryId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->installationId = $installationId;
     }
 
     public function createRequest(): RequestInterface
@@ -43,9 +37,7 @@ final class RemoveRepoFromInstallationForAuthenticatedUser
         return new Request(self::METHOD, str_replace(['{installation_id}', '{repository_id}'], [$this->installationId, $this->repositoryId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

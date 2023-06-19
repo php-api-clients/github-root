@@ -24,19 +24,9 @@ final class SetSuitesPreferences
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/check-suites/preferences';
     private const METHOD         = 'PATCH';
     private const PATH           = '/repos/{owner}/{repo}/check-suites/preferences';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\Preferences $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckSuites\Preferences $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\Preferences $hydrator, private string $owner, private string $repo)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

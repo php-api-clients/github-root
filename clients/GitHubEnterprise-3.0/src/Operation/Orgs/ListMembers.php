@@ -24,7 +24,6 @@ final class ListMembers
     public const OPERATION_MATCH = 'GET /orgs/{org}/members';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/members';
-    private string $org;
     /**Filter members returned in the list. Can be one of:
     \* `2fa_disabled` - Members without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled. Available for organization owners.
     \* `all` - All members the authenticated user can see. **/
@@ -38,18 +37,13 @@ final class ListMembers
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Members $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Members $hydrator, string $org, string $filter = 'all', string $role = 'all', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Members $hydrator, private string $org, string $filter = 'all', string $role = 'all', int $perPage = 30, int $page = 1)
     {
-        $this->org                     = $org;
-        $this->filter                  = $filter;
-        $this->role                    = $role;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->filter  = $filter;
+        $this->role    = $role;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface
@@ -57,9 +51,7 @@ final class ListMembers
         return new Request(self::METHOD, str_replace(['{org}', '{filter}', '{role}', '{per_page}', '{page}'], [$this->org, $this->filter, $this->role, $this->perPage, $this->page], self::PATH . '?filter={filter}&role={role}&per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return array{code: int,location: string}
-     */
+    /** @return array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

@@ -23,20 +23,12 @@ final class GetRepoSecret
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/secrets/{secret_name}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/secrets/{secret_name}';
-    private string $owner;
-    private string $repo;
     /**secret_name parameter **/
     private string $secretName;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator, string $owner, string $repo, string $secretName)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator, private string $owner, private string $repo, string $secretName)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->secretName              = $secretName;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->secretName = $secretName;
     }
 
     public function createRequest(): RequestInterface

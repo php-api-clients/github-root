@@ -24,26 +24,18 @@ final class GetCommit
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits/{ref}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/commits/{ref}';
-    private string $owner;
-    private string $repo;
     /**ref parameter **/
     private string $ref;
     /**Page number of the results to fetch. **/
     private int $page;
     /**Results per page (max 100) **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\Ref $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Commits\Ref $hydrator, string $owner, string $repo, string $ref, int $page = 1, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\Ref $hydrator, private string $owner, private string $repo, string $ref, int $page = 1, int $perPage = 30)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->ref                     = $ref;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->ref     = $ref;
+        $this->page    = $page;
+        $this->perPage = $perPage;
     }
 
     public function createRequest(): RequestInterface

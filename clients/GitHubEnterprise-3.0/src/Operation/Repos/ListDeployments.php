@@ -16,8 +16,6 @@ final class ListDeployments
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/deployments';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/deployments';
-    private string $owner;
-    private string $repo;
     /**The SHA recorded at creation time. **/
     private string $sha;
     /**The name of the ref. This can be a branch, tag, or SHA. **/
@@ -31,10 +29,8 @@ final class ListDeployments
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $owner, string $repo, string $sha = 'none', string $ref = 'none', string $task = 'none', string|null $environment = 'none', int $perPage = 30, int $page = 1)
+    public function __construct(private string $owner, private string $repo, string $sha = 'none', string $ref = 'none', string $task = 'none', string|null $environment = 'none', int $perPage = 30, int $page = 1)
     {
-        $this->owner       = $owner;
-        $this->repo        = $repo;
         $this->sha         = $sha;
         $this->ref         = $ref;
         $this->task        = $task;

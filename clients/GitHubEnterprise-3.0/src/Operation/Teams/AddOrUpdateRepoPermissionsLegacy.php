@@ -25,21 +25,9 @@ final class AddOrUpdateRepoPermissionsLegacy
     public const OPERATION_MATCH = 'PUT /teams/{team_id}/repos/{owner}/{repo}';
     private const METHOD         = 'PUT';
     private const PATH           = '/teams/{team_id}/repos/{owner}/{repo}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $teamId;
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo $hydrator, int $teamId, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Repos\Owner\Repo $hydrator, private int $teamId, private string $owner, private string $repo)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->teamId                  = $teamId;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -49,9 +37,7 @@ final class AddOrUpdateRepoPermissionsLegacy
         return new Request(self::METHOD, str_replace(['{team_id}', '{owner}', '{repo}'], [$this->teamId, $this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

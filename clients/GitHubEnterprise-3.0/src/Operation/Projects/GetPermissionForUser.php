@@ -24,17 +24,9 @@ final class GetPermissionForUser
     public const OPERATION_MATCH = 'GET /projects/{project_id}/collaborators/{username}/permission';
     private const METHOD         = 'GET';
     private const PATH           = '/projects/{project_id}/collaborators/{username}/permission';
-    private int $projectId;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Projects\ProjectId\Collaborators\Username\Permission $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Projects\ProjectId\Collaborators\Username\Permission $hydrator, int $projectId, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Projects\ProjectId\Collaborators\Username\Permission $hydrator, private int $projectId, private string $username)
     {
-        $this->projectId               = $projectId;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +34,7 @@ final class GetPermissionForUser
         return new Request(self::METHOD, str_replace(['{project_id}', '{username}'], [$this->projectId, $this->username], self::PATH));
     }
 
-    /**
-     * @return Schema\ProjectCollaboratorPermission|array{code: int}
-     */
+    /** @return Schema\ProjectCollaboratorPermission|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\ProjectCollaboratorPermission|array
     {
         $code          = $response->getStatusCode();

@@ -23,9 +23,7 @@ final readonly class CreateOrUpdateRepoSecret
     {
     }
 
-    /**
-     * @return PromiseInterface<(Json|array)>
-     **/
+    /** @return PromiseInterface<(Json|array)> **/
     public function call(string $owner, string $repo, string $secretName, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\CreateOrUpdateRepoSecret($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $secretName);

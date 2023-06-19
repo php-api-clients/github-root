@@ -18,7 +18,7 @@ final readonly class Output
      * annotations: Adds information from your analysis to specific lines of code. Annotations are visible in GitHub's pull request UI. Annotations are visible in GitHub's pull request UI. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](https://docs.github.com/enterprise-server@3.0/rest/reference/checks#update-a-check-run) endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. For details about annotations in the UI, see "[About status checks](https://docs.github.com/articles/about-status-checks#checks)". See the [`annotations` object](https://docs.github.com/enterprise-server@3.0/rest/reference/checks#annotations-object-1) description for details.
      * images: Adds images to the output displayed in the GitHub pull request UI. See the [`images` object](https://docs.github.com/enterprise-server@3.0/rest/reference/checks#annotations-object-1) description for details.
      */
-    public function __construct(public ?string $title, public string $summary, public ?string $text, public ?array $annotations, public ?array $images)
+    public function __construct(public string|null $title, public string $summary, public string|null $text, public array|null $annotations, public array|null $images)
     {
     }
 }

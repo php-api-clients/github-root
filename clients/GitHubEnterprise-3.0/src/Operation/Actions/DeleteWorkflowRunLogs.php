@@ -24,20 +24,12 @@ final class DeleteWorkflowRunLogs
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/actions/runs/{run_id}/logs';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/logs';
-    private string $owner;
-    private string $repo;
     /**The id of the workflow run. **/
     private int $runId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Logs $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Logs $hydrator, string $owner, string $repo, int $runId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Logs $hydrator, private string $owner, private string $repo, int $runId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->runId                   = $runId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->runId = $runId;
     }
 
     public function createRequest(): RequestInterface
@@ -45,9 +37,7 @@ final class DeleteWorkflowRunLogs
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

@@ -23,22 +23,12 @@ final class CheckPermissionsForRepoInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos\Owner\Repo $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos\Owner\Repo $hydrator, string $org, string $teamSlug, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos\Owner\Repo $hydrator, private string $org, string $teamSlug, private string $owner, private string $repo)
     {
-        $this->org                     = $org;
-        $this->teamSlug                = $teamSlug;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(): RequestInterface
@@ -46,9 +36,7 @@ final class CheckPermissionsForRepoInOrg
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{owner}', '{repo}'], [$this->org, $this->teamSlug, $this->owner, $this->repo], self::PATH));
     }
 
-    /**
-     * @return Schema\TeamRepository|array{code: int}
-     */
+    /** @return Schema\TeamRepository|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\TeamRepository|array
     {
         $code          = $response->getStatusCode();

@@ -23,13 +23,9 @@ final class GetSettings
     public const OPERATION_MATCH = 'GET /setup/api/settings';
     private const METHOD         = 'GET';
     private const PATH           = '/setup/api/settings';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Setup\Api\Settings $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Setup\Api\Settings $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Setup\Api\Settings $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

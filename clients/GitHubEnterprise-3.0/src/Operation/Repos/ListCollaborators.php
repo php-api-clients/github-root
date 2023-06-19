@@ -24,8 +24,6 @@ final class ListCollaborators
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/collaborators';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/collaborators';
-    private string $owner;
-    private string $repo;
     /**Filter collaborators returned by their affiliation. Can be one of:
     \* `outside`: All outside collaborators of an organization-owned repository.
     \* `direct`: All collaborators with permissions to an organization-owned repository, regardless of organization membership status.
@@ -35,18 +33,12 @@ final class ListCollaborators
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Collaborators $hydrator, string $owner, string $repo, string $affiliation = 'all', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators $hydrator, private string $owner, private string $repo, string $affiliation = 'all', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->affiliation             = $affiliation;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->affiliation = $affiliation;
+        $this->perPage     = $perPage;
+        $this->page        = $page;
     }
 
     public function createRequest(): RequestInterface

@@ -19,7 +19,7 @@ final readonly class ApplicationJson
     \* `maintain` - Recommended for project managers who need to manage the repository without access to sensitive or destructive actions.
     \* `triage` - Recommended for contributors who need to proactively manage issues and pull requests without write access.
      */
-    public function __construct(public ?string $permission, public ?string $permissions)
+    public function __construct(public string|null $permission, public string|null $permissions)
     {
     }
 }

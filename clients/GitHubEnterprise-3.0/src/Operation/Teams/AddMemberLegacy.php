@@ -24,17 +24,9 @@ final class AddMemberLegacy
     public const OPERATION_MATCH = 'PUT /teams/{team_id}/members/{username}';
     private const METHOD         = 'PUT';
     private const PATH           = '/teams/{team_id}/members/{username}';
-    private int $teamId;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Members\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Members\Username $hydrator, int $teamId, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Members\Username $hydrator, private int $teamId, private string $username)
     {
-        $this->teamId                  = $teamId;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +34,7 @@ final class AddMemberLegacy
         return new Request(self::METHOD, str_replace(['{team_id}', '{username}'], [$this->teamId, $this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

@@ -24,17 +24,9 @@ final class GetRepoSubscription
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/subscription';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/subscription';
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Subscription $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Subscription $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Subscription $hydrator, private string $owner, private string $repo)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +34,7 @@ final class GetRepoSubscription
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
     }
 
-    /**
-     * @return Schema\RepositorySubscription|array{code: int}
-     */
+    /** @return Schema\RepositorySubscription|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\RepositorySubscription|array
     {
         $code          = $response->getStatusCode();

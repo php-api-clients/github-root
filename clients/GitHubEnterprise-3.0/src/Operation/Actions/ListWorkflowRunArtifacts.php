@@ -23,26 +23,18 @@ final class ListWorkflowRunArtifacts
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/artifacts';
-    private string $owner;
-    private string $repo;
     /**The id of the workflow run. **/
     private int $runId;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Artifacts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Artifacts $hydrator, string $owner, string $repo, int $runId, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Artifacts $hydrator, private string $owner, private string $repo, int $runId, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->runId                   = $runId;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->runId   = $runId;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface

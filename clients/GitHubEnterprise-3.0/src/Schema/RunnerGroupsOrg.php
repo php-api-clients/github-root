@@ -16,7 +16,11 @@ final readonly class RunnerGroupsOrg
     /**
      * selectedRepositoriesUrl: Link to the selected repositories resource for this runner group. Not present unless visibility was set to `selected`
      */
-    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[MapFrom('selected_repositories_url')] public ?string $selectedRepositoriesUrl, #[MapFrom('runners_url')] public string $runnersUrl, public bool $inherited, #[MapFrom('inherited_allows_public_repositories')] public ?bool $inheritedAllowsPublicRepositories, #[MapFrom('allows_public_repositories')] public bool $allowsPublicRepositories)
+    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[MapFrom('selected_repositories_url')]
+    public string|null $selectedRepositoriesUrl, #[MapFrom('runners_url')]
+    public string $runnersUrl, public bool $inherited, #[MapFrom('inherited_allows_public_repositories')]
+    public bool|null $inheritedAllowsPublicRepositories, #[MapFrom('allows_public_repositories')]
+    public bool $allowsPublicRepositories,)
     {
     }
 }

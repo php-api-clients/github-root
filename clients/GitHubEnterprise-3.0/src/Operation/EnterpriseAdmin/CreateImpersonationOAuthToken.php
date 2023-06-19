@@ -24,17 +24,9 @@ final class CreateImpersonationOAuthToken
     public const OPERATION_MATCH = 'POST /admin/users/{username}/authorizations';
     private const METHOD         = 'POST';
     private const PATH           = '/admin/users/{username}/authorizations';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Users\Username\Authorizations $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Users\Username\Authorizations $hydrator, string $username)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Users\Username\Authorizations $hydrator, private string $username)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

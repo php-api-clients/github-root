@@ -16,10 +16,8 @@ final class ListDiscussionCommentsInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private int $discussionNumber;
     /**One of `asc` (ascending) or `desc` (descending). **/
     private string $direction;
     /**Results per page (max 100) **/
@@ -27,14 +25,12 @@ final class ListDiscussionCommentsInOrg
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $org, string $teamSlug, int $discussionNumber, string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(private string $org, string $teamSlug, private int $discussionNumber, string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
-        $this->org              = $org;
-        $this->teamSlug         = $teamSlug;
-        $this->discussionNumber = $discussionNumber;
-        $this->direction        = $direction;
-        $this->perPage          = $perPage;
-        $this->page             = $page;
+        $this->teamSlug  = $teamSlug;
+        $this->direction = $direction;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

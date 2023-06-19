@@ -23,8 +23,6 @@ final class ListForSuite
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs';
-    private string $owner;
-    private string $repo;
     /**check_suite_id parameter **/
     private int $checkSuiteId;
     /**Returns check runs with the specified `name`. **/
@@ -37,21 +35,15 @@ final class ListForSuite
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\CheckRuns $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\CheckRuns $hydrator, string $owner, string $repo, int $checkSuiteId, string $checkName, string $status, string $filter = 'latest', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\CheckRuns $hydrator, private string $owner, private string $repo, int $checkSuiteId, string $checkName, string $status, string $filter = 'latest', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->checkSuiteId            = $checkSuiteId;
-        $this->checkName               = $checkName;
-        $this->status                  = $status;
-        $this->filter                  = $filter;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->checkSuiteId = $checkSuiteId;
+        $this->checkName    = $checkName;
+        $this->status       = $status;
+        $this->filter       = $filter;
+        $this->perPage      = $perPage;
+        $this->page         = $page;
     }
 
     public function createRequest(): RequestInterface

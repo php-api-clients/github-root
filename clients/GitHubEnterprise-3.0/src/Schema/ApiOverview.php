@@ -13,7 +13,9 @@ final readonly class ApiOverview
     public const SCHEMA_DESCRIPTION  = 'Api Overview';
     public const SCHEMA_EXAMPLE_DATA = '{"verifiable_password_authentication":true,"packages":["2a01:111:f403:f90c::\\/62","2a01:111:f403:f90c::\\/62"],"dependabot":["192.168.7.16\\/32","192.168.7.16\\/32"],"installed_version":"3.0.0"}';
 
-    public function __construct(#[MapFrom('verifiable_password_authentication')] public bool $verifiablePasswordAuthentication, public ?array $packages, public ?array $dependabot, #[MapFrom('installed_version')] public ?string $installedVersion)
+    public function __construct(#[MapFrom('verifiable_password_authentication')]
+    public bool $verifiablePasswordAuthentication, public array|null $packages, public array|null $dependabot, #[MapFrom('installed_version')]
+    public string|null $installedVersion,)
     {
     }
 }

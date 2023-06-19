@@ -20,9 +20,7 @@ final readonly class ListGlobalWebhooks
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $accept = 'application/vnd.github.superpro-preview+json', int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListGlobalWebhooks($accept, $perPage, $page);

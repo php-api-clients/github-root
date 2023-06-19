@@ -17,7 +17,12 @@ final readonly class InstallationToken
     /**
      * permissions: The permissions granted to the user-to-server access token.
      */
-    public function __construct(public string $token, #[MapFrom('expires_at')] public string $expiresAt, public ?Schema\AppPermissions $permissions, #[MapFrom('repository_selection')] public ?string $repositorySelection, public ?array $repositories, #[MapFrom('single_file')] public ?string $singleFile, #[MapFrom('has_multiple_single_files')] public ?bool $hasMultipleSingleFiles, #[MapFrom('single_file_paths')] public ?array $singleFilePaths)
+    public function __construct(public string $token, #[MapFrom('expires_at')]
+    public string $expiresAt, public Schema\AppPermissions|null $permissions, #[MapFrom('repository_selection')]
+    public string|null $repositorySelection, public array|null $repositories, #[MapFrom('single_file')]
+    public string|null $singleFile, #[MapFrom('has_multiple_single_files')]
+    public bool|null $hasMultipleSingleFiles, #[MapFrom('single_file_paths')]
+    public array|null $singleFilePaths,)
     {
     }
 }

@@ -24,19 +24,9 @@ final class GetCollaboratorPermissionLevel
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/collaborators/{username}/permission';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/collaborators/{username}/permission';
-    private string $owner;
-    private string $repo;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username\Permission $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username\Permission $hydrator, string $owner, string $repo, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username\Permission $hydrator, private string $owner, private string $repo, private string $username)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

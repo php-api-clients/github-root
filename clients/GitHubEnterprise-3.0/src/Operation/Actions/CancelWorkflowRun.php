@@ -23,20 +23,12 @@ final class CancelWorkflowRun
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/cancel';
-    private string $owner;
-    private string $repo;
     /**The id of the workflow run. **/
     private int $runId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Cancel $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Cancel $hydrator, string $owner, string $repo, int $runId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Cancel $hydrator, private string $owner, private string $repo, int $runId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->runId                   = $runId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->runId = $runId;
     }
 
     public function createRequest(): RequestInterface

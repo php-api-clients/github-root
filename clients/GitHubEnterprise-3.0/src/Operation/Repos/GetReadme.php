@@ -24,20 +24,12 @@ final class GetReadme
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/readme';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/readme';
-    private string $owner;
-    private string $repo;
     /**The name of the commit/branch/tag. Default: the repository’s default branch (usually `master`) **/
     private string $ref;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Readme $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Readme $hydrator, string $owner, string $repo, string $ref)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Readme $hydrator, private string $owner, private string $repo, string $ref)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->ref                     = $ref;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->ref = $ref;
     }
 
     public function createRequest(): RequestInterface

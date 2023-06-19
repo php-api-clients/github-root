@@ -23,9 +23,7 @@ final readonly class CreateContentAttachment
     {
     }
 
-    /**
-     * @return PromiseInterface<(ContentReferenceAttachment|array)>
-     **/
+    /** @return PromiseInterface<(ContentReferenceAttachment|array)> **/
     public function call(string $owner, string $repo, int $contentReferenceId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\CreateContentAttachment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $contentReferenceId);

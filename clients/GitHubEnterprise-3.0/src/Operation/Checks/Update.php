@@ -24,22 +24,12 @@ final class Update
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/check-runs/{check_run_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/repos/{owner}/{repo}/check-runs/{check_run_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**check_run_id parameter **/
     private int $checkRunId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator, string $owner, string $repo, int $checkRunId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator, private string $owner, private string $repo, int $checkRunId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->checkRunId              = $checkRunId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->checkRunId = $checkRunId;
     }
 
     public function createRequest(array $data): RequestInterface

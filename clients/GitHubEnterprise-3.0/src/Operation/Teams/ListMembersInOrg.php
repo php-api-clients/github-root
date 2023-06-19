@@ -16,7 +16,6 @@ final class ListMembersInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/members';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/members';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
     /**Filters members returned by their role in the team. Can be one of:
@@ -29,9 +28,8 @@ final class ListMembersInOrg
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $org, string $teamSlug, string $role = 'all', int $perPage = 30, int $page = 1)
+    public function __construct(private string $org, string $teamSlug, string $role = 'all', int $perPage = 30, int $page = 1)
     {
-        $this->org      = $org;
         $this->teamSlug = $teamSlug;
         $this->role     = $role;
         $this->perPage  = $perPage;

@@ -17,15 +17,11 @@ final class DeleteRepoSecret
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/actions/secrets/{secret_name}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/actions/secrets/{secret_name}';
-    private string $owner;
-    private string $repo;
     /**secret_name parameter **/
     private string $secretName;
 
-    public function __construct(string $owner, string $repo, string $secretName)
+    public function __construct(private string $owner, private string $repo, string $secretName)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
         $this->secretName = $secretName;
     }
 
@@ -34,9 +30,7 @@ final class DeleteRepoSecret
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{secret_name}'], [$this->owner, $this->repo, $this->secretName], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

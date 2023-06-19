@@ -23,9 +23,7 @@ final readonly class GetGrant
     {
     }
 
-    /**
-     * @return PromiseInterface<(ApplicationGrant|array)>
-     **/
+    /** @return PromiseInterface<(ApplicationGrant|array)> **/
     public function call(int $grantId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\GetGrant($this->responseSchemaValidator, $this->hydrator, $grantId);

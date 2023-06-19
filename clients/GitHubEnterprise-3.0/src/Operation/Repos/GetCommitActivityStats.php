@@ -23,17 +23,9 @@ final class GetCommitActivityStats
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/stats/commit_activity';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/stats/commit_activity';
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Stats\CommitActivity $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Stats\CommitActivity $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Stats\CommitActivity $hydrator, private string $owner, private string $repo)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +33,7 @@ final class GetCommitActivityStats
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
     }
 
-    /**
-     * @return Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code: int}
-     */
+    /** @return Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array
     {
         $code          = $response->getStatusCode();

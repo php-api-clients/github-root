@@ -17,16 +17,12 @@ final class RemoveRepoAccessToSelfHostedRunnerGroupInOrg
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories/{repository_id}';
-    private string $org;
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
-    private int $repositoryId;
 
-    public function __construct(string $org, int $runnerGroupId, int $repositoryId)
+    public function __construct(private string $org, int $runnerGroupId, private int $repositoryId)
     {
-        $this->org           = $org;
         $this->runnerGroupId = $runnerGroupId;
-        $this->repositoryId  = $repositoryId;
     }
 
     public function createRequest(): RequestInterface
@@ -34,9 +30,7 @@ final class RemoveRepoAccessToSelfHostedRunnerGroupInOrg
         return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}', '{repository_id}'], [$this->org, $this->runnerGroupId, $this->repositoryId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

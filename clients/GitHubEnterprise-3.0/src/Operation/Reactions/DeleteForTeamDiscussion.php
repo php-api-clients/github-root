@@ -17,18 +17,12 @@ final class DeleteForTeamDiscussion
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private int $discussionNumber;
-    private int $reactionId;
 
-    public function __construct(string $org, string $teamSlug, int $discussionNumber, int $reactionId)
+    public function __construct(private string $org, string $teamSlug, private int $discussionNumber, private int $reactionId)
     {
-        $this->org              = $org;
-        $this->teamSlug         = $teamSlug;
-        $this->discussionNumber = $discussionNumber;
-        $this->reactionId       = $reactionId;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(): RequestInterface
@@ -36,9 +30,7 @@ final class DeleteForTeamDiscussion
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{discussion_number}', '{reaction_id}'], [$this->org, $this->teamSlug, $this->discussionNumber, $this->reactionId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

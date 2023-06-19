@@ -16,7 +16,6 @@ final class ListForUser
     public const OPERATION_MATCH = 'GET /users/{username}/repos';
     private const METHOD         = 'GET';
     private const PATH           = '/users/{username}/repos';
-    private string $username;
     /**Can be one of `asc` or `desc`. Default: `asc` when using `full_name`, otherwise `desc` **/
     private string $direction;
     /**Can be one of `all`, `owner`, `member`. **/
@@ -28,9 +27,8 @@ final class ListForUser
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $username, string $direction, string $type = 'owner', string $sort = 'full_name', int $perPage = 30, int $page = 1)
+    public function __construct(private string $username, string $direction, string $type = 'owner', string $sort = 'full_name', int $perPage = 30, int $page = 1)
     {
-        $this->username  = $username;
         $this->direction = $direction;
         $this->type      = $type;
         $this->sort      = $sort;

@@ -24,15 +24,9 @@ final class Delete
     public const OPERATION_MATCH = 'DELETE /projects/{project_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/projects/{project_id}';
-    private int $projectId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Projects\ProjectId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Projects\ProjectId $hydrator, int $projectId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Projects\ProjectId $hydrator, private int $projectId)
     {
-        $this->projectId               = $projectId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -40,9 +34,7 @@ final class Delete
         return new Request(self::METHOD, str_replace(['{project_id}'], [$this->projectId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

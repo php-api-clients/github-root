@@ -24,19 +24,9 @@ final class UpdateDiscussionLegacy
     public const OPERATION_MATCH = 'PATCH /teams/{team_id}/discussions/{discussion_number}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/teams/{team_id}/discussions/{discussion_number}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $teamId;
-    private int $discussionNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber $hydrator, int $teamId, int $discussionNumber)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber $hydrator, private int $teamId, private int $discussionNumber)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->teamId                  = $teamId;
-        $this->discussionNumber        = $discussionNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

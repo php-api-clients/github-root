@@ -17,13 +17,9 @@ final class CheckFollowingForUser
     public const OPERATION_MATCH = 'GET /users/{username}/following/{target_user}';
     private const METHOD         = 'GET';
     private const PATH           = '/users/{username}/following/{target_user}';
-    private string $username;
-    private string $targetUser;
 
-    public function __construct(string $username, string $targetUser)
+    public function __construct(private string $username, private string $targetUser)
     {
-        $this->username   = $username;
-        $this->targetUser = $targetUser;
     }
 
     public function createRequest(): RequestInterface
@@ -31,9 +27,7 @@ final class CheckFollowingForUser
         return new Request(self::METHOD, str_replace(['{username}', '{target_user}'], [$this->username, $this->targetUser], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

@@ -25,19 +25,9 @@ final class CreateLabel
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/labels';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/labels';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Labels $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Labels $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Labels $hydrator, private string $owner, private string $repo)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

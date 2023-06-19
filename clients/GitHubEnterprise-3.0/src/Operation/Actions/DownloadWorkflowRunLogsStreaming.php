@@ -23,18 +23,12 @@ final class DownloadWorkflowRunLogsStreaming
     public const OPERATION_MATCH = 'STREAM /repos/{owner}/{repo}/actions/runs/{run_id}/logs';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/logs';
-    private string $owner;
-    private string $repo;
     /**The id of the workflow run. **/
     private int $runId;
-    private readonly Browser $browser;
 
-    public function __construct(Browser $browser, string $owner, string $repo, int $runId)
+    public function __construct(private readonly Browser $browser, private string $owner, private string $repo, int $runId)
     {
-        $this->owner   = $owner;
-        $this->repo    = $repo;
-        $this->runId   = $runId;
-        $this->browser = $browser;
+        $this->runId = $runId;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +36,7 @@ final class DownloadWorkflowRunLogsStreaming
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
 
-    /**
-     * @return Observable<string>
-     */
+    /** @return Observable<string> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code = $response->getStatusCode();

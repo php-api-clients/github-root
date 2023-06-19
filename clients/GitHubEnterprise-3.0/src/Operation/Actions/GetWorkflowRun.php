@@ -23,23 +23,15 @@ final class GetWorkflowRun
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runs/{run_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}';
-    private string $owner;
-    private string $repo;
     /**The id of the workflow run. **/
     private int $runId;
     /**If `true` pull requests are omitted from the response (empty array). **/
     private bool $excludePullRequests;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId $hydrator, string $owner, string $repo, int $runId, bool $excludePullRequests = false)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId $hydrator, private string $owner, private string $repo, int $runId, bool $excludePullRequests = false)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->runId                   = $runId;
-        $this->excludePullRequests     = $excludePullRequests;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->runId               = $runId;
+        $this->excludePullRequests = $excludePullRequests;
     }
 
     public function createRequest(): RequestInterface

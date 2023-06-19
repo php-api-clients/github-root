@@ -23,24 +23,18 @@ final class ListRepoAccessToSelfHostedRunnerGroupInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories';
-    private string $org;
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
     /**Page number of the results to fetch. **/
     private int $page;
     /**Results per page (max 100) **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories $hydrator, string $org, int $runnerGroupId, int $page = 1, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories $hydrator, private string $org, int $runnerGroupId, int $page = 1, int $perPage = 30)
     {
-        $this->org                     = $org;
-        $this->runnerGroupId           = $runnerGroupId;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->runnerGroupId = $runnerGroupId;
+        $this->page          = $page;
+        $this->perPage       = $perPage;
     }
 
     public function createRequest(): RequestInterface

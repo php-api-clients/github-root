@@ -17,15 +17,11 @@ final class DeleteArtifact
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/actions/artifacts/{artifact_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}';
-    private string $owner;
-    private string $repo;
     /**artifact_id parameter **/
     private int $artifactId;
 
-    public function __construct(string $owner, string $repo, int $artifactId)
+    public function __construct(private string $owner, private string $repo, int $artifactId)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
         $this->artifactId = $artifactId;
     }
 
@@ -34,9 +30,7 @@ final class DeleteArtifact
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}'], [$this->owner, $this->repo, $this->artifactId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

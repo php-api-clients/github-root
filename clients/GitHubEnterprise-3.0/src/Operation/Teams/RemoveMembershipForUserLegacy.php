@@ -17,13 +17,9 @@ final class RemoveMembershipForUserLegacy
     public const OPERATION_MATCH = 'DELETE /teams/{team_id}/memberships/{username}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/teams/{team_id}/memberships/{username}';
-    private int $teamId;
-    private string $username;
 
-    public function __construct(int $teamId, string $username)
+    public function __construct(private int $teamId, private string $username)
     {
-        $this->teamId   = $teamId;
-        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface
@@ -31,9 +27,7 @@ final class RemoveMembershipForUserLegacy
         return new Request(self::METHOD, str_replace(['{team_id}', '{username}'], [$this->teamId, $this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

@@ -17,15 +17,11 @@ final class DeleteReleaseAsset
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/releases/assets/{asset_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/releases/assets/{asset_id}';
-    private string $owner;
-    private string $repo;
     /**asset_id parameter **/
     private int $assetId;
 
-    public function __construct(string $owner, string $repo, int $assetId)
+    public function __construct(private string $owner, private string $repo, int $assetId)
     {
-        $this->owner   = $owner;
-        $this->repo    = $repo;
         $this->assetId = $assetId;
     }
 
@@ -34,9 +30,7 @@ final class DeleteReleaseAsset
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{asset_id}'], [$this->owner, $this->repo, $this->assetId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

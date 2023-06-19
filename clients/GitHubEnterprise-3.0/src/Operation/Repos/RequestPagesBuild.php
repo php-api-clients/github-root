@@ -23,17 +23,9 @@ final class RequestPagesBuild
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/pages/builds';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/pages/builds';
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pages\Builds $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds $hydrator, private string $owner, private string $repo)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

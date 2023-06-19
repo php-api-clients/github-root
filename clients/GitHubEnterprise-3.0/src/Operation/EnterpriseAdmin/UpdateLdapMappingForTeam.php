@@ -24,17 +24,9 @@ final class UpdateLdapMappingForTeam
     public const OPERATION_MATCH = 'PATCH /admin/ldap/teams/{team_id}/mapping';
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/ldap/teams/{team_id}/mapping';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $teamId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Ldap\Teams\TeamId\Mapping $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Teams\TeamId\Mapping $hydrator, int $teamId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Ldap\Teams\TeamId\Mapping $hydrator, private int $teamId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->teamId                  = $teamId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

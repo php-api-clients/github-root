@@ -24,15 +24,9 @@ final class Unfollow
     public const OPERATION_MATCH = 'DELETE /user/following/{username}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/user/following/{username}';
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\User\Following\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\User\Following\Username $hydrator, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\User\Following\Username $hydrator, private string $username)
     {
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -40,9 +34,7 @@ final class Unfollow
         return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

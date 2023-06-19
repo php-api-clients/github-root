@@ -23,8 +23,6 @@ final class ListWorkflowRuns
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs';
-    private string $owner;
-    private string $repo;
     /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
     /**Returns someone's workflow runs. Use the login for the user who created the `push` associated with the check suite or workflow run. **/
@@ -43,24 +41,18 @@ final class ListWorkflowRuns
     private int $page;
     /**If `true` pull requests are omitted from the response (empty array). **/
     private bool $excludePullRequests;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Runs $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Runs $hydrator, string $owner, string $repo, $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $perPage = 30, int $page = 1, bool $excludePullRequests = false)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Runs $hydrator, private string $owner, private string $repo, $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $perPage = 30, int $page = 1, bool $excludePullRequests = false)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->workflowId              = $workflowId;
-        $this->actor                   = $actor;
-        $this->branch                  = $branch;
-        $this->event                   = $event;
-        $this->status                  = $status;
-        $this->created                 = $created;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->excludePullRequests     = $excludePullRequests;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->workflowId          = $workflowId;
+        $this->actor               = $actor;
+        $this->branch              = $branch;
+        $this->event               = $event;
+        $this->status              = $status;
+        $this->created             = $created;
+        $this->perPage             = $perPage;
+        $this->page                = $page;
+        $this->excludePullRequests = $excludePullRequests;
     }
 
     public function createRequest(): RequestInterface

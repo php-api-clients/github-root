@@ -24,17 +24,9 @@ final class DeleteWebhook
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/hooks/{hook_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/hooks/{hook_id}';
-    private string $org;
-    private int $hookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Hooks\HookId $hydrator, string $org, int $hookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId $hydrator, private string $org, private int $hookId)
     {
-        $this->org                     = $org;
-        $this->hookId                  = $hookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +34,7 @@ final class DeleteWebhook
         return new Request(self::METHOD, str_replace(['{org}', '{hook_id}'], [$this->org, $this->hookId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

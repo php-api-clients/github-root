@@ -23,9 +23,7 @@ final readonly class CreateUser
     {
     }
 
-    /**
-     * @return PromiseInterface<SimpleUser>
-     **/
+    /** @return PromiseInterface<SimpleUser> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\CreateUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

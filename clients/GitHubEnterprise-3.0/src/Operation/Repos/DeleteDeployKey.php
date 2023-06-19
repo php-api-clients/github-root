@@ -17,15 +17,11 @@ final class DeleteDeployKey
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/keys/{key_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/keys/{key_id}';
-    private string $owner;
-    private string $repo;
     /**key_id parameter **/
     private int $keyId;
 
-    public function __construct(string $owner, string $repo, int $keyId)
+    public function __construct(private string $owner, private string $repo, int $keyId)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
         $this->keyId = $keyId;
     }
 
@@ -34,9 +30,7 @@ final class DeleteDeployKey
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{key_id}'], [$this->owner, $this->repo, $this->keyId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

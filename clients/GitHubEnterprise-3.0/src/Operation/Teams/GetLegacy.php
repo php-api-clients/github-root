@@ -24,15 +24,9 @@ final class GetLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/teams/{team_id}';
-    private int $teamId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId $hydrator, int $teamId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId $hydrator, private int $teamId)
     {
-        $this->teamId                  = $teamId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

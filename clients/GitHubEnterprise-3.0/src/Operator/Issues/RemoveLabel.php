@@ -22,9 +22,7 @@ final readonly class RemoveLabel
     {
     }
 
-    /**
-     * @return PromiseInterface<mixed>
-     **/
+    /** @return PromiseInterface<mixed> **/
     public function call(string $owner, string $repo, int $issueNumber, string $name): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Issues\RemoveLabel($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $issueNumber, $name);

@@ -21,7 +21,10 @@ final readonly class RepositoryInvitation
      * expired: Whether or not the invitation has expired
      * url: URL for the repository invitation
      */
-    public function __construct(public int $id, public Schema\MinimalRepository $repository, public ?Schema\SimpleUser $invitee, public ?Schema\SimpleUser $inviter, public string $permissions, #[MapFrom('created_at')] public string $createdAt, public ?bool $expired, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('node_id')] public string $nodeId)
+    public function __construct(public int $id, public Schema\MinimalRepository $repository, public Schema\SimpleUser|null $invitee, public Schema\SimpleUser|null $inviter, public string $permissions, #[MapFrom('created_at')]
+    public string $createdAt, public bool|null $expired, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('node_id')]
+    public string $nodeId,)
     {
     }
 }

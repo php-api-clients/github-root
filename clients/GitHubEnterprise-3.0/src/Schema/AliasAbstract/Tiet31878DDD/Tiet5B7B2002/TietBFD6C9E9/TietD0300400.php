@@ -15,7 +15,7 @@ abstract readonly class TietD0300400
      * users: The list of user `login`s with dismissal access
      * teams: The list of team `slug`s with dismissal access
      */
-    public function __construct(public ?array $users, public ?array $teams)
+    public function __construct(public array|null $users, public array|null $teams)
     {
     }
 }

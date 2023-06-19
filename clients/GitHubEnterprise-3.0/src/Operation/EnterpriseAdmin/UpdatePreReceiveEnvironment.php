@@ -25,17 +25,9 @@ final class UpdatePreReceiveEnvironment
     public const OPERATION_MATCH = 'PATCH /admin/pre-receive-environments/{pre_receive_environment_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $preReceiveEnvironmentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId $hydrator, int $preReceiveEnvironmentId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId $hydrator, private int $preReceiveEnvironmentId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->preReceiveEnvironmentId = $preReceiveEnvironmentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

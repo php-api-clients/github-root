@@ -24,20 +24,12 @@ final class GetRelease
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/releases/{release_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/releases/{release_id}';
-    private string $owner;
-    private string $repo;
     /**release_id parameter **/
     private int $releaseId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator, string $owner, string $repo, int $releaseId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator, private string $owner, private string $repo, int $releaseId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->releaseId               = $releaseId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->releaseId = $releaseId;
     }
 
     public function createRequest(): RequestInterface

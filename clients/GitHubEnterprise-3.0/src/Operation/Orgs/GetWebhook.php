@@ -24,17 +24,9 @@ final class GetWebhook
     public const OPERATION_MATCH = 'GET /orgs/{org}/hooks/{hook_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/hooks/{hook_id}';
-    private string $org;
-    private int $hookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Hooks\HookId $hydrator, string $org, int $hookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId $hydrator, private string $org, private int $hookId)
     {
-        $this->org                     = $org;
-        $this->hookId                  = $hookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

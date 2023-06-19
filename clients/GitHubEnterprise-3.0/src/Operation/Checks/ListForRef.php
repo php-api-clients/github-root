@@ -23,37 +23,27 @@ final class ListForRef
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits/{ref}/check-runs';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/commits/{ref}/check-runs';
-    private string $owner;
-    private string $repo;
     /**ref parameter **/
     private string $ref;
     /**Returns check runs with the specified `name`. **/
     private string $checkName;
     /**Returns check runs with the specified `status`. Can be one of `queued`, `in_progress`, or `completed`. **/
     private string $status;
-    private int $appId;
     /**Filters check runs by their `completed_at` timestamp. Can be one of `latest` (returning the most recent check runs) or `all`. **/
     private string $filter;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\Ref\CheckRuns $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Commits\Ref\CheckRuns $hydrator, string $owner, string $repo, string $ref, string $checkName, string $status, int $appId, string $filter = 'latest', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\Ref\CheckRuns $hydrator, private string $owner, private string $repo, string $ref, string $checkName, string $status, private int $appId, string $filter = 'latest', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->ref                     = $ref;
-        $this->checkName               = $checkName;
-        $this->status                  = $status;
-        $this->appId                   = $appId;
-        $this->filter                  = $filter;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->ref       = $ref;
+        $this->checkName = $checkName;
+        $this->status    = $status;
+        $this->filter    = $filter;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

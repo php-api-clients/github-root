@@ -24,19 +24,9 @@ final class TestPushWebhook
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/hooks/{hook_id}/tests';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/hooks/{hook_id}/tests';
-    private string $owner;
-    private string $repo;
-    private int $hookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Tests $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Tests $hydrator, string $owner, string $repo, int $hookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Tests $hydrator, private string $owner, private string $repo, private int $hookId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->hookId                  = $hookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +34,7 @@ final class TestPushWebhook
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{hook_id}'], [$this->owner, $this->repo, $this->hookId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

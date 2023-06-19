@@ -24,20 +24,12 @@ final class GetDeployKey
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/keys/{key_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/keys/{key_id}';
-    private string $owner;
-    private string $repo;
     /**key_id parameter **/
     private int $keyId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Keys\KeyId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Keys\KeyId $hydrator, string $owner, string $repo, int $keyId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Keys\KeyId $hydrator, private string $owner, private string $repo, int $keyId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->keyId                   = $keyId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->keyId = $keyId;
     }
 
     public function createRequest(): RequestInterface

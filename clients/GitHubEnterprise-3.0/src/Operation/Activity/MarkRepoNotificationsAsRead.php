@@ -24,19 +24,9 @@ final class MarkRepoNotificationsAsRead
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/notifications';
     private const METHOD         = 'PUT';
     private const PATH           = '/repos/{owner}/{repo}/notifications';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Notifications $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Notifications $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Notifications $hydrator, private string $owner, private string $repo)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -46,9 +36,7 @@ final class MarkRepoNotificationsAsRead
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|array{code: int}
-     */
+    /** @return Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|array
     {
         $code          = $response->getStatusCode();

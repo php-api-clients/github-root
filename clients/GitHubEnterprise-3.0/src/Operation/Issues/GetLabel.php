@@ -24,19 +24,9 @@ final class GetLabel
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/labels/{name}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/labels/{name}';
-    private string $owner;
-    private string $repo;
-    private string $name;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Labels\Name $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Labels\Name $hydrator, string $owner, string $repo, string $name)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Labels\Name $hydrator, private string $owner, private string $repo, private string $name)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->name                    = $name;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

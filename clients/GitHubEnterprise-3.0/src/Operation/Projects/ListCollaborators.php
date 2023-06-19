@@ -24,7 +24,6 @@ final class ListCollaborators
     public const OPERATION_MATCH = 'GET /projects/{project_id}/collaborators';
     private const METHOD         = 'GET';
     private const PATH           = '/projects/{project_id}/collaborators';
-    private int $projectId;
     /**Filters the collaborators by their affiliation. Can be one of:
     \* `outside`: Outside collaborators of a project that are not a member of the project's organization.
     \* `direct`: Collaborators with permissions to a project, regardless of organization membership status.
@@ -34,17 +33,12 @@ final class ListCollaborators
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Projects\ProjectId\Collaborators $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Projects\ProjectId\Collaborators $hydrator, int $projectId, string $affiliation = 'all', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Projects\ProjectId\Collaborators $hydrator, private int $projectId, string $affiliation = 'all', int $perPage = 30, int $page = 1)
     {
-        $this->projectId               = $projectId;
-        $this->affiliation             = $affiliation;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->affiliation = $affiliation;
+        $this->perPage     = $perPage;
+        $this->page        = $page;
     }
 
     public function createRequest(): RequestInterface
@@ -52,9 +46,7 @@ final class ListCollaborators
         return new Request(self::METHOD, str_replace(['{project_id}', '{affiliation}', '{per_page}', '{page}'], [$this->projectId, $this->affiliation, $this->perPage, $this->page], self::PATH . '?affiliation={affiliation}&per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

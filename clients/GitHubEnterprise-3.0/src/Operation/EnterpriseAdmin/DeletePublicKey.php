@@ -17,11 +17,9 @@ final class DeletePublicKey
     public const OPERATION_MATCH = 'DELETE /admin/keys/{key_ids}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/admin/keys/{key_ids}';
-    private string $keyIds;
 
-    public function __construct(string $keyIds)
+    public function __construct(private string $keyIds)
     {
-        $this->keyIds = $keyIds;
     }
 
     public function createRequest(): RequestInterface
@@ -29,9 +27,7 @@ final class DeletePublicKey
         return new Request(self::METHOD, str_replace(['{key_ids}'], [$this->keyIds], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

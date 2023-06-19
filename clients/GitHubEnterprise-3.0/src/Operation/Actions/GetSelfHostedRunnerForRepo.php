@@ -23,20 +23,12 @@ final class GetSelfHostedRunnerForRepo
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runners/{runner_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/runners/{runner_id}';
-    private string $owner;
-    private string $repo;
     /**Unique identifier of the self-hosted runner. **/
     private int $runnerId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId $hydrator, string $owner, string $repo, int $runnerId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RunnerId $hydrator, private string $owner, private string $repo, int $runnerId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->runnerId                = $runnerId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->runnerId = $runnerId;
     }
 
     public function createRequest(): RequestInterface

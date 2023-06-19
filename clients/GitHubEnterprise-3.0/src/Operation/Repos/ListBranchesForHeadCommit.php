@@ -24,20 +24,12 @@ final class ListBranchesForHeadCommit
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head';
-    private string $owner;
-    private string $repo;
     /**commit_sha parameter **/
     private string $commitSha;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\BranchesWhereHead $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\BranchesWhereHead $hydrator, string $owner, string $repo, string $commitSha)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\BranchesWhereHead $hydrator, private string $owner, private string $repo, string $commitSha)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->commitSha               = $commitSha;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->commitSha = $commitSha;
     }
 
     public function createRequest(): RequestInterface

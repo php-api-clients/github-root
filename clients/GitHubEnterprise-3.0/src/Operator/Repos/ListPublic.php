@@ -22,9 +22,7 @@ final readonly class ListPublic
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $since, string $visibility = 'public'): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\ListPublic($this->responseSchemaValidator, $this->hydrator, $since, $visibility);

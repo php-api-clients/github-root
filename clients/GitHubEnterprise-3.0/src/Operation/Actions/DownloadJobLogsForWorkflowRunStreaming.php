@@ -23,18 +23,12 @@ final class DownloadJobLogsForWorkflowRunStreaming
     public const OPERATION_MATCH = 'STREAM /repos/{owner}/{repo}/actions/jobs/{job_id}/logs';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/jobs/{job_id}/logs';
-    private string $owner;
-    private string $repo;
     /**job_id parameter **/
     private int $jobId;
-    private readonly Browser $browser;
 
-    public function __construct(Browser $browser, string $owner, string $repo, int $jobId)
+    public function __construct(private readonly Browser $browser, private string $owner, private string $repo, int $jobId)
     {
-        $this->owner   = $owner;
-        $this->repo    = $repo;
-        $this->jobId   = $jobId;
-        $this->browser = $browser;
+        $this->jobId = $jobId;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +36,7 @@ final class DownloadJobLogsForWorkflowRunStreaming
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], self::PATH));
     }
 
-    /**
-     * @return Observable<string>
-     */
+    /** @return Observable<string> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code = $response->getStatusCode();

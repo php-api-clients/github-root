@@ -21,20 +21,12 @@ final class AddOrUpdateRepoPermissionsInOrg
     public const OPERATION_MATCH = 'PUT /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}';
     private const METHOD         = 'PUT';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private string $owner;
-    private string $repo;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, string $org, string $teamSlug, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private string $org, string $teamSlug, private string $owner, private string $repo)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->org                    = $org;
-        $this->teamSlug               = $teamSlug;
-        $this->owner                  = $owner;
-        $this->repo                   = $repo;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -44,9 +36,7 @@ final class AddOrUpdateRepoPermissionsInOrg
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{owner}', '{repo}'], [$this->org, $this->teamSlug, $this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

@@ -17,7 +17,9 @@ final readonly class CombinedCommitStatus
     /**
      * repository: Minimal Repository
      */
-    public function __construct(public string $state, public array $statuses, public string $sha, #[MapFrom('total_count')] public int $totalCount, public Schema\MinimalRepository $repository, #[MapFrom('commit_url')] public string $commitUrl, public string $url)
+    public function __construct(public string $state, public array $statuses, public string $sha, #[MapFrom('total_count')]
+    public int $totalCount, public Schema\MinimalRepository $repository, #[MapFrom('commit_url')]
+    public string $commitUrl, public string $url,)
     {
     }
 }

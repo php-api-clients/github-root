@@ -24,21 +24,15 @@ final class ListColumns
     public const OPERATION_MATCH = 'GET /projects/{project_id}/columns';
     private const METHOD         = 'GET';
     private const PATH           = '/projects/{project_id}/columns';
-    private int $projectId;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Projects\ProjectId\Columns $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Projects\ProjectId\Columns $hydrator, int $projectId, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Projects\ProjectId\Columns $hydrator, private int $projectId, int $perPage = 30, int $page = 1)
     {
-        $this->projectId               = $projectId;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface
@@ -46,9 +40,7 @@ final class ListColumns
         return new Request(self::METHOD, str_replace(['{project_id}', '{per_page}', '{page}'], [$this->projectId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

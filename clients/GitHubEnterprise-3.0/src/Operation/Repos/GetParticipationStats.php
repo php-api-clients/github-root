@@ -24,17 +24,9 @@ final class GetParticipationStats
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/stats/participation';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/stats/participation';
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Stats\Participation $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Stats\Participation $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Stats\Participation $hydrator, private string $owner, private string $repo)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

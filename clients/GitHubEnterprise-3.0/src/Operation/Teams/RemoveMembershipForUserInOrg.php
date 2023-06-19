@@ -17,16 +17,12 @@ final class RemoveMembershipForUserInOrg
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/teams/{team_slug}/memberships/{username}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/memberships/{username}';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private string $username;
 
-    public function __construct(string $org, string $teamSlug, string $username)
+    public function __construct(private string $org, string $teamSlug, private string $username)
     {
-        $this->org      = $org;
         $this->teamSlug = $teamSlug;
-        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface
@@ -34,9 +30,7 @@ final class RemoveMembershipForUserInOrg
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{username}'], [$this->org, $this->teamSlug, $this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

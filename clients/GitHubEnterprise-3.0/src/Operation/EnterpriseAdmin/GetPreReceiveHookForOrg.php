@@ -23,18 +23,12 @@ final class GetPreReceiveHookForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
-    private string $org;
     /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, string $org, int $preReceiveHookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, private string $org, int $preReceiveHookId)
     {
-        $this->org                     = $org;
-        $this->preReceiveHookId        = $preReceiveHookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->preReceiveHookId = $preReceiveHookId;
     }
 
     public function createRequest(): RequestInterface

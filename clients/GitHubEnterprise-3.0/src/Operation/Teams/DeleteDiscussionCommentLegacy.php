@@ -17,15 +17,9 @@ final class DeleteDiscussionCommentLegacy
     public const OPERATION_MATCH = 'DELETE /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}';
-    private int $teamId;
-    private int $discussionNumber;
-    private int $commentNumber;
 
-    public function __construct(int $teamId, int $discussionNumber, int $commentNumber)
+    public function __construct(private int $teamId, private int $discussionNumber, private int $commentNumber)
     {
-        $this->teamId           = $teamId;
-        $this->discussionNumber = $discussionNumber;
-        $this->commentNumber    = $commentNumber;
     }
 
     public function createRequest(): RequestInterface
@@ -33,9 +27,7 @@ final class DeleteDiscussionCommentLegacy
         return new Request(self::METHOD, str_replace(['{team_id}', '{discussion_number}', '{comment_number}'], [$this->teamId, $this->discussionNumber, $this->commentNumber], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

@@ -24,19 +24,9 @@ final class Get
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/{pull_number}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}';
-    private string $owner;
-    private string $repo;
-    private int $pullNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber $hydrator, string $owner, string $repo, int $pullNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber $hydrator, private string $owner, private string $repo, private int $pullNumber)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->pullNumber              = $pullNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +34,7 @@ final class Get
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}'], [$this->owner, $this->repo, $this->pullNumber], self::PATH));
     }
 
-    /**
-     * @return Schema\PullRequest|array{code: int}
-     */
+    /** @return Schema\PullRequest|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\PullRequest|array
     {
         $code          = $response->getStatusCode();

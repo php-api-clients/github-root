@@ -18,7 +18,9 @@ final readonly class ApplicationJson
      * eventType: A custom webhook event name.
      * clientPayload: JSON payload with extra information about the webhook event that your action or worklow may use.
      */
-    public function __construct(#[MapFrom('event_type')] public string $eventType, #[MapFrom('client_payload')] public ?Schema\Repos\CreateDispatchEvent\Request\ApplicationJson\ClientPayload $clientPayload)
+    public function __construct(#[MapFrom('event_type')]
+    public string $eventType, #[MapFrom('client_payload')]
+    public Schema\Repos\CreateDispatchEvent\Request\ApplicationJson\ClientPayload|null $clientPayload,)
     {
     }
 }
