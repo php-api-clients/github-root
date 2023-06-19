@@ -24,21 +24,15 @@ final class LinkExternalIdpGroupToTeamForOrg
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/teams/{team_slug}/external-groups';
     private const METHOD         = 'PATCH';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/external-groups';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The slug of the team name. **/
     private string $teamSlug;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups $hydrator, string $org, string $teamSlug)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups $hydrator, string $org, string $teamSlug)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->org                     = $org;
-        $this->teamSlug                = $teamSlug;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org      = $org;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(array $data): RequestInterface

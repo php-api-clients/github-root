@@ -29,14 +29,12 @@ final class DownloadJobLogsForWorkflowRunStreaming
     private string $repo;
     /**The unique identifier of the job. **/
     private int $jobId;
-    private readonly Browser $browser;
 
-    public function __construct(Browser $browser, string $owner, string $repo, int $jobId)
+    public function __construct(private readonly Browser $browser, string $owner, string $repo, int $jobId)
     {
-        $this->owner   = $owner;
-        $this->repo    = $repo;
-        $this->jobId   = $jobId;
-        $this->browser = $browser;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->jobId = $jobId;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +42,7 @@ final class DownloadJobLogsForWorkflowRunStreaming
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], self::PATH));
     }
 
-    /**
-     * @return Observable<string>
-     */
+    /** @return Observable<string> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code = $response->getStatusCode();

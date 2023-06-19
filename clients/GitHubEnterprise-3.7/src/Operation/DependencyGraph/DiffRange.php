@@ -32,17 +32,13 @@ final class DiffRange
     private string $basehead;
     /**The full path, relative to the repository root, of the dependency manifest file. **/
     private string $name;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\DependencyGraph\Compare\Basehead $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\DependencyGraph\Compare\Basehead $hydrator, string $owner, string $repo, string $basehead, string $name)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\DependencyGraph\Compare\Basehead $hydrator, string $owner, string $repo, string $basehead, string $name)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->basehead                = $basehead;
-        $this->name                    = $name;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner    = $owner;
+        $this->repo     = $repo;
+        $this->basehead = $basehead;
+        $this->name     = $name;
     }
 
     public function createRequest(): RequestInterface

@@ -14,7 +14,7 @@ final readonly class ApplicationJson
     /**
      * reason: The reason the user is being unsuspended. This message will be logged in the [audit log](https://docs.github.com/enterprise-server@3.7/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise). If you don't provide a `reason`, it will default to "Unsuspended via API by _SITE\_ADMINISTRATOR_", where _SITE\_ADMINISTRATOR_ is the person who performed the action.
      */
-    public function __construct(public ?string $reason)
+    public function __construct(public string|null $reason)
     {
     }
 }

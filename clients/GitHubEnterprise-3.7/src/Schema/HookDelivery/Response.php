@@ -17,7 +17,7 @@ final readonly class Response
      * headers: The response headers received when the delivery was made.
      * payload: The response payload received.
      */
-    public function __construct(public ?Schema\HookDelivery\Response\Headers $headers, public ?string $payload)
+    public function __construct(public Schema\HookDelivery\Response\Headers|null $headers, public string|null $payload)
     {
     }
 }

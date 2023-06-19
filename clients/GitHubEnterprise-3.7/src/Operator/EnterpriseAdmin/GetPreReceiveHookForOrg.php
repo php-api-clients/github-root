@@ -23,9 +23,7 @@ final readonly class GetPreReceiveHookForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<OrgPreReceiveHook>
-     **/
+    /** @return PromiseInterface<OrgPreReceiveHook> **/
     public function call(string $org, int $preReceiveHookId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetPreReceiveHookForOrg($this->responseSchemaValidator, $this->hydrator, $org, $preReceiveHookId);

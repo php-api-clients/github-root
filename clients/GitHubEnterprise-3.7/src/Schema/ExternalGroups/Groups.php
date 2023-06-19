@@ -18,7 +18,10 @@ final readonly class Groups
      * groupName: The display name of the group
      * updatedAt: The time of the last update for this group
      */
-    public function __construct(#[MapFrom('group_id')] public int $groupId, #[MapFrom('group_name')] public string $groupName, #[MapFrom('updated_at')] public string $updatedAt)
+    public function __construct(#[MapFrom('group_id')]
+    public int $groupId, #[MapFrom('group_name')]
+    public string $groupName, #[MapFrom('updated_at')]
+    public string $updatedAt,)
     {
     }
 }
