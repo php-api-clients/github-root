@@ -30,16 +30,12 @@ final class GetRelease
     private string $repo;
     /**The unique identifier of the release. **/
     private int $releaseId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator, string $owner, string $repo, int $releaseId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId $hydrator, string $owner, string $repo, int $releaseId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->releaseId               = $releaseId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner     = $owner;
+        $this->repo      = $repo;
+        $this->releaseId = $releaseId;
     }
 
     public function createRequest(): RequestInterface

@@ -14,7 +14,7 @@ final readonly class ApplicationJson
     /**
      * scopes: A list of [scopes](https://docs.github.com/enterprise-server@3.1/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).
      */
-    public function __construct(public ?array $scopes)
+    public function __construct(public array|null $scopes)
     {
     }
 }

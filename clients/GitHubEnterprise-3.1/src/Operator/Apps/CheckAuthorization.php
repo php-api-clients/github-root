@@ -23,9 +23,7 @@ final readonly class CheckAuthorization
     {
     }
 
-    /**
-     * @return PromiseInterface<Authorization>
-     **/
+    /** @return PromiseInterface<Authorization> **/
     public function call(string $clientId, string $accessToken): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\CheckAuthorization($this->responseSchemaValidator, $this->hydrator, $clientId, $accessToken);

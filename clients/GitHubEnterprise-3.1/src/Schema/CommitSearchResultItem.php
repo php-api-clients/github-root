@@ -17,7 +17,11 @@ final readonly class CommitSearchResultItem
     /**
      * repository: Minimal Repository
      */
-    public function __construct(public string $url, public string $sha, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('comments_url')] public string $commentsUrl, public Schema\CommitSearchResultItem\Commit $commit, public ?Schema\SimpleUser $author, public ?Schema\GitUser $committer, public array $parents, public Schema\MinimalRepository $repository, public int|float $score, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('text_matches')] public ?array $textMatches)
+    public function __construct(public string $url, public string $sha, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('comments_url')]
+    public string $commentsUrl, public Schema\CommitSearchResultItem\Commit $commit, public Schema\SimpleUser|null $author, public Schema\GitUser|null $committer, public array $parents, public Schema\MinimalRepository $repository, public int|float $score, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('text_matches')]
+    public array|null $textMatches,)
     {
     }
 }

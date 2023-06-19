@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class RemoveLabelTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -43,9 +41,7 @@ final class RemoveLabelTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -60,9 +56,7 @@ final class RemoveLabelTest extends AsyncTestCase
         $result = await($client->operations()->issues()->removeLabel('generated', 'generated', 12, 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_410_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -84,9 +78,7 @@ final class RemoveLabelTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_410_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);

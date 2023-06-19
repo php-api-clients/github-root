@@ -24,15 +24,9 @@ final class EnableOrDisableMaintenanceMode
     public const OPERATION_MATCH = 'POST /setup/api/maintenance';
     private const METHOD         = 'POST';
     private const PATH           = '/setup/api/maintenance';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Setup\Api\Maintenance $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Setup\Api\Maintenance $hydrator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

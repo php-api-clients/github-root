@@ -16,7 +16,7 @@ final readonly class ApplicationJson
     /**
      * source: The source branch and directory used to publish your Pages site.
      */
-    public function __construct(public ?Schema\Repos\CreatePagesSite\Request\ApplicationJson\Source $source)
+    public function __construct(public Schema\Repos\CreatePagesSite\Request\ApplicationJson\Source|null $source)
     {
     }
 }

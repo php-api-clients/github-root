@@ -24,7 +24,15 @@ final readonly class Job
      * name: The name of the job.
      * steps: Steps in this job.
      */
-    public function __construct(public int $id, #[MapFrom('run_id')] public int $runId, #[MapFrom('run_url')] public string $runUrl, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('head_sha')] public string $headSha, public string $url, #[MapFrom('html_url')] public ?string $htmlUrl, public string $status, public ?string $conclusion, #[MapFrom('started_at')] public string $startedAt, #[MapFrom('completed_at')] public ?string $completedAt, public string $name, public ?array $steps, #[MapFrom('check_run_url')] public string $checkRunUrl)
+    public function __construct(public int $id, #[MapFrom('run_id')]
+    public int $runId, #[MapFrom('run_url')]
+    public string $runUrl, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('head_sha')]
+    public string $headSha, public string $url, #[MapFrom('html_url')]
+    public string|null $htmlUrl, public string $status, public string|null $conclusion, #[MapFrom('started_at')]
+    public string $startedAt, #[MapFrom('completed_at')]
+    public string|null $completedAt, public string $name, public array|null $steps, #[MapFrom('check_run_url')]
+    public string $checkRunUrl,)
     {
     }
 }

@@ -25,24 +25,18 @@ final class CreateContentAttachment
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/content_references/{content_reference_id}/attachments';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/content_references/{content_reference_id}/attachments';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The owner of the repository. Determined from the `repository` `full_name` of the `content_reference` event. **/
     private string $owner;
     /**The name of the repository. Determined from the `repository` `full_name` of the `content_reference` event. **/
     private string $repo;
     /**The `id` of the `content_reference` event. **/
     private int $contentReferenceId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\ContentReferences\ContentReferenceId\Attachments $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\ContentReferences\ContentReferenceId\Attachments $hydrator, string $owner, string $repo, int $contentReferenceId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\ContentReferences\ContentReferenceId\Attachments $hydrator, string $owner, string $repo, int $contentReferenceId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->contentReferenceId      = $contentReferenceId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner              = $owner;
+        $this->repo               = $repo;
+        $this->contentReferenceId = $contentReferenceId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -52,9 +46,7 @@ final class CreateContentAttachment
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{content_reference_id}'], [$this->owner, $this->repo, $this->contentReferenceId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\ContentReferenceAttachment|array{code: int}
-     */
+    /** @return Schema\ContentReferenceAttachment|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\ContentReferenceAttachment|array
     {
         $code          = $response->getStatusCode();

@@ -23,9 +23,7 @@ final readonly class CancelWorkflowRun
     {
     }
 
-    /**
-     * @return PromiseInterface<Json>
-     **/
+    /** @return PromiseInterface<Json> **/
     public function call(string $owner, string $repo, int $runId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\CancelWorkflowRun($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $runId);

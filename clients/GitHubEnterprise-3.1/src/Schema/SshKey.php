@@ -13,7 +13,8 @@ final readonly class SshKey
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"key":"generated","pretty-print":"generated"}';
 
-    public function __construct(public ?string $key, #[MapFrom('pretty-print')] public ?string $prettyMinPrint)
+    public function __construct(public string|null $key, #[MapFrom('pretty-print')]
+    public string|null $prettyMinPrint,)
     {
     }
 }

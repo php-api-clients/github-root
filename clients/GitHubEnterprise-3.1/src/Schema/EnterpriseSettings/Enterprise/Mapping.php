@@ -11,7 +11,7 @@ final readonly class Mapping
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"tileserver":"generated","basemap":"generated","token":"generated"}';
 
-    public function __construct(public ?bool $enabled, public ?string $tileserver, public ?string $basemap, public ?string $token)
+    public function __construct(public bool|null $enabled, public string|null $tileserver, public string|null $basemap, public string|null $token)
     {
     }
 }

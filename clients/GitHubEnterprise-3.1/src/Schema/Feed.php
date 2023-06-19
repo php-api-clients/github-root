@@ -14,7 +14,16 @@ final readonly class Feed
     public const SCHEMA_DESCRIPTION  = 'Feed';
     public const SCHEMA_EXAMPLE_DATA = '{"timeline_url":"https:\\/\\/github.com\\/timeline","user_url":"https:\\/\\/github.com\\/{user}","current_user_public_url":"https:\\/\\/github.com\\/octocat","current_user_url":"https:\\/\\/github.com\\/octocat.private?token=abc123","current_user_actor_url":"https:\\/\\/github.com\\/octocat.private.actor?token=abc123","current_user_organization_url":"https:\\/\\/github.com\\/octocat-org","current_user_organization_urls":["https:\\/\\/github.com\\/organizations\\/github\\/octocat.private.atom?token=abc123","https:\\/\\/github.com\\/organizations\\/github\\/octocat.private.atom?token=abc123"],"security_advisories_url":"https:\\/\\/github.com\\/security-advisories","_links":{"timeline":{"href":"generated","type":"generated"},"user":{"href":"generated","type":"generated"},"security_advisories":{"href":"generated","type":"generated"},"current_user":{"href":"generated","type":"generated"},"current_user_public":{"href":"generated","type":"generated"},"current_user_actor":{"href":"generated","type":"generated"},"current_user_organization":{"href":"generated","type":"generated"},"current_user_organizations":[{"href":"generated","type":"generated"},{"href":"generated","type":"generated"}]}}';
 
-    public function __construct(#[MapFrom('timeline_url')] public string $timelineUrl, #[MapFrom('user_url')] public string $userUrl, #[MapFrom('current_user_public_url')] public ?string $currentUserPublicUrl, #[MapFrom('current_user_url')] public ?string $currentUserUrl, #[MapFrom('current_user_actor_url')] public ?string $currentUserActorUrl, #[MapFrom('current_user_organization_url')] public ?string $currentUserOrganizationUrl, #[MapFrom('current_user_organization_urls')] public ?array $currentUserOrganizationUrls, #[MapFrom('security_advisories_url')] public ?string $securityAdvisoriesUrl, #[MapFrom('_links')] public Schema\Feed\Links $links)
+    public function __construct(#[MapFrom('timeline_url')]
+    public string $timelineUrl, #[MapFrom('user_url')]
+    public string $userUrl, #[MapFrom('current_user_public_url')]
+    public string|null $currentUserPublicUrl, #[MapFrom('current_user_url')]
+    public string|null $currentUserUrl, #[MapFrom('current_user_actor_url')]
+    public string|null $currentUserActorUrl, #[MapFrom('current_user_organization_url')]
+    public string|null $currentUserOrganizationUrl, #[MapFrom('current_user_organization_urls')]
+    public array|null $currentUserOrganizationUrls, #[MapFrom('security_advisories_url')]
+    public string|null $securityAdvisoriesUrl, #[MapFrom('_links')]
+    public Schema\Feed\Links $links,)
     {
     }
 }

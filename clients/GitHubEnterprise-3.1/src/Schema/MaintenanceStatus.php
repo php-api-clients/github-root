@@ -13,7 +13,9 @@ final readonly class MaintenanceStatus
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated","scheduled_time":"generated","connection_services":[{"name":"generated","number":6},{"name":"generated","number":6}]}';
 
-    public function __construct(public ?string $status, #[MapFrom('scheduled_time')] public ?string $scheduledTime, #[MapFrom('connection_services')] public ?array $connectionServices)
+    public function __construct(public string|null $status, #[MapFrom('scheduled_time')]
+    public string|null $scheduledTime, #[MapFrom('connection_services')]
+    public array|null $connectionServices,)
     {
     }
 }

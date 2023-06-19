@@ -27,7 +27,14 @@ final readonly class SecretScanningAlert
      * secretType: The type of secret that secret scanning detected.
      * secret: The secret that was detected.
      */
-    public function __construct(public ?int $number, #[MapFrom('created_at')] public ?string $createdAt, #[MapFrom('updated_at')] public ?string $updatedAt, public ?string $url, #[MapFrom('html_url')] public ?string $htmlUrl, #[MapFrom('locations_url')] public ?string $locationsUrl, public ?string $state, public ?string $resolution, #[MapFrom('resolved_at')] public ?string $resolvedAt, #[MapFrom('resolved_by')] public ?Schema\SimpleUser $resolvedBy, #[MapFrom('secret_type')] public ?string $secretType, public ?string $secret)
+    public function __construct(public int|null $number, #[MapFrom('created_at')]
+    public string|null $createdAt, #[MapFrom('updated_at')]
+    public string|null $updatedAt, public string|null $url, #[MapFrom('html_url')]
+    public string|null $htmlUrl, #[MapFrom('locations_url')]
+    public string|null $locationsUrl, public string|null $state, public string|null $resolution, #[MapFrom('resolved_at')]
+    public string|null $resolvedAt, #[MapFrom('resolved_by')]
+    public Schema\SimpleUser|null $resolvedBy, #[MapFrom('secret_type')]
+    public string|null $secretType, public string|null $secret,)
     {
     }
 }

@@ -22,9 +22,7 @@ final readonly class CheckUserCanBeAssigned
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, string $assignee): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Issues\CheckUserCanBeAssigned($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $assignee);

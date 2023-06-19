@@ -34,7 +34,20 @@ final readonly class ApplicationJson
      * deleteBranchOnMerge: Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion.
      * useSquashPrTitleAsDefault: Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message.
      */
-    public function __construct(public string $name, public ?string $description, public ?string $homepage, public ?bool $private, public ?string $visibility, #[MapFrom('has_issues')] public ?bool $hasIssues, #[MapFrom('has_projects')] public ?bool $hasProjects, #[MapFrom('has_wiki')] public ?bool $hasWiki, #[MapFrom('is_template')] public ?bool $isTemplate, #[MapFrom('team_id')] public ?int $teamId, #[MapFrom('auto_init')] public ?bool $autoInit, #[MapFrom('gitignore_template')] public ?string $gitignoreTemplate, #[MapFrom('license_template')] public ?string $licenseTemplate, #[MapFrom('allow_squash_merge')] public ?bool $allowSquashMerge, #[MapFrom('allow_merge_commit')] public ?bool $allowMergeCommit, #[MapFrom('allow_rebase_merge')] public ?bool $allowRebaseMerge, #[MapFrom('delete_branch_on_merge')] public ?bool $deleteBranchOnMerge, #[MapFrom('use_squash_pr_title_as_default')] public ?bool $useSquashPrTitleAsDefault)
+    public function __construct(public string $name, public string|null $description, public string|null $homepage, public bool|null $private, public string|null $visibility, #[MapFrom('has_issues')]
+    public bool|null $hasIssues, #[MapFrom('has_projects')]
+    public bool|null $hasProjects, #[MapFrom('has_wiki')]
+    public bool|null $hasWiki, #[MapFrom('is_template')]
+    public bool|null $isTemplate, #[MapFrom('team_id')]
+    public int|null $teamId, #[MapFrom('auto_init')]
+    public bool|null $autoInit, #[MapFrom('gitignore_template')]
+    public string|null $gitignoreTemplate, #[MapFrom('license_template')]
+    public string|null $licenseTemplate, #[MapFrom('allow_squash_merge')]
+    public bool|null $allowSquashMerge, #[MapFrom('allow_merge_commit')]
+    public bool|null $allowMergeCommit, #[MapFrom('allow_rebase_merge')]
+    public bool|null $allowRebaseMerge, #[MapFrom('delete_branch_on_merge')]
+    public bool|null $deleteBranchOnMerge, #[MapFrom('use_squash_pr_title_as_default')]
+    public bool|null $useSquashPrTitleAsDefault,)
     {
     }
 }

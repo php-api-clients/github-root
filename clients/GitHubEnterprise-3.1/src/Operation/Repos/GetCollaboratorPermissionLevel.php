@@ -30,16 +30,12 @@ final class GetCollaboratorPermissionLevel
     private string $repo;
     /**The handle for the GitHub user account. **/
     private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username\Permission $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username\Permission $hydrator, string $owner, string $repo, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username\Permission $hydrator, string $owner, string $repo, string $username)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner    = $owner;
+        $this->repo     = $repo;
+        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface

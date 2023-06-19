@@ -21,11 +21,9 @@ final class UpgradeLicense
     public const OPERATION_MATCH = 'POST /setup/api/upgrade';
     private const METHOD         = 'POST';
     private const PATH           = '/setup/api/upgrade';
-    private readonly SchemaValidator $requestSchemaValidator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -35,9 +33,7 @@ final class UpgradeLicense
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

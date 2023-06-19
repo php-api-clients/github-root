@@ -23,9 +23,7 @@ final readonly class UpdatePreReceiveEnvironment
     {
     }
 
-    /**
-     * @return PromiseInterface<PreReceiveEnvironment>
-     **/
+    /** @return PromiseInterface<PreReceiveEnvironment> **/
     public function call(int $preReceiveEnvironmentId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $preReceiveEnvironmentId);

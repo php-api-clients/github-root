@@ -24,21 +24,15 @@ final class UpdateGlobalWebhook
     public const OPERATION_MATCH = 'PATCH /admin/hooks/{hook_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/hooks/{hook_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The unique identifier of the hook. **/
     private int $hookId;
     /**This API is under preview and subject to change. **/
     private string $accept;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->hookId                  = $hookId;
-        $this->accept                  = $accept;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->hookId = $hookId;
+        $this->accept = $accept;
     }
 
     public function createRequest(array $data): RequestInterface

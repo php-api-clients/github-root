@@ -24,18 +24,12 @@ final class CreateGlobalWebhook
     public const OPERATION_MATCH = 'POST /admin/hooks';
     private const METHOD         = 'POST';
     private const PATH           = '/admin/hooks';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**This API is under preview and subject to change. **/
     private string $accept;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks $hydrator, string $accept = 'application/vnd.github.superpro-preview+json')
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Hooks $hydrator, string $accept = 'application/vnd.github.superpro-preview+json')
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->accept                  = $accept;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->accept = $accept;
     }
 
     public function createRequest(array $data): RequestInterface

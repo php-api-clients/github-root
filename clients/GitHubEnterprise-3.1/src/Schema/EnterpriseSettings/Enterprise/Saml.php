@@ -13,7 +13,11 @@ final readonly class Saml
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"sso_url":"generated","certificate":"generated","certificate_path":"generated","issuer":"generated","idp_initiated_sso":false,"disable_admin_demote":false}';
 
-    public function __construct(#[MapFrom('sso_url')] public ?string $ssoUrl, public ?string $certificate, #[MapFrom('certificate_path')] public ?string $certificatePath, public ?string $issuer, #[MapFrom('idp_initiated_sso')] public ?bool $idpInitiatedSso, #[MapFrom('disable_admin_demote')] public ?bool $disableAdminDemote)
+    public function __construct(#[MapFrom('sso_url')]
+    public string|null $ssoUrl, public string|null $certificate, #[MapFrom('certificate_path')]
+    public string|null $certificatePath, public string|null $issuer, #[MapFrom('idp_initiated_sso')]
+    public bool|null $idpInitiatedSso, #[MapFrom('disable_admin_demote')]
+    public bool|null $disableAdminDemote,)
     {
     }
 }

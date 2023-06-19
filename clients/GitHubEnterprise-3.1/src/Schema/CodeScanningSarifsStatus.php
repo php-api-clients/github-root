@@ -17,7 +17,9 @@ final readonly class CodeScanningSarifsStatus
      * processingStatus: `pending` files have not yet been processed, while `complete` means all results in the SARIF have been stored.
      * analysesUrl: The REST API URL for getting the analyses associated with the upload.
      */
-    public function __construct(#[MapFrom('processing_status')] public ?string $processingStatus, #[MapFrom('analyses_url')] public ?string $analysesUrl)
+    public function __construct(#[MapFrom('processing_status')]
+    public string|null $processingStatus, #[MapFrom('analyses_url')]
+    public string|null $analysesUrl,)
     {
     }
 }
