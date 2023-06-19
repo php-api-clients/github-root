@@ -23,9 +23,7 @@ final readonly class GetProvisioningInformationForEnterpriseGroup
     {
     }
 
-    /**
-     * @return PromiseInterface<(GroupResponse|array)>
-     **/
+    /** @return PromiseInterface<(GroupResponse|array)> **/
     public function call(string $scimGroupId, string $excludedAttributes): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->responseSchemaValidator, $this->hydrator, $scimGroupId, $excludedAttributes);

@@ -23,9 +23,7 @@ final readonly class CreateAuthorization
     {
     }
 
-    /**
-     * @return PromiseInterface<(Authorization|array)>
-     **/
+    /** @return PromiseInterface<(Authorization|array)> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\CreateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

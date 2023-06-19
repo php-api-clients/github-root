@@ -15,7 +15,7 @@ final readonly class ApplicationJson
      * state: Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.
      * resolution: **Required when the `state` is `resolved`.** The reason for resolving the alert.
      */
-    public function __construct(public string $state, public ?string $resolution)
+    public function __construct(public string $state, public string|null $resolution)
     {
     }
 }

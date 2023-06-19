@@ -30,16 +30,12 @@ final class GetDeployKey
     private string $repo;
     /**The unique identifier of the key. **/
     private int $keyId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Keys\KeyId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Keys\KeyId $hydrator, string $owner, string $repo, int $keyId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Keys\KeyId $hydrator, string $owner, string $repo, int $keyId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->keyId                   = $keyId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->keyId = $keyId;
     }
 
     public function createRequest(): RequestInterface

@@ -17,7 +17,9 @@ final readonly class OidcCustomSubRepo
      * useDefault: Whether to use the default template or not. If `true`, the `include_claim_keys` field is ignored.
      * includeClaimKeys: Array of unique strings. Each claim key can only contain alphanumeric characters and underscores. This property will only appear in the response body if it was already set using the organization-level endpoint, "Set the customization template for an OIDC subject claim for an organization".
      */
-    public function __construct(#[MapFrom('use_default')] public bool $useDefault, #[MapFrom('include_claim_keys')] public ?array $includeClaimKeys)
+    public function __construct(#[MapFrom('use_default')]
+    public bool $useDefault, #[MapFrom('include_claim_keys')]
+    public array|null $includeClaimKeys,)
     {
     }
 }

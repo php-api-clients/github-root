@@ -13,7 +13,9 @@ final readonly class Git
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"sync_status":"offline","last_sync":"1970-01-01T00:00:00+00:00"}';
 
-    public function __construct(#[MapFrom('sync_status')] public string $syncStatus, #[MapFrom('last_sync')] public string $lastSync)
+    public function __construct(#[MapFrom('sync_status')]
+    public string $syncStatus, #[MapFrom('last_sync')]
+    public string $lastSync,)
     {
     }
 }

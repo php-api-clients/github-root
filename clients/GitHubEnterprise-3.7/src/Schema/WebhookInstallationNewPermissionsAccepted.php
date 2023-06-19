@@ -21,7 +21,7 @@ final readonly class WebhookInstallationNewPermissionsAccepted
      * repository: A repository on GitHub.
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, public ?Schema\Enterprise $enterprise, public Schema\Installation $installation, public ?Schema\OrganizationSimple $organization, public ?array $repositories, public ?Schema\Repository $repository, public string $requester, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, public Schema\Enterprise|null $enterprise, public Schema\Installation $installation, public Schema\OrganizationSimple|null $organization, public array|null $repositories, public Schema\Repository|null $repository, public string $requester, public Schema\SimpleUser $sender)
     {
     }
 }

@@ -13,7 +13,7 @@ final readonly class Changes
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"from":{"security_and_analysis":{"advanced_security":{"status":"disabled"},"secret_scanning":{"status":"disabled"},"secret_scanning_push_protection":{"status":"disabled"}}}}';
 
-    public function __construct(public ?Schema\WebhookSecurityAndAnalysis\Changes\From $from)
+    public function __construct(public Schema\WebhookSecurityAndAnalysis\Changes\From|null $from)
     {
     }
 }

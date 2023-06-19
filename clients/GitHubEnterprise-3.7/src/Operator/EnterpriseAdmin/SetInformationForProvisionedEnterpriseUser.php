@@ -23,9 +23,7 @@ final readonly class SetInformationForProvisionedEnterpriseUser
     {
     }
 
-    /**
-     * @return PromiseInterface<(UserResponse|array)>
-     **/
+    /** @return PromiseInterface<(UserResponse|array)> **/
     public function call(string $scimUserId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimUserId);

@@ -11,7 +11,7 @@ final readonly class GithubSsl
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"cert":"generated","key":"generated"}';
 
-    public function __construct(public ?bool $enabled, public ?string $cert, public ?string $key)
+    public function __construct(public bool|null $enabled, public string|null $cert, public string|null $key)
     {
     }
 }

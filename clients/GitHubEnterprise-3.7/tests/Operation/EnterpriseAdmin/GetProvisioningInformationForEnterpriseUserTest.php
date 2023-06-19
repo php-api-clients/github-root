@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\UserResponse::SCHEMA_EXAMPLE_DATA);
@@ -39,9 +37,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\UserResponse::SCHEMA_EXAMPLE_DATA);
@@ -55,9 +51,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -76,9 +70,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -93,9 +85,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -114,9 +104,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -131,9 +119,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -152,9 +138,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -169,9 +153,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_429_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -190,9 +172,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_429_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -207,9 +187,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_429_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -228,9 +206,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_429_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -245,9 +221,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -266,9 +240,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -283,9 +255,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -304,9 +274,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -321,9 +289,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $result = await($client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_401_empty(): void
     {
         $response = new Response(401, []);
@@ -341,9 +307,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_401_empty(): void
     {
         $response = new Response(401, []);
@@ -359,9 +323,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         self::assertSame(401, $result['code']);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_empty(): void
     {
         $response = new Response(403, []);
@@ -379,9 +341,7 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_empty(): void
     {
         $response = new Response(403, []);

@@ -23,9 +23,7 @@ final readonly class SyncLdapMappingForTeam
     {
     }
 
-    /**
-     * @return PromiseInterface<Created>
-     **/
+    /** @return PromiseInterface<Created> **/
     public function call(int $teamId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SyncLdapMappingForTeam($this->responseSchemaValidator, $this->hydrator, $teamId);

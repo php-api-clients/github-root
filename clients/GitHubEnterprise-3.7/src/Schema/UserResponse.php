@@ -22,7 +22,7 @@ final readonly class UserResponse
      * emails: The emails for the user.
      * roles: The roles assigned to the user.
      */
-    public function __construct(public array $schemas, public ?string $externalId, public bool $active, public ?string $userName, public ?Schema\UserNameResponse $name, public ?string $displayName, public array $emails, public ?array $roles)
+    public function __construct(public array $schemas, public string|null $externalId, public bool $active, public string|null $userName, public Schema\UserNameResponse|null $name, public string|null $displayName, public array $emails, public array|null $roles)
     {
     }
 }

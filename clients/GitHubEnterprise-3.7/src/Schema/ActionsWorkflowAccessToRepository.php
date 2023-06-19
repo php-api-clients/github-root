@@ -19,7 +19,8 @@ final readonly class ActionsWorkflowAccessToRepository
 
     `none` means the access is only possible from workflows in this repository. `organization` level access allows sharing across the organization. `enterprise` level access allows sharing across the enterprise.
      */
-    public function __construct(#[MapFrom('access_level')] public string $accessLevel)
+    public function __construct(#[MapFrom('access_level')]
+    public string $accessLevel,)
     {
     }
 }

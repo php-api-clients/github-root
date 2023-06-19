@@ -20,7 +20,8 @@ final readonly class ScimEnterpriseUserList
      * startIndex: A starting index for the returned page
      * itemsPerPage: Number of objects per page
      */
-    public function __construct(public array $schemas, public int $totalResults, #[MapFrom('Resources')] public array $resources, public int $startIndex, public int $itemsPerPage)
+    public function __construct(public array $schemas, public int $totalResults, #[MapFrom('Resources')]
+    public array $resources, public int $startIndex, public int $itemsPerPage,)
     {
     }
 }

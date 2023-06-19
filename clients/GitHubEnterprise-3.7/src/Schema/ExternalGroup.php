@@ -20,7 +20,10 @@ final readonly class ExternalGroup
      * teams: An array of teams linked to this group
      * members: An array of external members linked to this group
      */
-    public function __construct(#[MapFrom('group_id')] public int $groupId, #[MapFrom('group_name')] public string $groupName, #[MapFrom('updated_at')] public ?string $updatedAt, public array $teams, public array $members)
+    public function __construct(#[MapFrom('group_id')]
+    public int $groupId, #[MapFrom('group_name')]
+    public string $groupName, #[MapFrom('updated_at')]
+    public string|null $updatedAt, public array $teams, public array $members,)
     {
     }
 }

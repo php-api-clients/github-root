@@ -22,7 +22,7 @@ final readonly class Snapshot
      * manifests: A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.
      * scanned: The time at which the snapshot was scanned.
      */
-    public function __construct(public int $version, public Schema\Snapshot\Job $job, public string $sha, public string $ref, public Schema\Snapshot\Detector $detector, public ?Schema\Metadata $metadata, public ?Schema\Snapshot\Manifests $manifests, public string $scanned)
+    public function __construct(public int $version, public Schema\Snapshot\Job $job, public string $sha, public string $ref, public Schema\Snapshot\Detector $detector, public Schema\Metadata|null $metadata, public Schema\Snapshot\Manifests|null $manifests, public string $scanned)
     {
     }
 }

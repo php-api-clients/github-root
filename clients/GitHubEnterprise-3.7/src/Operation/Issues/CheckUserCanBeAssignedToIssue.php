@@ -30,18 +30,12 @@ final class CheckUserCanBeAssignedToIssue
     private string $repo;
     /**The number that identifies the issue. **/
     private int $issueNumber;
-    private string $assignee;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees\Assignee $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees\Assignee $hydrator, string $owner, string $repo, int $issueNumber, string $assignee)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees\Assignee $hydrator, string $owner, string $repo, int $issueNumber, private string $assignee)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->assignee                = $assignee;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner       = $owner;
+        $this->repo        = $repo;
+        $this->issueNumber = $issueNumber;
     }
 
     public function createRequest(): RequestInterface
@@ -49,9 +43,7 @@ final class CheckUserCanBeAssignedToIssue
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}', '{assignee}'], [$this->owner, $this->repo, $this->issueNumber, $this->assignee], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

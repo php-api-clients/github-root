@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * useDefault: Whether to use the default template or not.
      */
-    public function __construct(#[MapFrom('use_default')] public bool $useDefault)
+    public function __construct(#[MapFrom('use_default')]
+    public bool $useDefault,)
     {
     }
 }

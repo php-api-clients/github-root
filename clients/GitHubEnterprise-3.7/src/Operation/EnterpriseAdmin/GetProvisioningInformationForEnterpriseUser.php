@@ -26,14 +26,10 @@ final class GetProvisioningInformationForEnterpriseUser
     private const PATH           = '/scim/v2/Users/{scim_user_id}';
     /**The unique identifier of the SCIM user. **/
     private string $scimUserId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator, string $scimUserId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator, string $scimUserId)
     {
-        $this->scimUserId              = $scimUserId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->scimUserId = $scimUserId;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +37,7 @@ final class GetProvisioningInformationForEnterpriseUser
         return new Request(self::METHOD, str_replace(['{scim_user_id}'], [$this->scimUserId], self::PATH));
     }
 
-    /**
-     * @return Schema\UserResponse|array{code: int}
-     */
+    /** @return Schema\UserResponse|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\UserResponse|array
     {
         $code          = $response->getStatusCode();
