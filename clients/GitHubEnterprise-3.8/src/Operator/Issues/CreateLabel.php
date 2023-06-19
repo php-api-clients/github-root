@@ -23,9 +23,7 @@ final readonly class CreateLabel
     {
     }
 
-    /**
-     * @return PromiseInterface<Label>
-     **/
+    /** @return PromiseInterface<Label> **/
     public function call(string $owner, string $repo, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Issues\CreateLabel($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

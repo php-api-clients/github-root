@@ -26,16 +26,14 @@ final class ListPreReceiveHooksForRepo
     private int $page;
     /**The direction to sort the results by. **/
     private string $direction;
-    private string $sort;
 
-    public function __construct(string $owner, string $repo, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
+    public function __construct(string $owner, string $repo, int $perPage = 30, int $page = 1, string $direction = 'desc', private string $sort = 'created')
     {
         $this->owner     = $owner;
         $this->repo      = $repo;
         $this->perPage   = $perPage;
         $this->page      = $page;
         $this->direction = $direction;
-        $this->sort      = $sort;
     }
 
     public function createRequest(): RequestInterface

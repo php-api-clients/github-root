@@ -17,7 +17,8 @@ final readonly class EnterpriseSecurityAnalysisSettings
      * dependabotAlertsEnabledForNewRepositories: Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this
     enterprise.
      */
-    public function __construct(#[MapFrom('dependabot_alerts_enabled_for_new_repositories')] public ?bool $dependabotAlertsEnabledForNewRepositories)
+    public function __construct(#[MapFrom('dependabot_alerts_enabled_for_new_repositories')]
+    public bool|null $dependabotAlertsEnabledForNewRepositories,)
     {
     }
 }

@@ -21,9 +21,7 @@ final readonly class SetGithubActionsDefaultWorkflowPermissionsEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\SetGithubActionsDefaultWorkflowPermissionsEnterprise($this->requestSchemaValidator, $enterprise);

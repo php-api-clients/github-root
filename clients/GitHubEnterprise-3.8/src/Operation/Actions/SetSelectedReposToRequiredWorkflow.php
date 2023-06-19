@@ -21,17 +21,15 @@ final class SetSelectedReposToRequiredWorkflow
     public const OPERATION_MATCH = 'PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories';
     private const METHOD         = 'PUT';
     private const PATH           = '/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the required workflow. **/
     private int $requiredWorkflowId;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, string $org, int $requiredWorkflowId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $org, int $requiredWorkflowId)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->org                    = $org;
-        $this->requiredWorkflowId     = $requiredWorkflowId;
+        $this->org                = $org;
+        $this->requiredWorkflowId = $requiredWorkflowId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -41,9 +39,7 @@ final class SetSelectedReposToRequiredWorkflow
         return new Request(self::METHOD, str_replace(['{org}', '{required_workflow_id}'], [$this->org, $this->requiredWorkflowId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

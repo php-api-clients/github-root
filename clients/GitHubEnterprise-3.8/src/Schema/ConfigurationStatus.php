@@ -11,7 +11,7 @@ final readonly class ConfigurationStatus
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"generated","progress":[{"status":"generated","key":"generated"},{"status":"generated","key":"generated"}]}';
 
-    public function __construct(public ?string $status, public ?array $progress)
+    public function __construct(public string|null $status, public array|null $progress)
     {
     }
 }

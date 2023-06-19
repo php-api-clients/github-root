@@ -23,9 +23,7 @@ final readonly class ListRequiredWorkflowRuns
     {
     }
 
-    /**
-     * @return PromiseInterface<Ok>
-     **/
+    /** @return PromiseInterface<Ok> **/
     public function call(string $owner, string $repo, int $requiredWorkflowIdForRepo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage = 30, int $page = 1, bool $excludePullRequests = false): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\ListRequiredWorkflowRuns($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $requiredWorkflowIdForRepo, $actor, $branch, $event, $status, $created, $checkSuiteId, $headSha, $perPage, $page, $excludePullRequests);

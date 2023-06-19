@@ -30,18 +30,12 @@ final class GetDeploymentStatus
     private string $repo;
     /**deployment_id parameter **/
     private int $deploymentId;
-    private int $statusId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator, string $owner, string $repo, int $deploymentId, int $statusId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator, string $owner, string $repo, int $deploymentId, private int $statusId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->deploymentId            = $deploymentId;
-        $this->statusId                = $statusId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner        = $owner;
+        $this->repo         = $repo;
+        $this->deploymentId = $deploymentId;
     }
 
     public function createRequest(): RequestInterface

@@ -13,7 +13,8 @@ abstract readonly class TietA1A801FB
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"client_id":"generated","name":"generated","url":"https:\\/\\/example.com\\/"}';
 
-    public function __construct(#[MapFrom('client_id')] public string $clientId, public string $name, public string $url)
+    public function __construct(#[MapFrom('client_id')]
+    public string $clientId, public string $name, public string $url,)
     {
     }
 }

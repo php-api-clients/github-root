@@ -30,16 +30,12 @@ final class DeleteCommitSignatureProtection
     private string $repo;
     /**The name of the branch. Cannot contain wildcard characters. To use wildcard characters in branch names, use [the GraphQL API](https://docs.github.com/enterprise-server@3.8/graphql). **/
     private string $branch;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredSignatures $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredSignatures $hydrator, string $owner, string $repo, string $branch)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredSignatures $hydrator, string $owner, string $repo, string $branch)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->branch                  = $branch;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner  = $owner;
+        $this->repo   = $repo;
+        $this->branch = $branch;
     }
 
     public function createRequest(): RequestInterface
@@ -47,9 +43,7 @@ final class DeleteCommitSignatureProtection
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

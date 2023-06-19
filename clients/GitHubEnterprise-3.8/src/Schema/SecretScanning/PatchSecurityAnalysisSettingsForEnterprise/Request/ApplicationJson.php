@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * dependabotAlertsEnabledForNewRepositories: Whether Dependabot alerts are automatically enabled for new repositories. For more information, see "[About Dependabot alerts](https://docs.github.com/enterprise-server@3.8/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
      */
-    public function __construct(#[MapFrom('dependabot_alerts_enabled_for_new_repositories')] public ?bool $dependabotAlertsEnabledForNewRepositories)
+    public function __construct(#[MapFrom('dependabot_alerts_enabled_for_new_repositories')]
+    public bool|null $dependabotAlertsEnabledForNewRepositories,)
     {
     }
 }

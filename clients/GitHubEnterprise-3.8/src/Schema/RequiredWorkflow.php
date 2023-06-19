@@ -23,7 +23,10 @@ final readonly class RequiredWorkflow
      * state: State of the required workflow
      * repository: Minimal Repository
      */
-    public function __construct(public int|float $id, public string $name, public string $path, public string $scope, public string $ref, public string $state, #[MapFrom('selected_repositories_url')] public ?string $selectedRepositoriesUrl, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt, public Schema\MinimalRepository $repository)
+    public function __construct(public int|float $id, public string $name, public string $path, public string $scope, public string $ref, public string $state, #[MapFrom('selected_repositories_url')]
+    public string|null $selectedRepositoriesUrl, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt, public Schema\MinimalRepository $repository,)
     {
     }
 }

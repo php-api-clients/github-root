@@ -32,17 +32,13 @@ final class ListPublicEventsForRepoNetwork
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Networks\Owner\Repo\Events $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Networks\Owner\Repo\Events $hydrator, string $owner, string $repo, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Networks\Owner\Repo\Events $hydrator, string $owner, string $repo, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner   = $owner;
+        $this->repo    = $repo;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface
@@ -50,9 +46,7 @@ final class ListPublicEventsForRepoNetwork
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return Schema\BasicError|array{code: int}
-     */
+    /** @return Schema\BasicError|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\BasicError|array
     {
         $code          = $response->getStatusCode();

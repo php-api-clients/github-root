@@ -30,16 +30,12 @@ final class GetRepoRequiredWorkflow
     private string $repo;
     /**The ID of the required workflow that has run at least once in a repository. **/
     private int $requiredWorkflowIdForRepo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo $hydrator, string $org, string $repo, int $requiredWorkflowIdForRepo)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo $hydrator, string $org, string $repo, int $requiredWorkflowIdForRepo)
     {
         $this->org                       = $org;
         $this->repo                      = $repo;
         $this->requiredWorkflowIdForRepo = $requiredWorkflowIdForRepo;
-        $this->responseSchemaValidator   = $responseSchemaValidator;
-        $this->hydrator                  = $hydrator;
     }
 
     public function createRequest(): RequestInterface

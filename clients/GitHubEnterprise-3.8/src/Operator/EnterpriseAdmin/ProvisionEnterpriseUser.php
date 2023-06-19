@@ -23,9 +23,7 @@ final readonly class ProvisionEnterpriseUser
     {
     }
 
-    /**
-     * @return PromiseInterface<(UserResponse|array)>
-     **/
+    /** @return PromiseInterface<(UserResponse|array)> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ProvisionEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

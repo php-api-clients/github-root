@@ -17,7 +17,8 @@ final readonly class ApplicationJson
      * enforcement: The state of enforcement for the hook on this repository.
      * allowDownstreamConfiguration: Whether repositories can override enforcement.
      */
-    public function __construct(public ?string $enforcement, #[MapFrom('allow_downstream_configuration')] public ?bool $allowDownstreamConfiguration)
+    public function __construct(public string|null $enforcement, #[MapFrom('allow_downstream_configuration')]
+    public bool|null $allowDownstreamConfiguration,)
     {
     }
 }

@@ -18,9 +18,7 @@ use function React\Promise\resolve;
 
 final class ListSelectedRepositoriesRequiredWorkflowTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\ApplicationJson\Ok\Application\Json::SCHEMA_EXAMPLE_DATA);
@@ -39,9 +37,7 @@ final class ListSelectedRepositoriesRequiredWorkflowTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\ApplicationJson\Ok\Application\Json::SCHEMA_EXAMPLE_DATA);
@@ -55,9 +51,7 @@ final class ListSelectedRepositoriesRequiredWorkflowTest extends AsyncTestCase
         $result = await($client->operations()->actions()->listSelectedRepositoriesRequiredWorkflow('generated', 20));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_empty(): void
     {
         $response = new Response(404, []);
@@ -76,9 +70,7 @@ final class ListSelectedRepositoriesRequiredWorkflowTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_empty(): void
     {
         $response = new Response(404, []);

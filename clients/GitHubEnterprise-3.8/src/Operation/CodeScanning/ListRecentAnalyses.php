@@ -44,23 +44,19 @@ final class ListRecentAnalyses
     private string $direction;
     /**The property by which to sort the results. **/
     private string $sort;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses $hydrator, string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $sarifId, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created')
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses $hydrator, string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $sarifId, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created')
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->toolName                = $toolName;
-        $this->toolGuid                = $toolGuid;
-        $this->ref                     = $ref;
-        $this->sarifId                 = $sarifId;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->direction               = $direction;
-        $this->sort                    = $sort;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner     = $owner;
+        $this->repo      = $repo;
+        $this->toolName  = $toolName;
+        $this->toolGuid  = $toolGuid;
+        $this->ref       = $ref;
+        $this->sarifId   = $sarifId;
+        $this->page      = $page;
+        $this->perPage   = $perPage;
+        $this->direction = $direction;
+        $this->sort      = $sort;
     }
 
     public function createRequest(): RequestInterface

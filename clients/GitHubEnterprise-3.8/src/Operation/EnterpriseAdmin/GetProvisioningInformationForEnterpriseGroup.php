@@ -28,15 +28,11 @@ final class GetProvisioningInformationForEnterpriseGroup
     private string $scimGroupId;
     /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time. **/
     private string $excludedAttributes;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId, string $excludedAttributes)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId, string $excludedAttributes)
     {
-        $this->scimGroupId             = $scimGroupId;
-        $this->excludedAttributes      = $excludedAttributes;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->scimGroupId        = $scimGroupId;
+        $this->excludedAttributes = $excludedAttributes;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +40,7 @@ final class GetProvisioningInformationForEnterpriseGroup
         return new Request(self::METHOD, str_replace(['{scim_group_id}', '{excludedAttributes}'], [$this->scimGroupId, $this->excludedAttributes], self::PATH . '?excludedAttributes={excludedAttributes}'));
     }
 
-    /**
-     * @return Schema\GroupResponse|array{code: int}
-     */
+    /** @return Schema\GroupResponse|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\GroupResponse|array
     {
         $code          = $response->getStatusCode();

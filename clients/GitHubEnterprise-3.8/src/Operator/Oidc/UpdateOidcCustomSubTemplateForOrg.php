@@ -23,9 +23,7 @@ final readonly class UpdateOidcCustomSubTemplateForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<EmptyObject>
-     **/
+    /** @return PromiseInterface<EmptyObject> **/
     public function call(string $org, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Oidc\UpdateOidcCustomSubTemplateForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

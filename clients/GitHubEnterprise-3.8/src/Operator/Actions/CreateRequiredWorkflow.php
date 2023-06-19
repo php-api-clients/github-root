@@ -23,9 +23,7 @@ final readonly class CreateRequiredWorkflow
     {
     }
 
-    /**
-     * @return PromiseInterface<RequiredWorkflow>
-     **/
+    /** @return PromiseInterface<RequiredWorkflow> **/
     public function call(string $org, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\CreateRequiredWorkflow($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

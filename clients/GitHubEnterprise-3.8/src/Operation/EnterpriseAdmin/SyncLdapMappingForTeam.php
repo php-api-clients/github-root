@@ -25,14 +25,10 @@ final class SyncLdapMappingForTeam
     private const PATH           = '/admin/ldap/teams/{team_id}/sync';
     /**The unique identifier of the team. **/
     private int $teamId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Ldap\Teams\TeamId\Sync $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Teams\TeamId\Sync $hydrator, int $teamId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Ldap\Teams\TeamId\Sync $hydrator, int $teamId)
     {
-        $this->teamId                  = $teamId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->teamId = $teamId;
     }
 
     public function createRequest(): RequestInterface

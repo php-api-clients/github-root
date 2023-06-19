@@ -17,7 +17,7 @@ final readonly class UserNameResponse
      * givenName: The given name of the user.
      * middleName: The middle name(s) of the user.
      */
-    public function __construct(public ?string $formatted, public ?string $familyName, public ?string $givenName, public ?string $middleName)
+    public function __construct(public string|null $formatted, public string|null $familyName, public string|null $givenName, public string|null $middleName)
     {
     }
 }

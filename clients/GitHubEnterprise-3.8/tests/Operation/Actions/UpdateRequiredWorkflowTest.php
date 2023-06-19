@@ -20,9 +20,7 @@ use function React\Promise\resolve;
 
 final class UpdateRequiredWorkflowTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\RequiredWorkflow::SCHEMA_EXAMPLE_DATA);
@@ -41,9 +39,7 @@ final class UpdateRequiredWorkflowTest extends AsyncTestCase
         })(json_decode(Schema\Actions\UpdateRequiredWorkflow\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\RequiredWorkflow::SCHEMA_EXAMPLE_DATA);
@@ -57,9 +53,7 @@ final class UpdateRequiredWorkflowTest extends AsyncTestCase
         $result = await($client->operations()->actions()->updateRequiredWorkflow('generated', 20, json_decode(Schema\Actions\UpdateRequiredWorkflow\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationErrorSimple::class);
@@ -79,9 +73,7 @@ final class UpdateRequiredWorkflowTest extends AsyncTestCase
         })(json_decode(Schema\Actions\UpdateRequiredWorkflow\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationErrorSimple::class);

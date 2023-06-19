@@ -23,9 +23,7 @@ final readonly class ListProvisionedGroupsEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<(ScimEnterpriseGroupList|array)>
-     **/
+    /** @return PromiseInterface<(ScimEnterpriseGroupList|array)> **/
     public function call(string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->responseSchemaValidator, $this->hydrator, $filter, $excludedAttributes, $startIndex, $count);

@@ -19,7 +19,13 @@ final readonly class SimpleCheckSuite
      * headSha: The SHA of the head commit that is being checked.
      * repository: Minimal Repository
      */
-    public function __construct(public ?string $after, public ?Schema\Integration $app, public ?string $before, public ?string $conclusion, #[MapFrom('created_at')] public ?string $createdAt, #[MapFrom('head_branch')] public ?string $headBranch, #[MapFrom('head_sha')] public ?string $headSha, public ?int $id, #[MapFrom('node_id')] public ?string $nodeId, #[MapFrom('pull_requests')] public ?array $pullRequests, public ?Schema\MinimalRepository $repository, public ?string $status, #[MapFrom('updated_at')] public ?string $updatedAt, public ?string $url)
+    public function __construct(public string|null $after, public Schema\Integration|null $app, public string|null $before, public string|null $conclusion, #[MapFrom('created_at')]
+    public string|null $createdAt, #[MapFrom('head_branch')]
+    public string|null $headBranch, #[MapFrom('head_sha')]
+    public string|null $headSha, public int|null $id, #[MapFrom('node_id')]
+    public string|null $nodeId, #[MapFrom('pull_requests')]
+    public array|null $pullRequests, public Schema\MinimalRepository|null $repository, public string|null $status, #[MapFrom('updated_at')]
+    public string|null $updatedAt, public string|null $url,)
     {
     }
 }

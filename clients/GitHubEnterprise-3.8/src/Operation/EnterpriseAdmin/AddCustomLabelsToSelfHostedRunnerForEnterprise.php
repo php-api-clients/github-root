@@ -25,21 +25,15 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterprise
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runners/{runner_id}/labels';
     private const METHOD         = 'POST';
     private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}/labels';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner. **/
     private int $runnerId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels $hydrator, string $enterprise, int $runnerId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels $hydrator, string $enterprise, int $runnerId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->enterprise              = $enterprise;
-        $this->runnerId                = $runnerId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
+        $this->runnerId   = $runnerId;
     }
 
     public function createRequest(array $data): RequestInterface

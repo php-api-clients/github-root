@@ -17,7 +17,13 @@ final readonly class RepoRequiredWorkflow
     /**
      * sourceRepository: Minimal Repository
      */
-    public function __construct(public int $id, #[MapFrom('node_id')] public string $nodeId, public string $name, public string $path, public string $state, #[MapFrom('source_repository')] public Schema\MinimalRepository $sourceRepository, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('badge_url')] public string $badgeUrl)
+    public function __construct(public int $id, #[MapFrom('node_id')]
+    public string $nodeId, public string $name, public string $path, public string $state, #[MapFrom('source_repository')]
+    public Schema\MinimalRepository $sourceRepository, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('badge_url')]
+    public string $badgeUrl,)
     {
     }
 }

@@ -23,9 +23,7 @@ final readonly class ListSelectedRepositoriesRequiredWorkflow
     {
     }
 
-    /**
-     * @return PromiseInterface<(Json|array)>
-     **/
+    /** @return PromiseInterface<(Json|array)> **/
     public function call(string $org, int $requiredWorkflowId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\ListSelectedRepositoriesRequiredWorkflow($this->responseSchemaValidator, $this->hydrator, $org, $requiredWorkflowId);
