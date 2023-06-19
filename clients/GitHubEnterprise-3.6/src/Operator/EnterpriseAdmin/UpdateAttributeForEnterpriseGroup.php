@@ -23,9 +23,7 @@ final readonly class UpdateAttributeForEnterpriseGroup
     {
     }
 
-    /**
-     * @return PromiseInterface<(GroupResponse|array)>
-     **/
+    /** @return PromiseInterface<(GroupResponse|array)> **/
     public function call(string $scimGroupId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimGroupId);

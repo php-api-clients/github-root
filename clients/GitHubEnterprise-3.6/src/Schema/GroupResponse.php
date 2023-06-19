@@ -17,7 +17,7 @@ final readonly class GroupResponse
      * displayName: A human-readable name for a security group.
      * members: The group members.
      */
-    public function __construct(public array $schemas, public ?string $externalId, public ?string $displayName, public ?array $members)
+    public function __construct(public array $schemas, public string|null $externalId, public string|null $displayName, public array|null $members)
     {
     }
 }

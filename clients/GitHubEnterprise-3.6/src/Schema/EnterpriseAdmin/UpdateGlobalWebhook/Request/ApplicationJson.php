@@ -18,7 +18,7 @@ final readonly class ApplicationJson
      * events: The [events](https://docs.github.com/enterprise-server@3.6/webhooks/event-payloads) that trigger this webhook. A global webhook can be triggered by `user` and `organization` events. Default: `user` and `organization`.
      * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public function __construct(public ?Schema\EnterpriseAdmin\UpdateGlobalWebhook\Request\ApplicationJson\Config $config, public ?array $events, public ?bool $active)
+    public function __construct(public Schema\EnterpriseAdmin\UpdateGlobalWebhook\Request\ApplicationJson\Config|null $config, public array|null $events, public bool|null $active)
     {
     }
 }

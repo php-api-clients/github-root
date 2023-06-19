@@ -23,9 +23,7 @@ final readonly class GetMilestoneStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseMilestoneOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseMilestoneOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetMilestoneStats($this->responseSchemaValidator, $this->hydrator);

@@ -16,7 +16,8 @@ final readonly class PatchSchema
     /**
      * operations: patch operations list
      */
-    public function __construct(#[MapFrom('Operations')] public array $operations, public array $schemas)
+    public function __construct(#[MapFrom('Operations')]
+    public array $operations, public array $schemas,)
     {
     }
 }

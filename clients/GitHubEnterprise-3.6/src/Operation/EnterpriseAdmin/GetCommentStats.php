@@ -23,13 +23,9 @@ final class GetCommentStats
     public const OPERATION_MATCH = 'GET /enterprise/stats/comments';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprise/stats/comments';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprise\Stats\Comments $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprise\Stats\Comments $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprise\Stats\Comments $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

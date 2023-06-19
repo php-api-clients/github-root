@@ -25,7 +25,10 @@ final readonly class CodeScanningAlertInstance
      * classifications: Classifications that have been applied to the file that triggered the alert.
     For example identifying it as documentation, or a generated file.
      */
-    public function __construct(public ?string $ref, #[MapFrom('analysis_key')] public ?string $analysisKey, public ?string $environment, public ?string $category, public ?string $state, #[MapFrom('commit_sha')] public ?string $commitSha, public ?Schema\CodeScanningAlertInstance\Message $message, public ?Schema\CodeScanningAlertLocation $location, #[MapFrom('html_url')] public ?string $htmlUrl, public ?array $classifications)
+    public function __construct(public string|null $ref, #[MapFrom('analysis_key')]
+    public string|null $analysisKey, public string|null $environment, public string|null $category, public string|null $state, #[MapFrom('commit_sha')]
+    public string|null $commitSha, public Schema\CodeScanningAlertInstance\Message|null $message, public Schema\CodeScanningAlertLocation|null $location, #[MapFrom('html_url')]
+    public string|null $htmlUrl, public array|null $classifications,)
     {
     }
 }

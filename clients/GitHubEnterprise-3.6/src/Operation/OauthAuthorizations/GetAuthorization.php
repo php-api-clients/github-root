@@ -26,14 +26,10 @@ final class GetAuthorization
     private const PATH           = '/authorizations/{authorization_id}';
     /**The unique identifier of the authorization. **/
     private int $authorizationId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Authorizations\AuthorizationId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\AuthorizationId $hydrator, int $authorizationId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Authorizations\AuthorizationId $hydrator, int $authorizationId)
     {
-        $this->authorizationId         = $authorizationId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->authorizationId = $authorizationId;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +37,7 @@ final class GetAuthorization
         return new Request(self::METHOD, str_replace(['{authorization_id}'], [$this->authorizationId], self::PATH));
     }
 
-    /**
-     * @return Schema\Authorization|array{code: int}
-     */
+    /** @return Schema\Authorization|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Authorization|array
     {
         $code          = $response->getStatusCode();

@@ -23,9 +23,7 @@ final readonly class CreateRemoveTokenForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<AuthenticationToken>
-     **/
+    /** @return PromiseInterface<AuthenticationToken> **/
     public function call(string $org): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\CreateRemoveTokenForOrg($this->responseSchemaValidator, $this->hydrator, $org);

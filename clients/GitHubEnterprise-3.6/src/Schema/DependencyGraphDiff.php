@@ -13,7 +13,10 @@ final readonly class DependencyGraphDiff
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"change_type":"added","manifest":"path\\/to\\/package-lock.json","ecosystem":"npm","name":"@actions\\/core","version":"1.0.0","package_url":"pkg:\\/npm\\/%40actions\\/core@1.1.0","license":"MIT","source_repository_url":"https:\\/\\/github.com\\/github\\/actions","vulnerabilities":[{"severity":"critical","advisory_ghsa_id":"GHSA-rf4j-j272-fj86","advisory_summary":"A summary of the advisory.","advisory_url":"https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"},{"severity":"critical","advisory_ghsa_id":"GHSA-rf4j-j272-fj86","advisory_summary":"A summary of the advisory.","advisory_url":"https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"}]}';
 
-    public function __construct(#[MapFrom('change_type')] public string $changeType, public string $manifest, public string $ecosystem, public string $name, public string $version, #[MapFrom('package_url')] public ?string $packageUrl, public ?string $license, #[MapFrom('source_repository_url')] public ?string $sourceRepositoryUrl, public array $vulnerabilities)
+    public function __construct(#[MapFrom('change_type')]
+    public string $changeType, public string $manifest, public string $ecosystem, public string $name, public string $version, #[MapFrom('package_url')]
+    public string|null $packageUrl, public string|null $license, #[MapFrom('source_repository_url')]
+    public string|null $sourceRepositoryUrl, public array $vulnerabilities,)
     {
     }
 }

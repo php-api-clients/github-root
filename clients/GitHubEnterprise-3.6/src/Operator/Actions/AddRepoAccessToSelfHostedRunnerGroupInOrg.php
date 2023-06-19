@@ -20,9 +20,7 @@ final readonly class AddRepoAccessToSelfHostedRunnerGroupInOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, int $runnerGroupId, int $repositoryId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg($org, $runnerGroupId, $repositoryId);

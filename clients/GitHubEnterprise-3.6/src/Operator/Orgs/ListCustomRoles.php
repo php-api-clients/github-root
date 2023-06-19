@@ -23,9 +23,7 @@ final readonly class ListCustomRoles
     {
     }
 
-    /**
-     * @return PromiseInterface<Ok>
-     **/
+    /** @return PromiseInterface<Ok> **/
     public function call(string $organizationId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\ListCustomRoles($this->responseSchemaValidator, $this->hydrator, $organizationId);

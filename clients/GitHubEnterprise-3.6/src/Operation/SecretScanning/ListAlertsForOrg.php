@@ -42,21 +42,17 @@ final class ListAlertsForOrg
     private int $page;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\SecretScanning\Alerts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\SecretScanning\Alerts $hydrator, string $org, string $state, string $secretType, string $resolution, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\SecretScanning\Alerts $hydrator, string $org, string $state, string $secretType, string $resolution, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30)
     {
-        $this->org                     = $org;
-        $this->state                   = $state;
-        $this->secretType              = $secretType;
-        $this->resolution              = $resolution;
-        $this->sort                    = $sort;
-        $this->direction               = $direction;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org        = $org;
+        $this->state      = $state;
+        $this->secretType = $secretType;
+        $this->resolution = $resolution;
+        $this->sort       = $sort;
+        $this->direction  = $direction;
+        $this->page       = $page;
+        $this->perPage    = $perPage;
     }
 
     public function createRequest(): RequestInterface

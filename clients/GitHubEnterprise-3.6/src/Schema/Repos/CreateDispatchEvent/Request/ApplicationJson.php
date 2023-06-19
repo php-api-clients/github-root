@@ -18,7 +18,9 @@ final readonly class ApplicationJson
      * eventType: A custom webhook event name. Must be 100 characters or fewer.
      * clientPayload: JSON payload with extra information about the webhook event that your action or workflow may use. The maximum number of top-level properties is 10.
      */
-    public function __construct(#[MapFrom('event_type')] public string $eventType, #[MapFrom('client_payload')] public ?Schema\Repos\CreateDispatchEvent\Request\ApplicationJson\ClientPayload $clientPayload)
+    public function __construct(#[MapFrom('event_type')]
+    public string $eventType, #[MapFrom('client_payload')]
+    public Schema\Repos\CreateDispatchEvent\Request\ApplicationJson\ClientPayload|null $clientPayload,)
     {
     }
 }

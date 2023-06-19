@@ -16,7 +16,9 @@ final readonly class Ok
     /**
      * totalCount: The number of custom roles in this organization
      */
-    public function __construct(#[MapFrom('total_count')] public ?int $totalCount, #[MapFrom('custom_roles')] public ?array $customRoles)
+    public function __construct(#[MapFrom('total_count')]
+    public int|null $totalCount, #[MapFrom('custom_roles')]
+    public array|null $customRoles,)
     {
     }
 }
