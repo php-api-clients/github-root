@@ -20,11 +20,9 @@ final class AddAuthorizedSshKey
     public const OPERATION_MATCH = 'POST /setup/api/settings/authorized-keys';
     private const METHOD         = 'POST';
     private const PATH           = '/setup/api/settings/authorized-keys';
-    private readonly SchemaValidator $requestSchemaValidator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
     }
 
     public function createRequest(array $data): RequestInterface

@@ -24,20 +24,12 @@ final class GetReviewComment
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/comments/{comment_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/pulls/comments/{comment_id}';
-    private string $owner;
-    private string $repo;
     /**comment_id parameter **/
     private int $commentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator, string $owner, string $repo, int $commentId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator, private string $owner, private string $repo, int $commentId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->commentId               = $commentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->commentId = $commentId;
     }
 
     public function createRequest(): RequestInterface

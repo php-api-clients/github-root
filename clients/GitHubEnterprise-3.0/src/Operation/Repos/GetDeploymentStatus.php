@@ -24,22 +24,12 @@ final class GetDeploymentStatus
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}';
-    private string $owner;
-    private string $repo;
     /**deployment_id parameter **/
     private int $deploymentId;
-    private int $statusId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator, string $owner, string $repo, int $deploymentId, int $statusId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses\StatusId $hydrator, private string $owner, private string $repo, int $deploymentId, private int $statusId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->deploymentId            = $deploymentId;
-        $this->statusId                = $statusId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->deploymentId = $deploymentId;
     }
 
     public function createRequest(): RequestInterface

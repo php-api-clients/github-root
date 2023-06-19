@@ -23,9 +23,7 @@ final readonly class GetConfigurationStatus
     {
     }
 
-    /**
-     * @return PromiseInterface<ConfigurationStatus>
-     **/
+    /** @return PromiseInterface<ConfigurationStatus> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator);

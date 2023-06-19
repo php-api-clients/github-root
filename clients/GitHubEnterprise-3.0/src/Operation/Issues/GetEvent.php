@@ -24,19 +24,9 @@ final class GetEvent
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/events/{event_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/issues/events/{event_id}';
-    private string $owner;
-    private string $repo;
-    private int $eventId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\Events\EventId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\Events\EventId $hydrator, string $owner, string $repo, int $eventId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\Events\EventId $hydrator, private string $owner, private string $repo, private int $eventId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->eventId                 = $eventId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

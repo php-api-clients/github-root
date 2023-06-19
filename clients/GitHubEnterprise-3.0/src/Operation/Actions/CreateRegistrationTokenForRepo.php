@@ -23,17 +23,9 @@ final class CreateRegistrationTokenForRepo
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/actions/runners/registration-token';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/actions/runners/registration-token';
-    private string $owner;
-    private string $repo;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RegistrationToken $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RegistrationToken $hydrator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RegistrationToken $hydrator, private string $owner, private string $repo)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -21,7 +21,9 @@ final readonly class ApplicationJson
      * draft: `true` makes the release a draft, and `false` publishes the release.
      * prerelease: `true` to identify the release as a prerelease, `false` to identify the release as a full release.
      */
-    public function __construct(#[MapFrom('tag_name')] public ?string $tagName, #[MapFrom('target_commitish')] public ?string $targetCommitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease)
+    public function __construct(#[MapFrom('tag_name')]
+    public string|null $tagName, #[MapFrom('target_commitish')]
+    public string|null $targetCommitish, public string|null $name, public string|null $body, public bool|null $draft, public bool|null $prerelease,)
     {
     }
 }

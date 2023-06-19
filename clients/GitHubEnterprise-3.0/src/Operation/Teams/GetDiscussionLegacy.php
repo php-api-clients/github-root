@@ -23,17 +23,9 @@ final class GetDiscussionLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}/discussions/{discussion_number}';
     private const METHOD         = 'GET';
     private const PATH           = '/teams/{team_id}/discussions/{discussion_number}';
-    private int $teamId;
-    private int $discussionNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber $hydrator, int $teamId, int $discussionNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber $hydrator, private int $teamId, private int $discussionNumber)
     {
-        $this->teamId                  = $teamId;
-        $this->discussionNumber        = $discussionNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

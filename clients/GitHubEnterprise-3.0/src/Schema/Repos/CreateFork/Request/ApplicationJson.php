@@ -14,7 +14,7 @@ final readonly class ApplicationJson
     /**
      * organization: Optional parameter to specify the organization name if forking into an organization.
      */
-    public function __construct(public ?string $organization)
+    public function __construct(public string|null $organization)
     {
     }
 }

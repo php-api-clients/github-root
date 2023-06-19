@@ -24,20 +24,12 @@ final class DeleteDeployment
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/deployments/{deployment_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/deployments/{deployment_id}';
-    private string $owner;
-    private string $repo;
     /**deployment_id parameter **/
     private int $deploymentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId $hydrator, string $owner, string $repo, int $deploymentId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId $hydrator, private string $owner, private string $repo, int $deploymentId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->deploymentId            = $deploymentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->deploymentId = $deploymentId;
     }
 
     public function createRequest(): RequestInterface
@@ -45,9 +37,7 @@ final class DeleteDeployment
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{deployment_id}'], [$this->owner, $this->repo, $this->deploymentId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

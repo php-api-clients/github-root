@@ -24,8 +24,6 @@ final class ListForRepo
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/issues';
-    private string $owner;
-    private string $repo;
     /**If an `integer` is passed, it should refer to a milestone by its `number` field. If the string `*` is passed, issues with any milestone are accepted. If the string `none` is passed, issues without milestones are returned. **/
     private string $milestone;
     /**Can be the name of a user. Pass in `none` for issues with no assigned user, and `*` for issues assigned to any user. **/
@@ -48,26 +46,20 @@ final class ListForRepo
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues $hydrator, string $owner, string $repo, string $milestone, string $assignee, string $creator, string $mentioned, string $labels, string $since, string $state = 'open', string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues $hydrator, private string $owner, private string $repo, string $milestone, string $assignee, string $creator, string $mentioned, string $labels, string $since, string $state = 'open', string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->milestone               = $milestone;
-        $this->assignee                = $assignee;
-        $this->creator                 = $creator;
-        $this->mentioned               = $mentioned;
-        $this->labels                  = $labels;
-        $this->since                   = $since;
-        $this->state                   = $state;
-        $this->sort                    = $sort;
-        $this->direction               = $direction;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->milestone = $milestone;
+        $this->assignee  = $assignee;
+        $this->creator   = $creator;
+        $this->mentioned = $mentioned;
+        $this->labels    = $labels;
+        $this->since     = $since;
+        $this->state     = $state;
+        $this->sort      = $sort;
+        $this->direction = $direction;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

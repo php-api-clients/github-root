@@ -23,20 +23,12 @@ final class GetPullRequestReviewProtection
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews';
-    private string $owner;
-    private string $repo;
     /**The name of the branch. **/
     private string $branch;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredPullRequestReviews $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredPullRequestReviews $hydrator, string $owner, string $repo, string $branch)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\RequiredPullRequestReviews $hydrator, private string $owner, private string $repo, string $branch)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->branch                  = $branch;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->branch = $branch;
     }
 
     public function createRequest(): RequestInterface

@@ -19,7 +19,8 @@ final readonly class ContentReferenceAttachment
      * body: The body of the attachment
      * nodeId: The node_id of the content attachment
      */
-    public function __construct(public int $id, public string $title, public string $body, #[MapFrom('node_id')] public ?string $nodeId)
+    public function __construct(public int $id, public string $title, public string $body, #[MapFrom('node_id')]
+    public string|null $nodeId,)
     {
     }
 }

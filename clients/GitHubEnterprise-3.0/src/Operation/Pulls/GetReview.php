@@ -24,22 +24,12 @@ final class GetReview
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}';
-    private string $owner;
-    private string $repo;
-    private int $pullNumber;
     /**review_id parameter **/
     private int $reviewId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews\ReviewId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews\ReviewId $hydrator, string $owner, string $repo, int $pullNumber, int $reviewId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews\ReviewId $hydrator, private string $owner, private string $repo, private int $pullNumber, int $reviewId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->pullNumber              = $pullNumber;
-        $this->reviewId                = $reviewId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->reviewId = $reviewId;
     }
 
     public function createRequest(): RequestInterface

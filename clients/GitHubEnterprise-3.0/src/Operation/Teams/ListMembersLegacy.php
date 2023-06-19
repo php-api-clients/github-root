@@ -24,7 +24,6 @@ final class ListMembersLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}/members';
     private const METHOD         = 'GET';
     private const PATH           = '/teams/{team_id}/members';
-    private int $teamId;
     /**Filters members returned by their role in the team. Can be one of:
     \* `member` - normal members of the team.
     \* `maintainer` - team maintainers.
@@ -34,17 +33,12 @@ final class ListMembersLegacy
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Members $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Members $hydrator, int $teamId, string $role = 'all', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Members $hydrator, private int $teamId, string $role = 'all', int $perPage = 30, int $page = 1)
     {
-        $this->teamId                  = $teamId;
-        $this->role                    = $role;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->role    = $role;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface

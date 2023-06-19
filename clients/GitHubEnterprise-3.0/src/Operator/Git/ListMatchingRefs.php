@@ -20,9 +20,7 @@ final readonly class ListMatchingRefs
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $owner, string $repo, string $ref, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Git\ListMatchingRefs($owner, $repo, $ref, $perPage, $page);

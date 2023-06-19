@@ -17,15 +17,11 @@ final class DownloadWorkflowRunLogs
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/logs';
-    private string $owner;
-    private string $repo;
     /**The id of the workflow run. **/
     private int $runId;
 
-    public function __construct(string $owner, string $repo, int $runId)
+    public function __construct(private string $owner, private string $repo, int $runId)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
         $this->runId = $runId;
     }
 
@@ -34,9 +30,7 @@ final class DownloadWorkflowRunLogs
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}'], [$this->owner, $this->repo, $this->runId], self::PATH));
     }
 
-    /**
-     * @return array{code: int,location: string}
-     */
+    /** @return array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

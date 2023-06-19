@@ -16,7 +16,6 @@ final class ListReposStarredByUser
     public const OPERATION_MATCH = 'GET /users/{username}/starred';
     private const METHOD         = 'GET';
     private const PATH           = '/users/{username}/starred';
-    private string $username;
     /**One of `created` (when the repository was starred) or `updated` (when it was last pushed to). **/
     private string $sort;
     /**One of `asc` (ascending) or `desc` (descending). **/
@@ -26,9 +25,8 @@ final class ListReposStarredByUser
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $username, string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(private string $username, string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
-        $this->username  = $username;
         $this->sort      = $sort;
         $this->direction = $direction;
         $this->perPage   = $perPage;

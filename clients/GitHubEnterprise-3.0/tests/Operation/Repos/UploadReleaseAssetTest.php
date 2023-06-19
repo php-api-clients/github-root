@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class UploadReleaseAssetTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_201_requestContentType___responseContentType_application_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/json'], Schema\ReleaseAsset::SCHEMA_EXAMPLE_DATA);
@@ -43,9 +41,7 @@ final class UploadReleaseAssetTest extends AsyncTestCase
         })(json_decode(Schema\Repos\UploadReleaseAsset\Request::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_201_requestContentType___responseContentType_application_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/json'], Schema\ReleaseAsset::SCHEMA_EXAMPLE_DATA);
@@ -59,9 +55,7 @@ final class UploadReleaseAssetTest extends AsyncTestCase
         $result = await($client->operations()->repos()->uploadReleaseAsset('generated', 'generated', 10, 'generated', 'generated', json_decode(Schema\Repos\UploadReleaseAsset\Request::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_requestContentType___empty(): void
     {
         $response = new Response(422, []);
@@ -83,9 +77,7 @@ final class UploadReleaseAssetTest extends AsyncTestCase
         })(json_decode(Schema\Repos\UploadReleaseAsset\Request::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_requestContentType___empty(): void
     {
         $response = new Response(422, []);

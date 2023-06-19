@@ -24,22 +24,12 @@ final class GetTree
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/git/trees/{tree_sha}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/git/trees/{tree_sha}';
-    private string $owner;
-    private string $repo;
-    private string $treeSha;
     /**Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `"true"`, and `"false"`. Omit this parameter to prevent recursively returning objects or subtrees. **/
     private string $recursive;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Trees\TreeSha $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Git\Trees\TreeSha $hydrator, string $owner, string $repo, string $treeSha, string $recursive)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Trees\TreeSha $hydrator, private string $owner, private string $repo, private string $treeSha, string $recursive)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->treeSha                 = $treeSha;
-        $this->recursive               = $recursive;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->recursive = $recursive;
     }
 
     public function createRequest(): RequestInterface

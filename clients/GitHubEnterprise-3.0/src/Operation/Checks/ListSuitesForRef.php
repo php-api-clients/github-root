@@ -23,8 +23,6 @@ final class ListSuitesForRef
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits/{ref}/check-suites';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/commits/{ref}/check-suites';
-    private string $owner;
-    private string $repo;
     /**ref parameter **/
     private string $ref;
     /**Filters check suites by GitHub App `id`. **/
@@ -35,20 +33,14 @@ final class ListSuitesForRef
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\Ref\CheckSuites $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Commits\Ref\CheckSuites $hydrator, string $owner, string $repo, string $ref, int $appId, string $checkName, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\Ref\CheckSuites $hydrator, private string $owner, private string $repo, string $ref, int $appId, string $checkName, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->ref                     = $ref;
-        $this->appId                   = $appId;
-        $this->checkName               = $checkName;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->ref       = $ref;
+        $this->appId     = $appId;
+        $this->checkName = $checkName;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

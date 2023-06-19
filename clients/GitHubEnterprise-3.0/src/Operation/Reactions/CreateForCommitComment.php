@@ -25,22 +25,12 @@ final class CreateForCommitComment
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/comments/{comment_id}/reactions';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/comments/{comment_id}/reactions';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**comment_id parameter **/
     private int $commentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId\Reactions $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId\Reactions $hydrator, string $owner, string $repo, int $commentId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId\Reactions $hydrator, private string $owner, private string $repo, int $commentId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->commentId               = $commentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->commentId = $commentId;
     }
 
     public function createRequest(array $data): RequestInterface

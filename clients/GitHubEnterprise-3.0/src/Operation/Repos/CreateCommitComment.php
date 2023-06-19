@@ -25,22 +25,12 @@ final class CreateCommitComment
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/commits/{commit_sha}/comments';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/commits/{commit_sha}/comments';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**commit_sha parameter **/
     private string $commitSha;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Comments $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Comments $hydrator, string $owner, string $repo, string $commitSha)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Comments $hydrator, private string $owner, private string $repo, string $commitSha)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->commitSha               = $commitSha;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->commitSha = $commitSha;
     }
 
     public function createRequest(array $data): RequestInterface

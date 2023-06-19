@@ -24,26 +24,18 @@ final class ListBranches
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/branches';
-    private string $owner;
-    private string $repo;
     /**Setting to `true` returns only protected branches. When set to `false`, only unprotected branches are returned. Omitting this parameter returns all branches. **/
     private bool $protected;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Branches $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Branches $hydrator, string $owner, string $repo, bool $protected, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Branches $hydrator, private string $owner, private string $repo, bool $protected, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->protected               = $protected;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->protected = $protected;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

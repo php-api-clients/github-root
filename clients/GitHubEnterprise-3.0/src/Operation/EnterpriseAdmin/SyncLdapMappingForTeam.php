@@ -23,15 +23,9 @@ final class SyncLdapMappingForTeam
     public const OPERATION_MATCH = 'POST /admin/ldap/teams/{team_id}/sync';
     private const METHOD         = 'POST';
     private const PATH           = '/admin/ldap/teams/{team_id}/sync';
-    private int $teamId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Ldap\Teams\TeamId\Sync $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Teams\TeamId\Sync $hydrator, int $teamId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Ldap\Teams\TeamId\Sync $hydrator, private int $teamId)
     {
-        $this->teamId                  = $teamId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -23,9 +23,7 @@ final readonly class CompareCommits
     {
     }
 
-    /**
-     * @return PromiseInterface<CommitComparison>
-     **/
+    /** @return PromiseInterface<CommitComparison> **/
     public function call(string $owner, string $repo, string $basehead): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\CompareCommits($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $basehead);

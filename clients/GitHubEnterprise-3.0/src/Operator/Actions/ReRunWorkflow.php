@@ -23,9 +23,7 @@ final readonly class ReRunWorkflow
     {
     }
 
-    /**
-     * @return PromiseInterface<Json>
-     **/
+    /** @return PromiseInterface<Json> **/
     public function call(string $owner, string $repo, int $runId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\ReRunWorkflow($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $runId);

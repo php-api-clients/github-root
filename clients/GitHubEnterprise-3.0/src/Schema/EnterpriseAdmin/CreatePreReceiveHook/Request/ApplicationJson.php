@@ -22,7 +22,9 @@ final readonly class ApplicationJson
      * enforcement: The state of enforcement for this hook. default: `disabled`
      * allowDownstreamConfiguration: Whether enforcement can be overridden at the org or repo level. default: `false`
      */
-    public function __construct(public string $name, public string $script, #[MapFrom('script_repository')] public Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\ApplicationJson\ScriptRepository $scriptRepository, public Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\ApplicationJson\Environment $environment, public ?string $enforcement, #[MapFrom('allow_downstream_configuration')] public ?bool $allowDownstreamConfiguration)
+    public function __construct(public string $name, public string $script, #[MapFrom('script_repository')]
+    public Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\ApplicationJson\ScriptRepository $scriptRepository, public Schema\EnterpriseAdmin\CreatePreReceiveHook\Request\ApplicationJson\Environment $environment, public string|null $enforcement, #[MapFrom('allow_downstream_configuration')]
+    public bool|null $allowDownstreamConfiguration,)
     {
     }
 }

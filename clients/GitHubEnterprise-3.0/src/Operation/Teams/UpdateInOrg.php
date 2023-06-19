@@ -24,20 +24,12 @@ final class UpdateInOrg
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/teams/{team_slug}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/orgs/{org}/teams/{team_slug}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug $hydrator, string $org, string $teamSlug)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug $hydrator, private string $org, string $teamSlug)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->org                     = $org;
-        $this->teamSlug                = $teamSlug;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(array $data): RequestInterface

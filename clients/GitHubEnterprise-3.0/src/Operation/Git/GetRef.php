@@ -24,20 +24,12 @@ final class GetRef
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/git/ref/{ref}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/git/ref/{ref}';
-    private string $owner;
-    private string $repo;
     /**ref parameter **/
     private string $ref;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Ref\Ref $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Git\Ref\Ref $hydrator, string $owner, string $repo, string $ref)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Ref\Ref $hydrator, private string $owner, private string $repo, string $ref)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->ref                     = $ref;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->ref = $ref;
     }
 
     public function createRequest(): RequestInterface

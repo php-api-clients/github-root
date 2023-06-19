@@ -25,19 +25,9 @@ final class AddOrUpdateMembershipForUserLegacy
     public const OPERATION_MATCH = 'PUT /teams/{team_id}/memberships/{username}';
     private const METHOD         = 'PUT';
     private const PATH           = '/teams/{team_id}/memberships/{username}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $teamId;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator, int $teamId, string $username)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator, private int $teamId, private string $username)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->teamId                  = $teamId;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -47,9 +37,7 @@ final class AddOrUpdateMembershipForUserLegacy
         return new Request(self::METHOD, str_replace(['{team_id}', '{username}'], [$this->teamId, $this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\TeamMembership|array{code: int}
-     */
+    /** @return Schema\TeamMembership|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\TeamMembership|array
     {
         $code          = $response->getStatusCode();

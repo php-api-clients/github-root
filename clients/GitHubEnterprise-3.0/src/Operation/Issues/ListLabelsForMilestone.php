@@ -16,8 +16,6 @@ final class ListLabelsForMilestone
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/milestones/{milestone_number}/labels';
-    private string $owner;
-    private string $repo;
     /**milestone_number parameter **/
     private int $milestoneNumber;
     /**Results per page (max 100) **/
@@ -25,10 +23,8 @@ final class ListLabelsForMilestone
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $owner, string $repo, int $milestoneNumber, int $perPage = 30, int $page = 1)
+    public function __construct(private string $owner, private string $repo, int $milestoneNumber, int $perPage = 30, int $page = 1)
     {
-        $this->owner           = $owner;
-        $this->repo            = $repo;
         $this->milestoneNumber = $milestoneNumber;
         $this->perPage         = $perPage;
         $this->page            = $page;

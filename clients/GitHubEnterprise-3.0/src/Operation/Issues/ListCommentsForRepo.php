@@ -24,8 +24,6 @@ final class ListCommentsForRepo
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/comments';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/issues/comments';
-    private string $owner;
-    private string $repo;
     /**Either `asc` or `desc`. Ignored without the `sort` parameter. **/
     private string $direction;
     /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
@@ -36,20 +34,14 @@ final class ListCommentsForRepo
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\Comments $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\Comments $hydrator, string $owner, string $repo, string $direction, string $since, string $sort = 'created', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\Comments $hydrator, private string $owner, private string $repo, string $direction, string $since, string $sort = 'created', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->direction               = $direction;
-        $this->since                   = $since;
-        $this->sort                    = $sort;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->direction = $direction;
+        $this->since     = $since;
+        $this->sort      = $sort;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

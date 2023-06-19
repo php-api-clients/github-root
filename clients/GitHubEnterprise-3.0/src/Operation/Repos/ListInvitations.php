@@ -16,17 +16,13 @@ final class ListInvitations
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/invitations';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/invitations';
-    private string $owner;
-    private string $repo;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $owner, string $repo, int $perPage = 30, int $page = 1)
+    public function __construct(private string $owner, private string $repo, int $perPage = 30, int $page = 1)
     {
-        $this->owner   = $owner;
-        $this->repo    = $repo;
         $this->perPage = $perPage;
         $this->page    = $page;
     }

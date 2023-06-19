@@ -24,21 +24,9 @@ final class UpdateDiscussionCommentLegacy
     public const OPERATION_MATCH = 'PATCH /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $teamId;
-    private int $discussionNumber;
-    private int $commentNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator, int $teamId, int $discussionNumber, int $commentNumber)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator, private int $teamId, private int $discussionNumber, private int $commentNumber)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->teamId                  = $teamId;
-        $this->discussionNumber        = $discussionNumber;
-        $this->commentNumber           = $commentNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

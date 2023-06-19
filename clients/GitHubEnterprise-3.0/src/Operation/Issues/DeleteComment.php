@@ -17,15 +17,11 @@ final class DeleteComment
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/issues/comments/{comment_id}';
-    private string $owner;
-    private string $repo;
     /**comment_id parameter **/
     private int $commentId;
 
-    public function __construct(string $owner, string $repo, int $commentId)
+    public function __construct(private string $owner, private string $repo, int $commentId)
     {
-        $this->owner     = $owner;
-        $this->repo      = $repo;
         $this->commentId = $commentId;
     }
 
@@ -34,9 +30,7 @@ final class DeleteComment
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

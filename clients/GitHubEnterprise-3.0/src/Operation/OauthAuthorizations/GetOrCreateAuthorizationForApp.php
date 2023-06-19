@@ -25,18 +25,12 @@ final class GetOrCreateAuthorizationForApp
     public const OPERATION_MATCH = 'PUT /authorizations/clients/{client_id}';
     private const METHOD         = 'PUT';
     private const PATH           = '/authorizations/clients/{client_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The client ID of your GitHub app. **/
     private string $clientId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Authorizations\Clients\ClientId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\Clients\ClientId $hydrator, string $clientId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Authorizations\Clients\ClientId $hydrator, string $clientId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->clientId                = $clientId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->clientId = $clientId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -46,9 +40,7 @@ final class GetOrCreateAuthorizationForApp
         return new Request(self::METHOD, str_replace(['{client_id}'], [$this->clientId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\Authorization|array{code: int}
-     */
+    /** @return Schema\Authorization|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Authorization|array
     {
         $code          = $response->getStatusCode();

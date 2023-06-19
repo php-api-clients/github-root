@@ -16,13 +16,9 @@ final class ListRunnerApplicationsForRepo
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runners/downloads';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/runners/downloads';
-    private string $owner;
-    private string $repo;
 
-    public function __construct(string $owner, string $repo)
+    public function __construct(private string $owner, private string $repo)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
     }
 
     public function createRequest(): RequestInterface

@@ -24,7 +24,6 @@ final class ListForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/issues';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/issues';
-    private string $org;
     /**A list of comma separated label names. Example: `bug,ui,@high` **/
     private string $labels;
     /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
@@ -46,22 +45,17 @@ final class ListForOrg
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Issues $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Issues $hydrator, string $org, string $labels, string $since, string $filter = 'assigned', string $state = 'open', string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Issues $hydrator, private string $org, string $labels, string $since, string $filter = 'assigned', string $state = 'open', string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
-        $this->org                     = $org;
-        $this->labels                  = $labels;
-        $this->since                   = $since;
-        $this->filter                  = $filter;
-        $this->state                   = $state;
-        $this->sort                    = $sort;
-        $this->direction               = $direction;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->labels    = $labels;
+        $this->since     = $since;
+        $this->filter    = $filter;
+        $this->state     = $state;
+        $this->sort      = $sort;
+        $this->direction = $direction;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

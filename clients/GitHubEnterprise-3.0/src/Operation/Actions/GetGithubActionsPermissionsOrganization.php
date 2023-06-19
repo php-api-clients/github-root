@@ -23,15 +23,9 @@ final class GetGithubActionsPermissionsOrganization
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/permissions';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/permissions';
-    private string $org;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\Permissions $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Permissions $hydrator, string $org)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\Permissions $hydrator, private string $org)
     {
-        $this->org                     = $org;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

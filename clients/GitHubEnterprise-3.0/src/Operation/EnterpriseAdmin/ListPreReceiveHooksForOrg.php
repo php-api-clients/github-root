@@ -16,7 +16,6 @@ final class ListPreReceiveHooksForOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/pre-receive-hooks';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/pre-receive-hooks';
-    private string $org;
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -26,9 +25,8 @@ final class ListPreReceiveHooksForOrg
     /**The sort order for the response collection. **/
     private string $sort;
 
-    public function __construct(string $org, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
+    public function __construct(private string $org, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
     {
-        $this->org       = $org;
         $this->perPage   = $perPage;
         $this->page      = $page;
         $this->direction = $direction;

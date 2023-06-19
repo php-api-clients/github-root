@@ -16,8 +16,6 @@ final class ListPullRequestsAssociatedWithCommit
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/commits/{commit_sha}/pulls';
-    private string $owner;
-    private string $repo;
     /**commit_sha parameter **/
     private string $commitSha;
     /**Results per page (max 100) **/
@@ -25,10 +23,8 @@ final class ListPullRequestsAssociatedWithCommit
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $owner, string $repo, string $commitSha, int $perPage = 30, int $page = 1)
+    public function __construct(private string $owner, private string $repo, string $commitSha, int $perPage = 30, int $page = 1)
     {
-        $this->owner     = $owner;
-        $this->repo      = $repo;
         $this->commitSha = $commitSha;
         $this->perPage   = $perPage;
         $this->page      = $page;

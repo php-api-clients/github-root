@@ -22,7 +22,8 @@ final readonly class CodeScanningAlertRule
      * tags: A set of tags applicable for the rule.
      * help: Detailed documentation for the rule as GitHub Flavored Markdown.
      */
-    public function __construct(public ?string $id, public ?string $name, public ?string $severity, public ?string $description, #[MapFrom('full_description')] public ?string $fullDescription, public ?array $tags, public ?string $help)
+    public function __construct(public string|null $id, public string|null $name, public string|null $severity, public string|null $description, #[MapFrom('full_description')]
+    public string|null $fullDescription, public array|null $tags, public string|null $help,)
     {
     }
 }

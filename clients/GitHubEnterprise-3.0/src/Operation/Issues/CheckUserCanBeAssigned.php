@@ -24,19 +24,9 @@ final class CheckUserCanBeAssigned
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/assignees/{assignee}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/assignees/{assignee}';
-    private string $owner;
-    private string $repo;
-    private string $assignee;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Assignees\Assignee $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Assignees\Assignee $hydrator, string $owner, string $repo, string $assignee)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Assignees\Assignee $hydrator, private string $owner, private string $repo, private string $assignee)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->assignee                = $assignee;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +34,7 @@ final class CheckUserCanBeAssigned
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{assignee}'], [$this->owner, $this->repo, $this->assignee], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

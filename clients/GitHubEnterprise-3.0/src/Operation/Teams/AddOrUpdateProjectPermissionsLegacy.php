@@ -25,19 +25,9 @@ final class AddOrUpdateProjectPermissionsLegacy
     public const OPERATION_MATCH = 'PUT /teams/{team_id}/projects/{project_id}';
     private const METHOD         = 'PUT';
     private const PATH           = '/teams/{team_id}/projects/{project_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $teamId;
-    private int $projectId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Projects\ProjectId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Projects\ProjectId $hydrator, int $teamId, int $projectId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Projects\ProjectId $hydrator, private int $teamId, private int $projectId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->teamId                  = $teamId;
-        $this->projectId               = $projectId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -47,9 +37,7 @@ final class AddOrUpdateProjectPermissionsLegacy
         return new Request(self::METHOD, str_replace(['{team_id}', '{project_id}'], [$this->teamId, $this->projectId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

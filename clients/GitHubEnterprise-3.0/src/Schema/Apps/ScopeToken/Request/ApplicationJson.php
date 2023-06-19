@@ -22,7 +22,10 @@ final readonly class ApplicationJson
      * repositoryIds: The list of repository IDs to scope the user-to-server access token to. `repository_ids` may not be specified if `repositories` is specified.
      * permissions: The permissions granted to the user-to-server access token.
      */
-    public function __construct(#[MapFrom('access_token')] public string $accessToken, public ?string $target, #[MapFrom('target_id')] public ?int $targetId, public ?array $repositories, #[MapFrom('repository_ids')] public ?array $repositoryIds, public ?Schema\AppPermissions $permissions)
+    public function __construct(#[MapFrom('access_token')]
+    public string $accessToken, public string|null $target, #[MapFrom('target_id')]
+    public int|null $targetId, public array|null $repositories, #[MapFrom('repository_ids')]
+    public array|null $repositoryIds, public Schema\AppPermissions|null $permissions,)
     {
     }
 }

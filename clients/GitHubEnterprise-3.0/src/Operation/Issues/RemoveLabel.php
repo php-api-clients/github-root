@@ -24,22 +24,12 @@ final class RemoveLabel
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels/{name}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/labels/{name}';
-    private string $owner;
-    private string $repo;
     /**issue_number parameter **/
     private int $issueNumber;
-    private string $name;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name $hydrator, string $owner, string $repo, int $issueNumber, string $name)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name $hydrator, private string $owner, private string $repo, int $issueNumber, private string $name)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->name                    = $name;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->issueNumber = $issueNumber;
     }
 
     public function createRequest(): RequestInterface

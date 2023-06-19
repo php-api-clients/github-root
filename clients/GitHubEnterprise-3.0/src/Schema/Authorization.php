@@ -17,7 +17,12 @@ final readonly class Authorization
     /**
      * scopes: A list of scopes that this authorization is in.
      */
-    public function __construct(public int $id, public string $url, public ?array $scopes, public string $token, #[MapFrom('token_last_eight')] public ?string $tokenLastEight, #[MapFrom('hashed_token')] public ?string $hashedToken, public Schema\Authorization\App $app, public ?string $note, #[MapFrom('note_url')] public ?string $noteUrl, #[MapFrom('updated_at')] public string $updatedAt, #[MapFrom('created_at')] public string $createdAt, public ?string $fingerprint, public ?Schema\SimpleUser $user, public ?Schema\ScopedInstallation $installation)
+    public function __construct(public int $id, public string $url, public array|null $scopes, public string $token, #[MapFrom('token_last_eight')]
+    public string|null $tokenLastEight, #[MapFrom('hashed_token')]
+    public string|null $hashedToken, public Schema\Authorization\App $app, public string|null $note, #[MapFrom('note_url')]
+    public string|null $noteUrl, #[MapFrom('updated_at')]
+    public string $updatedAt, #[MapFrom('created_at')]
+    public string $createdAt, public string|null $fingerprint, public Schema\SimpleUser|null $user, public Schema\ScopedInstallation|null $installation,)
     {
     }
 }

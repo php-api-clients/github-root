@@ -24,21 +24,15 @@ final class GetContextForUser
     public const OPERATION_MATCH = 'GET /users/{username}/hovercard';
     private const METHOD         = 'GET';
     private const PATH           = '/users/{username}/hovercard';
-    private string $username;
     /**Identifies which additional information you'd like to receive about the person's hovercard. Can be `organization`, `repository`, `issue`, `pull_request`. **Required** when using `subject_id`. **/
     private string $subjectType;
     /**Uses the ID for the `subject_type` you specified. **Required** when using `subject_type`. **/
     private string $subjectId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Users\Username\Hovercard $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Users\Username\Hovercard $hydrator, string $username, string $subjectType, string $subjectId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Users\Username\Hovercard $hydrator, private string $username, string $subjectType, string $subjectId)
     {
-        $this->username                = $username;
-        $this->subjectType             = $subjectType;
-        $this->subjectId               = $subjectId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->subjectType = $subjectType;
+        $this->subjectId   = $subjectId;
     }
 
     public function createRequest(): RequestInterface

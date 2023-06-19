@@ -23,9 +23,7 @@ final readonly class SetSuitesPreferences
     {
     }
 
-    /**
-     * @return PromiseInterface<CheckSuitePreference>
-     **/
+    /** @return PromiseInterface<CheckSuitePreference> **/
     public function call(string $owner, string $repo, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Checks\SetSuitesPreferences($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

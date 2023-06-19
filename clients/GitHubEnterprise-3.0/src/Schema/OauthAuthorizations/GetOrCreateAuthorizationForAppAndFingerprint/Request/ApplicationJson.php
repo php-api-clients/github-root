@@ -19,7 +19,9 @@ final readonly class ApplicationJson
      * note: A note to remind you what the OAuth token is for.
      * noteUrl: A URL to remind you what app the OAuth token is for.
      */
-    public function __construct(#[MapFrom('client_secret')] public string $clientSecret, public ?array $scopes, public ?string $note, #[MapFrom('note_url')] public ?string $noteUrl)
+    public function __construct(#[MapFrom('client_secret')]
+    public string $clientSecret, public array|null $scopes, public string|null $note, #[MapFrom('note_url')]
+    public string|null $noteUrl,)
     {
     }
 }

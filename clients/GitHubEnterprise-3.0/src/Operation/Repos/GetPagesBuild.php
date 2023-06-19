@@ -23,19 +23,9 @@ final class GetPagesBuild
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pages/builds/{build_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/pages/builds/{build_id}';
-    private string $owner;
-    private string $repo;
-    private int $buildId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator, string $owner, string $repo, int $buildId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator, private string $owner, private string $repo, private int $buildId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->buildId                 = $buildId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

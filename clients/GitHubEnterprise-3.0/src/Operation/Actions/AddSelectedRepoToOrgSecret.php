@@ -17,16 +17,12 @@ final class AddSelectedRepoToOrgSecret
     public const OPERATION_MATCH = 'PUT /orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}';
     private const METHOD         = 'PUT';
     private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}/repositories/{repository_id}';
-    private string $org;
     /**secret_name parameter **/
     private string $secretName;
-    private int $repositoryId;
 
-    public function __construct(string $org, string $secretName, int $repositoryId)
+    public function __construct(private string $org, string $secretName, private int $repositoryId)
     {
-        $this->org          = $org;
-        $this->secretName   = $secretName;
-        $this->repositoryId = $repositoryId;
+        $this->secretName = $secretName;
     }
 
     public function createRequest(): RequestInterface
@@ -34,9 +30,7 @@ final class AddSelectedRepoToOrgSecret
         return new Request(self::METHOD, str_replace(['{org}', '{secret_name}', '{repository_id}'], [$this->org, $this->secretName, $this->repositoryId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

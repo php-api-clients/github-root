@@ -13,7 +13,8 @@ final readonly class Syslog
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"server":"generated","protocol_name":"generated"}';
 
-    public function __construct(public ?bool $enabled, public ?string $server, #[MapFrom('protocol_name')] public ?string $protocolName)
+    public function __construct(public bool|null $enabled, public string|null $server, #[MapFrom('protocol_name')]
+    public string|null $protocolName,)
     {
     }
 }

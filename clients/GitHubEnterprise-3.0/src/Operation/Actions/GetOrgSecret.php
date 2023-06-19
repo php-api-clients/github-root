@@ -23,18 +23,12 @@ final class GetOrgSecret
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/secrets/{secret_name}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}';
-    private string $org;
     /**secret_name parameter **/
     private string $secretName;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName $hydrator, string $org, string $secretName)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName $hydrator, private string $org, string $secretName)
     {
-        $this->org                     = $org;
-        $this->secretName              = $secretName;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->secretName = $secretName;
     }
 
     public function createRequest(): RequestInterface

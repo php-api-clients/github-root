@@ -16,7 +16,6 @@ final class ListDiscussionsLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}/discussions';
     private const METHOD         = 'GET';
     private const PATH           = '/teams/{team_id}/discussions';
-    private int $teamId;
     /**One of `asc` (ascending) or `desc` (descending). **/
     private string $direction;
     /**Results per page (max 100) **/
@@ -24,9 +23,8 @@ final class ListDiscussionsLegacy
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(int $teamId, string $direction = 'desc', int $perPage = 30, int $page = 1)
+    public function __construct(private int $teamId, string $direction = 'desc', int $perPage = 30, int $page = 1)
     {
-        $this->teamId    = $teamId;
         $this->direction = $direction;
         $this->perPage   = $perPage;
         $this->page      = $page;

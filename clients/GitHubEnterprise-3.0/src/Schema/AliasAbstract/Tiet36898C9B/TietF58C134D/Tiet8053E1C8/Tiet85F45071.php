@@ -16,7 +16,7 @@ abstract readonly class Tiet85F45071
     \* `member` - a normal member of the team.
     \* `maintainer` - a team maintainer. Able to add/remove other team members, promote other team members to team maintainer, and edit the team's name and description.
      */
-    public function __construct(public ?string $role)
+    public function __construct(public string|null $role)
     {
     }
 }

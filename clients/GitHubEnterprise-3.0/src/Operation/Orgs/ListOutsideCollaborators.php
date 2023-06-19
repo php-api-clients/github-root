@@ -16,7 +16,6 @@ final class ListOutsideCollaborators
     public const OPERATION_MATCH = 'GET /orgs/{org}/outside_collaborators';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/outside_collaborators';
-    private string $org;
     /**Filter the list of outside collaborators. Can be one of:
     \* `2fa_disabled`: Outside collaborators without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled.
     \* `all`: All outside collaborators. **/
@@ -26,9 +25,8 @@ final class ListOutsideCollaborators
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $org, string $filter = 'all', int $perPage = 30, int $page = 1)
+    public function __construct(private string $org, string $filter = 'all', int $perPage = 30, int $page = 1)
     {
-        $this->org     = $org;
         $this->filter  = $filter;
         $this->perPage = $perPage;
         $this->page    = $page;

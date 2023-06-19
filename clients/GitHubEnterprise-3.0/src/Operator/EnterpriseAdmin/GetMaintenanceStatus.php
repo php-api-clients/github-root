@@ -23,9 +23,7 @@ final readonly class GetMaintenanceStatus
     {
     }
 
-    /**
-     * @return PromiseInterface<MaintenanceStatus>
-     **/
+    /** @return PromiseInterface<MaintenanceStatus> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetMaintenanceStatus($this->responseSchemaValidator, $this->hydrator);

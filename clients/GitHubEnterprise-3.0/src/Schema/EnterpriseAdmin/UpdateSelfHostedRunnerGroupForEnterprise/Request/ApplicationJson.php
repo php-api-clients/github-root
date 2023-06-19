@@ -18,7 +18,8 @@ final readonly class ApplicationJson
      * visibility: Visibility of a runner group. You can select all organizations or select individual organizations. Can be one of: `all` or `selected`
      * allowsPublicRepositories: Whether the runner group can be used by `public` repositories.
      */
-    public function __construct(public ?string $name, public ?string $visibility, #[MapFrom('allows_public_repositories')] public ?bool $allowsPublicRepositories)
+    public function __construct(public string|null $name, public string|null $visibility, #[MapFrom('allows_public_repositories')]
+    public bool|null $allowsPublicRepositories,)
     {
     }
 }

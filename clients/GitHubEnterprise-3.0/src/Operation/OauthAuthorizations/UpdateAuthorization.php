@@ -25,18 +25,12 @@ final class UpdateAuthorization
     public const OPERATION_MATCH = 'PATCH /authorizations/{authorization_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/authorizations/{authorization_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**authorization_id parameter **/
     private int $authorizationId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Authorizations\AuthorizationId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\AuthorizationId $hydrator, int $authorizationId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Authorizations\AuthorizationId $hydrator, int $authorizationId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->authorizationId         = $authorizationId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->authorizationId = $authorizationId;
     }
 
     public function createRequest(array $data): RequestInterface

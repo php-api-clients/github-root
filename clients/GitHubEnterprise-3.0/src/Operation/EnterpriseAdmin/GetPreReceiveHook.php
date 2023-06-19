@@ -25,14 +25,10 @@ final class GetPreReceiveHook
     private const PATH           = '/admin/pre-receive-hooks/{pre_receive_hook_id}';
     /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator, int $preReceiveHookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator, int $preReceiveHookId)
     {
-        $this->preReceiveHookId        = $preReceiveHookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->preReceiveHookId = $preReceiveHookId;
     }
 
     public function createRequest(): RequestInterface

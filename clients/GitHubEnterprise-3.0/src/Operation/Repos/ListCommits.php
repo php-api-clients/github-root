@@ -24,8 +24,6 @@ final class ListCommits
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/commits';
-    private string $owner;
-    private string $repo;
     /**SHA or branch to start listing commits from. Default: the repository’s default branch (usually `master`). **/
     private string $sha;
     /**Only commits containing this file path will be returned. **/
@@ -40,22 +38,16 @@ final class ListCommits
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Commits $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Commits $hydrator, string $owner, string $repo, string $sha, string $path, string $author, string $since, string $until, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Commits $hydrator, private string $owner, private string $repo, string $sha, string $path, string $author, string $since, string $until, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->sha                     = $sha;
-        $this->path                    = $path;
-        $this->author                  = $author;
-        $this->since                   = $since;
-        $this->until                   = $until;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->sha     = $sha;
+        $this->path    = $path;
+        $this->author  = $author;
+        $this->since   = $since;
+        $this->until   = $until;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface

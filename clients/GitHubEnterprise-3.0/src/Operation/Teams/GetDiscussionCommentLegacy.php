@@ -23,19 +23,9 @@ final class GetDiscussionCommentLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}';
     private const METHOD         = 'GET';
     private const PATH           = '/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}';
-    private int $teamId;
-    private int $discussionNumber;
-    private int $commentNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator, int $teamId, int $discussionNumber, int $commentNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments\CommentNumber $hydrator, private int $teamId, private int $discussionNumber, private int $commentNumber)
     {
-        $this->teamId                  = $teamId;
-        $this->discussionNumber        = $discussionNumber;
-        $this->commentNumber           = $commentNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

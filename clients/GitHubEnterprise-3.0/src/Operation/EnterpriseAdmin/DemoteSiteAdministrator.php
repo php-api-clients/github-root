@@ -17,11 +17,9 @@ final class DemoteSiteAdministrator
     public const OPERATION_MATCH = 'DELETE /users/{username}/site_admin';
     private const METHOD         = 'DELETE';
     private const PATH           = '/users/{username}/site_admin';
-    private string $username;
 
-    public function __construct(string $username)
+    public function __construct(private string $username)
     {
-        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface
@@ -29,9 +27,7 @@ final class DemoteSiteAdministrator
         return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

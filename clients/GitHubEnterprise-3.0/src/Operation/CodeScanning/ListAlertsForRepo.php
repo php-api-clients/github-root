@@ -24,8 +24,6 @@ final class ListAlertsForRepo
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/code-scanning/alerts';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/code-scanning/alerts';
-    private string $owner;
-    private string $repo;
     /**The name of a code scanning tool. Only results by this tool will be listed. You can specify the tool by using either `tool_name` or `tool_guid`, but not both. **/
     private string $toolName;
     /**The GUID of a code scanning tool. Only results by this tool will be listed. Note that some code scanning tools may not include a GUID in their analysis data. You can specify the tool by using either `tool_guid` or `tool_name`, but not both. **/
@@ -38,21 +36,15 @@ final class ListAlertsForRepo
     private int $page;
     /**Results per page (max 100) **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts $hydrator, string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page = 1, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts $hydrator, private string $owner, private string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page = 1, int $perPage = 30)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->toolName                = $toolName;
-        $this->toolGuid                = $toolGuid;
-        $this->ref                     = $ref;
-        $this->state                   = $state;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->toolName = $toolName;
+        $this->toolGuid = $toolGuid;
+        $this->ref      = $ref;
+        $this->state    = $state;
+        $this->page     = $page;
+        $this->perPage  = $perPage;
     }
 
     public function createRequest(): RequestInterface

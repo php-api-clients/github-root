@@ -17,18 +17,12 @@ final class DownloadArtifact
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
-    private string $owner;
-    private string $repo;
     /**artifact_id parameter **/
     private int $artifactId;
-    private string $archiveFormat;
 
-    public function __construct(string $owner, string $repo, int $artifactId, string $archiveFormat)
+    public function __construct(private string $owner, private string $repo, int $artifactId, private string $archiveFormat)
     {
-        $this->owner         = $owner;
-        $this->repo          = $repo;
-        $this->artifactId    = $artifactId;
-        $this->archiveFormat = $archiveFormat;
+        $this->artifactId = $artifactId;
     }
 
     public function createRequest(): RequestInterface
@@ -36,9 +30,7 @@ final class DownloadArtifact
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], self::PATH));
     }
 
-    /**
-     * @return array{code: int,location: string}
-     */
+    /** @return array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

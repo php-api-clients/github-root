@@ -17,13 +17,9 @@ final class DeleteRepoSubscription
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/subscription';
     private const METHOD         = 'DELETE';
     private const PATH           = '/repos/{owner}/{repo}/subscription';
-    private string $owner;
-    private string $repo;
 
-    public function __construct(string $owner, string $repo)
+    public function __construct(private string $owner, private string $repo)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
     }
 
     public function createRequest(): RequestInterface
@@ -31,9 +27,7 @@ final class DeleteRepoSubscription
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

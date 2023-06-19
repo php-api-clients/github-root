@@ -25,22 +25,12 @@ final class AddLabels
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/issues/{issue_number}/labels';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/labels';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**issue_number parameter **/
     private int $issueNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator, string $owner, string $repo, int $issueNumber)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels $hydrator, private string $owner, private string $repo, int $issueNumber)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->issueNumber = $issueNumber;
     }
 
     public function createRequest(array $data): RequestInterface

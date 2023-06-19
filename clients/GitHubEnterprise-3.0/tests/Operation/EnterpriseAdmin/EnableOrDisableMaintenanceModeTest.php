@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class EnableOrDisableMaintenanceModeTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_requestContentType_application_x_www_form_urlencoded_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\MaintenanceStatus::SCHEMA_EXAMPLE_DATA);
@@ -37,9 +35,7 @@ final class EnableOrDisableMaintenanceModeTest extends AsyncTestCase
         })(json_decode(Schema\EnterpriseAdmin\EnableOrDisableMaintenanceMode\Request\ApplicationXWwwFormUrlencoded::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_requestContentType_application_x_www_form_urlencoded_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\MaintenanceStatus::SCHEMA_EXAMPLE_DATA);

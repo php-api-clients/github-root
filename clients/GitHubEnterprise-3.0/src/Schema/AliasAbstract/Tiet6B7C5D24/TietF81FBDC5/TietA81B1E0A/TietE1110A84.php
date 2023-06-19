@@ -16,7 +16,8 @@ abstract readonly class TietE1110A84
     /**
      * accessToken: The access_token of the OAuth application.
      */
-    public function __construct(#[MapFrom('access_token')] public string $accessToken)
+    public function __construct(#[MapFrom('access_token')]
+    public string $accessToken,)
     {
     }
 }

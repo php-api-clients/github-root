@@ -17,7 +17,9 @@ final readonly class TimelineCrossReferencedEvent
     /**
      * actor: Simple User
      */
-    public function __construct(public string $event, public ?Schema\SimpleUser $actor, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt, public Schema\TimelineCrossReferencedEvent\Source $source)
+    public function __construct(public string $event, public Schema\SimpleUser|null $actor, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt, public Schema\TimelineCrossReferencedEvent\Source $source,)
     {
     }
 }

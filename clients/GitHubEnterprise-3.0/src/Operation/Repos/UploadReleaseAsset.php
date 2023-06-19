@@ -24,26 +24,12 @@ final class UploadReleaseAsset
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/releases/{release_id}/assets';
     private const METHOD         = 'POST';
     private const PATH           = '/repos/{owner}/{repo}/releases/{release_id}/assets';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**release_id parameter **/
     private int $releaseId;
-    private string $name;
-    private string $label;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets $hydrator, string $owner, string $repo, int $releaseId, string $name, string $label)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets $hydrator, private string $owner, private string $repo, int $releaseId, private string $name, private string $label)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->releaseId               = $releaseId;
-        $this->name                    = $name;
-        $this->label                   = $label;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->releaseId = $releaseId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -53,9 +39,7 @@ final class UploadReleaseAsset
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{release_id}', '{name}', '{label}'], [$this->owner, $this->repo, $this->releaseId, $this->name, $this->label], self::PATH . '?name={name}&label={label}'), ['Content-Type' => '*/*'], json_encode($data));
     }
 
-    /**
-     * @return Schema\ReleaseAsset|array{code: int}
-     */
+    /** @return Schema\ReleaseAsset|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\ReleaseAsset|array
     {
         $code          = $response->getStatusCode();

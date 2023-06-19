@@ -23,20 +23,12 @@ final class GetMembershipForUserInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/memberships/{username}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/memberships/{username}';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username $hydrator, string $org, string $teamSlug, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Memberships\Username $hydrator, private string $org, string $teamSlug, private string $username)
     {
-        $this->org                     = $org;
-        $this->teamSlug                = $teamSlug;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->teamSlug = $teamSlug;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +36,7 @@ final class GetMembershipForUserInOrg
         return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{username}'], [$this->org, $this->teamSlug, $this->username], self::PATH));
     }
 
-    /**
-     * @return Schema\TeamMembership|array{code: int}
-     */
+    /** @return Schema\TeamMembership|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\TeamMembership|array
     {
         $code          = $response->getStatusCode();

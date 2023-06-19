@@ -16,8 +16,6 @@ final class ListReleaseAssets
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/releases/{release_id}/assets';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/releases/{release_id}/assets';
-    private string $owner;
-    private string $repo;
     /**release_id parameter **/
     private int $releaseId;
     /**Results per page (max 100) **/
@@ -25,10 +23,8 @@ final class ListReleaseAssets
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $owner, string $repo, int $releaseId, int $perPage = 30, int $page = 1)
+    public function __construct(private string $owner, private string $repo, int $releaseId, int $perPage = 30, int $page = 1)
     {
-        $this->owner     = $owner;
-        $this->repo      = $repo;
         $this->releaseId = $releaseId;
         $this->perPage   = $perPage;
         $this->page      = $page;

@@ -16,8 +16,6 @@ final class ListAnnotations
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/check-runs/{check_run_id}/annotations';
-    private string $owner;
-    private string $repo;
     /**check_run_id parameter **/
     private int $checkRunId;
     /**Results per page (max 100) **/
@@ -25,10 +23,8 @@ final class ListAnnotations
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $owner, string $repo, int $checkRunId, int $perPage = 30, int $page = 1)
+    public function __construct(private string $owner, private string $repo, int $checkRunId, int $perPage = 30, int $page = 1)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
         $this->checkRunId = $checkRunId;
         $this->perPage    = $perPage;
         $this->page       = $page;

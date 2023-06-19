@@ -24,8 +24,6 @@ final class ListMilestones
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/milestones';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/milestones';
-    private string $owner;
-    private string $repo;
     /**The state of the milestone. Either `open`, `closed`, or `all`. **/
     private string $state;
     /**What to sort results by. Either `due_on` or `completeness`. **/
@@ -36,20 +34,14 @@ final class ListMilestones
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Milestones $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Milestones $hydrator, string $owner, string $repo, string $state = 'open', string $sort = 'due_on', string $direction = 'asc', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Milestones $hydrator, private string $owner, private string $repo, string $state = 'open', string $sort = 'due_on', string $direction = 'asc', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->state                   = $state;
-        $this->sort                    = $sort;
-        $this->direction               = $direction;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->state     = $state;
+        $this->sort      = $sort;
+        $this->direction = $direction;
+        $this->perPage   = $perPage;
+        $this->page      = $page;
     }
 
     public function createRequest(): RequestInterface

@@ -24,19 +24,9 @@ final class GetTag
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/git/tags/{tag_sha}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/git/tags/{tag_sha}';
-    private string $owner;
-    private string $repo;
-    private string $tagSha;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Tags\TagSha $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Git\Tags\TagSha $hydrator, string $owner, string $repo, string $tagSha)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Tags\TagSha $hydrator, private string $owner, private string $repo, private string $tagSha)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->tagSha                  = $tagSha;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

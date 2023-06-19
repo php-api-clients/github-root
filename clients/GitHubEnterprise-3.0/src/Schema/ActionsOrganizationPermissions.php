@@ -19,7 +19,11 @@ final readonly class ActionsOrganizationPermissions
      * allowedActions: The permissions policy that controls the actions that are allowed to run. Can be one of: `all`, `local_only`, or `selected`.
      * selectedActionsUrl: The API URL to use to get or set the actions that are allowed to run, when `allowed_actions` is set to `selected`.
      */
-    public function __construct(#[MapFrom('enabled_repositories')] public string $enabledRepositories, #[MapFrom('selected_repositories_url')] public ?string $selectedRepositoriesUrl, #[MapFrom('allowed_actions')] public ?string $allowedActions, #[MapFrom('selected_actions_url')] public ?string $selectedActionsUrl)
+    public function __construct(#[MapFrom('enabled_repositories')]
+    public string $enabledRepositories, #[MapFrom('selected_repositories_url')]
+    public string|null $selectedRepositoriesUrl, #[MapFrom('allowed_actions')]
+    public string|null $allowedActions, #[MapFrom('selected_actions_url')]
+    public string|null $selectedActionsUrl,)
     {
     }
 }

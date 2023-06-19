@@ -17,15 +17,13 @@ final class RemoveSelfHostedRunnerFromGroupForOrg
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
-    private string $org;
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
     /**Unique identifier of the self-hosted runner. **/
     private int $runnerId;
 
-    public function __construct(string $org, int $runnerGroupId, int $runnerId)
+    public function __construct(private string $org, int $runnerGroupId, int $runnerId)
     {
-        $this->org           = $org;
         $this->runnerGroupId = $runnerGroupId;
         $this->runnerId      = $runnerId;
     }
@@ -35,9 +33,7 @@ final class RemoveSelfHostedRunnerFromGroupForOrg
         return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}', '{runner_id}'], [$this->org, $this->runnerGroupId, $this->runnerId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

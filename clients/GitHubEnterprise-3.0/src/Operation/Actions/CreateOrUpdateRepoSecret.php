@@ -24,22 +24,12 @@ final class CreateOrUpdateRepoSecret
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}';
     private const METHOD         = 'PUT';
     private const PATH           = '/repos/{owner}/{repo}/actions/secrets/{secret_name}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**secret_name parameter **/
     private string $secretName;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator, string $owner, string $repo, string $secretName)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\SecretName $hydrator, private string $owner, private string $repo, string $secretName)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->secretName              = $secretName;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->secretName = $secretName;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -49,9 +39,7 @@ final class CreateOrUpdateRepoSecret
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{secret_name}'], [$this->owner, $this->repo, $this->secretName], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json|array{code: int}
-     */
+    /** @return Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json|array
     {
         $code          = $response->getStatusCode();

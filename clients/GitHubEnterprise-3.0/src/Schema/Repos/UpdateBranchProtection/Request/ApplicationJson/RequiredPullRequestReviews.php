@@ -20,7 +20,11 @@ final readonly class RequiredPullRequestReviews
      * requireCodeOwnerReviews: Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) review them.
      * requiredApprovingReviewCount: Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.
      */
-    public function __construct(#[MapFrom('dismissal_restrictions')] public ?Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews\DismissalRestrictions $dismissalRestrictions, #[MapFrom('dismiss_stale_reviews')] public ?bool $dismissStaleReviews, #[MapFrom('require_code_owner_reviews')] public ?bool $requireCodeOwnerReviews, #[MapFrom('required_approving_review_count')] public ?int $requiredApprovingReviewCount)
+    public function __construct(#[MapFrom('dismissal_restrictions')]
+    public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews\DismissalRestrictions|null $dismissalRestrictions, #[MapFrom('dismiss_stale_reviews')]
+    public bool|null $dismissStaleReviews, #[MapFrom('require_code_owner_reviews')]
+    public bool|null $requireCodeOwnerReviews, #[MapFrom('required_approving_review_count')]
+    public int|null $requiredApprovingReviewCount,)
     {
     }
 }

@@ -23,9 +23,7 @@ final readonly class GetBranchProtection
     {
     }
 
-    /**
-     * @return PromiseInterface<BranchProtection>
-     **/
+    /** @return PromiseInterface<BranchProtection> **/
     public function call(string $owner, string $repo, string $branch): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\GetBranchProtection($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $branch);

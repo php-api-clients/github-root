@@ -24,20 +24,12 @@ final class GetCommit
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/git/commits/{commit_sha}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/git/commits/{commit_sha}';
-    private string $owner;
-    private string $repo;
     /**commit_sha parameter **/
     private string $commitSha;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Commits\CommitSha $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Git\Commits\CommitSha $hydrator, string $owner, string $repo, string $commitSha)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Commits\CommitSha $hydrator, private string $owner, private string $repo, string $commitSha)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->commitSha               = $commitSha;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->commitSha = $commitSha;
     }
 
     public function createRequest(): RequestInterface

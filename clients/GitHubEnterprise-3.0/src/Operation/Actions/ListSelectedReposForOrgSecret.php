@@ -23,24 +23,18 @@ final class ListSelectedReposForOrgSecret
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/secrets/{secret_name}/repositories';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}/repositories';
-    private string $org;
     /**secret_name parameter **/
     private string $secretName;
     /**Page number of the results to fetch. **/
     private int $page;
     /**Results per page (max 100) **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName\Repositories $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName\Repositories $hydrator, string $org, string $secretName, int $page = 1, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets\SecretName\Repositories $hydrator, private string $org, string $secretName, int $page = 1, int $perPage = 30)
     {
-        $this->org                     = $org;
-        $this->secretName              = $secretName;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->secretName = $secretName;
+        $this->page       = $page;
+        $this->perPage    = $perPage;
     }
 
     public function createRequest(): RequestInterface

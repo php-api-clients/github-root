@@ -24,20 +24,12 @@ final class GetMilestone
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/milestones/{milestone_number}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/milestones/{milestone_number}';
-    private string $owner;
-    private string $repo;
     /**milestone_number parameter **/
     private int $milestoneNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator, string $owner, string $repo, int $milestoneNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator, private string $owner, private string $repo, int $milestoneNumber)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->milestoneNumber         = $milestoneNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->milestoneNumber = $milestoneNumber;
     }
 
     public function createRequest(): RequestInterface

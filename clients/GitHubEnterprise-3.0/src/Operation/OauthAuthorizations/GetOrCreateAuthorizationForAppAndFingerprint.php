@@ -25,20 +25,12 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
     public const OPERATION_MATCH = 'PUT /authorizations/clients/{client_id}/{fingerprint}';
     private const METHOD         = 'PUT';
     private const PATH           = '/authorizations/clients/{client_id}/{fingerprint}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The client ID of your GitHub app. **/
     private string $clientId;
-    private string $fingerprint;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint $hydrator, string $clientId, string $fingerprint)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint $hydrator, string $clientId, private string $fingerprint)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->clientId                = $clientId;
-        $this->fingerprint             = $fingerprint;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->clientId = $clientId;
     }
 
     public function createRequest(array $data): RequestInterface

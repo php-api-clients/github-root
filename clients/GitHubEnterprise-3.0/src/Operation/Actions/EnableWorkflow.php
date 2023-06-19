@@ -17,15 +17,11 @@ final class EnableWorkflow
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable';
     private const METHOD         = 'PUT';
     private const PATH           = '/repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable';
-    private string $owner;
-    private string $repo;
     /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
 
-    public function __construct(string $owner, string $repo, $workflowId)
+    public function __construct(private string $owner, private string $repo, $workflowId)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
         $this->workflowId = $workflowId;
     }
 
@@ -34,9 +30,7 @@ final class EnableWorkflow
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{workflow_id}'], [$this->owner, $this->repo, $this->workflowId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

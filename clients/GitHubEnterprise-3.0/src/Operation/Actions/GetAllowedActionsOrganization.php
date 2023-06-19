@@ -23,15 +23,9 @@ final class GetAllowedActionsOrganization
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/permissions/selected-actions';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/permissions/selected-actions';
-    private string $org;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions $hydrator, string $org)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions $hydrator, private string $org)
     {
-        $this->org                     = $org;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

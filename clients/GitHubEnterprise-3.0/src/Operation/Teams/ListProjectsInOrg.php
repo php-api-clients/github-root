@@ -16,7 +16,6 @@ final class ListProjectsInOrg
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/projects';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/teams/{team_slug}/projects';
-    private string $org;
     /**team_slug parameter **/
     private string $teamSlug;
     /**Results per page (max 100) **/
@@ -24,9 +23,8 @@ final class ListProjectsInOrg
     /**Page number of the results to fetch. **/
     private int $page;
 
-    public function __construct(string $org, string $teamSlug, int $perPage = 30, int $page = 1)
+    public function __construct(private string $org, string $teamSlug, int $perPage = 30, int $page = 1)
     {
-        $this->org      = $org;
         $this->teamSlug = $teamSlug;
         $this->perPage  = $perPage;
         $this->page     = $page;

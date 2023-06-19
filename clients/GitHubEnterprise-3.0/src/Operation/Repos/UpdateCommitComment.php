@@ -25,22 +25,12 @@ final class UpdateCommitComment
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/comments/{comment_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/repos/{owner}/{repo}/comments/{comment_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
     /**comment_id parameter **/
     private int $commentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId $hydrator, string $owner, string $repo, int $commentId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Comments\CommentId $hydrator, private string $owner, private string $repo, int $commentId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->commentId               = $commentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->commentId = $commentId;
     }
 
     public function createRequest(array $data): RequestInterface

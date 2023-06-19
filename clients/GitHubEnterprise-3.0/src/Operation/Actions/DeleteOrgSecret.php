@@ -17,13 +17,11 @@ final class DeleteOrgSecret
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/actions/secrets/{secret_name}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}';
-    private string $org;
     /**secret_name parameter **/
     private string $secretName;
 
-    public function __construct(string $org, string $secretName)
+    public function __construct(private string $org, string $secretName)
     {
-        $this->org        = $org;
         $this->secretName = $secretName;
     }
 
@@ -32,9 +30,7 @@ final class DeleteOrgSecret
         return new Request(self::METHOD, str_replace(['{org}', '{secret_name}'], [$this->org, $this->secretName], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

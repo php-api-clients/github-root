@@ -17,13 +17,9 @@ final class RemovePublicMembershipForAuthenticatedUser
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/public_members/{username}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/orgs/{org}/public_members/{username}';
-    private string $org;
-    private string $username;
 
-    public function __construct(string $org, string $username)
+    public function __construct(private string $org, private string $username)
     {
-        $this->org      = $org;
-        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface
@@ -31,9 +27,7 @@ final class RemovePublicMembershipForAuthenticatedUser
         return new Request(self::METHOD, str_replace(['{org}', '{username}'], [$this->org, $this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

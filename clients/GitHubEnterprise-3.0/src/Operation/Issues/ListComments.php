@@ -24,8 +24,6 @@ final class ListComments
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/{issue_number}/comments';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/comments';
-    private string $owner;
-    private string $repo;
     /**issue_number parameter **/
     private int $issueNumber;
     /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
@@ -34,19 +32,13 @@ final class ListComments
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Comments $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Comments $hydrator, string $owner, string $repo, int $issueNumber, string $since, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Comments $hydrator, private string $owner, private string $repo, int $issueNumber, string $since, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->since                   = $since;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->issueNumber = $issueNumber;
+        $this->since       = $since;
+        $this->perPage     = $perPage;
+        $this->page        = $page;
     }
 
     public function createRequest(): RequestInterface

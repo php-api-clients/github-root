@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class GetReleaseAssetTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\ReleaseAsset::SCHEMA_EXAMPLE_DATA);
@@ -41,9 +39,7 @@ final class GetReleaseAssetTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\ReleaseAsset::SCHEMA_EXAMPLE_DATA);
@@ -57,9 +53,7 @@ final class GetReleaseAssetTest extends AsyncTestCase
         $result = await($client->operations()->repos()->getReleaseAsset('generated', 'generated', 8));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -80,9 +74,7 @@ final class GetReleaseAssetTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -97,9 +89,7 @@ final class GetReleaseAssetTest extends AsyncTestCase
         $result = await($client->operations()->repos()->getReleaseAsset('generated', 'generated', 8));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_415_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\Apps\GetInstallation\Response\ApplicationJson\UnsupportedMediaType::class);
@@ -120,9 +110,7 @@ final class GetReleaseAssetTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_415_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\Apps\GetInstallation\Response\ApplicationJson\UnsupportedMediaType::class);
@@ -137,9 +125,7 @@ final class GetReleaseAssetTest extends AsyncTestCase
         $result = await($client->operations()->repos()->getReleaseAsset('generated', 'generated', 8));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_302_empty(): void
     {
         $response = new Response(302, []);
@@ -159,9 +145,7 @@ final class GetReleaseAssetTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_302_empty(): void
     {
         $response = new Response(302, []);

@@ -23,15 +23,9 @@ final class GetOrgPublicKey
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/secrets/public-key';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/actions/secrets/public-key';
-    private string $org;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets\PublicKey $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\Secrets\PublicKey $hydrator, string $org)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\Secrets\PublicKey $hydrator, private string $org)
     {
-        $this->org                     = $org;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

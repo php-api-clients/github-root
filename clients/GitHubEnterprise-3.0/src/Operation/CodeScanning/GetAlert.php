@@ -24,20 +24,12 @@ final class GetAlert
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}';
-    private string $owner;
-    private string $repo;
     /**The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation. **/
     private int $alertNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts\AlertNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts\AlertNumber $hydrator, string $owner, string $repo, int $alertNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts\AlertNumber $hydrator, private string $owner, private string $repo, int $alertNumber)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->alertNumber             = $alertNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->alertNumber = $alertNumber;
     }
 
     public function createRequest(): RequestInterface

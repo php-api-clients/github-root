@@ -25,21 +25,9 @@ final class AddCollaborator
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/collaborators/{username}';
     private const METHOD         = 'PUT';
     private const PATH           = '/repos/{owner}/{repo}/collaborators/{username}';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username $hydrator, string $owner, string $repo, string $username)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username $hydrator, private string $owner, private string $repo, private string $username)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -49,9 +37,7 @@ final class AddCollaborator
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{username}'], [$this->owner, $this->repo, $this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\RepositoryInvitation|array{code: int}
-     */
+    /** @return Schema\RepositoryInvitation|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\RepositoryInvitation|array
     {
         $code          = $response->getStatusCode();

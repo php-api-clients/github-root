@@ -17,15 +17,9 @@ final class CheckIfMerged
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/{pull_number}/merge';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/merge';
-    private string $owner;
-    private string $repo;
-    private int $pullNumber;
 
-    public function __construct(string $owner, string $repo, int $pullNumber)
+    public function __construct(private string $owner, private string $repo, private int $pullNumber)
     {
-        $this->owner      = $owner;
-        $this->repo       = $repo;
-        $this->pullNumber = $pullNumber;
     }
 
     public function createRequest(): RequestInterface
@@ -33,9 +27,7 @@ final class CheckIfMerged
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}'], [$this->owner, $this->repo, $this->pullNumber], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

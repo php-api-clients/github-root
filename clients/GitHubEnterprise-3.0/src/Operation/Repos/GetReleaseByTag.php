@@ -24,20 +24,12 @@ final class GetReleaseByTag
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/releases/tags/{tag}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/releases/tags/{tag}';
-    private string $owner;
-    private string $repo;
     /**tag parameter **/
     private string $tag;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag $hydrator, string $owner, string $repo, string $tag)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag $hydrator, private string $owner, private string $repo, string $tag)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->tag                     = $tag;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->tag = $tag;
     }
 
     public function createRequest(): RequestInterface

@@ -19,7 +19,7 @@ final readonly class ApplicationJson
      * labels: Labels to associate with this issue. Pass one or more Labels to _replace_ the set of Labels on this Issue. Send an empty array (`[]`) to clear all Labels from the Issue. _NOTE: Only users with push access can set labels for issues. Labels are silently dropped otherwise._
      * assignees: Logins for Users to assign to this issue. Pass one or more user logins to _replace_ the set of assignees on this Issue. Send an empty array (`[]`) to clear all assignees from the Issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
      */
-    public function __construct(public null|string|int $title, public ?string $body, public ?string $assignee, public ?string $state, public null|string|int $milestone, public ?array $labels, public ?array $assignees)
+    public function __construct(public string|int|null $title, public string|null $body, public string|null $assignee, public string|null $state, public string|int|null $milestone, public array|null $labels, public array|null $assignees)
     {
     }
 }

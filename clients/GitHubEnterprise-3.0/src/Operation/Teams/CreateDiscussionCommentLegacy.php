@@ -24,19 +24,9 @@ final class CreateDiscussionCommentLegacy
     public const OPERATION_MATCH = 'POST /teams/{team_id}/discussions/{discussion_number}/comments';
     private const METHOD         = 'POST';
     private const PATH           = '/teams/{team_id}/discussions/{discussion_number}/comments';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private int $teamId;
-    private int $discussionNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments $hydrator, int $teamId, int $discussionNumber)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments $hydrator, private int $teamId, private int $discussionNumber)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->teamId                  = $teamId;
-        $this->discussionNumber        = $discussionNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

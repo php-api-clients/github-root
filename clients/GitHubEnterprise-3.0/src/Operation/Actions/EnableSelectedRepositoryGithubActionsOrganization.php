@@ -17,13 +17,9 @@ final class EnableSelectedRepositoryGithubActionsOrganization
     public const OPERATION_MATCH = 'PUT /orgs/{org}/actions/permissions/repositories/{repository_id}';
     private const METHOD         = 'PUT';
     private const PATH           = '/orgs/{org}/actions/permissions/repositories/{repository_id}';
-    private string $org;
-    private int $repositoryId;
 
-    public function __construct(string $org, int $repositoryId)
+    public function __construct(private string $org, private int $repositoryId)
     {
-        $this->org          = $org;
-        $this->repositoryId = $repositoryId;
     }
 
     public function createRequest(): RequestInterface
@@ -31,9 +27,7 @@ final class EnableSelectedRepositoryGithubActionsOrganization
         return new Request(self::METHOD, str_replace(['{org}', '{repository_id}'], [$this->org, $this->repositoryId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

@@ -24,17 +24,9 @@ final class PingWebhook
     public const OPERATION_MATCH = 'POST /orgs/{org}/hooks/{hook_id}/pings';
     private const METHOD         = 'POST';
     private const PATH           = '/orgs/{org}/hooks/{hook_id}/pings';
-    private string $org;
-    private int $hookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId\Pings $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Hooks\HookId\Pings $hydrator, string $org, int $hookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId\Pings $hydrator, private string $org, private int $hookId)
     {
-        $this->org                     = $org;
-        $this->hookId                  = $hookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface
@@ -42,9 +34,7 @@ final class PingWebhook
         return new Request(self::METHOD, str_replace(['{org}', '{hook_id}'], [$this->org, $this->hookId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

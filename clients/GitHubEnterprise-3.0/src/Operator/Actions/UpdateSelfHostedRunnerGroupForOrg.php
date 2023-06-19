@@ -23,9 +23,7 @@ final readonly class UpdateSelfHostedRunnerGroupForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<RunnerGroupsOrg>
-     **/
+    /** @return PromiseInterface<RunnerGroupsOrg> **/
     public function call(string $org, int $runnerGroupId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\UpdateSelfHostedRunnerGroupForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $runnerGroupId);

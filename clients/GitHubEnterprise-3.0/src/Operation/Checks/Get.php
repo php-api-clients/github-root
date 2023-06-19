@@ -23,20 +23,12 @@ final class Get
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/check-runs/{check_run_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/check-runs/{check_run_id}';
-    private string $owner;
-    private string $repo;
     /**check_run_id parameter **/
     private int $checkRunId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator, string $owner, string $repo, int $checkRunId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId $hydrator, private string $owner, private string $repo, int $checkRunId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->checkRunId              = $checkRunId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->checkRunId = $checkRunId;
     }
 
     public function createRequest(): RequestInterface

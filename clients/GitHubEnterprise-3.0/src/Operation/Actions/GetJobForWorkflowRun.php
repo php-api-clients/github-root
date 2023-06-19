@@ -23,20 +23,12 @@ final class GetJobForWorkflowRun
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/jobs/{job_id}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/actions/jobs/{job_id}';
-    private string $owner;
-    private string $repo;
     /**job_id parameter **/
     private int $jobId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId $hydrator, string $owner, string $repo, int $jobId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId $hydrator, private string $owner, private string $repo, int $jobId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->jobId                   = $jobId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->jobId = $jobId;
     }
 
     public function createRequest(): RequestInterface

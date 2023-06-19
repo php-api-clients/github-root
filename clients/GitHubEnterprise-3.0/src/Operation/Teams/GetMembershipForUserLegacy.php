@@ -24,17 +24,9 @@ final class GetMembershipForUserLegacy
     public const OPERATION_MATCH = 'GET /teams/{team_id}/memberships/{username}';
     private const METHOD         = 'GET';
     private const PATH           = '/teams/{team_id}/memberships/{username}';
-    private int $teamId;
-    private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator, int $teamId, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Teams\TeamId\Memberships\Username $hydrator, private int $teamId, private string $username)
     {
-        $this->teamId                  = $teamId;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

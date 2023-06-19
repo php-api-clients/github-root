@@ -21,15 +21,9 @@ final class SetAllowedActionsRepository
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/actions/permissions/selected-actions';
     private const METHOD         = 'PUT';
     private const PATH           = '/repos/{owner}/{repo}/actions/permissions/selected-actions';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private string $owner;
-    private string $repo;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, string $owner, string $repo)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private string $owner, private string $repo)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->owner                  = $owner;
-        $this->repo                   = $repo;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -39,9 +33,7 @@ final class SetAllowedActionsRepository
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

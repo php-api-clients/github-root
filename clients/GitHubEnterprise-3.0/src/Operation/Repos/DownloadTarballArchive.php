@@ -17,15 +17,9 @@ final class DownloadTarballArchive
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/tarball/{ref}';
     private const METHOD         = 'GET';
     private const PATH           = '/repos/{owner}/{repo}/tarball/{ref}';
-    private string $owner;
-    private string $repo;
-    private string $ref;
 
-    public function __construct(string $owner, string $repo, string $ref)
+    public function __construct(private string $owner, private string $repo, private string $ref)
     {
-        $this->owner = $owner;
-        $this->repo  = $repo;
-        $this->ref   = $ref;
     }
 
     public function createRequest(): RequestInterface
@@ -33,9 +27,7 @@ final class DownloadTarballArchive
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], self::PATH));
     }
 
-    /**
-     * @return array{code: int,location: string}
-     */
+    /** @return array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

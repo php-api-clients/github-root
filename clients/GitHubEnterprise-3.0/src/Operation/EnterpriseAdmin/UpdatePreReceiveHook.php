@@ -24,18 +24,12 @@ final class UpdatePreReceiveHook
     public const OPERATION_MATCH = 'PATCH /admin/pre-receive-hooks/{pre_receive_hook_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/pre-receive-hooks/{pre_receive_hook_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator, int $preReceiveHookId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator, int $preReceiveHookId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->preReceiveHookId        = $preReceiveHookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->preReceiveHookId = $preReceiveHookId;
     }
 
     public function createRequest(array $data): RequestInterface

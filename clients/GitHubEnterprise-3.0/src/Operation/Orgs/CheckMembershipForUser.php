@@ -17,13 +17,9 @@ final class CheckMembershipForUser
     public const OPERATION_MATCH = 'GET /orgs/{org}/members/{username}';
     private const METHOD         = 'GET';
     private const PATH           = '/orgs/{org}/members/{username}';
-    private string $org;
-    private string $username;
 
-    public function __construct(string $org, string $username)
+    public function __construct(private string $org, private string $username)
     {
-        $this->org      = $org;
-        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface
@@ -31,9 +27,7 @@ final class CheckMembershipForUser
         return new Request(self::METHOD, str_replace(['{org}', '{username}'], [$this->org, $this->username], self::PATH));
     }
 
-    /**
-     * @return array{code: int}|array{code: int,location: string}
-     */
+    /** @return array{code: int}|array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();
