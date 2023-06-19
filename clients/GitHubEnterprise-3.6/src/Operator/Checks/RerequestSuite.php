@@ -23,9 +23,7 @@ final readonly class RerequestSuite
     {
     }
 
-    /**
-     * @return PromiseInterface<EmptyObject>
-     **/
+    /** @return PromiseInterface<EmptyObject> **/
     public function call(string $owner, string $repo, int $checkSuiteId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Checks\RerequestSuite($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $checkSuiteId);

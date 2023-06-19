@@ -23,9 +23,7 @@ final readonly class GetGithubAdvancedSecurityBillingGhe
     {
     }
 
-    /**
-     * @return PromiseInterface<AdvancedSecurityActiveCommitters>
-     **/
+    /** @return PromiseInterface<AdvancedSecurityActiveCommitters> **/
     public function call(string $enterprise, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Billing\GetGithubAdvancedSecurityBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise, $perPage, $page);

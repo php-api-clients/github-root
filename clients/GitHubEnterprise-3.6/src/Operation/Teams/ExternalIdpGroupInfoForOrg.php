@@ -27,15 +27,11 @@ final class ExternalIdpGroupInfoForOrg
     private string $org;
     /**The unique identifier of the group. **/
     private int $groupId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId $hydrator, string $org, int $groupId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId $hydrator, string $org, int $groupId)
     {
-        $this->org                     = $org;
-        $this->groupId                 = $groupId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org     = $org;
+        $this->groupId = $groupId;
     }
 
     public function createRequest(): RequestInterface

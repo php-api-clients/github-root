@@ -32,17 +32,13 @@ final class ListProvisionedGroupsEnterprise
     private int $startIndex;
     /**Used for pagination: the number of results to return per page. **/
     private int $count;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Groups $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups $hydrator, string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Groups $hydrator, string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30)
     {
-        $this->filter                  = $filter;
-        $this->excludedAttributes      = $excludedAttributes;
-        $this->startIndex              = $startIndex;
-        $this->count                   = $count;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->filter             = $filter;
+        $this->excludedAttributes = $excludedAttributes;
+        $this->startIndex         = $startIndex;
+        $this->count              = $count;
     }
 
     public function createRequest(): RequestInterface
@@ -50,9 +46,7 @@ final class ListProvisionedGroupsEnterprise
         return new Request(self::METHOD, str_replace(['{filter}', '{excludedAttributes}', '{startIndex}', '{count}'], [$this->filter, $this->excludedAttributes, $this->startIndex, $this->count], self::PATH . '?filter={filter}&excludedAttributes={excludedAttributes}&startIndex={startIndex}&count={count}'));
     }
 
-    /**
-     * @return Schema\ScimEnterpriseGroupList|array{code: int}
-     */
+    /** @return Schema\ScimEnterpriseGroupList|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\ScimEnterpriseGroupList|array
     {
         $code          = $response->getStatusCode();

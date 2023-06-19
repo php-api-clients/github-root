@@ -22,7 +22,10 @@ final readonly class ApplicationJson
      * prerelease: `true` to identify the release as a prerelease. `false` to identify the release as a full release.
      * generateReleaseNotes: Whether to automatically generate the name and body for this release. If `name` is specified, the specified name will be used; otherwise, a name will be automatically generated. If `body` is specified, the body will be pre-pended to the automatically generated notes.
      */
-    public function __construct(#[MapFrom('tag_name')] public string $tagName, #[MapFrom('target_commitish')] public ?string $targetCommitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease, #[MapFrom('generate_release_notes')] public ?bool $generateReleaseNotes)
+    public function __construct(#[MapFrom('tag_name')]
+    public string $tagName, #[MapFrom('target_commitish')]
+    public string|null $targetCommitish, public string|null $name, public string|null $body, public bool|null $draft, public bool|null $prerelease, #[MapFrom('generate_release_notes')]
+    public bool|null $generateReleaseNotes,)
     {
     }
 }

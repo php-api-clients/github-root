@@ -31,17 +31,13 @@ final class ListExternalIdpGroupsForOrg
     private string $displayName;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\ExternalGroups $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\ExternalGroups $hydrator, string $org, int $page, string $displayName, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\ExternalGroups $hydrator, string $org, int $page, string $displayName, int $perPage = 30)
     {
-        $this->org                     = $org;
-        $this->page                    = $page;
-        $this->displayName             = $displayName;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org         = $org;
+        $this->page        = $page;
+        $this->displayName = $displayName;
+        $this->perPage     = $perPage;
     }
 
     public function createRequest(): RequestInterface

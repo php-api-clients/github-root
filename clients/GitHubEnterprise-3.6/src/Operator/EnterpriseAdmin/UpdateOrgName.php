@@ -23,9 +23,7 @@ final readonly class UpdateOrgName
     {
     }
 
-    /**
-     * @return PromiseInterface<Accepted>
-     **/
+    /** @return PromiseInterface<Accepted> **/
     public function call(string $org, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateOrgName($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

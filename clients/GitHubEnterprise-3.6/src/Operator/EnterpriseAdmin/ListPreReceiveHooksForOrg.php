@@ -20,9 +20,7 @@ final readonly class ListPreReceiveHooksForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $org, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPreReceiveHooksForOrg($org, $perPage, $page, $direction, $sort);

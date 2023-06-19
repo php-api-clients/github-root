@@ -13,7 +13,9 @@ final readonly class AdvancedSecurityActiveCommittersRepository
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"octocat\\/Hello-World","advanced_security_committers":25,"advanced_security_committers_breakdown":[{"user_login":"generated","last_pushed_date":"2021-11-03"},{"user_login":"generated","last_pushed_date":"2021-11-03"}]}';
 
-    public function __construct(public string $name, #[MapFrom('advanced_security_committers')] public int $advancedSecurityCommitters, #[MapFrom('advanced_security_committers_breakdown')] public array $advancedSecurityCommittersBreakdown)
+    public function __construct(public string $name, #[MapFrom('advanced_security_committers')]
+    public int $advancedSecurityCommitters, #[MapFrom('advanced_security_committers_breakdown')]
+    public array $advancedSecurityCommittersBreakdown,)
     {
     }
 }

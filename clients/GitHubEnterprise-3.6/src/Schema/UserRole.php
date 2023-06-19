@@ -15,7 +15,7 @@ final readonly class UserRole
      * value: The role value representing a user role in GitHub.
      * primary: Is the role a primary role for the user.
      */
-    public function __construct(public ?string $display, public ?string $type, public string $value, public ?bool $primary)
+    public function __construct(public string|null $display, public string|null $type, public string $value, public bool|null $primary)
     {
     }
 }

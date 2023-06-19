@@ -29,7 +29,32 @@ final readonly class AuditLogEvent
      * user: The user that was affected by the action performed (if available).
      * visibility: The repository visibility, for example `public` or `private`.
      */
-    public function __construct(#[MapFrom('@timestamp')] public ?int $atTimestamp, public ?string $action, public ?bool $active, #[MapFrom('active_was')] public ?bool $activeWas, public ?string $actor, #[MapFrom('actor_id')] public ?int $actorId, #[MapFrom('actor_location')] public ?Schema\AuditLogEvent\ActorLocation $actorLocation, public ?Schema\AuditLogEvent\Data $data, #[MapFrom('org_id')] public ?int $orgId, #[MapFrom('user_id')] public ?int $userId, #[MapFrom('business_id')] public ?int $businessId, #[MapFrom('blocked_user')] public ?string $blockedUser, public ?string $business, public ?array $config, #[MapFrom('config_was')] public ?array $configWas, #[MapFrom('content_type')] public ?string $contentType, #[MapFrom('operation_type')] public ?string $operationType, #[MapFrom('created_at')] public ?int $createdAt, #[MapFrom('deploy_key_fingerprint')] public ?string $deployKeyFingerprint, #[MapFrom('_document_id')] public ?string $documentId, public ?string $emoji, public ?array $events, #[MapFrom('events_were')] public ?array $eventsWere, public ?string $explanation, public ?string $fingerprint, #[MapFrom('hook_id')] public ?int $hookId, #[MapFrom('limited_availability')] public ?bool $limitedAvailability, public ?string $message, public ?string $name, #[MapFrom('old_user')] public ?string $oldUser, #[MapFrom('openssh_public_key')] public ?string $opensshPublicKey, public ?string $org, #[MapFrom('previous_visibility')] public ?string $previousVisibility, #[MapFrom('read_only')] public ?bool $readOnly, public ?string $repo, public ?string $repository, #[MapFrom('repository_public')] public ?bool $repositoryPublic, #[MapFrom('target_login')] public ?string $targetLogin, public ?string $team, #[MapFrom('transport_protocol')] public ?int $transportProtocol, #[MapFrom('transport_protocol_name')] public ?string $transportProtocolName, public ?string $user, public ?string $visibility)
+    public function __construct(#[MapFrom('@timestamp')]
+    public int|null $atTimestamp, public string|null $action, public bool|null $active, #[MapFrom('active_was')]
+    public bool|null $activeWas, public string|null $actor, #[MapFrom('actor_id')]
+    public int|null $actorId, #[MapFrom('actor_location')]
+    public Schema\AuditLogEvent\ActorLocation|null $actorLocation, public Schema\AuditLogEvent\Data|null $data, #[MapFrom('org_id')]
+    public int|null $orgId, #[MapFrom('user_id')]
+    public int|null $userId, #[MapFrom('business_id')]
+    public int|null $businessId, #[MapFrom('blocked_user')]
+    public string|null $blockedUser, public string|null $business, public array|null $config, #[MapFrom('config_was')]
+    public array|null $configWas, #[MapFrom('content_type')]
+    public string|null $contentType, #[MapFrom('operation_type')]
+    public string|null $operationType, #[MapFrom('created_at')]
+    public int|null $createdAt, #[MapFrom('deploy_key_fingerprint')]
+    public string|null $deployKeyFingerprint, #[MapFrom('_document_id')]
+    public string|null $documentId, public string|null $emoji, public array|null $events, #[MapFrom('events_were')]
+    public array|null $eventsWere, public string|null $explanation, public string|null $fingerprint, #[MapFrom('hook_id')]
+    public int|null $hookId, #[MapFrom('limited_availability')]
+    public bool|null $limitedAvailability, public string|null $message, public string|null $name, #[MapFrom('old_user')]
+    public string|null $oldUser, #[MapFrom('openssh_public_key')]
+    public string|null $opensshPublicKey, public string|null $org, #[MapFrom('previous_visibility')]
+    public string|null $previousVisibility, #[MapFrom('read_only')]
+    public bool|null $readOnly, public string|null $repo, public string|null $repository, #[MapFrom('repository_public')]
+    public bool|null $repositoryPublic, #[MapFrom('target_login')]
+    public string|null $targetLogin, public string|null $team, #[MapFrom('transport_protocol')]
+    public int|null $transportProtocol, #[MapFrom('transport_protocol_name')]
+    public string|null $transportProtocolName, public string|null $user, public string|null $visibility,)
     {
     }
 }

@@ -23,9 +23,7 @@ final readonly class CreateImpersonationOAuthToken
     {
     }
 
-    /**
-     * @return PromiseInterface<Authorization>
-     **/
+    /** @return PromiseInterface<Authorization> **/
     public function call(string $username, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\CreateImpersonationOAuthToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $username);

@@ -23,7 +23,11 @@ final readonly class ApplicationJson
      * startedAt: The time that the analysis run began. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`.
      * toolName: The name of the tool used to generate the code scanning analysis. If this parameter is not used, the tool name defaults to "API". If the uploaded SARIF contains a tool GUID, this will be available for filtering using the `tool_guid` parameter of operations such as `GET /repos/{owner}/{repo}/code-scanning/alerts`.
      */
-    public function __construct(#[MapFrom('commit_sha')] public string $commitSha, public string $ref, public string $sarif, #[MapFrom('checkout_uri')] public ?string $checkoutUri, #[MapFrom('started_at')] public ?string $startedAt, #[MapFrom('tool_name')] public ?string $toolName)
+    public function __construct(#[MapFrom('commit_sha')]
+    public string $commitSha, public string $ref, public string $sarif, #[MapFrom('checkout_uri')]
+    public string|null $checkoutUri, #[MapFrom('started_at')]
+    public string|null $startedAt, #[MapFrom('tool_name')]
+    public string|null $toolName,)
     {
     }
 }

@@ -24,15 +24,13 @@ final class ListPublicKeys
     private int $page;
     /**The direction to sort the results by. **/
     private string $direction;
-    private string $sort;
 
-    public function __construct(string $since, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created')
+    public function __construct(string $since, int $perPage = 30, int $page = 1, string $direction = 'desc', private string $sort = 'created')
     {
         $this->since     = $since;
         $this->perPage   = $perPage;
         $this->page      = $page;
         $this->direction = $direction;
-        $this->sort      = $sort;
     }
 
     public function createRequest(): RequestInterface

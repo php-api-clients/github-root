@@ -23,9 +23,7 @@ final readonly class ProvisionEnterpriseGroup
     {
     }
 
-    /**
-     * @return PromiseInterface<(GroupResponse|array)>
-     **/
+    /** @return PromiseInterface<(GroupResponse|array)> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ProvisionEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

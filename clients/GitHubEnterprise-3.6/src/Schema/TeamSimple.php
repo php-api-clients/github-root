@@ -22,7 +22,12 @@ final readonly class TeamSimple
      * privacy: The level of privacy this team should have
      * ldapDn: Distinguished Name (DN) that team maps to within LDAP environment
      */
-    public function __construct(public int $id, #[MapFrom('node_id')] public string $nodeId, public string $url, #[MapFrom('members_url')] public string $membersUrl, public string $name, public ?string $description, public string $permission, public ?string $privacy, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('repositories_url')] public string $repositoriesUrl, public string $slug, #[MapFrom('ldap_dn')] public ?string $ldapDn)
+    public function __construct(public int $id, #[MapFrom('node_id')]
+    public string $nodeId, public string $url, #[MapFrom('members_url')]
+    public string $membersUrl, public string $name, public string|null $description, public string $permission, public string|null $privacy, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('repositories_url')]
+    public string $repositoriesUrl, public string $slug, #[MapFrom('ldap_dn')]
+    public string|null $ldapDn,)
     {
     }
 }

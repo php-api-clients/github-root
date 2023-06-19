@@ -23,9 +23,7 @@ final readonly class GetProvisioningInformationForEnterpriseUser
     {
     }
 
-    /**
-     * @return PromiseInterface<(UserResponse|array)>
-     **/
+    /** @return PromiseInterface<(UserResponse|array)> **/
     public function call(string $scimUserId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->responseSchemaValidator, $this->hydrator, $scimUserId);
