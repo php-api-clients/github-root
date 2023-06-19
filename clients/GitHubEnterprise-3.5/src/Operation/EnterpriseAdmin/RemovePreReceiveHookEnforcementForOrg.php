@@ -27,15 +27,11 @@ final class RemovePreReceiveHookEnforcementForOrg
     private string $org;
     /**The unique identifier of the pre-receive hook. **/
     private int $preReceiveHookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, string $org, int $preReceiveHookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator, string $org, int $preReceiveHookId)
     {
-        $this->org                     = $org;
-        $this->preReceiveHookId        = $preReceiveHookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org              = $org;
+        $this->preReceiveHookId = $preReceiveHookId;
     }
 
     public function createRequest(): RequestInterface

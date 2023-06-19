@@ -40,20 +40,16 @@ final class ListAlertsForRepo
     private int $page;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts $hydrator, string $owner, string $repo, string $state, string $secretType, string $resolution, int $page = 1, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts $hydrator, string $owner, string $repo, string $state, string $secretType, string $resolution, int $page = 1, int $perPage = 30)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->state                   = $state;
-        $this->secretType              = $secretType;
-        $this->resolution              = $resolution;
-        $this->page                    = $page;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner      = $owner;
+        $this->repo       = $repo;
+        $this->state      = $state;
+        $this->secretType = $secretType;
+        $this->resolution = $resolution;
+        $this->page       = $page;
+        $this->perPage    = $perPage;
     }
 
     public function createRequest(): RequestInterface
@@ -61,9 +57,7 @@ final class ListAlertsForRepo
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{state}', '{secret_type}', '{resolution}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->state, $this->secretType, $this->resolution, $this->page, $this->perPage], self::PATH . '?state={state}&secret_type={secret_type}&resolution={resolution}&page={page}&per_page={per_page}'));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

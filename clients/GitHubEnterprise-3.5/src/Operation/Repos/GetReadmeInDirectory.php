@@ -32,17 +32,13 @@ final class GetReadmeInDirectory
     private string $dir;
     /**The name of the commit/branch/tag. Default: the repository’s default branch. **/
     private string $ref;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Readme\Dir $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Readme\Dir $hydrator, string $owner, string $repo, string $dir, string $ref)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Readme\Dir $hydrator, string $owner, string $repo, string $dir, string $ref)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->dir                     = $dir;
-        $this->ref                     = $ref;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->dir   = $dir;
+        $this->ref   = $ref;
     }
 
     public function createRequest(): RequestInterface

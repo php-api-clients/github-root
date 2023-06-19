@@ -11,7 +11,7 @@ final readonly class Cas
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated"}';
 
-    public function __construct(public ?string $url)
+    public function __construct(public string|null $url)
     {
     }
 }

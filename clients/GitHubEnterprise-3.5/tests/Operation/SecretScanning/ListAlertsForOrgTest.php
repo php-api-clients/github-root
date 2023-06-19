@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class ListAlertsForOrgTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -45,9 +43,7 @@ final class ListAlertsForOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -62,9 +58,7 @@ final class ListAlertsForOrgTest extends AsyncTestCase
         $result = await($client->operations()->secretScanning()->listAlertsForOrg('generated', 'generated', 'generated', 'generated', 4, 8));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_503_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);
@@ -88,9 +82,7 @@ final class ListAlertsForOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_503_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable::class);

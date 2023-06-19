@@ -24,9 +24,7 @@ final readonly class GetRepoInstallation
     {
     }
 
-    /**
-     * @return PromiseInterface<(Installation|BasicError)>
-     **/
+    /** @return PromiseInterface<(Installation|BasicError)> **/
     public function call(string $owner, string $repo): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\GetRepoInstallation($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

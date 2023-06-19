@@ -40,20 +40,16 @@ final class ListAlertsForEnterprise
     private string $after;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\SecretScanning\Alerts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\SecretScanning\Alerts $hydrator, string $enterprise, string $state, string $secretType, string $resolution, string $before, string $after, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\SecretScanning\Alerts $hydrator, string $enterprise, string $state, string $secretType, string $resolution, string $before, string $after, int $perPage = 30)
     {
-        $this->enterprise              = $enterprise;
-        $this->state                   = $state;
-        $this->secretType              = $secretType;
-        $this->resolution              = $resolution;
-        $this->before                  = $before;
-        $this->after                   = $after;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
+        $this->state      = $state;
+        $this->secretType = $secretType;
+        $this->resolution = $resolution;
+        $this->before     = $before;
+        $this->after      = $after;
+        $this->perPage    = $perPage;
     }
 
     public function createRequest(): RequestInterface

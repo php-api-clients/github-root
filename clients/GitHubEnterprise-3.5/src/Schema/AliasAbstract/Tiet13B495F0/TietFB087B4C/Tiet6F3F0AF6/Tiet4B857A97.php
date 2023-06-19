@@ -16,7 +16,8 @@ abstract readonly class Tiet4B857A97
     /**
      * ldapDn: The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team.
      */
-    public function __construct(#[MapFrom('ldap_dn')] public string $ldapDn)
+    public function __construct(#[MapFrom('ldap_dn')]
+    public string $ldapDn,)
     {
     }
 }

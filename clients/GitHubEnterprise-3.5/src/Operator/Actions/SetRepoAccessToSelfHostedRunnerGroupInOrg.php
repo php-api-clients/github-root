@@ -21,9 +21,7 @@ final readonly class SetRepoAccessToSelfHostedRunnerGroupInOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, int $runnerGroupId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg($this->requestSchemaValidator, $org, $runnerGroupId);

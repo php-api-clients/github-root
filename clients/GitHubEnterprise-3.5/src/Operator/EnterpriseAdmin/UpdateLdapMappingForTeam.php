@@ -23,9 +23,7 @@ final readonly class UpdateLdapMappingForTeam
     {
     }
 
-    /**
-     * @return PromiseInterface<LdapMappingTeam>
-     **/
+    /** @return PromiseInterface<LdapMappingTeam> **/
     public function call(int $teamId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateLdapMappingForTeam($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId);
