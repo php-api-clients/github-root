@@ -16,7 +16,8 @@ abstract readonly class Tiet7AAF0518
     /**
      * authorizedKey: The public SSH key.
      */
-    public function __construct(#[MapFrom('authorized_key')] public string $authorizedKey)
+    public function __construct(#[MapFrom('authorized_key')]
+    public string $authorizedKey,)
     {
     }
 }

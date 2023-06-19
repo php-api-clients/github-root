@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * armoredPublicKey: A GPG key in ASCII-armored format.
      */
-    public function __construct(#[MapFrom('armored_public_key')] public string $armoredPublicKey)
+    public function __construct(#[MapFrom('armored_public_key')]
+    public string $armoredPublicKey,)
     {
     }
 }

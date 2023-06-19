@@ -24,7 +24,11 @@ final readonly class ApplicationJson
      * startSide: **Required when using multi-line comments unless using `in_reply_to`**. The `start_side` is the starting side of the diff that the comment applies to. Can be `LEFT` or `RIGHT`. To learn more about multi-line comments, see "[Commenting on a pull request](https://docs.github.com/enterprise-server@3.5/articles/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)" in the GitHub Help documentation. See `side` in this table for additional context.
      * inReplyTo: The ID of the review comment to reply to. To find the ID of a review comment with ["List review comments on a pull request"](#list-review-comments-on-a-pull-request). When specified, all parameters other than `body` in the request body are ignored.
      */
-    public function __construct(public string $body, #[MapFrom('commit_id')] public string $commitId, public string $path, public ?int $position, public ?string $side, public ?int $line, #[MapFrom('start_line')] public ?int $startLine, #[MapFrom('start_side')] public ?string $startSide, #[MapFrom('in_reply_to')] public ?int $inReplyTo)
+    public function __construct(public string $body, #[MapFrom('commit_id')]
+    public string $commitId, public string $path, public int|null $position, public string|null $side, public int|null $line, #[MapFrom('start_line')]
+    public int|null $startLine, #[MapFrom('start_side')]
+    public string|null $startSide, #[MapFrom('in_reply_to')]
+    public int|null $inReplyTo,)
     {
     }
 }

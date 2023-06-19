@@ -13,7 +13,9 @@ final readonly class Ok
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":1.1,"runner_groups":[{"id":0.2,"name":"generated","visibility":"generated","default":false,"selected_repositories_url":"generated","runners_url":"generated","inherited":false,"inherited_allows_public_repositories":false,"allows_public_repositories":false,"workflow_restrictions_read_only":false,"restricted_to_workflows":false,"selected_workflows":["generated","generated"]},{"id":0.2,"name":"generated","visibility":"generated","default":false,"selected_repositories_url":"generated","runners_url":"generated","inherited":false,"inherited_allows_public_repositories":false,"allows_public_repositories":false,"workflow_restrictions_read_only":false,"restricted_to_workflows":false,"selected_workflows":["generated","generated"]}]}';
 
-    public function __construct(#[MapFrom('total_count')] public int|float $totalCount, #[MapFrom('runner_groups')] public array $runnerGroups)
+    public function __construct(#[MapFrom('total_count')]
+    public int|float $totalCount, #[MapFrom('runner_groups')]
+    public array $runnerGroups,)
     {
     }
 }

@@ -17,7 +17,7 @@ final readonly class Request
      * headers: The request headers sent with the webhook delivery.
      * payload: The webhook payload.
      */
-    public function __construct(public ?Schema\HookDelivery\Request\Headers $headers, public ?Schema\HookDelivery\Request\Payload $payload)
+    public function __construct(public Schema\HookDelivery\Request\Headers|null $headers, public Schema\HookDelivery\Request\Payload|null $payload)
     {
     }
 }

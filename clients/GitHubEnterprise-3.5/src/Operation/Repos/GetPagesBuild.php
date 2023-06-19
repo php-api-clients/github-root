@@ -27,17 +27,11 @@ final class GetPagesBuild
     private string $owner;
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
     private string $repo;
-    private int $buildId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator, string $owner, string $repo, int $buildId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId $hydrator, string $owner, string $repo, private int $buildId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->buildId                 = $buildId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
     }
 
     public function createRequest(): RequestInterface

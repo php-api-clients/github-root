@@ -14,7 +14,12 @@ abstract readonly class Tiet75A2F7CA
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":2,"name":"generated","image_url":"generated","url":"generated","html_url":"generated","default_environment":false,"created_at":"generated","hooks_count":11,"download":{"url":"generated","state":"generated","downloaded_at":"generated","message":"generated"}}';
 
-    public function __construct(public ?int $id, public ?string $name, #[MapFrom('image_url')] public ?string $imageUrl, public ?string $url, #[MapFrom('html_url')] public ?string $htmlUrl, #[MapFrom('default_environment')] public ?bool $defaultEnvironment, #[MapFrom('created_at')] public ?string $createdAt, #[MapFrom('hooks_count')] public ?int $hooksCount, public ?Schema\PreReceiveEnvironment\Download $download)
+    public function __construct(public int|null $id, public string|null $name, #[MapFrom('image_url')]
+    public string|null $imageUrl, public string|null $url, #[MapFrom('html_url')]
+    public string|null $htmlUrl, #[MapFrom('default_environment')]
+    public bool|null $defaultEnvironment, #[MapFrom('created_at')]
+    public string|null $createdAt, #[MapFrom('hooks_count')]
+    public int|null $hooksCount, public Schema\PreReceiveEnvironment\Download|null $download,)
     {
     }
 }

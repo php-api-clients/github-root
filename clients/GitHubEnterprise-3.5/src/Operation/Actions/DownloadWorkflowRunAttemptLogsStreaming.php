@@ -31,15 +31,13 @@ final class DownloadWorkflowRunAttemptLogsStreaming
     private int $runId;
     /**The attempt number of the workflow run. **/
     private int $attemptNumber;
-    private readonly Browser $browser;
 
-    public function __construct(Browser $browser, string $owner, string $repo, int $runId, int $attemptNumber)
+    public function __construct(private readonly Browser $browser, string $owner, string $repo, int $runId, int $attemptNumber)
     {
         $this->owner         = $owner;
         $this->repo          = $repo;
         $this->runId         = $runId;
         $this->attemptNumber = $attemptNumber;
-        $this->browser       = $browser;
     }
 
     public function createRequest(): RequestInterface
@@ -47,9 +45,7 @@ final class DownloadWorkflowRunAttemptLogsStreaming
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}', '{attempt_number}'], [$this->owner, $this->repo, $this->runId, $this->attemptNumber], self::PATH));
     }
 
-    /**
-     * @return Observable<string>
-     */
+    /** @return Observable<string> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code = $response->getStatusCode();

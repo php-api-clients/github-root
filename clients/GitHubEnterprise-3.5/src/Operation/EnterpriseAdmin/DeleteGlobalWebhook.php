@@ -30,9 +30,7 @@ final class DeleteGlobalWebhook
         return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

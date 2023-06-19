@@ -22,7 +22,8 @@ final readonly class ApplicationJson
      * draft: Indicates whether the pull request is a draft. See "[Draft Pull Requests](https://docs.github.com/enterprise-server@3.5/articles/about-pull-requests#draft-pull-requests)" in the GitHub Help documentation to learn more.
      * issue: An issue in the repository to convert to a pull request. The issue title, body, and comments will become the title, body, and comments on the new pull request. Required unless `title` is specified.
      */
-    public function __construct(public ?string $title, public string $head, public string $base, public ?string $body, #[MapFrom('maintainer_can_modify')] public ?bool $maintainerCanModify, public ?bool $draft, public ?int $issue)
+    public function __construct(public string|null $title, public string $head, public string $base, public string|null $body, #[MapFrom('maintainer_can_modify')]
+    public bool|null $maintainerCanModify, public bool|null $draft, public int|null $issue,)
     {
     }
 }

@@ -16,7 +16,7 @@ abstract readonly class Tiet866B7AA1
     /**
      * repo: A repository on GitHub.
      */
-    public function __construct(public string $label, public string $ref, public Schema\Repository $repo, public string $sha, public ?Schema\SimpleUser $user)
+    public function __construct(public string $label, public string $ref, public Schema\Repository $repo, public string $sha, public Schema\SimpleUser|null $user)
     {
     }
 }
