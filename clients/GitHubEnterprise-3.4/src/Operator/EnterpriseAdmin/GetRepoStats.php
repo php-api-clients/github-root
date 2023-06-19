@@ -23,9 +23,7 @@ final readonly class GetRepoStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseRepositoryOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseRepositoryOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetRepoStats($this->responseSchemaValidator, $this->hydrator);

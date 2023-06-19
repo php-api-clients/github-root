@@ -23,9 +23,7 @@ final readonly class SetAnnouncement
     {
     }
 
-    /**
-     * @return PromiseInterface<Announcement>
-     **/
+    /** @return PromiseInterface<Announcement> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SetAnnouncement($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

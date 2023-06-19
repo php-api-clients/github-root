@@ -23,9 +23,7 @@ final readonly class ListSelfHostedRunnersInGroupForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<Json>
-     **/
+    /** @return PromiseInterface<Json> **/
     public function call(string $org, int $runnerGroupId, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\ListSelfHostedRunnersInGroupForOrg($this->responseSchemaValidator, $this->hydrator, $org, $runnerGroupId, $perPage, $page);

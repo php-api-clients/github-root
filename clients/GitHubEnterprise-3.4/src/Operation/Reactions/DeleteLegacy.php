@@ -26,14 +26,10 @@ final class DeleteLegacy
     private const PATH           = '/reactions/{reaction_id}';
     /**The unique identifier of the reaction. **/
     private int $reactionId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Reactions\ReactionId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Reactions\ReactionId $hydrator, int $reactionId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Reactions\ReactionId $hydrator, int $reactionId)
     {
-        $this->reactionId              = $reactionId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->reactionId = $reactionId;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +37,7 @@ final class DeleteLegacy
         return new Request(self::METHOD, str_replace(['{reaction_id}'], [$this->reactionId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
