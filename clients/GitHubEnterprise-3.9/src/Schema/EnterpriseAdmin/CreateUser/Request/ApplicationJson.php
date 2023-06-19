@@ -18,7 +18,7 @@ final readonly class ApplicationJson
     For more information, see "[About authentication for your enterprise](https://docs.github.com/enterprise-server@3.9/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
      * suspended: Whether to set the user as suspended when the user is created.
      */
-    public function __construct(public string $login, public ?string $email, public ?bool $suspended)
+    public function __construct(public string $login, public string|null $email, public bool|null $suspended)
     {
     }
 }

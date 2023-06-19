@@ -22,9 +22,7 @@ final readonly class CodeownersErrors
     {
     }
 
-    /**
-     * @return PromiseInterface<(\ApiClients\Client\GitHubEnterprise\Schema\CodeownersErrors|array)>
-     **/
+    /** @return PromiseInterface<(\ApiClients\Client\GitHubEnterprise\Schema\CodeownersErrors|array)> **/
     public function call(string $owner, string $repo, string $ref): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\CodeownersErrors($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref);

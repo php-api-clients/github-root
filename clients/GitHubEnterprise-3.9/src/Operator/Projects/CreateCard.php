@@ -23,9 +23,7 @@ final readonly class CreateCard
     {
     }
 
-    /**
-     * @return PromiseInterface<(ProjectCard|array)>
-     **/
+    /** @return PromiseInterface<(ProjectCard|array)> **/
     public function call(int $columnId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Projects\CreateCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $columnId);

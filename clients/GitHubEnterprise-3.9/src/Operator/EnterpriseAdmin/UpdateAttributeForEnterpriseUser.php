@@ -23,9 +23,7 @@ final readonly class UpdateAttributeForEnterpriseUser
     {
     }
 
-    /**
-     * @return PromiseInterface<(UserResponse|array)>
-     **/
+    /** @return PromiseInterface<(UserResponse|array)> **/
     public function call(string $scimUserId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimUserId);

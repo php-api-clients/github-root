@@ -17,7 +17,8 @@ final readonly class CodeScanningDefaultSetupUpdate
      * state: Whether code scanning default setup has been configured or not.
      * querySuite: CodeQL query suite to be used.
      */
-    public function __construct(public string $state, #[MapFrom('query_suite')] public ?string $querySuite)
+    public function __construct(public string $state, #[MapFrom('query_suite')]
+    public string|null $querySuite,)
     {
     }
 }

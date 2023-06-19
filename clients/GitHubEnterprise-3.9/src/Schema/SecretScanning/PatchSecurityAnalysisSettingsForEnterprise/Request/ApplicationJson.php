@@ -21,7 +21,12 @@ final readonly class ApplicationJson
      * secretScanningPushProtectionCustomLink: The URL that will be displayed to contributors who are blocked from pushing a secret. For more information, see "[Protecting pushes with secret scanning](https://docs.github.com/enterprise-server@3.9/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
     To disable this functionality, set this field to `null`.
      */
-    public function __construct(#[MapFrom('advanced_security_enabled_for_new_repositories')] public ?bool $advancedSecurityEnabledForNewRepositories, #[MapFrom('dependabot_alerts_enabled_for_new_repositories')] public ?bool $dependabotAlertsEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')] public ?bool $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')] public ?bool $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link')] public ?string $secretScanningPushProtectionCustomLink)
+    public function __construct(#[MapFrom('advanced_security_enabled_for_new_repositories')]
+    public bool|null $advancedSecurityEnabledForNewRepositories, #[MapFrom('dependabot_alerts_enabled_for_new_repositories')]
+    public bool|null $dependabotAlertsEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')]
+    public bool|null $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')]
+    public bool|null $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link')]
+    public string|null $secretScanningPushProtectionCustomLink,)
     {
     }
 }

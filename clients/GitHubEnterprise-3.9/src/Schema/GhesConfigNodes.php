@@ -11,7 +11,7 @@ final readonly class GhesConfigNodes
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"topology":"Cluster","nodes":[{"hostname":"generated","uuid":"generated","cluster_roles":["generated","generated"]},{"hostname":"generated","uuid":"generated","cluster_roles":["generated","generated"]}]}';
 
-    public function __construct(public ?string $topology, public ?array $nodes)
+    public function __construct(public string|null $topology, public array|null $nodes)
     {
     }
 }

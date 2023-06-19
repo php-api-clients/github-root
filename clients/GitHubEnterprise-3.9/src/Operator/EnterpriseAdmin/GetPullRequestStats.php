@@ -23,9 +23,7 @@ final readonly class GetPullRequestStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterprisePullRequestOverview>
-     **/
+    /** @return PromiseInterface<EnterprisePullRequestOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetPullRequestStats($this->responseSchemaValidator, $this->hydrator);

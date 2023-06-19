@@ -23,9 +23,7 @@ final readonly class ListRepoRequiredWorkflows
     {
     }
 
-    /**
-     * @return PromiseInterface<Ok>
-     **/
+    /** @return PromiseInterface<Ok> **/
     public function call(string $org, string $repo, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\ListRepoRequiredWorkflows($this->responseSchemaValidator, $this->hydrator, $org, $repo, $perPage, $page);

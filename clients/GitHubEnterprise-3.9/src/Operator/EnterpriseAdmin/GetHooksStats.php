@@ -23,9 +23,7 @@ final readonly class GetHooksStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseHookOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseHookOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetHooksStats($this->responseSchemaValidator, $this->hydrator);

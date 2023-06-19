@@ -18,9 +18,7 @@ use function React\Promise\resolve;
 
 final class GetReplicationStatusTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\GhesReplicationStatus::SCHEMA_EXAMPLE_DATA);
@@ -39,9 +37,7 @@ final class GetReplicationStatusTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\GhesReplicationStatus::SCHEMA_EXAMPLE_DATA);
@@ -55,9 +51,7 @@ final class GetReplicationStatusTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->getReplicationStatus('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_401_empty(): void
     {
         $response = new Response(401, []);
@@ -76,9 +70,7 @@ final class GetReplicationStatusTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_401_empty(): void
     {
         $response = new Response(401, []);

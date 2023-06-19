@@ -19,7 +19,12 @@ final readonly class ScopedInstallation
      * repositorySelection: Describe whether all repositories have been selected or there's a selection involved
      * account: A GitHub user.
      */
-    public function __construct(public Schema\AppPermissions $permissions, #[MapFrom('repository_selection')] public string $repositorySelection, #[MapFrom('single_file_name')] public ?string $singleFileName, #[MapFrom('has_multiple_single_files')] public ?bool $hasMultipleSingleFiles, #[MapFrom('single_file_paths')] public ?array $singleFilePaths, #[MapFrom('repositories_url')] public string $repositoriesUrl, public Schema\SimpleUser $account)
+    public function __construct(public Schema\AppPermissions $permissions, #[MapFrom('repository_selection')]
+    public string $repositorySelection, #[MapFrom('single_file_name')]
+    public string|null $singleFileName, #[MapFrom('has_multiple_single_files')]
+    public bool|null $hasMultipleSingleFiles, #[MapFrom('single_file_paths')]
+    public array|null $singleFilePaths, #[MapFrom('repositories_url')]
+    public string $repositoriesUrl, public Schema\SimpleUser $account,)
     {
     }
 }

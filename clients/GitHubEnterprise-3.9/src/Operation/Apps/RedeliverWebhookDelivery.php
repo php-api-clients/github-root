@@ -24,15 +24,9 @@ final class RedeliverWebhookDelivery
     public const OPERATION_MATCH = 'POST /app/hook/deliveries/{delivery_id}/attempts';
     private const METHOD         = 'POST';
     private const PATH           = '/app/hook/deliveries/{delivery_id}/attempts';
-    private int $deliveryId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\App\Hook\Deliveries\DeliveryId\Attempts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\App\Hook\Deliveries\DeliveryId\Attempts $hydrator, int $deliveryId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\App\Hook\Deliveries\DeliveryId\Attempts $hydrator, private int $deliveryId)
     {
-        $this->deliveryId              = $deliveryId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -21,7 +21,8 @@ final readonly class Dependency
      * scope: A notation of whether the dependency is required for the primary build artifact (runtime) or is only used for development. Future versions of this specification may allow for more granular scopes.
      * dependencies: Array of package-url (PURLs) of direct child dependencies.
      */
-    public function __construct(#[MapFrom('package_url')] public ?string $packageUrl, public ?Schema\Metadata $metadata, public ?string $relationship, public ?string $scope, public ?array $dependencies)
+    public function __construct(#[MapFrom('package_url')]
+    public string|null $packageUrl, public Schema\Metadata|null $metadata, public string|null $relationship, public string|null $scope, public array|null $dependencies,)
     {
     }
 }

@@ -33,9 +33,7 @@ final class DisableSelectedOrganizationGithubActionsEnterprise
         return new Request(self::METHOD, str_replace(['{enterprise}', '{org_id}'], [$this->enterprise, $this->orgId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

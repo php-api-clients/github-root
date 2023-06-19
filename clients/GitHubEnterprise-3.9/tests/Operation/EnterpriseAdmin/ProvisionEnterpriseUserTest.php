@@ -20,9 +20,7 @@ use function React\Promise\resolve;
 
 final class ProvisionEnterpriseUserTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/scim+json'], Schema\UserResponse::SCHEMA_EXAMPLE_DATA);
@@ -38,9 +36,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/scim+json'], Schema\UserResponse::SCHEMA_EXAMPLE_DATA);
@@ -54,9 +50,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->provisionEnterpriseUser(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -73,9 +67,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -90,9 +82,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->provisionEnterpriseUser(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -109,9 +99,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -126,9 +114,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->provisionEnterpriseUser(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_429_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -145,9 +131,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_429_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -162,9 +146,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->provisionEnterpriseUser(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_429_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -181,9 +163,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_429_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -198,9 +178,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->provisionEnterpriseUser(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -217,9 +195,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -234,9 +210,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->provisionEnterpriseUser(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -253,9 +227,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -270,9 +242,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->provisionEnterpriseUser(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_401_requestContentType_application_json_empty(): void
     {
         $response = new Response(401, []);
@@ -288,9 +258,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_401_requestContentType_application_json_empty(): void
     {
         $response = new Response(401, []);
@@ -306,9 +274,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         self::assertSame(401, $result['code']);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_requestContentType_application_json_empty(): void
     {
         $response = new Response(403, []);
@@ -324,9 +290,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_requestContentType_application_json_empty(): void
     {
         $response = new Response(403, []);
@@ -342,9 +306,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         self::assertSame(403, $result['code']);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_409_requestContentType_application_json_empty(): void
     {
         $response = new Response(409, []);
@@ -360,9 +322,7 @@ final class ProvisionEnterpriseUserTest extends AsyncTestCase
         })(json_decode(Schema\User::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_409_requestContentType_application_json_empty(): void
     {
         $response = new Response(409, []);

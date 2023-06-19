@@ -25,18 +25,12 @@ final class PatchSecurityAnalysisSettingsForEnterprise
     public const OPERATION_MATCH = 'PATCH /enterprises/{enterprise}/code_security_and_analysis';
     private const METHOD         = 'PATCH';
     private const PATH           = '/enterprises/{enterprise}/code_security_and_analysis';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator, string $enterprise)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator, string $enterprise)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->enterprise              = $enterprise;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -46,9 +40,7 @@ final class PatchSecurityAnalysisSettingsForEnterprise
         return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

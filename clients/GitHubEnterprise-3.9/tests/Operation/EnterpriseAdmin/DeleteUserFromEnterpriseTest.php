@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class DeleteUserFromEnterpriseTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -40,9 +38,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -57,9 +53,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deleteUserFromEnterprise('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -78,9 +72,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -95,9 +87,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deleteUserFromEnterprise('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -116,9 +106,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -133,9 +121,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deleteUserFromEnterprise('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_429_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -154,9 +140,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_429_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -171,9 +155,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deleteUserFromEnterprise('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_429_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -192,9 +174,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_429_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -209,9 +189,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deleteUserFromEnterprise('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -230,9 +208,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -247,9 +223,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deleteUserFromEnterprise('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -268,9 +242,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -285,9 +257,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deleteUserFromEnterprise('generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_204_empty(): void
     {
         $response = new Response(204, []);
@@ -305,9 +275,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_204_empty(): void
     {
         $response = new Response(204, []);
@@ -323,9 +291,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         self::assertSame(204, $result['code']);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_401_empty(): void
     {
         $response = new Response(401, []);
@@ -343,9 +309,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_401_empty(): void
     {
         $response = new Response(401, []);
@@ -361,9 +325,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         self::assertSame(401, $result['code']);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_empty(): void
     {
         $response = new Response(403, []);
@@ -381,9 +343,7 @@ final class DeleteUserFromEnterpriseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_empty(): void
     {
         $response = new Response(403, []);

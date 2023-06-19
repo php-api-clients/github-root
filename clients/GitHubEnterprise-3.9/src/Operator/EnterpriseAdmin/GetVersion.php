@@ -20,9 +20,7 @@ final readonly class GetVersion
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $uuid, string $clusterRoles): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetVersion($uuid, $clusterRoles);

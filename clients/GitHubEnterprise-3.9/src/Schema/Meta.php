@@ -17,7 +17,7 @@ final readonly class Meta
      * lastModified: A data and time when the user was last modified.
      * location: A URL location of an object
      */
-    public function __construct(public string $resourceType, public ?string $created, public ?string $lastModified, public ?string $location)
+    public function __construct(public string $resourceType, public string|null $created, public string|null $lastModified, public string|null $location)
     {
     }
 }

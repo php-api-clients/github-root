@@ -28,15 +28,11 @@ final class GetCustomRepoRole
     private string $org;
     /**The unique identifier of the role. **/
     private int $roleId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\CustomRepositoryRoles\RoleId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\CustomRepositoryRoles\RoleId $hydrator, string $org, int $roleId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\CustomRepositoryRoles\RoleId $hydrator, string $org, int $roleId)
     {
-        $this->org                     = $org;
-        $this->roleId                  = $roleId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org    = $org;
+        $this->roleId = $roleId;
     }
 
     public function createRequest(): RequestInterface

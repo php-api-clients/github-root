@@ -13,7 +13,9 @@ final readonly class Version
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"version":"9.99.9","platform":"kvm","build_id":"aaaaaaaa","build_date":"generated"}';
 
-    public function __construct(public ?string $version, public ?string $platform, #[MapFrom('build_id')] public ?string $buildId, #[MapFrom('build_date')] public ?string $buildDate)
+    public function __construct(public string|null $version, public string|null $platform, #[MapFrom('build_id')]
+    public string|null $buildId, #[MapFrom('build_date')]
+    public string|null $buildDate,)
     {
     }
 }

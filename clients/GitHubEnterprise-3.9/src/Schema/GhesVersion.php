@@ -13,7 +13,7 @@ final readonly class GhesVersion
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"hostname":"generated","version":{"version":"9.99.9","platform":"kvm","build_id":"aaaaaaaa","build_date":"generated"}}';
 
-    public function __construct(public ?string $hostname, public ?Schema\GhesVersion\Version $version)
+    public function __construct(public string|null $hostname, public Schema\GhesVersion\Version|null $version)
     {
     }
 }

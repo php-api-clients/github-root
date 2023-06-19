@@ -26,14 +26,10 @@ final class GetSecurityAnalysisSettingsForEnterprise
     private const PATH           = '/enterprises/{enterprise}/code_security_and_analysis';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator, string $enterprise)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator, string $enterprise)
     {
-        $this->enterprise              = $enterprise;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(): RequestInterface

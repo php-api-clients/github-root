@@ -27,15 +27,11 @@ final class GetReplicationStatus
     private string $uuid;
     /**The cluster roles from the cluster configuration file. **/
     private string $clusterRoles;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Manage\V1\Replication\Status $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Manage\V1\Replication\Status $hydrator, string $uuid, string $clusterRoles)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Manage\V1\Replication\Status $hydrator, string $uuid, string $clusterRoles)
     {
-        $this->uuid                    = $uuid;
-        $this->clusterRoles            = $clusterRoles;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->uuid         = $uuid;
+        $this->clusterRoles = $clusterRoles;
     }
 
     public function createRequest(): RequestInterface
@@ -43,9 +39,7 @@ final class GetReplicationStatus
         return new Request(self::METHOD, str_replace(['{uuid}', '{cluster_roles}'], [$this->uuid, $this->clusterRoles], self::PATH . '?uuid={uuid}&cluster_roles={cluster_roles}'));
     }
 
-    /**
-     * @return Schema\GhesReplicationStatus|array{code: int}
-     */
+    /** @return Schema\GhesReplicationStatus|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\GhesReplicationStatus|array
     {
         $code          = $response->getStatusCode();

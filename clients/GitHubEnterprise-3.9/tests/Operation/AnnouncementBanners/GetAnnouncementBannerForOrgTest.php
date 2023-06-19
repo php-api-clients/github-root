@@ -18,9 +18,7 @@ use function React\Promise\resolve;
 
 final class GetAnnouncementBannerForOrgTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\AnnouncementBanner::SCHEMA_EXAMPLE_DATA);
@@ -38,9 +36,7 @@ final class GetAnnouncementBannerForOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\AnnouncementBanner::SCHEMA_EXAMPLE_DATA);

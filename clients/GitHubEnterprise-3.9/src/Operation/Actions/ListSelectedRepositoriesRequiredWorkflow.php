@@ -27,15 +27,11 @@ final class ListSelectedRepositoriesRequiredWorkflow
     private string $org;
     /**The unique identifier of the required workflow. **/
     private int $requiredWorkflowId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories $hydrator, string $org, int $requiredWorkflowId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories $hydrator, string $org, int $requiredWorkflowId)
     {
-        $this->org                     = $org;
-        $this->requiredWorkflowId      = $requiredWorkflowId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org                = $org;
+        $this->requiredWorkflowId = $requiredWorkflowId;
     }
 
     public function createRequest(): RequestInterface
@@ -43,9 +39,7 @@ final class ListSelectedRepositoriesRequiredWorkflow
         return new Request(self::METHOD, str_replace(['{org}', '{required_workflow_id}'], [$this->org, $this->requiredWorkflowId], self::PATH));
     }
 
-    /**
-     * @return Schema\Operations\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\ApplicationJson\Ok\Application\Json|array{code: int}
-     */
+    /** @return Schema\Operations\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\ApplicationJson\Ok\Application\Json|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListSelectedRepositoriesRequiredWorkflow\Response\ApplicationJson\Ok\Application\Json|array
     {
         $code          = $response->getStatusCode();

@@ -23,9 +23,7 @@ final readonly class GetConfigNodes
     {
     }
 
-    /**
-     * @return PromiseInterface<(GhesConfigNodes|array)>
-     **/
+    /** @return PromiseInterface<(GhesConfigNodes|array)> **/
     public function call(string $uuid, string $clusterRoles): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetConfigNodes($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

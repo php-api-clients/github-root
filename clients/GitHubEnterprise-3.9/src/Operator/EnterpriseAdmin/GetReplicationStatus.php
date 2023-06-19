@@ -23,9 +23,7 @@ final readonly class GetReplicationStatus
     {
     }
 
-    /**
-     * @return PromiseInterface<(GhesReplicationStatus|array)>
-     **/
+    /** @return PromiseInterface<(GhesReplicationStatus|array)> **/
     public function call(string $uuid, string $clusterRoles): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetReplicationStatus($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

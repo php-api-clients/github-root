@@ -11,7 +11,7 @@ final readonly class GhesReplicationStatus
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"CRITICAL","nodes":[{"hostname":"generated","status":"CRITICAL","services":[{"status":"CRITICAL","name":"generated","details":"generated"},{"status":"CRITICAL","name":"generated","details":"generated"}]},{"hostname":"generated","status":"CRITICAL","services":[{"status":"CRITICAL","name":"generated","details":"generated"},{"status":"CRITICAL","name":"generated","details":"generated"}]}]}';
 
-    public function __construct(public ?string $status, public ?array $nodes)
+    public function __construct(public string|null $status, public array|null $nodes)
     {
     }
 }

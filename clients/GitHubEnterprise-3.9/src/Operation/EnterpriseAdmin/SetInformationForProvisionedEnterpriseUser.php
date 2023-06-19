@@ -25,18 +25,12 @@ final class SetInformationForProvisionedEnterpriseUser
     public const OPERATION_MATCH = 'PUT /scim/v2/Users/{scim_user_id}';
     private const METHOD         = 'PUT';
     private const PATH           = '/scim/v2/Users/{scim_user_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The unique identifier of the SCIM user. **/
     private string $scimUserId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator, string $scimUserId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator, string $scimUserId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->scimUserId              = $scimUserId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->scimUserId = $scimUserId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -46,9 +40,7 @@ final class SetInformationForProvisionedEnterpriseUser
         return new Request(self::METHOD, str_replace(['{scim_user_id}'], [$this->scimUserId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\UserResponse|array{code: int}
-     */
+    /** @return Schema\UserResponse|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\UserResponse|array
     {
         $code          = $response->getStatusCode();

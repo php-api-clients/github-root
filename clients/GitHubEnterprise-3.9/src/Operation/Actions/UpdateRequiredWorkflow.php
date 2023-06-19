@@ -25,21 +25,15 @@ final class UpdateRequiredWorkflow
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/orgs/{org}/actions/required_workflows/{required_workflow_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the required workflow. **/
     private int $requiredWorkflowId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId $hydrator, string $org, int $requiredWorkflowId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId $hydrator, string $org, int $requiredWorkflowId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->org                     = $org;
-        $this->requiredWorkflowId      = $requiredWorkflowId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org                = $org;
+        $this->requiredWorkflowId = $requiredWorkflowId;
     }
 
     public function createRequest(array $data): RequestInterface

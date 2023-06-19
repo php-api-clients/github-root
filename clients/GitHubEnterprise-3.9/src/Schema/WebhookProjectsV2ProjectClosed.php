@@ -20,7 +20,8 @@ final readonly class WebhookProjectsV2ProjectClosed
      * projectsVTwo: A projects v2 project
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, public ?Schema\SimpleInstallation $installation, public Schema\OrganizationSimple $organization, #[MapFrom('projects_v2')] public Schema\ProjectsV2 $projectsVTwo, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimple $organization, #[MapFrom('projects_v2')]
+    public Schema\ProjectsV2 $projectsVTwo, public Schema\SimpleUser $sender,)
     {
     }
 }

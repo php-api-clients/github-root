@@ -14,7 +14,11 @@ final readonly class Team
     public const SCHEMA_DESCRIPTION  = 'Groups of organization members that gives permissions on specified repositories.';
     public const SCHEMA_EXAMPLE_DATA = '{"id":2,"node_id":"generated","name":"generated","slug":"generated","description":"generated","privacy":"generated","permission":"generated","permissions":{"pull":false,"triage":false,"push":false,"maintain":false,"admin":false},"url":"https:\\/\\/example.com\\/","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","members_url":"generated","repositories_url":"https:\\/\\/example.com\\/","parent":{"id":1,"node_id":"MDQ6VGVhbTE=","url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1","members_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}","name":"Justice League","description":"A great team.","permission":"admin","privacy":"closed","html_url":"https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core","repositories_url":"https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos","slug":"justice-league","ldap_dn":"uid=example,ou=users,dc=github,dc=com"}}';
 
-    public function __construct(public int $id, #[MapFrom('node_id')] public string $nodeId, public string $name, public string $slug, public ?string $description, public ?string $privacy, public string $permission, public ?Schema\Team\Permissions $permissions, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('members_url')] public string $membersUrl, #[MapFrom('repositories_url')] public string $repositoriesUrl, public ?Schema\TeamSimple $parent)
+    public function __construct(public int $id, #[MapFrom('node_id')]
+    public string $nodeId, public string $name, public string $slug, public string|null $description, public string|null $privacy, public string $permission, public Schema\Team\Permissions|null $permissions, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('members_url')]
+    public string $membersUrl, #[MapFrom('repositories_url')]
+    public string $repositoriesUrl, public Schema\TeamSimple|null $parent,)
     {
     }
 }

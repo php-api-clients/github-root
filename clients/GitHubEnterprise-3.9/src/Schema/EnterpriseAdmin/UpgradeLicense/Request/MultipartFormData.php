@@ -14,7 +14,7 @@ final readonly class MultipartFormData
     /**
      * license: The content of your new _.ghl_ license file.
      */
-    public function __construct(public ?string $license)
+    public function __construct(public string|null $license)
     {
     }
 }
