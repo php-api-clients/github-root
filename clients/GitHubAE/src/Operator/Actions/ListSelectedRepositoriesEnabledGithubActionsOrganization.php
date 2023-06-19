@@ -23,9 +23,7 @@ final readonly class ListSelectedRepositoriesEnabledGithubActionsOrganization
     {
     }
 
-    /**
-     * @return PromiseInterface<Ok>
-     **/
+    /** @return PromiseInterface<Ok> **/
     public function call(string $org, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page);

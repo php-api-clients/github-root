@@ -22,9 +22,7 @@ final readonly class UnsuspendInstallation
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $installationId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Apps\UnsuspendInstallation($this->responseSchemaValidator, $this->hydrator, $installationId);

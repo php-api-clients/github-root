@@ -23,9 +23,7 @@ final readonly class ListSelfHostedRunnerGroupsForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<Ok>
-     **/
+    /** @return PromiseInterface<Ok> **/
     public function call(string $enterprise, string $visibleToOrganization, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $visibleToOrganization, $perPage, $page);

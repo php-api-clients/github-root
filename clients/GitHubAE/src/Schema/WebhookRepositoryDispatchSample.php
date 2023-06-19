@@ -21,7 +21,8 @@ final readonly class WebhookRepositoryDispatchSample
      * repository: A repository on GitHub.
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, public string $branch, #[MapFrom('client_payload')] public ?Schema\WebhookRepositoryDispatchSample\ClientPayload $clientPayload, public ?Schema\Enterprise $enterprise, public Schema\SimpleInstallation $installation, public ?Schema\OrganizationSimple $organization, public Schema\Repository $repository, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, public string $branch, #[MapFrom('client_payload')]
+    public Schema\WebhookRepositoryDispatchSample\ClientPayload|null $clientPayload, public Schema\Enterprise|null $enterprise, public Schema\SimpleInstallation $installation, public Schema\OrganizationSimple|null $organization, public Schema\Repository $repository, public Schema\SimpleUser $sender,)
     {
     }
 }

@@ -20,9 +20,7 @@ final readonly class DeletePublicKey
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $keyIds): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\DeletePublicKey($keyIds);

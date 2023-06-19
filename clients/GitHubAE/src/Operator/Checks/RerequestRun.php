@@ -23,9 +23,7 @@ final readonly class RerequestRun
     {
     }
 
-    /**
-     * @return PromiseInterface<EmptyObject>
-     **/
+    /** @return PromiseInterface<EmptyObject> **/
     public function call(string $owner, string $repo, int $checkRunId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Checks\RerequestRun($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $checkRunId);

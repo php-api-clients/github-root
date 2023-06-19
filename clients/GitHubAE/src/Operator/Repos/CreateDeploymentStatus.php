@@ -23,9 +23,7 @@ final readonly class CreateDeploymentStatus
     {
     }
 
-    /**
-     * @return PromiseInterface<DeploymentStatus>
-     **/
+    /** @return PromiseInterface<DeploymentStatus> **/
     public function call(string $owner, string $repo, int $deploymentId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\CreateDeploymentStatus($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $deploymentId);

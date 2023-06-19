@@ -23,13 +23,9 @@ final class GetMilestoneStats
     public const OPERATION_MATCH = 'GET /enterprise/stats/milestones';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprise/stats/milestones';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprise\Stats\Milestones $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprise\Stats\Milestones $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprise\Stats\Milestones $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

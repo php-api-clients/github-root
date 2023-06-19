@@ -20,9 +20,7 @@ final readonly class DeletePersonalAccessToken
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $tokenId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\DeletePersonalAccessToken($tokenId);

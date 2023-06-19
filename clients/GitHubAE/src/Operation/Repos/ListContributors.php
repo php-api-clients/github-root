@@ -34,18 +34,14 @@ final class ListContributors
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Contributors $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Contributors $hydrator, string $owner, string $repo, string $anon, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Contributors $hydrator, string $owner, string $repo, string $anon, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->anon                    = $anon;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner   = $owner;
+        $this->repo    = $repo;
+        $this->anon    = $anon;
+        $this->perPage = $perPage;
+        $this->page    = $page;
     }
 
     public function createRequest(): RequestInterface
@@ -53,9 +49,7 @@ final class ListContributors
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{anon}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->anon, $this->perPage, $this->page], self::PATH . '?anon={anon}&per_page={per_page}&page={page}'));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

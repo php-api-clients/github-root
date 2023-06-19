@@ -22,9 +22,7 @@ final readonly class DeleteWebhook
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, int $hookId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\DeleteWebhook($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $hookId);

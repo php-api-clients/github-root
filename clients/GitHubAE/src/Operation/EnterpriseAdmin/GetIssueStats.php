@@ -23,13 +23,9 @@ final class GetIssueStats
     public const OPERATION_MATCH = 'GET /enterprise/stats/issues';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprise/stats/issues';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprise\Stats\Issues $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprise\Stats\Issues $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprise\Stats\Issues $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -23,9 +23,7 @@ final readonly class Get
     {
     }
 
-    /**
-     * @return PromiseInterface<(GistSimple|array)>
-     **/
+    /** @return PromiseInterface<(GistSimple|array)> **/
     public function call(string $gistId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Gists\Get($this->responseSchemaValidator, $this->hydrator, $gistId);

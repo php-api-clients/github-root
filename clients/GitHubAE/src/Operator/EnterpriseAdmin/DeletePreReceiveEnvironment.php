@@ -22,9 +22,7 @@ final readonly class DeletePreReceiveEnvironment
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $preReceiveEnvironmentId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator, $preReceiveEnvironmentId);

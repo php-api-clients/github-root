@@ -23,9 +23,7 @@ final readonly class Get
     {
     }
 
-    /**
-     * @return PromiseInterface<OrganizationFull>
-     **/
+    /** @return PromiseInterface<OrganizationFull> **/
     public function call(string $org): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Orgs\Get($this->responseSchemaValidator, $this->hydrator, $org);

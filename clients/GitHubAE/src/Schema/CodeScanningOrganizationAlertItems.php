@@ -27,7 +27,16 @@ final readonly class CodeScanningOrganizationAlertItems
      * dismissedReason: **Required when the state is dismissed.** The reason for dismissing or closing the alert.
      * repository: A GitHub repository.
      */
-    public function __construct(public int $number, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public ?string $updatedAt, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('instances_url')] public string $instancesUrl, public string $state, #[MapFrom('fixed_at')] public ?string $fixedAt, #[MapFrom('dismissed_by')] public ?Schema\SimpleUser $dismissedBy, #[MapFrom('dismissed_at')] public ?string $dismissedAt, #[MapFrom('dismissed_reason')] public ?string $dismissedReason, public Schema\CodeScanningAlertRule $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')] public Schema\CodeScanningAlertInstance $mostRecentInstance, public Schema\SimpleRepository $repository)
+    public function __construct(public int $number, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string|null $updatedAt, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('instances_url')]
+    public string $instancesUrl, public string $state, #[MapFrom('fixed_at')]
+    public string|null $fixedAt, #[MapFrom('dismissed_by')]
+    public Schema\SimpleUser|null $dismissedBy, #[MapFrom('dismissed_at')]
+    public string|null $dismissedAt, #[MapFrom('dismissed_reason')]
+    public string|null $dismissedReason, public Schema\CodeScanningAlertRule $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')]
+    public Schema\CodeScanningAlertInstance $mostRecentInstance, public Schema\SimpleRepository $repository,)
     {
     }
 }

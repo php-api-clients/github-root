@@ -23,9 +23,7 @@ final readonly class Get
     {
     }
 
-    /**
-     * @return PromiseInterface<(Json|array)>
-     **/
+    /** @return PromiseInterface<(Json|array)> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Emojis\Get($this->responseSchemaValidator, $this->hydrator);

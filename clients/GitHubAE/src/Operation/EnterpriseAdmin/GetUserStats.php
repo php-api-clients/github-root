@@ -23,13 +23,9 @@ final class GetUserStats
     public const OPERATION_MATCH = 'GET /enterprise/stats/users';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprise/stats/users';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprise\Stats\Users $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprise\Stats\Users $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprise\Stats\Users $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -21,9 +21,7 @@ final readonly class UnsuspendUser
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $username, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\UnsuspendUser($this->requestSchemaValidator, $username);

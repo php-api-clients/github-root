@@ -26,19 +26,13 @@ final class ListWebhookDeliveries
     private const PATH           = '/app/hook/deliveries';
     /**Used for pagination: the starting delivery from which the page of deliveries is fetched. Refer to the `link` header for the next and previous page cursors. **/
     private string $cursor;
-    private bool $redelivery;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\App\Hook\Deliveries $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\App\Hook\Deliveries $hydrator, string $cursor, bool $redelivery, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\App\Hook\Deliveries $hydrator, string $cursor, private bool $redelivery, int $perPage = 30)
     {
-        $this->cursor                  = $cursor;
-        $this->redelivery              = $redelivery;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->cursor  = $cursor;
+        $this->perPage = $perPage;
     }
 
     public function createRequest(): RequestInterface

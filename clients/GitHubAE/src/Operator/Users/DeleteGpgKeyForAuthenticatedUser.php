@@ -22,9 +22,7 @@ final readonly class DeleteGpgKeyForAuthenticatedUser
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $gpgKeyId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Users\DeleteGpgKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $gpgKeyId);

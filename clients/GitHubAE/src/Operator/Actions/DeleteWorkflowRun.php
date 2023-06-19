@@ -20,9 +20,7 @@ final readonly class DeleteWorkflowRun
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, int $runId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Actions\DeleteWorkflowRun($owner, $repo, $runId);

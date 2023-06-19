@@ -30,16 +30,12 @@ final class GetRef
     private string $repo;
     /**The commit reference. Can be a commit SHA, branch name (`heads/BRANCH_NAME`), or tag name (`tags/TAG_NAME`). For more information, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation. **/
     private string $ref;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Ref\Ref $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Git\Ref\Ref $hydrator, string $owner, string $repo, string $ref)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Git\Ref\Ref $hydrator, string $owner, string $repo, string $ref)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->ref                     = $ref;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->ref   = $ref;
     }
 
     public function createRequest(): RequestInterface

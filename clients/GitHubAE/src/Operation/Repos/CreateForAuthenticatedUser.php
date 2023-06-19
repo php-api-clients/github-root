@@ -25,15 +25,9 @@ final class CreateForAuthenticatedUser
     public const OPERATION_MATCH = 'POST /user/repos';
     private const METHOD         = 'POST';
     private const PATH           = '/user/repos';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\User\Repos $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\User\Repos $hydrator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\User\Repos $hydrator)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -43,9 +37,7 @@ final class CreateForAuthenticatedUser
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\Repository|array{code: int}
-     */
+    /** @return Schema\Repository|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\Repository|array
     {
         $code          = $response->getStatusCode();

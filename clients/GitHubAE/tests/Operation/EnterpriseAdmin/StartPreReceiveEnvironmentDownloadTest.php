@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_202_responseContentType_application_json_zero(): void
     {
         $response = new Response(202, ['Content-Type' => 'application/json'], Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_EXAMPLE_DATA);
@@ -39,9 +37,7 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_202_responseContentType_application_json_zero(): void
     {
         $response = new Response(202, ['Content-Type' => 'application/json'], Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_EXAMPLE_DATA);
@@ -55,9 +51,7 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->startPreReceiveEnvironmentDownload(26));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);
@@ -76,9 +70,7 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);

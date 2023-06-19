@@ -20,9 +20,7 @@ final readonly class DeleteSelfHostedRunnerFromRepo
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, int $runnerId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Actions\DeleteSelfHostedRunnerFromRepo($owner, $repo, $runnerId);

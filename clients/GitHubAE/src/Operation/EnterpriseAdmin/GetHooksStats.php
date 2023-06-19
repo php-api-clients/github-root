@@ -23,13 +23,9 @@ final class GetHooksStats
     public const OPERATION_MATCH = 'GET /enterprise/stats/hooks';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprise/stats/hooks';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprise\Stats\Hooks $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprise\Stats\Hooks $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprise\Stats\Hooks $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

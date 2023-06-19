@@ -21,9 +21,7 @@ final readonly class SetSelectedOrganizationsEnabledGithubActionsEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise($this->requestSchemaValidator, $enterprise);

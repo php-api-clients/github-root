@@ -23,9 +23,7 @@ final readonly class Update
     {
     }
 
-    /**
-     * @return PromiseInterface<GistSimple>
-     **/
+    /** @return PromiseInterface<GistSimple> **/
     public function call(string $gistId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Gists\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $gistId);

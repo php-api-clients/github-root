@@ -32,17 +32,13 @@ final class GetContent
     private string $path;
     /**The name of the commit/branch/tag. Default: the repository’s default branch. **/
     private string $ref;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Contents\Path $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Contents\Path $hydrator, string $owner, string $repo, string $path, string $ref)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Contents\Path $hydrator, string $owner, string $repo, string $path, string $ref)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->path                    = $path;
-        $this->ref                     = $ref;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->path  = $path;
+        $this->ref   = $ref;
     }
 
     public function createRequest(): RequestInterface
@@ -50,9 +46,7 @@ final class GetContent
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{path}', '{ref}'], [$this->owner, $this->repo, $this->path, $this->ref], self::PATH . '?ref={ref}'));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

@@ -32,17 +32,13 @@ final class DeleteAnalysis
     private int $analysisId;
     /**Allow deletion if the specified analysis is the last in a set. If you attempt to delete the final analysis in a set without setting this parameter to `true`, you'll get a 400 response with the message: `Analysis is last of its type and deletion may result in the loss of historical alert data. Please specify confirm_delete.` **/
     private string|null $confirmDelete;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses\AnalysisId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses\AnalysisId $hydrator, string $owner, string $repo, int $analysisId, string|null $confirmDelete)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Analyses\AnalysisId $hydrator, string $owner, string $repo, int $analysisId, string|null $confirmDelete)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->analysisId              = $analysisId;
-        $this->confirmDelete           = $confirmDelete;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner         = $owner;
+        $this->repo          = $repo;
+        $this->analysisId    = $analysisId;
+        $this->confirmDelete = $confirmDelete;
     }
 
     public function createRequest(): RequestInterface

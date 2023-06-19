@@ -23,9 +23,7 @@ final readonly class LinkExternalIdpGroupToTeamForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<ExternalGroup>
-     **/
+    /** @return PromiseInterface<ExternalGroup> **/
     public function call(string $org, string $teamSlug, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Teams\LinkExternalIdpGroupToTeamForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

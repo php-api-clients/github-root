@@ -23,9 +23,7 @@ final readonly class GetDownloadStatusForPreReceiveEnvironmentStreaming
     {
     }
 
-    /**
-     * @return PromiseInterface<PreReceiveEnvironmentDownloadStatus>
-     **/
+    /** @return PromiseInterface<PreReceiveEnvironmentDownloadStatus> **/
     public function call(int $preReceiveEnvironmentId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironmentStreaming($this->responseSchemaValidator, $this->hydrator, $this->browser, $preReceiveEnvironmentId);

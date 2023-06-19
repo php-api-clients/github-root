@@ -22,9 +22,7 @@ final readonly class ListContributors
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, string $anon, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\ListContributors($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $anon, $perPage, $page);

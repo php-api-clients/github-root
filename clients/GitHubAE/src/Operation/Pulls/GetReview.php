@@ -32,17 +32,13 @@ final class GetReview
     private int $pullNumber;
     /**The unique identifier of the review. **/
     private int $reviewId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews\ReviewId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews\ReviewId $hydrator, string $owner, string $repo, int $pullNumber, int $reviewId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews\ReviewId $hydrator, string $owner, string $repo, int $pullNumber, int $reviewId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->pullNumber              = $pullNumber;
-        $this->reviewId                = $reviewId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner      = $owner;
+        $this->repo       = $repo;
+        $this->pullNumber = $pullNumber;
+        $this->reviewId   = $reviewId;
     }
 
     public function createRequest(): RequestInterface

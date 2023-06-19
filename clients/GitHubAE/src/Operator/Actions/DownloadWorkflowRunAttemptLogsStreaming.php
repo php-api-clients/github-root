@@ -21,9 +21,7 @@ final readonly class DownloadWorkflowRunAttemptLogsStreaming
     {
     }
 
-    /**
-     * @return PromiseInterface<Observable>
-     **/
+    /** @return PromiseInterface<Observable> **/
     public function call(string $owner, string $repo, int $runId, int $attemptNumber): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Actions\DownloadWorkflowRunAttemptLogsStreaming($this->browser, $owner, $repo, $runId, $attemptNumber);

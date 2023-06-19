@@ -21,9 +21,7 @@ final readonly class DownloadTarballArchiveStreaming
     {
     }
 
-    /**
-     * @return PromiseInterface<Observable>
-     **/
+    /** @return PromiseInterface<Observable> **/
     public function call(string $owner, string $repo, string $ref): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\DownloadTarballArchiveStreaming($this->browser, $owner, $repo, $ref);

@@ -18,7 +18,13 @@ final readonly class RunnerGroupsEnterprise
      * restrictedToWorkflows: If `true`, the runner group will be restricted to running only the workflows specified in the `selected_workflows` array.
      * selectedWorkflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless `restricted_to_workflows` is set to `true`.
      */
-    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[MapFrom('selected_organizations_url')] public ?string $selectedOrganizationsUrl, #[MapFrom('runners_url')] public string $runnersUrl, #[MapFrom('allows_public_repositories')] public bool $allowsPublicRepositories, #[MapFrom('workflow_restrictions_read_only')] public ?bool $workflowRestrictionsReadOnly, #[MapFrom('restricted_to_workflows')] public ?bool $restrictedToWorkflows, #[MapFrom('selected_workflows')] public ?array $selectedWorkflows)
+    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[MapFrom('selected_organizations_url')]
+    public string|null $selectedOrganizationsUrl, #[MapFrom('runners_url')]
+    public string $runnersUrl, #[MapFrom('allows_public_repositories')]
+    public bool $allowsPublicRepositories, #[MapFrom('workflow_restrictions_read_only')]
+    public bool|null $workflowRestrictionsReadOnly, #[MapFrom('restricted_to_workflows')]
+    public bool|null $restrictedToWorkflows, #[MapFrom('selected_workflows')]
+    public array|null $selectedWorkflows,)
     {
     }
 }

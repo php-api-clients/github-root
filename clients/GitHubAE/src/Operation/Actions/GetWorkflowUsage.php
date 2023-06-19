@@ -29,16 +29,12 @@ final class GetWorkflowUsage
     private string $repo;
     /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Timing $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Timing $hydrator, string $owner, string $repo, $workflowId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Workflows\WorkflowId\Timing $hydrator, string $owner, string $repo, $workflowId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->workflowId              = $workflowId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner      = $owner;
+        $this->repo       = $repo;
+        $this->workflowId = $workflowId;
     }
 
     public function createRequest(): RequestInterface

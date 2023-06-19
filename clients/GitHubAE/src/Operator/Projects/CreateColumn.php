@@ -23,9 +23,7 @@ final readonly class CreateColumn
     {
     }
 
-    /**
-     * @return PromiseInterface<(ProjectColumn|array)>
-     **/
+    /** @return PromiseInterface<(ProjectColumn|array)> **/
     public function call(int $projectId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Projects\CreateColumn($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $projectId);

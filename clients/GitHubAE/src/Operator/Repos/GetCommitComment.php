@@ -23,9 +23,7 @@ final readonly class GetCommitComment
     {
     }
 
-    /**
-     * @return PromiseInterface<CommitComment>
-     **/
+    /** @return PromiseInterface<CommitComment> **/
     public function call(string $owner, string $repo, int $commentId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\GetCommitComment($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $commentId);

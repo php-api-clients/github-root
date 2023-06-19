@@ -23,9 +23,7 @@ final readonly class GetPagesStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterprisePageOverview>
-     **/
+    /** @return PromiseInterface<EnterprisePageOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetPagesStats($this->responseSchemaValidator, $this->hydrator);

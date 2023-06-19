@@ -23,9 +23,7 @@ final readonly class ListExternalIdpGroupsForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<ExternalGroups>
-     **/
+    /** @return PromiseInterface<ExternalGroups> **/
     public function call(string $org, int $page, string $displayName, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Teams\ListExternalIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $page, $displayName, $perPage);

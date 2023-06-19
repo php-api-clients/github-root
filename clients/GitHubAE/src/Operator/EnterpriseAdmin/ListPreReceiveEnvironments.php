@@ -20,9 +20,7 @@ final readonly class ListPreReceiveEnvironments
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\ListPreReceiveEnvironments($perPage, $page, $direction, $sort);

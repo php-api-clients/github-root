@@ -23,9 +23,7 @@ final readonly class GetRelease
     {
     }
 
-    /**
-     * @return PromiseInterface<(Release|array)>
-     **/
+    /** @return PromiseInterface<(Release|array)> **/
     public function call(string $owner, string $repo, int $releaseId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\GetRelease($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $releaseId);

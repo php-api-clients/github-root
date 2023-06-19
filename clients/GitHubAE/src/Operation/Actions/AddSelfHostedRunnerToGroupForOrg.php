@@ -36,9 +36,7 @@ final class AddSelfHostedRunnerToGroupForOrg
         return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}', '{runner_id}'], [$this->org, $this->runnerGroupId, $this->runnerId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

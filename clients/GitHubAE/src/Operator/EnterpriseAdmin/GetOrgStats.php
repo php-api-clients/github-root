@@ -23,9 +23,7 @@ final readonly class GetOrgStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseOrganizationOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseOrganizationOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetOrgStats($this->responseSchemaValidator, $this->hydrator);

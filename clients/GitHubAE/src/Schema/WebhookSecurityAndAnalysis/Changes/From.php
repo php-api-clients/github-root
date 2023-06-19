@@ -14,7 +14,8 @@ final readonly class From
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"security_and_analysis":{"advanced_security":{"status":"disabled"},"secret_scanning":{"status":"disabled"},"secret_scanning_push_protection":{"status":"disabled"}}}';
 
-    public function __construct(#[MapFrom('security_and_analysis')] public ?Schema\SecurityAndAnalysis $securityAndAnalysis)
+    public function __construct(#[MapFrom('security_and_analysis')]
+    public Schema\SecurityAndAnalysis|null $securityAndAnalysis,)
     {
     }
 }
