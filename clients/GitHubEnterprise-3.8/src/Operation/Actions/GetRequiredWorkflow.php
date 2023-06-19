@@ -27,15 +27,11 @@ final class GetRequiredWorkflow
     private string $org;
     /**The unique identifier of the required workflow. **/
     private int $requiredWorkflowId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId $hydrator, string $org, int $requiredWorkflowId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId $hydrator, string $org, int $requiredWorkflowId)
     {
-        $this->org                     = $org;
-        $this->requiredWorkflowId      = $requiredWorkflowId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org                = $org;
+        $this->requiredWorkflowId = $requiredWorkflowId;
     }
 
     public function createRequest(): RequestInterface

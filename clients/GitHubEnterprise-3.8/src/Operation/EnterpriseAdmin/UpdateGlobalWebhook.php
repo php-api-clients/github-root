@@ -24,18 +24,12 @@ final class UpdateGlobalWebhook
     public const OPERATION_MATCH = 'PATCH /admin/hooks/{hook_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/hooks/{hook_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The unique identifier of the hook. **/
     private int $hookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->hookId                  = $hookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->hookId = $hookId;
     }
 
     public function createRequest(array $data): RequestInterface

@@ -23,9 +23,7 @@ final readonly class GetActionsCacheUsagePolicy
     {
     }
 
-    /**
-     * @return PromiseInterface<ActionsCacheUsagePolicyForRepository>
-     **/
+    /** @return PromiseInterface<ActionsCacheUsagePolicyForRepository> **/
     public function call(string $owner, string $repo): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\GetActionsCacheUsagePolicy($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

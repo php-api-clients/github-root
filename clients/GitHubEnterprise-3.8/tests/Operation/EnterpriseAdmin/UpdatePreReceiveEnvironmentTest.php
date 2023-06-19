@@ -20,9 +20,7 @@ use function React\Promise\resolve;
 
 final class UpdatePreReceiveEnvironmentTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\PreReceiveEnvironment::SCHEMA_EXAMPLE_DATA);
@@ -40,9 +38,7 @@ final class UpdatePreReceiveEnvironmentTest extends AsyncTestCase
         })(json_decode(Schema\EnterpriseAdmin\UpdatePreReceiveEnvironment\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\PreReceiveEnvironment::SCHEMA_EXAMPLE_DATA);
@@ -56,9 +52,7 @@ final class UpdatePreReceiveEnvironmentTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->updatePreReceiveEnvironment(26, json_decode(Schema\EnterpriseAdmin\UpdatePreReceiveEnvironment\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);
@@ -77,9 +71,7 @@ final class UpdatePreReceiveEnvironmentTest extends AsyncTestCase
         })(json_decode(Schema\EnterpriseAdmin\UpdatePreReceiveEnvironment\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);

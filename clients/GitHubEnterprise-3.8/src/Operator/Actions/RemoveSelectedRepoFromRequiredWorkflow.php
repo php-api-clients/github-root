@@ -20,9 +20,7 @@ final readonly class RemoveSelectedRepoFromRequiredWorkflow
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, int $requiredWorkflowId, int $repositoryId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\RemoveSelectedRepoFromRequiredWorkflow($org, $requiredWorkflowId, $repositoryId);

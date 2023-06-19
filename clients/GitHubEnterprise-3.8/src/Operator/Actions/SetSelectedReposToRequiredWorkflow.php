@@ -21,9 +21,7 @@ final readonly class SetSelectedReposToRequiredWorkflow
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, int $requiredWorkflowId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\SetSelectedReposToRequiredWorkflow($this->requestSchemaValidator, $org, $requiredWorkflowId);

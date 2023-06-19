@@ -22,7 +22,10 @@ final readonly class ApplicationJson
      * prerelease: `true` to identify the release as a prerelease, `false` to identify the release as a full release.
      * makeLatest: Specifies whether this release should be set as the latest release for the repository. Drafts and prereleases cannot be set as latest. Defaults to `true` for newly published releases. `legacy` specifies that the latest release should be determined based on the release creation date and higher semantic version.
      */
-    public function __construct(#[MapFrom('tag_name')] public ?string $tagName, #[MapFrom('target_commitish')] public ?string $targetCommitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease, #[MapFrom('make_latest')] public ?string $makeLatest)
+    public function __construct(#[MapFrom('tag_name')]
+    public string|null $tagName, #[MapFrom('target_commitish')]
+    public string|null $targetCommitish, public string|null $name, public string|null $body, public bool|null $draft, public bool|null $prerelease, #[MapFrom('make_latest')]
+    public string|null $makeLatest,)
     {
     }
 }

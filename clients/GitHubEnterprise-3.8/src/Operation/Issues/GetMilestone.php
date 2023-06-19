@@ -30,16 +30,12 @@ final class GetMilestone
     private string $repo;
     /**The number that identifies the milestone. **/
     private int $milestoneNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator, string $owner, string $repo, int $milestoneNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber $hydrator, string $owner, string $repo, int $milestoneNumber)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->milestoneNumber         = $milestoneNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner           = $owner;
+        $this->repo            = $repo;
+        $this->milestoneNumber = $milestoneNumber;
     }
 
     public function createRequest(): RequestInterface

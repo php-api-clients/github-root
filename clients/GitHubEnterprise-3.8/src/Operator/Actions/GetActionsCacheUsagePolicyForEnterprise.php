@@ -23,9 +23,7 @@ final readonly class GetActionsCacheUsagePolicyForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<ActionsCacheUsagePolicyEnterprise>
-     **/
+    /** @return PromiseInterface<ActionsCacheUsagePolicyEnterprise> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\GetActionsCacheUsagePolicyForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -13,7 +13,11 @@ abstract readonly class Tiet46EF101B
     public const SCHEMA_DESCRIPTION  = 'The [`deploy key`](https://docs.github.com/enterprise-server@3.8/rest/reference/deployments#get-a-deploy-key) resource.';
     public const SCHEMA_EXAMPLE_DATA = '{"added_by":"generated","created_at":"generated","id":2,"key":"generated","last_used":"generated","read_only":false,"title":"generated","url":"https:\\/\\/example.com\\/","verified":false}';
 
-    public function __construct(#[MapFrom('added_by')] public ?string $addedBy, #[MapFrom('created_at')] public string $createdAt, public int $id, public string $key, #[MapFrom('last_used')] public ?string $lastUsed, #[MapFrom('read_only')] public bool $readOnly, public string $title, public string $url, public bool $verified)
+    public function __construct(#[MapFrom('added_by')]
+    public string|null $addedBy, #[MapFrom('created_at')]
+    public string $createdAt, public int $id, public string $key, #[MapFrom('last_used')]
+    public string|null $lastUsed, #[MapFrom('read_only')]
+    public bool $readOnly, public string $title, public string $url, public bool $verified,)
     {
     }
 }

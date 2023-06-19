@@ -26,14 +26,10 @@ final class DeleteScimGroupFromEnterprise
     private const PATH           = '/scim/v2/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId)
     {
-        $this->scimGroupId             = $scimGroupId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->scimGroupId = $scimGroupId;
     }
 
     public function createRequest(): RequestInterface
@@ -41,9 +37,7 @@ final class DeleteScimGroupFromEnterprise
         return new Request(self::METHOD, str_replace(['{scim_group_id}'], [$this->scimGroupId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

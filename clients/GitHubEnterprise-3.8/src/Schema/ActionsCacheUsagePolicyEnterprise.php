@@ -17,7 +17,9 @@ final readonly class ActionsCacheUsagePolicyEnterprise
      * repoCacheSizeLimitInGb: For repositories in an enterprise, the default size limit for the sum of all caches in a repository, in gigabytes.
      * maxRepoCacheSizeLimitInGb: For repositories in an enterprise, the maximum value that can be set as the limit for the sum of all caches in a repository, in gigabytes.
      */
-    public function __construct(#[MapFrom('repo_cache_size_limit_in_gb')] public ?int $repoCacheSizeLimitInGb, #[MapFrom('max_repo_cache_size_limit_in_gb')] public ?int $maxRepoCacheSizeLimitInGb)
+    public function __construct(#[MapFrom('repo_cache_size_limit_in_gb')]
+    public int|null $repoCacheSizeLimitInGb, #[MapFrom('max_repo_cache_size_limit_in_gb')]
+    public int|null $maxRepoCacheSizeLimitInGb,)
     {
     }
 }

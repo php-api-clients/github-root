@@ -14,7 +14,7 @@ final readonly class ApplicationJson
     /**
      * enforcement: The state of enforcement for the hook on this repository.
      */
-    public function __construct(public ?string $enforcement)
+    public function __construct(public string|null $enforcement)
     {
     }
 }

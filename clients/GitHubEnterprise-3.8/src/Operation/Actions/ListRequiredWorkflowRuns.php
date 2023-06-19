@@ -49,10 +49,8 @@ final class ListRequiredWorkflowRuns
     private int $page;
     /**If `true` pull requests are omitted from the response (empty array). **/
     private bool $excludePullRequests;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs $hydrator, string $owner, string $repo, int $requiredWorkflowIdForRepo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage = 30, int $page = 1, bool $excludePullRequests = false)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs $hydrator, string $owner, string $repo, int $requiredWorkflowIdForRepo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage = 30, int $page = 1, bool $excludePullRequests = false)
     {
         $this->owner                     = $owner;
         $this->repo                      = $repo;
@@ -67,8 +65,6 @@ final class ListRequiredWorkflowRuns
         $this->perPage                   = $perPage;
         $this->page                      = $page;
         $this->excludePullRequests       = $excludePullRequests;
-        $this->responseSchemaValidator   = $responseSchemaValidator;
-        $this->hydrator                  = $hydrator;
     }
 
     public function createRequest(): RequestInterface

@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * selectedRepositoryIds: The IDs of the repositories for which the workflow should be required.
      */
-    public function __construct(#[MapFrom('selected_repository_ids')] public array $selectedRepositoryIds)
+    public function __construct(#[MapFrom('selected_repository_ids')]
+    public array $selectedRepositoryIds,)
     {
     }
 }

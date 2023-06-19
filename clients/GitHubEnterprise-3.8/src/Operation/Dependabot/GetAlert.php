@@ -33,16 +33,12 @@ final class GetAlert
     or in `number` fields in the response from the
     `GET /repos/{owner}/{repo}/dependabot/alerts` operation. **/
     private int $alertNumber;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Dependabot\Alerts\AlertNumber $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Dependabot\Alerts\AlertNumber $hydrator, string $owner, string $repo, int $alertNumber)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Dependabot\Alerts\AlertNumber $hydrator, string $owner, string $repo, int $alertNumber)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->alertNumber             = $alertNumber;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner       = $owner;
+        $this->repo        = $repo;
+        $this->alertNumber = $alertNumber;
     }
 
     public function createRequest(): RequestInterface
@@ -50,9 +46,7 @@ final class GetAlert
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{alert_number}'], [$this->owner, $this->repo, $this->alertNumber], self::PATH));
     }
 
-    /**
-     * @return Schema\DependabotAlert|array{code: int}
-     */
+    /** @return Schema\DependabotAlert|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\DependabotAlert|array
     {
         $code          = $response->getStatusCode();

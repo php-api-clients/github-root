@@ -16,7 +16,7 @@ final readonly class UserEmailsResponse
      * type: The type of email address.
      * primary: Whether this email address is the primary address.
      */
-    public function __construct(public string $value, public ?string $type, public ?bool $primary)
+    public function __construct(public string $value, public string|null $type, public bool|null $primary)
     {
     }
 }

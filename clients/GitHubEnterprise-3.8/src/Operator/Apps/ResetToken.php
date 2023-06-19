@@ -23,9 +23,7 @@ final readonly class ResetToken
     {
     }
 
-    /**
-     * @return PromiseInterface<Authorization>
-     **/
+    /** @return PromiseInterface<Authorization> **/
     public function call(string $clientId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\ResetToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $clientId);

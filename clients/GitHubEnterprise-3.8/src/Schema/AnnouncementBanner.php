@@ -18,7 +18,9 @@ final readonly class AnnouncementBanner
      * expiresAt: The time at which the announcement expires. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. To set an announcement that never expires, omit this parameter, set it to `null`, or set it to an empty string.
      * userDismissible: Whether an announcement can be dismissed by the user.
      */
-    public function __construct(public ?string $announcement, #[MapFrom('expires_at')] public ?string $expiresAt, #[MapFrom('user_dismissible')] public ?bool $userDismissible)
+    public function __construct(public string|null $announcement, #[MapFrom('expires_at')]
+    public string|null $expiresAt, #[MapFrom('user_dismissible')]
+    public bool|null $userDismissible,)
     {
     }
 }

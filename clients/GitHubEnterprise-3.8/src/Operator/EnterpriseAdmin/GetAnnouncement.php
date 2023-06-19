@@ -23,9 +23,7 @@ final readonly class GetAnnouncement
     {
     }
 
-    /**
-     * @return PromiseInterface<Announcement>
-     **/
+    /** @return PromiseInterface<Announcement> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetAnnouncement($this->responseSchemaValidator, $this->hydrator);

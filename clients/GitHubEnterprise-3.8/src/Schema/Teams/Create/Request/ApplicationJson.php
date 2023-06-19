@@ -30,7 +30,10 @@ final readonly class ApplicationJson
      * parentTeamId: The ID of a team to set as the parent team.
      * ldapDn: The [distinguished name](https://www.ldap.com/ldap-dns-and-rdns) (DN) of the LDAP entry to map to a team. LDAP synchronization must be enabled to map LDAP entries to a team. Use the "[Update LDAP mapping for a team](https://docs.github.com/enterprise-server@3.8/rest/reference/enterprise-admin#update-ldap-mapping-for-a-team)" endpoint to change the LDAP DN. For more information, see "[Using LDAP](https://docs.github.com/enterprise-server@3.8/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap#enabling-ldap-sync)."
      */
-    public function __construct(public string $name, public ?string $description, public ?array $maintainers, #[MapFrom('repo_names')] public ?array $repoNames, public ?string $privacy, public ?string $permission, #[MapFrom('parent_team_id')] public ?int $parentTeamId, #[MapFrom('ldap_dn')] public ?string $ldapDn)
+    public function __construct(public string $name, public string|null $description, public array|null $maintainers, #[MapFrom('repo_names')]
+    public array|null $repoNames, public string|null $privacy, public string|null $permission, #[MapFrom('parent_team_id')]
+    public int|null $parentTeamId, #[MapFrom('ldap_dn')]
+    public string|null $ldapDn,)
     {
     }
 }

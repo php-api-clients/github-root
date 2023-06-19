@@ -14,7 +14,9 @@ final readonly class WebhookRubygemsMetadata
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated","description":"generated","readme":"generated","homepage":"generated","version_info":{"version":"generated"},"platform":"generated","metadata":[],"repo":"generated","dependencies":[[],[]],"commit_oid":"generated"}';
 
-    public function __construct(public ?string $name, public ?string $description, public ?string $readme, public ?string $homepage, #[MapFrom('version_info')] public ?Schema\WebhookRubygemsMetadata\VersionInfo $versionInfo, public ?string $platform, public ?Schema\WebhookRubygemsMetadata\Metadata $metadata, public ?string $repo, public ?array $dependencies, #[MapFrom('commit_oid')] public ?string $commitOid)
+    public function __construct(public string|null $name, public string|null $description, public string|null $readme, public string|null $homepage, #[MapFrom('version_info')]
+    public Schema\WebhookRubygemsMetadata\VersionInfo|null $versionInfo, public string|null $platform, public Schema\WebhookRubygemsMetadata\Metadata|null $metadata, public string|null $repo, public array|null $dependencies, #[MapFrom('commit_oid')]
+    public string|null $commitOid,)
     {
     }
 }

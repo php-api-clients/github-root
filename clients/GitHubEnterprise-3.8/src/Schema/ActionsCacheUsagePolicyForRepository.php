@@ -16,7 +16,8 @@ final readonly class ActionsCacheUsagePolicyForRepository
     /**
      * repoCacheSizeLimitInGb: The size limit for the sum of all caches, in gigabytes.
      */
-    public function __construct(#[MapFrom('repo_cache_size_limit_in_gb')] public int $repoCacheSizeLimitInGb)
+    public function __construct(#[MapFrom('repo_cache_size_limit_in_gb')]
+    public int $repoCacheSizeLimitInGb,)
     {
     }
 }

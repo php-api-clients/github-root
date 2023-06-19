@@ -19,7 +19,10 @@ final readonly class ApplicationJson
      * scope: Enable the required workflow for all repositories or selected repositories in the organization.
      * selectedRepositoryIds: A list of repository IDs where you want to enable the required workflow. A list of repository IDs where you want to enable the required workflow. You can only provide a list of repository ids when the `scope` is set to `selected`.
      */
-    public function __construct(#[MapFrom('workflow_file_path')] public ?string $workflowFilePath, #[MapFrom('repository_id')] public ?string $repositoryId, public ?string $scope, #[MapFrom('selected_repository_ids')] public ?array $selectedRepositoryIds)
+    public function __construct(#[MapFrom('workflow_file_path')]
+    public string|null $workflowFilePath, #[MapFrom('repository_id')]
+    public string|null $repositoryId, public string|null $scope, #[MapFrom('selected_repository_ids')]
+    public array|null $selectedRepositoryIds,)
     {
     }
 }

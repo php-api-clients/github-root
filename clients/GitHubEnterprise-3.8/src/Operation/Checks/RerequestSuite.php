@@ -29,16 +29,12 @@ final class RerequestSuite
     private string $repo;
     /**The unique identifier of the check suite. **/
     private int $checkSuiteId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\Rerequest $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\Rerequest $hydrator, string $owner, string $repo, int $checkSuiteId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CheckSuites\CheckSuiteId\Rerequest $hydrator, string $owner, string $repo, int $checkSuiteId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->checkSuiteId            = $checkSuiteId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner        = $owner;
+        $this->repo         = $repo;
+        $this->checkSuiteId = $checkSuiteId;
     }
 
     public function createRequest(): RequestInterface

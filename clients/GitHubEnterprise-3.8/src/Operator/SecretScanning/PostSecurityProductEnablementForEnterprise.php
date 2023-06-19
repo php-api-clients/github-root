@@ -22,9 +22,7 @@ final readonly class PostSecurityProductEnablementForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise, string $securityProduct, string $enablement): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\SecretScanning\PostSecurityProductEnablementForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $securityProduct, $enablement);
