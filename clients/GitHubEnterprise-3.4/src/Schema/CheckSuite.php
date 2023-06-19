@@ -19,7 +19,17 @@ final readonly class CheckSuite
      * repository: Minimal Repository
      * headCommit: A commit.
      */
-    public function __construct(public int $id, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('head_branch')] public ?string $headBranch, #[MapFrom('head_sha')] public string $headSha, public ?string $status, public ?string $conclusion, public ?string $url, public ?string $before, public ?string $after, #[MapFrom('pull_requests')] public ?array $pullRequests, public ?Schema\Integration $app, public Schema\MinimalRepository $repository, #[MapFrom('created_at')] public ?string $createdAt, #[MapFrom('updated_at')] public ?string $updatedAt, #[MapFrom('head_commit')] public Schema\SimpleCommit $headCommit, #[MapFrom('latest_check_runs_count')] public int $latestCheckRunsCount, #[MapFrom('check_runs_url')] public string $checkRunsUrl, public ?bool $rerequestable, #[MapFrom('runs_rerequestable')] public ?bool $runsRerequestable)
+    public function __construct(public int $id, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('head_branch')]
+    public string|null $headBranch, #[MapFrom('head_sha')]
+    public string $headSha, public string|null $status, public string|null $conclusion, public string|null $url, public string|null $before, public string|null $after, #[MapFrom('pull_requests')]
+    public array|null $pullRequests, public Schema\Integration|null $app, public Schema\MinimalRepository $repository, #[MapFrom('created_at')]
+    public string|null $createdAt, #[MapFrom('updated_at')]
+    public string|null $updatedAt, #[MapFrom('head_commit')]
+    public Schema\SimpleCommit $headCommit, #[MapFrom('latest_check_runs_count')]
+    public int $latestCheckRunsCount, #[MapFrom('check_runs_url')]
+    public string $checkRunsUrl, public bool|null $rerequestable, #[MapFrom('runs_rerequestable')]
+    public bool|null $runsRerequestable,)
     {
     }
 }

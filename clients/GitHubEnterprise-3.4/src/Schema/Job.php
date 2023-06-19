@@ -30,7 +30,20 @@ final readonly class Job
      * runnerGroupId: The ID of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
      * runnerGroupName: The name of the runner group to which this job has been assigned. (If a runner hasn't yet been assigned, this will be null.)
      */
-    public function __construct(public int $id, #[MapFrom('run_id')] public int $runId, #[MapFrom('run_url')] public string $runUrl, #[MapFrom('run_attempt')] public ?int $runAttempt, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('head_sha')] public string $headSha, public string $url, #[MapFrom('html_url')] public ?string $htmlUrl, public string $status, public ?string $conclusion, #[MapFrom('started_at')] public string $startedAt, #[MapFrom('completed_at')] public ?string $completedAt, public string $name, public ?array $steps, #[MapFrom('check_run_url')] public string $checkRunUrl, public array $labels, #[MapFrom('runner_id')] public ?int $runnerId, #[MapFrom('runner_name')] public ?string $runnerName, #[MapFrom('runner_group_id')] public ?int $runnerGroupId, #[MapFrom('runner_group_name')] public ?string $runnerGroupName)
+    public function __construct(public int $id, #[MapFrom('run_id')]
+    public int $runId, #[MapFrom('run_url')]
+    public string $runUrl, #[MapFrom('run_attempt')]
+    public int|null $runAttempt, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('head_sha')]
+    public string $headSha, public string $url, #[MapFrom('html_url')]
+    public string|null $htmlUrl, public string $status, public string|null $conclusion, #[MapFrom('started_at')]
+    public string $startedAt, #[MapFrom('completed_at')]
+    public string|null $completedAt, public string $name, public array|null $steps, #[MapFrom('check_run_url')]
+    public string $checkRunUrl, public array $labels, #[MapFrom('runner_id')]
+    public int|null $runnerId, #[MapFrom('runner_name')]
+    public string|null $runnerName, #[MapFrom('runner_group_id')]
+    public int|null $runnerGroupId, #[MapFrom('runner_group_name')]
+    public string|null $runnerGroupName,)
     {
     }
 }

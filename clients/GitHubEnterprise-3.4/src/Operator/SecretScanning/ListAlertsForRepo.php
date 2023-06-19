@@ -22,9 +22,7 @@ final readonly class ListAlertsForRepo
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, string $state, string $secretType, string $resolution, int $page = 1, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\SecretScanning\ListAlertsForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $state, $secretType, $resolution, $page, $perPage);

@@ -23,9 +23,7 @@ final readonly class GetSettings
     {
     }
 
-    /**
-     * @return PromiseInterface<(EnterpriseSettings|array)>
-     **/
+    /** @return PromiseInterface<(EnterpriseSettings|array)> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetSettings($this->responseSchemaValidator, $this->hydrator);

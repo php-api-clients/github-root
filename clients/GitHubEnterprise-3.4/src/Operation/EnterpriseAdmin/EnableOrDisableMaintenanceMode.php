@@ -24,15 +24,9 @@ final class EnableOrDisableMaintenanceMode
     public const OPERATION_MATCH = 'POST /setup/api/maintenance';
     private const METHOD         = 'POST';
     private const PATH           = '/setup/api/maintenance';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Setup\Api\Maintenance $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Setup\Api\Maintenance $hydrator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -42,9 +36,7 @@ final class EnableOrDisableMaintenanceMode
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
-    /**
-     * @return Schema\MaintenanceStatus|array{code: int}
-     */
+    /** @return Schema\MaintenanceStatus|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus|array
     {
         $code          = $response->getStatusCode();

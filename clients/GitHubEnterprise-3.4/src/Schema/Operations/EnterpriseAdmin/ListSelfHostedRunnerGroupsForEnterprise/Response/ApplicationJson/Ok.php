@@ -13,7 +13,9 @@ final readonly class Ok
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":1.1,"runner_groups":[{"id":0.2,"name":"generated","visibility":"generated","default":false,"selected_organizations_url":"generated","runners_url":"generated","allows_public_repositories":false},{"id":0.2,"name":"generated","visibility":"generated","default":false,"selected_organizations_url":"generated","runners_url":"generated","allows_public_repositories":false}]}';
 
-    public function __construct(#[MapFrom('total_count')] public int|float $totalCount, #[MapFrom('runner_groups')] public array $runnerGroups)
+    public function __construct(#[MapFrom('total_count')]
+    public int|float $totalCount, #[MapFrom('runner_groups')]
+    public array $runnerGroups,)
     {
     }
 }

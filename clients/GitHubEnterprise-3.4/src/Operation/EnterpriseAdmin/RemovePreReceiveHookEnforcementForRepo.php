@@ -29,16 +29,12 @@ final class RemovePreReceiveHookEnforcementForRepo
     private string $repo;
     /**The unique identifier of the pre-receive hook. **/
     private int $preReceiveHookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks\PreReceiveHookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks\PreReceiveHookId $hydrator, string $owner, string $repo, int $preReceiveHookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks\PreReceiveHookId $hydrator, string $owner, string $repo, int $preReceiveHookId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->preReceiveHookId        = $preReceiveHookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner            = $owner;
+        $this->repo             = $repo;
+        $this->preReceiveHookId = $preReceiveHookId;
     }
 
     public function createRequest(): RequestInterface

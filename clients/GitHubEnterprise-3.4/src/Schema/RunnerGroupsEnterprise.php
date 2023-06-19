@@ -13,7 +13,10 @@ final readonly class RunnerGroupsEnterprise
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":0.2,"name":"generated","visibility":"generated","default":false,"selected_organizations_url":"generated","runners_url":"generated","allows_public_repositories":false}';
 
-    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[MapFrom('selected_organizations_url')] public ?string $selectedOrganizationsUrl, #[MapFrom('runners_url')] public string $runnersUrl, #[MapFrom('allows_public_repositories')] public bool $allowsPublicRepositories)
+    public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[MapFrom('selected_organizations_url')]
+    public string|null $selectedOrganizationsUrl, #[MapFrom('runners_url')]
+    public string $runnersUrl, #[MapFrom('allows_public_repositories')]
+    public bool $allowsPublicRepositories,)
     {
     }
 }

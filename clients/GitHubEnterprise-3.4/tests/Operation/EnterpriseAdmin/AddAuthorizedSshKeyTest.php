@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class AddAuthorizedSshKeyTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_401_requestContentType_application_x_www_form_urlencoded_empty(): void
     {
         $response = new Response(401, []);
@@ -37,9 +35,7 @@ final class AddAuthorizedSshKeyTest extends AsyncTestCase
         })(json_decode(Schema\EnterpriseAdmin\AddAuthorizedSshKey\Request\ApplicationXWwwFormUrlencoded::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_401_requestContentType_application_x_www_form_urlencoded_empty(): void
     {
         $response = new Response(401, []);

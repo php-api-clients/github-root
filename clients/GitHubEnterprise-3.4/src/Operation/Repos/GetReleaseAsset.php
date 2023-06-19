@@ -30,16 +30,12 @@ final class GetReleaseAsset
     private string $repo;
     /**The unique identifier of the asset. **/
     private int $assetId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\Assets\AssetId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Releases\Assets\AssetId $hydrator, string $owner, string $repo, int $assetId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\Assets\AssetId $hydrator, string $owner, string $repo, int $assetId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->assetId                 = $assetId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner   = $owner;
+        $this->repo    = $repo;
+        $this->assetId = $assetId;
     }
 
     public function createRequest(): RequestInterface
@@ -47,9 +43,7 @@ final class GetReleaseAsset
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{asset_id}'], [$this->owner, $this->repo, $this->assetId], self::PATH));
     }
 
-    /**
-     * @return Schema\ReleaseAsset|array{code: int}
-     */
+    /** @return Schema\ReleaseAsset|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\ReleaseAsset|array
     {
         $code          = $response->getStatusCode();

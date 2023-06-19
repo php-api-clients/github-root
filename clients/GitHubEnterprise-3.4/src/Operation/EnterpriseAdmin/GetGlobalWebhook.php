@@ -25,14 +25,10 @@ final class GetGlobalWebhook
     private const PATH           = '/admin/hooks/{hook_id}';
     /**The unique identifier of the hook. **/
     private int $hookId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId)
     {
-        $this->hookId                  = $hookId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->hookId = $hookId;
     }
 
     public function createRequest(): RequestInterface

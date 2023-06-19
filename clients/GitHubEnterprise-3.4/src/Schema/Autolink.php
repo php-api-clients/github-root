@@ -17,7 +17,9 @@ final readonly class Autolink
      * keyPrefix: The prefix of a key that is linkified.
      * urlTemplate: A template for the target URL that is generated if a key was found.
      */
-    public function __construct(public int $id, #[MapFrom('key_prefix')] public string $keyPrefix, #[MapFrom('url_template')] public string $urlTemplate)
+    public function __construct(public int $id, #[MapFrom('key_prefix')]
+    public string $keyPrefix, #[MapFrom('url_template')]
+    public string $urlTemplate,)
     {
     }
 }
