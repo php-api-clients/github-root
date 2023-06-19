@@ -22,7 +22,9 @@ final readonly class WebhookCheckRunRequestedAction
      * requestedAction: The action requested by the user.
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, #[MapFrom('check_run')] public Schema\CheckRunWithSimpleCheckSuite $checkRun, public ?Schema\SimpleInstallation $installation, public ?Schema\OrganizationSimple $organization, public Schema\Repository $repository, #[MapFrom('requested_action')] public ?Schema\WebhookCheckRunRequestedAction\RequestedAction $requestedAction, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, #[MapFrom('check_run')]
+    public Schema\CheckRunWithSimpleCheckSuite $checkRun, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimple|null $organization, public Schema\Repository $repository, #[MapFrom('requested_action')]
+    public Schema\WebhookCheckRunRequestedAction\RequestedAction|null $requestedAction, public Schema\SimpleUser $sender,)
     {
     }
 }

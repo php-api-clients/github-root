@@ -22,7 +22,10 @@ final readonly class OrganizationCustomRepositoryRole
      * permissions: A list of additional permissions included in this role.
      * organization: A GitHub user.
      */
-    public function __construct(public int $id, public string $name, public ?string $description, #[MapFrom('base_role')] public string $baseRole, public array $permissions, public Schema\SimpleUser $organization, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt)
+    public function __construct(public int $id, public string $name, public string|null $description, #[MapFrom('base_role')]
+    public string $baseRole, public array $permissions, public Schema\SimpleUser $organization, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt,)
     {
     }
 }

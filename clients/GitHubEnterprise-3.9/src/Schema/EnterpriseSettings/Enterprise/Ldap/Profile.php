@@ -11,7 +11,7 @@ final readonly class Profile
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"uid":"generated","name":"generated","mail":"generated","key":"generated"}';
 
-    public function __construct(public ?string $uid, public ?string $name, public ?string $mail, public ?string $key)
+    public function __construct(public string|null $uid, public string|null $name, public string|null $mail, public string|null $key)
     {
     }
 }

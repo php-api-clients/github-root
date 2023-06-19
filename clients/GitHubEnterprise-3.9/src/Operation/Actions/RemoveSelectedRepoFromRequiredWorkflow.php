@@ -36,9 +36,7 @@ final class RemoveSelectedRepoFromRequiredWorkflow
         return new Request(self::METHOD, str_replace(['{org}', '{required_workflow_id}', '{repository_id}'], [$this->org, $this->requiredWorkflowId, $this->repositoryId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

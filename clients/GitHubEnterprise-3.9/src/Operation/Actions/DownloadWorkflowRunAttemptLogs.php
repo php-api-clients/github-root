@@ -39,9 +39,7 @@ final class DownloadWorkflowRunAttemptLogs
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}', '{attempt_number}'], [$this->owner, $this->repo, $this->runId, $this->attemptNumber], self::PATH));
     }
 
-    /**
-     * @return array{code: int,location: string}
-     */
+    /** @return array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

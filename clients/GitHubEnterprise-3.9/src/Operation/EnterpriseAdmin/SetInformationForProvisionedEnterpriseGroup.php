@@ -25,18 +25,12 @@ final class SetInformationForProvisionedEnterpriseGroup
     public const OPERATION_MATCH = 'PUT /scim/v2/Groups/{scim_group_id}';
     private const METHOD         = 'PUT';
     private const PATH           = '/scim/v2/Groups/{scim_group_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->scimGroupId             = $scimGroupId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->scimGroupId = $scimGroupId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -46,9 +40,7 @@ final class SetInformationForProvisionedEnterpriseGroup
         return new Request(self::METHOD, str_replace(['{scim_group_id}'], [$this->scimGroupId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return Schema\GroupResponse|array{code: int}
-     */
+    /** @return Schema\GroupResponse|array{code: int} */
     public function createResponse(ResponseInterface $response): Schema\GroupResponse|array
     {
         $code          = $response->getStatusCode();

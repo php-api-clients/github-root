@@ -22,7 +22,16 @@ final readonly class CheckRunWithSimpleCheckSuite
      * name: The name of the check.
      * status: The phase of the lifecycle that the check is currently in.
      */
-    public function __construct(public ?Schema\Integration $app, #[MapFrom('check_suite')] public Schema\SimpleCheckSuite $checkSuite, #[MapFrom('completed_at')] public ?string $completedAt, public ?string $conclusion, public ?Schema\DeploymentSimple $deployment, #[MapFrom('details_url')] public string $detailsUrl, #[MapFrom('external_id')] public string $externalId, #[MapFrom('head_sha')] public string $headSha, #[MapFrom('html_url')] public string $htmlUrl, public int $id, public string $name, #[MapFrom('node_id')] public string $nodeId, public Schema\CheckRunWithSimpleCheckSuite\Output $output, #[MapFrom('pull_requests')] public array $pullRequests, #[MapFrom('started_at')] public string $startedAt, public string $status, public string $url)
+    public function __construct(public Schema\Integration|null $app, #[MapFrom('check_suite')]
+    public Schema\SimpleCheckSuite $checkSuite, #[MapFrom('completed_at')]
+    public string|null $completedAt, public string|null $conclusion, public Schema\DeploymentSimple|null $deployment, #[MapFrom('details_url')]
+    public string $detailsUrl, #[MapFrom('external_id')]
+    public string $externalId, #[MapFrom('head_sha')]
+    public string $headSha, #[MapFrom('html_url')]
+    public string $htmlUrl, public int $id, public string $name, #[MapFrom('node_id')]
+    public string $nodeId, public Schema\CheckRunWithSimpleCheckSuite\Output $output, #[MapFrom('pull_requests')]
+    public array $pullRequests, #[MapFrom('started_at')]
+    public string $startedAt, public string $status, public string $url,)
     {
     }
 }

@@ -23,9 +23,7 @@ final readonly class UpdatePreReceiveHookEnforcementForRepo
     {
     }
 
-    /**
-     * @return PromiseInterface<RepositoryPreReceiveHook>
-     **/
+    /** @return PromiseInterface<RepositoryPreReceiveHook> **/
     public function call(string $owner, string $repo, int $preReceiveHookId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForRepo($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $preReceiveHookId);

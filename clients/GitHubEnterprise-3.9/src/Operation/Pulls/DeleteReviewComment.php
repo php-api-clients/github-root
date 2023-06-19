@@ -30,16 +30,12 @@ final class DeleteReviewComment
     private string $repo;
     /**The unique identifier of the comment. **/
     private int $commentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator, string $owner, string $repo, int $commentId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId $hydrator, string $owner, string $repo, int $commentId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->commentId               = $commentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner     = $owner;
+        $this->repo      = $repo;
+        $this->commentId = $commentId;
     }
 
     public function createRequest(): RequestInterface
@@ -47,9 +43,7 @@ final class DeleteReviewComment
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

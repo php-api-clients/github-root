@@ -27,7 +27,17 @@ final readonly class CodeScanningAlert
      * dismissedReason: **Required when the state is dismissed.** The reason for dismissing or closing the alert.
      * dismissedComment: The dismissal comment associated with the dismissal of the alert.
      */
-    public function __construct(public int $number, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public ?string $updatedAt, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('instances_url')] public string $instancesUrl, public string $state, #[MapFrom('fixed_at')] public ?string $fixedAt, #[MapFrom('dismissed_by')] public ?Schema\SimpleUser $dismissedBy, #[MapFrom('dismissed_at')] public ?string $dismissedAt, #[MapFrom('dismissed_reason')] public ?string $dismissedReason, #[MapFrom('dismissed_comment')] public ?string $dismissedComment, public Schema\CodeScanningAlertRule $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')] public Schema\CodeScanningAlertInstance $mostRecentInstance)
+    public function __construct(public int $number, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string|null $updatedAt, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('instances_url')]
+    public string $instancesUrl, public string $state, #[MapFrom('fixed_at')]
+    public string|null $fixedAt, #[MapFrom('dismissed_by')]
+    public Schema\SimpleUser|null $dismissedBy, #[MapFrom('dismissed_at')]
+    public string|null $dismissedAt, #[MapFrom('dismissed_reason')]
+    public string|null $dismissedReason, #[MapFrom('dismissed_comment')]
+    public string|null $dismissedComment, public Schema\CodeScanningAlertRule $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')]
+    public Schema\CodeScanningAlertInstance $mostRecentInstance,)
     {
     }
 }

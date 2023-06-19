@@ -13,7 +13,8 @@ final readonly class Nodes
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"hostname":"generated","uuid":"generated","cluster_roles":["generated","generated"]}';
 
-    public function __construct(public ?string $hostname, public ?string $uuid, #[MapFrom('cluster_roles')] public ?array $clusterRoles)
+    public function __construct(public string|null $hostname, public string|null $uuid, #[MapFrom('cluster_roles')]
+    public array|null $clusterRoles,)
     {
     }
 }

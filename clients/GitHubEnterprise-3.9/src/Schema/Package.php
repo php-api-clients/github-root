@@ -19,7 +19,12 @@ final readonly class Package
      * name: The name of the package.
      * versionCount: The number of versions of the package.
      */
-    public function __construct(public int $id, public string $name, #[MapFrom('package_type')] public string $packageType, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('version_count')] public int $versionCount, public string $visibility, public ?Schema\SimpleUser $owner, public ?Schema\MinimalRepository $repository, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt)
+    public function __construct(public int $id, public string $name, #[MapFrom('package_type')]
+    public string $packageType, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('version_count')]
+    public int $versionCount, public string $visibility, public Schema\SimpleUser|null $owner, public Schema\MinimalRepository|null $repository, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt,)
     {
     }
 }

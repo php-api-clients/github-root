@@ -14,7 +14,7 @@ final readonly class ExternalGroups
     /**
      * groups: An array of external groups available to be mapped to a team
      */
-    public function __construct(public ?array $groups)
+    public function __construct(public array|null $groups)
     {
     }
 }

@@ -25,14 +25,10 @@ final class GetDownloadStatusForPreReceiveEnvironment
     private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest';
     /**The unique identifier of the pre-receive environment. **/
     private int $preReceiveEnvironmentId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest $hydrator, int $preReceiveEnvironmentId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest $hydrator, int $preReceiveEnvironmentId)
     {
         $this->preReceiveEnvironmentId = $preReceiveEnvironmentId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

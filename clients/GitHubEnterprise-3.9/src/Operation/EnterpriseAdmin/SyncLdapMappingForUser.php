@@ -25,14 +25,10 @@ final class SyncLdapMappingForUser
     private const PATH           = '/admin/ldap/users/{username}/sync';
     /**The handle for the GitHub user account. **/
     private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Ldap\Users\Username\Sync $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Ldap\Users\Username\Sync $hydrator, string $username)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Ldap\Users\Username\Sync $hydrator, string $username)
     {
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->username = $username;
     }
 
     public function createRequest(): RequestInterface

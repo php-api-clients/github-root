@@ -17,9 +17,7 @@ use function React\Promise\resolve;
 
 final class GetVersionTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_401_empty(): void
     {
         $response = new Response(401, []);
@@ -38,9 +36,7 @@ final class GetVersionTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_401_empty(): void
     {
         $response = new Response(401, []);

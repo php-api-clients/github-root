@@ -24,7 +24,10 @@ final readonly class WebhookInstallationRepositoriesAdded
      * repositorySelection: Describe whether all repositories have been selected or there's a selection involved
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, public ?Schema\Enterprise $enterprise, public Schema\Installation $installation, public ?Schema\OrganizationSimple $organization, #[MapFrom('repositories_added')] public array $repositoriesAdded, #[MapFrom('repositories_removed')] public array $repositoriesRemoved, public ?Schema\Repository $repository, #[MapFrom('repository_selection')] public string $repositorySelection, public ?Schema\WebhookInstallationRepositoriesAdded\Requester $requester, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, public Schema\Enterprise|null $enterprise, public Schema\Installation $installation, public Schema\OrganizationSimple|null $organization, #[MapFrom('repositories_added')]
+    public array $repositoriesAdded, #[MapFrom('repositories_removed')]
+    public array $repositoriesRemoved, public Schema\Repository|null $repository, #[MapFrom('repository_selection')]
+    public string $repositorySelection, public Schema\WebhookInstallationRepositoriesAdded\Requester|null $requester, public Schema\SimpleUser $sender,)
     {
     }
 }

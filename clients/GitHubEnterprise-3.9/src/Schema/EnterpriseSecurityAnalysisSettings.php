@@ -24,7 +24,12 @@ final readonly class EnterpriseSecurityAnalysisSettings
     transferred to this enterprise.
      * secretScanningPushProtectionCustomLink: An optional URL string to display to contributors who are blocked from pushing a secret.
      */
-    public function __construct(#[MapFrom('advanced_security_enabled_for_new_repositories')] public bool $advancedSecurityEnabledForNewRepositories, #[MapFrom('dependabot_alerts_enabled_for_new_repositories')] public bool $dependabotAlertsEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')] public bool $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')] public bool $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link')] public ?string $secretScanningPushProtectionCustomLink)
+    public function __construct(#[MapFrom('advanced_security_enabled_for_new_repositories')]
+    public bool $advancedSecurityEnabledForNewRepositories, #[MapFrom('dependabot_alerts_enabled_for_new_repositories')]
+    public bool $dependabotAlertsEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')]
+    public bool $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')]
+    public bool $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link')]
+    public string|null $secretScanningPushProtectionCustomLink,)
     {
     }
 }

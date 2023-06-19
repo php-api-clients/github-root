@@ -23,9 +23,7 @@ final readonly class ListCustomRepoRoles
     {
     }
 
-    /**
-     * @return PromiseInterface<Json>
-     **/
+    /** @return PromiseInterface<Json> **/
     public function call(string $org): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\ListCustomRepoRoles($this->responseSchemaValidator, $this->hydrator, $org);

@@ -36,19 +36,15 @@ final class ListCollaborators
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Collaborators $hydrator, string $owner, string $repo, string $permission, string $affiliation = 'all', int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Collaborators $hydrator, string $owner, string $repo, string $permission, string $affiliation = 'all', int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->permission              = $permission;
-        $this->affiliation             = $affiliation;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner       = $owner;
+        $this->repo        = $repo;
+        $this->permission  = $permission;
+        $this->affiliation = $affiliation;
+        $this->perPage     = $perPage;
+        $this->page        = $page;
     }
 
     public function createRequest(): RequestInterface

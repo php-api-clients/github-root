@@ -13,7 +13,12 @@ final readonly class License
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"seats":5,"evaluation":false,"perpetual":false,"unlimited_seating":false,"support_key":"generated","ssh_allowed":false,"cluster_support":false,"expire_at":"generated"}';
 
-    public function __construct(public ?int $seats, public ?bool $evaluation, public ?bool $perpetual, #[MapFrom('unlimited_seating')] public ?bool $unlimitedSeating, #[MapFrom('support_key')] public ?string $supportKey, #[MapFrom('ssh_allowed')] public ?bool $sshAllowed, #[MapFrom('cluster_support')] public ?bool $clusterSupport, #[MapFrom('expire_at')] public ?string $expireAt)
+    public function __construct(public int|null $seats, public bool|null $evaluation, public bool|null $perpetual, #[MapFrom('unlimited_seating')]
+    public bool|null $unlimitedSeating, #[MapFrom('support_key')]
+    public string|null $supportKey, #[MapFrom('ssh_allowed')]
+    public bool|null $sshAllowed, #[MapFrom('cluster_support')]
+    public bool|null $clusterSupport, #[MapFrom('expire_at')]
+    public string|null $expireAt,)
     {
     }
 }

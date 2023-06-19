@@ -19,7 +19,9 @@ final readonly class CodeScanningDefaultSetup
      * querySuite: CodeQL query suite to be used.
      * updatedAt: Timestamp of latest configuration update.
      */
-    public function __construct(public ?string $state, public ?array $languages, #[MapFrom('query_suite')] public ?string $querySuite, #[MapFrom('updated_at')] public ?string $updatedAt)
+    public function __construct(public string|null $state, public array|null $languages, #[MapFrom('query_suite')]
+    public string|null $querySuite, #[MapFrom('updated_at')]
+    public string|null $updatedAt,)
     {
     }
 }

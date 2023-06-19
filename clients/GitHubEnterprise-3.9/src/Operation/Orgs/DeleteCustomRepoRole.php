@@ -33,9 +33,7 @@ final class DeleteCustomRepoRole
         return new Request(self::METHOD, str_replace(['{org}', '{role_id}'], [$this->org, $this->roleId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

@@ -11,7 +11,7 @@ final readonly class Nodes
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"hostname":"generated","status":"CRITICAL","services":[{"status":"CRITICAL","name":"generated","details":"generated"},{"status":"CRITICAL","name":"generated","details":"generated"}]}';
 
-    public function __construct(public ?string $hostname, public ?string $status, public ?array $services)
+    public function __construct(public string|null $hostname, public string|null $status, public array|null $services)
     {
     }
 }

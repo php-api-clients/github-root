@@ -20,9 +20,7 @@ final readonly class ListRepoFineGrainedPermissions
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $org): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\ListRepoFineGrainedPermissions($org);

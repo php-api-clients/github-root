@@ -22,9 +22,7 @@ final readonly class ListDockerMigrationConflictingPackagesForOrganization
     {
     }
 
-    /**
-     * @return PromiseInterface<mixed>
-     **/
+    /** @return PromiseInterface<mixed> **/
     public function call(string $org): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Packages\ListDockerMigrationConflictingPackagesForOrganization($this->responseSchemaValidator, $this->hydrator, $org);

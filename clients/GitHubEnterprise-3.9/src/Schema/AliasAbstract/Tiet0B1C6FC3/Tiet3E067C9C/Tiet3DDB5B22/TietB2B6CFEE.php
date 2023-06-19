@@ -19,7 +19,9 @@ abstract readonly class TietB2B6CFEE
      * secret: If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value in the [`X-Hub-Signature`](https://docs.github.com/enterprise-server@3.9/webhooks/event-payloads/#delivery-headers) header.
      * insecureSsl: Determines whether the SSL certificate of the host for `url` will be verified when delivering payloads. Supported values include `0` (verification is performed) and `1` (verification is not performed). The default is `0`. **We strongly recommend not setting this to `1` as you are subject to man-in-the-middle and other attacks.**
      */
-    public function __construct(public string $url, #[MapFrom('content_type')] public ?string $contentType, public ?string $secret, #[MapFrom('insecure_ssl')] public ?string $insecureSsl)
+    public function __construct(public string $url, #[MapFrom('content_type')]
+    public string|null $contentType, public string|null $secret, #[MapFrom('insecure_ssl')]
+    public string|null $insecureSsl,)
     {
     }
 }

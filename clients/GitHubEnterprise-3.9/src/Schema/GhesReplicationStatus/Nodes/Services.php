@@ -11,7 +11,7 @@ final readonly class Services
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"status":"CRITICAL","name":"generated","details":"generated"}';
 
-    public function __construct(public ?string $status, public ?string $name, public ?string $details)
+    public function __construct(public string|null $status, public string|null $name, public string|null $details)
     {
     }
 }
