@@ -23,9 +23,7 @@ final readonly class GetIssueStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseIssueOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseIssueOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetIssueStats($this->responseSchemaValidator, $this->hydrator);

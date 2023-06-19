@@ -21,7 +21,12 @@ final readonly class RequiredPullRequestReviews
      * requiredApprovingReviewCount: Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6 or 0 to not require reviewers.
      * bypassPullRequestAllowances: Allow specific users, teams, or apps to bypass pull request requirements.
      */
-    public function __construct(#[MapFrom('dismissal_restrictions')] public ?Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews\DismissalRestrictions $dismissalRestrictions, #[MapFrom('dismiss_stale_reviews')] public ?bool $dismissStaleReviews, #[MapFrom('require_code_owner_reviews')] public ?bool $requireCodeOwnerReviews, #[MapFrom('required_approving_review_count')] public ?int $requiredApprovingReviewCount, #[MapFrom('bypass_pull_request_allowances')] public ?Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews\BypassPullRequestAllowances $bypassPullRequestAllowances)
+    public function __construct(#[MapFrom('dismissal_restrictions')]
+    public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews\DismissalRestrictions|null $dismissalRestrictions, #[MapFrom('dismiss_stale_reviews')]
+    public bool|null $dismissStaleReviews, #[MapFrom('require_code_owner_reviews')]
+    public bool|null $requireCodeOwnerReviews, #[MapFrom('required_approving_review_count')]
+    public int|null $requiredApprovingReviewCount, #[MapFrom('bypass_pull_request_allowances')]
+    public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews\BypassPullRequestAllowances|null $bypassPullRequestAllowances,)
     {
     }
 }

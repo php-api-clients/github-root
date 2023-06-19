@@ -16,7 +16,31 @@ abstract readonly class TietF088731C
     /**
      * requireLastPushApproval: Whether the most recent push must be approved by someone other than the person who pushed it
      */
-    public function __construct(#[MapFrom('admin_enforced')] public bool $adminEnforced, #[MapFrom('allow_deletions_enforcement_level')] public string $allowDeletionsEnforcementLevel, #[MapFrom('allow_force_pushes_enforcement_level')] public string $allowForcePushesEnforcementLevel, #[MapFrom('authorized_actor_names')] public array $authorizedActorNames, #[MapFrom('authorized_actors_only')] public bool $authorizedActorsOnly, #[MapFrom('authorized_dismissal_actors_only')] public bool $authorizedDismissalActorsOnly, #[MapFrom('create_protected')] public ?bool $createProtected, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('dismiss_stale_reviews_on_push')] public bool $dismissStaleReviewsOnPush, public int $id, #[MapFrom('ignore_approvals_from_contributors')] public bool $ignoreApprovalsFromContributors, #[MapFrom('linear_history_requirement_enforcement_level')] public string $linearHistoryRequirementEnforcementLevel, #[MapFrom('merge_queue_enforcement_level')] public string $mergeQueueEnforcementLevel, public string $name, #[MapFrom('pull_request_reviews_enforcement_level')] public string $pullRequestReviewsEnforcementLevel, #[MapFrom('repository_id')] public int $repositoryId, #[MapFrom('require_code_owner_review')] public bool $requireCodeOwnerReview, #[MapFrom('require_last_push_approval')] public ?bool $requireLastPushApproval, #[MapFrom('required_approving_review_count')] public int $requiredApprovingReviewCount, #[MapFrom('required_conversation_resolution_level')] public string $requiredConversationResolutionLevel, #[MapFrom('required_deployments_enforcement_level')] public string $requiredDeploymentsEnforcementLevel, #[MapFrom('required_status_checks')] public array $requiredStatusChecks, #[MapFrom('required_status_checks_enforcement_level')] public string $requiredStatusChecksEnforcementLevel, #[MapFrom('signature_requirement_enforcement_level')] public string $signatureRequirementEnforcementLevel, #[MapFrom('strict_required_status_checks_policy')] public bool $strictRequiredStatusChecksPolicy, #[MapFrom('updated_at')] public string $updatedAt)
+    public function __construct(#[MapFrom('admin_enforced')]
+    public bool $adminEnforced, #[MapFrom('allow_deletions_enforcement_level')]
+    public string $allowDeletionsEnforcementLevel, #[MapFrom('allow_force_pushes_enforcement_level')]
+    public string $allowForcePushesEnforcementLevel, #[MapFrom('authorized_actor_names')]
+    public array $authorizedActorNames, #[MapFrom('authorized_actors_only')]
+    public bool $authorizedActorsOnly, #[MapFrom('authorized_dismissal_actors_only')]
+    public bool $authorizedDismissalActorsOnly, #[MapFrom('create_protected')]
+    public bool|null $createProtected, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('dismiss_stale_reviews_on_push')]
+    public bool $dismissStaleReviewsOnPush, public int $id, #[MapFrom('ignore_approvals_from_contributors')]
+    public bool $ignoreApprovalsFromContributors, #[MapFrom('linear_history_requirement_enforcement_level')]
+    public string $linearHistoryRequirementEnforcementLevel, #[MapFrom('merge_queue_enforcement_level')]
+    public string $mergeQueueEnforcementLevel, public string $name, #[MapFrom('pull_request_reviews_enforcement_level')]
+    public string $pullRequestReviewsEnforcementLevel, #[MapFrom('repository_id')]
+    public int $repositoryId, #[MapFrom('require_code_owner_review')]
+    public bool $requireCodeOwnerReview, #[MapFrom('require_last_push_approval')]
+    public bool|null $requireLastPushApproval, #[MapFrom('required_approving_review_count')]
+    public int $requiredApprovingReviewCount, #[MapFrom('required_conversation_resolution_level')]
+    public string $requiredConversationResolutionLevel, #[MapFrom('required_deployments_enforcement_level')]
+    public string $requiredDeploymentsEnforcementLevel, #[MapFrom('required_status_checks')]
+    public array $requiredStatusChecks, #[MapFrom('required_status_checks_enforcement_level')]
+    public string $requiredStatusChecksEnforcementLevel, #[MapFrom('signature_requirement_enforcement_level')]
+    public string $signatureRequirementEnforcementLevel, #[MapFrom('strict_required_status_checks_policy')]
+    public bool $strictRequiredStatusChecksPolicy, #[MapFrom('updated_at')]
+    public string $updatedAt,)
     {
     }
 }

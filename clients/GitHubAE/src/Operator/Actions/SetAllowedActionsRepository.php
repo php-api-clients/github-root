@@ -21,9 +21,7 @@ final readonly class SetAllowedActionsRepository
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Actions\SetAllowedActionsRepository($this->requestSchemaValidator, $owner, $repo);

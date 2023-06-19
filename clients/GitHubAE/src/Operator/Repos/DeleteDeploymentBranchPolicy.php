@@ -20,9 +20,7 @@ final readonly class DeleteDeploymentBranchPolicy
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, string $environmentName, int $branchPolicyId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\DeleteDeploymentBranchPolicy($owner, $repo, $environmentName, $branchPolicyId);

@@ -20,9 +20,7 @@ final readonly class AddSelfHostedRunnerToGroupForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise, int $runnerGroupId, int $runnerId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise($enterprise, $runnerGroupId, $runnerId);

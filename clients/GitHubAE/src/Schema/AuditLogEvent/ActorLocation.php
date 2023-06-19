@@ -13,7 +13,8 @@ final readonly class ActorLocation
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"country_name":"generated"}';
 
-    public function __construct(#[MapFrom('country_name')] public ?string $countryName)
+    public function __construct(#[MapFrom('country_name')]
+    public string|null $countryName,)
     {
     }
 }

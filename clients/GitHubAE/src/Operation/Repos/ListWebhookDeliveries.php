@@ -32,22 +32,16 @@ final class ListWebhookDeliveries
     private int $hookId;
     /**Used for pagination: the starting delivery from which the page of deliveries is fetched. Refer to the `link` header for the next and previous page cursors. **/
     private string $cursor;
-    private bool $redelivery;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Deliveries $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Deliveries $hydrator, string $owner, string $repo, int $hookId, string $cursor, bool $redelivery, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Deliveries $hydrator, string $owner, string $repo, int $hookId, string $cursor, private bool $redelivery, int $perPage = 30)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->hookId                  = $hookId;
-        $this->cursor                  = $cursor;
-        $this->redelivery              = $redelivery;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner   = $owner;
+        $this->repo    = $repo;
+        $this->hookId  = $hookId;
+        $this->cursor  = $cursor;
+        $this->perPage = $perPage;
     }
 
     public function createRequest(): RequestInterface

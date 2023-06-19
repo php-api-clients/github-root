@@ -20,9 +20,7 @@ final readonly class DeleteReleaseAsset
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, int $assetId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\DeleteReleaseAsset($owner, $repo, $assetId);

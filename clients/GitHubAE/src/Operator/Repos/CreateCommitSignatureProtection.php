@@ -23,9 +23,7 @@ final readonly class CreateCommitSignatureProtection
     {
     }
 
-    /**
-     * @return PromiseInterface<ProtectedBranchAdminEnforced>
-     **/
+    /** @return PromiseInterface<ProtectedBranchAdminEnforced> **/
     public function call(string $owner, string $repo, string $branch): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\CreateCommitSignatureProtection($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $branch);

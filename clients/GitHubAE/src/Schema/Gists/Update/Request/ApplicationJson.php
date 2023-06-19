@@ -20,7 +20,7 @@ final readonly class ApplicationJson
 
     To delete a file, set the whole file to null. For example: `hello.py : null`.
      */
-    public function __construct(public ?string $description, public ?Schema\Gists\Update\Request\ApplicationJson\Files $files)
+    public function __construct(public string|null $description, public Schema\Gists\Update\Request\ApplicationJson\Files|null $files)
     {
     }
 }

@@ -34,18 +34,14 @@ final class ListDeploymentStatuses
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses $hydrator, string $owner, string $repo, int $deploymentId, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Deployments\DeploymentId\Statuses $hydrator, string $owner, string $repo, int $deploymentId, int $perPage = 30, int $page = 1)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->deploymentId            = $deploymentId;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner        = $owner;
+        $this->repo         = $repo;
+        $this->deploymentId = $deploymentId;
+        $this->perPage      = $perPage;
+        $this->page         = $page;
     }
 
     public function createRequest(): RequestInterface

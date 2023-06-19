@@ -14,7 +14,9 @@ final readonly class ApiOverview
     public const SCHEMA_DESCRIPTION  = 'Api Overview';
     public const SCHEMA_EXAMPLE_DATA = '{"verifiable_password_authentication":true,"ssh_key_fingerprints":{"SHA256_RSA":"generated","SHA256_DSA":"generated","SHA256_ECDSA":"generated","SHA256_ED25519":"generated"},"hooks":["192.0.2.1","192.0.2.1"],"web":["192.0.2.1","192.0.2.1"],"api":["192.0.2.1","192.0.2.1"],"git":["192.0.2.1","192.0.2.1"],"packages":["192.0.2.1","192.0.2.1"],"pages":["192.0.2.1","192.0.2.1"],"importer":["192.0.2.1","192.0.2.1"],"actions":["192.0.2.1","192.0.2.1"],"dependabot":["192.0.2.1","192.0.2.1"],"domains":{"website":["generated","generated"],"codespaces":["generated","generated"],"copilot":["generated","generated"],"packages":["generated","generated"]}}';
 
-    public function __construct(#[MapFrom('verifiable_password_authentication')] public bool $verifiablePasswordAuthentication, #[MapFrom('ssh_key_fingerprints')] public ?Schema\ApiOverview\SshKeyFingerprints $sshKeyFingerprints, public ?array $hooks, public ?array $web, public ?array $api, public ?array $git, public ?array $packages, public ?array $pages, public ?array $importer, public ?array $actions, public ?array $dependabot, public ?Schema\ApiOverview\Domains $domains)
+    public function __construct(#[MapFrom('verifiable_password_authentication')]
+    public bool $verifiablePasswordAuthentication, #[MapFrom('ssh_key_fingerprints')]
+    public Schema\ApiOverview\SshKeyFingerprints|null $sshKeyFingerprints, public array|null $hooks, public array|null $web, public array|null $api, public array|null $git, public array|null $packages, public array|null $pages, public array|null $importer, public array|null $actions, public array|null $dependabot, public Schema\ApiOverview\Domains|null $domains,)
     {
     }
 }

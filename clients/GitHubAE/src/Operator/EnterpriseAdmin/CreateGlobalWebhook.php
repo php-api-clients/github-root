@@ -23,9 +23,7 @@ final readonly class CreateGlobalWebhook
     {
     }
 
-    /**
-     * @return PromiseInterface<GlobalHook>
-     **/
+    /** @return PromiseInterface<GlobalHook> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\CreateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

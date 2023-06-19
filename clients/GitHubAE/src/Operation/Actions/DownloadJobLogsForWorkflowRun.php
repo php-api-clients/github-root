@@ -36,9 +36,7 @@ final class DownloadJobLogsForWorkflowRun
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], self::PATH));
     }
 
-    /**
-     * @return array{code: int,location: string}
-     */
+    /** @return array{code: int,location: string} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

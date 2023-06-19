@@ -23,9 +23,7 @@ final readonly class GetAllStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetAllStats($this->responseSchemaValidator, $this->hydrator);

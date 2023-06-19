@@ -22,9 +22,7 @@ final readonly class RenderRaw
     {
     }
 
-    /**
-     * @return PromiseInterface<(array|string)>
-     **/
+    /** @return PromiseInterface<(array|string)> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Markdown\RenderRaw($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

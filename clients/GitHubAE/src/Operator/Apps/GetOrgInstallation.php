@@ -23,9 +23,7 @@ final readonly class GetOrgInstallation
     {
     }
 
-    /**
-     * @return PromiseInterface<Installation>
-     **/
+    /** @return PromiseInterface<Installation> **/
     public function call(string $org): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Apps\GetOrgInstallation($this->responseSchemaValidator, $this->hydrator, $org);

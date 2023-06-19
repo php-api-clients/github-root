@@ -20,9 +20,7 @@ final readonly class DeleteImpersonationOAuthToken
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $username): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\DeleteImpersonationOAuthToken($username);

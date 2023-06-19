@@ -29,16 +29,12 @@ final class GetEnvironment
     private string $repo;
     /**The name of the environment. **/
     private string $environmentName;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName $hydrator, string $owner, string $repo, string $environmentName)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName $hydrator, string $owner, string $repo, string $environmentName)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->environmentName         = $environmentName;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner           = $owner;
+        $this->repo            = $repo;
+        $this->environmentName = $environmentName;
     }
 
     public function createRequest(): RequestInterface

@@ -22,7 +22,8 @@ final readonly class SimpleCommit
      * author: Information about the Git author
      * committer: Information about the Git committer
      */
-    public function __construct(public string $id, #[MapFrom('tree_id')] public string $treeId, public string $message, public string $timestamp, public ?Schema\SimpleCommit\Author $author, public ?Schema\SimpleCommit\Committer $committer)
+    public function __construct(public string $id, #[MapFrom('tree_id')]
+    public string $treeId, public string $message, public string $timestamp, public Schema\SimpleCommit\Author|null $author, public Schema\SimpleCommit\Committer|null $committer,)
     {
     }
 }

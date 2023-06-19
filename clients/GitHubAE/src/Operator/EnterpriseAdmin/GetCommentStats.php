@@ -23,9 +23,7 @@ final readonly class GetCommentStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseCommentOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseCommentOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetCommentStats($this->responseSchemaValidator, $this->hydrator);

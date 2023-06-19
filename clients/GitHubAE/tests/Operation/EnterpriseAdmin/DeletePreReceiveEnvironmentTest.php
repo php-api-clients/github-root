@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class DeletePreReceiveEnvironmentTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::class);
@@ -40,9 +38,7 @@ final class DeletePreReceiveEnvironmentTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity::class);
@@ -57,9 +53,7 @@ final class DeletePreReceiveEnvironmentTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->deletePreReceiveEnvironment(26));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_204_empty(): void
     {
         $response = new Response(204, []);
@@ -77,9 +71,7 @@ final class DeletePreReceiveEnvironmentTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_204_empty(): void
     {
         $response = new Response(204, []);

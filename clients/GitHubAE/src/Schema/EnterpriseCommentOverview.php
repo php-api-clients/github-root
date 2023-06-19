@@ -13,7 +13,11 @@ final readonly class EnterpriseCommentOverview
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_commit_comments":21,"total_gist_comments":19,"total_issue_comments":20,"total_pull_request_comments":27}';
 
-    public function __construct(#[MapFrom('total_commit_comments')] public int $totalCommitComments, #[MapFrom('total_gist_comments')] public int $totalGistComments, #[MapFrom('total_issue_comments')] public int $totalIssueComments, #[MapFrom('total_pull_request_comments')] public int $totalPullRequestComments)
+    public function __construct(#[MapFrom('total_commit_comments')]
+    public int $totalCommitComments, #[MapFrom('total_gist_comments')]
+    public int $totalGistComments, #[MapFrom('total_issue_comments')]
+    public int $totalIssueComments, #[MapFrom('total_pull_request_comments')]
+    public int $totalPullRequestComments,)
     {
     }
 }

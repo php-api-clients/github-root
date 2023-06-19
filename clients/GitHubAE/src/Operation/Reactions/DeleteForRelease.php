@@ -39,9 +39,7 @@ final class DeleteForRelease
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{release_id}', '{reaction_id}'], [$this->owner, $this->repo, $this->releaseId, $this->reactionId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

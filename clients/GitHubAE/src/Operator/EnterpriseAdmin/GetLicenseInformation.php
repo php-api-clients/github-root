@@ -23,9 +23,7 @@ final readonly class GetLicenseInformation
     {
     }
 
-    /**
-     * @return PromiseInterface<LicenseInfo>
-     **/
+    /** @return PromiseInterface<LicenseInfo> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetLicenseInformation($this->responseSchemaValidator, $this->hydrator);

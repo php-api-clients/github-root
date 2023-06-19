@@ -23,9 +23,7 @@ final readonly class Create
     {
     }
 
-    /**
-     * @return PromiseInterface<TeamFull>
-     **/
+    /** @return PromiseInterface<TeamFull> **/
     public function call(string $org, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Teams\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

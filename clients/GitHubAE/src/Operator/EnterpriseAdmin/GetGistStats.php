@@ -23,9 +23,7 @@ final readonly class GetGistStats
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseGistOverview>
-     **/
+    /** @return PromiseInterface<EnterpriseGistOverview> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetGistStats($this->responseSchemaValidator, $this->hydrator);

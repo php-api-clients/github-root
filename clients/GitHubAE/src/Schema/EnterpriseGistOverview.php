@@ -13,7 +13,10 @@ final readonly class EnterpriseGistOverview
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_gists":11,"private_gists":13,"public_gists":12}';
 
-    public function __construct(#[MapFrom('total_gists')] public int $totalGists, #[MapFrom('private_gists')] public int $privateGists, #[MapFrom('public_gists')] public int $publicGists)
+    public function __construct(#[MapFrom('total_gists')]
+    public int $totalGists, #[MapFrom('private_gists')]
+    public int $privateGists, #[MapFrom('public_gists')]
+    public int $publicGists,)
     {
     }
 }

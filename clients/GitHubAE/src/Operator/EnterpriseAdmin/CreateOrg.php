@@ -23,9 +23,7 @@ final readonly class CreateOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<OrganizationSimple>
-     **/
+    /** @return PromiseInterface<OrganizationSimple> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\CreateOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

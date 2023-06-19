@@ -18,7 +18,16 @@ final readonly class ProtectedBranch
      * requiredStatusChecks: Status Check Policy
      * restrictions: Branch Restriction Policy
      */
-    public function __construct(public string $url, #[MapFrom('required_status_checks')] public ?Schema\StatusCheckPolicy $requiredStatusChecks, #[MapFrom('required_pull_request_reviews')] public ?Schema\ProtectedBranch\RequiredPullRequestReviews $requiredPullRequestReviews, #[MapFrom('required_signatures')] public ?Schema\ProtectedBranch\RequiredSignatures $requiredSignatures, #[MapFrom('enforce_admins')] public ?Schema\ProtectedBranch\EnforceAdmins $enforceAdmins, #[MapFrom('required_linear_history')] public ?Schema\ProtectedBranch\RequiredLinearHistory $requiredLinearHistory, #[MapFrom('allow_force_pushes')] public ?Schema\ProtectedBranch\AllowForcePushes $allowForcePushes, #[MapFrom('allow_deletions')] public ?Schema\ProtectedBranch\AllowDeletions $allowDeletions, public ?Schema\BranchRestrictionPolicy $restrictions, #[MapFrom('required_conversation_resolution')] public ?Schema\ProtectedBranch\RequiredConversationResolution $requiredConversationResolution, #[MapFrom('block_creations')] public ?Schema\ProtectedBranch\BlockCreations $blockCreations)
+    public function __construct(public string $url, #[MapFrom('required_status_checks')]
+    public Schema\StatusCheckPolicy|null $requiredStatusChecks, #[MapFrom('required_pull_request_reviews')]
+    public Schema\ProtectedBranch\RequiredPullRequestReviews|null $requiredPullRequestReviews, #[MapFrom('required_signatures')]
+    public Schema\ProtectedBranch\RequiredSignatures|null $requiredSignatures, #[MapFrom('enforce_admins')]
+    public Schema\ProtectedBranch\EnforceAdmins|null $enforceAdmins, #[MapFrom('required_linear_history')]
+    public Schema\ProtectedBranch\RequiredLinearHistory|null $requiredLinearHistory, #[MapFrom('allow_force_pushes')]
+    public Schema\ProtectedBranch\AllowForcePushes|null $allowForcePushes, #[MapFrom('allow_deletions')]
+    public Schema\ProtectedBranch\AllowDeletions|null $allowDeletions, public Schema\BranchRestrictionPolicy|null $restrictions, #[MapFrom('required_conversation_resolution')]
+    public Schema\ProtectedBranch\RequiredConversationResolution|null $requiredConversationResolution, #[MapFrom('block_creations')]
+    public Schema\ProtectedBranch\BlockCreations|null $blockCreations,)
     {
     }
 }

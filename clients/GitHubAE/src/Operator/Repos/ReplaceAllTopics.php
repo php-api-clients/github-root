@@ -23,9 +23,7 @@ final readonly class ReplaceAllTopics
     {
     }
 
-    /**
-     * @return PromiseInterface<Topic>
-     **/
+    /** @return PromiseInterface<Topic> **/
     public function call(string $owner, string $repo, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\ReplaceAllTopics($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

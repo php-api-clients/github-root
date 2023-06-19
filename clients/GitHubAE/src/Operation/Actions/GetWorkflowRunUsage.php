@@ -29,16 +29,12 @@ final class GetWorkflowRunUsage
     private string $repo;
     /**The unique identifier of the workflow run. **/
     private int $runId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Timing $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Timing $hydrator, string $owner, string $repo, int $runId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Timing $hydrator, string $owner, string $repo, int $runId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->runId                   = $runId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->runId = $runId;
     }
 
     public function createRequest(): RequestInterface

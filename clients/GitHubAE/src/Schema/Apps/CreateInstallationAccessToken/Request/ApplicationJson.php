@@ -19,7 +19,8 @@ final readonly class ApplicationJson
      * repositoryIds: List of repository IDs that the token should have access to
      * permissions: The permissions granted to the user-to-server access token.
      */
-    public function __construct(public ?array $repositories, #[MapFrom('repository_ids')] public ?array $repositoryIds, public ?Schema\AppPermissions $permissions)
+    public function __construct(public array|null $repositories, #[MapFrom('repository_ids')]
+    public array|null $repositoryIds, public Schema\AppPermissions|null $permissions,)
     {
     }
 }

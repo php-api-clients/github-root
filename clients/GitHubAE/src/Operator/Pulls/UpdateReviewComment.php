@@ -23,9 +23,7 @@ final readonly class UpdateReviewComment
     {
     }
 
-    /**
-     * @return PromiseInterface<PullRequestReviewComment>
-     **/
+    /** @return PromiseInterface<PullRequestReviewComment> **/
     public function call(string $owner, string $repo, int $commentId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Pulls\UpdateReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $commentId);

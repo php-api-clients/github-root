@@ -18,7 +18,8 @@ final readonly class ApplicationJson
      * admin: The login of the user who will manage this organization.
      * profileName: The organization's display name.
      */
-    public function __construct(public string $login, public string $admin, #[MapFrom('profile_name')] public ?string $profileName)
+    public function __construct(public string $login, public string $admin, #[MapFrom('profile_name')]
+    public string|null $profileName,)
     {
     }
 }

@@ -20,9 +20,7 @@ final readonly class GetPunchCardStats
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\GetPunchCardStats($owner, $repo);

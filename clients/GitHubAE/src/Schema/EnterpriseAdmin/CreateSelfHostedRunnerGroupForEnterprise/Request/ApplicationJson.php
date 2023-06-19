@@ -20,7 +20,9 @@ final readonly class ApplicationJson
      * runners: List of runner IDs to add to the runner group.
      * allowsPublicRepositories: Whether the runner group can be used by `public` repositories.
      */
-    public function __construct(public string $name, public ?string $visibility, #[MapFrom('selected_organization_ids')] public ?array $selectedOrganizationIds, public ?array $runners, #[MapFrom('allows_public_repositories')] public ?bool $allowsPublicRepositories)
+    public function __construct(public string $name, public string|null $visibility, #[MapFrom('selected_organization_ids')]
+    public array|null $selectedOrganizationIds, public array|null $runners, #[MapFrom('allows_public_repositories')]
+    public bool|null $allowsPublicRepositories,)
     {
     }
 }

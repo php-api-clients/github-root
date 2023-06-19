@@ -36,20 +36,12 @@ final class DownloadArtifactStreaming
     private string $repo;
     /**The unique identifier of the artifact. **/
     private int $artifactId;
-    private string $archiveFormat;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat $hydrator;
-    private readonly Browser $browser;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat $hydrator, Browser $browser, string $owner, string $repo, int $artifactId, string $archiveFormat)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId\ArchiveFormat $hydrator, private readonly Browser $browser, string $owner, string $repo, int $artifactId, private string $archiveFormat)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->artifactId              = $artifactId;
-        $this->archiveFormat           = $archiveFormat;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
-        $this->browser                 = $browser;
+        $this->owner      = $owner;
+        $this->repo       = $repo;
+        $this->artifactId = $artifactId;
     }
 
     public function createRequest(): RequestInterface
@@ -57,9 +49,7 @@ final class DownloadArtifactStreaming
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], self::PATH));
     }
 
-    /**
-     * @return Observable<string>
-     */
+    /** @return Observable<string> */
     public function createResponse(ResponseInterface $response): Observable
     {
         $code          = $response->getStatusCode();

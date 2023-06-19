@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class CreateImpersonationOAuthTokenTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);
@@ -39,9 +37,7 @@ final class CreateImpersonationOAuthTokenTest extends AsyncTestCase
         })(json_decode(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);
@@ -55,9 +51,7 @@ final class CreateImpersonationOAuthTokenTest extends AsyncTestCase
         $result = await($client->operations()->enterpriseAdmin()->createImpersonationOAuthToken('generated', json_decode(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);
@@ -75,9 +69,7 @@ final class CreateImpersonationOAuthTokenTest extends AsyncTestCase
         })(json_decode(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);

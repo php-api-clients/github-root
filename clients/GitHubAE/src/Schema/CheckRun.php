@@ -21,7 +21,16 @@ final readonly class CheckRun
      * name: The name of the check.
      * deployment: A deployment created as the result of an Actions check run from a workflow that references an environment
      */
-    public function __construct(public int $id, #[MapFrom('head_sha')] public string $headSha, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('external_id')] public ?string $externalId, public string $url, #[MapFrom('html_url')] public ?string $htmlUrl, #[MapFrom('details_url')] public ?string $detailsUrl, public string $status, public ?string $conclusion, #[MapFrom('started_at')] public ?string $startedAt, #[MapFrom('completed_at')] public ?string $completedAt, public Schema\CheckRun\Output $output, public string $name, #[MapFrom('check_suite')] public ?Schema\CheckRun\CheckSuite $checkSuite, public ?Schema\Integration $app, #[MapFrom('pull_requests')] public array $pullRequests, public ?Schema\DeploymentSimple $deployment)
+    public function __construct(public int $id, #[MapFrom('head_sha')]
+    public string $headSha, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('external_id')]
+    public string|null $externalId, public string $url, #[MapFrom('html_url')]
+    public string|null $htmlUrl, #[MapFrom('details_url')]
+    public string|null $detailsUrl, public string $status, public string|null $conclusion, #[MapFrom('started_at')]
+    public string|null $startedAt, #[MapFrom('completed_at')]
+    public string|null $completedAt, public Schema\CheckRun\Output $output, public string $name, #[MapFrom('check_suite')]
+    public Schema\CheckRun\CheckSuite|null $checkSuite, public Schema\Integration|null $app, #[MapFrom('pull_requests')]
+    public array $pullRequests, public Schema\DeploymentSimple|null $deployment,)
     {
     }
 }

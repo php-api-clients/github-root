@@ -23,9 +23,7 @@ final readonly class CreateUsingTemplate
     {
     }
 
-    /**
-     * @return PromiseInterface<Repository>
-     **/
+    /** @return PromiseInterface<Repository> **/
     public function call(string $templateOwner, string $templateRepo, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\CreateUsingTemplate($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $templateOwner, $templateRepo);

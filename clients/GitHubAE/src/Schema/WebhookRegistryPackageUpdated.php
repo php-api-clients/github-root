@@ -21,7 +21,8 @@ final readonly class WebhookRegistryPackageUpdated
      * repository: A repository on GitHub.
      * sender: A GitHub user.
      */
-    public function __construct(public string $action, public ?Schema\Enterprise $enterprise, public ?Schema\SimpleInstallation $installation, public ?Schema\OrganizationSimple $organization, #[MapFrom('registry_package')] public Schema\WebhookRegistryPackageUpdated\RegistryPackage $registryPackage, public ?Schema\Repository $repository, public Schema\SimpleUser $sender)
+    public function __construct(public string $action, public Schema\Enterprise|null $enterprise, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimple|null $organization, #[MapFrom('registry_package')]
+    public Schema\WebhookRegistryPackageUpdated\RegistryPackage $registryPackage, public Schema\Repository|null $repository, public Schema\SimpleUser $sender,)
     {
     }
 }

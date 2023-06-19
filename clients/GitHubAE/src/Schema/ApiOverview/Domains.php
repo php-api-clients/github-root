@@ -11,7 +11,7 @@ final readonly class Domains
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"website":["generated","generated"],"codespaces":["generated","generated"],"copilot":["generated","generated"],"packages":["generated","generated"]}';
 
-    public function __construct(public ?array $website, public ?array $codespaces, public ?array $copilot, public ?array $packages)
+    public function __construct(public array|null $website, public array|null $codespaces, public array|null $copilot, public array|null $packages)
     {
     }
 }

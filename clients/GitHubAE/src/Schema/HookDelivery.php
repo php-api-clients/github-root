@@ -28,7 +28,11 @@ final readonly class HookDelivery
      * repositoryId: The id of the repository associated with this event.
      * url: The URL target of the delivery.
      */
-    public function __construct(public int $id, public string $guid, #[MapFrom('delivered_at')] public string $deliveredAt, public bool $redelivery, public int|float $duration, public string $status, #[MapFrom('status_code')] public int $statusCode, public string $event, public ?string $action, #[MapFrom('installation_id')] public ?int $installationId, #[MapFrom('repository_id')] public ?int $repositoryId, public ?string $url, public Schema\HookDelivery\Request $request, public Schema\HookDelivery\Response $response)
+    public function __construct(public int $id, public string $guid, #[MapFrom('delivered_at')]
+    public string $deliveredAt, public bool $redelivery, public int|float $duration, public string $status, #[MapFrom('status_code')]
+    public int $statusCode, public string $event, public string|null $action, #[MapFrom('installation_id')]
+    public int|null $installationId, #[MapFrom('repository_id')]
+    public int|null $repositoryId, public string|null $url, public Schema\HookDelivery\Request $request, public Schema\HookDelivery\Response $response,)
     {
     }
 }

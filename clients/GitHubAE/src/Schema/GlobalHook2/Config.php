@@ -13,7 +13,9 @@ final readonly class Config
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"url":"generated","content_type":"generated","insecure_ssl":"generated"}';
 
-    public function __construct(public ?string $url, #[MapFrom('content_type')] public ?string $contentType, #[MapFrom('insecure_ssl')] public ?string $insecureSsl)
+    public function __construct(public string|null $url, #[MapFrom('content_type')]
+    public string|null $contentType, #[MapFrom('insecure_ssl')]
+    public string|null $insecureSsl,)
     {
     }
 }

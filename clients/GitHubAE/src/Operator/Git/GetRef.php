@@ -23,9 +23,7 @@ final readonly class GetRef
     {
     }
 
-    /**
-     * @return PromiseInterface<GitRef>
-     **/
+    /** @return PromiseInterface<GitRef> **/
     public function call(string $owner, string $repo, string $ref): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Git\GetRef($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref);

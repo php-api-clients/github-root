@@ -20,9 +20,7 @@ final readonly class GetAuditLog
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $enterprise, string $phrase, string $after, string $before, string $order, int $page = 1, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetAuditLog($enterprise, $phrase, $after, $before, $order, $page, $perPage);

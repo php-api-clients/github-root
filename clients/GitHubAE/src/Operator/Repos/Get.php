@@ -24,9 +24,7 @@ final readonly class Get
     {
     }
 
-    /**
-     * @return PromiseInterface<(FullRepository|BasicError)>
-     **/
+    /** @return PromiseInterface<(FullRepository|BasicError)> **/
     public function call(string $owner, string $repo): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\Get($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

@@ -23,9 +23,7 @@ final readonly class UpdateDiscussionCommentLegacy
     {
     }
 
-    /**
-     * @return PromiseInterface<TeamDiscussionComment>
-     **/
+    /** @return PromiseInterface<TeamDiscussionComment> **/
     public function call(int $teamId, int $discussionNumber, int $commentNumber, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Teams\UpdateDiscussionCommentLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId, $discussionNumber, $commentNumber);

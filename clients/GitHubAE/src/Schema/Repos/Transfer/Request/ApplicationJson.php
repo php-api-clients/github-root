@@ -17,7 +17,9 @@ final readonly class ApplicationJson
      * newOwner: The username or organization name the repository will be transferred to.
      * teamIds: ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
      */
-    public function __construct(#[MapFrom('new_owner')] public string $newOwner, #[MapFrom('team_ids')] public ?array $teamIds)
+    public function __construct(#[MapFrom('new_owner')]
+    public string $newOwner, #[MapFrom('team_ids')]
+    public array|null $teamIds,)
     {
     }
 }

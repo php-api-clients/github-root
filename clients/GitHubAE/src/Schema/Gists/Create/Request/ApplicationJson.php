@@ -17,7 +17,7 @@ final readonly class ApplicationJson
      * description: Description of the gist
      * files: Names and content for the files that make up the gist
      */
-    public function __construct(public ?string $description, public Schema\Gists\Create\Request\ApplicationJson\Files $files, public null|bool|string $public)
+    public function __construct(public string|null $description, public Schema\Gists\Create\Request\ApplicationJson\Files $files, public bool|string|null $public)
     {
     }
 }

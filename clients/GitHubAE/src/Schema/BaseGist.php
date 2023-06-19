@@ -17,7 +17,16 @@ final readonly class BaseGist
     /**
      * owner: A GitHub user.
      */
-    public function __construct(public string $url, #[MapFrom('forks_url')] public string $forksUrl, #[MapFrom('commits_url')] public string $commitsUrl, public string $id, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('git_pull_url')] public string $gitPullUrl, #[MapFrom('git_push_url')] public string $gitPushUrl, #[MapFrom('html_url')] public string $htmlUrl, public Schema\BaseGist\Files $files, public bool $public, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt, public ?string $description, public int $comments, public ?Schema\SimpleUser $user, #[MapFrom('comments_url')] public string $commentsUrl, public ?Schema\SimpleUser $owner, public ?bool $truncated, public ?array $forks, public ?array $history)
+    public function __construct(public string $url, #[MapFrom('forks_url')]
+    public string $forksUrl, #[MapFrom('commits_url')]
+    public string $commitsUrl, public string $id, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('git_pull_url')]
+    public string $gitPullUrl, #[MapFrom('git_push_url')]
+    public string $gitPushUrl, #[MapFrom('html_url')]
+    public string $htmlUrl, public Schema\BaseGist\Files $files, public bool $public, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt, public string|null $description, public int $comments, public Schema\SimpleUser|null $user, #[MapFrom('comments_url')]
+    public string $commentsUrl, public Schema\SimpleUser|null $owner, public bool|null $truncated, public array|null $forks, public array|null $history,)
     {
     }
 }
