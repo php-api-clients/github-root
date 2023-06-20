@@ -15,7 +15,7 @@ final readonly class ApplicationJson
      * strict: Require branches to be up to date before merging.
      * contexts: The list of status checks to require in order to merge into this branch
      */
-    public function __construct(public ?bool $strict, public ?array $contexts)
+    public function __construct(public bool|null $strict, public array|null $contexts)
     {
     }
 }

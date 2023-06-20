@@ -22,9 +22,7 @@ final readonly class DeleteLegacy
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $reactionId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Reactions\DeleteLegacy($this->responseSchemaValidator, $this->hydrator, $reactionId);

@@ -30,16 +30,12 @@ final class DeleteAutolink
     private string $repo;
     /**The unique identifier of the autolink. **/
     private int $autolinkId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Autolinks\AutolinkId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Autolinks\AutolinkId $hydrator, string $owner, string $repo, int $autolinkId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Autolinks\AutolinkId $hydrator, string $owner, string $repo, int $autolinkId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->autolinkId              = $autolinkId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner      = $owner;
+        $this->repo       = $repo;
+        $this->autolinkId = $autolinkId;
     }
 
     public function createRequest(): RequestInterface
@@ -47,9 +43,7 @@ final class DeleteAutolink
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{autolink_id}'], [$this->owner, $this->repo, $this->autolinkId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

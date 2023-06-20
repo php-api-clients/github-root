@@ -23,9 +23,7 @@ final readonly class GetPreReceiveHook
     {
     }
 
-    /**
-     * @return PromiseInterface<PreReceiveHook>
-     **/
+    /** @return PromiseInterface<PreReceiveHook> **/
     public function call(int $preReceiveHookId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetPreReceiveHook($this->responseSchemaValidator, $this->hydrator, $preReceiveHookId);

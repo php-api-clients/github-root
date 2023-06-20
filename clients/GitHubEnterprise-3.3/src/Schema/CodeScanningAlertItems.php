@@ -24,7 +24,14 @@ final readonly class CodeScanningAlertItems
      * dismissedAt: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      * dismissedReason: **Required when the state is dismissed.** The reason for dismissing or closing the alert.
      */
-    public function __construct(public int $number, #[MapFrom('created_at')] public string $createdAt, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('instances_url')] public string $instancesUrl, public string $state, #[MapFrom('dismissed_by')] public ?Schema\SimpleUser $dismissedBy, #[MapFrom('dismissed_at')] public ?string $dismissedAt, #[MapFrom('dismissed_reason')] public ?string $dismissedReason, public Schema\CodeScanningAlertRuleSummary $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')] public Schema\CodeScanningAlertInstance $mostRecentInstance)
+    public function __construct(public int $number, #[MapFrom('created_at')]
+    public string $createdAt, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('instances_url')]
+    public string $instancesUrl, public string $state, #[MapFrom('dismissed_by')]
+    public Schema\SimpleUser|null $dismissedBy, #[MapFrom('dismissed_at')]
+    public string|null $dismissedAt, #[MapFrom('dismissed_reason')]
+    public string|null $dismissedReason, public Schema\CodeScanningAlertRuleSummary $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')]
+    public Schema\CodeScanningAlertInstance $mostRecentInstance,)
     {
     }
 }

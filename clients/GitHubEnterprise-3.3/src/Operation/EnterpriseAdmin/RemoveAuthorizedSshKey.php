@@ -20,11 +20,9 @@ final class RemoveAuthorizedSshKey
     public const OPERATION_MATCH = 'DELETE /setup/api/settings/authorized-keys';
     private const METHOD         = 'DELETE';
     private const PATH           = '/setup/api/settings/authorized-keys';
-    private readonly SchemaValidator $requestSchemaValidator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
     }
 
     public function createRequest(array $data): RequestInterface

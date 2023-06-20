@@ -13,7 +13,8 @@ final readonly class Ok
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":1.1,"runners":[{"id":5,"name":"iMac","os":"macos","status":"online","busy":false,"labels":[{"id":2,"name":"generated","type":"custom"},{"id":2,"name":"generated","type":"custom"}]},{"id":5,"name":"iMac","os":"macos","status":"online","busy":false,"labels":[{"id":2,"name":"generated","type":"custom"},{"id":2,"name":"generated","type":"custom"}]}]}';
 
-    public function __construct(#[MapFrom('total_count')] public null|int|float $totalCount, public ?array $runners)
+    public function __construct(#[MapFrom('total_count')]
+    public int|float|null $totalCount, public array|null $runners,)
     {
     }
 }

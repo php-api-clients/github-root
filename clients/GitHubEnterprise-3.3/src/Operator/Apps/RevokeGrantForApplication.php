@@ -20,9 +20,7 @@ final readonly class RevokeGrantForApplication
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $clientId, string $accessToken): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\RevokeGrantForApplication($clientId, $accessToken);

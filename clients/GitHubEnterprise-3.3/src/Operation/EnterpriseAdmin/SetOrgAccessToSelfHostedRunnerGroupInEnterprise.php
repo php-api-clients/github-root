@@ -21,17 +21,15 @@ final class SetOrgAccessToSelfHostedRunnerGroupInEnterprise
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations';
     private const METHOD         = 'PUT';
     private const PATH           = '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, string $enterprise, int $runnerGroupId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $enterprise, int $runnerGroupId)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->enterprise             = $enterprise;
-        $this->runnerGroupId          = $runnerGroupId;
+        $this->enterprise    = $enterprise;
+        $this->runnerGroupId = $runnerGroupId;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -41,9 +39,7 @@ final class SetOrgAccessToSelfHostedRunnerGroupInEnterprise
         return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_group_id}'], [$this->enterprise, $this->runnerGroupId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

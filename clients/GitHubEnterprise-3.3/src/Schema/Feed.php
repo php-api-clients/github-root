@@ -20,7 +20,20 @@ final readonly class Feed
      * repositoryDiscussions: Hypermedia Link with Type
      * repositoryDiscussionsCategory: Hypermedia Link with Type
      */
-    public function __construct(#[MapFrom('timeline_url')] public string $timelineUrl, #[MapFrom('user_url')] public string $userUrl, #[MapFrom('current_user_public_url')] public ?string $currentUserPublicUrl, #[MapFrom('current_user_url')] public ?string $currentUserUrl, #[MapFrom('current_user_actor_url')] public ?string $currentUserActorUrl, #[MapFrom('current_user_organization_url')] public ?string $currentUserOrganizationUrl, #[MapFrom('current_user_organization_urls')] public ?array $currentUserOrganizationUrls, #[MapFrom('security_advisories_url')] public ?string $securityAdvisoriesUrl, #[MapFrom('repository_discussions_url')] public ?string $repositoryDiscussionsUrl, #[MapFrom('repository_discussions_category_url')] public ?string $repositoryDiscussionsCategoryUrl, #[MapFrom('_links')] public Schema\Feed\Links $links, #[MapFrom('repository_discussions')] public ?Schema\LinkWithType $repositoryDiscussions, #[MapFrom('repository_discussions_category')] public ?Schema\LinkWithType $repositoryDiscussionsCategory)
+    public function __construct(#[MapFrom('timeline_url')]
+    public string $timelineUrl, #[MapFrom('user_url')]
+    public string $userUrl, #[MapFrom('current_user_public_url')]
+    public string|null $currentUserPublicUrl, #[MapFrom('current_user_url')]
+    public string|null $currentUserUrl, #[MapFrom('current_user_actor_url')]
+    public string|null $currentUserActorUrl, #[MapFrom('current_user_organization_url')]
+    public string|null $currentUserOrganizationUrl, #[MapFrom('current_user_organization_urls')]
+    public array|null $currentUserOrganizationUrls, #[MapFrom('security_advisories_url')]
+    public string|null $securityAdvisoriesUrl, #[MapFrom('repository_discussions_url')]
+    public string|null $repositoryDiscussionsUrl, #[MapFrom('repository_discussions_category_url')]
+    public string|null $repositoryDiscussionsCategoryUrl, #[MapFrom('_links')]
+    public Schema\Feed\Links $links, #[MapFrom('repository_discussions')]
+    public Schema\LinkWithType|null $repositoryDiscussions, #[MapFrom('repository_discussions_category')]
+    public Schema\LinkWithType|null $repositoryDiscussionsCategory,)
     {
     }
 }

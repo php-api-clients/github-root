@@ -21,7 +21,10 @@ final readonly class ApplicationJson
      * clientSecret: The OAuth app client secret for which to create the token.
      * fingerprint: A unique string to distinguish an authorization from others created for the same client ID and user.
      */
-    public function __construct(public ?array $scopes, public ?string $note, #[MapFrom('note_url')] public ?string $noteUrl, #[MapFrom('client_id')] public ?string $clientId, #[MapFrom('client_secret')] public ?string $clientSecret, public ?string $fingerprint)
+    public function __construct(public array|null $scopes, public string|null $note, #[MapFrom('note_url')]
+    public string|null $noteUrl, #[MapFrom('client_id')]
+    public string|null $clientId, #[MapFrom('client_secret')]
+    public string|null $clientSecret, public string|null $fingerprint,)
     {
     }
 }

@@ -23,9 +23,7 @@ final readonly class CreateSelfHostedRunnerGroupForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<RunnerGroupsEnterprise>
-     **/
+    /** @return PromiseInterface<RunnerGroupsEnterprise> **/
     public function call(string $enterprise, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);

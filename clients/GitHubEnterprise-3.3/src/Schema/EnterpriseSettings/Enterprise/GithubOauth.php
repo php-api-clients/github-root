@@ -13,7 +13,11 @@ final readonly class GithubOauth
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"client_id":"generated","client_secret":"generated","organization_name":"generated","organization_team":"generated"}';
 
-    public function __construct(#[MapFrom('client_id')] public ?string $clientId, #[MapFrom('client_secret')] public ?string $clientSecret, #[MapFrom('organization_name')] public ?string $organizationName, #[MapFrom('organization_team')] public ?string $organizationTeam)
+    public function __construct(#[MapFrom('client_id')]
+    public string|null $clientId, #[MapFrom('client_secret')]
+    public string|null $clientSecret, #[MapFrom('organization_name')]
+    public string|null $organizationName, #[MapFrom('organization_team')]
+    public string|null $organizationTeam,)
     {
     }
 }
