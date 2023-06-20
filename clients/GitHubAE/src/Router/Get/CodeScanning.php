@@ -63,6 +63,12 @@ final class CodeScanning
 
         $arguments['state'] = $params['state'];
         unset($params['state']);
+        if (array_key_exists('severity', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: severity');
+        }
+
+        $arguments['severity'] = $params['severity'];
+        unset($params['severity']);
         if (array_key_exists('page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: page');
         }
@@ -93,7 +99,7 @@ final class CodeScanning
 
         $operator = new Operator\CodeScanning\ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts::class]);
 
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['severity'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
     public function listRecentAnalyses(array $params)
@@ -207,6 +213,12 @@ final class CodeScanning
 
         $arguments['state'] = $params['state'];
         unset($params['state']);
+        if (array_key_exists('severity', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: severity');
+        }
+
+        $arguments['severity'] = $params['severity'];
+        unset($params['severity']);
         if (array_key_exists('page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: page');
         }
@@ -237,7 +249,7 @@ final class CodeScanning
 
         $operator = new Operator\CodeScanning\ListAlertsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\CodeScanning\Alerts::class]);
 
-        return $operator->call($arguments['org'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
+        return $operator->call($arguments['org'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['severity'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
     public function getAlert(array $params)

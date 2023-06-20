@@ -36,6 +36,8 @@ final class ListAlertsForOrg
     private string $after;
     /**If specified, only code scanning alerts with this state will be returned. **/
     private string $state;
+    /**If specified, only code scanning alerts with this severity will be returned. **/
+    private string $severity;
     /**Page number of the results to fetch. **/
     private int $page;
     /**The number of results per page (max 100). **/
@@ -45,7 +47,7 @@ final class ListAlertsForOrg
     /**The property by which to sort the results. **/
     private string $sort;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\CodeScanning\Alerts $hydrator, string $org, string $toolName, string|null $toolGuid, string $before, string $after, string $state, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created')
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\CodeScanning\Alerts $hydrator, string $org, string $toolName, string|null $toolGuid, string $before, string $after, string $state, string $severity, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created')
     {
         $this->org       = $org;
         $this->toolName  = $toolName;
@@ -53,6 +55,7 @@ final class ListAlertsForOrg
         $this->before    = $before;
         $this->after     = $after;
         $this->state     = $state;
+        $this->severity  = $severity;
         $this->page      = $page;
         $this->perPage   = $perPage;
         $this->direction = $direction;
@@ -61,7 +64,7 @@ final class ListAlertsForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{tool_name}', '{tool_guid}', '{before}', '{after}', '{state}', '{page}', '{per_page}', '{direction}', '{sort}'], [$this->org, $this->toolName, $this->toolGuid, $this->before, $this->after, $this->state, $this->page, $this->perPage, $this->direction, $this->sort], self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&before={before}&after={after}&state={state}&page={page}&per_page={per_page}&direction={direction}&sort={sort}'));
+        return new Request(self::METHOD, str_replace(['{org}', '{tool_name}', '{tool_guid}', '{before}', '{after}', '{state}', '{severity}', '{page}', '{per_page}', '{direction}', '{sort}'], [$this->org, $this->toolName, $this->toolGuid, $this->before, $this->after, $this->state, $this->severity, $this->page, $this->perPage, $this->direction, $this->sort], self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&before={before}&after={after}&state={state}&severity={severity}&page={page}&per_page={per_page}&direction={direction}&sort={sort}'));
     }
 
     public function createResponse(ResponseInterface $response): mixed
