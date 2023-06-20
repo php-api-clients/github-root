@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class ListForReleaseTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -45,9 +43,7 @@ final class ListForReleaseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -62,9 +58,7 @@ final class ListForReleaseTest extends AsyncTestCase
         $result = await($client->operations()->reactions()->listForRelease('generated', 'generated', 10, 'generated', 8, 4));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_415_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType::class);
@@ -88,9 +82,7 @@ final class ListForReleaseTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_415_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType::class);

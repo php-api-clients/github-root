@@ -20,7 +20,9 @@ final readonly class ApplicationJson
      * noteUrl: A URL to remind you what app the OAuth token is for.
      * fingerprint: A unique string to distinguish an authorization from others created for the same client ID and user.
      */
-    public function __construct(#[MapFrom('client_secret')] public string $clientSecret, public ?array $scopes, public ?string $note, #[MapFrom('note_url')] public ?string $noteUrl, public ?string $fingerprint)
+    public function __construct(#[MapFrom('client_secret')]
+    public string $clientSecret, public array|null $scopes, public string|null $note, #[MapFrom('note_url')]
+    public string|null $noteUrl, public string|null $fingerprint,)
     {
     }
 }

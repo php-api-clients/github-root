@@ -27,15 +27,11 @@ final class GetGlobalWebhook
     private int $hookId;
     /**This API is under preview and subject to change. **/
     private string $accept;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Hooks\HookId $hydrator, int $hookId, string $accept = 'application/vnd.github.superpro-preview+json')
     {
-        $this->hookId                  = $hookId;
-        $this->accept                  = $accept;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->hookId = $hookId;
+        $this->accept = $accept;
     }
 
     public function createRequest(): RequestInterface

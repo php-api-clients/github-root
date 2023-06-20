@@ -17,7 +17,8 @@ abstract readonly class TietF0F28585
     /**
      * type: The type of reviewer.
      */
-    public function __construct(public ?string $type, #[Reviewer] public null|Schema\SimpleUser|Schema\Team $reviewer)
+    public function __construct(public string|null $type, #[Reviewer]
+    public Schema\SimpleUser|Schema\Team|null $reviewer,)
     {
     }
 }

@@ -23,9 +23,7 @@ final readonly class ResetAuthorization
     {
     }
 
-    /**
-     * @return PromiseInterface<Authorization>
-     **/
+    /** @return PromiseInterface<Authorization> **/
     public function call(string $clientId, string $accessToken): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\ResetAuthorization($this->responseSchemaValidator, $this->hydrator, $clientId, $accessToken);

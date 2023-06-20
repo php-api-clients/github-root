@@ -29,16 +29,12 @@ final class GetJobForWorkflowRun
     private string $repo;
     /**The unique identifier of the job. **/
     private int $jobId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId $hydrator, string $owner, string $repo, int $jobId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Actions\Jobs\JobId $hydrator, string $owner, string $repo, int $jobId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->jobId                   = $jobId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->jobId = $jobId;
     }
 
     public function createRequest(): RequestInterface

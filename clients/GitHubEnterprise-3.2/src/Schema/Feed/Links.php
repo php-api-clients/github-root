@@ -23,7 +23,13 @@ final readonly class Links
      * currentUserActor: Hypermedia Link with Type
      * currentUserOrganization: Hypermedia Link with Type
      */
-    public function __construct(public Schema\LinkWithType $timeline, public Schema\LinkWithType $user, #[MapFrom('security_advisories')] public ?Schema\LinkWithType $securityAdvisories, #[MapFrom('current_user')] public ?Schema\LinkWithType $currentUser, #[MapFrom('current_user_public')] public ?Schema\LinkWithType $currentUserPublic, #[MapFrom('current_user_actor')] public ?Schema\LinkWithType $currentUserActor, #[MapFrom('current_user_organization')] public ?Schema\LinkWithType $currentUserOrganization, #[MapFrom('current_user_organizations')] public ?array $currentUserOrganizations)
+    public function __construct(public Schema\LinkWithType $timeline, public Schema\LinkWithType $user, #[MapFrom('security_advisories')]
+    public Schema\LinkWithType|null $securityAdvisories, #[MapFrom('current_user')]
+    public Schema\LinkWithType|null $currentUser, #[MapFrom('current_user_public')]
+    public Schema\LinkWithType|null $currentUserPublic, #[MapFrom('current_user_actor')]
+    public Schema\LinkWithType|null $currentUserActor, #[MapFrom('current_user_organization')]
+    public Schema\LinkWithType|null $currentUserOrganization, #[MapFrom('current_user_organizations')]
+    public array|null $currentUserOrganizations,)
     {
     }
 }

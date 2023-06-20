@@ -23,9 +23,7 @@ final readonly class UpdateGlobalWebhook
     {
     }
 
-    /**
-     * @return PromiseInterface<GlobalHook2>
-     **/
+    /** @return PromiseInterface<GlobalHook2> **/
     public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json', array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $hookId, $accept);

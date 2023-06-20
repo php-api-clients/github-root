@@ -20,9 +20,7 @@ use function React\Promise\resolve;
 
 final class GetOrCreateAuthorizationForAppAndFingerprintTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);
@@ -41,9 +39,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprintTest extends AsyncTestCa
         })(json_decode(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);
@@ -57,9 +53,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprintTest extends AsyncTestCa
         $result = await($client->operations()->oauthAuthorizations()->getOrCreateAuthorizationForAppAndFingerprint('generated', 'generated', json_decode(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);
@@ -78,9 +72,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprintTest extends AsyncTestCa
         })(json_decode(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/json'], Schema\Authorization::SCHEMA_EXAMPLE_DATA);
@@ -94,9 +86,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprintTest extends AsyncTestCa
         $result = await($client->operations()->oauthAuthorizations()->getOrCreateAuthorizationForAppAndFingerprint('generated', 'generated', json_decode(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationError::class);
@@ -116,9 +106,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprintTest extends AsyncTestCa
         })(json_decode(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationError::class);

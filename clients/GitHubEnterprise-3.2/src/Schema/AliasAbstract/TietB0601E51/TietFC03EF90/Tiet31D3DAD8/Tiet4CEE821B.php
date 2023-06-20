@@ -13,7 +13,8 @@ abstract readonly class Tiet4CEE821B
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_count":11,"runners":[{"id":5,"name":"iMac","os":"macos","status":"online","busy":false,"labels":[{"id":2,"name":"generated","type":"custom"},{"id":2,"name":"generated","type":"custom"}]},{"id":5,"name":"iMac","os":"macos","status":"online","busy":false,"labels":[{"id":2,"name":"generated","type":"custom"},{"id":2,"name":"generated","type":"custom"}]}]}';
 
-    public function __construct(#[MapFrom('total_count')] public int $totalCount, public array $runners)
+    public function __construct(#[MapFrom('total_count')]
+    public int $totalCount, public array $runners,)
     {
     }
 }

@@ -16,7 +16,7 @@ abstract readonly class TietD282CCB7
     /**
      * repo: A git repository
      */
-    public function __construct(public string $label, public string $ref, public Schema\Repository $repo, public string $sha, public ?Schema\SimpleUser $user)
+    public function __construct(public string $label, public string $ref, public Schema\Repository $repo, public string $sha, public Schema\SimpleUser|null $user)
     {
     }
 }
