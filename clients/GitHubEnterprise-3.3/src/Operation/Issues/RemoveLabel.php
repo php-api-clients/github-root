@@ -30,18 +30,12 @@ final class RemoveLabel
     private string $repo;
     /**The number that identifies the issue. **/
     private int $issueNumber;
-    private string $name;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name $hydrator, string $owner, string $repo, int $issueNumber, string $name)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name $hydrator, string $owner, string $repo, int $issueNumber, private string $name)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->issueNumber             = $issueNumber;
-        $this->name                    = $name;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner       = $owner;
+        $this->repo        = $repo;
+        $this->issueNumber = $issueNumber;
     }
 
     public function createRequest(): RequestInterface

@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * selectedRepositoryIds: An array of repository ids that can access the organization secret. You can only provide a list of repository ids when the `visibility` is set to `selected`. You can add and remove individual repositories using the [Add selected repository to an organization secret](https://docs.github.com/enterprise-server@3.3/rest/actions/secrets#add-selected-repository-to-an-organization-secret) and [Remove selected repository from an organization secret](https://docs.github.com/enterprise-server@3.3/rest/reference/actions#remove-selected-repository-from-an-organization-secret) endpoints.
      */
-    public function __construct(#[MapFrom('selected_repository_ids')] public array $selectedRepositoryIds)
+    public function __construct(#[MapFrom('selected_repository_ids')]
+    public array $selectedRepositoryIds,)
     {
     }
 }

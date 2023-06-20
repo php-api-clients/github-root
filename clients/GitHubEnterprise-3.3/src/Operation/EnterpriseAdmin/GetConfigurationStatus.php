@@ -23,13 +23,9 @@ final class GetConfigurationStatus
     public const OPERATION_MATCH = 'GET /setup/api/configcheck';
     private const METHOD         = 'GET';
     private const PATH           = '/setup/api/configcheck';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Setup\Api\Configcheck $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Setup\Api\Configcheck $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Setup\Api\Configcheck $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

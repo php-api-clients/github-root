@@ -30,16 +30,12 @@ final class RerequestRun
     private string $repo;
     /**The unique identifier of the check run. **/
     private int $checkRunId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId\Rerequest $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId\Rerequest $hydrator, string $owner, string $repo, int $checkRunId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CheckRuns\CheckRunId\Rerequest $hydrator, string $owner, string $repo, int $checkRunId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->checkRunId              = $checkRunId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner      = $owner;
+        $this->repo       = $repo;
+        $this->checkRunId = $checkRunId;
     }
 
     public function createRequest(): RequestInterface

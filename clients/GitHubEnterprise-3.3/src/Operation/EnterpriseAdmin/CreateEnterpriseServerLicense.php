@@ -21,11 +21,9 @@ final class CreateEnterpriseServerLicense
     public const OPERATION_MATCH = 'POST /setup/api/start';
     private const METHOD         = 'POST';
     private const PATH           = '/setup/api/start';
-    private readonly SchemaValidator $requestSchemaValidator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -35,9 +33,7 @@ final class CreateEnterpriseServerLicense
         return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'multipart/form-data'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

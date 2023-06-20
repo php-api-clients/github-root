@@ -19,7 +19,6 @@ use function WyriHaximus\React\awaitObservable;
 
 final class Client implements ClientInterface
 {
-    private readonly AuthenticationInterface $authentication;
     private readonly Browser $browser;
     private readonly SchemaValidator $requestSchemaValidator;
     private readonly SchemaValidator $responseSchemaValidator;
@@ -28,9 +27,8 @@ final class Client implements ClientInterface
     private readonly WebHooks $webHooks;
     private readonly Hydrators $hydrators;
 
-    public function __construct(AuthenticationInterface $authentication, Browser $browser)
+    public function __construct(private readonly AuthenticationInterface $authentication, Browser $browser)
     {
-        $this->authentication          = $authentication;
         $this->browser                 = $browser->withBase('{protocol}://{hostname}/api/v3')->withFollowRedirects(false);
         $this->requestSchemaValidator  = new SchemaValidator(SchemaValidator::VALIDATE_AS_REQUEST);
         $this->responseSchemaValidator = new SchemaValidator(SchemaValidator::VALIDATE_AS_RESPONSE);

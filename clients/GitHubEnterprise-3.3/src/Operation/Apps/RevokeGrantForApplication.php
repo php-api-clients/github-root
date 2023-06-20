@@ -19,12 +19,10 @@ final class RevokeGrantForApplication
     private const PATH           = '/applications/{client_id}/grants/{access_token}';
     /**The client ID of the GitHub app. **/
     private string $clientId;
-    private string $accessToken;
 
-    public function __construct(string $clientId, string $accessToken)
+    public function __construct(string $clientId, private string $accessToken)
     {
-        $this->clientId    = $clientId;
-        $this->accessToken = $accessToken;
+        $this->clientId = $clientId;
     }
 
     public function createRequest(): RequestInterface
@@ -32,9 +30,7 @@ final class RevokeGrantForApplication
         return new Request(self::METHOD, str_replace(['{client_id}', '{access_token}'], [$this->clientId, $this->accessToken], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

@@ -11,7 +11,7 @@ final readonly class Reconciliation
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"user":"generated","org":"generated"}';
 
-    public function __construct(public ?string $user, public ?string $org)
+    public function __construct(public string|null $user, public string|null $org)
     {
     }
 }

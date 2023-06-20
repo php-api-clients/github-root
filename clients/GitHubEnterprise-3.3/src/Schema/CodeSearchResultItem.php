@@ -17,7 +17,13 @@ final readonly class CodeSearchResultItem
     /**
      * repository: Minimal Repository
      */
-    public function __construct(public string $name, public string $path, public string $sha, public string $url, #[MapFrom('git_url')] public string $gitUrl, #[MapFrom('html_url')] public string $htmlUrl, public Schema\MinimalRepository $repository, public int|float $score, #[MapFrom('file_size')] public ?int $fileSize, public ?string $language, #[MapFrom('last_modified_at')] public ?string $lastModifiedAt, #[MapFrom('line_numbers')] public ?array $lineNumbers, #[MapFrom('text_matches')] public ?array $textMatches)
+    public function __construct(public string $name, public string $path, public string $sha, public string $url, #[MapFrom('git_url')]
+    public string $gitUrl, #[MapFrom('html_url')]
+    public string $htmlUrl, public Schema\MinimalRepository $repository, public int|float $score, #[MapFrom('file_size')]
+    public int|null $fileSize, public string|null $language, #[MapFrom('last_modified_at')]
+    public string|null $lastModifiedAt, #[MapFrom('line_numbers')]
+    public array|null $lineNumbers, #[MapFrom('text_matches')]
+    public array|null $textMatches,)
     {
     }
 }

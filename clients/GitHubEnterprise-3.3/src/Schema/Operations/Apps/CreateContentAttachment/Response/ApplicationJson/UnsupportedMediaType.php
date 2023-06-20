@@ -13,7 +13,8 @@ final readonly class UnsupportedMediaType
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"message":"generated","documentation_url":"generated"}';
 
-    public function __construct(public string $message, #[MapFrom('documentation_url')] public string $documentationUrl)
+    public function __construct(public string $message, #[MapFrom('documentation_url')]
+    public string $documentationUrl,)
     {
     }
 }

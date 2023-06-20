@@ -26,16 +26,10 @@ final class CheckAuthorization
     private const PATH           = '/applications/{client_id}/tokens/{access_token}';
     /**The client ID of the GitHub app. **/
     private string $clientId;
-    private string $accessToken;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Applications\ClientId\Tokens\AccessToken $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Applications\ClientId\Tokens\AccessToken $hydrator, string $clientId, string $accessToken)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Applications\ClientId\Tokens\AccessToken $hydrator, string $clientId, private string $accessToken)
     {
-        $this->clientId                = $clientId;
-        $this->accessToken             = $accessToken;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->clientId = $clientId;
     }
 
     public function createRequest(): RequestInterface

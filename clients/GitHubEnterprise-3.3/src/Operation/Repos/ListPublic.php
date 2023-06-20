@@ -28,15 +28,11 @@ final class ListPublic
     private int $since;
     /**Specifies the types of repositories to return. This endpoint will only list repositories available to all users on the enterprise. **/
     private string $visibility;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repositories $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repositories $hydrator, int $since, string $visibility = 'public')
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repositories $hydrator, int $since, string $visibility = 'public')
     {
-        $this->since                   = $since;
-        $this->visibility              = $visibility;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->since      = $since;
+        $this->visibility = $visibility;
     }
 
     public function createRequest(): RequestInterface
@@ -44,9 +40,7 @@ final class ListPublic
         return new Request(self::METHOD, str_replace(['{since}', '{visibility}'], [$this->since, $this->visibility], self::PATH . '?since={since}&visibility={visibility}'));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

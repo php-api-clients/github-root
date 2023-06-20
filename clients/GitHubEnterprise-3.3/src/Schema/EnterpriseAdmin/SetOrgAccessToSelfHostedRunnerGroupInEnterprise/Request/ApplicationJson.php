@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * selectedOrganizationIds: List of organization IDs that can access the runner group.
      */
-    public function __construct(#[MapFrom('selected_organization_ids')] public array $selectedOrganizationIds)
+    public function __construct(#[MapFrom('selected_organization_ids')]
+    public array $selectedOrganizationIds,)
     {
     }
 }
