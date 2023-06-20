@@ -24,18 +24,12 @@ final class UpdateUsernameForUser
     public const OPERATION_MATCH = 'PATCH /admin/users/{username}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/admin/users/{username}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The handle for the GitHub user account. **/
     private string $username;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Users\Username $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Users\Username $hydrator, string $username)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Users\Username $hydrator, string $username)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->username                = $username;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->username = $username;
     }
 
     public function createRequest(array $data): RequestInterface

@@ -33,7 +33,28 @@ final readonly class WorkflowRun
      * repository: Minimal Repository
      * headRepository: Minimal Repository
      */
-    public function __construct(public int $id, public ?string $name, #[MapFrom('node_id')] public string $nodeId, #[MapFrom('check_suite_id')] public ?int $checkSuiteId, #[MapFrom('check_suite_node_id')] public ?string $checkSuiteNodeId, #[MapFrom('head_branch')] public ?string $headBranch, #[MapFrom('head_sha')] public string $headSha, #[MapFrom('run_number')] public int $runNumber, public string $event, public ?string $status, public ?string $conclusion, #[MapFrom('workflow_id')] public int $workflowId, public string $url, #[MapFrom('html_url')] public string $htmlUrl, #[MapFrom('pull_requests')] public ?array $pullRequests, #[MapFrom('created_at')] public string $createdAt, #[MapFrom('updated_at')] public string $updatedAt, #[MapFrom('jobs_url')] public string $jobsUrl, #[MapFrom('logs_url')] public string $logsUrl, #[MapFrom('check_suite_url')] public string $checkSuiteUrl, #[MapFrom('artifacts_url')] public string $artifactsUrl, #[MapFrom('cancel_url')] public string $cancelUrl, #[MapFrom('rerun_url')] public string $rerunUrl, #[MapFrom('workflow_url')] public string $workflowUrl, #[MapFrom('head_commit')] public ?Schema\SimpleCommit $headCommit, public Schema\MinimalRepository $repository, #[MapFrom('head_repository')] public Schema\MinimalRepository $headRepository, #[MapFrom('head_repository_id')] public ?int $headRepositoryId)
+    public function __construct(public int $id, public string|null $name, #[MapFrom('node_id')]
+    public string $nodeId, #[MapFrom('check_suite_id')]
+    public int|null $checkSuiteId, #[MapFrom('check_suite_node_id')]
+    public string|null $checkSuiteNodeId, #[MapFrom('head_branch')]
+    public string|null $headBranch, #[MapFrom('head_sha')]
+    public string $headSha, #[MapFrom('run_number')]
+    public int $runNumber, public string $event, public string|null $status, public string|null $conclusion, #[MapFrom('workflow_id')]
+    public int $workflowId, public string $url, #[MapFrom('html_url')]
+    public string $htmlUrl, #[MapFrom('pull_requests')]
+    public array|null $pullRequests, #[MapFrom('created_at')]
+    public string $createdAt, #[MapFrom('updated_at')]
+    public string $updatedAt, #[MapFrom('jobs_url')]
+    public string $jobsUrl, #[MapFrom('logs_url')]
+    public string $logsUrl, #[MapFrom('check_suite_url')]
+    public string $checkSuiteUrl, #[MapFrom('artifacts_url')]
+    public string $artifactsUrl, #[MapFrom('cancel_url')]
+    public string $cancelUrl, #[MapFrom('rerun_url')]
+    public string $rerunUrl, #[MapFrom('workflow_url')]
+    public string $workflowUrl, #[MapFrom('head_commit')]
+    public Schema\SimpleCommit|null $headCommit, public Schema\MinimalRepository $repository, #[MapFrom('head_repository')]
+    public Schema\MinimalRepository $headRepository, #[MapFrom('head_repository_id')]
+    public int|null $headRepositoryId,)
     {
     }
 }

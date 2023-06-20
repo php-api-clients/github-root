@@ -17,7 +17,7 @@ final readonly class ApplicationJson
     address. This parameter can be omitted when using CAS, LDAP, or SAML.
     For more information, see "[About authentication for your enterprise](https://docs.github.com/enterprise-server@3.2/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
      */
-    public function __construct(public string $login, public ?string $email)
+    public function __construct(public string $login, public string|null $email)
     {
     }
 }

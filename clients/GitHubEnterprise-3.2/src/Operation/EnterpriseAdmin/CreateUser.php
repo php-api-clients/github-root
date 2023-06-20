@@ -24,15 +24,9 @@ final class CreateUser
     public const OPERATION_MATCH = 'POST /admin/users';
     private const METHOD         = 'POST';
     private const PATH           = '/admin/users';
-    private readonly SchemaValidator $requestSchemaValidator;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Admin\Users $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Admin\Users $hydrator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Admin\Users $hydrator)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(array $data): RequestInterface

@@ -13,7 +13,9 @@ final readonly class ScriptRepository
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"id":2,"full_name":"generated","url":"generated","html_url":"generated"}';
 
-    public function __construct(public ?int $id, #[MapFrom('full_name')] public ?string $fullName, public ?string $url, #[MapFrom('html_url')] public ?string $htmlUrl)
+    public function __construct(public int|null $id, #[MapFrom('full_name')]
+    public string|null $fullName, public string|null $url, #[MapFrom('html_url')]
+    public string|null $htmlUrl,)
     {
     }
 }

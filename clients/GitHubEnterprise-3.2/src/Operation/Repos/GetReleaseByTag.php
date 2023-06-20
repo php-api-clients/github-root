@@ -30,16 +30,12 @@ final class GetReleaseByTag
     private string $repo;
     /**tag parameter **/
     private string $tag;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag $hydrator, string $owner, string $repo, string $tag)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Releases\Tags\Tag $hydrator, string $owner, string $repo, string $tag)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->tag                     = $tag;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner = $owner;
+        $this->repo  = $repo;
+        $this->tag   = $tag;
     }
 
     public function createRequest(): RequestInterface

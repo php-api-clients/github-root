@@ -13,7 +13,9 @@ final readonly class Ntp
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"primary_server":"generated","secondary_server":"generated"}';
 
-    public function __construct(#[MapFrom('primary_server')] public ?string $primaryServer, #[MapFrom('secondary_server')] public ?string $secondaryServer)
+    public function __construct(#[MapFrom('primary_server')]
+    public string|null $primaryServer, #[MapFrom('secondary_server')]
+    public string|null $secondaryServer,)
     {
     }
 }

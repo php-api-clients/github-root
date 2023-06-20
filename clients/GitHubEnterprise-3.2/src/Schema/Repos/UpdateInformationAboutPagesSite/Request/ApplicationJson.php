@@ -21,7 +21,10 @@ final readonly class ApplicationJson
      * public: Configures access controls for the GitHub Pages site. If public is set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. This includes anyone in your Enterprise if the repository is set to `internal` visibility. This feature is only available to repositories in an organization on an Enterprise plan.
      * buildType: The process by which the GitHub Pages site will be built. `workflow` means that the site is built by a custom GitHub Actions workflow. `legacy` means that the site is built by GitHub when changes are pushed to a specific branch.
      */
-    public function __construct(public ?string $cname, #[MapFrom('https_enforced')] public ?bool $httpsEnforced, public ?bool $public, #[MapFrom('build_type')] public ?string $buildType, #[Source] public null|string|Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One $source)
+    public function __construct(public string|null $cname, #[MapFrom('https_enforced')]
+    public bool|null $httpsEnforced, public bool|null $public, #[MapFrom('build_type')]
+    public string|null $buildType, #[Source]
+    public string|Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One|null $source,)
     {
     }
 }

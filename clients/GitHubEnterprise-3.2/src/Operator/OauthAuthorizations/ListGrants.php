@@ -22,9 +22,7 @@ final readonly class ListGrants
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $clientId, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\ListGrants($this->responseSchemaValidator, $this->hydrator, $clientId, $perPage, $page);

@@ -32,17 +32,13 @@ final class ListWebhookDeliveries
     private string $cursor;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries $hydrator, string $org, int $hookId, string $cursor, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries $hydrator, string $org, int $hookId, string $cursor, int $perPage = 30)
     {
-        $this->org                     = $org;
-        $this->hookId                  = $hookId;
-        $this->cursor                  = $cursor;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org     = $org;
+        $this->hookId  = $hookId;
+        $this->cursor  = $cursor;
+        $this->perPage = $perPage;
     }
 
     public function createRequest(): RequestInterface

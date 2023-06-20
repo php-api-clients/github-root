@@ -23,9 +23,7 @@ final readonly class EnableOrDisableMaintenanceMode
     {
     }
 
-    /**
-     * @return PromiseInterface<MaintenanceStatus>
-     **/
+    /** @return PromiseInterface<MaintenanceStatus> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\EnableOrDisableMaintenanceMode($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

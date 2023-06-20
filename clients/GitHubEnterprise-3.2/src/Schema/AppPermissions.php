@@ -46,7 +46,24 @@ final readonly class AppPermissions
      * teamDiscussions: The level of permission to grant the access token to manage team discussions and related comments.
      * contentReferences: The level of permission to grant the access token for notification of content references and creation content attachments.
      */
-    public function __construct(public ?string $actions, public ?string $administration, public ?string $checks, public ?string $contents, public ?string $deployments, public ?string $environments, public ?string $issues, public ?string $metadata, public ?string $packages, public ?string $pages, #[MapFrom('pull_requests')] public ?string $pullRequests, #[MapFrom('repository_hooks')] public ?string $repositoryHooks, #[MapFrom('repository_projects')] public ?string $repositoryProjects, #[MapFrom('secret_scanning_alerts')] public ?string $secretScanningAlerts, public ?string $secrets, #[MapFrom('security_events')] public ?string $securityEvents, #[MapFrom('single_file')] public ?string $singleFile, public ?string $statuses, #[MapFrom('vulnerability_alerts')] public ?string $vulnerabilityAlerts, public ?string $workflows, public ?string $members, #[MapFrom('organization_administration')] public ?string $organizationAdministration, #[MapFrom('organization_hooks')] public ?string $organizationHooks, #[MapFrom('organization_plan')] public ?string $organizationPlan, #[MapFrom('organization_projects')] public ?string $organizationProjects, #[MapFrom('organization_packages')] public ?string $organizationPackages, #[MapFrom('organization_secrets')] public ?string $organizationSecrets, #[MapFrom('organization_self_hosted_runners')] public ?string $organizationSelfHostedRunners, #[MapFrom('organization_user_blocking')] public ?string $organizationUserBlocking, #[MapFrom('team_discussions')] public ?string $teamDiscussions, #[MapFrom('content_references')] public ?string $contentReferences)
+    public function __construct(public string|null $actions, public string|null $administration, public string|null $checks, public string|null $contents, public string|null $deployments, public string|null $environments, public string|null $issues, public string|null $metadata, public string|null $packages, public string|null $pages, #[MapFrom('pull_requests')]
+    public string|null $pullRequests, #[MapFrom('repository_hooks')]
+    public string|null $repositoryHooks, #[MapFrom('repository_projects')]
+    public string|null $repositoryProjects, #[MapFrom('secret_scanning_alerts')]
+    public string|null $secretScanningAlerts, public string|null $secrets, #[MapFrom('security_events')]
+    public string|null $securityEvents, #[MapFrom('single_file')]
+    public string|null $singleFile, public string|null $statuses, #[MapFrom('vulnerability_alerts')]
+    public string|null $vulnerabilityAlerts, public string|null $workflows, public string|null $members, #[MapFrom('organization_administration')]
+    public string|null $organizationAdministration, #[MapFrom('organization_hooks')]
+    public string|null $organizationHooks, #[MapFrom('organization_plan')]
+    public string|null $organizationPlan, #[MapFrom('organization_projects')]
+    public string|null $organizationProjects, #[MapFrom('organization_packages')]
+    public string|null $organizationPackages, #[MapFrom('organization_secrets')]
+    public string|null $organizationSecrets, #[MapFrom('organization_self_hosted_runners')]
+    public string|null $organizationSelfHostedRunners, #[MapFrom('organization_user_blocking')]
+    public string|null $organizationUserBlocking, #[MapFrom('team_discussions')]
+    public string|null $teamDiscussions, #[MapFrom('content_references')]
+    public string|null $contentReferences,)
     {
     }
 }

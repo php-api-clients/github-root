@@ -28,17 +28,11 @@ final class RedeliverWebhookDelivery
     private string $org;
     /**The unique identifier of the hook. **/
     private int $hookId;
-    private int $deliveryId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries\DeliveryId\Attempts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries\DeliveryId\Attempts $hydrator, string $org, int $hookId, int $deliveryId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries\DeliveryId\Attempts $hydrator, string $org, int $hookId, private int $deliveryId)
     {
-        $this->org                     = $org;
-        $this->hookId                  = $hookId;
-        $this->deliveryId              = $deliveryId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org    = $org;
+        $this->hookId = $hookId;
     }
 
     public function createRequest(): RequestInterface

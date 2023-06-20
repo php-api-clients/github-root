@@ -29,16 +29,12 @@ final class ListSelectedOrganizationsEnabledGithubActionsEnterprise
     private int $perPage;
     /**Page number of the results to fetch. **/
     private int $page;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions\Organizations $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions\Organizations $hydrator, string $enterprise, int $perPage = 30, int $page = 1)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions\Organizations $hydrator, string $enterprise, int $perPage = 30, int $page = 1)
     {
-        $this->enterprise              = $enterprise;
-        $this->perPage                 = $perPage;
-        $this->page                    = $page;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
+        $this->perPage    = $perPage;
+        $this->page       = $page;
     }
 
     public function createRequest(): RequestInterface

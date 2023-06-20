@@ -30,18 +30,12 @@ final class RedeliverWebhookDelivery
     private string $repo;
     /**The unique identifier of the hook. **/
     private int $hookId;
-    private int $deliveryId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Deliveries\DeliveryId\Attempts $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Deliveries\DeliveryId\Attempts $hydrator, string $owner, string $repo, int $hookId, int $deliveryId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Deliveries\DeliveryId\Attempts $hydrator, string $owner, string $repo, int $hookId, private int $deliveryId)
     {
-        $this->owner                   = $owner;
-        $this->repo                    = $repo;
-        $this->hookId                  = $hookId;
-        $this->deliveryId              = $deliveryId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->owner  = $owner;
+        $this->repo   = $repo;
+        $this->hookId = $hookId;
     }
 
     public function createRequest(): RequestInterface

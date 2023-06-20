@@ -17,7 +17,10 @@ final readonly class Thread
     /**
      * repository: Minimal Repository
      */
-    public function __construct(public string $id, public Schema\MinimalRepository $repository, public Schema\Thread\Subject $subject, public string $reason, public bool $unread, #[MapFrom('updated_at')] public string $updatedAt, #[MapFrom('last_read_at')] public ?string $lastReadAt, public string $url, #[MapFrom('subscription_url')] public string $subscriptionUrl)
+    public function __construct(public string $id, public Schema\MinimalRepository $repository, public Schema\Thread\Subject $subject, public string $reason, public bool $unread, #[MapFrom('updated_at')]
+    public string $updatedAt, #[MapFrom('last_read_at')]
+    public string|null $lastReadAt, public string $url, #[MapFrom('subscription_url')]
+    public string $subscriptionUrl,)
     {
     }
 }

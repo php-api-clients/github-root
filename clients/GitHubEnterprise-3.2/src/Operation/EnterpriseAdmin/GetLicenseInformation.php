@@ -23,13 +23,9 @@ final class GetLicenseInformation
     public const OPERATION_MATCH = 'GET /enterprise/settings/license';
     private const METHOD         = 'GET';
     private const PATH           = '/enterprise/settings/license';
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprise\Settings\License $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprise\Settings\License $hydrator)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprise\Settings\License $hydrator)
     {
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
     }
 
     public function createRequest(): RequestInterface

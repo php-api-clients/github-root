@@ -13,7 +13,9 @@ final readonly class Customer
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"name":"generated","email":"generated","uuid":"generated","secret_key_data":"generated","public_key_data":"generated"}';
 
-    public function __construct(public ?string $name, public ?string $email, public ?string $uuid, #[MapFrom('secret_key_data')] public ?string $secretKeyData, #[MapFrom('public_key_data')] public ?string $publicKeyData)
+    public function __construct(public string|null $name, public string|null $email, public string|null $uuid, #[MapFrom('secret_key_data')]
+    public string|null $secretKeyData, #[MapFrom('public_key_data')]
+    public string|null $publicKeyData,)
     {
     }
 }
