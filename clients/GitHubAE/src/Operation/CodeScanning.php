@@ -21,22 +21,22 @@ final class CodeScanning
     {
     }
 
-    public function listAlertsForOrg(string $org, string $toolName, string|null $toolGuid, string $before, string $after, string $state, int $page, int $perPage, string $direction, string $sort): PromiseInterface
+    public function listAlertsForOrg(string $org, string $toolName, string|null $toolGuid, string $before, string $after, string $state, string $severity, int $page, int $perPage, string $direction, string $sort): PromiseInterface
     {
         if (array_key_exists(Operator\CodeScanning\ListAlertsForOrg::class, $this->operator) === false) {
             $this->operator[Operator\CodeScanning\ListAlertsForOrg::class] = new Operator\CodeScanning\ListAlertsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CodeScanning🌀Alerts());
         }
 
-        return $this->operator[Operator\CodeScanning\ListAlertsForOrg::class]->call($org, $toolName, $toolGuid, $before, $after, $state, $page, $perPage, $direction, $sort);
+        return $this->operator[Operator\CodeScanning\ListAlertsForOrg::class]->call($org, $toolName, $toolGuid, $before, $after, $state, $severity, $page, $perPage, $direction, $sort);
     }
 
-    public function listAlertsForRepo(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page, int $perPage, string $direction, string $sort): PromiseInterface
+    public function listAlertsForRepo(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, string $severity, int $page, int $perPage, string $direction, string $sort): PromiseInterface
     {
         if (array_key_exists(Operator\CodeScanning\ListAlertsForRepo::class, $this->operator) === false) {
             $this->operator[Operator\CodeScanning\ListAlertsForRepo::class] = new Operator\CodeScanning\ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Alerts());
         }
 
-        return $this->operator[Operator\CodeScanning\ListAlertsForRepo::class]->call($owner, $repo, $toolName, $toolGuid, $ref, $state, $page, $perPage, $direction, $sort);
+        return $this->operator[Operator\CodeScanning\ListAlertsForRepo::class]->call($owner, $repo, $toolName, $toolGuid, $ref, $state, $severity, $page, $perPage, $direction, $sort);
     }
 
     public function getAlert(string $owner, string $repo, int $alertNumber): PromiseInterface

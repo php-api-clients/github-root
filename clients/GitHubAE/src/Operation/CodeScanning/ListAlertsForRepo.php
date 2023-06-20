@@ -36,6 +36,8 @@ final class ListAlertsForRepo
     private string $ref;
     /**If specified, only code scanning alerts with this state will be returned. **/
     private string $state;
+    /**If specified, only code scanning alerts with this severity will be returned. **/
+    private string $severity;
     /**Page number of the results to fetch. **/
     private int $page;
     /**The number of results per page (max 100). **/
@@ -45,7 +47,7 @@ final class ListAlertsForRepo
     /**The property by which to sort the results. **/
     private string $sort;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts $hydrator, string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created')
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Alerts $hydrator, string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, string $severity, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created')
     {
         $this->owner     = $owner;
         $this->repo      = $repo;
@@ -53,6 +55,7 @@ final class ListAlertsForRepo
         $this->toolGuid  = $toolGuid;
         $this->ref       = $ref;
         $this->state     = $state;
+        $this->severity  = $severity;
         $this->page      = $page;
         $this->perPage   = $perPage;
         $this->direction = $direction;
@@ -61,7 +64,7 @@ final class ListAlertsForRepo
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{state}', '{page}', '{per_page}', '{direction}', '{sort}'], [$this->owner, $this->repo, $this->toolName, $this->toolGuid, $this->ref, $this->state, $this->page, $this->perPage, $this->direction, $this->sort], self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&ref={ref}&state={state}&page={page}&per_page={per_page}&direction={direction}&sort={sort}'));
+        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{state}', '{severity}', '{page}', '{per_page}', '{direction}', '{sort}'], [$this->owner, $this->repo, $this->toolName, $this->toolGuid, $this->ref, $this->state, $this->severity, $this->page, $this->perPage, $this->direction, $this->sort], self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&ref={ref}&state={state}&severity={severity}&page={page}&per_page={per_page}&direction={direction}&sort={sort}'));
     }
 
     /** @return array{code: int} */
