@@ -98,8 +98,8 @@ $renovatePackageRules = [];
 $renovatePackageRules[] = [
     'managers' => ['github-actions'],
     'matchPaths' => [
-        '.github/workflows/',
-        'etc/workflow-skeleton/',
+        '.github/workflows/**',
+        'etc/workflow-skeleton/**',
     ],
     'branchPrefix' => 'renovate/actions/',
     'commitMessagePrefix' => '[🐙]',
