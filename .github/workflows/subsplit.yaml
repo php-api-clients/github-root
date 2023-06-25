@@ -7,6 +7,7 @@ on:
 
 jobs:
   publis_sub_splits:
+    concurrency: subsplit
     runs-on: ubuntu-latest
     name: Publish Sub-split
     steps:
