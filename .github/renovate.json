@@ -20,7 +20,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
@@ -34,7 +34,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
@@ -51,7 +51,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
@@ -65,7 +65,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
@@ -79,7 +79,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
@@ -96,7 +96,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
@@ -110,7 +110,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
@@ -124,7 +124,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
@@ -141,7 +141,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
@@ -155,7 +155,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
@@ -169,7 +169,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
@@ -186,7 +186,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
@@ -200,7 +200,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
@@ -214,7 +214,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
@@ -231,7 +231,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
@@ -245,7 +245,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
@@ -259,7 +259,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
@@ -276,7 +276,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
@@ -290,7 +290,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
@@ -304,7 +304,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
@@ -321,7 +321,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
@@ -335,7 +335,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
@@ -349,7 +349,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
@@ -366,7 +366,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
@@ -380,7 +380,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
@@ -394,7 +394,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
@@ -411,7 +411,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
@@ -425,7 +425,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
@@ -439,7 +439,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
@@ -456,7 +456,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
@@ -470,7 +470,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
@@ -484,7 +484,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
@@ -501,7 +501,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
@@ -515,7 +515,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
@@ -529,7 +529,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
@@ -546,7 +546,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
@@ -560,7 +560,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHub\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHub\/",
@@ -574,7 +574,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHub\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHub\/",
@@ -591,7 +591,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHub\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHub\/",
@@ -605,7 +605,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
@@ -619,7 +619,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
@@ -636,7 +636,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
@@ -650,7 +650,7 @@
                 "composer"
             ],
             "rangeStrategy": "in-range-only",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubAE\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubAE\/",
@@ -664,7 +664,7 @@
                 "composer"
             ],
             "rangeStrategy": "bump",
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubAE\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubAE\/",
@@ -681,7 +681,7 @@
                 "php"
             ],
             "enabled": false,
-            "matchPaths": [
+            "matchFiles": [
                 "clients\/GitHubAE\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubAE\/",
