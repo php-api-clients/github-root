@@ -10,7 +10,10 @@
                 "etc\/workflow-skeleton\/**"
             ],
             "branchPrefix": "renovate\/actions\/",
-            "commitMessagePrefix": "[\ud83d\udc19]"
+            "commitMessagePrefix": "[\ud83d\udc19]",
+            "labels": [
+                "\ud83d\udc19"
+            ]
         },
         {
             "managers": [
@@ -21,7 +24,10 @@
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
-            "commitMessagePrefix": "[\ud83e\udeb5]"
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ]
         },
         {
             "managers": [
@@ -32,7 +38,10 @@
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
-            "commitMessagePrefix": "[\ud83e\udeb5]"
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ]
         },
         {
             "managers": [
@@ -46,7 +55,10 @@
                 "composer.json"
             ],
             "branchPrefix": "renovate\/root\/",
-            "commitMessagePrefix": "[\ud83e\udeb5]"
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ]
         },
         {
             "managers": [
@@ -57,7 +69,10 @@
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
-            "commitMessagePrefix": "[\u2620\ufe0f]"
+            "commitMessagePrefix": "[\u2620\ufe0f]",
+            "labels": [
+                "\u2620\ufe0f"
+            ]
         },
         {
             "managers": [
@@ -68,7 +83,10 @@
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
-            "commitMessagePrefix": "[\u2620\ufe0f]"
+            "commitMessagePrefix": "[\u2620\ufe0f]",
+            "labels": [
+                "\u2620\ufe0f"
+            ]
         },
         {
             "managers": [
@@ -82,7 +100,10 @@
                 "skelleton\/composer.json"
             ],
             "branchPrefix": "renovate\/skelleton\/",
-            "commitMessagePrefix": "[\u2620\ufe0f]"
+            "commitMessagePrefix": "[\u2620\ufe0f]",
+            "labels": [
+                "\u2620\ufe0f"
+            ]
         },
         {
             "managers": [
@@ -93,7 +114,10 @@
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.0]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]",
+            "labels": [
+                "GitHubEnterprise-3.0"
+            ]
         },
         {
             "managers": [
@@ -104,7 +128,10 @@
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.0]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]",
+            "labels": [
+                "GitHubEnterprise-3.0"
+            ]
         },
         {
             "managers": [
@@ -118,7 +145,10 @@
                 "clients\/GitHubEnterprise-3.0\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.0]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]",
+            "labels": [
+                "GitHubEnterprise-3.0"
+            ]
         },
         {
             "managers": [
@@ -129,7 +159,10 @@
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.1]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]",
+            "labels": [
+                "GitHubEnterprise-3.1"
+            ]
         },
         {
             "managers": [
@@ -140,7 +173,10 @@
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.1]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]",
+            "labels": [
+                "GitHubEnterprise-3.1"
+            ]
         },
         {
             "managers": [
@@ -154,7 +190,10 @@
                 "clients\/GitHubEnterprise-3.1\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.1]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]",
+            "labels": [
+                "GitHubEnterprise-3.1"
+            ]
         },
         {
             "managers": [
@@ -165,7 +204,10 @@
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.2]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]",
+            "labels": [
+                "GitHubEnterprise-3.2"
+            ]
         },
         {
             "managers": [
@@ -176,7 +218,10 @@
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.2]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]",
+            "labels": [
+                "GitHubEnterprise-3.2"
+            ]
         },
         {
             "managers": [
@@ -190,7 +235,10 @@
                 "clients\/GitHubEnterprise-3.2\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.2]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]",
+            "labels": [
+                "GitHubEnterprise-3.2"
+            ]
         },
         {
             "managers": [
@@ -201,7 +249,10 @@
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.3]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]",
+            "labels": [
+                "GitHubEnterprise-3.3"
+            ]
         },
         {
             "managers": [
@@ -212,7 +263,10 @@
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.3]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]",
+            "labels": [
+                "GitHubEnterprise-3.3"
+            ]
         },
         {
             "managers": [
@@ -226,7 +280,10 @@
                 "clients\/GitHubEnterprise-3.3\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.3]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]",
+            "labels": [
+                "GitHubEnterprise-3.3"
+            ]
         },
         {
             "managers": [
@@ -237,7 +294,10 @@
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.4]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]",
+            "labels": [
+                "GitHubEnterprise-3.4"
+            ]
         },
         {
             "managers": [
@@ -248,7 +308,10 @@
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.4]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]",
+            "labels": [
+                "GitHubEnterprise-3.4"
+            ]
         },
         {
             "managers": [
@@ -262,7 +325,10 @@
                 "clients\/GitHubEnterprise-3.4\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.4]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]",
+            "labels": [
+                "GitHubEnterprise-3.4"
+            ]
         },
         {
             "managers": [
@@ -273,7 +339,10 @@
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.5]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]",
+            "labels": [
+                "GitHubEnterprise-3.5"
+            ]
         },
         {
             "managers": [
@@ -284,7 +353,10 @@
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.5]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]",
+            "labels": [
+                "GitHubEnterprise-3.5"
+            ]
         },
         {
             "managers": [
@@ -298,7 +370,10 @@
                 "clients\/GitHubEnterprise-3.5\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.5]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]",
+            "labels": [
+                "GitHubEnterprise-3.5"
+            ]
         },
         {
             "managers": [
@@ -309,7 +384,10 @@
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.6]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]",
+            "labels": [
+                "GitHubEnterprise-3.6"
+            ]
         },
         {
             "managers": [
@@ -320,7 +398,10 @@
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.6]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]",
+            "labels": [
+                "GitHubEnterprise-3.6"
+            ]
         },
         {
             "managers": [
@@ -334,7 +415,10 @@
                 "clients\/GitHubEnterprise-3.6\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.6]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]",
+            "labels": [
+                "GitHubEnterprise-3.6"
+            ]
         },
         {
             "managers": [
@@ -345,7 +429,10 @@
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.7]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]",
+            "labels": [
+                "GitHubEnterprise-3.7"
+            ]
         },
         {
             "managers": [
@@ -356,7 +443,10 @@
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.7]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]",
+            "labels": [
+                "GitHubEnterprise-3.7"
+            ]
         },
         {
             "managers": [
@@ -370,7 +460,10 @@
                 "clients\/GitHubEnterprise-3.7\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.7]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]",
+            "labels": [
+                "GitHubEnterprise-3.7"
+            ]
         },
         {
             "managers": [
@@ -381,7 +474,10 @@
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.8]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]",
+            "labels": [
+                "GitHubEnterprise-3.8"
+            ]
         },
         {
             "managers": [
@@ -392,7 +488,10 @@
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.8]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]",
+            "labels": [
+                "GitHubEnterprise-3.8"
+            ]
         },
         {
             "managers": [
@@ -406,7 +505,10 @@
                 "clients\/GitHubEnterprise-3.8\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.8]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]",
+            "labels": [
+                "GitHubEnterprise-3.8"
+            ]
         },
         {
             "managers": [
@@ -417,7 +519,10 @@
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.9]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]",
+            "labels": [
+                "GitHubEnterprise-3.9"
+            ]
         },
         {
             "managers": [
@@ -428,7 +533,10 @@
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.9]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]",
+            "labels": [
+                "GitHubEnterprise-3.9"
+            ]
         },
         {
             "managers": [
@@ -442,7 +550,10 @@
                 "clients\/GitHubEnterprise-3.9\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
-            "commitMessagePrefix": "[GitHubEnterprise-3.9]"
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]",
+            "labels": [
+                "GitHubEnterprise-3.9"
+            ]
         },
         {
             "managers": [
@@ -453,7 +564,10 @@
                 "clients\/GitHub\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHub\/",
-            "commitMessagePrefix": "[GitHub]"
+            "commitMessagePrefix": "[GitHub]",
+            "labels": [
+                "GitHub"
+            ]
         },
         {
             "managers": [
@@ -464,7 +578,10 @@
                 "clients\/GitHub\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHub\/",
-            "commitMessagePrefix": "[GitHub]"
+            "commitMessagePrefix": "[GitHub]",
+            "labels": [
+                "GitHub"
+            ]
         },
         {
             "managers": [
@@ -478,7 +595,10 @@
                 "clients\/GitHub\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHub\/",
-            "commitMessagePrefix": "[GitHub]"
+            "commitMessagePrefix": "[GitHub]",
+            "labels": [
+                "GitHub"
+            ]
         },
         {
             "managers": [
@@ -489,7 +609,10 @@
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
-            "commitMessagePrefix": "[GitHubEnterpriseCloud]"
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]",
+            "labels": [
+                "GitHubEnterpriseCloud"
+            ]
         },
         {
             "managers": [
@@ -500,7 +623,10 @@
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
-            "commitMessagePrefix": "[GitHubEnterpriseCloud]"
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]",
+            "labels": [
+                "GitHubEnterpriseCloud"
+            ]
         },
         {
             "managers": [
@@ -514,7 +640,10 @@
                 "clients\/GitHubEnterpriseCloud\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
-            "commitMessagePrefix": "[GitHubEnterpriseCloud]"
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]",
+            "labels": [
+                "GitHubEnterpriseCloud"
+            ]
         },
         {
             "managers": [
@@ -525,7 +654,10 @@
                 "clients\/GitHubAE\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubAE\/",
-            "commitMessagePrefix": "[GitHubAE]"
+            "commitMessagePrefix": "[GitHubAE]",
+            "labels": [
+                "GitHubAE"
+            ]
         },
         {
             "managers": [
@@ -536,7 +668,10 @@
                 "clients\/GitHubAE\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubAE\/",
-            "commitMessagePrefix": "[GitHubAE]"
+            "commitMessagePrefix": "[GitHubAE]",
+            "labels": [
+                "GitHubAE"
+            ]
         },
         {
             "managers": [
@@ -550,7 +685,10 @@
                 "clients\/GitHubAE\/composer.json"
             ],
             "branchPrefix": "renovate\/GitHubAE\/",
-            "commitMessagePrefix": "[GitHubAE]"
+            "commitMessagePrefix": "[GitHubAE]",
+            "labels": [
+                "GitHubAE"
+            ]
         }
     ],
     "extends": [

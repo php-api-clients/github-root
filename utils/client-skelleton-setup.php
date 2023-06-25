@@ -103,6 +103,9 @@ $renovatePackageRules[] = [
     ],
     'branchPrefix' => 'renovate/actions/',
     'commitMessagePrefix' => '[🐙]',
+    'labels' => [
+        '🐙',
+    ],
 ];
 
 // The root package
@@ -112,6 +115,9 @@ $renovatePackageRules[] = [
     'matchPaths' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
     'commitMessagePrefix' => '[🪵]',
+    'labels' => [
+        '🪵',
+    ],
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
@@ -119,6 +125,9 @@ $renovatePackageRules[] = [
     'matchPaths' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
     'commitMessagePrefix' => '[🪵]',
+    'labels' => [
+        '🪵',
+    ],
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
@@ -127,6 +136,9 @@ $renovatePackageRules[] = [
     'matchPaths' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
     'commitMessagePrefix' => '[🪵]',
+    'labels' => [
+        '🪵',
+    ],
 ];
 
 // The Skelleton
@@ -136,6 +148,9 @@ $renovatePackageRules[] = [
     'matchPaths' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
     'commitMessagePrefix' => '[☠️]',
+    'labels' => [
+        '☠️',
+    ],
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
@@ -143,6 +158,9 @@ $renovatePackageRules[] = [
     'matchPaths' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
     'commitMessagePrefix' => '[☠️]',
+    'labels' => [
+        '☠️',
+    ],
 ];
 $renovatePackageRules[] = [
     'managers' => ['composer'],
@@ -151,6 +169,9 @@ $renovatePackageRules[] = [
     'matchPaths' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
     'commitMessagePrefix' => '[☠️]',
+    'labels' => [
+        '☠️',
+    ],
 ];
 
 foreach ($clients as $hour => $client) {
@@ -169,6 +190,9 @@ foreach ($clients as $hour => $client) {
         'matchPaths' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
         'branchPrefix' => 'renovate/' . $client['path'] . '/',
         'commitMessagePrefix' => '[' . $client['path'] . ']',
+        'labels' => [
+            $client['path'],
+        ],
     ];
     $renovatePackageRules[] = [
         'managers' => ['composer'],
@@ -176,6 +200,9 @@ foreach ($clients as $hour => $client) {
         'matchPaths' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
         'branchPrefix' => 'renovate/' . $client['path'] . '/',
         'commitMessagePrefix' => '[' . $client['path'] . ']',
+        'labels' => [
+            $client['path'],
+        ],
     ];
     $renovatePackageRules[] = [
         'managers' => ['composer'],
@@ -184,6 +211,9 @@ foreach ($clients as $hour => $client) {
         'matchPaths' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
         'branchPrefix' => 'renovate/' . $client['path'] . '/',
         'commitMessagePrefix' => '[' . $client['path'] . ']',
+        'labels' => [
+            $client['path'],
+        ],
     ];
 
     Files::setUp(
