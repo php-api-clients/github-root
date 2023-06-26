@@ -101,7 +101,7 @@ $renovatePackageRules[] = [
         '.github/workflows/**',
         'etc/workflow-skeleton/**',
     ],
-    'branchPrefix' => 'renovate/actions/',
+    'branchPrefix' => 'renovate/github-actions/',
     'commitMessagePrefix' => '[🐙]',
     'labels' => [
         '🐙',

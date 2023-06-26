@@ -9,7 +9,7 @@
                 ".github\/workflows\/**",
                 "etc\/workflow-skeleton\/**"
             ],
-            "branchPrefix": "renovate\/actions\/",
+            "branchPrefix": "renovate\/github-actions\/",
             "commitMessagePrefix": "[\ud83d\udc19]",
             "labels": [
                 "\ud83d\udc19"
