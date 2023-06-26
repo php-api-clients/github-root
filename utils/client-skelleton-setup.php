@@ -96,7 +96,7 @@ $renovatePackageRules = [];
 
 // GitHub Actions
 $renovatePackageRules[] = [
-    'managers' => ['github-actions'],
+    'matchManagers' => ['github-actions'],
     'matchPaths' => [
         '.github/workflows/**',
         'etc/workflow-skeleton/**',
@@ -110,7 +110,7 @@ $renovatePackageRules[] = [
 
 // The root package
 $renovatePackageRules[] = [
-    'managers' =>  ['composer'],
+    'matchManagers' =>  ['composer'],
     'rangeStrategy' =>  'in-range-only',
     'matchFiles' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
@@ -120,7 +120,7 @@ $renovatePackageRules[] = [
     ],
 ];
 $renovatePackageRules[] = [
-    'managers' => ['composer'],
+    'matchManagers' => ['composer'],
     'rangeStrategy' => 'bump',
     'matchFiles' => ['composer.json'],
     'branchPrefix' => 'renovate/root/',
@@ -130,7 +130,7 @@ $renovatePackageRules[] = [
     ],
 ];
 $renovatePackageRules[] = [
-    'managers' => ['composer'],
+    'matchManagers' => ['composer'],
     'matchPackageNames' => ['php'],
     'enabled' => false,
     'matchFiles' => ['composer.json'],
@@ -143,7 +143,7 @@ $renovatePackageRules[] = [
 
 // The Skelleton
 $renovatePackageRules[] = [
-    'managers' =>  ['composer'],
+    'matchManagers' =>  ['composer'],
     'rangeStrategy' =>  'in-range-only',
     'matchFiles' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
@@ -153,7 +153,7 @@ $renovatePackageRules[] = [
     ],
 ];
 $renovatePackageRules[] = [
-    'managers' => ['composer'],
+    'matchManagers' => ['composer'],
     'rangeStrategy' => 'bump',
     'matchFiles' => ['skelleton/composer.json'],
     'branchPrefix' => 'renovate/skelleton/',
@@ -163,7 +163,7 @@ $renovatePackageRules[] = [
     ],
 ];
 $renovatePackageRules[] = [
-    'managers' => ['composer'],
+    'matchManagers' => ['composer'],
     'matchPackageNames' => ['php'],
     'enabled' => false,
     'matchFiles' => ['skelleton/composer.json'],
@@ -185,7 +185,7 @@ foreach ($clients as $hour => $client) {
     ];
 
     $renovatePackageRules[] = [
-        'managers' =>  ['composer'],
+        'matchManagers' =>  ['composer'],
         'rangeStrategy' =>  'in-range-only',
         'matchFiles' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
         'branchPrefix' => 'renovate/' . $client['path'] . '/',
@@ -195,7 +195,7 @@ foreach ($clients as $hour => $client) {
         ],
     ];
     $renovatePackageRules[] = [
-        'managers' => ['composer'],
+        'matchManagers' => ['composer'],
         'rangeStrategy' => 'bump',
         'matchFiles' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
         'branchPrefix' => 'renovate/' . $client['path'] . '/',
@@ -205,7 +205,7 @@ foreach ($clients as $hour => $client) {
         ],
     ];
     $renovatePackageRules[] = [
-        'managers' => ['composer'],
+        'matchManagers' => ['composer'],
         'matchPackageNames' => ['php'],
         'enabled' => false,
         'matchFiles' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
