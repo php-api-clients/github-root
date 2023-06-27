@@ -14979,7 +14979,7 @@ $client->operations()->repos()->listReleases(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#list-releases).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/releases#list-releases).
 
 
 ### repos/create-release
@@ -15025,7 +15025,7 @@ $client->operations()->repos()->getReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#get-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/assets#get-a-release-asset).
 
 
 ### repos/delete-release-asset
@@ -15049,7 +15049,7 @@ $client->operations()->repos()->deleteReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#delete-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/assets#delete-a-release-asset).
 
 
 ### repos/update-release-asset
@@ -15073,7 +15073,7 @@ $client->operations()->repos()->updateReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#update-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/assets#update-a-release-asset).
 
 
 ### repos/generate-release-notes
@@ -15095,7 +15095,7 @@ $client->operations()->repos()->generateReleaseNotes(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#generate-release-notes).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/releases#generate-release-notes).
 
 
 ### repos/get-latest-release
@@ -15117,7 +15117,7 @@ $client->operations()->repos()->getLatestRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#get-the-latest-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/releases#get-the-latest-release).
 
 
 ### repos/get-release-by-tag
@@ -15141,7 +15141,7 @@ $client->operations()->repos()->getReleaseByTag(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#get-a-release-by-tag-name).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/releases#get-a-release-by-tag-name).
 
 
 ### repos/get-release
@@ -15165,7 +15165,7 @@ $client->operations()->repos()->getRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#get-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/releases#get-a-release).
 
 
 ### repos/delete-release
@@ -15189,7 +15189,7 @@ $client->operations()->repos()->deleteRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#delete-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/releases#delete-a-release).
 
 
 ### repos/update-release
@@ -15213,7 +15213,7 @@ $client->operations()->repos()->updateRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#update-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/releases#update-a-release).
 
 
 ### repos/list-release-assets
@@ -15241,7 +15241,7 @@ $client->operations()->repos()->listReleaseAssets(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#list-release-assets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/assets#list-release-assets).
 
 
 ### repos/upload-release-asset
@@ -15269,7 +15269,7 @@ $client->operations()->repos()->uploadReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/reference/repos#upload-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/releases/assets#upload-a-release-asset).
 
 
 ### reactions/list-for-release
