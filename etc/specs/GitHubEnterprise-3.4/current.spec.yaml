@@ -5180,22 +5180,11 @@ paths:
                         type:
                         - string
                         - 'null'
-                    anyOf:
-                    - required:
-                      - content
-                    - required:
-                      - filename
-                    - type: object
-                      maxProperties: 0
                   examples:
                   - hello.rb:
                       content: blah
                       filename: goodbye.rb
-              anyOf:
-              - required:
-                - description
-              - required:
-                - files
+              additionalProperties: false
               type:
               - object
               - 'null'
@@ -22522,7 +22511,7 @@ paths:
     post:
       summary: Create a commit
       description: |-
-        Creates a new Git [commit object](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects).
+        Creates a new Git [commit object](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects).
 
         **Signature verification object**
 
@@ -22692,6 +22681,7 @@ paths:
       summary: Get a commit object
       description: |-
         Gets a Git [commit object](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects).
+
         To get the contents of a commit, see "[Get a commit](/rest/commits/commits#get-a-commit)."
 
         **Signature verification object**
@@ -29088,7 +29078,7 @@ paths:
       operationId: repos/list-releases
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#list-releases
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/releases#list-releases
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29114,7 +29104,7 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
     post:
       summary: Create a release
@@ -29204,7 +29194,7 @@ paths:
         triggersNotification: true
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
   "/repos/{owner}/{repo}/releases/assets/{asset_id}":
     get:
@@ -29218,7 +29208,7 @@ paths:
       operationId: repos/get-release-asset
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#get-a-release-asset
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/assets#get-a-release-asset
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29240,8 +29230,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
-        subcategory: releases
+        category: releases
+        subcategory: assets
     patch:
       summary: Update a release asset
       description: Users with push access to the repository can edit a release asset.
@@ -29250,7 +29240,7 @@ paths:
       operationId: repos/update-release-asset
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#update-a-release-asset
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/assets#update-a-release-asset
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29291,8 +29281,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
-        subcategory: releases
+        category: releases
+        subcategory: assets
     delete:
       summary: Delete a release asset
       description: ''
@@ -29301,7 +29291,7 @@ paths:
       operationId: repos/delete-release-asset
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#delete-a-release-asset
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/assets#delete-a-release-asset
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29312,8 +29302,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
-        subcategory: releases
+        category: releases
+        subcategory: assets
   "/repos/{owner}/{repo}/releases/generate-notes":
     post:
       summary: Generate release notes content for a release
@@ -29327,7 +29317,7 @@ paths:
       operationId: repos/generate-release-notes
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#generate-release-notes
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/releases#generate-release-notes
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29384,7 +29374,7 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
   "/repos/{owner}/{repo}/releases/latest":
     get:
@@ -29398,7 +29388,7 @@ paths:
       operationId: repos/get-latest-release
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#get-the-latest-release
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/releases#get-the-latest-release
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29415,7 +29405,7 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
   "/repos/{owner}/{repo}/releases/tags/{tag}":
     get:
@@ -29426,7 +29416,7 @@ paths:
       operationId: repos/get-release-by-tag
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#get-a-release-by-tag-name
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/releases#get-a-release-by-tag-name
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29452,7 +29442,7 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
   "/repos/{owner}/{repo}/releases/{release_id}":
     get:
@@ -29464,7 +29454,7 @@ paths:
       operationId: repos/get-release
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#get-a-release
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/releases#get-a-release
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29485,7 +29475,7 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
     patch:
       summary: Update a release
@@ -29495,7 +29485,7 @@ paths:
       operationId: repos/update-release
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#update-a-release
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/releases#update-a-release
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29552,7 +29542,7 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
     delete:
       summary: Delete a release
@@ -29562,7 +29552,7 @@ paths:
       operationId: repos/delete-release
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#delete-a-release
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/releases#delete-a-release
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29573,7 +29563,7 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
+        category: releases
         subcategory: releases
   "/repos/{owner}/{repo}/releases/{release_id}/assets":
     get:
@@ -29584,7 +29574,7 @@ paths:
       operationId: repos/list-release-assets
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#list-release-assets
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/assets#list-release-assets
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -29609,8 +29599,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
-        subcategory: releases
+        category: releases
+        subcategory: assets
     post:
       summary: Upload a release asset
       description: "This endpoint makes use of [a Hypermedia relation](https://docs.github.com/enterprise-server@3.4/rest/overview/resources-in-the-rest-api#hypermedia)
@@ -29644,7 +29634,7 @@ paths:
       operationId: repos/upload-release-asset
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.4/rest/reference/repos#upload-a-release-asset
+        url: https://docs.github.com/enterprise-server@3.4/rest/releases/assets#upload-a-release-asset
       servers:
       - url: https://uploads.github.com
         description: The URL origin (protocol + host name + port) is included in `upload_url`
@@ -29689,8 +29679,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: repos
-        subcategory: releases
+        category: releases
+        subcategory: assets
   "/repos/{owner}/{repo}/releases/{release_id}/reactions":
     get:
       summary: List reactions for a release
@@ -46043,6 +46033,9 @@ components:
           examples:
           - https://github.com/github/hello-world/suites/4
         pull_requests:
+          description: Pull requests that are open with a `head_sha` or `head_branch`
+            that matches the workflow run. The returned pull requests do not necessarily
+            indicate pull requests that triggered the run.
           type:
           - array
           - 'null'
@@ -47604,6 +47597,9 @@ components:
           - type: 'null'
           - "$ref": "#/components/schemas/integration"
         pull_requests:
+          description: Pull requests that are open with a `head_sha` or `head_branch`
+            that matches the check. The returned pull requests do not necessarily
+            indicate pull requests that triggered the check.
           type: array
           items:
             "$ref": "#/components/schemas/pull-request-minimal"
