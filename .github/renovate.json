@@ -6,8 +6,11 @@
                 "github-actions"
             ],
             "matchPaths": [
-                ".github\/workflows\/**",
-                "etc\/workflow-skeleton\/**"
+                ".github\/workflows\/**"
+            ],
+            "matchFiles": [
+                "etc\/workflow-skeleton\/ci-{{ path }}.yaml",
+                "etc\/workflow-skeleton\/generate-{{ path }}.yaml"
             ],
             "branchPrefix": "renovate\/github-actions\/",
             "commitMessagePrefix": "[\ud83d\udc19]",
