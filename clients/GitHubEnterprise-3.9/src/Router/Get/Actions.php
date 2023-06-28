@@ -192,30 +192,6 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function getRequiredWorkflow(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('required_workflow_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: required_workflow_id');
-        }
-
-        $arguments['required_workflow_id'] = $params['required_workflow_id'];
-        unset($params['required_workflow_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId();
-        }
-
-        $operator = new Operator\Actions\GetRequiredWorkflow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId::class]);
-
-        return $operator->call($arguments['org'], $arguments['required_workflow_id']);
-    }
-
     public function getSelfHostedRunnerGroupForOrg(array $params)
     {
         $arguments = [];
@@ -342,42 +318,6 @@ final class Actions
         $operator = new Operator\Actions\GetOrgVariable($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Variables\Name::class]);
 
         return $operator->call($arguments['org'], $arguments['name']);
-    }
-
-    public function listRepoRequiredWorkflows(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('repo', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: repo');
-        }
-
-        $arguments['repo'] = $params['repo'];
-        unset($params['repo']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows();
-        }
-
-        $operator = new Operator\Actions\ListRepoRequiredWorkflows($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows::class]);
-
-        return $operator->call($arguments['org'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
     public function listArtifactsForRepo(array $params)
@@ -896,36 +836,6 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function listRequiredWorkflows(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows();
-        }
-
-        $operator = new Operator\Actions\ListRequiredWorkflows($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows::class]);
-
-        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
-    }
-
     public function listSelfHostedRunnerGroupsForOrg(array $params)
     {
         $arguments = [];
@@ -1050,30 +960,6 @@ final class Actions
         $operator = new Operator\Actions\ListOrgVariables($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Variables::class]);
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
-    }
-
-    public function listSelectedRepositoriesRequiredWorkflow(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('required_workflow_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: required_workflow_id');
-        }
-
-        $arguments['required_workflow_id'] = $params['required_workflow_id'];
-        unset($params['required_workflow_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories();
-        }
-
-        $operator = new Operator\Actions\ListSelectedRepositoriesRequiredWorkflow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories::class]);
-
-        return $operator->call($arguments['org'], $arguments['required_workflow_id']);
     }
 
     public function listRepoAccessToSelfHostedRunnerGroupInOrg(array $params)
@@ -1242,36 +1128,6 @@ final class Actions
         $operator = new Operator\Actions\ListSelectedReposForOrgVariable($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Variables\Name\Repositories::class]);
 
         return $operator->call($arguments['org'], $arguments['name'], $arguments['page'], $arguments['per_page']);
-    }
-
-    public function getRepoRequiredWorkflow(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('repo', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: repo');
-        }
-
-        $arguments['repo'] = $params['repo'];
-        unset($params['repo']);
-        if (array_key_exists('required_workflow_id_for_repo', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: required_workflow_id_for_repo');
-        }
-
-        $arguments['required_workflow_id_for_repo'] = $params['required_workflow_id_for_repo'];
-        unset($params['required_workflow_id_for_repo']);
-        if (array_key_exists(Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo();
-        }
-
-        $operator = new Operator\Actions\GetRepoRequiredWorkflow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo::class]);
-
-        return $operator->call($arguments['org'], $arguments['repo'], $arguments['required_workflow_id_for_repo']);
     }
 
     public function getArtifact(array $params)
@@ -1822,96 +1678,6 @@ final class Actions
         $operator = new Operator\Actions\GetCustomOidcSubClaimForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Oidc\Customization\Sub::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
-    }
-
-    public function listRequiredWorkflowRuns(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('owner', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: owner');
-        }
-
-        $arguments['owner'] = $params['owner'];
-        unset($params['owner']);
-        if (array_key_exists('repo', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: repo');
-        }
-
-        $arguments['repo'] = $params['repo'];
-        unset($params['repo']);
-        if (array_key_exists('required_workflow_id_for_repo', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: required_workflow_id_for_repo');
-        }
-
-        $arguments['required_workflow_id_for_repo'] = $params['required_workflow_id_for_repo'];
-        unset($params['required_workflow_id_for_repo']);
-        if (array_key_exists('actor', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: actor');
-        }
-
-        $arguments['actor'] = $params['actor'];
-        unset($params['actor']);
-        if (array_key_exists('branch', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: branch');
-        }
-
-        $arguments['branch'] = $params['branch'];
-        unset($params['branch']);
-        if (array_key_exists('event', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: event');
-        }
-
-        $arguments['event'] = $params['event'];
-        unset($params['event']);
-        if (array_key_exists('status', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: status');
-        }
-
-        $arguments['status'] = $params['status'];
-        unset($params['status']);
-        if (array_key_exists('created', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: created');
-        }
-
-        $arguments['created'] = $params['created'];
-        unset($params['created']);
-        if (array_key_exists('check_suite_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: check_suite_id');
-        }
-
-        $arguments['check_suite_id'] = $params['check_suite_id'];
-        unset($params['check_suite_id']);
-        if (array_key_exists('head_sha', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: head_sha');
-        }
-
-        $arguments['head_sha'] = $params['head_sha'];
-        unset($params['head_sha']);
-        if (array_key_exists('per_page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: per_page');
-        }
-
-        $arguments['per_page'] = $params['per_page'];
-        unset($params['per_page']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
-        if (array_key_exists('exclude_pull_requests', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: exclude_pull_requests');
-        }
-
-        $arguments['exclude_pull_requests'] = $params['exclude_pull_requests'];
-        unset($params['exclude_pull_requests']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs();
-        }
-
-        $operator = new Operator\Actions\ListRequiredWorkflowRuns($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs::class]);
-
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['required_workflow_id_for_repo'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['check_suite_id'], $arguments['head_sha'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
     public function listLabelsForSelfHostedRunnerForRepo(array $params)

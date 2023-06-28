@@ -101,18 +101,6 @@ final class Seven
                                     }
                                 }
                             }
-                        } elseif ($pathChunks[4] === 'required_workflows') {
-                            if ($pathChunks[5] === '{required_workflow_id}') {
-                                if ($pathChunks[6] === 'repositories') {
-                                    if ($call === 'PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories') {
-                                        if (array_key_exists(Router\Put\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Put\Actions::class]->setSelectedReposToRequiredWorkflow($params);
-                                    }
-                                }
-                            }
                         } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($pathChunks[6] === 'repositories') {

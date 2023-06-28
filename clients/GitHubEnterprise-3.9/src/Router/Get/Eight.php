@@ -120,18 +120,6 @@ final class Eight
                                         }
                                     }
                                 }
-                            } elseif ($pathChunks[5] === 'required_workflows') {
-                                if ($pathChunks[6] === '{required_workflow_id_for_repo}') {
-                                    if ($pathChunks[7] === 'runs') {
-                                        if ($call === 'GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs') {
-                                            if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                                $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                            }
-
-                                            return $this->router[Router\Get\Actions::class]->listRequiredWorkflowRuns($params);
-                                        }
-                                    }
-                                }
                             } elseif ($pathChunks[5] === 'runners') {
                                 if ($pathChunks[6] === '{runner_id}') {
                                     if ($pathChunks[7] === 'labels') {

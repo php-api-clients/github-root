@@ -53,17 +53,7 @@ final class Six
             } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'required_workflows') {
-                            if ($pathChunks[5] === '{required_workflow_id}') {
-                                if ($call === 'DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}') {
-                                    if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
-                                        $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\Delete\Actions::class]->deleteRequiredWorkflow($params);
-                                }
-                            }
-                        } elseif ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}') {
                                     if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {

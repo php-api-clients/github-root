@@ -175,14 +175,6 @@ final class Five
 
                                 return $this->router[Router\Get\Actions::class]->getGithubActionsPermissionsOrganization($params);
                             }
-                        } elseif ($pathChunks[4] === 'required_workflows') {
-                            if ($call === 'GET /orgs/{org}/actions/required_workflows') {
-                                if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                    $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Get\Actions::class]->listRequiredWorkflows($params);
-                            }
                         } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($call === 'GET /orgs/{org}/actions/runner-groups') {
                                 if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {

@@ -117,15 +117,7 @@ final class Five
             } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'required_workflows') {
-                            if ($call === 'POST /orgs/{org}/actions/required_workflows') {
-                                if (array_key_exists(Router\Post\Actions::class, $this->router) === false) {
-                                    $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Post\Actions::class]->createRequiredWorkflow($params);
-                            }
-                        } elseif ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'runner-groups') {
                             if ($call === 'POST /orgs/{org}/actions/runner-groups') {
                                 if (array_key_exists(Router\Post\Actions::class, $this->router) === false) {
                                     $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);

@@ -138,10 +138,6 @@ final class Hydrators implements ObjectMapper
     private Hydrator\Operation\Orgs\Org\Actions\Permissions\Repositories\RepositoryId|null $operation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories🌀RepositoryId                                                                                     = null;
     private Hydrator\Operation\Orgs\Org\Actions\Permissions\SelectedActions|null $operation🌀Orgs🌀Org🌀Actions🌀Permissions🌀SelectedActions                                                                                                         = null;
     private Hydrator\Operation\Orgs\Org\Actions\Permissions\Workflow|null $operation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Workflow                                                                                                                       = null;
-    private Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows|null $operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows                                                                                                                             = null;
-    private Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId|null $operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId                                                                                       = null;
-    private Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories|null $operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories                                                             = null;
-    private Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories\RepositoryId|null $operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories🌀RepositoryId                                   = null;
     private Hydrator\Operation\Orgs\Org\Actions\RunnerGroups|null $operation🌀Orgs🌀Org🌀Actions🌀RunnerGroups                                                                                                                                       = null;
     private Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId|null $operation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId                                                                                                           = null;
     private Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories|null $operation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories                                                                                 = null;
@@ -246,8 +242,6 @@ final class Hydrators implements ObjectMapper
     private Hydrator\Operation\Projects\ProjectId\Collaborators\Username\Permission|null $operation🌀Projects🌀ProjectId🌀Collaborators🌀Username🌀Permission                                                                                         = null;
     private Hydrator\Operation\Projects\ProjectId\Columns|null $operation🌀Projects🌀ProjectId🌀Columns                                                                                                                                             = null;
     private Hydrator\Operation\RateLimit|null $operation🌀RateLimit                                                                                                                                                                               = null;
-    private Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows|null $operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows                                                                                                                 = null;
-    private Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo|null $operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo                                                             = null;
     private Hydrator\Operation\Repos\Owner\Repo|null $operation🌀Repos🌀Owner🌀Repo                                                                                                                                                                 = null;
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts                                                                                                                             = null;
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts\ArtifactId|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId                                                                                                       = null;
@@ -266,7 +260,6 @@ final class Hydrators implements ObjectMapper
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\Access|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀Access                                                                                                           = null;
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\SelectedActions|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀SelectedActions                                                                                         = null;
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Permissions\Workflow|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀Workflow                                                                                                       = null;
-    private Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs                                               = null;
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Runners|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners                                                                                                                                 = null;
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\Downloads|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀Downloads                                                                                                             = null;
     private Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\RegistrationToken|null $operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RegistrationToken                                                                                             = null;
@@ -665,8 +658,6 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\OidcCustomSub', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\EmptyObject' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Oidc🌀Customization🌀Sub()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsOrganizationPermissions' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelectedRepositoriesEnabledGithubActionsOrganization\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRequiredWorkflows\\Response\\ApplicationJson\\Ok', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RequiredWorkflow' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelectedRepositoriesRequiredWorkflow\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelfHostedRunnerGroupsForOrg\\Response\\ApplicationJson\\Ok', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsOrg' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRepoAccessToSelfHostedRunnerGroupInOrg\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelfHostedRunnersInGroupForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners()->hydrateObject($className, $payload),
@@ -713,8 +704,6 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Projects\\Delete\\Response\\ApplicationJson\\Forbidden\\Application\\Json', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Projects\\Update\\Response\\ApplicationJson\\Forbidden\\Application\\Json' => $this->getObjectMapperOperation🌀Projects🌀ProjectId()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectCollaboratorPermission' => $this->getObjectMapperOperation🌀Projects🌀ProjectId🌀Collaborators🌀Username🌀Permission()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview\\Resources', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimit' => $this->getObjectMapperOperation🌀RateLimit()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRepoRequiredWorkflows\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RepoRequiredWorkflow' => $this->getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository\\Permissions', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeOfConductSimple', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Repos\\Delete\\Response\\ApplicationJson\\Forbidden\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListArtifactsForRepo\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact\\WorkflowRun' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId()->hydrateObject($className, $payload),
@@ -727,10 +716,9 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRepoOrganizationVariables\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀OrganizationVariables()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsRepositoryPermissions' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsWorkflowAccessToRepository' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀Access()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRequiredWorkflowRuns\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelfHostedRunnersForRepo\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListWorkflowRunsForRepo\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListWorkflowRunsForRepo\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit\\Author', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit\\Committer' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListWorkflowRunArtifacts\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Artifacts()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListJobsForWorkflowRunAttempt\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Attempts🌀AttemptNumber🌀Jobs()->hydrateObject($className, $payload),
@@ -927,8 +915,6 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\OidcCustomSub', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\EmptyObject' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Oidc🌀Customization🌀Sub()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsOrganizationPermissions' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelectedRepositoriesEnabledGithubActionsOrganization\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRequiredWorkflows\\Response\\ApplicationJson\\Ok', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RequiredWorkflow' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelectedRepositoriesRequiredWorkflow\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelfHostedRunnerGroupsForOrg\\Response\\ApplicationJson\\Ok', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RunnerGroupsOrg' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRepoAccessToSelfHostedRunnerGroupInOrg\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelfHostedRunnersInGroupForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners()->serializeObject($object),
@@ -975,8 +961,6 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Projects\\Delete\\Response\\ApplicationJson\\Forbidden\\Application\\Json', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Projects\\Update\\Response\\ApplicationJson\\Forbidden\\Application\\Json' => $this->getObjectMapperOperation🌀Projects🌀ProjectId()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ProjectCollaboratorPermission' => $this->getObjectMapperOperation🌀Projects🌀ProjectId🌀Collaborators🌀Username🌀Permission()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimitOverview\\Resources', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RateLimit' => $this->getObjectMapperOperation🌀RateLimit()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRepoRequiredWorkflows\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\RepoRequiredWorkflow' => $this->getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\FullRepository\\Permissions', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\CodeOfConductSimple', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Repos\\Delete\\Response\\ApplicationJson\\Forbidden\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListArtifactsForRepo\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Artifact\\WorkflowRun' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId()->serializeObject($object),
@@ -989,10 +973,9 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRepoOrganizationVariables\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀OrganizationVariables()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsRepositoryPermissions' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\ActionsWorkflowAccessToRepository' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀Access()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListRequiredWorkflowRuns\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListSelfHostedRunnersForRepo\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListWorkflowRunsForRepo\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListWorkflowRunsForRepo\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\WorkflowRun', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit\\Author', '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\SimpleCommit\\Committer' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListWorkflowRunArtifacts\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Artifacts()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterprise\\Schema\\Operations\\Actions\\ListJobsForWorkflowRunAttempt\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Attempts🌀AttemptNumber🌀Jobs()->serializeObject($object),
@@ -2266,42 +2249,6 @@ final class Hydrators implements ObjectMapper
         return $this->operation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Workflow;
     }
 
-    public function getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows(): Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows
-    {
-        if ($this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows instanceof Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows === false) {
-            $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows = new Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows();
-        }
-
-        return $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows;
-    }
-
-    public function getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId(): Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId
-    {
-        if ($this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId instanceof Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId === false) {
-            $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId = new Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId();
-        }
-
-        return $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId;
-    }
-
-    public function getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories(): Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories
-    {
-        if ($this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories instanceof Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories === false) {
-            $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories = new Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories();
-        }
-
-        return $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories;
-    }
-
-    public function getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories🌀RepositoryId(): Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories\RepositoryId
-    {
-        if ($this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories🌀RepositoryId instanceof Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories\RepositoryId === false) {
-            $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories🌀RepositoryId = new Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows\RequiredWorkflowId\Repositories\RepositoryId();
-        }
-
-        return $this->operation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowId🌀Repositories🌀RepositoryId;
-    }
-
     public function getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups(): Hydrator\Operation\Orgs\Org\Actions\RunnerGroups
     {
         if ($this->operation🌀Orgs🌀Org🌀Actions🌀RunnerGroups instanceof Hydrator\Operation\Orgs\Org\Actions\RunnerGroups === false) {
@@ -3238,24 +3185,6 @@ final class Hydrators implements ObjectMapper
         return $this->operation🌀RateLimit;
     }
 
-    public function getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows(): Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows
-    {
-        if ($this->operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows instanceof Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows === false) {
-            $this->operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows = new Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows();
-        }
-
-        return $this->operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows;
-    }
-
-    public function getObjectMapperOperation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo(): Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo
-    {
-        if ($this->operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo instanceof Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo === false) {
-            $this->operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo = new Hydrator\Operation\Repos\Org\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo();
-        }
-
-        return $this->operation🌀Repos🌀Org🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo;
-    }
-
     public function getObjectMapperOperation🌀Repos🌀Owner🌀Repo(): Hydrator\Operation\Repos\Owner\Repo
     {
         if ($this->operation🌀Repos🌀Owner🌀Repo instanceof Hydrator\Operation\Repos\Owner\Repo === false) {
@@ -3416,15 +3345,6 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀Workflow;
-    }
-
-    public function getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs(): Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs
-    {
-        if ($this->operation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs instanceof Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs === false) {
-            $this->operation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs = new Hydrator\Operation\Repos\Owner\Repo\Actions\RequiredWorkflows\RequiredWorkflowIdForRepo\Runs();
-        }
-
-        return $this->operation🌀Repos🌀Owner🌀Repo🌀Actions🌀RequiredWorkflows🌀RequiredWorkflowIdForRepo🌀Runs;
     }
 
     public function getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners(): Hydrator\Operation\Repos\Owner\Repo\Actions\Runners
