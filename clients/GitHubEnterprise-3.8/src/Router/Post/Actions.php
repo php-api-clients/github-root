@@ -24,24 +24,6 @@ final class Actions
     {
     }
 
-    public function createRequiredWorkflow(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RequiredWorkflows();
-        }
-
-        $operator = new Operator\Actions\CreateRequiredWorkflow($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\RequiredWorkflows::class]);
-
-        return $operator->call($arguments['org'], $params);
-    }
-
     public function createSelfHostedRunnerGroupForOrg(array $params)
     {
         $arguments = [];

@@ -81,17 +81,7 @@ final class Six
             } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'actions') {
-                        if ($pathChunks[4] === 'required_workflows') {
-                            if ($pathChunks[5] === '{required_workflow_id}') {
-                                if ($call === 'PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}') {
-                                    if (array_key_exists(Router\Patch\Actions::class, $this->router) === false) {
-                                        $this->router[Router\Patch\Actions::class] = new Router\Patch\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\Patch\Actions::class]->updateRequiredWorkflow($params);
-                                }
-                            }
-                        } elseif ($pathChunks[4] === 'runner-groups') {
+                        if ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}') {
                                     if (array_key_exists(Router\Patch\Actions::class, $this->router) === false) {
