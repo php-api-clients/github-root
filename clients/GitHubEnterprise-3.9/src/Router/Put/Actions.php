@@ -158,26 +158,6 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['repository_id']);
     }
 
-    public function setSelectedReposToRequiredWorkflow(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('required_workflow_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: required_workflow_id');
-        }
-
-        $arguments['required_workflow_id'] = $params['required_workflow_id'];
-        unset($params['required_workflow_id']);
-        $operator = new Operator\Actions\SetSelectedReposToRequiredWorkflow($this->browser, $this->authentication, $this->requestSchemaValidator);
-
-        return $operator->call($arguments['org'], $arguments['required_workflow_id'], $params);
-    }
-
     public function setRepoAccessToSelfHostedRunnerGroupInOrg(array $params)
     {
         $arguments = [];
@@ -400,32 +380,6 @@ final class Actions
         $operator = new Operator\Actions\CreateOrUpdateEnvironmentSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repositories\RepositoryId\Environments\EnvironmentName\Secrets\SecretName::class]);
 
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['secret_name'], $params);
-    }
-
-    public function addSelectedRepoToRequiredWorkflow(array $params)
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('required_workflow_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: required_workflow_id');
-        }
-
-        $arguments['required_workflow_id'] = $params['required_workflow_id'];
-        unset($params['required_workflow_id']);
-        if (array_key_exists('repository_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: repository_id');
-        }
-
-        $arguments['repository_id'] = $params['repository_id'];
-        unset($params['repository_id']);
-        $operator = new Operator\Actions\AddSelectedRepoToRequiredWorkflow($this->browser, $this->authentication);
-
-        return $operator->call($arguments['org'], $arguments['required_workflow_id'], $arguments['repository_id']);
     }
 
     public function addRepoAccessToSelfHostedRunnerGroupInOrg(array $params)

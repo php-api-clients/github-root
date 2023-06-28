@@ -177,16 +177,6 @@ final class Six
                                     return $this->router[Router\Get\Actions::class]->getGithubActionsDefaultWorkflowPermissionsOrganization($params);
                                 }
                             }
-                        } elseif ($pathChunks[4] === 'required_workflows') {
-                            if ($pathChunks[5] === '{required_workflow_id}') {
-                                if ($call === 'GET /orgs/{org}/actions/required_workflows/{required_workflow_id}') {
-                                    if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                        $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\Get\Actions::class]->getRequiredWorkflow($params);
-                                }
-                            }
                         } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}') {
@@ -399,21 +389,7 @@ final class Six
                     }
                 }
             } elseif ($pathChunks[1] === 'repos') {
-                if ($pathChunks[2] === '{org}') {
-                    if ($pathChunks[3] === '{repo}') {
-                        if ($pathChunks[4] === 'actions') {
-                            if ($pathChunks[5] === 'required_workflows') {
-                                if ($call === 'GET /repos/{org}/{repo}/actions/required_workflows') {
-                                    if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                        $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\Get\Actions::class]->listRepoRequiredWorkflows($params);
-                                }
-                            }
-                        }
-                    }
-                } elseif ($pathChunks[2] === '{owner}') {
+                if ($pathChunks[2] === '{owner}') {
                     if ($pathChunks[3] === '{repo}') {
                         if ($pathChunks[4] === 'actions') {
                             if ($pathChunks[5] === 'artifacts') {
