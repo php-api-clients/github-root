@@ -28,10 +28,6 @@ class Transfer implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -1002,26 +998,6 @@ class Transfer implements ObjectMapper
 
             after_allowForking:
 
-            $value = $payload['security_and_analysis'] ?? null;
-
-            if ($value === null) {
-                $properties['securityAndAnalysis'] = null;
-                goto after_securityAndAnalysis;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'securityAndAnalysis';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['securityAndAnalysis'] = $value;
-
-            after_securityAndAnalysis:
-
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository', $exception, stack: $this->hydrationStack);
         }
@@ -1516,183 +1492,6 @@ class Transfer implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License', $exception, stack: $this->hydrationStack);
         }
     }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['advanced_security'] ?? null;
-
-            if ($value === null) {
-                $properties['advancedSecurity'] = null;
-                goto after_advancedSecurity;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'advancedSecurity';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['advancedSecurity'] = $value;
-
-            after_advancedSecurity:
-
-            $value = $payload['secret_scanning'] ?? null;
-
-            if ($value === null) {
-                $properties['secretScanning'] = null;
-                goto after_secretScanning;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'secretScanning';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['secretScanning'] = $value;
-
-            after_secretScanning:
-
-            $value = $payload['secret_scanning_push_protection'] ?? null;
-
-            if ($value === null) {
-                $properties['secretScanningPushProtection'] = null;
-                goto after_secretScanningPushProtection;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'secretScanningPushProtection';
-                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['secretScanningPushProtection'] = $value;
-
-            after_secretScanningPushProtection:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['status'] ?? null;
-
-            if ($value === null) {
-                $properties['status'] = null;
-                goto after_status;
-            }
-
-            $properties['status'] = $value;
-
-            after_status:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['status'] ?? null;
-
-            if ($value === null) {
-                $properties['status'] = null;
-                goto after_status;
-            }
-
-            $properties['status'] = $value;
-
-            after_status:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-        
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection
-    {
-        $properties = []; 
-        $missingFields = [];
-        try {
-            $value = $payload['status'] ?? null;
-
-            if ($value === null) {
-                $properties['status'] = null;
-                goto after_status;
-            }
-
-            $properties['status'] = $value;
-
-            after_status:
-
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection(...$properties);
-        } catch (\Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
-        }
-    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -1730,10 +1529,6 @@ class Transfer implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️Permissions($object),
             'ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️CodeOfConduct($object),
             'ApiClients\Client\GitHubEnterprise\Schema\MinimalRepository\License' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️MinimalRepository⚡️License($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
-            'ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
                 default => throw new \LogicException('No serialization defined for $className'),
             };
         } catch (\Throwable $exception) {
@@ -2315,15 +2110,6 @@ class Transfer implements ObjectMapper
         }
         after_allowForking:        $result['allow_forking'] = $allowForking;
 
-        
-        $securityAndAnalysis = $object->securityAndAnalysis;
-
-        if ($securityAndAnalysis === null) {
-            goto after_securityAndAnalysis;
-        }
-        $securityAndAnalysis = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis($securityAndAnalysis);
-        after_securityAndAnalysis:        $result['security_and_analysis'] = $securityAndAnalysis;
-
 
         return $result;
     }
@@ -2567,93 +2353,6 @@ class Transfer implements ObjectMapper
             goto after_nodeId;
         }
         after_nodeId:        $result['node_id'] = $nodeId;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis);
-        $result = [];
-
-        $advancedSecurity = $object->advancedSecurity;
-
-        if ($advancedSecurity === null) {
-            goto after_advancedSecurity;
-        }
-        $advancedSecurity = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity($advancedSecurity);
-        after_advancedSecurity:        $result['advanced_security'] = $advancedSecurity;
-
-        
-        $secretScanning = $object->secretScanning;
-
-        if ($secretScanning === null) {
-            goto after_secretScanning;
-        }
-        $secretScanning = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($secretScanning);
-        after_secretScanning:        $result['secret_scanning'] = $secretScanning;
-
-        
-        $secretScanningPushProtection = $object->secretScanningPushProtection;
-
-        if ($secretScanningPushProtection === null) {
-            goto after_secretScanningPushProtection;
-        }
-        $secretScanningPushProtection = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($secretScanningPushProtection);
-        after_secretScanningPushProtection:        $result['secret_scanning_push_protection'] = $secretScanningPushProtection;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️AdvancedSecurity(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\AdvancedSecurity);
-        $result = [];
-
-        $status = $object->status;
-
-        if ($status === null) {
-            goto after_status;
-        }
-        after_status:        $result['status'] = $status;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanning);
-        $result = [];
-
-        $status = $object->status;
-
-        if ($status === null) {
-            goto after_status;
-        }
-        after_status:        $result['status'] = $status;
-
-
-        return $result;
-    }
-
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(mixed $object): mixed
-    {
-        \assert($object instanceof \ApiClients\Client\GitHubEnterprise\Schema\SecurityAndAnalysis\SecretScanningPushProtection);
-        $result = [];
-
-        $status = $object->status;
-
-        if ($status === null) {
-            goto after_status;
-        }
-        after_status:        $result['status'] = $status;
 
 
         return $result;
