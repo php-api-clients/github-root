@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkf
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class Ok extends Schema\AliasAbstract\Tiet9075E341\TietF60A7570\Tiet41AF98B1\Tiet53767394
+final readonly class Ok extends Schema\AliasAbstract\Tiet84E72BE6\TietFA85CDE6\Tiet93A6AA6E\Tiet621B579F
 {
 }
