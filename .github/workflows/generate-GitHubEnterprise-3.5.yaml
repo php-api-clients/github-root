@@ -18,6 +18,7 @@ jobs:
           rm etc/specs/GitHubEnterprise-3.5/previous.spec.yaml || true
           mv etc/specs/GitHubEnterprise-3.5/current.spec.yaml etc/specs/GitHubEnterprise-3.5/previous.spec.yaml
           curl -o etc/specs/GitHubEnterprise-3.5/current.spec.yaml https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/ghes-3.5/ghes-3.5.yaml
+          php utils/patch-broken-spec-files.php etc/specs/GitHubEnterprise-3.5/current.spec.yaml
       - name: Hash specs
         id: spec-hash
         run: |
