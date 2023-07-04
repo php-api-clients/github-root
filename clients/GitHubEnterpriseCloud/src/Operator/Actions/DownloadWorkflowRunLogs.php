@@ -20,9 +20,7 @@ final readonly class DownloadWorkflowRunLogs
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, int $runId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\DownloadWorkflowRunLogs($owner, $repo, $runId);

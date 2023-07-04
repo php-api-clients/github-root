@@ -20,9 +20,7 @@ final readonly class DeleteEnvironmentVariable
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $repositoryId, string $name, string $environmentName): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\DeleteEnvironmentVariable($repositoryId, $name, $environmentName);

@@ -20,9 +20,7 @@ final readonly class List_
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $since, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Orgs\List_($since, $perPage);

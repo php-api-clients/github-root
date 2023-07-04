@@ -25,14 +25,10 @@ final class GetGithubActionsPermissionsEnterprise
     private const PATH           = '/enterprises/{enterprise}/actions/permissions';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions $hydrator, string $enterprise)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions $hydrator, string $enterprise)
     {
-        $this->enterprise              = $enterprise;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(): RequestInterface

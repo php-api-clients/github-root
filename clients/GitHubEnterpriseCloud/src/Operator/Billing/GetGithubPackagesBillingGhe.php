@@ -23,9 +23,7 @@ final readonly class GetGithubPackagesBillingGhe
     {
     }
 
-    /**
-     * @return PromiseInterface<PackagesBillingUsage>
-     **/
+    /** @return PromiseInterface<PackagesBillingUsage> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Billing\GetGithubPackagesBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise);

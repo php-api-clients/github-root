@@ -22,9 +22,7 @@ final readonly class PatchSecurityAnalysisSettingsForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\SecretScanning\PatchSecurityAnalysisSettingsForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);

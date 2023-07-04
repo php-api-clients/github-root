@@ -21,9 +21,7 @@ final readonly class SetActionsOidcCustomIssuerPolicyForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\SetActionsOidcCustomIssuerPolicyForEnterprise($this->requestSchemaValidator, $enterprise);

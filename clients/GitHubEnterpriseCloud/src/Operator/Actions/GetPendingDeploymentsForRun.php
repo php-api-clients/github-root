@@ -20,9 +20,7 @@ final readonly class GetPendingDeploymentsForRun
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $owner, string $repo, int $runId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\GetPendingDeploymentsForRun($owner, $repo, $runId);

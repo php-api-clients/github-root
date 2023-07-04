@@ -22,9 +22,7 @@ final readonly class RemoveSamlSsoAuthorization
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, int $credentialId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Orgs\RemoveSamlSsoAuthorization($this->responseSchemaValidator, $this->hydrator, $org, $credentialId);

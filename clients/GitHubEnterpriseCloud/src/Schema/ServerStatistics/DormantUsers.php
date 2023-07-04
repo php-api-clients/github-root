@@ -13,7 +13,9 @@ final readonly class DormantUsers
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_dormant_users":19,"dormancy_threshold":"generated"}';
 
-    public function __construct(#[MapFrom('total_dormant_users')] public ?int $totalDormantUsers, #[MapFrom('dormancy_threshold')] public ?string $dormancyThreshold)
+    public function __construct(#[MapFrom('total_dormant_users')]
+    public int|null $totalDormantUsers, #[MapFrom('dormancy_threshold')]
+    public string|null $dormancyThreshold,)
     {
     }
 }

@@ -13,7 +13,11 @@ final readonly class Pulls
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_pulls":11,"merged_pulls":12,"mergeable_pulls":15,"unmergeable_pulls":17}';
 
-    public function __construct(#[MapFrom('total_pulls')] public ?int $totalPulls, #[MapFrom('merged_pulls')] public ?int $mergedPulls, #[MapFrom('mergeable_pulls')] public ?int $mergeablePulls, #[MapFrom('unmergeable_pulls')] public ?int $unmergeablePulls)
+    public function __construct(#[MapFrom('total_pulls')]
+    public int|null $totalPulls, #[MapFrom('merged_pulls')]
+    public int|null $mergedPulls, #[MapFrom('mergeable_pulls')]
+    public int|null $mergeablePulls, #[MapFrom('unmergeable_pulls')]
+    public int|null $unmergeablePulls,)
     {
     }
 }

@@ -14,7 +14,7 @@ final readonly class ApplicationJson
     /**
      * groups: The IdP groups you want to connect to a GitHub team. When updating, the new `groups` object will replace the original one. You must include any existing groups that you don't want to remove.
      */
-    public function __construct(public ?array $groups)
+    public function __construct(public array|null $groups)
     {
     }
 }

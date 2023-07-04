@@ -23,9 +23,7 @@ final readonly class CreateCustomRole
     {
     }
 
-    /**
-     * @return PromiseInterface<OrganizationCustomRepositoryRole>
-     **/
+    /** @return PromiseInterface<OrganizationCustomRepositoryRole> **/
     public function call(string $org, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Orgs\CreateCustomRole($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

@@ -21,14 +21,12 @@ final class SetAllowedActionsEnterprise
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/selected-actions';
     private const METHOD         = 'PUT';
     private const PATH           = '/enterprises/{enterprise}/actions/permissions/selected-actions';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, string $enterprise)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, string $enterprise)
     {
-        $this->requestSchemaValidator = $requestSchemaValidator;
-        $this->enterprise             = $enterprise;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -38,9 +36,7 @@ final class SetAllowedActionsEnterprise
         return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

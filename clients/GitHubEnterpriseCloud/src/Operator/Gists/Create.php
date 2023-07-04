@@ -23,9 +23,7 @@ final readonly class Create
     {
     }
 
-    /**
-     * @return PromiseInterface<(GistSimple|array)>
-     **/
+    /** @return PromiseInterface<(GistSimple|array)> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Gists\Create($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

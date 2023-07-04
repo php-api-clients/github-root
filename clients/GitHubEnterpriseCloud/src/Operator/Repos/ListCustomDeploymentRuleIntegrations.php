@@ -23,9 +23,7 @@ final readonly class ListCustomDeploymentRuleIntegrations
     {
     }
 
-    /**
-     * @return PromiseInterface<Ok>
-     **/
+    /** @return PromiseInterface<Ok> **/
     public function call(string $environmentName, string $repo, string $owner, int $page = 1, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\ListCustomDeploymentRuleIntegrations($this->responseSchemaValidator, $this->hydrator, $environmentName, $repo, $owner, $page, $perPage);

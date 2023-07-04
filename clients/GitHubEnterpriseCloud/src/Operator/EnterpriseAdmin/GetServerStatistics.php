@@ -20,9 +20,7 @@ final readonly class GetServerStatistics
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $enterpriseOrOrg, string $dateStart, string $dateEnd): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetServerStatistics($enterpriseOrOrg, $dateStart, $dateEnd);

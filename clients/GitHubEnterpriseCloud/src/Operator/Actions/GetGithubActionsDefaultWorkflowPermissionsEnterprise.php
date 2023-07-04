@@ -23,9 +23,7 @@ final readonly class GetGithubActionsDefaultWorkflowPermissionsEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<ActionsGetDefaultWorkflowPermissions>
-     **/
+    /** @return PromiseInterface<ActionsGetDefaultWorkflowPermissions> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\GetGithubActionsDefaultWorkflowPermissionsEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

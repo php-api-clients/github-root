@@ -23,9 +23,7 @@ final readonly class GetRepoPublicKey
     {
     }
 
-    /**
-     * @return PromiseInterface<DependabotPublicKey>
-     **/
+    /** @return PromiseInterface<DependabotPublicKey> **/
     public function call(string $owner, string $repo): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Dependabot\GetRepoPublicKey($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

@@ -27,15 +27,11 @@ final class GetSelfHostedRunnerForEnterprise
     private string $enterprise;
     /**Unique identifier of the self-hosted runner. **/
     private int $runnerId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId $hydrator, string $enterprise, int $runnerId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId $hydrator, string $enterprise, int $runnerId)
     {
-        $this->enterprise              = $enterprise;
-        $this->runnerId                = $runnerId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
+        $this->runnerId   = $runnerId;
     }
 
     public function createRequest(): RequestInterface

@@ -25,14 +25,10 @@ final class GetAllowedActionsEnterprise
     private const PATH           = '/enterprises/{enterprise}/actions/permissions/selected-actions';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions\SelectedActions $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions\SelectedActions $hydrator, string $enterprise)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions\SelectedActions $hydrator, string $enterprise)
     {
-        $this->enterprise              = $enterprise;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(): RequestInterface

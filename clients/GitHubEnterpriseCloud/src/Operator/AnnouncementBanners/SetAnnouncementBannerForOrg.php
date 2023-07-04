@@ -23,9 +23,7 @@ final readonly class SetAnnouncementBannerForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<AnnouncementBanner>
-     **/
+    /** @return PromiseInterface<AnnouncementBanner> **/
     public function call(string $org, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\AnnouncementBanners\SetAnnouncementBannerForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

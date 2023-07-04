@@ -23,9 +23,7 @@ final readonly class CreateRegistrationTokenForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<AuthenticationToken>
-     **/
+    /** @return PromiseInterface<AuthenticationToken> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\CreateRegistrationTokenForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -14,7 +14,8 @@ final readonly class Operations
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"op":"replace","path":"generated","value":null}';
 
-    public function __construct(public string $op, public ?string $path, #[Value] public null|string|Schema\ScimUser\Operations\Value\One|array $value)
+    public function __construct(public string $op, public string|null $path, #[Value]
+    public string|Schema\ScimUser\Operations\Value\One|array|null $value,)
     {
     }
 }

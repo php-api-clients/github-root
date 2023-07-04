@@ -23,9 +23,7 @@ final readonly class CreateInstallationAccessToken
     {
     }
 
-    /**
-     * @return PromiseInterface<InstallationToken>
-     **/
+    /** @return PromiseInterface<InstallationToken> **/
     public function call(int $installationId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Apps\CreateInstallationAccessToken($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $installationId);

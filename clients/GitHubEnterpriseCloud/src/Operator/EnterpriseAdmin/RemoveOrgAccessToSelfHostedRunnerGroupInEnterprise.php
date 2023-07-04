@@ -20,9 +20,7 @@ final readonly class RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise, int $runnerGroupId, int $orgId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise($enterprise, $runnerGroupId, $orgId);

@@ -26,16 +26,10 @@ final class RemoveSamlSsoAuthorization
     private const PATH           = '/orgs/{org}/credential-authorizations/{credential_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
-    private int $credentialId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\CredentialAuthorizations\CredentialId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\CredentialAuthorizations\CredentialId $hydrator, string $org, int $credentialId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\CredentialAuthorizations\CredentialId $hydrator, string $org, private int $credentialId)
     {
-        $this->org                     = $org;
-        $this->credentialId            = $credentialId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org = $org;
     }
 
     public function createRequest(): RequestInterface
@@ -43,9 +37,7 @@ final class RemoveSamlSsoAuthorization
         return new Request(self::METHOD, str_replace(['{org}', '{credential_id}'], [$this->org, $this->credentialId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

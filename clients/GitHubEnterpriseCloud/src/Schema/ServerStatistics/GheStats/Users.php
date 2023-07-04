@@ -13,7 +13,10 @@ final readonly class Users
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"total_users":11,"admin_users":11,"suspended_users":15}';
 
-    public function __construct(#[MapFrom('total_users')] public ?int $totalUsers, #[MapFrom('admin_users')] public ?int $adminUsers, #[MapFrom('suspended_users')] public ?int $suspendedUsers)
+    public function __construct(#[MapFrom('total_users')]
+    public int|null $totalUsers, #[MapFrom('admin_users')]
+    public int|null $adminUsers, #[MapFrom('suspended_users')]
+    public int|null $suspendedUsers,)
     {
     }
 }

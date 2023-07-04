@@ -20,9 +20,7 @@ final readonly class RemoveAnnouncementBannerForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\AnnouncementBanners\RemoveAnnouncementBannerForEnterprise($enterprise);

@@ -23,9 +23,7 @@ final readonly class GetMembershipForAuthenticatedUser
     {
     }
 
-    /**
-     * @return PromiseInterface<OrgMembership>
-     **/
+    /** @return PromiseInterface<OrgMembership> **/
     public function call(string $org): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Orgs\GetMembershipForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $org);

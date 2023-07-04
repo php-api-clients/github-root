@@ -11,7 +11,7 @@ final readonly class LastSync
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"date":"generated","status":"generated","error":"generated"}';
 
-    public function __construct(public ?string $date, public ?string $status, public ?string $error)
+    public function __construct(public string|null $date, public string|null $status, public string|null $error)
     {
     }
 }

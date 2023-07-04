@@ -25,14 +25,10 @@ final class ListCustomRepoRoles
     private const PATH           = '/orgs/{org}/custom-repository-roles';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\CustomRepositoryRoles $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\CustomRepositoryRoles $hydrator, string $org)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\CustomRepositoryRoles $hydrator, string $org)
     {
-        $this->org                     = $org;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org = $org;
     }
 
     public function createRequest(): RequestInterface

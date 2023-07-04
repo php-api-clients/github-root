@@ -26,7 +26,16 @@ final readonly class CredentialAuthorization
      * authorizedCredentialNote: The note given to the token. This will only be present when the credential is a token.
      * authorizedCredentialExpiresAt: The expiry for the token. This will only be present when the credential is a token.
      */
-    public function __construct(public string $login, #[MapFrom('credential_id')] public int $credentialId, #[MapFrom('credential_type')] public string $credentialType, #[MapFrom('token_last_eight')] public ?string $tokenLastEight, #[MapFrom('credential_authorized_at')] public string $credentialAuthorizedAt, public ?array $scopes, public ?string $fingerprint, #[MapFrom('credential_accessed_at')] public ?string $credentialAccessedAt, #[MapFrom('authorized_credential_id')] public ?int $authorizedCredentialId, #[MapFrom('authorized_credential_title')] public ?string $authorizedCredentialTitle, #[MapFrom('authorized_credential_note')] public ?string $authorizedCredentialNote, #[MapFrom('authorized_credential_expires_at')] public ?string $authorizedCredentialExpiresAt)
+    public function __construct(public string $login, #[MapFrom('credential_id')]
+    public int $credentialId, #[MapFrom('credential_type')]
+    public string $credentialType, #[MapFrom('token_last_eight')]
+    public string|null $tokenLastEight, #[MapFrom('credential_authorized_at')]
+    public string $credentialAuthorizedAt, public array|null $scopes, public string|null $fingerprint, #[MapFrom('credential_accessed_at')]
+    public string|null $credentialAccessedAt, #[MapFrom('authorized_credential_id')]
+    public int|null $authorizedCredentialId, #[MapFrom('authorized_credential_title')]
+    public string|null $authorizedCredentialTitle, #[MapFrom('authorized_credential_note')]
+    public string|null $authorizedCredentialNote, #[MapFrom('authorized_credential_expires_at')]
+    public string|null $authorizedCredentialExpiresAt,)
     {
     }
 }

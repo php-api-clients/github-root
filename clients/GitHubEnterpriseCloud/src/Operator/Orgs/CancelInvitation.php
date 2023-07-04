@@ -22,9 +22,7 @@ final readonly class CancelInvitation
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, int $invitationId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Orgs\CancelInvitation($this->responseSchemaValidator, $this->hydrator, $org, $invitationId);

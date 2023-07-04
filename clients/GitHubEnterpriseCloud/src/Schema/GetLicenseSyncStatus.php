@@ -13,7 +13,8 @@ final readonly class GetLicenseSyncStatus
     public const SCHEMA_DESCRIPTION  = 'Information about the status of a license sync job for an enterprise.';
     public const SCHEMA_EXAMPLE_DATA = '{"server_instances":[{"server_id":"generated","hostname":"generated","last_sync":{"date":"generated","status":"generated","error":"generated"}},{"server_id":"generated","hostname":"generated","last_sync":{"date":"generated","status":"generated","error":"generated"}}]}';
 
-    public function __construct(#[MapFrom('server_instances')] public ?array $serverInstances)
+    public function __construct(#[MapFrom('server_instances')]
+    public array|null $serverInstances,)
     {
     }
 }

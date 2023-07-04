@@ -23,9 +23,7 @@ final readonly class GetRepoVariable
     {
     }
 
-    /**
-     * @return PromiseInterface<ActionsVariable>
-     **/
+    /** @return PromiseInterface<ActionsVariable> **/
     public function call(string $owner, string $repo, string $name): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\GetRepoVariable($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $name);

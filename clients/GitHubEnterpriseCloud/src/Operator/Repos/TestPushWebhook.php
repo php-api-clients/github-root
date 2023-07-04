@@ -22,9 +22,7 @@ final readonly class TestPushWebhook
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, int $hookId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\TestPushWebhook($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $hookId);

@@ -1130,6 +1130,26 @@ $client->operations()->enterpriseAdmin()->listRunnerApplicationsForEnterprise(  
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-runner-applications-for-an-enterprise).
 
 
+### actions/generate-runner-jitconfig-for-enterprise
+
+Create configuration for a just-in-time runner for an Enterprise
+
+Using the `call` method:
+```php
+$client->call('POST /enterprises/{enterprise}/actions/runners/generate-jitconfig', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->actions()->generateRunnerJitconfigForEnterprise(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-enterprise).
+
+
 ### enterprise-admin/create-registration-token-for-enterprise
 
 Create a registration token for an enterprise
@@ -2766,218 +2786,6 @@ $client->operations()->orgs()->listCustomRoles(        organization_id: 'generat
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/orgs#deprecated-list-custom-repository-roles-in-an-organization).
 
 
-### orgs/list-pat-grant-requests
-
-List requests to access organization resources with fine-grained personal access tokens
-
-Using the `call` method:
-```php
-$client->call('GET /organizations/{org}/personal-access-token-requests', [
-        'org' => 'generated',
-        'owner' => ,
-        'repository' => 'generated',
-        'permission' => 'generated',
-        'last_used_before' => '1970-01-01T00:00:00+00:00',
-        'last_used_after' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 4,
-        'sort' => 'generated',
-        'direction' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrantRequests(        org: 'generated',
-        owner: ,
-        repository: 'generated',
-        permission: 'generated',
-        last_used_before: '1970-01-01T00:00:00+00:00',
-        last_used_after: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 4,
-        sort: 'generated',
-        direction: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens).
-
-
-### orgs/review-pat-grant-requests-in-bulk
-
-Review requests to access organization resources with fine-grained personal access tokens
-
-Using the `call` method:
-```php
-$client->call('POST /organizations/{org}/personal-access-token-requests', [
-        'org' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->reviewPatGrantRequestsInBulk(        org: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#review-requests-to-access-organization-resources-with-a-fine-grained-personal-access-token).
-
-
-### orgs/review-pat-grant-request
-
-Review a request to access organization resources with a fine-grained personal access token
-
-Using the `call` method:
-```php
-$client->call('POST /organizations/{org}/personal-access-token-requests/{pat_request_id}', [
-        'org' => 'generated',
-        'pat_request_id' => 14,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->reviewPatGrantRequest(        org: 'generated',
-        pat_request_id: 14,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token).
-
-
-### orgs/list-pat-grant-request-repositories
-
-List repositories requested to be accessed by a fine-grained personal access token
-
-Using the `call` method:
-```php
-$client->call('GET /organizations/{org}/personal-access-token-requests/{pat_request_id}/repositories', [
-        'org' => 'generated',
-        'pat_request_id' => 14,
-        'per_page' => 8,
-        'page' => 4,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrantRequestRepositories(        org: 'generated',
-        pat_request_id: 14,
-        per_page: 8,
-        page: 4,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token).
-
-
-### orgs/list-pat-grants
-
-List fine-grained personal access tokens with access to organization resources
-
-Using the `call` method:
-```php
-$client->call('GET /organizations/{org}/personal-access-tokens', [
-        'org' => 'generated',
-        'owner' => ,
-        'repository' => 'generated',
-        'permission' => 'generated',
-        'last_used_before' => '1970-01-01T00:00:00+00:00',
-        'last_used_after' => '1970-01-01T00:00:00+00:00',
-        'per_page' => 8,
-        'page' => 4,
-        'sort' => 'generated',
-        'direction' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrants(        org: 'generated',
-        owner: ,
-        repository: 'generated',
-        permission: 'generated',
-        last_used_before: '1970-01-01T00:00:00+00:00',
-        last_used_after: '1970-01-01T00:00:00+00:00',
-        per_page: 8,
-        page: 4,
-        sort: 'generated',
-        direction: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-fine-grained-personal-access-tokens-with-access-to-organization-resources).
-
-
-### orgs/update-pat-accesses
-
-Update the access to organization resources via fine-grained personal access tokens
-
-Using the `call` method:
-```php
-$client->call('POST /organizations/{org}/personal-access-tokens', [
-        'org' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->updatePatAccesses(        org: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens).
-
-
-### orgs/update-pat-access
-
-Update the access a fine-grained personal access token has to organization resources
-
-Using the `call` method:
-```php
-$client->call('POST /organizations/{org}/personal-access-tokens/{pat_id}', [
-        'org' => 'generated',
-        'pat_id' => 6,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->updatePatAccess(        org: 'generated',
-        pat_id: 6,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources).
-
-
-### orgs/list-pat-grant-repositories
-
-List repositories a fine-grained personal access token has access to
-
-Using the `call` method:
-```php
-$client->call('GET /organizations/{org}/personal-access-tokens/{pat_id}/repositories', [
-        'org' => 'generated',
-        'pat_id' => 6,
-        'per_page' => 8,
-        'page' => 4,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->orgs()->listPatGrantRepositories(        org: 'generated',
-        pat_id: 6,
-        per_page: 8,
-        page: 4,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-repositories-a-fine-grained-personal-access-token-has-access-to).
-
-
 ### orgs/get
 
 Get an organization
@@ -3330,208 +3138,6 @@ $client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsOrga
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#set-default-workflow-permissions).
 
 
-### actions/list-required-workflows
-
-List required workflows
-
-Using the `call` method:
-```php
-$client->call('GET /orgs/{org}/actions/required_workflows', [
-        'org' => 'generated',
-        'per_page' => 8,
-        'page' => 4,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->listRequiredWorkflows(        org: 'generated',
-        per_page: 8,
-        page: 4,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-required-workflows).
-
-
-### actions/create-required-workflow
-
-Create a required workflow
-
-Using the `call` method:
-```php
-$client->call('POST /orgs/{org}/actions/required_workflows', [
-        'org' => 'generated',
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->createRequiredWorkflow(        org: 'generated',
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#create-a-required-workflow).
-
-
-### actions/get-required-workflow
-
-Get a required workflow
-
-Using the `call` method:
-```php
-$client->call('GET /orgs/{org}/actions/required_workflows/{required_workflow_id}', [
-        'org' => 'generated',
-        'required_workflow_id' => 20,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->getRequiredWorkflow(        org: 'generated',
-        required_workflow_id: 20,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#get-a-required-workflow).
-
-
-### actions/delete-required-workflow
-
-Delete a required workflow
-
-Using the `call` method:
-```php
-$client->call('DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}', [
-        'org' => 'generated',
-        'required_workflow_id' => 20,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->deleteRequiredWorkflow(        org: 'generated',
-        required_workflow_id: 20,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#delete-a-required-workflow).
-
-
-### actions/update-required-workflow
-
-Update a required workflow
-
-Using the `call` method:
-```php
-$client->call('PATCH /orgs/{org}/actions/required_workflows/{required_workflow_id}', [
-        'org' => 'generated',
-        'required_workflow_id' => 20,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->updateRequiredWorkflow(        org: 'generated',
-        required_workflow_id: 20,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#update-a-required-workflow).
-
-
-### actions/list-selected-repositories-required-workflow
-
-List selected repositories for a required workflow
-
-Using the `call` method:
-```php
-$client->call('GET /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories', [
-        'org' => 'generated',
-        'required_workflow_id' => 20,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->listSelectedRepositoriesRequiredWorkflow(        org: 'generated',
-        required_workflow_id: 20,
-);
-```
-
-You can find more about this operation over at the [API method documentation https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-selected-repositories-required-workflows](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-selected-repositories-required-workflows).
-
-
-### actions/set-selected-repos-to-required-workflow
-
-Sets repositories for a required workflow
-
-Using the `call` method:
-```php
-$client->call('PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories', [
-        'org' => 'generated',
-        'required_workflow_id' => 20,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->setSelectedReposToRequiredWorkflow(        org: 'generated',
-        required_workflow_id: 20,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#set-selected-repositories-for-a-required-workflow).
-
-
-### actions/add-selected-repo-to-required-workflow
-
-Add a repository to a required workflow
-
-Using the `call` method:
-```php
-$client->call('PUT /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}', [
-        'org' => 'generated',
-        'required_workflow_id' => 20,
-        'repository_id' => 13,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->addSelectedRepoToRequiredWorkflow(        org: 'generated',
-        required_workflow_id: 20,
-        repository_id: 13,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#add-a-repository-to-selected-repositories-list-for-a-required-workflow).
-
-
-### actions/remove-selected-repo-from-required-workflow
-
-Remove a selected repository from required workflow
-
-Using the `call` method:
-```php
-$client->call('DELETE /orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}', [
-        'org' => 'generated',
-        'required_workflow_id' => 20,
-        'repository_id' => 13,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->removeSelectedRepoFromRequiredWorkflow(        org: 'generated',
-        required_workflow_id: 20,
-        repository_id: 13,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#remove-a-repository-from-selected-repositories-list-for-a-required-workflow).
-
-
 ### actions/list-self-hosted-runner-groups-for-org
 
 List self-hosted runner groups for an organization
@@ -3878,6 +3484,26 @@ $client->operations()->actions()->listRunnerApplicationsForOrg(        org: 'gen
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-runner-applications-for-an-organization).
+
+
+### actions/generate-runner-jitconfig-for-org
+
+Create configuration for a just-in-time runner for an organization
+
+Using the `call` method:
+```php
+$client->call('POST /orgs/{org}/actions/runners/generate-jitconfig', [
+        'org' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->actions()->generateRunnerJitconfigForOrg(        org: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization).
 
 
 ### actions/create-registration-token-for-org
@@ -4776,7 +4402,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### codespaces/delete-codespaces-billing-users
 
-Removes users from Codespaces billing for an organization
+Remove users from Codespaces billing for an organization
 
 Using the `call` method:
 ```php
@@ -6792,6 +6418,218 @@ $client->operations()->packages()->restorePackageVersionForOrg(        package_t
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/packages#restore-a-package-version-for-an-organization).
 
 
+### orgs/list-pat-grant-requests
+
+List requests to access organization resources with fine-grained personal access tokens
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/personal-access-token-requests', [
+        'org' => 'generated',
+        'owner' => ,
+        'repository' => 'generated',
+        'permission' => 'generated',
+        'last_used_before' => '1970-01-01T00:00:00+00:00',
+        'last_used_after' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 4,
+        'sort' => 'generated',
+        'direction' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listPatGrantRequests(        org: 'generated',
+        owner: ,
+        repository: 'generated',
+        permission: 'generated',
+        last_used_before: '1970-01-01T00:00:00+00:00',
+        last_used_after: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 4,
+        sort: 'generated',
+        direction: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens).
+
+
+### orgs/review-pat-grant-requests-in-bulk
+
+Review requests to access organization resources with fine-grained personal access tokens
+
+Using the `call` method:
+```php
+$client->call('POST /orgs/{org}/personal-access-token-requests', [
+        'org' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->reviewPatGrantRequestsInBulk(        org: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#review-requests-to-access-organization-resources-with-a-fine-grained-personal-access-token).
+
+
+### orgs/review-pat-grant-request
+
+Review a request to access organization resources with a fine-grained personal access token
+
+Using the `call` method:
+```php
+$client->call('POST /orgs/{org}/personal-access-token-requests/{pat_request_id}', [
+        'org' => 'generated',
+        'pat_request_id' => 14,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->reviewPatGrantRequest(        org: 'generated',
+        pat_request_id: 14,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token).
+
+
+### orgs/list-pat-grant-request-repositories
+
+List repositories requested to be accessed by a fine-grained personal access token
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories', [
+        'org' => 'generated',
+        'pat_request_id' => 14,
+        'per_page' => 8,
+        'page' => 4,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listPatGrantRequestRepositories(        org: 'generated',
+        pat_request_id: 14,
+        per_page: 8,
+        page: 4,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token).
+
+
+### orgs/list-pat-grants
+
+List fine-grained personal access tokens with access to organization resources
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/personal-access-tokens', [
+        'org' => 'generated',
+        'owner' => ,
+        'repository' => 'generated',
+        'permission' => 'generated',
+        'last_used_before' => '1970-01-01T00:00:00+00:00',
+        'last_used_after' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 4,
+        'sort' => 'generated',
+        'direction' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listPatGrants(        org: 'generated',
+        owner: ,
+        repository: 'generated',
+        permission: 'generated',
+        last_used_before: '1970-01-01T00:00:00+00:00',
+        last_used_after: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 4,
+        sort: 'generated',
+        direction: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-fine-grained-personal-access-tokens-with-access-to-organization-resources).
+
+
+### orgs/update-pat-accesses
+
+Update the access to organization resources via fine-grained personal access tokens
+
+Using the `call` method:
+```php
+$client->call('POST /orgs/{org}/personal-access-tokens', [
+        'org' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->updatePatAccesses(        org: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens).
+
+
+### orgs/update-pat-access
+
+Update the access a fine-grained personal access token has to organization resources
+
+Using the `call` method:
+```php
+$client->call('POST /orgs/{org}/personal-access-tokens/{pat_id}', [
+        'org' => 'generated',
+        'pat_id' => 6,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->updatePatAccess(        org: 'generated',
+        pat_id: 6,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources).
+
+
+### orgs/list-pat-grant-repositories
+
+List repositories a fine-grained personal access token has access to
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/personal-access-tokens/{pat_id}/repositories', [
+        'org' => 'generated',
+        'pat_id' => 6,
+        'per_page' => 8,
+        'page' => 4,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listPatGrantRepositories(        org: 'generated',
+        pat_id: 6,
+        per_page: 8,
+        page: 4,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-repositories-a-fine-grained-personal-access-token-has-access-to).
+
+
 ### projects/list-for-org
 
 List organization projects
@@ -7006,12 +6844,16 @@ Using the `call` method:
 ```php
 $client->call('GET /orgs/{org}/rulesets', [
         'org' => 'generated',
+        'per_page' => 8,
+        'page' => 4,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->repos()->getOrgRulesets(        org: 'generated',
+        per_page: 8,
+        page: 4,
 );
 ```
 
@@ -8755,80 +8597,6 @@ $client->operations()->rateLimit()->get();
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user).
 
 
-### actions/list-repo-required-workflows
-
-List repository required workflows
-
-Using the `call` method:
-```php
-$client->call('GET /repos/{org}/{repo}/actions/required_workflows', [
-        'org' => 'generated',
-        'repo' => 'generated',
-        'per_page' => 8,
-        'page' => 4,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->listRepoRequiredWorkflows(        org: 'generated',
-        repo: 'generated',
-        per_page: 8,
-        page: 4,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-repository-required-workflows).
-
-
-### actions/get-repo-required-workflow
-
-Get a required workflow entity for a repository
-
-Using the `call` method:
-```php
-$client->call('GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}', [
-        'org' => 'generated',
-        'repo' => 'generated',
-        'required_workflow_id_for_repo' => 29,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->getRepoRequiredWorkflow(        org: 'generated',
-        repo: 'generated',
-        required_workflow_id_for_repo: 29,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#get-repository-required-workflow).
-
-
-### actions/get-repo-required-workflow-usage
-
-Get required workflow usage
-
-Using the `call` method:
-```php
-$client->call('GET /repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing', [
-        'org' => 'generated',
-        'repo' => 'generated',
-        'required_workflow_id_for_repo' => 29,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->getRepoRequiredWorkflowUsage(        org: 'generated',
-        repo: 'generated',
-        required_workflow_id_for_repo: 29,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#get-repository-required-workflow-usage).
-
-
 ### repos/get
 
 Get a repository
@@ -9497,50 +9265,6 @@ $client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsRepo
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#set-default-workflow-permissions-for-a-repository).
 
 
-### actions/list-required-workflow-runs
-
-List workflow runs for a required workflow
-
-Using the `call` method:
-```php
-$client->call('GET /repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs', [
-        'owner' => 'generated',
-        'repo' => 'generated',
-        'required_workflow_id_for_repo' => 29,
-        'actor' => 'generated',
-        'branch' => 'generated',
-        'event' => 'generated',
-        'status' => 'generated',
-        'created' => '1970-01-01T00:00:00+00:00',
-        'check_suite_id' => 14,
-        'head_sha' => 'generated',
-        'per_page' => 8,
-        'page' => 4,
-        'exclude_pull_requests' => ,
-]);
-```
-
-Operations method:
-```php
-$client->operations()->actions()->listRequiredWorkflowRuns(        owner: 'generated',
-        repo: 'generated',
-        required_workflow_id_for_repo: 29,
-        actor: 'generated',
-        branch: 'generated',
-        event: 'generated',
-        status: 'generated',
-        created: '1970-01-01T00:00:00+00:00',
-        check_suite_id: 14,
-        head_sha: 'generated',
-        per_page: 8,
-        page: 4,
-        exclude_pull_requests: ,
-);
-```
-
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-required-workflow-runs).
-
-
 ### actions/list-self-hosted-runners-for-repo
 
 List self-hosted runners for a repository
@@ -9587,6 +9311,28 @@ $client->operations()->actions()->listRunnerApplicationsForRepo(        owner: '
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/actions#list-runner-applications-for-a-repository).
+
+
+### actions/generate-runner-jitconfig-for-repo
+
+Create configuration for a just-in-time runner for a repository
+
+Using the `call` method:
+```php
+$client->call('POST /repos/{owner}/{repo}/actions/runners/generate-jitconfig', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->actions()->generateRunnerJitconfigForRepo(        owner: 'generated',
+        repo: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository).
 
 
 ### actions/create-registration-token-for-repo
@@ -14441,7 +14187,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### git/get-commit
 
-Get a commit
+Get a commit object
 
 Using the `call` method:
 ```php
@@ -17818,7 +17564,7 @@ $client->operations()->repos()->listReleases(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#list-releases).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#list-releases).
 
 
 ### repos/create-release
@@ -17864,7 +17610,7 @@ $client->operations()->repos()->getReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#get-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/assets#get-a-release-asset).
 
 
 ### repos/delete-release-asset
@@ -17888,7 +17634,7 @@ $client->operations()->repos()->deleteReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#delete-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/assets#delete-a-release-asset).
 
 
 ### repos/update-release-asset
@@ -17912,7 +17658,7 @@ $client->operations()->repos()->updateReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#update-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/assets#update-a-release-asset).
 
 
 ### repos/generate-release-notes
@@ -17934,7 +17680,7 @@ $client->operations()->repos()->generateReleaseNotes(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#generate-release-notes).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#generate-release-notes).
 
 
 ### repos/get-latest-release
@@ -17956,7 +17702,7 @@ $client->operations()->repos()->getLatestRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#get-the-latest-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#get-the-latest-release).
 
 
 ### repos/get-release-by-tag
@@ -17980,7 +17726,7 @@ $client->operations()->repos()->getReleaseByTag(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#get-a-release-by-tag-name).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#get-a-release-by-tag-name).
 
 
 ### repos/get-release
@@ -18004,7 +17750,7 @@ $client->operations()->repos()->getRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#get-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#get-a-release).
 
 
 ### repos/delete-release
@@ -18028,7 +17774,7 @@ $client->operations()->repos()->deleteRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#delete-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#delete-a-release).
 
 
 ### repos/update-release
@@ -18052,7 +17798,7 @@ $client->operations()->repos()->updateRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#update-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#update-a-release).
 
 
 ### repos/list-release-assets
@@ -18080,7 +17826,7 @@ $client->operations()->repos()->listReleaseAssets(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#list-release-assets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/assets#list-release-assets).
 
 
 ### repos/upload-release-asset
@@ -18108,7 +17854,7 @@ $client->operations()->repos()->uploadReleaseAsset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/repos#upload-a-release-asset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/assets#upload-a-release-asset).
 
 
 ### reactions/list-for-release
@@ -18201,6 +17947,8 @@ $client->call('GET /repos/{owner}/{repo}/rules/branches/{branch}', [
         'owner' => 'generated',
         'repo' => 'generated',
         'branch' => 'generated',
+        'per_page' => 8,
+        'page' => 4,
 ]);
 ```
 
@@ -18209,6 +17957,8 @@ Operations method:
 $client->operations()->repos()->getBranchRules(        owner: 'generated',
         repo: 'generated',
         branch: 'generated',
+        per_page: 8,
+        page: 4,
 );
 ```
 
@@ -18224,6 +17974,8 @@ Using the `call` method:
 $client->call('GET /repos/{owner}/{repo}/rulesets', [
         'owner' => 'generated',
         'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 4,
         'includes_parents' => ,
 ]);
 ```
@@ -18232,6 +17984,8 @@ Operations method:
 ```php
 $client->operations()->repos()->getRepoRulesets(        owner: 'generated',
         repo: 'generated',
+        per_page: 8,
+        page: 4,
         includes_parents: ,
 );
 ```

@@ -28,15 +28,11 @@ final class DeleteUserFromOrg
     private string $org;
     /**The unique identifier of the SCIM user. **/
     private string $scimUserId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId $hydrator, string $org, string $scimUserId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId $hydrator, string $org, string $scimUserId)
     {
-        $this->org                     = $org;
-        $this->scimUserId              = $scimUserId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org        = $org;
+        $this->scimUserId = $scimUserId;
     }
 
     public function createRequest(): RequestInterface
@@ -44,15 +40,34 @@ final class DeleteUserFromOrg
         return new Request(self::METHOD, str_replace(['{org}', '{scim_user_id}'], [$this->org, $this->scimUserId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
         switch ($contentType) {
             case 'application/json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Resource not found
+                     **/
+                    case 404:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(404, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Forbidden
+                     **/
+
+                    case 403:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(403, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                }
+
+                break;
+            case 'application/scim+json':
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**

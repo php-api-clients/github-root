@@ -17,7 +17,9 @@ final readonly class Teams
      * teamId: The id for a team
      * teamName: The name of the team
      */
-    public function __construct(#[MapFrom('team_id')] public int $teamId, #[MapFrom('team_name')] public string $teamName)
+    public function __construct(#[MapFrom('team_id')]
+    public int $teamId, #[MapFrom('team_name')]
+    public string $teamName,)
     {
     }
 }

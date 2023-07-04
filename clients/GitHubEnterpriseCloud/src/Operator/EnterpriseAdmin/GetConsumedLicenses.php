@@ -22,9 +22,7 @@ final readonly class GetConsumedLicenses
     {
     }
 
-    /**
-     * @return PromiseInterface<string>
-     **/
+    /** @return PromiseInterface<string> **/
     public function call(string $enterprise, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetConsumedLicenses($this->responseSchemaValidator, $this->hydrator, $enterprise, $perPage, $page);

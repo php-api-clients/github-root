@@ -23,9 +23,7 @@ final readonly class ListLinkedExternalIdpGroupsToTeamForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<ExternalGroups>
-     **/
+    /** @return PromiseInterface<ExternalGroups> **/
     public function call(string $org, string $teamSlug): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\ListLinkedExternalIdpGroupsToTeamForOrg($this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

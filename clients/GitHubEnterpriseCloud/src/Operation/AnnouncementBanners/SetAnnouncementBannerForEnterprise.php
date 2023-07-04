@@ -24,18 +24,12 @@ final class SetAnnouncementBannerForEnterprise
     public const OPERATION_MATCH = 'PATCH /enterprises/{enterprise}/announcement';
     private const METHOD         = 'PATCH';
     private const PATH           = '/enterprises/{enterprise}/announcement';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\Announcement $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Announcement $hydrator, string $enterprise)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\Announcement $hydrator, string $enterprise)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->enterprise              = $enterprise;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(array $data): RequestInterface

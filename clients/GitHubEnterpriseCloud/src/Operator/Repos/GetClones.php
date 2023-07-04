@@ -23,9 +23,7 @@ final readonly class GetClones
     {
     }
 
-    /**
-     * @return PromiseInterface<CloneTraffic>
-     **/
+    /** @return PromiseInterface<CloneTraffic> **/
     public function call(string $owner, string $repo, string $per = 'day'): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\GetClones($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $per);

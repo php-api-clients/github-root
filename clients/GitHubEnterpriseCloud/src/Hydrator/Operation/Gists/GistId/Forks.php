@@ -27,6 +27,7 @@ class Forks implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist\Files' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist⚡️Files($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -195,6 +196,15 @@ class Forks implements ObjectMapper
             if ($value === null) {
                 $missingFields[] = 'files';
                 goto after_files;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'files';
+                    $value = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist⚡️Files($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
             }
 
             $properties['files'] = $value;
@@ -660,6 +670,27 @@ class Forks implements ObjectMapper
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError', $exception, stack: $this->hydrationStack);
         }
     }
+
+        
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist⚡️Files(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist\Files
+    {
+        $properties = []; 
+        $missingFields = [];
+        try {
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist\Files', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist\Files::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist\Files(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist\Files', $exception, stack: $this->hydrationStack);
+        }
+    }
     
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
@@ -848,6 +879,7 @@ class Forks implements ObjectMapper
 
         
         $files = $object->files;
+        $files = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BaseGist⚡️Files($files);
         after_files:        $result['files'] = $files;
 
         

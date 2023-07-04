@@ -18,7 +18,7 @@ final readonly class ApplicationJson
      * displayName: The name of the user, suitable for display to end-users
      * emails: user emails
      */
-    public function __construct(public string $userName, public ?string $displayName, public Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson\Name $name, public array $emails, public ?array $schemas, public ?string $externalId, public ?array $groups, public ?bool $active)
+    public function __construct(public string $userName, public string|null $displayName, public Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson\Name $name, public array $emails, public array|null $schemas, public string|null $externalId, public array|null $groups, public bool|null $active)
     {
     }
 }

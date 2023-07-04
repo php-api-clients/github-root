@@ -16,7 +16,25 @@ final readonly class Users
     /**
      * githubComEnterpriseRoles: All enterprise roles for a user.
      */
-    public function __construct(#[MapFrom('github_com_login')] public ?string $githubComLogin, #[MapFrom('github_com_name')] public ?string $githubComName, #[MapFrom('enterprise_server_user_ids')] public ?array $enterpriseServerUserIds, #[MapFrom('github_com_user')] public ?bool $githubComUser, #[MapFrom('enterprise_server_user')] public ?bool $enterpriseServerUser, #[MapFrom('visual_studio_subscription_user')] public ?bool $visualStudioSubscriptionUser, #[MapFrom('license_type')] public ?string $licenseType, #[MapFrom('github_com_profile')] public ?string $githubComProfile, #[MapFrom('github_com_member_roles')] public ?array $githubComMemberRoles, #[MapFrom('github_com_enterprise_roles')] public ?array $githubComEnterpriseRoles, #[MapFrom('github_com_verified_domain_emails')] public ?array $githubComVerifiedDomainEmails, #[MapFrom('github_com_saml_name_id')] public ?string $githubComSamlNameId, #[MapFrom('github_com_orgs_with_pending_invites')] public ?array $githubComOrgsWithPendingInvites, #[MapFrom('github_com_two_factor_auth')] public ?bool $githubComTwoFactorAuth, #[MapFrom('enterprise_server_emails')] public ?array $enterpriseServerEmails, #[MapFrom('visual_studio_license_status')] public ?string $visualStudioLicenseStatus, #[MapFrom('visual_studio_subscription_email')] public ?string $visualStudioSubscriptionEmail, #[MapFrom('total_user_accounts')] public ?int $totalUserAccounts)
+    public function __construct(#[MapFrom('github_com_login')]
+    public string|null $githubComLogin, #[MapFrom('github_com_name')]
+    public string|null $githubComName, #[MapFrom('enterprise_server_user_ids')]
+    public array|null $enterpriseServerUserIds, #[MapFrom('github_com_user')]
+    public bool|null $githubComUser, #[MapFrom('enterprise_server_user')]
+    public bool|null $enterpriseServerUser, #[MapFrom('visual_studio_subscription_user')]
+    public bool|null $visualStudioSubscriptionUser, #[MapFrom('license_type')]
+    public string|null $licenseType, #[MapFrom('github_com_profile')]
+    public string|null $githubComProfile, #[MapFrom('github_com_member_roles')]
+    public array|null $githubComMemberRoles, #[MapFrom('github_com_enterprise_roles')]
+    public array|null $githubComEnterpriseRoles, #[MapFrom('github_com_verified_domain_emails')]
+    public array|null $githubComVerifiedDomainEmails, #[MapFrom('github_com_saml_name_id')]
+    public string|null $githubComSamlNameId, #[MapFrom('github_com_orgs_with_pending_invites')]
+    public array|null $githubComOrgsWithPendingInvites, #[MapFrom('github_com_two_factor_auth')]
+    public bool|null $githubComTwoFactorAuth, #[MapFrom('enterprise_server_emails')]
+    public array|null $enterpriseServerEmails, #[MapFrom('visual_studio_license_status')]
+    public string|null $visualStudioLicenseStatus, #[MapFrom('visual_studio_subscription_email')]
+    public string|null $visualStudioSubscriptionEmail, #[MapFrom('total_user_accounts')]
+    public int|null $totalUserAccounts,)
     {
     }
 }

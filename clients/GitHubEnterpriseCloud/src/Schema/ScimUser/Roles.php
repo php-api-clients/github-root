@@ -11,7 +11,7 @@ final readonly class Roles
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"generated","primary":false,"type":"generated","display":"generated"}';
 
-    public function __construct(public ?string $value, public ?bool $primary, public ?string $type, public ?string $display)
+    public function __construct(public string|null $value, public bool|null $primary, public string|null $type, public string|null $display)
     {
     }
 }

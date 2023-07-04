@@ -36,9 +36,7 @@ final class RemoveSelfHostedRunnerFromGroupForEnterprise
         return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_group_id}', '{runner_id}'], [$this->enterprise, $this->runnerGroupId, $this->runnerId], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code = $response->getStatusCode();

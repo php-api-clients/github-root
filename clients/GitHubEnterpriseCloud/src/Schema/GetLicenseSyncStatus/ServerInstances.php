@@ -14,7 +14,9 @@ final readonly class ServerInstances
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"server_id":"generated","hostname":"generated","last_sync":{"date":"generated","status":"generated","error":"generated"}}';
 
-    public function __construct(#[MapFrom('server_id')] public ?string $serverId, public ?string $hostname, #[MapFrom('last_sync')] public ?Schema\GetLicenseSyncStatus\ServerInstances\LastSync $lastSync)
+    public function __construct(#[MapFrom('server_id')]
+    public string|null $serverId, public string|null $hostname, #[MapFrom('last_sync')]
+    public Schema\GetLicenseSyncStatus\ServerInstances\LastSync|null $lastSync,)
     {
     }
 }

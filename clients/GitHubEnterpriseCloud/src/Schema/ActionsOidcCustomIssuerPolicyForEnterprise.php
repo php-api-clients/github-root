@@ -16,7 +16,8 @@ final readonly class ActionsOidcCustomIssuerPolicyForEnterprise
     /**
      * includeEnterpriseSlug: Whether the enterprise customer requested a custom issuer URL.
      */
-    public function __construct(#[MapFrom('include_enterprise_slug')] public ?bool $includeEnterpriseSlug)
+    public function __construct(#[MapFrom('include_enterprise_slug')]
+    public bool|null $includeEnterpriseSlug,)
     {
     }
 }

@@ -25,21 +25,15 @@ final class UpdateCustomRole
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/custom_roles/{role_id}';
     private const METHOD         = 'PATCH';
     private const PATH           = '/orgs/{org}/custom_roles/{role_id}';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the role. **/
     private int $roleId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\CustomRoles\RoleId $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\CustomRoles\RoleId $hydrator, string $org, int $roleId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\CustomRoles\RoleId $hydrator, string $org, int $roleId)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->org                     = $org;
-        $this->roleId                  = $roleId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org    = $org;
+        $this->roleId = $roleId;
     }
 
     public function createRequest(array $data): RequestInterface

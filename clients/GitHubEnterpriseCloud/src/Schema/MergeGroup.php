@@ -21,7 +21,12 @@ final readonly class MergeGroup
      * baseRef: The full ref of the branch the merge group will be merged into.
      * headCommit: A commit.
      */
-    public function __construct(#[MapFrom('head_sha')] public string $headSha, #[MapFrom('head_ref')] public string $headRef, #[MapFrom('base_sha')] public string $baseSha, #[MapFrom('base_ref')] public string $baseRef, #[MapFrom('head_commit')] public Schema\SimpleCommit $headCommit)
+    public function __construct(#[MapFrom('head_sha')]
+    public string $headSha, #[MapFrom('head_ref')]
+    public string $headRef, #[MapFrom('base_sha')]
+    public string $baseSha, #[MapFrom('base_ref')]
+    public string $baseRef, #[MapFrom('head_commit')]
+    public Schema\SimpleCommit $headCommit,)
     {
     }
 }

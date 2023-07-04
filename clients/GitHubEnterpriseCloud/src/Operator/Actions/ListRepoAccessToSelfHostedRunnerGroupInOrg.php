@@ -23,9 +23,7 @@ final readonly class ListRepoAccessToSelfHostedRunnerGroupInOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<Ok>
-     **/
+    /** @return PromiseInterface<Ok> **/
     public function call(string $org, int $runnerGroupId, int $page = 1, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg($this->responseSchemaValidator, $this->hydrator, $org, $runnerGroupId, $page, $perPage);

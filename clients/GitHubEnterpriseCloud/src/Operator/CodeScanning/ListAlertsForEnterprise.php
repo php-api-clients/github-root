@@ -22,9 +22,7 @@ final readonly class ListAlertsForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<mixed>
-     **/
+    /** @return PromiseInterface<mixed> **/
     public function call(string $enterprise, string $toolName, string|null $toolGuid, string $before, string $after, string $state, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created'): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\CodeScanning\ListAlertsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $toolName, $toolGuid, $before, $after, $state, $page, $perPage, $direction, $sort);

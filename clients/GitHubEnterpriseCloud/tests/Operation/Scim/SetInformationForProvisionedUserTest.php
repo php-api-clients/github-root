@@ -20,9 +20,7 @@ use function React\Promise\resolve;
 
 final class SetInformationForProvisionedUserTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\ScimUser::SCHEMA_EXAMPLE_DATA);
@@ -41,9 +39,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\ScimUser::SCHEMA_EXAMPLE_DATA);
@@ -57,9 +53,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->setInformationForProvisionedUser('generated', 'generated', json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -79,9 +73,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -96,9 +88,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->setInformationForProvisionedUser('generated', 'generated', json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -118,9 +108,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -135,9 +123,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->setInformationForProvisionedUser('generated', 'generated', json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -157,9 +143,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -174,9 +158,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->setInformationForProvisionedUser('generated', 'generated', json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -196,9 +178,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -213,9 +193,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->setInformationForProvisionedUser('generated', 'generated', json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_304_requestContentType_application_json_empty(): void
     {
         $response = new Response(304, []);
@@ -234,9 +212,7 @@ final class SetInformationForProvisionedUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_304_requestContentType_application_json_empty(): void
     {
         $response = new Response(304, []);

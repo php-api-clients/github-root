@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class GetProvisioningInformationForUserTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\ScimUser::SCHEMA_EXAMPLE_DATA);
@@ -40,9 +38,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\ScimUser::SCHEMA_EXAMPLE_DATA);
@@ -56,9 +52,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->getProvisioningInformationForUser('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -78,9 +72,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -95,9 +87,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->getProvisioningInformationForUser('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -117,9 +107,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -134,9 +122,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->getProvisioningInformationForUser('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -156,9 +142,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -173,9 +157,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->getProvisioningInformationForUser('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -195,9 +177,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -212,9 +192,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->getProvisioningInformationForUser('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_304_empty(): void
     {
         $response = new Response(304, []);
@@ -233,9 +211,7 @@ final class GetProvisioningInformationForUserTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_304_empty(): void
     {
         $response = new Response(304, []);

@@ -23,9 +23,7 @@ final readonly class ListIdpGroupsForOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<GroupMapping>
-     **/
+    /** @return PromiseInterface<GroupMapping> **/
     public function call(string $org, string $page, string $q, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\ListIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $page, $q, $perPage);

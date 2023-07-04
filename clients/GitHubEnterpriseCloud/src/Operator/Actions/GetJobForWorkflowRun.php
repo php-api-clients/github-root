@@ -23,9 +23,7 @@ final readonly class GetJobForWorkflowRun
     {
     }
 
-    /**
-     * @return PromiseInterface<Job>
-     **/
+    /** @return PromiseInterface<Job> **/
     public function call(string $owner, string $repo, int $jobId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\GetJobForWorkflowRun($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $jobId);

@@ -11,7 +11,7 @@ final readonly class Zero
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"active":false,"userName":"generated","externalId":"generated","givenName":"generated","familyName":"generated"}';
 
-    public function __construct(public ?bool $active, public ?string $userName, public ?string $externalId, public ?string $givenName, public ?string $familyName)
+    public function __construct(public bool|null $active, public string|null $userName, public string|null $externalId, public string|null $givenName, public string|null $familyName)
     {
     }
 }

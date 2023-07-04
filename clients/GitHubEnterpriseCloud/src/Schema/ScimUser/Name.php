@@ -11,7 +11,7 @@ final readonly class Name
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"givenName":"generated","familyName":"generated","formatted":"generated"}';
 
-    public function __construct(public ?string $givenName, public ?string $familyName, public ?string $formatted)
+    public function __construct(public string|null $givenName, public string|null $familyName, public string|null $formatted)
     {
     }
 }

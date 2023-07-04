@@ -19,7 +19,11 @@ final readonly class Members
      * memberName: The user display name/profile name
      * memberEmail: An email attached to a user
      */
-    public function __construct(#[MapFrom('member_id')] public int $memberId, #[MapFrom('member_login')] public string $memberLogin, #[MapFrom('member_name')] public string $memberName, #[MapFrom('member_email')] public string $memberEmail)
+    public function __construct(#[MapFrom('member_id')]
+    public int $memberId, #[MapFrom('member_login')]
+    public string $memberLogin, #[MapFrom('member_name')]
+    public string $memberName, #[MapFrom('member_email')]
+    public string $memberEmail,)
     {
     }
 }

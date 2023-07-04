@@ -23,9 +23,7 @@ final readonly class MarkNotificationsAsRead
     {
     }
 
-    /**
-     * @return PromiseInterface<(Accepted|array)>
-     **/
+    /** @return PromiseInterface<(Accepted|array)> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Activity\MarkNotificationsAsRead($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
