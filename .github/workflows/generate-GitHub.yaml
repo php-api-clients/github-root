@@ -18,6 +18,7 @@ jobs:
           rm etc/specs/GitHub/previous.spec.yaml || true
           mv etc/specs/GitHub/current.spec.yaml etc/specs/GitHub/previous.spec.yaml
           curl -o etc/specs/GitHub/current.spec.yaml https://raw.githubusercontent.com/github/rest-api-description/main/descriptions-next/api.github.com/api.github.com.yaml
+          php utils/patch-broken-spec-files.php etc/specs/GitHub/current.spec.yaml
       - name: Hash specs
         id: spec-hash
         run: |

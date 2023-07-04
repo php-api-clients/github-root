@@ -18,6 +18,7 @@ jobs:
           rm etc/specs/{{ path }}/previous.spec.yaml || true
           mv etc/specs/{{ path }}/current.spec.yaml etc/specs/{{ path }}/previous.spec.yaml
           curl -o etc/specs/{{ path }}/current.spec.yaml {{ specUrl }}
+          php utils/patch-broken-spec-files.php etc/specs/{{ path }}/current.spec.yaml
       - name: Hash specs
         id: spec-hash
         run: |
