@@ -54,6 +54,7 @@ jobs:
             Automated PR
             New Version
             automerge
+            GitHubEnterprise-3.9
           title: "[GitHubEnterprise-3.9] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})"
           body: |
             Detected Schema changes:
