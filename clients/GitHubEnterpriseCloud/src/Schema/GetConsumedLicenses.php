@@ -13,7 +13,9 @@ final readonly class GetConsumedLicenses
     public const SCHEMA_DESCRIPTION  = 'A breakdown of the licenses consumed by an enterprise.';
     public const SCHEMA_EXAMPLE_DATA = '{"total_seats_consumed":20,"total_seats_purchased":21,"users":[{"github_com_login":"generated","github_com_name":"generated","enterprise_server_user_ids":["generated","generated"],"github_com_user":false,"enterprise_server_user":false,"visual_studio_subscription_user":false,"license_type":"generated","github_com_profile":"generated","github_com_member_roles":["generated","generated"],"github_com_enterprise_roles":["generated","generated"],"github_com_verified_domain_emails":["generated","generated"],"github_com_saml_name_id":"generated","github_com_orgs_with_pending_invites":["generated","generated"],"github_com_two_factor_auth":false,"enterprise_server_emails":["generated","generated"],"visual_studio_license_status":"generated","visual_studio_subscription_email":"generated","total_user_accounts":19},{"github_com_login":"generated","github_com_name":"generated","enterprise_server_user_ids":["generated","generated"],"github_com_user":false,"enterprise_server_user":false,"visual_studio_subscription_user":false,"license_type":"generated","github_com_profile":"generated","github_com_member_roles":["generated","generated"],"github_com_enterprise_roles":["generated","generated"],"github_com_verified_domain_emails":["generated","generated"],"github_com_saml_name_id":"generated","github_com_orgs_with_pending_invites":["generated","generated"],"github_com_two_factor_auth":false,"enterprise_server_emails":["generated","generated"],"visual_studio_license_status":"generated","visual_studio_subscription_email":"generated","total_user_accounts":19}]}';
 
-    public function __construct(#[MapFrom('total_seats_consumed')] public ?int $totalSeatsConsumed, #[MapFrom('total_seats_purchased')] public ?int $totalSeatsPurchased, public ?array $users)
+    public function __construct(#[MapFrom('total_seats_consumed')]
+    public int|null $totalSeatsConsumed, #[MapFrom('total_seats_purchased')]
+    public int|null $totalSeatsPurchased, public array|null $users,)
     {
     }
 }

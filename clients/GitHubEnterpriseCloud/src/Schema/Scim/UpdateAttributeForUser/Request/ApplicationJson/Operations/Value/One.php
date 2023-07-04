@@ -11,7 +11,7 @@ final readonly class One
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"generated","primary":false}';
 
-    public function __construct(public ?string $value, public ?bool $primary)
+    public function __construct(public string|null $value, public bool|null $primary)
     {
     }
 }

@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryAdvisoryUpdat
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class Vulnerabilities extends Schema\AliasAbstract\Tiet9C524CE6\Tiet3113C78B\Tiet187F1CBF\Tiet4C51E340
+final readonly class Vulnerabilities extends Schema\AliasAbstract\Tiet4C203984\Tiet86D11BF8\Tiet9FC2225A\Tiet026CAEC5
 {
 }

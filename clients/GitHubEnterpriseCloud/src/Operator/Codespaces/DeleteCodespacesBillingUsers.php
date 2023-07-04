@@ -22,9 +22,7 @@ final readonly class DeleteCodespacesBillingUsers
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\DeleteCodespacesBillingUsers($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

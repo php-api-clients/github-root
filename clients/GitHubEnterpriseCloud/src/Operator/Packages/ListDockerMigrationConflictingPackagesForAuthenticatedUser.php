@@ -20,9 +20,7 @@ final readonly class ListDockerMigrationConflictingPackagesForAuthenticatedUser
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Packages\ListDockerMigrationConflictingPackagesForAuthenticatedUser();

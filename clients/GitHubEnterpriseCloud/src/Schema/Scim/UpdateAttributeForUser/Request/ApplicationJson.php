@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * operations: Set of operations to be performed
      */
-    public function __construct(public ?array $schemas, #[MapFrom('Operations')] public array $operations)
+    public function __construct(public array|null $schemas, #[MapFrom('Operations')]
+    public array $operations,)
     {
     }
 }

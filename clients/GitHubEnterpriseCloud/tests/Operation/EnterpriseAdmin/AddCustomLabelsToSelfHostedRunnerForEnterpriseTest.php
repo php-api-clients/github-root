@@ -20,9 +20,7 @@ use function React\Promise\resolve;
 
 final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA);
@@ -41,9 +39,7 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
         })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok::SCHEMA_EXAMPLE_DATA);
@@ -57,9 +53,7 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
         $result = await($client->operations()->enterpriseAdmin()->addCustomLabelsToSelfHostedRunnerForEnterprise('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -79,9 +73,7 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
         })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -96,9 +88,7 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
         $result = await($client->operations()->enterpriseAdmin()->addCustomLabelsToSelfHostedRunnerForEnterprise('generated', 9, json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationErrorSimple::class);
@@ -118,9 +108,7 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterpriseTest extends AsyncTest
         })(json_decode(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationErrorSimple::class);

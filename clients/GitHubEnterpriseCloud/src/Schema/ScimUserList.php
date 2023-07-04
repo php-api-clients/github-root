@@ -16,7 +16,8 @@ final readonly class ScimUserList
     /**
      * schemas: SCIM schema used.
      */
-    public function __construct(public array $schemas, public int $totalResults, public int $itemsPerPage, public int $startIndex, #[MapFrom('Resources')] public array $resources)
+    public function __construct(public array $schemas, public int $totalResults, public int $itemsPerPage, public int $startIndex, #[MapFrom('Resources')]
+    public array $resources,)
     {
     }
 }

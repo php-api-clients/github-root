@@ -14,7 +14,7 @@ final readonly class GroupMapping
     /**
      * groups: Array of groups to be mapped to this team
      */
-    public function __construct(public ?array $groups)
+    public function __construct(public array|null $groups)
     {
     }
 }

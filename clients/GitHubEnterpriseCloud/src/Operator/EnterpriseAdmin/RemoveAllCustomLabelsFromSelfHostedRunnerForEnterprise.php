@@ -23,9 +23,7 @@ final readonly class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<Json>
-     **/
+    /** @return PromiseInterface<Json> **/
     public function call(string $enterprise, int $runnerId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $runnerId);

@@ -23,9 +23,7 @@ final readonly class Topics
     {
     }
 
-    /**
-     * @return PromiseInterface<(Ok|array)>
-     **/
+    /** @return PromiseInterface<(Ok|array)> **/
     public function call(string $q, int $perPage = 30, int $page = 1): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Search\Topics($this->responseSchemaValidator, $this->hydrator, $q, $perPage, $page);

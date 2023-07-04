@@ -33,16 +33,12 @@ final class PostSecurityProductEnablementForEnterprise
     `enable_all` means to enable the specified security feature for all repositories in the enterprise.
     `disable_all` means to disable the specified security feature for all repositories in the enterprise. **/
     private string $enablement;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\SecurityProduct\Enablement $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\SecurityProduct\Enablement $hydrator, string $enterprise, string $securityProduct, string $enablement)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\SecurityProduct\Enablement $hydrator, string $enterprise, string $securityProduct, string $enablement)
     {
-        $this->enterprise              = $enterprise;
-        $this->securityProduct         = $securityProduct;
-        $this->enablement              = $enablement;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise      = $enterprise;
+        $this->securityProduct = $securityProduct;
+        $this->enablement      = $enablement;
     }
 
     public function createRequest(): RequestInterface
@@ -50,9 +46,7 @@ final class PostSecurityProductEnablementForEnterprise
         return new Request(self::METHOD, str_replace(['{enterprise}', '{security_product}', '{enablement}'], [$this->enterprise, $this->securityProduct, $this->enablement], self::PATH));
     }
 
-    /**
-     * @return array{code: int}
-     */
+    /** @return array{code: int} */
     public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();

@@ -23,9 +23,7 @@ final readonly class GetForAuthenticatedUser
     {
     }
 
-    /**
-     * @return PromiseInterface<(Codespace|array)>
-     **/
+    /** @return PromiseInterface<(Codespace|array)> **/
     public function call(string $codespaceName): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Codespaces\GetForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $codespaceName);

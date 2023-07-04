@@ -23,9 +23,7 @@ final readonly class GetSelfHostedRunnerForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<Runner>
-     **/
+    /** @return PromiseInterface<Runner> **/
     public function call(string $enterprise, int $runnerId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $runnerId);

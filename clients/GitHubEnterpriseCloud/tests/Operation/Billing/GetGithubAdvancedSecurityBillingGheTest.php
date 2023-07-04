@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class GetGithubAdvancedSecurityBillingGheTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\AdvancedSecurityActiveCommitters::SCHEMA_EXAMPLE_DATA);
@@ -41,9 +39,7 @@ final class GetGithubAdvancedSecurityBillingGheTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\AdvancedSecurityActiveCommitters::SCHEMA_EXAMPLE_DATA);
@@ -57,9 +53,7 @@ final class GetGithubAdvancedSecurityBillingGheTest extends AsyncTestCase
         $result = await($client->operations()->billing()->getGithubAdvancedSecurityBillingGhe('generated', 8, 4));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -80,9 +74,7 @@ final class GetGithubAdvancedSecurityBillingGheTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);

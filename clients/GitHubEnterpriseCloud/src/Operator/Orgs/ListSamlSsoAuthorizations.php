@@ -20,9 +20,7 @@ final readonly class ListSamlSsoAuthorizations
     {
     }
 
-    /**
-     * @return PromiseInterface<ResponseInterface>
-     **/
+    /** @return PromiseInterface<ResponseInterface> **/
     public function call(string $org, int $page, string $login, int $perPage = 30): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Orgs\ListSamlSsoAuthorizations($org, $page, $login, $perPage);

@@ -18,7 +18,10 @@ final readonly class SelectedActions
      * verifiedAllowed: Whether actions from GitHub Marketplace verified creators are allowed. Set to `true` to allow all actions by GitHub Marketplace verified creators.
      * patternsAllowed: Specifies a list of string-matching patterns to allow specific action(s) and reusable workflow(s). Wildcards, tags, and SHAs are allowed. For example, `monalisa/octocat@*`, `monalisa/octocat@v2`, `monalisa/*`.
      */
-    public function __construct(#[MapFrom('github_owned_allowed')] public ?bool $githubOwnedAllowed, #[MapFrom('verified_allowed')] public ?bool $verifiedAllowed, #[MapFrom('patterns_allowed')] public ?array $patternsAllowed)
+    public function __construct(#[MapFrom('github_owned_allowed')]
+    public bool|null $githubOwnedAllowed, #[MapFrom('verified_allowed')]
+    public bool|null $verifiedAllowed, #[MapFrom('patterns_allowed')]
+    public array|null $patternsAllowed,)
     {
     }
 }

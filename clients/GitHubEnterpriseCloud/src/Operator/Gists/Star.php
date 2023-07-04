@@ -22,9 +22,7 @@ final readonly class Star
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $gistId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Gists\Star($this->responseSchemaValidator, $this->hydrator, $gistId);

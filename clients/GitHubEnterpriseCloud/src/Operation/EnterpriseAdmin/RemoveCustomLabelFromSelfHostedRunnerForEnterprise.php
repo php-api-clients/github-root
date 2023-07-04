@@ -30,16 +30,12 @@ final class RemoveCustomLabelFromSelfHostedRunnerForEnterprise
     private int $runnerId;
     /**The name of a self-hosted runner's custom label. **/
     private string $name;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name $hydrator, string $enterprise, int $runnerId, string $name)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name $hydrator, string $enterprise, int $runnerId, string $name)
     {
-        $this->enterprise              = $enterprise;
-        $this->runnerId                = $runnerId;
-        $this->name                    = $name;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->enterprise = $enterprise;
+        $this->runnerId   = $runnerId;
+        $this->name       = $name;
     }
 
     public function createRequest(): RequestInterface

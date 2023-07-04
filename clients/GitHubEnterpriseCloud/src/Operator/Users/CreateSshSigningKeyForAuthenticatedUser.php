@@ -23,9 +23,7 @@ final readonly class CreateSshSigningKeyForAuthenticatedUser
     {
     }
 
-    /**
-     * @return PromiseInterface<(SshSigningKey|array)>
-     **/
+    /** @return PromiseInterface<(SshSigningKey|array)> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Users\CreateSshSigningKeyForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

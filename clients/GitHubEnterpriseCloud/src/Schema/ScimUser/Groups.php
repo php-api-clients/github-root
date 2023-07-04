@@ -11,7 +11,7 @@ final readonly class Groups
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{"value":"generated","display":"generated"}';
 
-    public function __construct(public ?string $value, public ?string $display)
+    public function __construct(public string|null $value, public string|null $display)
     {
     }
 }

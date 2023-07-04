@@ -23,9 +23,7 @@ final readonly class CreateOrUpdateIdpGroupConnectionsInOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<GroupMapping>
-     **/
+    /** @return PromiseInterface<GroupMapping> **/
     public function call(string $org, string $teamSlug, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\CreateOrUpdateIdpGroupConnectionsInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

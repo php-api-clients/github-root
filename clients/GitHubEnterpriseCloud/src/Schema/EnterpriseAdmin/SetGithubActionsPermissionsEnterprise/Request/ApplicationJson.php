@@ -17,7 +17,9 @@ final readonly class ApplicationJson
      * enabledOrganizations: The policy that controls the organizations in the enterprise that are allowed to run GitHub Actions.
      * allowedActions: The permissions policy that controls the actions and reusable workflows that are allowed to run.
      */
-    public function __construct(#[MapFrom('enabled_organizations')] public string $enabledOrganizations, #[MapFrom('allowed_actions')] public ?string $allowedActions)
+    public function __construct(#[MapFrom('enabled_organizations')]
+    public string $enabledOrganizations, #[MapFrom('allowed_actions')]
+    public string|null $allowedActions,)
     {
     }
 }

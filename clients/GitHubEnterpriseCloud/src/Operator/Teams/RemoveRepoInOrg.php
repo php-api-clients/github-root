@@ -20,9 +20,7 @@ final readonly class RemoveRepoInOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, string $teamSlug, string $owner, string $repo): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\RemoveRepoInOrg($org, $teamSlug, $owner, $repo);

@@ -23,9 +23,7 @@ final readonly class ListIdpGroupsForLegacy
     {
     }
 
-    /**
-     * @return PromiseInterface<GroupMapping>
-     **/
+    /** @return PromiseInterface<GroupMapping> **/
     public function call(int $teamId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\ListIdpGroupsForLegacy($this->responseSchemaValidator, $this->hydrator, $teamId);

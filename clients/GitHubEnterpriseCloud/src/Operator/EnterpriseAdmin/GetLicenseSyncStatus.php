@@ -22,9 +22,7 @@ final readonly class GetLicenseSyncStatus
     {
     }
 
-    /**
-     * @return PromiseInterface<string>
-     **/
+    /** @return PromiseInterface<string> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\GetLicenseSyncStatus($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -23,9 +23,7 @@ final readonly class GetSharedStorageBillingGhe
     {
     }
 
-    /**
-     * @return PromiseInterface<CombinedBillingUsage>
-     **/
+    /** @return PromiseInterface<CombinedBillingUsage> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Billing\GetSharedStorageBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -23,9 +23,7 @@ final readonly class GetSecurityAnalysisSettingsForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<EnterpriseSecurityAnalysisSettings>
-     **/
+    /** @return PromiseInterface<EnterpriseSecurityAnalysisSettings> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\SecretScanning\GetSecurityAnalysisSettingsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

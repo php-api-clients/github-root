@@ -19,7 +19,8 @@ final readonly class OrganizationCustomRepositoryRoleCreateSchema
      * baseRole: The system role from which this role inherits permissions.
      * permissions: A list of additional permissions included in this role.
      */
-    public function __construct(public string $name, public ?string $description, #[MapFrom('base_role')] public string $baseRole, public array $permissions)
+    public function __construct(public string $name, public string|null $description, #[MapFrom('base_role')]
+    public string $baseRole, public array $permissions,)
     {
     }
 }

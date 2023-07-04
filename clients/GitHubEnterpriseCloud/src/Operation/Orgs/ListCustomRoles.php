@@ -25,14 +25,10 @@ final class ListCustomRoles
     private const PATH           = '/organizations/{organization_id}/custom_roles';
     /**The unique identifier of the organization. **/
     private string $organizationId;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Organizations\OrganizationId\CustomRoles $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Organizations\OrganizationId\CustomRoles $hydrator, string $organizationId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Organizations\OrganizationId\CustomRoles $hydrator, string $organizationId)
     {
-        $this->organizationId          = $organizationId;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->organizationId = $organizationId;
     }
 
     public function createRequest(): RequestInterface

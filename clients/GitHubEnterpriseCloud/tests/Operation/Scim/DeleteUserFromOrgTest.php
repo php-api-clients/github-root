@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class DeleteUserFromOrgTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -41,9 +39,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -58,9 +54,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         $result = await($client->operations()->scim()->deleteUserFromOrg('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -80,9 +74,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -97,9 +89,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         $result = await($client->operations()->scim()->deleteUserFromOrg('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -119,9 +109,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -136,9 +124,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         $result = await($client->operations()->scim()->deleteUserFromOrg('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -158,9 +144,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -175,9 +159,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         $result = await($client->operations()->scim()->deleteUserFromOrg('generated', 'generated'));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_204_empty(): void
     {
         $response = new Response(204, []);
@@ -196,9 +178,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_204_empty(): void
     {
         $response = new Response(204, []);
@@ -214,9 +194,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         self::assertSame(204, $result['code']);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_304_empty(): void
     {
         $response = new Response(304, []);
@@ -235,9 +213,7 @@ final class DeleteUserFromOrgTest extends AsyncTestCase
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_304_empty(): void
     {
         $response = new Response(304, []);

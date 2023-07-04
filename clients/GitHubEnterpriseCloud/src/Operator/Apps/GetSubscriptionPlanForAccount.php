@@ -23,9 +23,7 @@ final readonly class GetSubscriptionPlanForAccount
     {
     }
 
-    /**
-     * @return PromiseInterface<MarketplacePurchase>
-     **/
+    /** @return PromiseInterface<MarketplacePurchase> **/
     public function call(int $accountId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Apps\GetSubscriptionPlanForAccount($this->responseSchemaValidator, $this->hydrator, $accountId);

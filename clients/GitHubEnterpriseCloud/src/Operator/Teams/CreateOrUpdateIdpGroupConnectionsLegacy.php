@@ -23,9 +23,7 @@ final readonly class CreateOrUpdateIdpGroupConnectionsLegacy
     {
     }
 
-    /**
-     * @return PromiseInterface<GroupMapping>
-     **/
+    /** @return PromiseInterface<GroupMapping> **/
     public function call(int $teamId, array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Teams\CreateOrUpdateIdpGroupConnectionsLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId);

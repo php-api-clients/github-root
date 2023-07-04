@@ -20,9 +20,7 @@ final readonly class DeleteInvitation
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $owner, string $repo, int $invitationId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Repos\DeleteInvitation($owner, $repo, $invitationId);

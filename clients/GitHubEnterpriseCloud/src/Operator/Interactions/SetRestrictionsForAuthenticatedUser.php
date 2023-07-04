@@ -23,9 +23,7 @@ final readonly class SetRestrictionsForAuthenticatedUser
     {
     }
 
-    /**
-     * @return PromiseInterface<InteractionLimitResponse>
-     **/
+    /** @return PromiseInterface<InteractionLimitResponse> **/
     public function call(array $params): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Interactions\SetRestrictionsForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

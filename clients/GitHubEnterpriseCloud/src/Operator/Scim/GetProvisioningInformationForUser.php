@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operator\Scim;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -22,15 +23,13 @@ final readonly class GetProvisioningInformationForUser
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<(ScimUser|array)> **/
     public function call(string $org, string $scimUserId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Scim\GetProvisioningInformationForUser($this->responseSchemaValidator, $this->hydrator, $org, $scimUserId);
         $request   = $operation->createRequest();
 
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
+        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ScimUser|array {
             return $operation->createResponse($response);
         });
     }

@@ -20,9 +20,7 @@ use function React\Promise\resolve;
 
 final class ProvisionAndInviteUserTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/scim+json'], Schema\ScimUser::SCHEMA_EXAMPLE_DATA);
@@ -40,9 +38,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         $response = new Response(201, ['Content-Type' => 'application/scim+json'], Schema\ScimUser::SCHEMA_EXAMPLE_DATA);
@@ -56,9 +52,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -77,9 +71,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -94,9 +86,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -115,9 +105,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -132,9 +120,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -153,9 +139,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -170,9 +154,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_403_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -191,9 +173,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_403_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -208,9 +188,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -229,9 +207,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -246,9 +222,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_500_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -267,9 +241,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_500_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -284,9 +256,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_409_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -305,9 +275,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_409_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -322,9 +290,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_409_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -343,9 +309,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_409_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -360,9 +324,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -381,9 +343,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -398,9 +358,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_400_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -419,9 +377,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_400_requestContentType_application_json_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
@@ -436,9 +392,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         $result = await($client->operations()->scim()->provisionAndInviteUser('generated', json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_304_requestContentType_application_json_empty(): void
     {
         $response = new Response(304, []);
@@ -456,9 +410,7 @@ final class ProvisionAndInviteUserTest extends AsyncTestCase
         })(json_decode(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_304_requestContentType_application_json_empty(): void
     {
         $response = new Response(304, []);

@@ -18,7 +18,10 @@ final readonly class Groups
      * groupName: Name of the IdP group.
      * groupDescription: Description of the IdP group.
      */
-    public function __construct(#[MapFrom('group_id')] public string $groupId, #[MapFrom('group_name')] public string $groupName, #[MapFrom('group_description')] public string $groupDescription, public ?string $id, public ?string $name, public ?string $description)
+    public function __construct(#[MapFrom('group_id')]
+    public string $groupId, #[MapFrom('group_name')]
+    public string $groupName, #[MapFrom('group_description')]
+    public string $groupDescription, public string|null $id, public string|null $name, public string|null $description,)
     {
     }
 }

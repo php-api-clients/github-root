@@ -26,7 +26,8 @@ final readonly class ScimUser
      * operations: Set of operations to be performed
      * groups: associated groups
      */
-    public function __construct(public array $schemas, public string $id, public ?string $externalId, public ?string $userName, public ?string $displayName, public ?Schema\ScimUser\Name $name, public array $emails, public bool $active, public Schema\ScimUser\Meta $meta, #[MapFrom('organization_id')] public ?int $organizationId, public ?array $operations, public ?array $groups, public ?array $roles)
+    public function __construct(public array $schemas, public string $id, public string|null $externalId, public string|null $userName, public string|null $displayName, public Schema\ScimUser\Name|null $name, public array $emails, public bool $active, public Schema\ScimUser\Meta $meta, #[MapFrom('organization_id')]
+    public int|null $organizationId, public array|null $operations, public array|null $groups, public array|null $roles,)
     {
     }
 }

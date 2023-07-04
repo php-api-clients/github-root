@@ -25,18 +25,12 @@ final class ProvisionAndInviteUser
     public const OPERATION_MATCH = 'POST /scim/v2/organizations/{org}/Users';
     private const METHOD         = 'POST';
     private const PATH           = '/scim/v2/organizations/{org}/Users';
-    private readonly SchemaValidator $requestSchemaValidator;
     /**The organization name. The name is not case sensitive. **/
     private string $org;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Scim\V2\Organizations\Org\Users $hydrator;
 
-    public function __construct(SchemaValidator $requestSchemaValidator, SchemaValidator $responseSchemaValidator, Hydrator\Operation\Scim\V2\Organizations\Org\Users $hydrator, string $org)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Scim\V2\Organizations\Org\Users $hydrator, string $org)
     {
-        $this->requestSchemaValidator  = $requestSchemaValidator;
-        $this->org                     = $org;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org = $org;
     }
 
     public function createRequest(array $data): RequestInterface
@@ -46,10 +40,8 @@ final class ProvisionAndInviteUser
         return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /**
-     * @return array{code: int}
-     */
-    public function createResponse(ResponseInterface $response): array
+    /** @return Schema\ScimUser|array{code: int} */
+    public function createResponse(ResponseInterface $response): Schema\ScimUser|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -60,6 +52,59 @@ final class ProvisionAndInviteUser
                     /**
                      * Resource not found
                      **/
+                    case 404:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(404, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Forbidden
+                     **/
+
+                    case 403:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(403, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Internal server error
+                     **/
+
+                    case 500:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(500, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Conflict
+                     **/
+
+                    case 409:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(409, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                    /**
+                     * Bad request
+                     **/
+
+                    case 400:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\ScimError(400, $this->hydrator->hydrateObject(Schema\ScimError::class, $body));
+                }
+
+                break;
+            case 'application/scim+json':
+                $body = json_decode($response->getBody()->getContents(), true);
+                switch ($code) {
+                    /**
+                     * Response
+                     **/
+                    case 201:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimUser::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        return $this->hydrator->hydrateObject(Schema\ScimUser::class, $body);
+                    /**
+                     * Resource not found
+                     **/
+
                     case 404:
                         $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ScimError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 

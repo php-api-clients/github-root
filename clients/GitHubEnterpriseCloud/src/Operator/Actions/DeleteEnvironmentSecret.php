@@ -20,9 +20,7 @@ final readonly class DeleteEnvironmentSecret
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(int $repositoryId, string $environmentName, string $secretName): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Actions\DeleteEnvironmentSecret($repositoryId, $environmentName, $secretName);

@@ -23,9 +23,7 @@ final readonly class CreateRemoveTokenForEnterprise
     {
     }
 
-    /**
-     * @return PromiseInterface<AuthenticationToken>
-     **/
+    /** @return PromiseInterface<AuthenticationToken> **/
     public function call(string $enterprise): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\EnterpriseAdmin\CreateRemoveTokenForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

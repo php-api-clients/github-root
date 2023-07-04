@@ -31,17 +31,13 @@ final class ListIdpGroupsForOrg
     private string $q;
     /**The number of results per page (max 100). **/
     private int $perPage;
-    private readonly SchemaValidator $responseSchemaValidator;
-    private readonly Hydrator\Operation\Orgs\Org\TeamSync\Groups $hydrator;
 
-    public function __construct(SchemaValidator $responseSchemaValidator, Hydrator\Operation\Orgs\Org\TeamSync\Groups $hydrator, string $org, string $page, string $q, int $perPage = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrator\Operation\Orgs\Org\TeamSync\Groups $hydrator, string $org, string $page, string $q, int $perPage = 30)
     {
-        $this->org                     = $org;
-        $this->page                    = $page;
-        $this->q                       = $q;
-        $this->perPage                 = $perPage;
-        $this->responseSchemaValidator = $responseSchemaValidator;
-        $this->hydrator                = $hydrator;
+        $this->org     = $org;
+        $this->page    = $page;
+        $this->q       = $q;
+        $this->perPage = $perPage;
     }
 
     public function createRequest(): RequestInterface

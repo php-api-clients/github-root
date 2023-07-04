@@ -22,9 +22,7 @@ final readonly class DeleteUserFromOrg
     {
     }
 
-    /**
-     * @return PromiseInterface<array>
-     **/
+    /** @return PromiseInterface<array> **/
     public function call(string $org, string $scimUserId): PromiseInterface
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Scim\DeleteUserFromOrg($this->responseSchemaValidator, $this->hydrator, $org, $scimUserId);

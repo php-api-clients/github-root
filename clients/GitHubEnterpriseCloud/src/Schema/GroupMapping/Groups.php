@@ -20,7 +20,11 @@ final readonly class Groups
      * status: synchronization status for this group mapping
      * syncedAt: the time of the last sync for this group-mapping
      */
-    public function __construct(#[MapFrom('group_id')] public string $groupId, #[MapFrom('group_name')] public string $groupName, #[MapFrom('group_description')] public string $groupDescription, public ?string $status, #[MapFrom('synced_at')] public ?string $syncedAt)
+    public function __construct(#[MapFrom('group_id')]
+    public string $groupId, #[MapFrom('group_name')]
+    public string $groupName, #[MapFrom('group_description')]
+    public string $groupDescription, public string|null $status, #[MapFrom('synced_at')]
+    public string|null $syncedAt,)
     {
     }
 }

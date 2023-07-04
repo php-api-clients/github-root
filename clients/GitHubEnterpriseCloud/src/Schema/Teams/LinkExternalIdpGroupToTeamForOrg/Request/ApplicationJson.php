@@ -16,7 +16,8 @@ final readonly class ApplicationJson
     /**
      * groupId: External Group Id
      */
-    public function __construct(#[MapFrom('group_id')] public int $groupId)
+    public function __construct(#[MapFrom('group_id')]
+    public int $groupId,)
     {
     }
 }

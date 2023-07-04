@@ -19,9 +19,7 @@ use function React\Promise\resolve;
 
 final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterpriseTest extends AsyncTestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json::SCHEMA_EXAMPLE_DATA);
@@ -40,9 +38,7 @@ final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterpriseTest extends A
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_200_responseContentType_application_json_zero(): void
     {
         $response = new Response(200, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json::SCHEMA_EXAMPLE_DATA);
@@ -56,9 +52,7 @@ final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterpriseTest extends A
         $result = await($client->operations()->enterpriseAdmin()->removeAllCustomLabelsFromSelfHostedRunnerForEnterprise('generated', 9));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -78,9 +72,7 @@ final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterpriseTest extends A
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_404_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\BasicError::class);
@@ -95,9 +87,7 @@ final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterpriseTest extends A
         $result = await($client->operations()->enterpriseAdmin()->removeAllCustomLabelsFromSelfHostedRunnerForEnterprise('generated', 9));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function call_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationErrorSimple::class);
@@ -117,9 +107,7 @@ final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterpriseTest extends A
         })([]));
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function operations_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ValidationErrorSimple::class);
