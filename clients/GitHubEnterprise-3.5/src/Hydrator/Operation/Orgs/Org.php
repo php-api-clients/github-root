@@ -322,17 +322,6 @@ class Org implements ObjectMapper
 
             after_htmlUrl:
 
-            $value = $payload['created_at'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'created_at';
-                goto after_createdAt;
-            }
-
-            $properties['createdAt'] = $value;
-
-            after_createdAt:
-
             $value = $payload['type'] ?? null;
 
             if ($value === null) {
@@ -550,6 +539,17 @@ class Org implements ObjectMapper
             $properties['membersCanForkPrivateRepositories'] = $value;
 
             after_membersCanForkPrivateRepositories:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'created_at';
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
 
             $value = $payload['updated_at'] ?? null;
 
@@ -966,10 +966,6 @@ class Org implements ObjectMapper
         after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
-        $createdAt = $object->createdAt;
-        after_createdAt:        $result['created_at'] = $createdAt;
-
-        
         $type = $object->type;
         after_type:        $result['type'] = $type;
 
@@ -1117,6 +1113,10 @@ class Org implements ObjectMapper
             goto after_membersCanForkPrivateRepositories;
         }
         after_membersCanForkPrivateRepositories:        $result['members_can_fork_private_repositories'] = $membersCanForkPrivateRepositories;
+
+        
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
 
         
         $updatedAt = $object->updatedAt;
