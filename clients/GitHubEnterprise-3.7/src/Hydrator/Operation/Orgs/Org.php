@@ -322,17 +322,6 @@ class Org implements ObjectMapper
 
             after_htmlUrl:
 
-            $value = $payload['created_at'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'created_at';
-                goto after_createdAt;
-            }
-
-            $properties['createdAt'] = $value;
-
-            after_createdAt:
-
             $value = $payload['type'] ?? null;
 
             if ($value === null) {
@@ -562,17 +551,6 @@ class Org implements ObjectMapper
 
             after_webCommitSignoffRequired:
 
-            $value = $payload['updated_at'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'updated_at';
-                goto after_updatedAt;
-            }
-
-            $properties['updatedAt'] = $value;
-
-            after_updatedAt:
-
             $value = $payload['advanced_security_enabled_for_new_repositories'] ?? null;
 
             if ($value === null) {
@@ -638,6 +616,28 @@ class Org implements ObjectMapper
             $properties['secretScanningPushProtectionEnabledForNewRepositories'] = $value;
 
             after_secretScanningPushProtectionEnabledForNewRepositories:
+
+            $value = $payload['created_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'created_at';
+                goto after_createdAt;
+            }
+
+            $properties['createdAt'] = $value;
+
+            after_createdAt:
+
+            $value = $payload['updated_at'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'updated_at';
+                goto after_updatedAt;
+            }
+
+            $properties['updatedAt'] = $value;
+
+            after_updatedAt:
 
         } catch (\Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull', $exception, stack: $this->hydrationStack);
@@ -1043,10 +1043,6 @@ class Org implements ObjectMapper
         after_htmlUrl:        $result['html_url'] = $htmlUrl;
 
         
-        $createdAt = $object->createdAt;
-        after_createdAt:        $result['created_at'] = $createdAt;
-
-        
         $type = $object->type;
         after_type:        $result['type'] = $type;
 
@@ -1204,10 +1200,6 @@ class Org implements ObjectMapper
         after_webCommitSignoffRequired:        $result['web_commit_signoff_required'] = $webCommitSignoffRequired;
 
         
-        $updatedAt = $object->updatedAt;
-        after_updatedAt:        $result['updated_at'] = $updatedAt;
-
-        
         $advancedSecurityEnabledForNewRepositories = $object->advancedSecurityEnabledForNewRepositories;
 
         if ($advancedSecurityEnabledForNewRepositories === null) {
@@ -1254,6 +1246,14 @@ class Org implements ObjectMapper
             goto after_secretScanningPushProtectionEnabledForNewRepositories;
         }
         after_secretScanningPushProtectionEnabledForNewRepositories:        $result['secret_scanning_push_protection_enabled_for_new_repositories'] = $secretScanningPushProtectionEnabledForNewRepositories;
+
+        
+        $createdAt = $object->createdAt;
+        after_createdAt:        $result['created_at'] = $createdAt;
+
+        
+        $updatedAt = $object->updatedAt;
+        after_updatedAt:        $result['updated_at'] = $updatedAt;
 
 
         return $result;
