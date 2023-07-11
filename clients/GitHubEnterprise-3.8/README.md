@@ -2562,7 +2562,7 @@ $client->operations()->codeScanning()->listAlertsForEnterprise(        enterpris
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#list-code-scanning-alerts-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#list-code-scanning-alerts-for-an-enterprise).
 
 
 ### secret-scanning/get-security-analysis-settings-for-enterprise
@@ -5048,7 +5048,7 @@ $client->operations()->codeScanning()->listAlertsForOrg(        org: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#list-code-scanning-alerts-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#list-code-scanning-alerts-for-an-organization).
 
 
 ### dependabot/list-alerts-for-org
@@ -10975,7 +10975,7 @@ $client->operations()->codeScanning()->listAlertsForRepo(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#list-code-scanning-alerts-for-a-repository).
 
 
 ### code-scanning/get-alert
@@ -10999,7 +10999,7 @@ $client->operations()->codeScanning()->getAlert(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#get-a-code-scanning-alert).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#get-a-code-scanning-alert).
 
 
 ### code-scanning/update-alert
@@ -11023,7 +11023,7 @@ $client->operations()->codeScanning()->updateAlert(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#update-a-code-scanning-alert).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#update-a-code-scanning-alert).
 
 
 ### code-scanning/list-alert-instances
@@ -11053,7 +11053,7 @@ $client->operations()->codeScanning()->listAlertInstances(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#list-instances-of-a-code-scanning-alert).
 
 
 ### code-scanning/list-recent-analyses
@@ -11091,7 +11091,7 @@ $client->operations()->codeScanning()->listRecentAnalyses(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#list-code-scanning-analyses-for-a-repository).
 
 
 ### code-scanning/get-analysis
@@ -11115,7 +11115,7 @@ $client->operations()->codeScanning()->getAnalysis(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#get-a-code-scanning-analysis-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#get-a-code-scanning-analysis-for-a-repository).
 
 
 ### code-scanning/delete-analysis
@@ -11141,7 +11141,7 @@ $client->operations()->codeScanning()->deleteAnalysis(        owner: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#delete-a-code-scanning-analysis-from-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#delete-a-code-scanning-analysis-from-a-repository).
 
 
 ### code-scanning/upload-sarif
@@ -11163,7 +11163,7 @@ $client->operations()->codeScanning()->uploadSarif(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#upload-an-analysis-as-sarif-data).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#upload-an-analysis-as-sarif-data).
 
 
 ### code-scanning/get-sarif
@@ -11187,7 +11187,7 @@ $client->operations()->codeScanning()->getSarif(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/reference/code-scanning#get-information-about-a-sarif-upload).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.8/rest/code-scanning/code-scanning#get-information-about-a-sarif-upload).
 
 
 ### repos/codeowners-errors
