@@ -50,7 +50,7 @@ Operations method:
 $client->operations()->meta()->root();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/overview/resources-in-the-rest-api#root-endpoint).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#root-endpoint).
 
 
 ### enterprise-admin/list-global-webhooks
@@ -1386,7 +1386,7 @@ Operations method:
 $client->operations()->codesOfConduct()->getAllCodesOfConduct();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/codes-of-conduct#get-all-codes-of-conduct).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/codes-of-conduct/codes-of-conduct#get-all-codes-of-conduct).
 
 
 ### codes-of-conduct/get-conduct-code
@@ -1406,7 +1406,7 @@ $client->operations()->codesOfConduct()->getConductCode(        key: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/codes-of-conduct#get-a-code-of-conduct).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/codes-of-conduct/codes-of-conduct#get-a-code-of-conduct).
 
 
 ### emojis/get
@@ -1423,7 +1423,7 @@ Operations method:
 $client->operations()->emojis()->get();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/emojis#get-emojis).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/emojis/emojis#get-emojis).
 
 
 ### enterprise-admin/get-announcement
@@ -2706,7 +2706,7 @@ $client->operations()->billing()->getGithubAdvancedSecurityBillingGhe(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/billing#export-advanced-security-active-committers-data-for-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/billing#export-advanced-security-active-committers-data-for-enterprise).
 
 
 ### secret-scanning/post-security-product-enablement-for-enterprise
@@ -2793,7 +2793,7 @@ $client->operations()->gists()->list(        since: '1970-01-01T00:00:00+00:00',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#list-gists-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#list-gists-for-the-authenticated-user).
 
 
 ### gists/create
@@ -2810,7 +2810,7 @@ Operations method:
 $client->operations()->gists()->create();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#create-a-gist).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#create-a-gist).
 
 
 ### gists/list-public
@@ -2834,7 +2834,7 @@ $client->operations()->gists()->listPublic(        since: '1970-01-01T00:00:00+0
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#list-public-gists).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#list-public-gists).
 
 
 ### gists/list-starred
@@ -2858,7 +2858,7 @@ $client->operations()->gists()->listStarred(        since: '1970-01-01T00:00:00+
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#list-starred-gists).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#list-starred-gists).
 
 
 ### gists/get
@@ -2878,7 +2878,7 @@ $client->operations()->gists()->get(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#get-a-gist).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#get-a-gist).
 
 
 ### gists/delete
@@ -2898,7 +2898,7 @@ $client->operations()->gists()->delete(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#delete-a-gist).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#delete-a-gist).
 
 
 ### gists/update
@@ -2918,7 +2918,7 @@ $client->operations()->gists()->update(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists/#update-a-gist).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#update-a-gist).
 
 
 ### gists/list-comments
@@ -2942,7 +2942,7 @@ $client->operations()->gists()->listComments(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#list-gist-comments).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/comments#list-gist-comments).
 
 
 ### gists/create-comment
@@ -2962,7 +2962,7 @@ $client->operations()->gists()->createComment(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#create-a-gist-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/comments#create-a-gist-comment).
 
 
 ### gists/get-comment
@@ -2984,7 +2984,7 @@ $client->operations()->gists()->getComment(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#get-a-gist-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/comments#get-a-gist-comment).
 
 
 ### gists/delete-comment
@@ -3006,7 +3006,7 @@ $client->operations()->gists()->deleteComment(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#delete-a-gist-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/comments#delete-a-gist-comment).
 
 
 ### gists/update-comment
@@ -3028,7 +3028,7 @@ $client->operations()->gists()->updateComment(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#update-a-gist-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/comments#update-a-gist-comment).
 
 
 ### gists/list-commits
@@ -3052,7 +3052,7 @@ $client->operations()->gists()->listCommits(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#list-gist-commits).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#list-gist-commits).
 
 
 ### gists/list-forks
@@ -3076,7 +3076,7 @@ $client->operations()->gists()->listForks(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#list-gist-forks).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#list-gist-forks).
 
 
 ### gists/fork
@@ -3096,7 +3096,7 @@ $client->operations()->gists()->fork(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#fork-a-gist).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#fork-a-gist).
 
 
 ### gists/check-is-starred
@@ -3116,7 +3116,7 @@ $client->operations()->gists()->checkIsStarred(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#check-if-a-gist-is-starred).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#check-if-a-gist-is-starred).
 
 
 ### gists/star
@@ -3136,7 +3136,7 @@ $client->operations()->gists()->star(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#star-a-gist).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#star-a-gist).
 
 
 ### gists/unstar
@@ -3156,7 +3156,7 @@ $client->operations()->gists()->unstar(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#unstar-a-gist).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#unstar-a-gist).
 
 
 ### gists/get-revision
@@ -3178,7 +3178,7 @@ $client->operations()->gists()->getRevision(        gist_id: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#get-a-gist-revision).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#get-a-gist-revision).
 
 
 ### gitignore/get-all-templates
@@ -3195,7 +3195,7 @@ Operations method:
 $client->operations()->gitignore()->getAllTemplates();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gitignore#get-all-gitignore-templates).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gitignore/gitignore#get-all-gitignore-templates).
 
 
 ### gitignore/get-template
@@ -3215,7 +3215,7 @@ $client->operations()->gitignore()->getTemplate(        name: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gitignore#get-a-gitignore-template).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gitignore/gitignore#get-a-gitignore-template).
 
 
 ### apps/list-repos-accessible-to-installation
@@ -3320,7 +3320,7 @@ $client->operations()->licenses()->getAllCommonlyUsed(        featured: ,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/licenses#get-all-commonly-used-licenses).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/licenses/licenses#get-all-commonly-used-licenses).
 
 
 ### licenses/get
@@ -3340,7 +3340,7 @@ $client->operations()->licenses()->get(        license: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/licenses#get-a-license).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/licenses/licenses#get-a-license).
 
 
 ### enterprise-admin/get-config-nodes
@@ -3423,7 +3423,7 @@ Operations method:
 $client->operations()->markdown()->render();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/markdown#render-a-markdown-document).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/markdown/markdown#render-a-markdown-document).
 
 
 ### markdown/render-raw
@@ -3440,7 +3440,7 @@ Operations method:
 $client->operations()->markdown()->renderRaw();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/markdown#render-a-markdown-document-in-raw-mode).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/markdown/markdown#render-a-markdown-document-in-raw-mode).
 
 
 ### meta/get
@@ -3457,7 +3457,7 @@ Operations method:
 $client->operations()->meta()->get();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/meta#get-github-meta-information).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#get-github-meta-information).
 
 
 ### activity/list-public-events-for-repo-network
@@ -3650,7 +3650,7 @@ $client->operations()->meta()->getOctocat(        s: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/meta#get-octocat).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#get-octocat).
 
 
 ### orgs/list
@@ -5020,7 +5020,7 @@ $client->operations()->announcementBanners()->getAnnouncementBannerForOrg(      
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/announcement-banners#get-enterprise-announcement-banner-for-org).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/announcement-banners/organizations#get-enterprise-announcement-banner-for-org).
 
 
 ### announcement-banners/remove-announcement-banner-for-org
@@ -5308,7 +5308,7 @@ $client->operations()->dependabot()->listOrgSecrets(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#list-organization-secrets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#list-organization-secrets).
 
 
 ### dependabot/get-org-public-key
@@ -5328,7 +5328,7 @@ $client->operations()->dependabot()->getOrgPublicKey(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#get-an-organization-public-key).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#get-an-organization-public-key).
 
 
 ### dependabot/get-org-secret
@@ -5350,7 +5350,7 @@ $client->operations()->dependabot()->getOrgSecret(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#get-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#get-an-organization-secret).
 
 
 ### dependabot/create-or-update-org-secret
@@ -5372,7 +5372,7 @@ $client->operations()->dependabot()->createOrUpdateOrgSecret(        org: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#create-or-update-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#create-or-update-an-organization-secret).
 
 
 ### dependabot/delete-org-secret
@@ -5394,7 +5394,7 @@ $client->operations()->dependabot()->deleteOrgSecret(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#delete-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#delete-an-organization-secret).
 
 
 ### dependabot/list-selected-repos-for-org-secret
@@ -5420,7 +5420,7 @@ $client->operations()->dependabot()->listSelectedReposForOrgSecret(        org: 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#list-selected-repositories-for-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#list-selected-repositories-for-an-organization-secret).
 
 
 ### dependabot/set-selected-repos-for-org-secret
@@ -5442,7 +5442,7 @@ $client->operations()->dependabot()->setSelectedReposForOrgSecret(        org: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#set-selected-repositories-for-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#set-selected-repositories-for-an-organization-secret).
 
 
 ### dependabot/add-selected-repo-to-org-secret
@@ -5466,7 +5466,7 @@ $client->operations()->dependabot()->addSelectedRepoToOrgSecret(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#add-selected-repository-to-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#add-selected-repository-to-an-organization-secret).
 
 
 ### dependabot/remove-selected-repo-from-org-secret
@@ -5490,7 +5490,7 @@ $client->operations()->dependabot()->removeSelectedRepoFromOrgSecret(        org
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#remove-selected-repository-from-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#remove-selected-repository-from-an-organization-secret).
 
 
 ### packages/list-docker-migration-conflicting-packages-for-organization
@@ -6638,7 +6638,7 @@ $client->operations()->projects()->listForOrg(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#list-organization-projects).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#list-organization-projects).
 
 
 ### projects/create-for-org
@@ -6658,7 +6658,7 @@ $client->operations()->projects()->createForOrg(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#create-an-organization-project).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#create-an-organization-project).
 
 
 ### orgs/list-public-members
@@ -6944,7 +6944,7 @@ $client->operations()->billing()->getGithubAdvancedSecurityBillingOrg(        or
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/billing#get-github-advanced-security-active-committers-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/billing/billing#get-github-advanced-security-active-committers-for-an-organization).
 
 
 ### teams/list
@@ -7342,7 +7342,7 @@ $client->operations()->reactions()->listForTeamDiscussionCommentInOrg(        or
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#list-reactions-for-a-team-discussion-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-team-discussion-comment).
 
 
 ### reactions/create-for-team-discussion-comment-in-org
@@ -7368,7 +7368,7 @@ $client->operations()->reactions()->createForTeamDiscussionCommentInOrg(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#create-reaction-for-a-team-discussion-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-team-discussion-comment).
 
 
 ### reactions/delete-for-team-discussion-comment
@@ -7396,7 +7396,7 @@ $client->operations()->reactions()->deleteForTeamDiscussionComment(        org: 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#delete-team-discussion-comment-reaction).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#delete-team-discussion-comment-reaction).
 
 
 ### reactions/list-for-team-discussion-in-org
@@ -7426,7 +7426,7 @@ $client->operations()->reactions()->listForTeamDiscussionInOrg(        org: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#list-reactions-for-a-team-discussion).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-team-discussion).
 
 
 ### reactions/create-for-team-discussion-in-org
@@ -7450,7 +7450,7 @@ $client->operations()->reactions()->createForTeamDiscussionInOrg(        org: 'g
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#create-reaction-for-a-team-discussion).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-team-discussion).
 
 
 ### reactions/delete-for-team-discussion
@@ -7476,7 +7476,7 @@ $client->operations()->reactions()->deleteForTeamDiscussion(        org: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#delete-team-discussion-reaction).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#delete-team-discussion-reaction).
 
 
 ### teams/list-linked-external-idp-groups-to-team-for-org
@@ -7914,7 +7914,7 @@ $client->operations()->projects()->getCard(        card_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#get-a-project-card).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#get-a-project-card).
 
 
 ### projects/delete-card
@@ -7934,7 +7934,7 @@ $client->operations()->projects()->deleteCard(        card_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#delete-a-project-card).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#delete-a-project-card).
 
 
 ### projects/update-card
@@ -7954,7 +7954,7 @@ $client->operations()->projects()->updateCard(        card_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#update-a-project-card).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#update-a-project-card).
 
 
 ### projects/move-card
@@ -7974,7 +7974,7 @@ $client->operations()->projects()->moveCard(        card_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#move-a-project-card).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#move-a-project-card).
 
 
 ### projects/get-column
@@ -7994,7 +7994,7 @@ $client->operations()->projects()->getColumn(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#get-a-project-column).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#get-a-project-column).
 
 
 ### projects/delete-column
@@ -8014,7 +8014,7 @@ $client->operations()->projects()->deleteColumn(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#delete-a-project-column).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#delete-a-project-column).
 
 
 ### projects/update-column
@@ -8034,7 +8034,7 @@ $client->operations()->projects()->updateColumn(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#update-a-project-column).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#update-a-project-column).
 
 
 ### projects/list-cards
@@ -8060,7 +8060,7 @@ $client->operations()->projects()->listCards(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#list-project-cards).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#list-project-cards).
 
 
 ### projects/create-card
@@ -8080,7 +8080,7 @@ $client->operations()->projects()->createCard(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#create-a-project-card).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#create-a-project-card).
 
 
 ### projects/move-column
@@ -8100,7 +8100,7 @@ $client->operations()->projects()->moveColumn(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#move-a-project-column).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#move-a-project-column).
 
 
 ### projects/get
@@ -8120,7 +8120,7 @@ $client->operations()->projects()->get(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#get-a-project).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#get-a-project).
 
 
 ### projects/delete
@@ -8140,7 +8140,7 @@ $client->operations()->projects()->delete(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#delete-a-project).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#delete-a-project).
 
 
 ### projects/update
@@ -8160,7 +8160,7 @@ $client->operations()->projects()->update(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#update-a-project).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#update-a-project).
 
 
 ### projects/list-collaborators
@@ -8186,7 +8186,7 @@ $client->operations()->projects()->listCollaborators(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#list-project-collaborators).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/collaborators#list-project-collaborators).
 
 
 ### projects/add-collaborator
@@ -8208,7 +8208,7 @@ $client->operations()->projects()->addCollaborator(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#add-project-collaborator).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/collaborators#add-project-collaborator).
 
 
 ### projects/remove-collaborator
@@ -8230,7 +8230,7 @@ $client->operations()->projects()->removeCollaborator(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#remove-project-collaborator).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/collaborators#remove-project-collaborator).
 
 
 ### projects/get-permission-for-user
@@ -8252,7 +8252,7 @@ $client->operations()->projects()->getPermissionForUser(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#get-project-permission-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/collaborators#get-project-permission-for-a-user).
 
 
 ### projects/list-columns
@@ -8276,7 +8276,7 @@ $client->operations()->projects()->listColumns(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#list-project-columns).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#list-project-columns).
 
 
 ### projects/create-column
@@ -8296,7 +8296,7 @@ $client->operations()->projects()->createColumn(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#create-a-project-column).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#create-a-project-column).
 
 
 ### rate-limit/get
@@ -8313,7 +8313,7 @@ Operations method:
 $client->operations()->rateLimit()->get();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/rate-limit#get-rate-limit-status-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/rate-limit/rate-limit#get-rate-limit-status-for-the-authenticated-user).
 
 
 ### repos/get
@@ -12003,7 +12003,7 @@ $client->operations()->reactions()->listForCommitComment(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#list-reactions-for-a-commit-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-commit-comment).
 
 
 ### reactions/create-for-commit-comment
@@ -12027,7 +12027,7 @@ $client->operations()->reactions()->createForCommitComment(        owner: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#create-reaction-for-a-commit-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-commit-comment).
 
 
 ### reactions/delete-for-commit-comment
@@ -12053,7 +12053,7 @@ $client->operations()->reactions()->deleteForCommitComment(        owner: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#delete-a-commit-comment-reaction).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#delete-a-commit-comment-reaction).
 
 
 ### repos/list-commits
@@ -12527,7 +12527,7 @@ $client->operations()->dependabot()->listAlertsForRepo(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#list-dependabot-alerts-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/alerts#list-dependabot-alerts-for-a-repository).
 
 
 ### dependabot/get-alert
@@ -12551,7 +12551,7 @@ $client->operations()->dependabot()->getAlert(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#get-a-dependabot-alert).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/alerts#get-a-dependabot-alert).
 
 
 ### dependabot/update-alert
@@ -12575,7 +12575,7 @@ $client->operations()->dependabot()->updateAlert(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#update-a-dependabot-alert).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/alerts#update-a-dependabot-alert).
 
 
 ### dependabot/list-repo-secrets
@@ -12601,7 +12601,7 @@ $client->operations()->dependabot()->listRepoSecrets(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#list-repository-secrets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#list-repository-secrets).
 
 
 ### dependabot/get-repo-public-key
@@ -12623,7 +12623,7 @@ $client->operations()->dependabot()->getRepoPublicKey(        owner: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#get-a-repository-public-key).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#get-a-repository-public-key).
 
 
 ### dependabot/get-repo-secret
@@ -12647,7 +12647,7 @@ $client->operations()->dependabot()->getRepoSecret(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#get-a-repository-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#get-a-repository-secret).
 
 
 ### dependabot/create-or-update-repo-secret
@@ -12671,7 +12671,7 @@ $client->operations()->dependabot()->createOrUpdateRepoSecret(        owner: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#create-or-update-a-repository-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#create-or-update-a-repository-secret).
 
 
 ### dependabot/delete-repo-secret
@@ -12695,7 +12695,7 @@ $client->operations()->dependabot()->deleteRepoSecret(        owner: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependabot#delete-a-repository-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependabot/secrets#delete-a-repository-secret).
 
 
 ### dependency-graph/diff-range
@@ -12721,7 +12721,7 @@ $client->operations()->dependencyGraph()->diffRange(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependency-graph#get-a-diff-of-the-dependencies-between-commits).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependency-graph/dependency-review#get-a-diff-of-the-dependencies-between-commits).
 
 
 ### dependency-graph/export-sbom
@@ -12765,7 +12765,7 @@ $client->operations()->dependencyGraph()->createRepositorySnapshot(        owner
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/dependency-graph#create-a-snapshot-of-dependencies-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/dependency-graph/dependency-submission#create-a-snapshot-of-dependencies-for-a-repository).
 
 
 ### repos/list-deployments
@@ -14171,7 +14171,7 @@ $client->operations()->reactions()->listForIssueComment(        owner: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#list-reactions-for-an-issue-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-an-issue-comment).
 
 
 ### reactions/create-for-issue-comment
@@ -14195,7 +14195,7 @@ $client->operations()->reactions()->createForIssueComment(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#create-reaction-for-an-issue-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-an-issue-comment).
 
 
 ### reactions/delete-for-issue-comment
@@ -14221,7 +14221,7 @@ $client->operations()->reactions()->deleteForIssueComment(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#delete-an-issue-comment-reaction).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#delete-an-issue-comment-reaction).
 
 
 ### issues/list-events-for-repo
@@ -14679,7 +14679,7 @@ $client->operations()->reactions()->listForIssue(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#list-reactions-for-an-issue).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-an-issue).
 
 
 ### reactions/create-for-issue
@@ -14703,7 +14703,7 @@ $client->operations()->reactions()->createForIssue(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#create-reaction-for-an-issue).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-an-issue).
 
 
 ### reactions/delete-for-issue
@@ -14729,7 +14729,7 @@ $client->operations()->reactions()->deleteForIssue(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#delete-an-issue-reaction).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#delete-an-issue-reaction).
 
 
 ### issues/list-events-for-timeline
@@ -15061,7 +15061,7 @@ $client->operations()->licenses()->getForRepo(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/licenses/#get-the-license-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/licenses/licenses#get-the-license-for-a-repository).
 
 
 ### repos/merge-upstream
@@ -15649,7 +15649,7 @@ $client->operations()->projects()->listForRepo(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#list-repository-projects).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#list-repository-projects).
 
 
 ### projects/create-for-repo
@@ -15671,7 +15671,7 @@ $client->operations()->projects()->createForRepo(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#create-a-repository-project).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#create-a-repository-project).
 
 
 ### pulls/list
@@ -15707,7 +15707,7 @@ $client->operations()->pulls()->list(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#list-pull-requests).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#list-pull-requests).
 
 
 ### pulls/create
@@ -15729,7 +15729,7 @@ $client->operations()->pulls()->create(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#create-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#create-a-pull-request).
 
 
 ### pulls/list-review-comments-for-repo
@@ -15761,7 +15761,7 @@ $client->operations()->pulls()->listReviewCommentsForRepo(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#list-review-comments-in-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/comments#list-review-comments-in-a-repository).
 
 
 ### pulls/get-review-comment
@@ -15785,7 +15785,7 @@ $client->operations()->pulls()->getReviewComment(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#get-a-review-comment-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/comments#get-a-review-comment-for-a-pull-request).
 
 
 ### pulls/delete-review-comment
@@ -15809,7 +15809,7 @@ $client->operations()->pulls()->deleteReviewComment(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#delete-a-review-comment-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/comments#delete-a-review-comment-for-a-pull-request).
 
 
 ### pulls/update-review-comment
@@ -15833,7 +15833,7 @@ $client->operations()->pulls()->updateReviewComment(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#update-a-review-comment-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/comments#update-a-review-comment-for-a-pull-request).
 
 
 ### reactions/list-for-pull-request-review-comment
@@ -15863,7 +15863,7 @@ $client->operations()->reactions()->listForPullRequestReviewComment(        owne
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-pull-request-review-comment).
 
 
 ### reactions/create-for-pull-request-review-comment
@@ -15887,7 +15887,7 @@ $client->operations()->reactions()->createForPullRequestReviewComment(        ow
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#create-reaction-for-a-pull-request-review-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-pull-request-review-comment).
 
 
 ### reactions/delete-for-pull-request-comment
@@ -15913,7 +15913,7 @@ $client->operations()->reactions()->deleteForPullRequestComment(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions#delete-a-pull-request-comment-reaction).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#delete-a-pull-request-comment-reaction).
 
 
 ### pulls/get
@@ -15937,7 +15937,7 @@ $client->operations()->pulls()->get(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#get-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#get-a-pull-request).
 
 
 ### pulls/update
@@ -15961,7 +15961,7 @@ $client->operations()->pulls()->update(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls/#update-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#update-a-pull-request).
 
 
 ### pulls/list-review-comments
@@ -15995,7 +15995,7 @@ $client->operations()->pulls()->listReviewComments(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#list-review-comments-on-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/comments#list-review-comments-on-a-pull-request).
 
 
 ### pulls/create-review-comment
@@ -16019,7 +16019,7 @@ $client->operations()->pulls()->createReviewComment(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#create-a-review-comment-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/comments#create-a-review-comment-for-a-pull-request).
 
 
 ### pulls/create-reply-for-review-comment
@@ -16045,7 +16045,7 @@ $client->operations()->pulls()->createReplyForReviewComment(        owner: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#create-a-reply-for-a-review-comment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/comments#create-a-reply-for-a-review-comment).
 
 
 ### pulls/list-commits
@@ -16073,7 +16073,7 @@ $client->operations()->pulls()->listCommits(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#list-commits-on-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#list-commits-on-a-pull-request).
 
 
 ### pulls/list-files
@@ -16101,7 +16101,7 @@ $client->operations()->pulls()->listFiles(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#list-pull-requests-files).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#list-pull-requests-files).
 
 
 ### pulls/check-if-merged
@@ -16125,7 +16125,7 @@ $client->operations()->pulls()->checkIfMerged(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#check-if-a-pull-request-has-been-merged).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#check-if-a-pull-request-has-been-merged).
 
 
 ### pulls/merge
@@ -16149,7 +16149,7 @@ $client->operations()->pulls()->merge(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#merge-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#merge-a-pull-request).
 
 
 ### pulls/list-requested-reviewers
@@ -16173,7 +16173,7 @@ $client->operations()->pulls()->listRequestedReviewers(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#get-all-requested-reviewers-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/review-requests#get-all-requested-reviewers-for-a-pull-request).
 
 
 ### pulls/request-reviewers
@@ -16197,7 +16197,7 @@ $client->operations()->pulls()->requestReviewers(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#request-reviewers-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/review-requests#request-reviewers-for-a-pull-request).
 
 
 ### pulls/remove-requested-reviewers
@@ -16221,7 +16221,7 @@ $client->operations()->pulls()->removeRequestedReviewers(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#remove-requested-reviewers-from-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/review-requests#remove-requested-reviewers-from-a-pull-request).
 
 
 ### pulls/list-reviews
@@ -16249,7 +16249,7 @@ $client->operations()->pulls()->listReviews(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#list-reviews-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#list-reviews-for-a-pull-request).
 
 
 ### pulls/create-review
@@ -16273,7 +16273,7 @@ $client->operations()->pulls()->createReview(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#create-a-review-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#create-a-review-for-a-pull-request).
 
 
 ### pulls/get-review
@@ -16299,7 +16299,7 @@ $client->operations()->pulls()->getReview(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#get-a-review-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#get-a-review-for-a-pull-request).
 
 
 ### pulls/update-review
@@ -16325,7 +16325,7 @@ $client->operations()->pulls()->updateReview(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#update-a-review-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#update-a-review-for-a-pull-request).
 
 
 ### pulls/delete-pending-review
@@ -16351,7 +16351,7 @@ $client->operations()->pulls()->deletePendingReview(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#delete-a-pending-review-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#delete-a-pending-review-for-a-pull-request).
 
 
 ### pulls/list-comments-for-review
@@ -16381,7 +16381,7 @@ $client->operations()->pulls()->listCommentsForReview(        owner: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#list-comments-for-a-pull-request-review).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#list-comments-for-a-pull-request-review).
 
 
 ### pulls/dismiss-review
@@ -16407,7 +16407,7 @@ $client->operations()->pulls()->dismissReview(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#dismiss-a-review-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#dismiss-a-review-for-a-pull-request).
 
 
 ### pulls/submit-review
@@ -16433,7 +16433,7 @@ $client->operations()->pulls()->submitReview(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#submit-a-review-for-a-pull-request).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/reviews#submit-a-review-for-a-pull-request).
 
 
 ### pulls/update-branch
@@ -16457,7 +16457,7 @@ $client->operations()->pulls()->updateBranch(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/pulls#update-a-pull-request-branch).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pulls/pulls#update-a-pull-request-branch).
 
 
 ### repos/get-readme
@@ -16853,7 +16853,7 @@ $client->operations()->reactions()->listForRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#list-reactions-for-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-release).
 
 
 ### reactions/create-for-release
@@ -16877,7 +16877,7 @@ $client->operations()->reactions()->createForRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#create-reaction-for-a-release).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-release).
 
 
 ### reactions/delete-for-release
@@ -16903,7 +16903,7 @@ $client->operations()->reactions()->deleteForRelease(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#delete-a-release-reaction).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#delete-a-release-reaction).
 
 
 ### repos/list-cache-info
@@ -18209,7 +18209,7 @@ $client->operations()->search()->code(        q: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/search#search-code).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/search/search#search-code).
 
 
 ### search/commits
@@ -18237,7 +18237,7 @@ $client->operations()->search()->commits(        q: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/search#search-commits).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/search/search#search-commits).
 
 
 ### search/issues-and-pull-requests
@@ -18265,7 +18265,7 @@ $client->operations()->search()->issuesAndPullRequests(        q: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/search#search-issues-and-pull-requests).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/search/search#search-issues-and-pull-requests).
 
 
 ### search/labels
@@ -18295,7 +18295,7 @@ $client->operations()->search()->labels(        repository_id: 13,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/search#search-labels).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/search/search#search-labels).
 
 
 ### search/repos
@@ -18323,7 +18323,7 @@ $client->operations()->search()->repos(        q: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/search#search-repositories).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/search/search#search-repositories).
 
 
 ### search/topics
@@ -18347,7 +18347,7 @@ $client->operations()->search()->topics(        q: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/search#search-topics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/search/search#search-topics).
 
 
 ### search/users
@@ -18375,7 +18375,7 @@ $client->operations()->search()->users(        q: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/search#search-users).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/search/search#search-users).
 
 
 ### enterprise-admin/get-configuration-status
@@ -18886,7 +18886,7 @@ $client->operations()->reactions()->listForTeamDiscussionCommentLegacy(        t
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#list-reactions-for-a-team-discussion-comment-legacy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-team-discussion-comment-legacy).
 
 
 ### reactions/create-for-team-discussion-comment-legacy
@@ -18910,7 +18910,7 @@ $client->operations()->reactions()->createForTeamDiscussionCommentLegacy(       
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#create-reaction-for-a-team-discussion-comment-legacy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-team-discussion-comment-legacy).
 
 
 ### reactions/list-for-team-discussion-legacy
@@ -18938,7 +18938,7 @@ $client->operations()->reactions()->listForTeamDiscussionLegacy(        team_id:
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#list-reactions-for-a-team-discussion-legacy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#list-reactions-for-a-team-discussion-legacy).
 
 
 ### reactions/create-for-team-discussion-legacy
@@ -18960,7 +18960,7 @@ $client->operations()->reactions()->createForTeamDiscussionLegacy(        team_i
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/reactions/#create-reaction-for-a-team-discussion-legacy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reactions/reactions#create-reaction-for-a-team-discussion-legacy).
 
 
 ### teams/list-members-legacy
@@ -19345,7 +19345,7 @@ Operations method:
 $client->operations()->users()->getAuthenticated();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#get-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/users#get-the-authenticated-user).
 
 
 ### users/update-authenticated
@@ -19362,7 +19362,7 @@ Operations method:
 $client->operations()->users()->updateAuthenticated();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users/#update-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/users#update-the-authenticated-user).
 
 
 ### packages/list-docker-migration-conflicting-packages-for-authenticated-user
@@ -19401,7 +19401,7 @@ $client->operations()->users()->listEmailsForAuthenticatedUser(        per_page:
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-email-addresses-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/emails#list-email-addresses-for-the-authenticated-user).
 
 
 ### users/add-email-for-authenticated-user
@@ -19418,7 +19418,7 @@ Operations method:
 $client->operations()->users()->addEmailForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#add-an-email-address-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/emails#add-an-email-address-for-the-authenticated-user).
 
 
 ### users/delete-email-for-authenticated-user
@@ -19435,7 +19435,7 @@ Operations method:
 $client->operations()->users()->deleteEmailForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#delete-an-email-address-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/emails#delete-an-email-address-for-the-authenticated-user).
 
 
 ### users/list-followers-for-authenticated-user
@@ -19457,7 +19457,7 @@ $client->operations()->users()->listFollowersForAuthenticatedUser(        per_pa
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-followers-of-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#list-followers-of-the-authenticated-user).
 
 
 ### users/list-followed-by-authenticated-user
@@ -19479,7 +19479,7 @@ $client->operations()->users()->listFollowedByAuthenticatedUser(        per_page
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-the-people-the-authenticated-user-follows).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#list-the-people-the-authenticated-user-follows).
 
 
 ### users/check-person-is-followed-by-authenticated
@@ -19499,7 +19499,7 @@ $client->operations()->users()->checkPersonIsFollowedByAuthenticated(        use
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#check-if-a-person-is-followed-by-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#check-if-a-person-is-followed-by-the-authenticated-user).
 
 
 ### users/follow
@@ -19519,7 +19519,7 @@ $client->operations()->users()->follow(        username: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#follow-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#follow-a-user).
 
 
 ### users/unfollow
@@ -19539,7 +19539,7 @@ $client->operations()->users()->unfollow(        username: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#unfollow-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#unfollow-a-user).
 
 
 ### users/list-gpg-keys-for-authenticated-user
@@ -19561,7 +19561,7 @@ $client->operations()->users()->listGpgKeysForAuthenticatedUser(        per_page
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-gpg-keys-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/gpg-keys#list-gpg-keys-for-the-authenticated-user).
 
 
 ### users/create-gpg-key-for-authenticated-user
@@ -19578,7 +19578,7 @@ Operations method:
 $client->operations()->users()->createGpgKeyForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#create-a-gpg-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/gpg-keys#create-a-gpg-key-for-the-authenticated-user).
 
 
 ### users/get-gpg-key-for-authenticated-user
@@ -19598,7 +19598,7 @@ $client->operations()->users()->getGpgKeyForAuthenticatedUser(        gpg_key_id
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#get-a-gpg-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/gpg-keys#get-a-gpg-key-for-the-authenticated-user).
 
 
 ### users/delete-gpg-key-for-authenticated-user
@@ -19618,7 +19618,7 @@ $client->operations()->users()->deleteGpgKeyForAuthenticatedUser(        gpg_key
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#delete-a-gpg-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/gpg-keys#delete-a-gpg-key-for-the-authenticated-user).
 
 
 ### apps/list-installations-for-authenticated-user
@@ -19764,7 +19764,7 @@ $client->operations()->users()->listPublicSshKeysForAuthenticatedUser(        pe
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/keys#list-public-ssh-keys-for-the-authenticated-user).
 
 
 ### users/create-public-ssh-key-for-authenticated-user
@@ -19781,7 +19781,7 @@ Operations method:
 $client->operations()->users()->createPublicSshKeyForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#create-a-public-ssh-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/keys#create-a-public-ssh-key-for-the-authenticated-user).
 
 
 ### users/get-public-ssh-key-for-authenticated-user
@@ -19801,7 +19801,7 @@ $client->operations()->users()->getPublicSshKeyForAuthenticatedUser(        key_
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#get-a-public-ssh-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/keys#get-a-public-ssh-key-for-the-authenticated-user).
 
 
 ### users/delete-public-ssh-key-for-authenticated-user
@@ -19821,7 +19821,7 @@ $client->operations()->users()->deletePublicSshKeyForAuthenticatedUser(        k
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#delete-a-public-ssh-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/keys#delete-a-public-ssh-key-for-the-authenticated-user).
 
 
 ### orgs/list-memberships-for-authenticated-user
@@ -20201,7 +20201,7 @@ Operations method:
 $client->operations()->projects()->createForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#create-a-user-project).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#create-a-user-project).
 
 
 ### users/list-public-emails-for-authenticated-user
@@ -20223,7 +20223,7 @@ $client->operations()->users()->listPublicEmailsForAuthenticatedUser(        per
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-public-email-addresses-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/emails#list-public-email-addresses-for-the-authenticated-user).
 
 
 ### repos/list-for-authenticated-user
@@ -20416,7 +20416,7 @@ $client->operations()->users()->listSshSigningKeysForAuthenticatedUser(        p
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-public-ssh-signing-keys-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#list-public-ssh-signing-keys-for-the-authenticated-user).
 
 
 ### users/create-ssh-signing-key-for-authenticated-user
@@ -20433,7 +20433,7 @@ Operations method:
 $client->operations()->users()->createSshSigningKeyForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#create-an-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#create-an-ssh-signing-key-for-the-authenticated-user).
 
 
 ### users/get-ssh-signing-key-for-authenticated-user
@@ -20453,7 +20453,7 @@ $client->operations()->users()->getSshSigningKeyForAuthenticatedUser(        ssh
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#get-a-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#get-a-ssh-signing-key-for-the-authenticated-user).
 
 
 ### users/delete-ssh-signing-key-for-authenticated-user
@@ -20473,7 +20473,7 @@ $client->operations()->users()->deleteSshSigningKeyForAuthenticatedUser(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#delete-a-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#delete-a-ssh-signing-key-for-the-authenticated-user).
 
 
 ### activity/list-repos-starred-by-authenticated-user
@@ -20631,7 +20631,7 @@ $client->operations()->users()->list(        since: 5,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-users).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/users#list-users).
 
 
 ### users/get-by-username
@@ -20651,7 +20651,7 @@ $client->operations()->users()->getByUsername(        username: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#get-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/users#get-a-user).
 
 
 ### packages/list-docker-migration-conflicting-packages-for-user
@@ -20769,7 +20769,7 @@ $client->operations()->users()->listFollowersForUser(        username: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-followers-of-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#list-followers-of-a-user).
 
 
 ### users/list-following-for-user
@@ -20793,7 +20793,7 @@ $client->operations()->users()->listFollowingForUser(        username: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-the-people-a-user-follows).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#list-the-people-a-user-follows).
 
 
 ### users/check-following-for-user
@@ -20815,7 +20815,7 @@ $client->operations()->users()->checkFollowingForUser(        username: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#check-if-a-user-follows-another-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/followers#check-if-a-user-follows-another-user).
 
 
 ### gists/list-for-user
@@ -20841,7 +20841,7 @@ $client->operations()->gists()->listForUser(        username: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/gists#list-gists-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/gists/gists#list-gists-for-a-user).
 
 
 ### users/list-gpg-keys-for-user
@@ -20865,7 +20865,7 @@ $client->operations()->users()->listGpgKeysForUser(        username: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-gpg-keys-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/gpg-keys#list-gpg-keys-for-a-user).
 
 
 ### users/get-context-for-user
@@ -20889,7 +20889,7 @@ $client->operations()->users()->getContextForUser(        username: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#get-contextual-information-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/users#get-contextual-information-for-a-user).
 
 
 ### apps/get-user-installation
@@ -20933,7 +20933,7 @@ $client->operations()->users()->listPublicKeysForUser(        username: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-public-keys-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/keys#list-public-keys-for-a-user).
 
 
 ### orgs/list-for-user
@@ -21187,7 +21187,7 @@ $client->operations()->projects()->listForUser(        username: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/projects#list-user-projects).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/projects#list-user-projects).
 
 
 ### activity/list-received-events-for-user
@@ -21353,7 +21353,7 @@ $client->operations()->users()->listSshSigningKeysForUser(        username: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/users#list-ssh-signing-keys-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#list-ssh-signing-keys-for-a-user).
 
 
 ### activity/list-repos-starred-by-user
@@ -21462,6 +21462,6 @@ Operations method:
 $client->operations()->meta()->getZen();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta#get-the-zen-of-github).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#get-the-zen-of-github).
 
 
