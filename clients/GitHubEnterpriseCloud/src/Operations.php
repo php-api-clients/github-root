@@ -104,11 +104,6 @@ final readonly class Operations implements OperationsInterface
         return new Operation\Orgs($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators);
     }
 
-    public function copilot(): Operation\Copilot
-    {
-        return new Operation\Copilot($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators);
-    }
-
     public function oidc(): Operation\Oidc
     {
         return new Operation\Oidc($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators);
@@ -117,6 +112,11 @@ final readonly class Operations implements OperationsInterface
     public function codespaces(): Operation\Codespaces
     {
         return new Operation\Codespaces($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators);
+    }
+
+    public function copilot(): Operation\Copilot
+    {
+        return new Operation\Copilot($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators);
     }
 
     public function packages(): Operation\Packages
