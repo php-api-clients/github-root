@@ -72,7 +72,7 @@ $client->operations()->enterpriseAdmin()->listGlobalWebhooks(        per_page: 8
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#list-global-webhooks).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/global-webhooks#list-global-webhooks).
 
 
 ### enterprise-admin/create-global-webhook
@@ -89,7 +89,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->createGlobalWebhook();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#create-a-global-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/global-webhooks#create-a-global-webhook).
 
 
 ### enterprise-admin/get-global-webhook
@@ -109,7 +109,7 @@ $client->operations()->enterpriseAdmin()->getGlobalWebhook(        hook_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-a-global-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/global-webhooks#get-a-global-webhook).
 
 
 ### enterprise-admin/delete-global-webhook
@@ -129,7 +129,7 @@ $client->operations()->enterpriseAdmin()->deleteGlobalWebhook(        hook_id: 7
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#delete-a-global-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/global-webhooks#delete-a-global-webhook).
 
 
 ### enterprise-admin/update-global-webhook
@@ -149,7 +149,7 @@ $client->operations()->enterpriseAdmin()->updateGlobalWebhook(        hook_id: 7
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#update-a-global-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/global-webhooks#update-a-global-webhook).
 
 
 ### enterprise-admin/ping-global-webhook
@@ -169,7 +169,7 @@ $client->operations()->enterpriseAdmin()->pingGlobalWebhook(        hook_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#ping-a-global-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/global-webhooks#ping-a-global-webhook).
 
 
 ### enterprise-admin/list-public-keys
@@ -197,7 +197,7 @@ $client->operations()->enterpriseAdmin()->listPublicKeys(        since: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#list-public-keys).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#list-public-keys).
 
 
 ### enterprise-admin/delete-public-key
@@ -217,7 +217,7 @@ $client->operations()->enterpriseAdmin()->deletePublicKey(        key_ids: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#delete-a-public-key).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#delete-a-public-key).
 
 
 ### enterprise-admin/create-org
@@ -234,7 +234,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->createOrg();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#create-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/orgs#create-an-organization).
 
 
 ### enterprise-admin/update-org-name
@@ -254,7 +254,7 @@ $client->operations()->enterpriseAdmin()->updateOrgName(        org: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#update-an-organization-name).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/orgs#update-an-organization-name).
 
 
 ### enterprise-admin/list-pre-receive-environments
@@ -280,7 +280,7 @@ $client->operations()->enterpriseAdmin()->listPreReceiveEnvironments(        per
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#list-pre-receive-environments).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#list-pre-receive-environments).
 
 
 ### enterprise-admin/create-pre-receive-environment
@@ -297,7 +297,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->createPreReceiveEnvironment();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#create-a-pre-receive-environment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#create-a-pre-receive-environment).
 
 
 ### enterprise-admin/get-pre-receive-environment
@@ -317,7 +317,7 @@ $client->operations()->enterpriseAdmin()->getPreReceiveEnvironment(        pre_r
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-a-pre-receive-environment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#get-a-pre-receive-environment).
 
 
 ### enterprise-admin/delete-pre-receive-environment
@@ -337,7 +337,7 @@ $client->operations()->enterpriseAdmin()->deletePreReceiveEnvironment(        pr
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#delete-a-pre-receive-environment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#delete-a-pre-receive-environment).
 
 
 ### enterprise-admin/update-pre-receive-environment
@@ -357,7 +357,7 @@ $client->operations()->enterpriseAdmin()->updatePreReceiveEnvironment(        pr
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#update-a-pre-receive-environment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#update-a-pre-receive-environment).
 
 
 ### enterprise-admin/start-pre-receive-environment-download
@@ -377,7 +377,7 @@ $client->operations()->enterpriseAdmin()->startPreReceiveEnvironmentDownload(   
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#start-a-pre-receive-environment-download).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#start-a-pre-receive-environment-download).
 
 
 ### enterprise-admin/start-pre-receive-environment-download
@@ -397,7 +397,7 @@ $client->operations()->enterpriseAdmin()->startPreReceiveEnvironmentDownloadStre
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#start-a-pre-receive-environment-download).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#start-a-pre-receive-environment-download).
 
 
 ### enterprise-admin/get-download-status-for-pre-receive-environment
@@ -417,7 +417,7 @@ $client->operations()->enterpriseAdmin()->getDownloadStatusForPreReceiveEnvironm
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-the-download-status-for-a-pre-receive-environment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#get-the-download-status-for-a-pre-receive-environment).
 
 
 ### enterprise-admin/get-download-status-for-pre-receive-environment
@@ -437,7 +437,7 @@ $client->operations()->enterpriseAdmin()->getDownloadStatusForPreReceiveEnvironm
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-the-download-status-for-a-pre-receive-environment).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/pre-receive-environments#get-the-download-status-for-a-pre-receive-environment).
 
 
 ### enterprise-admin/list-personal-access-tokens
@@ -459,7 +459,7 @@ $client->operations()->enterpriseAdmin()->listPersonalAccessTokens(        per_p
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#list-personal-access-tokens).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#list-personal-access-tokens).
 
 
 ### enterprise-admin/delete-personal-access-token
@@ -479,7 +479,7 @@ $client->operations()->enterpriseAdmin()->deletePersonalAccessToken(        toke
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#delete-a-personal-access-token).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#delete-a-personal-access-token).
 
 
 ### enterprise-admin/delete-user
@@ -499,7 +499,7 @@ $client->operations()->enterpriseAdmin()->deleteUser(        username: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#delete-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#delete-a-user).
 
 
 ### enterprise-admin/create-impersonation-o-auth-token
@@ -519,7 +519,7 @@ $client->operations()->enterpriseAdmin()->createImpersonationOAuthToken(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#create-an-impersonation-oauth-token).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#create-an-impersonation-oauth-token).
 
 
 ### enterprise-admin/delete-impersonation-o-auth-token
@@ -539,7 +539,7 @@ $client->operations()->enterpriseAdmin()->deleteImpersonationOAuthToken(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#delete-an-impersonation-oauth-token).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#delete-an-impersonation-oauth-token).
 
 
 ### apps/get-authenticated
@@ -1066,7 +1066,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getLicenseInformation();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-license-information).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/license#get-license-information).
 
 
 ### enterprise-admin/get-all-stats
@@ -1083,7 +1083,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getAllStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-statistics).
 
 
 ### enterprise-admin/get-comment-stats
@@ -1100,7 +1100,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getCommentStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-comment-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-comment-statistics).
 
 
 ### enterprise-admin/get-gist-stats
@@ -1117,7 +1117,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getGistStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-gist-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-gist-statistics).
 
 
 ### enterprise-admin/get-hooks-stats
@@ -1134,7 +1134,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getHooksStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-hooks-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-hooks-statistics).
 
 
 ### enterprise-admin/get-issue-stats
@@ -1151,7 +1151,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getIssueStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-issues-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-issues-statistics).
 
 
 ### enterprise-admin/get-milestone-stats
@@ -1168,7 +1168,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getMilestoneStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-milestone-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-milestone-statistics).
 
 
 ### enterprise-admin/get-org-stats
@@ -1185,7 +1185,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getOrgStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-organization-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-organization-statistics).
 
 
 ### enterprise-admin/get-pages-stats
@@ -1202,7 +1202,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getPagesStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-pages-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-pages-statistics).
 
 
 ### enterprise-admin/get-pull-request-stats
@@ -1219,7 +1219,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getPullRequestStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-pull-requests-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-pull-requests-statistics).
 
 
 ### enterprise-admin/get-repo-stats
@@ -1236,7 +1236,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getRepoStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-repository-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-repository-statistics).
 
 
 ### enterprise-admin/get-user-stats
@@ -1253,7 +1253,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getUserStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-users-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/admin-stats#get-users-statistics).
 
 
 ### enterprise-admin/get-github-actions-permissions-enterprise
@@ -1273,7 +1273,7 @@ $client->operations()->enterpriseAdmin()->getGithubActionsPermissionsEnterprise(
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-github-actions-permissions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#get-github-actions-permissions-for-an-enterprise).
 
 
 ### enterprise-admin/set-github-actions-permissions-enterprise
@@ -1293,7 +1293,7 @@ $client->operations()->enterpriseAdmin()->setGithubActionsPermissionsEnterprise(
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-github-actions-permissions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-github-actions-permissions-for-an-enterprise).
 
 
 ### enterprise-admin/list-selected-organizations-enabled-github-actions-enterprise
@@ -1317,7 +1317,7 @@ $client->operations()->enterpriseAdmin()->listSelectedOrganizationsEnabledGithub
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-selected-organizations-enabled-for-github-actions-in-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#list-selected-organizations-enabled-for-github-actions-in-an-enterprise).
 
 
 ### enterprise-admin/set-selected-organizations-enabled-github-actions-enterprise
@@ -1337,7 +1337,7 @@ $client->operations()->enterpriseAdmin()->setSelectedOrganizationsEnabledGithubA
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-selected-organizations-enabled-for-github-actions-in-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-selected-organizations-enabled-for-github-actions-in-an-enterprise).
 
 
 ### enterprise-admin/enable-selected-organization-github-actions-enterprise
@@ -1359,7 +1359,7 @@ $client->operations()->enterpriseAdmin()->enableSelectedOrganizationGithubAction
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#enable-a-selected-organization-for-github-actions-in-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#enable-a-selected-organization-for-github-actions-in-an-enterprise).
 
 
 ### enterprise-admin/disable-selected-organization-github-actions-enterprise
@@ -1381,7 +1381,7 @@ $client->operations()->enterpriseAdmin()->disableSelectedOrganizationGithubActio
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#disable-a-selected-organization-for-github-actions-in-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#disable-a-selected-organization-for-github-actions-in-an-enterprise).
 
 
 ### enterprise-admin/get-allowed-actions-enterprise
@@ -1401,7 +1401,7 @@ $client->operations()->enterpriseAdmin()->getAllowedActionsEnterprise(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-allowed-actions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#get-allowed-actions-for-an-enterprise).
 
 
 ### enterprise-admin/set-allowed-actions-enterprise
@@ -1421,7 +1421,7 @@ $client->operations()->enterpriseAdmin()->setAllowedActionsEnterprise(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-allowed-actions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-allowed-actions-for-an-enterprise).
 
 
 ### enterprise-admin/list-self-hosted-runner-groups-for-enterprise
@@ -1447,7 +1447,7 @@ $client->operations()->enterpriseAdmin()->listSelfHostedRunnerGroupsForEnterpris
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-self-hosted-runner-groups-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#list-self-hosted-runner-groups-for-an-enterprise).
 
 
 ### enterprise-admin/create-self-hosted-runner-group-for-enterprise
@@ -1467,7 +1467,7 @@ $client->operations()->enterpriseAdmin()->createSelfHostedRunnerGroupForEnterpri
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-self-hosted-runner-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#create-self-hosted-runner-group-for-an-enterprise).
 
 
 ### enterprise-admin/get-self-hosted-runner-group-for-enterprise
@@ -1489,7 +1489,7 @@ $client->operations()->enterpriseAdmin()->getSelfHostedRunnerGroupForEnterprise(
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-self-hosted-runner-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#get-a-self-hosted-runner-group-for-an-enterprise).
 
 
 ### enterprise-admin/delete-self-hosted-runner-group-from-enterprise
@@ -1511,7 +1511,7 @@ $client->operations()->enterpriseAdmin()->deleteSelfHostedRunnerGroupFromEnterpr
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-a-self-hosted-runner-group-from-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#delete-a-self-hosted-runner-group-from-an-enterprise).
 
 
 ### enterprise-admin/update-self-hosted-runner-group-for-enterprise
@@ -1533,7 +1533,7 @@ $client->operations()->enterpriseAdmin()->updateSelfHostedRunnerGroupForEnterpri
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#update-a-self-hosted-runner-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#update-a-self-hosted-runner-group-for-an-enterprise).
 
 
 ### enterprise-admin/list-self-hosted-runners-in-group-for-enterprise
@@ -1559,7 +1559,7 @@ $client->operations()->enterpriseAdmin()->listSelfHostedRunnersInGroupForEnterpr
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-self-hosted-runners-in-a-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#list-self-hosted-runners-in-a-group-for-an-enterprise).
 
 
 ### enterprise-admin/set-self-hosted-runners-in-group-for-enterprise
@@ -1581,7 +1581,7 @@ $client->operations()->enterpriseAdmin()->setSelfHostedRunnersInGroupForEnterpri
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#set-self-hosted-runners-in-a-group-for-an-enterprise).
 
 
 ### enterprise-admin/add-self-hosted-runner-to-group-for-enterprise
@@ -1605,7 +1605,7 @@ $client->operations()->enterpriseAdmin()->addSelfHostedRunnerToGroupForEnterpris
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#add-a-self-hosted-runner-to-a-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#add-a-self-hosted-runner-to-a-group-for-an-enterprise).
 
 
 ### enterprise-admin/remove-self-hosted-runner-from-group-for-enterprise
@@ -1629,7 +1629,7 @@ $client->operations()->enterpriseAdmin()->removeSelfHostedRunnerFromGroupForEnte
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#remove-a-self-hosted-runner-from-a-group-for-an-enterprise).
 
 
 ### enterprise-admin/list-self-hosted-runners-for-enterprise
@@ -1653,7 +1653,7 @@ $client->operations()->enterpriseAdmin()->listSelfHostedRunnersForEnterprise(   
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-self-hosted-runners-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#list-self-hosted-runners-for-an-enterprise).
 
 
 ### enterprise-admin/list-runner-applications-for-enterprise
@@ -1673,7 +1673,7 @@ $client->operations()->enterpriseAdmin()->listRunnerApplicationsForEnterprise(  
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-runner-applications-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#list-runner-applications-for-an-enterprise).
 
 
 ### enterprise-admin/create-registration-token-for-enterprise
@@ -1693,7 +1693,7 @@ $client->operations()->enterpriseAdmin()->createRegistrationTokenForEnterprise( 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-registration-token-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#create-a-registration-token-for-an-enterprise).
 
 
 ### enterprise-admin/create-remove-token-for-enterprise
@@ -1713,7 +1713,7 @@ $client->operations()->enterpriseAdmin()->createRemoveTokenForEnterprise(       
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-remove-token-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#create-a-remove-token-for-an-enterprise).
 
 
 ### enterprise-admin/get-self-hosted-runner-for-enterprise
@@ -1735,7 +1735,7 @@ $client->operations()->enterpriseAdmin()->getSelfHostedRunnerForEnterprise(     
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-self-hosted-runner-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#get-a-self-hosted-runner-for-an-enterprise).
 
 
 ### enterprise-admin/delete-self-hosted-runner-from-enterprise
@@ -1757,7 +1757,7 @@ $client->operations()->enterpriseAdmin()->deleteSelfHostedRunnerFromEnterprise( 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-self-hosted-runner-from-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#delete-self-hosted-runner-from-an-enterprise).
 
 
 ### enterprise-admin/get-audit-log
@@ -1789,7 +1789,7 @@ $client->operations()->enterpriseAdmin()->getAuditLog(        enterprise: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/audit-log#get-the-audit-log-for-an-enterprise).
 
 
 ### secret-scanning/list-alerts-for-enterprise
@@ -1842,7 +1842,7 @@ Operations method:
 $client->operations()->activity()->getFeeds();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#get-feeds).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/feeds#get-feeds).
 
 
 ### gists/list
@@ -2494,7 +2494,7 @@ $client->operations()->activity()->listNotificationsForAuthenticatedUser(       
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-notifications-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#list-notifications-for-the-authenticated-user).
 
 
 ### activity/mark-notifications-as-read
@@ -2511,7 +2511,7 @@ Operations method:
 $client->operations()->activity()->markNotificationsAsRead();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#mark-notifications-as-read).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#mark-notifications-as-read).
 
 
 ### activity/get-thread
@@ -2531,7 +2531,7 @@ $client->operations()->activity()->getThread(        thread_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#get-a-thread).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#get-a-thread).
 
 
 ### activity/mark-thread-as-read
@@ -2551,7 +2551,7 @@ $client->operations()->activity()->markThreadAsRead(        thread_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#mark-a-thread-as-read).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#mark-a-thread-as-read).
 
 
 ### activity/get-thread-subscription-for-authenticated-user
@@ -2571,7 +2571,7 @@ $client->operations()->activity()->getThreadSubscriptionForAuthenticatedUser(   
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#get-a-thread-subscription-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#get-a-thread-subscription-for-the-authenticated-user).
 
 
 ### activity/set-thread-subscription
@@ -2591,7 +2591,7 @@ $client->operations()->activity()->setThreadSubscription(        thread_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#set-a-thread-subscription).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#set-a-thread-subscription).
 
 
 ### activity/delete-thread-subscription
@@ -2611,7 +2611,7 @@ $client->operations()->activity()->deleteThreadSubscription(        thread_id: 9
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#delete-a-thread-subscription).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#delete-a-thread-subscription).
 
 
 ### meta/get-octocat
@@ -2653,7 +2653,7 @@ $client->operations()->orgs()->list(        since: 5,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-organizations).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/orgs#list-organizations).
 
 
 ### orgs/get
@@ -2673,7 +2673,7 @@ $client->operations()->orgs()->get(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#get-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/orgs#get-an-organization).
 
 
 ### orgs/update
@@ -2693,7 +2693,7 @@ $client->operations()->orgs()->update(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#update-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/orgs#update-an-organization).
 
 
 ### actions/get-github-actions-permissions-organization
@@ -2713,7 +2713,7 @@ $client->operations()->actions()->getGithubActionsPermissionsOrganization(      
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-github-actions-permissions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#get-github-actions-permissions-for-an-organization).
 
 
 ### actions/set-github-actions-permissions-organization
@@ -2733,7 +2733,7 @@ $client->operations()->actions()->setGithubActionsPermissionsOrganization(      
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-github-actions-permissions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-github-actions-permissions-for-an-organization).
 
 
 ### actions/list-selected-repositories-enabled-github-actions-organization
@@ -2757,7 +2757,7 @@ $client->operations()->actions()->listSelectedRepositoriesEnabledGithubActionsOr
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-selected-repositories-enabled-for-github-actions-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#list-selected-repositories-enabled-for-github-actions-in-an-organization).
 
 
 ### actions/set-selected-repositories-enabled-github-actions-organization
@@ -2777,7 +2777,7 @@ $client->operations()->actions()->setSelectedRepositoriesEnabledGithubActionsOrg
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-selected-repositories-enabled-for-github-actions-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-selected-repositories-enabled-for-github-actions-in-an-organization).
 
 
 ### actions/enable-selected-repository-github-actions-organization
@@ -2799,7 +2799,7 @@ $client->operations()->actions()->enableSelectedRepositoryGithubActionsOrganizat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#enable-a-selected-repository-for-github-actions-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#enable-a-selected-repository-for-github-actions-in-an-organization).
 
 
 ### actions/disable-selected-repository-github-actions-organization
@@ -2821,7 +2821,7 @@ $client->operations()->actions()->disableSelectedRepositoryGithubActionsOrganiza
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#disable-a-selected-repository-for-github-actions-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#disable-a-selected-repository-for-github-actions-in-an-organization).
 
 
 ### actions/get-allowed-actions-organization
@@ -2841,7 +2841,7 @@ $client->operations()->actions()->getAllowedActionsOrganization(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-allowed-actions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#get-allowed-actions-for-an-organization).
 
 
 ### actions/set-allowed-actions-organization
@@ -2861,7 +2861,7 @@ $client->operations()->actions()->setAllowedActionsOrganization(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-allowed-actions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-allowed-actions-for-an-organization).
 
 
 ### actions/get-github-actions-default-workflow-permissions-organization
@@ -2881,7 +2881,7 @@ $client->operations()->actions()->getGithubActionsDefaultWorkflowPermissionsOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-default-workflow-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#get-default-workflow-permissions).
 
 
 ### actions/set-github-actions-default-workflow-permissions-organization
@@ -2901,7 +2901,7 @@ $client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-default-workflow-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-default-workflow-permissions).
 
 
 ### actions/list-self-hosted-runner-groups-for-org
@@ -2925,7 +2925,7 @@ $client->operations()->actions()->listSelfHostedRunnerGroupsForOrg(        org: 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-self-hosted-runner-groups-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#list-self-hosted-runner-groups-for-an-organization).
 
 
 ### actions/create-self-hosted-runner-group-for-org
@@ -2945,7 +2945,7 @@ $client->operations()->actions()->createSelfHostedRunnerGroupForOrg(        org:
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-self-hosted-runner-group-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#create-a-self-hosted-runner-group-for-an-organization).
 
 
 ### actions/get-self-hosted-runner-group-for-org
@@ -2967,7 +2967,7 @@ $client->operations()->actions()->getSelfHostedRunnerGroupForOrg(        org: 'g
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-self-hosted-runner-group-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#get-a-self-hosted-runner-group-for-an-organization).
 
 
 ### actions/delete-self-hosted-runner-group-from-org
@@ -2989,7 +2989,7 @@ $client->operations()->actions()->deleteSelfHostedRunnerGroupFromOrg(        org
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-a-self-hosted-runner-group-from-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#delete-a-self-hosted-runner-group-from-an-organization).
 
 
 ### actions/update-self-hosted-runner-group-for-org
@@ -3011,7 +3011,7 @@ $client->operations()->actions()->updateSelfHostedRunnerGroupForOrg(        org:
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#update-a-self-hosted-runner-group-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#update-a-self-hosted-runner-group-for-an-organization).
 
 
 ### actions/add-self-hosted-runner-to-group-for-org
@@ -3035,7 +3035,7 @@ $client->operations()->actions()->addSelfHostedRunnerToGroupForOrg(        org: 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#add-a-self-hosted-runner-to-a-group-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runner-groups#add-a-self-hosted-runner-to-a-group-for-an-organization).
 
 
 ### actions/list-self-hosted-runners-for-org
@@ -3059,7 +3059,7 @@ $client->operations()->actions()->listSelfHostedRunnersForOrg(        org: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-self-hosted-runners-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#list-self-hosted-runners-for-an-organization).
 
 
 ### actions/list-runner-applications-for-org
@@ -3079,7 +3079,7 @@ $client->operations()->actions()->listRunnerApplicationsForOrg(        org: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-runner-applications-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#list-runner-applications-for-an-organization).
 
 
 ### actions/create-registration-token-for-org
@@ -3099,7 +3099,7 @@ $client->operations()->actions()->createRegistrationTokenForOrg(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-registration-token-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#create-a-registration-token-for-an-organization).
 
 
 ### actions/create-remove-token-for-org
@@ -3119,7 +3119,7 @@ $client->operations()->actions()->createRemoveTokenForOrg(        org: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-remove-token-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#create-a-remove-token-for-an-organization).
 
 
 ### actions/get-self-hosted-runner-for-org
@@ -3141,7 +3141,7 @@ $client->operations()->actions()->getSelfHostedRunnerForOrg(        org: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-self-hosted-runner-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#get-a-self-hosted-runner-for-an-organization).
 
 
 ### actions/delete-self-hosted-runner-from-org
@@ -3163,7 +3163,7 @@ $client->operations()->actions()->deleteSelfHostedRunnerFromOrg(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-a-self-hosted-runner-from-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#delete-a-self-hosted-runner-from-an-organization).
 
 
 ### actions/list-org-secrets
@@ -3187,7 +3187,7 @@ $client->operations()->actions()->listOrgSecrets(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-organization-secrets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#list-organization-secrets).
 
 
 ### actions/get-org-public-key
@@ -3207,7 +3207,7 @@ $client->operations()->actions()->getOrgPublicKey(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-an-organization-public-key).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#get-an-organization-public-key).
 
 
 ### actions/get-org-secret
@@ -3229,7 +3229,7 @@ $client->operations()->actions()->getOrgSecret(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#get-an-organization-secret).
 
 
 ### actions/create-or-update-org-secret
@@ -3251,7 +3251,7 @@ $client->operations()->actions()->createOrUpdateOrgSecret(        org: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-or-update-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#create-or-update-an-organization-secret).
 
 
 ### actions/delete-org-secret
@@ -3273,7 +3273,7 @@ $client->operations()->actions()->deleteOrgSecret(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#delete-an-organization-secret).
 
 
 ### actions/list-selected-repos-for-org-secret
@@ -3299,7 +3299,7 @@ $client->operations()->actions()->listSelectedReposForOrgSecret(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-selected-repositories-for-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#list-selected-repositories-for-an-organization-secret).
 
 
 ### actions/set-selected-repos-for-org-secret
@@ -3321,7 +3321,7 @@ $client->operations()->actions()->setSelectedReposForOrgSecret(        org: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-selected-repositories-for-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#set-selected-repositories-for-an-organization-secret).
 
 
 ### actions/add-selected-repo-to-org-secret
@@ -3345,7 +3345,7 @@ $client->operations()->actions()->addSelectedRepoToOrgSecret(        org: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#add-selected-repository-to-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#add-selected-repository-to-an-organization-secret).
 
 
 ### actions/remove-selected-repo-from-org-secret
@@ -3369,7 +3369,7 @@ $client->operations()->actions()->removeSelectedRepoFromOrgSecret(        org: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#remove-selected-repository-from-an-organization-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#remove-selected-repository-from-an-organization-secret).
 
 
 ### orgs/get-audit-log
@@ -3401,7 +3401,7 @@ $client->operations()->orgs()->getAuditLog(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#get-audit-log).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/orgs#get-audit-log).
 
 
 ### code-scanning/list-alerts-for-org
@@ -3513,7 +3513,7 @@ $client->operations()->orgs()->listWebhooks(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-organization-webhooks).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#list-organization-webhooks).
 
 
 ### orgs/create-webhook
@@ -3533,7 +3533,7 @@ $client->operations()->orgs()->createWebhook(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#create-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#create-an-organization-webhook).
 
 
 ### orgs/get-webhook
@@ -3555,7 +3555,7 @@ $client->operations()->orgs()->getWebhook(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#get-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#get-an-organization-webhook).
 
 
 ### orgs/delete-webhook
@@ -3577,7 +3577,7 @@ $client->operations()->orgs()->deleteWebhook(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#delete-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#delete-an-organization-webhook).
 
 
 ### orgs/update-webhook
@@ -3599,7 +3599,7 @@ $client->operations()->orgs()->updateWebhook(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#update-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#update-an-organization-webhook).
 
 
 ### orgs/get-webhook-config-for-org
@@ -3621,7 +3621,7 @@ $client->operations()->orgs()->getWebhookConfigForOrg(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#get-a-webhook-configuration-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#get-a-webhook-configuration-for-an-organization).
 
 
 ### orgs/update-webhook-config-for-org
@@ -3643,7 +3643,7 @@ $client->operations()->orgs()->updateWebhookConfigForOrg(        org: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#update-a-webhook-configuration-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#update-a-webhook-configuration-for-an-organization).
 
 
 ### orgs/list-webhook-deliveries
@@ -3671,7 +3671,7 @@ $client->operations()->orgs()->listWebhookDeliveries(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-deliveries-for-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#list-deliveries-for-an-organization-webhook).
 
 
 ### orgs/get-webhook-delivery
@@ -3695,7 +3695,7 @@ $client->operations()->orgs()->getWebhookDelivery(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#get-a-webhook-delivery-for-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#get-a-webhook-delivery-for-an-organization-webhook).
 
 
 ### orgs/redeliver-webhook-delivery
@@ -3719,7 +3719,7 @@ $client->operations()->orgs()->redeliverWebhookDelivery(        org: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#redeliver-a-delivery-for-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#redeliver-a-delivery-for-an-organization-webhook).
 
 
 ### orgs/ping-webhook
@@ -3741,7 +3741,7 @@ $client->operations()->orgs()->pingWebhook(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#ping-an-organization-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/webhooks#ping-an-organization-webhook).
 
 
 ### apps/get-org-installation
@@ -3785,7 +3785,7 @@ $client->operations()->orgs()->listAppInstallations(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-app-installations-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/orgs#list-app-installations-for-an-organization).
 
 
 ### issues/list-for-org
@@ -3849,7 +3849,7 @@ $client->operations()->orgs()->listMembers(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-organization-members).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#list-organization-members).
 
 
 ### orgs/check-membership-for-user
@@ -3871,7 +3871,7 @@ $client->operations()->orgs()->checkMembershipForUser(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#check-organization-membership-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#check-organization-membership-for-a-user).
 
 
 ### orgs/remove-member
@@ -3893,7 +3893,7 @@ $client->operations()->orgs()->removeMember(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#remove-an-organization-member).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#remove-an-organization-member).
 
 
 ### orgs/get-membership-for-user
@@ -3915,7 +3915,7 @@ $client->operations()->orgs()->getMembershipForUser(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#get-organization-membership-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#get-organization-membership-for-a-user).
 
 
 ### orgs/set-membership-for-user
@@ -3937,7 +3937,7 @@ $client->operations()->orgs()->setMembershipForUser(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#set-organization-membership-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#set-organization-membership-for-a-user).
 
 
 ### orgs/remove-membership-for-user
@@ -3959,7 +3959,7 @@ $client->operations()->orgs()->removeMembershipForUser(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#remove-organization-membership-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#remove-organization-membership-for-a-user).
 
 
 ### migrations/list-for-org
@@ -4171,7 +4171,7 @@ $client->operations()->orgs()->listOutsideCollaborators(        org: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-outside-collaborators-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/outside-collaborators#list-outside-collaborators-for-an-organization).
 
 
 ### orgs/convert-member-to-outside-collaborator
@@ -4193,7 +4193,7 @@ $client->operations()->orgs()->convertMemberToOutsideCollaborator(        org: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#convert-an-organization-member-to-outside-collaborator).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/outside-collaborators#convert-an-organization-member-to-outside-collaborator).
 
 
 ### orgs/remove-outside-collaborator
@@ -4215,7 +4215,7 @@ $client->operations()->orgs()->removeOutsideCollaborator(        org: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#remove-outside-collaborator-from-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/outside-collaborators#remove-outside-collaborator-from-an-organization).
 
 
 ### projects/list-for-org
@@ -5726,7 +5726,7 @@ $client->operations()->actions()->listArtifactsForRepo(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-artifacts-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/artifacts#list-artifacts-for-a-repository).
 
 
 ### actions/get-artifact
@@ -5750,7 +5750,7 @@ $client->operations()->actions()->getArtifact(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-an-artifact).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/artifacts#get-an-artifact).
 
 
 ### actions/delete-artifact
@@ -5774,7 +5774,7 @@ $client->operations()->actions()->deleteArtifact(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-an-artifact).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/artifacts#delete-an-artifact).
 
 
 ### actions/download-artifact
@@ -5800,7 +5800,7 @@ $client->operations()->actions()->downloadArtifact(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-an-artifact).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/artifacts#download-an-artifact).
 
 
 ### actions/download-artifact
@@ -5826,7 +5826,7 @@ $client->operations()->actions()->downloadArtifactStreaming(        owner: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-an-artifact).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/artifacts#download-an-artifact).
 
 
 ### actions/get-job-for-workflow-run
@@ -5850,7 +5850,7 @@ $client->operations()->actions()->getJobForWorkflowRun(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-job-for-a-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-jobs#get-a-job-for-a-workflow-run).
 
 
 ### actions/download-job-logs-for-workflow-run
@@ -5874,7 +5874,7 @@ $client->operations()->actions()->downloadJobLogsForWorkflowRun(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-job-logs-for-a-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-jobs#download-job-logs-for-a-workflow-run).
 
 
 ### actions/download-job-logs-for-workflow-run
@@ -5898,7 +5898,7 @@ $client->operations()->actions()->downloadJobLogsForWorkflowRunStreaming(       
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-job-logs-for-a-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-jobs#download-job-logs-for-a-workflow-run).
 
 
 ### actions/list-repo-organization-secrets
@@ -5946,7 +5946,7 @@ $client->operations()->actions()->getGithubActionsPermissionsRepository(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-github-actions-permissions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#get-github-actions-permissions-for-a-repository).
 
 
 ### actions/set-github-actions-permissions-repository
@@ -5968,7 +5968,7 @@ $client->operations()->actions()->setGithubActionsPermissionsRepository(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-github-actions-permissions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-github-actions-permissions-for-a-repository).
 
 
 ### actions/get-allowed-actions-repository
@@ -5990,7 +5990,7 @@ $client->operations()->actions()->getAllowedActionsRepository(        owner: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-allowed-actions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#get-allowed-actions-for-a-repository).
 
 
 ### actions/set-allowed-actions-repository
@@ -6012,7 +6012,7 @@ $client->operations()->actions()->setAllowedActionsRepository(        owner: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#set-allowed-actions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/permissions#set-allowed-actions-for-a-repository).
 
 
 ### actions/list-self-hosted-runners-for-repo
@@ -6038,7 +6038,7 @@ $client->operations()->actions()->listSelfHostedRunnersForRepo(        owner: 'g
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-self-hosted-runners-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#list-self-hosted-runners-for-a-repository).
 
 
 ### actions/list-runner-applications-for-repo
@@ -6060,7 +6060,7 @@ $client->operations()->actions()->listRunnerApplicationsForRepo(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-runner-applications-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#list-runner-applications-for-a-repository).
 
 
 ### actions/create-registration-token-for-repo
@@ -6082,7 +6082,7 @@ $client->operations()->actions()->createRegistrationTokenForRepo(        owner: 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-registration-token-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#create-a-registration-token-for-a-repository).
 
 
 ### actions/create-remove-token-for-repo
@@ -6104,7 +6104,7 @@ $client->operations()->actions()->createRemoveTokenForRepo(        owner: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-remove-token-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#create-a-remove-token-for-a-repository).
 
 
 ### actions/get-self-hosted-runner-for-repo
@@ -6128,7 +6128,7 @@ $client->operations()->actions()->getSelfHostedRunnerForRepo(        owner: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-self-hosted-runner-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#get-a-self-hosted-runner-for-a-repository).
 
 
 ### actions/delete-self-hosted-runner-from-repo
@@ -6152,7 +6152,7 @@ $client->operations()->actions()->deleteSelfHostedRunnerFromRepo(        owner: 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/self-hosted-runners#delete-a-self-hosted-runner-from-a-repository).
 
 
 ### actions/list-workflow-runs-for-repo
@@ -6194,7 +6194,7 @@ $client->operations()->actions()->listWorkflowRunsForRepo(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-workflow-runs-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#list-workflow-runs-for-a-repository).
 
 
 ### actions/get-workflow-run
@@ -6220,7 +6220,7 @@ $client->operations()->actions()->getWorkflowRun(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#get-a-workflow-run).
 
 
 ### actions/delete-workflow-run
@@ -6244,7 +6244,7 @@ $client->operations()->actions()->deleteWorkflowRun(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-a-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#delete-a-workflow-run).
 
 
 ### actions/list-workflow-run-artifacts
@@ -6272,7 +6272,7 @@ $client->operations()->actions()->listWorkflowRunArtifacts(        owner: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-workflow-run-artifacts).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/artifacts#list-workflow-run-artifacts).
 
 
 ### actions/get-workflow-run-attempt
@@ -6300,7 +6300,7 @@ $client->operations()->actions()->getWorkflowRunAttempt(        owner: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-workflow-run-attempt).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#get-a-workflow-run-attempt).
 
 
 ### actions/list-jobs-for-workflow-run-attempt
@@ -6330,7 +6330,7 @@ $client->operations()->actions()->listJobsForWorkflowRunAttempt(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-jobs-for-a-workflow-run-attempt).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-jobs#list-jobs-for-a-workflow-run-attempt).
 
 
 ### actions/download-workflow-run-attempt-logs
@@ -6356,7 +6356,7 @@ $client->operations()->actions()->downloadWorkflowRunAttemptLogs(        owner: 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-workflow-run-attempt-logs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#download-workflow-run-attempt-logs).
 
 
 ### actions/download-workflow-run-attempt-logs
@@ -6382,7 +6382,7 @@ $client->operations()->actions()->downloadWorkflowRunAttemptLogsStreaming(      
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-workflow-run-attempt-logs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#download-workflow-run-attempt-logs).
 
 
 ### actions/cancel-workflow-run
@@ -6406,7 +6406,7 @@ $client->operations()->actions()->cancelWorkflowRun(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#cancel-a-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#cancel-a-workflow-run).
 
 
 ### actions/list-jobs-for-workflow-run
@@ -6436,7 +6436,7 @@ $client->operations()->actions()->listJobsForWorkflowRun(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-jobs-for-a-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-jobs#list-jobs-for-a-workflow-run).
 
 
 ### actions/download-workflow-run-logs
@@ -6460,7 +6460,7 @@ $client->operations()->actions()->downloadWorkflowRunLogs(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-workflow-run-logs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#download-workflow-run-logs).
 
 
 ### actions/download-workflow-run-logs
@@ -6484,7 +6484,7 @@ $client->operations()->actions()->downloadWorkflowRunLogsStreaming(        owner
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#download-workflow-run-logs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#download-workflow-run-logs).
 
 
 ### actions/delete-workflow-run-logs
@@ -6508,7 +6508,7 @@ $client->operations()->actions()->deleteWorkflowRunLogs(        owner: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-workflow-run-logs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#delete-workflow-run-logs).
 
 
 ### actions/re-run-workflow
@@ -6532,7 +6532,7 @@ $client->operations()->actions()->reRunWorkflow(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#re-run-a-workflow).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#re-run-a-workflow).
 
 
 ### actions/get-workflow-run-usage
@@ -6556,7 +6556,7 @@ $client->operations()->actions()->getWorkflowRunUsage(        owner: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-workflow-run-usage).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#get-workflow-run-usage).
 
 
 ### actions/list-repo-secrets
@@ -6582,7 +6582,7 @@ $client->operations()->actions()->listRepoSecrets(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-repository-secrets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#list-repository-secrets).
 
 
 ### actions/get-repo-public-key
@@ -6604,7 +6604,7 @@ $client->operations()->actions()->getRepoPublicKey(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-repository-public-key).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#get-a-repository-public-key).
 
 
 ### actions/get-repo-secret
@@ -6628,7 +6628,7 @@ $client->operations()->actions()->getRepoSecret(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-repository-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#get-a-repository-secret).
 
 
 ### actions/create-or-update-repo-secret
@@ -6652,7 +6652,7 @@ $client->operations()->actions()->createOrUpdateRepoSecret(        owner: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-or-update-a-repository-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#create-or-update-a-repository-secret).
 
 
 ### actions/delete-repo-secret
@@ -6676,7 +6676,7 @@ $client->operations()->actions()->deleteRepoSecret(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#delete-a-repository-secret).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/secrets#delete-a-repository-secret).
 
 
 ### actions/list-repo-workflows
@@ -6702,7 +6702,7 @@ $client->operations()->actions()->listRepoWorkflows(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-repository-workflows).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflows#list-repository-workflows).
 
 
 ### actions/get-workflow
@@ -6726,7 +6726,7 @@ $client->operations()->actions()->getWorkflow(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-a-workflow).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflows#get-a-workflow).
 
 
 ### actions/disable-workflow
@@ -6750,7 +6750,7 @@ $client->operations()->actions()->disableWorkflow(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#disable-a-workflow).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflows#disable-a-workflow).
 
 
 ### actions/create-workflow-dispatch
@@ -6774,7 +6774,7 @@ $client->operations()->actions()->createWorkflowDispatch(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#create-a-workflow-dispatch-event).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflows#create-a-workflow-dispatch-event).
 
 
 ### actions/enable-workflow
@@ -6798,7 +6798,7 @@ $client->operations()->actions()->enableWorkflow(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#enable-a-workflow).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflows#enable-a-workflow).
 
 
 ### actions/list-workflow-runs
@@ -6842,7 +6842,7 @@ $client->operations()->actions()->listWorkflowRuns(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#list-workflow-runs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#list-workflow-runs).
 
 
 ### actions/get-workflow-usage
@@ -6866,7 +6866,7 @@ $client->operations()->actions()->getWorkflowUsage(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/actions#get-workflow-usage).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflows#get-workflow-usage).
 
 
 ### issues/list-assignees
@@ -9564,7 +9564,7 @@ $client->operations()->activity()->listRepoEvents(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-repository-events).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/events#list-repository-events).
 
 
 ### repos/list-forks
@@ -9636,7 +9636,7 @@ $client->operations()->git()->createBlob(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#create-a-blob).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/blobs#create-a-blob).
 
 
 ### git/get-blob
@@ -9660,7 +9660,7 @@ $client->operations()->git()->getBlob(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#get-a-blob).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/blobs#get-a-blob).
 
 
 ### git/create-commit
@@ -9682,7 +9682,7 @@ $client->operations()->git()->createCommit(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#create-a-commit).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/commits#create-a-commit).
 
 
 ### git/get-commit
@@ -9706,7 +9706,7 @@ $client->operations()->git()->getCommit(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#get-a-commit).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/commits#get-a-commit).
 
 
 ### git/list-matching-refs
@@ -9730,7 +9730,7 @@ $client->operations()->git()->listMatchingRefs(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#list-matching-references).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/refs#list-matching-references).
 
 
 ### git/get-ref
@@ -9754,7 +9754,7 @@ $client->operations()->git()->getRef(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#get-a-reference).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/refs#get-a-reference).
 
 
 ### git/create-ref
@@ -9776,7 +9776,7 @@ $client->operations()->git()->createRef(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#create-a-reference).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/refs#create-a-reference).
 
 
 ### git/delete-ref
@@ -9800,7 +9800,7 @@ $client->operations()->git()->deleteRef(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#delete-a-reference).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/refs#delete-a-reference).
 
 
 ### git/update-ref
@@ -9824,7 +9824,7 @@ $client->operations()->git()->updateRef(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#update-a-reference).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/refs#update-a-reference).
 
 
 ### git/create-tag
@@ -9846,7 +9846,7 @@ $client->operations()->git()->createTag(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#create-a-tag-object).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/tags#create-a-tag-object).
 
 
 ### git/get-tag
@@ -9870,7 +9870,7 @@ $client->operations()->git()->getTag(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#get-a-tag).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/tags#get-a-tag).
 
 
 ### git/create-tree
@@ -9892,7 +9892,7 @@ $client->operations()->git()->createTree(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#create-a-tree).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/trees#create-a-tree).
 
 
 ### git/get-tree
@@ -9918,7 +9918,7 @@ $client->operations()->git()->getTree(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/git#get-a-tree).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/git/trees#get-a-tree).
 
 
 ### repos/list-webhooks
@@ -11634,7 +11634,7 @@ $client->operations()->activity()->listRepoNotificationsForAuthenticatedUser(   
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-repository-notifications-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#list-repository-notifications-for-the-authenticated-user).
 
 
 ### activity/mark-repo-notifications-as-read
@@ -11656,7 +11656,7 @@ $client->operations()->activity()->markRepoNotificationsAsRead(        owner: 'g
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#mark-repository-notifications-as-read).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/notifications#mark-repository-notifications-as-read).
 
 
 ### repos/get-pages
@@ -13232,7 +13232,7 @@ $client->operations()->activity()->listStargazersForRepo(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-stargazers).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/starring#list-stargazers).
 
 
 ### repos/get-code-frequency-stats
@@ -13392,7 +13392,7 @@ $client->operations()->activity()->listWatchersForRepo(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-watchers).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/watching#list-watchers).
 
 
 ### activity/get-repo-subscription
@@ -13414,7 +13414,7 @@ $client->operations()->activity()->getRepoSubscription(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#get-a-repository-subscription).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/watching#get-a-repository-subscription).
 
 
 ### activity/set-repo-subscription
@@ -13436,7 +13436,7 @@ $client->operations()->activity()->setRepoSubscription(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#set-a-repository-subscription).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/watching#set-a-repository-subscription).
 
 
 ### activity/delete-repo-subscription
@@ -13458,7 +13458,7 @@ $client->operations()->activity()->deleteRepoSubscription(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#delete-a-repository-subscription).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/watching#delete-a-repository-subscription).
 
 
 ### repos/list-tags
@@ -14998,7 +14998,7 @@ $client->operations()->orgs()->listMembershipsForAuthenticatedUser(        state
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-organization-memberships-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#list-organization-memberships-for-the-authenticated-user).
 
 
 ### orgs/get-membership-for-authenticated-user
@@ -15018,7 +15018,7 @@ $client->operations()->orgs()->getMembershipForAuthenticatedUser(        org: 'g
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#get-an-organization-membership-for-the-authenticated-user).
 
 
 ### orgs/update-membership-for-authenticated-user
@@ -15038,7 +15038,7 @@ $client->operations()->orgs()->updateMembershipForAuthenticatedUser(        org:
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#update-an-organization-membership-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/members#update-an-organization-membership-for-the-authenticated-user).
 
 
 ### migrations/list-for-authenticated-user
@@ -15143,7 +15143,7 @@ $client->operations()->orgs()->listForAuthenticatedUser(        per_page: 8,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-organizations-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/orgs#list-organizations-for-the-authenticated-user).
 
 
 ### projects/create-for-authenticated-user
@@ -15301,7 +15301,7 @@ $client->operations()->activity()->listReposStarredByAuthenticatedUser(        s
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-repositories-starred-by-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/starring#list-repositories-starred-by-the-authenticated-user).
 
 
 ### activity/check-repo-is-starred-by-authenticated-user
@@ -15323,7 +15323,7 @@ $client->operations()->activity()->checkRepoIsStarredByAuthenticatedUser(       
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/starring#check-if-a-repository-is-starred-by-the-authenticated-user).
 
 
 ### activity/star-repo-for-authenticated-user
@@ -15345,7 +15345,7 @@ $client->operations()->activity()->starRepoForAuthenticatedUser(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#star-a-repository-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/starring#star-a-repository-for-the-authenticated-user).
 
 
 ### activity/unstar-repo-for-authenticated-user
@@ -15367,7 +15367,7 @@ $client->operations()->activity()->unstarRepoForAuthenticatedUser(        owner:
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#unstar-a-repository-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/starring#unstar-a-repository-for-the-authenticated-user).
 
 
 ### activity/list-watched-repos-for-authenticated-user
@@ -15389,7 +15389,7 @@ $client->operations()->activity()->listWatchedReposForAuthenticatedUser(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-repositories-watched-by-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/watching#list-repositories-watched-by-the-authenticated-user).
 
 
 ### teams/list-for-authenticated-user
@@ -15477,7 +15477,7 @@ $client->operations()->activity()->listEventsForAuthenticatedUser(        userna
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-events-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/events#list-events-for-the-authenticated-user).
 
 
 ### activity/list-org-events-for-authenticated-user
@@ -15503,7 +15503,7 @@ $client->operations()->activity()->listOrgEventsForAuthenticatedUser(        use
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-organization-events-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/events#list-organization-events-for-the-authenticated-user).
 
 
 ### users/list-followers-for-user
@@ -15715,7 +15715,7 @@ $client->operations()->orgs()->listForUser(        username: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/orgs#list-organizations-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/orgs/orgs#list-organizations-for-a-user).
 
 
 ### projects/list-for-user
@@ -15799,7 +15799,7 @@ $client->operations()->activity()->listReposStarredByUser(        username: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-repositories-starred-by-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/starring#list-repositories-starred-by-a-user).
 
 
 ### activity/list-repos-watched-by-user
@@ -15823,7 +15823,7 @@ $client->operations()->activity()->listReposWatchedByUser(        username: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/activity#list-repositories-watched-by-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/activity/watching#list-repositories-watched-by-a-user).
 
 
 ### enterprise-admin/suspend-user
@@ -15843,7 +15843,7 @@ $client->operations()->enterpriseAdmin()->suspendUser(        username: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#suspend-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#suspend-a-user).
 
 
 ### enterprise-admin/unsuspend-user
@@ -15863,7 +15863,7 @@ $client->operations()->enterpriseAdmin()->unsuspendUser(        username: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/reference/enterprise-admin#unsuspend-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/enterprise-admin/users#unsuspend-a-user).
 
 
 ### meta/get-zen
