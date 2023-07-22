@@ -13,7 +13,7 @@ permissions:
 jobs:
   ci:
     name: Continuous Integration
-    uses: WyriHaximus/github-workflows/.github/workflows/package.yaml@working-directory
+    uses: WyriHaximus/github-workflows/.github/workflows/package.yaml@main
     with:
       disableMarkdownLinkCheck: true
       disableSetMilestone: true
