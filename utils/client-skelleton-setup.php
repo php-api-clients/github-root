@@ -248,7 +248,7 @@ file_put_contents(
         [
             'sub-splits' => array_values($subSplitConfig),
         ],
-        JSON_PRETTY_PRINT,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,
     ) . PHP_EOL,
 );
 
@@ -267,6 +267,6 @@ file_put_contents(
                 "group:phpstan"
             ],
         ],
-        JSON_PRETTY_PRINT,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,
     ) . PHP_EOL,
 );

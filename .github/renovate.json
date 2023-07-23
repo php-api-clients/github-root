@@ -1,15 +1,15 @@
 {
-    "$schema": "https:\/\/docs.renovatebot.com\/renovate-schema.json",
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "packageRules": [
         {
             "matchManagers": [
                 "github-actions"
             ],
             "matchFileNames": [
-                ".github\/workflows\/**",
-                "etc\/workflow-skeleton\/**"
+                ".github/workflows/**",
+                "etc/workflow-skeleton/**"
             ],
-            "branchPrefix": "renovate\/github-actions\/",
+            "branchPrefix": "renovate/github-actions/",
             "commitMessagePrefix": "[\ud83d\udc19]",
             "labels": [
                 "\ud83d\udc19"
@@ -23,7 +23,7 @@
             "matchFileNames": [
                 "composer.json"
             ],
-            "branchPrefix": "renovate\/root\/",
+            "branchPrefix": "renovate/root/",
             "commitMessagePrefix": "[\ud83e\udeb5]",
             "labels": [
                 "\ud83e\udeb5"
@@ -37,7 +37,7 @@
             "matchFileNames": [
                 "composer.json"
             ],
-            "branchPrefix": "renovate\/root\/",
+            "branchPrefix": "renovate/root/",
             "commitMessagePrefix": "[\ud83e\udeb5]",
             "labels": [
                 "\ud83e\udeb5"
@@ -54,7 +54,7 @@
             "matchFileNames": [
                 "composer.json"
             ],
-            "branchPrefix": "renovate\/root\/",
+            "branchPrefix": "renovate/root/",
             "commitMessagePrefix": "[\ud83e\udeb5]",
             "labels": [
                 "\ud83e\udeb5"
@@ -66,9 +66,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "skelleton\/composer.json"
+                "skelleton/composer.json"
             ],
-            "branchPrefix": "renovate\/skelleton\/",
+            "branchPrefix": "renovate/skelleton/",
             "commitMessagePrefix": "[\u2620\ufe0f]",
             "labels": [
                 "\u2620\ufe0f"
@@ -80,9 +80,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "skelleton\/composer.json"
+                "skelleton/composer.json"
             ],
-            "branchPrefix": "renovate\/skelleton\/",
+            "branchPrefix": "renovate/skelleton/",
             "commitMessagePrefix": "[\u2620\ufe0f]",
             "labels": [
                 "\u2620\ufe0f"
@@ -97,9 +97,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "skelleton\/composer.json"
+                "skelleton/composer.json"
             ],
-            "branchPrefix": "renovate\/skelleton\/",
+            "branchPrefix": "renovate/skelleton/",
             "commitMessagePrefix": "[\u2620\ufe0f]",
             "labels": [
                 "\u2620\ufe0f"
@@ -111,9 +111,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.0\/composer.json"
+                "clients/GitHubEnterprise-3.0/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.0/",
             "commitMessagePrefix": "[GitHubEnterprise-3.0]",
             "labels": [
                 "GitHubEnterprise-3.0"
@@ -125,9 +125,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.0\/composer.json"
+                "clients/GitHubEnterprise-3.0/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.0/",
             "commitMessagePrefix": "[GitHubEnterprise-3.0]",
             "labels": [
                 "GitHubEnterprise-3.0"
@@ -142,9 +142,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.0\/composer.json"
+                "clients/GitHubEnterprise-3.0/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.0\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.0/",
             "commitMessagePrefix": "[GitHubEnterprise-3.0]",
             "labels": [
                 "GitHubEnterprise-3.0"
@@ -156,9 +156,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.1\/composer.json"
+                "clients/GitHubEnterprise-3.1/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.1/",
             "commitMessagePrefix": "[GitHubEnterprise-3.1]",
             "labels": [
                 "GitHubEnterprise-3.1"
@@ -170,9 +170,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.1\/composer.json"
+                "clients/GitHubEnterprise-3.1/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.1/",
             "commitMessagePrefix": "[GitHubEnterprise-3.1]",
             "labels": [
                 "GitHubEnterprise-3.1"
@@ -187,9 +187,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.1\/composer.json"
+                "clients/GitHubEnterprise-3.1/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.1\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.1/",
             "commitMessagePrefix": "[GitHubEnterprise-3.1]",
             "labels": [
                 "GitHubEnterprise-3.1"
@@ -201,9 +201,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.2\/composer.json"
+                "clients/GitHubEnterprise-3.2/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.2/",
             "commitMessagePrefix": "[GitHubEnterprise-3.2]",
             "labels": [
                 "GitHubEnterprise-3.2"
@@ -215,9 +215,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.2\/composer.json"
+                "clients/GitHubEnterprise-3.2/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.2/",
             "commitMessagePrefix": "[GitHubEnterprise-3.2]",
             "labels": [
                 "GitHubEnterprise-3.2"
@@ -232,9 +232,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.2\/composer.json"
+                "clients/GitHubEnterprise-3.2/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.2\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.2/",
             "commitMessagePrefix": "[GitHubEnterprise-3.2]",
             "labels": [
                 "GitHubEnterprise-3.2"
@@ -246,9 +246,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.3\/composer.json"
+                "clients/GitHubEnterprise-3.3/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.3/",
             "commitMessagePrefix": "[GitHubEnterprise-3.3]",
             "labels": [
                 "GitHubEnterprise-3.3"
@@ -260,9 +260,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.3\/composer.json"
+                "clients/GitHubEnterprise-3.3/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.3/",
             "commitMessagePrefix": "[GitHubEnterprise-3.3]",
             "labels": [
                 "GitHubEnterprise-3.3"
@@ -277,9 +277,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.3\/composer.json"
+                "clients/GitHubEnterprise-3.3/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.3\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.3/",
             "commitMessagePrefix": "[GitHubEnterprise-3.3]",
             "labels": [
                 "GitHubEnterprise-3.3"
@@ -291,9 +291,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.4\/composer.json"
+                "clients/GitHubEnterprise-3.4/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.4/",
             "commitMessagePrefix": "[GitHubEnterprise-3.4]",
             "labels": [
                 "GitHubEnterprise-3.4"
@@ -305,9 +305,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.4\/composer.json"
+                "clients/GitHubEnterprise-3.4/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.4/",
             "commitMessagePrefix": "[GitHubEnterprise-3.4]",
             "labels": [
                 "GitHubEnterprise-3.4"
@@ -322,9 +322,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.4\/composer.json"
+                "clients/GitHubEnterprise-3.4/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.4\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.4/",
             "commitMessagePrefix": "[GitHubEnterprise-3.4]",
             "labels": [
                 "GitHubEnterprise-3.4"
@@ -336,9 +336,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.5\/composer.json"
+                "clients/GitHubEnterprise-3.5/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.5/",
             "commitMessagePrefix": "[GitHubEnterprise-3.5]",
             "labels": [
                 "GitHubEnterprise-3.5"
@@ -350,9 +350,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.5\/composer.json"
+                "clients/GitHubEnterprise-3.5/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.5/",
             "commitMessagePrefix": "[GitHubEnterprise-3.5]",
             "labels": [
                 "GitHubEnterprise-3.5"
@@ -367,9 +367,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.5\/composer.json"
+                "clients/GitHubEnterprise-3.5/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.5\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.5/",
             "commitMessagePrefix": "[GitHubEnterprise-3.5]",
             "labels": [
                 "GitHubEnterprise-3.5"
@@ -381,9 +381,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.6\/composer.json"
+                "clients/GitHubEnterprise-3.6/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.6/",
             "commitMessagePrefix": "[GitHubEnterprise-3.6]",
             "labels": [
                 "GitHubEnterprise-3.6"
@@ -395,9 +395,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.6\/composer.json"
+                "clients/GitHubEnterprise-3.6/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.6/",
             "commitMessagePrefix": "[GitHubEnterprise-3.6]",
             "labels": [
                 "GitHubEnterprise-3.6"
@@ -412,9 +412,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.6\/composer.json"
+                "clients/GitHubEnterprise-3.6/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.6\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.6/",
             "commitMessagePrefix": "[GitHubEnterprise-3.6]",
             "labels": [
                 "GitHubEnterprise-3.6"
@@ -426,9 +426,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.7\/composer.json"
+                "clients/GitHubEnterprise-3.7/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.7/",
             "commitMessagePrefix": "[GitHubEnterprise-3.7]",
             "labels": [
                 "GitHubEnterprise-3.7"
@@ -440,9 +440,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.7\/composer.json"
+                "clients/GitHubEnterprise-3.7/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.7/",
             "commitMessagePrefix": "[GitHubEnterprise-3.7]",
             "labels": [
                 "GitHubEnterprise-3.7"
@@ -457,9 +457,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.7\/composer.json"
+                "clients/GitHubEnterprise-3.7/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.7\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.7/",
             "commitMessagePrefix": "[GitHubEnterprise-3.7]",
             "labels": [
                 "GitHubEnterprise-3.7"
@@ -471,9 +471,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.8\/composer.json"
+                "clients/GitHubEnterprise-3.8/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.8/",
             "commitMessagePrefix": "[GitHubEnterprise-3.8]",
             "labels": [
                 "GitHubEnterprise-3.8"
@@ -485,9 +485,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.8\/composer.json"
+                "clients/GitHubEnterprise-3.8/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.8/",
             "commitMessagePrefix": "[GitHubEnterprise-3.8]",
             "labels": [
                 "GitHubEnterprise-3.8"
@@ -502,9 +502,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.8\/composer.json"
+                "clients/GitHubEnterprise-3.8/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.8\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.8/",
             "commitMessagePrefix": "[GitHubEnterprise-3.8]",
             "labels": [
                 "GitHubEnterprise-3.8"
@@ -516,9 +516,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.9\/composer.json"
+                "clients/GitHubEnterprise-3.9/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.9/",
             "commitMessagePrefix": "[GitHubEnterprise-3.9]",
             "labels": [
                 "GitHubEnterprise-3.9"
@@ -530,9 +530,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.9\/composer.json"
+                "clients/GitHubEnterprise-3.9/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.9/",
             "commitMessagePrefix": "[GitHubEnterprise-3.9]",
             "labels": [
                 "GitHubEnterprise-3.9"
@@ -547,9 +547,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterprise-3.9\/composer.json"
+                "clients/GitHubEnterprise-3.9/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterprise-3.9\/",
+            "branchPrefix": "renovate/GitHubEnterprise-3.9/",
             "commitMessagePrefix": "[GitHubEnterprise-3.9]",
             "labels": [
                 "GitHubEnterprise-3.9"
@@ -561,9 +561,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHub\/composer.json"
+                "clients/GitHub/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHub\/",
+            "branchPrefix": "renovate/GitHub/",
             "commitMessagePrefix": "[GitHub]",
             "labels": [
                 "GitHub"
@@ -575,9 +575,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHub\/composer.json"
+                "clients/GitHub/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHub\/",
+            "branchPrefix": "renovate/GitHub/",
             "commitMessagePrefix": "[GitHub]",
             "labels": [
                 "GitHub"
@@ -592,9 +592,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHub\/composer.json"
+                "clients/GitHub/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHub\/",
+            "branchPrefix": "renovate/GitHub/",
             "commitMessagePrefix": "[GitHub]",
             "labels": [
                 "GitHub"
@@ -606,9 +606,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubEnterpriseCloud\/composer.json"
+                "clients/GitHubEnterpriseCloud/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
+            "branchPrefix": "renovate/GitHubEnterpriseCloud/",
             "commitMessagePrefix": "[GitHubEnterpriseCloud]",
             "labels": [
                 "GitHubEnterpriseCloud"
@@ -620,9 +620,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubEnterpriseCloud\/composer.json"
+                "clients/GitHubEnterpriseCloud/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
+            "branchPrefix": "renovate/GitHubEnterpriseCloud/",
             "commitMessagePrefix": "[GitHubEnterpriseCloud]",
             "labels": [
                 "GitHubEnterpriseCloud"
@@ -637,9 +637,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubEnterpriseCloud\/composer.json"
+                "clients/GitHubEnterpriseCloud/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubEnterpriseCloud\/",
+            "branchPrefix": "renovate/GitHubEnterpriseCloud/",
             "commitMessagePrefix": "[GitHubEnterpriseCloud]",
             "labels": [
                 "GitHubEnterpriseCloud"
@@ -651,9 +651,9 @@
             ],
             "rangeStrategy": "in-range-only",
             "matchFileNames": [
-                "clients\/GitHubAE\/composer.json"
+                "clients/GitHubAE/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubAE\/",
+            "branchPrefix": "renovate/GitHubAE/",
             "commitMessagePrefix": "[GitHubAE]",
             "labels": [
                 "GitHubAE"
@@ -665,9 +665,9 @@
             ],
             "rangeStrategy": "bump",
             "matchFileNames": [
-                "clients\/GitHubAE\/composer.json"
+                "clients/GitHubAE/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubAE\/",
+            "branchPrefix": "renovate/GitHubAE/",
             "commitMessagePrefix": "[GitHubAE]",
             "labels": [
                 "GitHubAE"
@@ -682,9 +682,9 @@
             ],
             "enabled": false,
             "matchFileNames": [
-                "clients\/GitHubAE\/composer.json"
+                "clients/GitHubAE/composer.json"
             ],
-            "branchPrefix": "renovate\/GitHubAE\/",
+            "branchPrefix": "renovate/GitHubAE/",
             "commitMessagePrefix": "[GitHubAE]",
             "labels": [
                 "GitHubAE"
