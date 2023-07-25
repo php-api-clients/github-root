@@ -94,26 +94,12 @@ if (!file_exists(SPECS_ROOT)) {
 $subSplitConfig = [];
 $renovatePackageRules = [];
 
-// GitHub Actions
-$renovatePackageRules[] = [
-    'matchManagers' => ['github-actions'],
-    'matchFileNames' => [
-        '.github/workflows/**',
-        'etc/workflow-skeleton/**',
-    ],
-    'branchPrefix' => 'renovate/github-actions/',
-    'commitMessagePrefix' => '[🐙]',
-    'labels' => [
-        '🐙',
-    ],
-];
-
 // The root package
 $renovatePackageRules[] = [
     'matchManagers' =>  ['composer'],
     'rangeStrategy' =>  'in-range-only',
     'matchFileNames' => ['composer.json'],
-    'branchPrefix' => 'renovate/root/',
+    'branchPrefix' => 'renovate/root/php/',
     'commitMessagePrefix' => '[🪵]',
     'labels' => [
         '🪵',
@@ -123,7 +109,7 @@ $renovatePackageRules[] = [
     'matchManagers' => ['composer'],
     'rangeStrategy' => 'bump',
     'matchFileNames' => ['composer.json'],
-    'branchPrefix' => 'renovate/root/',
+    'branchPrefix' => 'renovate/root/php/',
     'commitMessagePrefix' => '[🪵]',
     'labels' => [
         '🪵',
@@ -134,7 +120,7 @@ $renovatePackageRules[] = [
     'matchPackageNames' => ['php'],
     'enabled' => false,
     'matchFileNames' => ['composer.json'],
-    'branchPrefix' => 'renovate/root/',
+    'branchPrefix' => 'renovate/root/php/',
     'commitMessagePrefix' => '[🪵]',
     'labels' => [
         '🪵',
@@ -146,7 +132,7 @@ $renovatePackageRules[] = [
     'matchManagers' =>  ['composer'],
     'rangeStrategy' =>  'in-range-only',
     'matchFileNames' => ['skelleton/composer.json'],
-    'branchPrefix' => 'renovate/skelleton/',
+    'branchPrefix' => 'renovate/skelleton/php/',
     'commitMessagePrefix' => '[☠️]',
     'labels' => [
         '☠️',
@@ -156,7 +142,7 @@ $renovatePackageRules[] = [
     'matchManagers' => ['composer'],
     'rangeStrategy' => 'bump',
     'matchFileNames' => ['skelleton/composer.json'],
-    'branchPrefix' => 'renovate/skelleton/',
+    'branchPrefix' => 'renovate/skelleton/php/',
     'commitMessagePrefix' => '[☠️]',
     'labels' => [
         '☠️',
@@ -167,7 +153,19 @@ $renovatePackageRules[] = [
     'matchPackageNames' => ['php'],
     'enabled' => false,
     'matchFileNames' => ['skelleton/composer.json'],
-    'branchPrefix' => 'renovate/skelleton/',
+    'branchPrefix' => 'renovate/skelleton/php/',
+    'commitMessagePrefix' => '[☠️]',
+    'labels' => [
+        '☠️',
+    ],
+];
+
+$renovatePackageRules[] = [
+    'matchManagers' => ['github-actions'],
+    'matchFileNames' => [
+        'etc/workflow-skeleton/**',
+    ],
+    'branchPrefix' => 'renovate/skelleton/github-actions/',
     'commitMessagePrefix' => '[☠️]',
     'labels' => [
         '☠️',
@@ -188,7 +186,7 @@ foreach ($clients as $hour => $client) {
         'matchManagers' =>  ['composer'],
         'rangeStrategy' =>  'in-range-only',
         'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
-        'branchPrefix' => 'renovate/' . $client['path'] . '/',
+        'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
         'commitMessagePrefix' => '[' . $client['path'] . ']',
         'labels' => [
             $client['path'],
@@ -198,7 +196,7 @@ foreach ($clients as $hour => $client) {
         'matchManagers' => ['composer'],
         'rangeStrategy' => 'bump',
         'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
-        'branchPrefix' => 'renovate/' . $client['path'] . '/',
+        'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
         'commitMessagePrefix' => '[' . $client['path'] . ']',
         'labels' => [
             $client['path'],
@@ -209,7 +207,19 @@ foreach ($clients as $hour => $client) {
         'matchPackageNames' => ['php'],
         'enabled' => false,
         'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
-        'branchPrefix' => 'renovate/' . $client['path'] . '/',
+        'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
+        'commitMessagePrefix' => '[' . $client['path'] . ']',
+        'labels' => [
+            $client['path'],
+        ],
+    ];
+
+    $renovatePackageRules[] = [
+        'matchManagers' => ['github-actions'],
+        'matchFileNames' => [
+            '.github/workflows/**' . $client['path'] . '.yaml',
+        ],
+        'branchPrefix' => 'renovate/' . $client['path'] . '/github-actions/',
         'commitMessagePrefix' => '[' . $client['path'] . ']',
         'labels' => [
             $client['path'],
