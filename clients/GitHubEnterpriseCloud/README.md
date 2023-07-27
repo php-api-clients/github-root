@@ -50,7 +50,7 @@ Operations method:
 $client->operations()->meta()->root();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/meta/meta#root-endpoint).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/meta/meta#github-api-root).
 
 
 ### apps/get-authenticated
@@ -571,7 +571,7 @@ $client->operations()->actions()->setActionsOidcCustomIssuerPolicyForEnterprise(
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/oidc#set-actions-oidc-custom-issuer-policy-for-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/oidc#set-the-github-actions-oidc-custom-issuer-policy-for-an-enterprise).
 
 
 ### enterprise-admin/get-github-actions-permissions-enterprise
@@ -719,7 +719,7 @@ $client->operations()->enterpriseAdmin()->getAllowedActionsEnterprise(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-allowed-actions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-allowed-actions-and-reusable-workflows-for-an-enterprise).
 
 
 ### enterprise-admin/set-allowed-actions-enterprise
@@ -739,7 +739,7 @@ $client->operations()->enterpriseAdmin()->setAllowedActionsEnterprise(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-allowed-actions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-allowed-actions-and-reusable-workflows-for-an-enterprise).
 
 
 ### actions/get-github-actions-default-workflow-permissions-enterprise
@@ -825,7 +825,7 @@ $client->operations()->enterpriseAdmin()->createSelfHostedRunnerGroupForEnterpri
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#create-self-hosted-runner-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#create-a-self-hosted-runner-group-for-an-enterprise).
 
 
 ### enterprise-admin/get-self-hosted-runner-group-for-enterprise
@@ -917,7 +917,7 @@ $client->operations()->enterpriseAdmin()->listOrgAccessToSelfHostedRunnerGroupIn
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#list-organization-access-to-a-self-hosted-runner-group-in-a-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#list-organization-access-to-a-self-hosted-runner-group-in-an-enterprise).
 
 
 ### enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise
@@ -939,7 +939,7 @@ $client->operations()->enterpriseAdmin()->setOrgAccessToSelfHostedRunnerGroupInE
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#set-organization-access-to-a-self-hosted-runner-group-in-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#set-organization-access-for-a-self-hosted-runner-group-in-an-enterprise).
 
 
 ### enterprise-admin/add-org-access-to-self-hosted-runner-group-in-enterprise
@@ -1231,7 +1231,7 @@ $client->operations()->enterpriseAdmin()->deleteSelfHostedRunnerFromEnterprise( 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runners#delete-self-hosted-runner-from-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runners#delete-a-self-hosted-runner-from-an-enterprise).
 
 
 ### enterprise-admin/list-labels-for-self-hosted-runner-for-enterprise
@@ -1495,7 +1495,7 @@ $client->operations()->secretScanning()->getSecurityAnalysisSettingsForEnterpris
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/code-security-and-analysis#get-code-security-analysis-features-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/code-security-and-analysis#get-code-security-and-analysis-features-for-an-enterprise).
 
 
 ### secret-scanning/patch-security-analysis-settings-for-enterprise
@@ -1683,7 +1683,7 @@ $client->operations()->billing()->getGithubAdvancedSecurityBillingGhe(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#export-advanced-security-active-committers-data-for-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise).
 
 
 ### billing/get-github-packages-billing-ghe
@@ -2548,7 +2548,7 @@ Operations method:
 $client->operations()->meta()->get();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/meta/meta#get-github-meta-information).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/meta/meta#get-apiname-meta-information).
 
 
 ### activity/list-public-events-for-repo-network
@@ -2783,7 +2783,7 @@ $client->operations()->orgs()->listCustomRoles(        organization_id: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated-list-custom-repository-roles-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---list-custom-repository-roles-in-an-organization).
 
 
 ### orgs/get
@@ -3075,7 +3075,7 @@ $client->operations()->actions()->getAllowedActionsOrganization(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-allowed-actions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-allowed-actions-and-reusable-workflows-for-an-organization).
 
 
 ### actions/set-allowed-actions-organization
@@ -3095,7 +3095,7 @@ $client->operations()->actions()->setAllowedActionsOrganization(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-allowed-actions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-allowed-actions-and-reusable-workflows-for-an-organization).
 
 
 ### actions/get-github-actions-default-workflow-permissions-organization
@@ -3115,7 +3115,7 @@ $client->operations()->actions()->getGithubActionsDefaultWorkflowPermissionsOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-default-workflow-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-default-workflow-permissions-for-an-organization).
 
 
 ### actions/set-github-actions-default-workflow-permissions-organization
@@ -3135,7 +3135,7 @@ $client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-default-workflow-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-default-workflow-permissions-for-an-organization).
 
 
 ### actions/list-self-hosted-runner-groups-for-org
@@ -3295,7 +3295,7 @@ $client->operations()->actions()->setRepoAccessToSelfHostedRunnerGroupInOrg(    
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#set-repository-access-to-a-self-hosted-runner-group-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#set-repository-access-for-a-self-hosted-runner-group-in-an-organization).
 
 
 ### actions/add-repo-access-to-self-hosted-runner-group-in-org
@@ -3319,7 +3319,7 @@ $client->operations()->actions()->addRepoAccessToSelfHostedRunnerGroupInOrg(    
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#add-repository-acess-to-a-self-hosted-runner-group-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/self-hosted-runner-groups#add-repository-access-to-a-self-hosted-runner-group-in-an-organization).
 
 
 ### actions/remove-repo-access-to-self-hosted-runner-group-in-org
@@ -4131,7 +4131,7 @@ $client->operations()->announcementBanners()->getAnnouncementBannerForOrg(      
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/announcement-banners/organizations#get-enterprise-announcement-banner-for-org).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/announcement-banners/organizations#get-announcement-banner-for-organization).
 
 
 ### announcement-banners/remove-announcement-banner-for-org
@@ -4203,7 +4203,7 @@ $client->operations()->orgs()->getAuditLog(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#get-audit-log).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#get-the-audit-log-for-an-organization).
 
 
 ### orgs/list-blocked-users
@@ -4357,7 +4357,7 @@ $client->operations()->codespaces()->listInOrganization(        org: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#list-in-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#list-codespaces-for-the-organization).
 
 
 ### codespaces/set-codespaces-billing
@@ -4377,7 +4377,7 @@ $client->operations()->codespaces()->setCodespacesBilling(        org: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#set-codespaces-billing).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#manage-access-control-for-organization-codespaces).
 
 
 ### codespaces/set-codespaces-billing-users
@@ -4397,7 +4397,7 @@ $client->operations()->codespaces()->setCodespacesBillingUsers(        org: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#set-codespaces-billing-users).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#add-users-to-codespaces-billing-for-an-organization).
 
 
 ### codespaces/delete-codespaces-billing-users
@@ -4417,7 +4417,7 @@ $client->operations()->codespaces()->deleteCodespacesBillingUsers(        org: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#delete-codespaces-billing-users).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#remove-users-from-codespaces-billing-for-an-organization).
 
 
 ### codespaces/list-org-secrets
@@ -4921,7 +4921,7 @@ $client->operations()->orgs()->createCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#create-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---create-a-custom-role).
 
 
 ### orgs/get-custom-role
@@ -4943,7 +4943,7 @@ $client->operations()->orgs()->getCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#get-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---get-a-custom-role).
 
 
 ### orgs/delete-custom-role
@@ -4965,7 +4965,7 @@ $client->operations()->orgs()->deleteCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#delete-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---delete-a-custom-role).
 
 
 ### orgs/update-custom-role
@@ -4987,7 +4987,7 @@ $client->operations()->orgs()->updateCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#update-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---update-a-custom-role).
 
 
 ### dependabot/list-alerts-for-org
@@ -5257,7 +5257,7 @@ $client->operations()->packages()->listDockerMigrationConflictingPackagesForOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-docker-migration-conflicting-packages-for-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#get-list-of-conflicting-packages-during-docker-migration-for-organization).
 
 
 ### activity/list-public-org-events
@@ -5303,7 +5303,7 @@ $client->operations()->teams()->externalIdpGroupInfoForOrg(        org: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#external-idp-group-info-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#get-an-external-group).
 
 
 ### teams/list-external-idp-groups-for-org
@@ -5329,7 +5329,7 @@ $client->operations()->teams()->listExternalIdpGroupsForOrg(        org: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#list-external-idp-groups-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#list-external-groups-in-an-organization).
 
 
 ### orgs/list-failed-invitations
@@ -5373,7 +5373,7 @@ $client->operations()->orgs()->listFineGrainedPermissions(        org: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---list-fine-grained-permissions-for-an-organization).
 
 
 ### orgs/list-webhooks
@@ -5959,7 +5959,7 @@ $client->operations()->codespaces()->getCodespacesForUserInOrg(        org: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#get-codespaces-for-user-in-org).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#list-codespaces-for-a-user-in-organization).
 
 
 ### codespaces/delete-from-organization
@@ -6029,7 +6029,7 @@ $client->operations()->copilot()->getCopilotSeatAssignmentDetailsForUser(       
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-for-business#get-copilot-for-business-seat-details-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-for-business#get-copilot-for-business-seat-assignment-details-for-a-user).
 
 
 ### orgs/get-membership-for-user
@@ -6483,7 +6483,7 @@ $client->operations()->packages()->getAllPackageVersionsForPackageOwnedByOrg(   
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#get-all-package-versions-for-a-package-owned-by-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-package-versions-for-a-package-owned-by-an-organization).
 
 
 ### packages/get-package-version-for-organization
@@ -6535,7 +6535,7 @@ $client->operations()->packages()->deletePackageVersionForOrg(        package_ty
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#delete-a-package-version-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#delete-package-version-for-an-organization).
 
 
 ### packages/restore-package-version-for-org
@@ -6561,7 +6561,7 @@ $client->operations()->packages()->restorePackageVersionForOrg(        package_t
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#restore-a-package-version-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#restore-package-version-for-an-organization).
 
 
 ### orgs/list-pat-grant-requests
@@ -6619,7 +6619,7 @@ $client->operations()->orgs()->reviewPatGrantRequestsInBulk(        org: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/personal-access-tokens#review-requests-to-access-organization-resources-with-a-fine-grained-personal-access-token).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/personal-access-tokens#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens).
 
 
 ### orgs/review-pat-grant-request
@@ -6979,7 +6979,7 @@ $client->operations()->orgs()->listRepoFineGrainedPermissions(        org: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#list-repo-fine-grained-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization).
 
 
 ### repos/get-org-rulesets
@@ -7003,7 +7003,7 @@ $client->operations()->repos()->getOrgRulesets(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#get-organization-rulesets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#get-all-organization-repository-rulesets).
 
 
 ### repos/create-org-ruleset
@@ -7023,7 +7023,7 @@ $client->operations()->repos()->createOrgRuleset(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#create-organization-repository-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#create-an-organization-repository-ruleset).
 
 
 ### repos/get-org-ruleset
@@ -7045,7 +7045,7 @@ $client->operations()->repos()->getOrgRuleset(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#get-organization-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#get-an-organization-repository-ruleset).
 
 
 ### repos/update-org-ruleset
@@ -7067,7 +7067,7 @@ $client->operations()->repos()->updateOrgRuleset(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#update-organization-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#update-an-organization-repository-ruleset).
 
 
 ### repos/delete-org-ruleset
@@ -7089,7 +7089,7 @@ $client->operations()->repos()->deleteOrgRuleset(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#delete-organization-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/rules#delete-an-organization-repository-ruleset).
 
 
 ### secret-scanning/list-alerts-for-org
@@ -7855,7 +7855,7 @@ $client->operations()->teams()->listLinkedExternalIdpGroupsToTeamForOrg(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#list-external-idp-group-team-connection).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#list-a-connection-between-an-external-group-and-a-team).
 
 
 ### teams/unlink-external-idp-group-from-team-for-org
@@ -7877,7 +7877,7 @@ $client->operations()->teams()->unlinkExternalIdpGroupFromTeamForOrg(        org
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#unlink-external-idp-group-team-connection).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#remove-the-connection-between-an-external-group-and-a-team).
 
 
 ### teams/link-external-idp-group-to-team-for-org
@@ -7899,7 +7899,7 @@ $client->operations()->teams()->linkExternalIdpGroupToTeamForOrg(        org: 'g
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#link-external-idp-group-team-connection).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/external-groups#update-the-connection-between-an-external-group-and-a-team).
 
 
 ### teams/list-pending-invitations-in-org
@@ -8321,7 +8321,7 @@ $client->operations()->orgs()->enableOrDisableSecurityProductOnAllOrgRepos(     
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/reference/orgs#enable-or-disable-security-product-on-all-org-repos).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#enable-or-disable-a-security-feature-for-an-organization).
 
 
 ### projects/get-card
@@ -8381,7 +8381,7 @@ $client->operations()->projects()->updateCard(        card_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/projects/cards#update-a-project-card).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/projects/cards#update-an-existing-project-card).
 
 
 ### projects/move-card
@@ -8461,7 +8461,7 @@ $client->operations()->projects()->updateColumn(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/projects/columns#update-a-project-column).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/projects/columns#update-an-existing-project-column).
 
 
 ### projects/list-cards
@@ -8657,7 +8657,7 @@ $client->operations()->projects()->removeCollaborator(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/projects/collaborators#remove-project-collaborator).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/projects/collaborators#remove-user-as-a-collaborator).
 
 
 ### projects/get-permission-for-user
@@ -9136,7 +9136,7 @@ $client->operations()->actions()->reRunJobForWorkflowRun(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/workflow-runs#re-run-job-for-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/workflow-runs#re-run-a-job-from-a-workflow-run).
 
 
 ### actions/get-custom-oidc-sub-claim-for-repo
@@ -9298,7 +9298,7 @@ $client->operations()->actions()->getWorkflowAccessToRepository(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-workflow-access-level-to-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository).
 
 
 ### actions/set-workflow-access-to-repository
@@ -9320,7 +9320,7 @@ $client->operations()->actions()->setWorkflowAccessToRepository(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-workflow-access-to-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository).
 
 
 ### actions/get-allowed-actions-repository
@@ -9342,7 +9342,7 @@ $client->operations()->actions()->getAllowedActionsRepository(        owner: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-allowed-actions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#get-allowed-actions-and-reusable-workflows-for-a-repository).
 
 
 ### actions/set-allowed-actions-repository
@@ -9364,7 +9364,7 @@ $client->operations()->actions()->setAllowedActionsRepository(        owner: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-allowed-actions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/permissions#set-allowed-actions-and-reusable-workflows-for-a-repository).
 
 
 ### actions/get-github-actions-default-workflow-permissions-repository
@@ -10216,7 +10216,7 @@ $client->operations()->actions()->reRunWorkflowFailedJobs(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/workflow-runs#re-run-workflow-failed-jobs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/workflow-runs#re-run-failed-jobs-from-a-workflow-run).
 
 
 ### actions/get-workflow-run-usage
@@ -10646,7 +10646,7 @@ $client->operations()->actions()->listWorkflowRuns(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/workflow-runs#list-workflow-runs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/workflow-runs#list-workflow-runs-for-a-workflow).
 
 
 ### actions/get-workflow-usage
@@ -10671,6 +10671,44 @@ $client->operations()->actions()->getWorkflowUsage(        owner: 'generated',
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/workflows#get-workflow-usage).
+
+
+### repos/list-activities
+
+List repository activities
+
+Using the `call` method:
+```php
+$client->call('GET /repos/{owner}/{repo}/activity', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'before' => 'generated',
+        'after' => 'generated',
+        'ref' => 'generated',
+        'actor' => 'generated',
+        'time_period' => 'generated',
+        'activity_type' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listActivities(        owner: 'generated',
+        repo: 'generated',
+        before: 'generated',
+        after: 'generated',
+        ref: 'generated',
+        actor: 'generated',
+        time_period: 'generated',
+        activity_type: 'generated',
+        direction: 'generated',
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#list-repository-activities).
 
 
 ### issues/list-assignees
@@ -11460,7 +11498,7 @@ $client->operations()->repos()->getAppsWithAccessToProtectedBranch(        owner
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/branches/branch-protection#list-apps-with-access-to-the-protected-branch).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/branches/branch-protection#get-apps-with-access-to-the-protected-branch).
 
 
 ### repos/set-app-access-restrictions
@@ -11556,7 +11594,7 @@ $client->operations()->repos()->getTeamsWithAccessToProtectedBranch(        owne
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/branches/branch-protection#list-teams-with-access-to-the-protected-branch).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/branches/branch-protection#get-teams-with-access-to-the-protected-branch).
 
 
 ### repos/set-team-access-restrictions
@@ -11652,7 +11690,7 @@ $client->operations()->repos()->getUsersWithAccessToProtectedBranch(        owne
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/branches/branch-protection#list-users-with-access-to-the-protected-branch).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/branches/branch-protection#get-users-with-access-to-the-protected-branch).
 
 
 ### repos/set-user-access-restrictions
@@ -12436,7 +12474,7 @@ $client->operations()->codespaces()->listDevcontainersInRepositoryForAuthenticat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/codespaces#list-devcontainers-in-a-repository-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/codespaces#list-devcontainer-configurations-in-a-repository-for-the-authenticated-user).
 
 
 ### codespaces/repo-machines-for-authenticated-user
@@ -12488,7 +12526,7 @@ $client->operations()->codespaces()->preFlightWithRepoForAuthenticatedUser(     
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/codespaces#preview-attributes-for-a-new-codespace).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/codespaces#get-default-attributes-for-a-codespace).
 
 
 ### codespaces/list-repo-secrets
@@ -14000,7 +14038,7 @@ $client->operations()->repos()->createDeploymentBranchPolicy(        owner: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#create-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#create-a-deployment-branch-policy).
 
 
 ### repos/get-deployment-branch-policy
@@ -14026,7 +14064,7 @@ $client->operations()->repos()->getDeploymentBranchPolicy(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#get-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#get-a-deployment-branch-policy).
 
 
 ### repos/update-deployment-branch-policy
@@ -14052,7 +14090,7 @@ $client->operations()->repos()->updateDeploymentBranchPolicy(        owner: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#update-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#update-a-deployment-branch-policy).
 
 
 ### repos/delete-deployment-branch-policy
@@ -14078,7 +14116,7 @@ $client->operations()->repos()->deleteDeploymentBranchPolicy(        owner: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#delete-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/branch-policies#delete-a-deployment-branch-policy).
 
 
 ### repos/get-all-deployment-protection-rules
@@ -14102,7 +14140,7 @@ $client->operations()->repos()->getAllDeploymentProtectionRules(        environm
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#get-all-deployment-protection-rules).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#get-all-deployment-protection-rules-for-an-environment).
 
 
 ### repos/create-deployment-protection-rule
@@ -14126,7 +14164,7 @@ $client->operations()->repos()->createDeploymentProtectionRule(        environme
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#create-a-deployment-protection-rule).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#create-a-custom-deployment-protection-rule-on-an-environment).
 
 
 ### repos/list-custom-deployment-rule-integrations
@@ -14154,7 +14192,7 @@ $client->operations()->repos()->listCustomDeploymentRuleIntegrations(        env
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#list-custom-deployment-rule-integrations).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#list-custom-deployment-rule-integrations-available-for-an-environment).
 
 
 ### repos/get-custom-deployment-protection-rule
@@ -14180,7 +14218,7 @@ $client->operations()->repos()->getCustomDeploymentProtectionRule(        owner:
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#get-a-deployment-protection-rule).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#get-a-custom-deployment-protection-rule).
 
 
 ### repos/disable-deployment-protection-rule
@@ -14206,7 +14244,7 @@ $client->operations()->repos()->disableDeploymentProtectionRule(        environm
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#disable-deployment-protection-rule).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/deployments/protection-rules#disable-a-custom-protection-rule-for-an-environment).
 
 
 ### activity/list-repo-events
@@ -14374,7 +14412,7 @@ $client->operations()->git()->getCommit(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/git/commits#get-a-commit).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/git/commits#get-a-commit-object).
 
 
 ### git/list-matching-refs
@@ -16592,7 +16630,7 @@ $client->operations()->repos()->getPages(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#get-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#get-a-apiname-pages-site).
 
 
 ### repos/update-information-about-pages-site
@@ -16614,7 +16652,7 @@ $client->operations()->repos()->updateInformationAboutPagesSite(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#update-information-about-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#update-information-about-a-apiname-pages-site).
 
 
 ### repos/create-pages-site
@@ -16636,7 +16674,7 @@ $client->operations()->repos()->createPagesSite(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#create-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#create-a-apiname-pages-site).
 
 
 ### repos/delete-pages-site
@@ -16658,7 +16696,7 @@ $client->operations()->repos()->deletePagesSite(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#delete-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#delete-a-apiname-pages-site).
 
 
 ### repos/list-pages-builds
@@ -16684,7 +16722,7 @@ $client->operations()->repos()->listPagesBuilds(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#list-github-pages-builds).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#list-apiname-pages-builds).
 
 
 ### repos/request-pages-build
@@ -16706,7 +16744,7 @@ $client->operations()->repos()->requestPagesBuild(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#request-a-github-pages-build).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#request-a-apiname-pages-build).
 
 
 ### repos/get-latest-pages-build
@@ -16752,7 +16790,7 @@ $client->operations()->repos()->getPagesBuild(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#get-github-pages-build).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#get-apiname-pages-build).
 
 
 ### repos/create-pages-deployment
@@ -17706,7 +17744,7 @@ $client->operations()->repos()->getReadmeInDirectory(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#get-a-repository-directory-readme).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#get-a-repository-readme-for-a-directory).
 
 
 ### repos/list-releases
@@ -17848,7 +17886,7 @@ $client->operations()->repos()->generateReleaseNotes(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#generate-release-notes).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/releases/releases#generate-release-notes-content-for-a-release).
 
 
 ### repos/get-latest-release
@@ -18158,7 +18196,7 @@ $client->operations()->repos()->getRepoRulesets(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#get-repository-rulesets).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#get-all-repository-rulesets).
 
 
 ### repos/create-repo-ruleset
@@ -18180,7 +18218,7 @@ $client->operations()->repos()->createRepoRuleset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#create-repository-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#create-a-repository-ruleset).
 
 
 ### repos/get-repo-ruleset
@@ -18206,7 +18244,7 @@ $client->operations()->repos()->getRepoRuleset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#get-repository-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#get-a-repository-ruleset).
 
 
 ### repos/update-repo-ruleset
@@ -18230,7 +18268,7 @@ $client->operations()->repos()->updateRepoRuleset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#update-repository-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#update-a-repository-ruleset).
 
 
 ### repos/delete-repo-ruleset
@@ -18254,7 +18292,7 @@ $client->operations()->repos()->deleteRepoRuleset(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#delete-repository-ruleset).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/rules#delete-a-repository-ruleset).
 
 
 ### secret-scanning/list-alerts-for-repo
@@ -18796,7 +18834,7 @@ $client->operations()->repos()->listTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#list-tag-protection-state-of-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#list-tag-protection-states-for-a-repository).
 
 
 ### repos/create-tag-protection
@@ -18818,7 +18856,7 @@ $client->operations()->repos()->createTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#create-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#create-a-tag-protection-state-for-a-repository).
 
 
 ### repos/delete-tag-protection
@@ -18842,7 +18880,7 @@ $client->operations()->repos()->deleteTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#delete-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#delete-a-tag-protection-state-for-a-repository).
 
 
 ### repos/download-tarball-archive
@@ -18866,7 +18904,7 @@ $client->operations()->repos()->downloadTarballArchive(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive-tar).
 
 
 ### repos/download-tarball-archive
@@ -18890,7 +18928,7 @@ $client->operations()->repos()->downloadTarballArchiveStreaming(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive-tar).
 
 
 ### repos/list-teams
@@ -19168,7 +19206,7 @@ $client->operations()->repos()->downloadZipballArchive(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive-zip).
 
 
 ### repos/download-zipball-archive
@@ -19192,7 +19230,7 @@ $client->operations()->repos()->downloadZipballArchiveStreaming(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/contents#download-a-repository-archive-zip).
 
 
 ### repos/create-using-template
@@ -19564,7 +19602,7 @@ $client->operations()->scim()->setInformationForProvisionedUser(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/scim/scim#set-scim-information-for-a-provisioned-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/scim/scim#update-a-provisioned-organization-membership).
 
 
 ### scim/delete-user-from-org
@@ -21171,7 +21209,7 @@ Operations method:
 $client->operations()->packages()->listDockerMigrationConflictingPackagesForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-docker-migration-conflicting-packages-for-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#get-list-of-conflicting-packages-during-docker-migration-for-authenticated-user).
 
 
 ### users/set-primary-email-visibility-for-authenticated-user
@@ -21984,7 +22022,7 @@ $client->operations()->packages()->listPackagesForAuthenticatedUser(        pack
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-packages-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-packages-for-the-authenticated-users-namespace).
 
 
 ### packages/get-package-for-authenticated-user
@@ -22080,7 +22118,7 @@ $client->operations()->packages()->getAllPackageVersionsForPackageOwnedByAuthent
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-package-versions-for-a-package-owned-by-the-authenticated-user).
 
 
 ### packages/get-package-version-for-authenticated-user
@@ -22345,7 +22383,7 @@ Operations method:
 $client->operations()->users()->addSocialAccountForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/social-accounts#add-social-account-for-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/social-accounts#add-social-accounts-for-the-authenticated-user).
 
 
 ### users/delete-social-account-for-authenticated-user
@@ -22362,7 +22400,7 @@ Operations method:
 $client->operations()->users()->deleteSocialAccountForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/social-accounts#delete-social-account-for-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/social-accounts#delete-social-accounts-for-the-authenticated-user).
 
 
 ### users/list-ssh-signing-keys-for-authenticated-user
@@ -22384,7 +22422,7 @@ $client->operations()->users()->listSshSigningKeysForAuthenticatedUser(        p
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#list-public-ssh-signing-keys-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#list-ssh-signing-keys-for-the-authenticated-user).
 
 
 ### users/create-ssh-signing-key-for-authenticated-user
@@ -22401,7 +22439,7 @@ Operations method:
 $client->operations()->users()->createSshSigningKeyForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#create-an-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#create-a-ssh-signing-key-for-the-authenticated-user).
 
 
 ### users/get-ssh-signing-key-for-authenticated-user
@@ -22421,7 +22459,7 @@ $client->operations()->users()->getSshSigningKeyForAuthenticatedUser(        ssh
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#get-a-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#get-an-ssh-signing-key-for-the-authenticated-user).
 
 
 ### users/delete-ssh-signing-key-for-authenticated-user
@@ -22441,7 +22479,7 @@ $client->operations()->users()->deleteSshSigningKeyForAuthenticatedUser(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#delete-a-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/ssh-signing-keys#delete-an-ssh-signing-key-for-the-authenticated-user).
 
 
 ### activity/list-repos-starred-by-authenticated-user
@@ -22639,7 +22677,7 @@ $client->operations()->packages()->listDockerMigrationConflictingPackagesForUser
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-docker-migration-conflicting-packages-for-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#get-list-of-conflicting-packages-during-docker-migration-for-user).
 
 
 ### activity/list-events-for-authenticated-user
@@ -22953,7 +22991,7 @@ $client->operations()->packages()->listPackagesForUser(        package_type: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-packages-for-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-packages-for-a-user).
 
 
 ### packages/get-package-for-user
@@ -23051,7 +23089,7 @@ $client->operations()->packages()->getAllPackageVersionsForPackageOwnedByUser(  
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#get-all-package-versions-for-a-package-owned-by-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#list-package-versions-for-a-package-owned-by-a-user).
 
 
 ### packages/get-package-version-for-user
@@ -23103,7 +23141,7 @@ $client->operations()->packages()->deletePackageVersionForUser(        package_t
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#delete-a-package-version-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#delete-package-version-for-a-user).
 
 
 ### packages/restore-package-version-for-user
@@ -23129,7 +23167,7 @@ $client->operations()->packages()->restorePackageVersionForUser(        package_
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#restore-a-package-version-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/packages/packages#restore-package-version-for-a-user).
 
 
 ### projects/list-for-user

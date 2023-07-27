@@ -30,7 +30,7 @@ final class ListProvisionedIdentities
     private int $startIndex;
     /**Used for pagination: the number of results to return. **/
     private int $count;
-    /**Filters results using the equals query parameter operator (`eq`). You can filter results that are equal to `id`, `userName`, `emails`, and `external_id`. For example, to search for an identity with the `userName` Octocat, you would use this query:
+    /**Filters results using the equals query parameter operator (`eq`). You can filter results that are equal to `id`, `userName`, `emails`, and `externalId`. For example, to search for an identity with the `userName` Octocat, you would use this query:
 
     `?filter=userName%20eq%20\"Octocat\"`.
 
