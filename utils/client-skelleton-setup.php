@@ -268,6 +268,12 @@ file_put_contents(
         [
             '$schema' => 'https://docs.renovatebot.com/renovate-schema.json',
             'packageRules' => $renovatePackageRules,
+            "github-actions" => [
+                "fileMatch" => [
+                    "^(workflow-templates|etc/workflow-skeleton|\\.github/workflows)/[^/]+\\.ya?ml$",
+                    "(^|/)action\\.ya?ml$"
+                ],
+            ],
             'extends' => [
                 "config:base",
                 ":widenPeerDependencies",

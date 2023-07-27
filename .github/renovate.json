@@ -859,6 +859,12 @@
             ]
         }
     ],
+    "github-actions": {
+        "fileMatch": [
+            "^(workflow-templates|etc/workflow-skeleton|\\.github/workflows)/[^/]+\\.ya?ml$",
+            "(^|/)action\\.ya?ml$"
+        ]
+    },
     "extends": [
         "config:base",
         ":widenPeerDependencies",
