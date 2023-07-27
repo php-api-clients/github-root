@@ -288,7 +288,9 @@ file_put_contents(
                 ],
             ],
             'extends' => [
-                "config:base"
+                "github>wyrihaximus/renovate-config:base",
+                ":prHourlyLimitNone",
+                ":prConcurrentLimitNone"
             ],
         ],
         JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,
