@@ -50,7 +50,7 @@ Operations method:
 $client->operations()->meta()->root();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#root-endpoint).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#github-api-root).
 
 
 ### enterprise-admin/list-global-webhooks
@@ -1508,7 +1508,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getAllStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/admin-stats#get-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/admin-stats#get-all-statistics).
 
 
 ### enterprise-admin/get-comment-stats
@@ -1576,7 +1576,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getIssueStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/admin-stats#get-issues-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/admin-stats#get-issue-statistics).
 
 
 ### enterprise-admin/get-milestone-stats
@@ -1644,7 +1644,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->getPullRequestStats();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/admin-stats#get-pull-requests-statistics).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/admin-stats#get-pull-request-statistics).
 
 
 ### enterprise-admin/get-repo-stats
@@ -1886,7 +1886,7 @@ $client->operations()->enterpriseAdmin()->getAllowedActionsEnterprise(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-allowed-actions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-allowed-actions-and-reusable-workflows-for-an-enterprise).
 
 
 ### enterprise-admin/set-allowed-actions-enterprise
@@ -1906,7 +1906,7 @@ $client->operations()->enterpriseAdmin()->setAllowedActionsEnterprise(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-allowed-actions-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-allowed-actions-and-reusable-workflows-for-an-enterprise).
 
 
 ### actions/get-github-actions-default-workflow-permissions-enterprise
@@ -1992,7 +1992,7 @@ $client->operations()->enterpriseAdmin()->createSelfHostedRunnerGroupForEnterpri
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#create-self-hosted-runner-group-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#create-a-self-hosted-runner-group-for-an-enterprise).
 
 
 ### enterprise-admin/get-self-hosted-runner-group-for-enterprise
@@ -2084,7 +2084,7 @@ $client->operations()->enterpriseAdmin()->listOrgAccessToSelfHostedRunnerGroupIn
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#list-organization-access-to-a-self-hosted-runner-group-in-a-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#list-organization-access-to-a-self-hosted-runner-group-in-an-enterprise).
 
 
 ### enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise
@@ -2106,7 +2106,7 @@ $client->operations()->enterpriseAdmin()->setOrgAccessToSelfHostedRunnerGroupInE
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#set-organization-access-to-a-self-hosted-runner-group-in-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#set-organization-access-for-a-self-hosted-runner-group-in-an-enterprise).
 
 
 ### enterprise-admin/add-org-access-to-self-hosted-runner-group-in-enterprise
@@ -2378,7 +2378,7 @@ $client->operations()->enterpriseAdmin()->deleteSelfHostedRunnerFromEnterprise( 
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runners#delete-self-hosted-runner-from-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runners#delete-a-self-hosted-runner-from-an-enterprise).
 
 
 ### enterprise-admin/list-labels-for-self-hosted-runner-for-enterprise
@@ -2582,7 +2582,7 @@ $client->operations()->secretScanning()->getSecurityAnalysisSettingsForEnterpris
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/code-security-and-analysis#get-code-security-analysis-features-for-an-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/code-security-and-analysis#get-code-security-and-analysis-features-for-an-enterprise).
 
 
 ### secret-scanning/patch-security-analysis-settings-for-enterprise
@@ -2706,7 +2706,7 @@ $client->operations()->billing()->getGithubAdvancedSecurityBillingGhe(        en
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/billing#export-advanced-security-active-committers-data-for-enterprise).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise).
 
 
 ### secret-scanning/post-security-product-enablement-for-enterprise
@@ -3362,7 +3362,7 @@ $client->operations()->enterpriseAdmin()->getConfigNodes(        uuid: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-config-nodes).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-all-ghes-node-metadata-for-all-nodes).
 
 
 ### enterprise-admin/get-replication-status
@@ -3384,7 +3384,7 @@ $client->operations()->enterpriseAdmin()->getReplicationStatus(        uuid: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-replication-status).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-the-status-of-services-running-on-all-replica-nodes).
 
 
 ### enterprise-admin/get-version
@@ -3406,7 +3406,7 @@ $client->operations()->enterpriseAdmin()->getVersion(        uuid: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-version).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-all-ghes-release-versions-for-all-nodes).
 
 
 ### markdown/render
@@ -3457,7 +3457,7 @@ Operations method:
 $client->operations()->meta()->get();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#get-github-meta-information).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/meta/meta#get-apiname-meta-information).
 
 
 ### activity/list-public-events-for-repo-network
@@ -3692,7 +3692,7 @@ $client->operations()->orgs()->listCustomRoles(        organization_id: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/orgs/custom-roles#deprecated-list-custom-repository-roles-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/orgs/custom-roles#deprecated---list-custom-repository-roles-in-an-organization).
 
 
 ### orgs/get
@@ -3984,7 +3984,7 @@ $client->operations()->actions()->getAllowedActionsOrganization(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-allowed-actions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-allowed-actions-and-reusable-workflows-for-an-organization).
 
 
 ### actions/set-allowed-actions-organization
@@ -4004,7 +4004,7 @@ $client->operations()->actions()->setAllowedActionsOrganization(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-allowed-actions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-allowed-actions-and-reusable-workflows-for-an-organization).
 
 
 ### actions/get-github-actions-default-workflow-permissions-organization
@@ -4024,7 +4024,7 @@ $client->operations()->actions()->getGithubActionsDefaultWorkflowPermissionsOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-default-workflow-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-default-workflow-permissions-for-an-organization).
 
 
 ### actions/set-github-actions-default-workflow-permissions-organization
@@ -4044,7 +4044,7 @@ $client->operations()->actions()->setGithubActionsDefaultWorkflowPermissionsOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-default-workflow-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-default-workflow-permissions-for-an-organization).
 
 
 ### actions/list-self-hosted-runner-groups-for-org
@@ -4204,7 +4204,7 @@ $client->operations()->actions()->setRepoAccessToSelfHostedRunnerGroupInOrg(    
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#set-repository-access-to-a-self-hosted-runner-group-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#set-repository-access-for-a-self-hosted-runner-group-in-an-organization).
 
 
 ### actions/add-repo-access-to-self-hosted-runner-group-in-org
@@ -4228,7 +4228,7 @@ $client->operations()->actions()->addRepoAccessToSelfHostedRunnerGroupInOrg(    
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#add-repository-acess-to-a-self-hosted-runner-group-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/self-hosted-runner-groups#add-repository-access-to-a-self-hosted-runner-group-in-an-organization).
 
 
 ### actions/remove-repo-access-to-self-hosted-runner-group-in-org
@@ -5020,7 +5020,7 @@ $client->operations()->announcementBanners()->getAnnouncementBannerForOrg(      
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/announcement-banners/organizations#get-enterprise-announcement-banner-for-org).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/announcement-banners/organizations#get-announcement-banner-for-organization).
 
 
 ### announcement-banners/remove-announcement-banner-for-org
@@ -5094,7 +5094,7 @@ $client->operations()->orgs()->getAuditLog(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/orgs/orgs#get-audit-log).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/orgs/orgs#get-the-audit-log-for-an-organization).
 
 
 ### code-scanning/list-alerts-for-org
@@ -5510,7 +5510,7 @@ $client->operations()->packages()->listDockerMigrationConflictingPackagesForOrga
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-docker-migration-conflicting-packages-for-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#get-list-of-conflicting-packages-during-docker-migration-for-organization).
 
 
 ### activity/list-public-org-events
@@ -5556,7 +5556,7 @@ $client->operations()->teams()->externalIdpGroupInfoForOrg(        org: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#external-idp-group-info-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#get-an-external-group).
 
 
 ### teams/list-external-idp-groups-for-org
@@ -5582,7 +5582,7 @@ $client->operations()->teams()->listExternalIdpGroupsForOrg(        org: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#list-external-idp-groups-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#list-external-groups-in-an-organization).
 
 
 ### orgs/list-webhooks
@@ -6440,7 +6440,7 @@ $client->operations()->packages()->getAllPackageVersionsForPackageOwnedByOrg(   
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#get-all-package-versions-for-a-package-owned-by-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-package-versions-for-a-package-owned-by-an-organization).
 
 
 ### packages/get-package-version-for-organization
@@ -6492,7 +6492,7 @@ $client->operations()->packages()->deletePackageVersionForOrg(        package_ty
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#delete-a-package-version-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#delete-package-version-for-an-organization).
 
 
 ### packages/restore-package-version-for-org
@@ -6518,7 +6518,7 @@ $client->operations()->packages()->restorePackageVersionForOrg(        package_t
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#restore-a-package-version-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#restore-package-version-for-an-organization).
 
 
 ### enterprise-admin/list-pre-receive-hooks-for-org
@@ -6818,7 +6818,7 @@ $client->operations()->orgs()->listRepoFineGrainedPermissions(        org: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/orgs/custom-roles#list-repo-fine-grained-permissions).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/orgs/custom-roles#list-repository-fine-grained-permissions-for-an-organization).
 
 
 ### secret-scanning/list-alerts-for-org
@@ -7498,7 +7498,7 @@ $client->operations()->teams()->listLinkedExternalIdpGroupsToTeamForOrg(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#list-external-idp-group-team-connection).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#list-a-connection-between-an-external-group-and-a-team).
 
 
 ### teams/unlink-external-idp-group-from-team-for-org
@@ -7520,7 +7520,7 @@ $client->operations()->teams()->unlinkExternalIdpGroupFromTeamForOrg(        org
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#unlink-external-idp-group-team-connection).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#remove-the-connection-between-an-external-group-and-a-team).
 
 
 ### teams/link-external-idp-group-to-team-for-org
@@ -7542,7 +7542,7 @@ $client->operations()->teams()->linkExternalIdpGroupToTeamForOrg(        org: 'g
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#link-external-idp-group-team-connection).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/teams/external-groups#update-the-connection-between-an-external-group-and-a-team).
 
 
 ### teams/list-members-in-org
@@ -7894,7 +7894,7 @@ $client->operations()->orgs()->enableOrDisableSecurityProductOnAllOrgRepos(     
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/reference/orgs#enable-or-disable-security-product-on-all-org-repos).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/orgs/orgs#enable-or-disable-a-security-feature-for-an-organization).
 
 
 ### projects/get-card
@@ -7954,7 +7954,7 @@ $client->operations()->projects()->updateCard(        card_id: 7,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#update-a-project-card).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/cards#update-an-existing-project-card).
 
 
 ### projects/move-card
@@ -8034,7 +8034,7 @@ $client->operations()->projects()->updateColumn(        column_id: 9,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#update-a-project-column).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/columns#update-an-existing-project-column).
 
 
 ### projects/list-cards
@@ -8230,7 +8230,7 @@ $client->operations()->projects()->removeCollaborator(        project_id: 10,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/collaborators#remove-project-collaborator).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/projects/collaborators#remove-user-as-a-collaborator).
 
 
 ### projects/get-permission-for-user
@@ -8753,7 +8753,7 @@ $client->operations()->actions()->reRunJobForWorkflowRun(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/workflow-runs#re-run-job-for-workflow-run).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/workflow-runs#re-run-a-job-from-a-workflow-run).
 
 
 ### actions/get-custom-oidc-sub-claim-for-repo
@@ -8915,7 +8915,7 @@ $client->operations()->actions()->getWorkflowAccessToRepository(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-workflow-access-level-to-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository).
 
 
 ### actions/set-workflow-access-to-repository
@@ -8937,7 +8937,7 @@ $client->operations()->actions()->setWorkflowAccessToRepository(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-workflow-access-to-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository).
 
 
 ### actions/get-allowed-actions-repository
@@ -8959,7 +8959,7 @@ $client->operations()->actions()->getAllowedActionsRepository(        owner: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-allowed-actions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#get-allowed-actions-and-reusable-workflows-for-a-repository).
 
 
 ### actions/set-allowed-actions-repository
@@ -8981,7 +8981,7 @@ $client->operations()->actions()->setAllowedActionsRepository(        owner: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-allowed-actions-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/permissions#set-allowed-actions-and-reusable-workflows-for-a-repository).
 
 
 ### actions/get-github-actions-default-workflow-permissions-repository
@@ -9763,7 +9763,7 @@ $client->operations()->actions()->reRunWorkflowFailedJobs(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/workflow-runs#re-run-workflow-failed-jobs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/workflow-runs#re-run-failed-jobs-from-a-workflow-run).
 
 
 ### actions/list-repo-secrets
@@ -10169,7 +10169,7 @@ $client->operations()->actions()->listWorkflowRuns(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/workflow-runs#list-workflow-runs).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/actions/workflow-runs#list-workflow-runs-for-a-workflow).
 
 
 ### issues/list-assignees
@@ -10893,7 +10893,7 @@ $client->operations()->repos()->getAppsWithAccessToProtectedBranch(        owner
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/branches/branch-protection#list-apps-with-access-to-the-protected-branch).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/branches/branch-protection#get-apps-with-access-to-the-protected-branch).
 
 
 ### repos/set-app-access-restrictions
@@ -10989,7 +10989,7 @@ $client->operations()->repos()->getTeamsWithAccessToProtectedBranch(        owne
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/branches/branch-protection#list-teams-with-access-to-the-protected-branch).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/branches/branch-protection#get-teams-with-access-to-the-protected-branch).
 
 
 ### repos/set-team-access-restrictions
@@ -11085,7 +11085,7 @@ $client->operations()->repos()->getUsersWithAccessToProtectedBranch(        owne
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/branches/branch-protection#list-users-with-access-to-the-protected-branch).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/branches/branch-protection#get-users-with-access-to-the-protected-branch).
 
 
 ### repos/set-user-access-restrictions
@@ -13119,7 +13119,7 @@ $client->operations()->repos()->createDeploymentBranchPolicy(        owner: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#create-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#create-a-deployment-branch-policy).
 
 
 ### repos/get-deployment-branch-policy
@@ -13145,7 +13145,7 @@ $client->operations()->repos()->getDeploymentBranchPolicy(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#get-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#get-a-deployment-branch-policy).
 
 
 ### repos/update-deployment-branch-policy
@@ -13171,7 +13171,7 @@ $client->operations()->repos()->updateDeploymentBranchPolicy(        owner: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#update-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#update-a-deployment-branch-policy).
 
 
 ### repos/delete-deployment-branch-policy
@@ -13197,7 +13197,7 @@ $client->operations()->repos()->deleteDeploymentBranchPolicy(        owner: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#delete-deployment-branch-policy).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/deployments/branch-policies#delete-a-deployment-branch-policy).
 
 
 ### activity/list-repo-events
@@ -13365,7 +13365,7 @@ $client->operations()->git()->getCommit(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/git/commits#get-a-commit).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/git/commits#get-a-commit-object).
 
 
 ### git/list-matching-refs
@@ -15337,7 +15337,7 @@ $client->operations()->repos()->getPages(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#get-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#get-a-apiname-pages-site).
 
 
 ### repos/update-information-about-pages-site
@@ -15359,7 +15359,7 @@ $client->operations()->repos()->updateInformationAboutPagesSite(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#update-information-about-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#update-information-about-a-apiname-pages-site).
 
 
 ### repos/create-pages-site
@@ -15381,7 +15381,7 @@ $client->operations()->repos()->createPagesSite(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#create-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#create-a-apiname-pages-site).
 
 
 ### repos/delete-pages-site
@@ -15403,7 +15403,7 @@ $client->operations()->repos()->deletePagesSite(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#delete-a-github-pages-site).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#delete-a-apiname-pages-site).
 
 
 ### repos/list-pages-builds
@@ -15429,7 +15429,7 @@ $client->operations()->repos()->listPagesBuilds(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#list-github-pages-builds).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#list-apiname-pages-builds).
 
 
 ### repos/request-pages-build
@@ -15451,7 +15451,7 @@ $client->operations()->repos()->requestPagesBuild(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#request-a-github-pages-build).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#request-a-apiname-pages-build).
 
 
 ### repos/get-latest-pages-build
@@ -15497,7 +15497,7 @@ $client->operations()->repos()->getPagesBuild(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#get-github-pages-build).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/pages/pages#get-apiname-pages-build).
 
 
 ### repos/create-pages-deployment
@@ -16507,7 +16507,7 @@ $client->operations()->repos()->getReadmeInDirectory(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#get-a-repository-directory-readme).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#get-a-repository-readme-for-a-directory).
 
 
 ### repos/list-releases
@@ -16649,7 +16649,7 @@ $client->operations()->repos()->generateReleaseNotes(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/releases/releases#generate-release-notes).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/releases/releases#generate-release-notes-content-for-a-release).
 
 
 ### repos/get-latest-release
@@ -17345,7 +17345,7 @@ $client->operations()->repos()->listTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/tags#list-tag-protection-state-of-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/tags#list-tag-protection-states-for-a-repository).
 
 
 ### repos/create-tag-protection
@@ -17367,7 +17367,7 @@ $client->operations()->repos()->createTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/tags#create-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/tags#create-a-tag-protection-state-for-a-repository).
 
 
 ### repos/delete-tag-protection
@@ -17391,7 +17391,7 @@ $client->operations()->repos()->deleteTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/tags#delete-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/tags#delete-a-tag-protection-state-for-a-repository).
 
 
 ### repos/download-tarball-archive
@@ -17415,7 +17415,7 @@ $client->operations()->repos()->downloadTarballArchive(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive-tar).
 
 
 ### repos/download-tarball-archive
@@ -17439,7 +17439,7 @@ $client->operations()->repos()->downloadTarballArchiveStreaming(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive-tar).
 
 
 ### repos/list-teams
@@ -17625,7 +17625,7 @@ $client->operations()->repos()->downloadZipballArchive(        owner: 'generated
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive-zip).
 
 
 ### repos/download-zipball-archive
@@ -17649,7 +17649,7 @@ $client->operations()->repos()->downloadZipballArchiveStreaming(        owner: '
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/repos/contents#download-a-repository-archive-zip).
 
 
 ### repos/create-using-template
@@ -18545,7 +18545,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->createEnterpriseServerLicense();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/management-console#create-a-github-enterprise-server-license).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/management-console#create-a-github-license).
 
 
 ### enterprise-admin/upgrade-license
@@ -19379,7 +19379,7 @@ Operations method:
 $client->operations()->packages()->listDockerMigrationConflictingPackagesForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-docker-migration-conflicting-packages-for-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#get-list-of-conflicting-packages-during-docker-migration-for-authenticated-user).
 
 
 ### users/list-emails-for-authenticated-user
@@ -20016,7 +20016,7 @@ $client->operations()->packages()->listPackagesForAuthenticatedUser(        pack
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-packages-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-packages-for-the-authenticated-users-namespace).
 
 
 ### packages/get-package-for-authenticated-user
@@ -20112,7 +20112,7 @@ $client->operations()->packages()->getAllPackageVersionsForPackageOwnedByAuthent
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-package-versions-for-a-package-owned-by-the-authenticated-user).
 
 
 ### packages/get-package-version-for-authenticated-user
@@ -20377,7 +20377,7 @@ Operations method:
 $client->operations()->users()->addSocialAccountForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/social-accounts#add-social-account-for-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/social-accounts#add-social-accounts-for-the-authenticated-user).
 
 
 ### users/delete-social-account-for-authenticated-user
@@ -20394,7 +20394,7 @@ Operations method:
 $client->operations()->users()->deleteSocialAccountForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/social-accounts#delete-social-account-for-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/social-accounts#delete-social-accounts-for-the-authenticated-user).
 
 
 ### users/list-ssh-signing-keys-for-authenticated-user
@@ -20416,7 +20416,7 @@ $client->operations()->users()->listSshSigningKeysForAuthenticatedUser(        p
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#list-public-ssh-signing-keys-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#list-ssh-signing-keys-for-the-authenticated-user).
 
 
 ### users/create-ssh-signing-key-for-authenticated-user
@@ -20433,7 +20433,7 @@ Operations method:
 $client->operations()->users()->createSshSigningKeyForAuthenticatedUser();
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#create-an-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#create-a-ssh-signing-key-for-the-authenticated-user).
 
 
 ### users/get-ssh-signing-key-for-authenticated-user
@@ -20453,7 +20453,7 @@ $client->operations()->users()->getSshSigningKeyForAuthenticatedUser(        ssh
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#get-a-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#get-an-ssh-signing-key-for-the-authenticated-user).
 
 
 ### users/delete-ssh-signing-key-for-authenticated-user
@@ -20473,7 +20473,7 @@ $client->operations()->users()->deleteSshSigningKeyForAuthenticatedUser(        
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#delete-a-ssh-signing-key-for-the-authenticated-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/users/ssh-signing-keys#delete-an-ssh-signing-key-for-the-authenticated-user).
 
 
 ### activity/list-repos-starred-by-authenticated-user
@@ -20671,7 +20671,7 @@ $client->operations()->packages()->listDockerMigrationConflictingPackagesForUser
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-docker-migration-conflicting-packages-for-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#get-list-of-conflicting-packages-during-docker-migration-for-user).
 
 
 ### activity/list-events-for-authenticated-user
@@ -20985,7 +20985,7 @@ $client->operations()->packages()->listPackagesForUser(        package_type: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-packages-for-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-packages-for-a-user).
 
 
 ### packages/get-package-for-user
@@ -21083,7 +21083,7 @@ $client->operations()->packages()->getAllPackageVersionsForPackageOwnedByUser(  
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#get-all-package-versions-for-a-package-owned-by-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#list-package-versions-for-a-package-owned-by-a-user).
 
 
 ### packages/get-package-version-for-user
@@ -21135,7 +21135,7 @@ $client->operations()->packages()->deletePackageVersionForUser(        package_t
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#delete-a-package-version-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#delete-package-version-for-a-user).
 
 
 ### packages/restore-package-version-for-user
@@ -21161,7 +21161,7 @@ $client->operations()->packages()->restorePackageVersionForUser(        package_
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#restore-a-package-version-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/packages/packages#restore-package-version-for-a-user).
 
 
 ### projects/list-for-user
