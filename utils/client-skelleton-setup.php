@@ -287,6 +287,9 @@ file_put_contents(
                     "(^|/)action\\.ya?ml$"
                 ],
             ],
+            'extends' => [
+                "config:base"
+            ],
         ],
         JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,
     ) . PHP_EOL,
