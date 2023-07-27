@@ -16,6 +16,7 @@ on:
   status: {}
 jobs:
   automerge:
+    concurrency: automerge-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - name: 'Wait for status checks'
