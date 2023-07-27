@@ -16,6 +16,10 @@ const GHES_PREFIX = 'descriptions-next/ghes-';
 const WORKFLOW_PATH = __DIR__ . '/../.github/workflows/';
 const WORKFLOW_SKELETON = __DIR__ . '/../etc/workflow-skeleton/';
 
+const PHP_PACKAGE_RENOVATE = [
+    "github>WyriHaximus/renovate-config:php-package"
+];
+
 /** @var array<array{specUrl: string, fullName: string, namespace: string, packageName: string}> $clients */
 $clients = [];
 
@@ -104,6 +108,7 @@ $renovatePackageRules[] = [
     'labels' => [
         '🪵',
     ],
+    'extends' => PHP_PACKAGE_RENOVATE,
 ];
 $renovatePackageRules[] = [
     'matchManagers' => ['composer'],
@@ -114,6 +119,7 @@ $renovatePackageRules[] = [
     'labels' => [
         '🪵',
     ],
+    'extends' => PHP_PACKAGE_RENOVATE,
 ];
 $renovatePackageRules[] = [
     'matchManagers' => ['composer'],
@@ -125,6 +131,7 @@ $renovatePackageRules[] = [
     'labels' => [
         '🪵',
     ],
+    'extends' => PHP_PACKAGE_RENOVATE,
 ];
 
 // The Skelleton
@@ -137,6 +144,7 @@ $renovatePackageRules[] = [
     'labels' => [
         '☠️',
     ],
+    'extends' => PHP_PACKAGE_RENOVATE,
 ];
 $renovatePackageRules[] = [
     'matchManagers' => ['composer'],
@@ -147,6 +155,7 @@ $renovatePackageRules[] = [
     'labels' => [
         '☠️',
     ],
+    'extends' => PHP_PACKAGE_RENOVATE,
 ];
 $renovatePackageRules[] = [
     'matchManagers' => ['composer'],
@@ -158,6 +167,7 @@ $renovatePackageRules[] = [
     'labels' => [
         '☠️',
     ],
+    'extends' => PHP_PACKAGE_RENOVATE,
 ];
 
 $renovatePackageRules[] = [
@@ -191,6 +201,7 @@ foreach ($clients as $hour => $client) {
         'labels' => [
             $client['path'],
         ],
+        'extends' => PHP_PACKAGE_RENOVATE,
     ];
     $renovatePackageRules[] = [
         'matchManagers' => ['composer'],
@@ -201,6 +212,7 @@ foreach ($clients as $hour => $client) {
         'labels' => [
             $client['path'],
         ],
+        'extends' => PHP_PACKAGE_RENOVATE,
     ];
     $renovatePackageRules[] = [
         'matchManagers' => ['composer'],
@@ -212,6 +224,7 @@ foreach ($clients as $hour => $client) {
         'labels' => [
             $client['path'],
         ],
+        'extends' => PHP_PACKAGE_RENOVATE,
     ];
 
     $renovatePackageRules[] = [
@@ -273,14 +286,6 @@ file_put_contents(
                     "^(workflow-templates|etc/workflow-skeleton|\\.github/workflows)/[^/]+\\.ya?ml$",
                     "(^|/)action\\.ya?ml$"
                 ],
-            ],
-            'extends' => [
-                "config:base",
-                ":widenPeerDependencies",
-                ":rebaseStalePrs",
-                ":prHourlyLimitNone",
-                ":prConcurrentLimitNone",
-                "group:phpstan"
             ],
         ],
         JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES,

@@ -13,6 +13,9 @@
             "commitMessagePrefix": "[\ud83e\udeb5]",
             "labels": [
                 "\ud83e\udeb5"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -27,6 +30,9 @@
             "commitMessagePrefix": "[\ud83e\udeb5]",
             "labels": [
                 "\ud83e\udeb5"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -44,6 +50,9 @@
             "commitMessagePrefix": "[\ud83e\udeb5]",
             "labels": [
                 "\ud83e\udeb5"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -58,6 +67,9 @@
             "commitMessagePrefix": "[\u2620\ufe0f]",
             "labels": [
                 "\u2620\ufe0f"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -72,6 +84,9 @@
             "commitMessagePrefix": "[\u2620\ufe0f]",
             "labels": [
                 "\u2620\ufe0f"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -89,6 +104,9 @@
             "commitMessagePrefix": "[\u2620\ufe0f]",
             "labels": [
                 "\u2620\ufe0f"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -116,6 +134,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.0]",
             "labels": [
                 "GitHubEnterprise-3.0"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -130,6 +151,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.0]",
             "labels": [
                 "GitHubEnterprise-3.0"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -147,6 +171,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.0]",
             "labels": [
                 "GitHubEnterprise-3.0"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -174,6 +201,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.1]",
             "labels": [
                 "GitHubEnterprise-3.1"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -188,6 +218,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.1]",
             "labels": [
                 "GitHubEnterprise-3.1"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -205,6 +238,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.1]",
             "labels": [
                 "GitHubEnterprise-3.1"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -232,6 +268,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.2]",
             "labels": [
                 "GitHubEnterprise-3.2"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -246,6 +285,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.2]",
             "labels": [
                 "GitHubEnterprise-3.2"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -263,6 +305,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.2]",
             "labels": [
                 "GitHubEnterprise-3.2"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -290,6 +335,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.3]",
             "labels": [
                 "GitHubEnterprise-3.3"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -304,6 +352,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.3]",
             "labels": [
                 "GitHubEnterprise-3.3"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -321,6 +372,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.3]",
             "labels": [
                 "GitHubEnterprise-3.3"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -348,6 +402,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.4]",
             "labels": [
                 "GitHubEnterprise-3.4"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -362,6 +419,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.4]",
             "labels": [
                 "GitHubEnterprise-3.4"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -379,6 +439,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.4]",
             "labels": [
                 "GitHubEnterprise-3.4"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -406,6 +469,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.5]",
             "labels": [
                 "GitHubEnterprise-3.5"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -420,6 +486,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.5]",
             "labels": [
                 "GitHubEnterprise-3.5"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -437,6 +506,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.5]",
             "labels": [
                 "GitHubEnterprise-3.5"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -464,6 +536,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.6]",
             "labels": [
                 "GitHubEnterprise-3.6"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -478,6 +553,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.6]",
             "labels": [
                 "GitHubEnterprise-3.6"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -495,6 +573,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.6]",
             "labels": [
                 "GitHubEnterprise-3.6"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -522,6 +603,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.7]",
             "labels": [
                 "GitHubEnterprise-3.7"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -536,6 +620,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.7]",
             "labels": [
                 "GitHubEnterprise-3.7"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -553,6 +640,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.7]",
             "labels": [
                 "GitHubEnterprise-3.7"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -580,6 +670,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.8]",
             "labels": [
                 "GitHubEnterprise-3.8"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -594,6 +687,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.8]",
             "labels": [
                 "GitHubEnterprise-3.8"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -611,6 +707,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.8]",
             "labels": [
                 "GitHubEnterprise-3.8"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -638,6 +737,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.9]",
             "labels": [
                 "GitHubEnterprise-3.9"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -652,6 +754,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.9]",
             "labels": [
                 "GitHubEnterprise-3.9"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -669,6 +774,9 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.9]",
             "labels": [
                 "GitHubEnterprise-3.9"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -696,6 +804,9 @@
             "commitMessagePrefix": "[GitHub]",
             "labels": [
                 "GitHub"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -710,6 +821,9 @@
             "commitMessagePrefix": "[GitHub]",
             "labels": [
                 "GitHub"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -727,6 +841,9 @@
             "commitMessagePrefix": "[GitHub]",
             "labels": [
                 "GitHub"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -754,6 +871,9 @@
             "commitMessagePrefix": "[GitHubEnterpriseCloud]",
             "labels": [
                 "GitHubEnterpriseCloud"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -768,6 +888,9 @@
             "commitMessagePrefix": "[GitHubEnterpriseCloud]",
             "labels": [
                 "GitHubEnterpriseCloud"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -785,6 +908,9 @@
             "commitMessagePrefix": "[GitHubEnterpriseCloud]",
             "labels": [
                 "GitHubEnterpriseCloud"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -812,6 +938,9 @@
             "commitMessagePrefix": "[GitHubAE]",
             "labels": [
                 "GitHubAE"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -826,6 +955,9 @@
             "commitMessagePrefix": "[GitHubAE]",
             "labels": [
                 "GitHubAE"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -843,6 +975,9 @@
             "commitMessagePrefix": "[GitHubAE]",
             "labels": [
                 "GitHubAE"
+            ],
+            "extends": [
+                "github>WyriHaximus/renovate-config:php-package"
             ]
         },
         {
@@ -864,13 +999,5 @@
             "^(workflow-templates|etc/workflow-skeleton|\\.github/workflows)/[^/]+\\.ya?ml$",
             "(^|/)action\\.ya?ml$"
         ]
-    },
-    "extends": [
-        "config:base",
-        ":widenPeerDependencies",
-        ":rebaseStalePrs",
-        ":prHourlyLimitNone",
-        ":prConcurrentLimitNone",
-        "group:phpstan"
-    ]
+    }
 }
