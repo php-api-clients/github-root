@@ -12,4 +12,4 @@ permissions:
 jobs:
   composer-diff:
     name: Composer Diff
-    uses: WyriHaximus/github-workflows/.github/workflows/composer-diff.yaml
+    uses: WyriHaximus/github-workflows/.github/workflows/composer-diff.yaml@main
