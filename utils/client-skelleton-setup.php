@@ -16,8 +16,12 @@ const GHES_PREFIX = 'descriptions-next/ghes-';
 const WORKFLOW_PATH = __DIR__ . '/../.github/workflows/';
 const WORKFLOW_SKELETON = __DIR__ . '/../etc/workflow-skeleton/';
 
-const PHP_PACKAGE_RENOVATE = [
-    "github>WyriHaximus/renovate-config:php-package"
+const PHP_PACKAGE_RENOVATE_EXTENDS = [
+    "github>wyrihaximus/renovate-config//composer/in-range",
+    "github>wyrihaximus/renovate-config//composer/bump",
+    "github>wyrihaximus/renovate-config//composer/do-not-update-php",
+    "github>wyrihaximus/renovate-config//composer/infection",
+    "github>wyrihaximus/renovate-config//composer/phpunit"
 ];
 
 /** @var array<array{specUrl: string, fullName: string, namespace: string, packageName: string}> $clients */
@@ -99,76 +103,33 @@ $subSplitConfig = [];
 $renovatePackageRules = [];
 
 // The root package
-$renovatePackageRules[] = [
-    'matchManagers' =>  ['composer'],
-    'rangeStrategy' =>  'in-range-only',
-    'matchFileNames' => ['composer.json'],
-    'branchPrefix' => 'renovate/root/php/',
-    'commitMessagePrefix' => '[🪵]',
-    'labels' => [
-        '🪵',
-    ],
-    'extends' => PHP_PACKAGE_RENOVATE,
-];
-$renovatePackageRules[] = [
-    'matchManagers' => ['composer'],
-    'rangeStrategy' => 'bump',
-    'matchFileNames' => ['composer.json'],
-    'branchPrefix' => 'renovate/root/php/',
-    'commitMessagePrefix' => '[🪵]',
-    'labels' => [
-        '🪵',
-    ],
-    'extends' => PHP_PACKAGE_RENOVATE,
-];
-$renovatePackageRules[] = [
-    'matchManagers' => ['composer'],
-    'matchPackageNames' => ['php'],
-    'enabled' => false,
-    'matchFileNames' => ['composer.json'],
-    'branchPrefix' => 'renovate/root/php/',
-    'commitMessagePrefix' => '[🪵]',
-    'labels' => [
-        '🪵',
-    ],
-    'extends' => PHP_PACKAGE_RENOVATE,
-];
-
+foreach (PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
+    $renovatePackageRules[] = [
+        'matchManagers' => ['composer'],
+        'rangeStrategy' => 'in-range-only',
+        'matchFileNames' => ['composer.json'],
+        'branchPrefix' => 'renovate/root/php/',
+        'commitMessagePrefix' => '[🪵]',
+        'labels' => [
+            '🪵',
+        ],
+        'extends' => [$extends],
+    ];
+}
 // The Skelleton
-$renovatePackageRules[] = [
-    'matchManagers' =>  ['composer'],
-    'rangeStrategy' =>  'in-range-only',
-    'matchFileNames' => ['skelleton/composer.json'],
-    'branchPrefix' => 'renovate/skelleton/php/',
-    'commitMessagePrefix' => '[☠️]',
-    'labels' => [
-        '☠️',
-    ],
-    'extends' => PHP_PACKAGE_RENOVATE,
-];
-$renovatePackageRules[] = [
-    'matchManagers' => ['composer'],
-    'rangeStrategy' => 'bump',
-    'matchFileNames' => ['skelleton/composer.json'],
-    'branchPrefix' => 'renovate/skelleton/php/',
-    'commitMessagePrefix' => '[☠️]',
-    'labels' => [
-        '☠️',
-    ],
-    'extends' => PHP_PACKAGE_RENOVATE,
-];
-$renovatePackageRules[] = [
-    'matchManagers' => ['composer'],
-    'matchPackageNames' => ['php'],
-    'enabled' => false,
-    'matchFileNames' => ['skelleton/composer.json'],
-    'branchPrefix' => 'renovate/skelleton/php/',
-    'commitMessagePrefix' => '[☠️]',
-    'labels' => [
-        '☠️',
-    ],
-    'extends' => PHP_PACKAGE_RENOVATE,
-];
+foreach (PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
+    $renovatePackageRules[] = [
+        'matchManagers' => ['composer'],
+        'rangeStrategy' => 'in-range-only',
+        'matchFileNames' => ['skelleton/composer.json'],
+        'branchPrefix' => 'renovate/skelleton/php/',
+        'commitMessagePrefix' => '[☠️]',
+        'labels' => [
+            '☠️',
+        ],
+        'extends' => [$extends],
+    ];
+}
 
 $renovatePackageRules[] = [
     'matchManagers' => ['github-actions'],
@@ -192,40 +153,17 @@ foreach ($clients as $hour => $client) {
         'target-branch' => $client['branch'],
     ];
 
-    $renovatePackageRules[] = [
-        'matchManagers' =>  ['composer'],
-        'rangeStrategy' =>  'in-range-only',
-        'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
-        'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
-        'commitMessagePrefix' => '[' . $client['path'] . ']',
-        'labels' => [
-            $client['path'],
-        ],
-        'extends' => PHP_PACKAGE_RENOVATE,
-    ];
-    $renovatePackageRules[] = [
-        'matchManagers' => ['composer'],
-        'rangeStrategy' => 'bump',
-        'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
-        'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
-        'commitMessagePrefix' => '[' . $client['path'] . ']',
-        'labels' => [
-            $client['path'],
-        ],
-        'extends' => PHP_PACKAGE_RENOVATE,
-    ];
-    $renovatePackageRules[] = [
-        'matchManagers' => ['composer'],
-        'matchPackageNames' => ['php'],
-        'enabled' => false,
-        'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
-        'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
-        'commitMessagePrefix' => '[' . $client['path'] . ']',
-        'labels' => [
-            $client['path'],
-        ],
-        'extends' => PHP_PACKAGE_RENOVATE,
-    ];
+    foreach (PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
+        $renovatePackageRules[] = [
+            'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
+            'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
+            'commitMessagePrefix' => '[' . $client['path'] . ']',
+            'labels' => [
+                $client['path'],
+            ],
+            'extends' => [$extends],
+        ];
+    }
 
     $renovatePackageRules[] = [
         'matchManagers' => ['github-actions'],

@@ -15,14 +15,14 @@
                 "\ud83e\udeb5"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
             "matchManagers": [
                 "composer"
             ],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "composer.json"
             ],
@@ -32,17 +32,14 @@
                 "\ud83e\udeb5"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
             "matchManagers": [
                 "composer"
             ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
+            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "composer.json"
             ],
@@ -52,7 +49,41 @@
                 "\ud83e\udeb5"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "composer.json"
+            ],
+            "branchPrefix": "renovate/root/php/",
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "composer.json"
+            ],
+            "branchPrefix": "renovate/root/php/",
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -69,14 +100,14 @@
                 "\u2620\ufe0f"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
             "matchManagers": [
                 "composer"
             ],
-            "rangeStrategy": "bump",
+            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "skelleton/composer.json"
             ],
@@ -86,17 +117,14 @@
                 "\u2620\ufe0f"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
             "matchManagers": [
                 "composer"
             ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
+            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "skelleton/composer.json"
             ],
@@ -106,7 +134,41 @@
                 "\u2620\ufe0f"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "skelleton/composer.json"
+            ],
+            "branchPrefix": "renovate/skelleton/php/",
+            "commitMessagePrefix": "[\u2620\ufe0f]",
+            "labels": [
+                "\u2620\ufe0f"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "skelleton/composer.json"
+            ],
+            "branchPrefix": "renovate/skelleton/php/",
+            "commitMessagePrefix": "[\u2620\ufe0f]",
+            "labels": [
+                "\u2620\ufe0f"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -123,10 +185,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.0/composer.json"
             ],
@@ -136,14 +194,10 @@
                 "GitHubEnterprise-3.0"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.0/composer.json"
             ],
@@ -153,17 +207,10 @@
                 "GitHubEnterprise-3.0"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.0/composer.json"
             ],
@@ -173,7 +220,33 @@
                 "GitHubEnterprise-3.0"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.0/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.0/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]",
+            "labels": [
+                "GitHubEnterprise-3.0"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.0/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.0/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]",
+            "labels": [
+                "GitHubEnterprise-3.0"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -190,10 +263,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.1/composer.json"
             ],
@@ -203,14 +272,10 @@
                 "GitHubEnterprise-3.1"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.1/composer.json"
             ],
@@ -220,17 +285,10 @@
                 "GitHubEnterprise-3.1"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.1/composer.json"
             ],
@@ -240,7 +298,33 @@
                 "GitHubEnterprise-3.1"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.1/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.1/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]",
+            "labels": [
+                "GitHubEnterprise-3.1"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.1/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.1/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]",
+            "labels": [
+                "GitHubEnterprise-3.1"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -257,10 +341,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.2/composer.json"
             ],
@@ -270,14 +350,10 @@
                 "GitHubEnterprise-3.2"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.2/composer.json"
             ],
@@ -287,17 +363,10 @@
                 "GitHubEnterprise-3.2"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.2/composer.json"
             ],
@@ -307,7 +376,33 @@
                 "GitHubEnterprise-3.2"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.2/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.2/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]",
+            "labels": [
+                "GitHubEnterprise-3.2"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.2/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.2/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]",
+            "labels": [
+                "GitHubEnterprise-3.2"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -324,10 +419,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.3/composer.json"
             ],
@@ -337,14 +428,10 @@
                 "GitHubEnterprise-3.3"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.3/composer.json"
             ],
@@ -354,17 +441,10 @@
                 "GitHubEnterprise-3.3"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.3/composer.json"
             ],
@@ -374,7 +454,33 @@
                 "GitHubEnterprise-3.3"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.3/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.3/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]",
+            "labels": [
+                "GitHubEnterprise-3.3"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.3/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.3/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]",
+            "labels": [
+                "GitHubEnterprise-3.3"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -391,10 +497,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.4/composer.json"
             ],
@@ -404,14 +506,10 @@
                 "GitHubEnterprise-3.4"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.4/composer.json"
             ],
@@ -421,17 +519,10 @@
                 "GitHubEnterprise-3.4"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.4/composer.json"
             ],
@@ -441,7 +532,33 @@
                 "GitHubEnterprise-3.4"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.4/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.4/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]",
+            "labels": [
+                "GitHubEnterprise-3.4"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.4/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.4/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]",
+            "labels": [
+                "GitHubEnterprise-3.4"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -458,10 +575,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.5/composer.json"
             ],
@@ -471,14 +584,10 @@
                 "GitHubEnterprise-3.5"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.5/composer.json"
             ],
@@ -488,17 +597,10 @@
                 "GitHubEnterprise-3.5"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.5/composer.json"
             ],
@@ -508,7 +610,33 @@
                 "GitHubEnterprise-3.5"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.5/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.5/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]",
+            "labels": [
+                "GitHubEnterprise-3.5"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.5/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.5/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]",
+            "labels": [
+                "GitHubEnterprise-3.5"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -525,10 +653,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.6/composer.json"
             ],
@@ -538,14 +662,10 @@
                 "GitHubEnterprise-3.6"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.6/composer.json"
             ],
@@ -555,17 +675,10 @@
                 "GitHubEnterprise-3.6"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.6/composer.json"
             ],
@@ -575,7 +688,33 @@
                 "GitHubEnterprise-3.6"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.6/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.6/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]",
+            "labels": [
+                "GitHubEnterprise-3.6"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.6/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.6/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]",
+            "labels": [
+                "GitHubEnterprise-3.6"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -592,10 +731,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.7/composer.json"
             ],
@@ -605,14 +740,10 @@
                 "GitHubEnterprise-3.7"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.7/composer.json"
             ],
@@ -622,17 +753,10 @@
                 "GitHubEnterprise-3.7"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.7/composer.json"
             ],
@@ -642,7 +766,33 @@
                 "GitHubEnterprise-3.7"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.7/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.7/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]",
+            "labels": [
+                "GitHubEnterprise-3.7"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.7/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.7/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]",
+            "labels": [
+                "GitHubEnterprise-3.7"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -659,10 +809,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.8/composer.json"
             ],
@@ -672,14 +818,10 @@
                 "GitHubEnterprise-3.8"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.8/composer.json"
             ],
@@ -689,17 +831,10 @@
                 "GitHubEnterprise-3.8"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.8/composer.json"
             ],
@@ -709,7 +844,33 @@
                 "GitHubEnterprise-3.8"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.8/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.8/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]",
+            "labels": [
+                "GitHubEnterprise-3.8"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.8/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.8/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]",
+            "labels": [
+                "GitHubEnterprise-3.8"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -726,10 +887,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.9/composer.json"
             ],
@@ -739,14 +896,10 @@
                 "GitHubEnterprise-3.9"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.9/composer.json"
             ],
@@ -756,17 +909,10 @@
                 "GitHubEnterprise-3.9"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.9/composer.json"
             ],
@@ -776,7 +922,33 @@
                 "GitHubEnterprise-3.9"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.9/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.9/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]",
+            "labels": [
+                "GitHubEnterprise-3.9"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.9/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.9/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]",
+            "labels": [
+                "GitHubEnterprise-3.9"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -793,10 +965,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHub/composer.json"
             ],
@@ -806,14 +974,10 @@
                 "GitHub"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHub/composer.json"
             ],
@@ -823,17 +987,10 @@
                 "GitHub"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHub/composer.json"
             ],
@@ -843,7 +1000,33 @@
                 "GitHub"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHub/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHub/php/",
+            "commitMessagePrefix": "[GitHub]",
+            "labels": [
+                "GitHub"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHub/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHub/php/",
+            "commitMessagePrefix": "[GitHub]",
+            "labels": [
+                "GitHub"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -860,10 +1043,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubEnterpriseCloud/composer.json"
             ],
@@ -873,14 +1052,10 @@
                 "GitHubEnterpriseCloud"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubEnterpriseCloud/composer.json"
             ],
@@ -890,17 +1065,10 @@
                 "GitHubEnterpriseCloud"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubEnterpriseCloud/composer.json"
             ],
@@ -910,7 +1078,33 @@
                 "GitHubEnterpriseCloud"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterpriseCloud/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterpriseCloud/php/",
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]",
+            "labels": [
+                "GitHubEnterpriseCloud"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterpriseCloud/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterpriseCloud/php/",
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]",
+            "labels": [
+                "GitHubEnterpriseCloud"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
@@ -927,10 +1121,6 @@
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "in-range-only",
             "matchFileNames": [
                 "clients/GitHubAE/composer.json"
             ],
@@ -940,14 +1130,10 @@
                 "GitHubAE"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/in-range"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "rangeStrategy": "bump",
             "matchFileNames": [
                 "clients/GitHubAE/composer.json"
             ],
@@ -957,17 +1143,10 @@
                 "GitHubAE"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/bump"
             ]
         },
         {
-            "matchManagers": [
-                "composer"
-            ],
-            "matchPackageNames": [
-                "php"
-            ],
-            "enabled": false,
             "matchFileNames": [
                 "clients/GitHubAE/composer.json"
             ],
@@ -977,7 +1156,33 @@
                 "GitHubAE"
             ],
             "extends": [
-                "github>WyriHaximus/renovate-config:php-package"
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubAE/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubAE/php/",
+            "commitMessagePrefix": "[GitHubAE]",
+            "labels": [
+                "GitHubAE"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubAE/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubAE/php/",
+            "commitMessagePrefix": "[GitHubAE]",
+            "labels": [
+                "GitHubAE"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
             ]
         },
         {
