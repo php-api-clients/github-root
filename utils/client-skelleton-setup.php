@@ -15,14 +15,39 @@ const RENOVATE_CONFIG_PATH = __DIR__ . '/../.github/renovate.json';
 const GHES_PREFIX = 'descriptions-next/ghes-';
 const WORKFLOW_PATH = __DIR__ . '/../.github/workflows/';
 const WORKFLOW_SKELETON = __DIR__ . '/../etc/workflow-skeleton/';
+const RENOVATE_COMPOSER_CONFIG_PREFIX = 'composer/';
 
-const PHP_PACKAGE_RENOVATE_EXTENDS = [
-    "github>wyrihaximus/renovate-config//composer/in-range",
-    "github>wyrihaximus/renovate-config//composer/bump",
-    "github>wyrihaximus/renovate-config//composer/do-not-update-php",
-    "github>wyrihaximus/renovate-config//composer/infection",
-    "github>wyrihaximus/renovate-config//composer/phpunit"
-];
+$PHP_PACKAGE_RENOVATE_EXTENDS = [...(static function (): iterable {
+    foreach (json_decode(
+        file_get_contents(
+         'https://api.github.com/repos/wyrihaximus/renovate-config/git/trees/main?recursive=1',
+         false,
+         stream_context_create([
+             'http' => [
+                 'method' => 'GET',
+                 'header' => implode(
+                     PHP_EOL,
+                     [
+                         'User-Agent: Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.102011-10-16 20:23:10\r\n" // i.e. An iPad'
+                     ],
+                 ),
+             ],
+         ])
+        ),
+        true,
+    )['tree'] as $node) {
+        $file = $node['path'];
+        if (substr($file, 0, strlen(RENOVATE_COMPOSER_CONFIG_PREFIX)) !== RENOVATE_COMPOSER_CONFIG_PREFIX) {
+            continue;
+        }
+
+        if (substr($file, -5) !== '.json') {
+            continue;
+        }
+
+        yield "github>wyrihaximus/renovate-config//composer/" . substr($file, strlen(RENOVATE_COMPOSER_CONFIG_PREFIX), -5);
+    }
+})()];
 
 /** @var array<array{specUrl: string, fullName: string, namespace: string, packageName: string}> $clients */
 $clients = [];
@@ -103,7 +128,7 @@ $subSplitConfig = [];
 $renovatePackageRules = [];
 
 // The root package
-foreach (PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
+foreach ($PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
     $renovatePackageRules[] = [
         'matchManagers' => ['composer'],
         'rangeStrategy' => 'in-range-only',
@@ -117,7 +142,7 @@ foreach (PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
     ];
 }
 // The Skelleton
-foreach (PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
+foreach ($PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
     $renovatePackageRules[] = [
         'matchManagers' => ['composer'],
         'rangeStrategy' => 'in-range-only',
@@ -153,7 +178,7 @@ foreach ($clients as $hour => $client) {
         'target-branch' => $client['branch'],
     ];
 
-    foreach (PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
+    foreach ($PHP_PACKAGE_RENOVATE_EXTENDS as $extends) {
         $renovatePackageRules[] = [
             'matchFileNames' => [CLIENTS_PATH . $client['path'] . '/composer.json'],
             'branchPrefix' => 'renovate/' . $client['path'] . '/php/',
