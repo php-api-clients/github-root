@@ -1,0 +1,49 @@
+{
+  "name": "api-clients/github-enterprise",
+  "description": "Non-Blocking first GitHub Enterprise (v3.10) client",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cees-Jan Kiewiet",
+      "email": "ceesjank@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "api-clients/contracts": "^0.1",
+    "devizzent/cebe-php-openapi": "^1.0.1",
+    "eventsauce/object-hydrator": "^1.4.0",
+    "league/openapi-psr7-validator": "^0.21",
+    "react/event-loop": "^1.4.0",
+    "react/http": "^1.9.0",
+    "react/async": "^4.1.0",
+    "wyrihaximus/react-awaitable-observable": "^1.0"
+  },
+  "require-dev": {
+    "wyrihaximus/async-test-utilities": "^7.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "ApiClients\\Client\\GitHubEnterprise\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ApiClients\\Tests\\Client\\GitHubEnterprise\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2.13"
+    },
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "composer/package-versions-deprecated": true,
+      "ergebnis/composer-normalize": true,
+      "icanhazstring/composer-unused": true,
+      "wyrihaximus/composer-update-bin-autoload-path": true,
+      "infection/extension-installer": true
+    }
+  }
+}
