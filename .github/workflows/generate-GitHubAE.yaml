@@ -1,7 +1,7 @@
 name: "Generate: GitHubAE"
 on:
   schedule:
-    - cron:  '13 13 * * *'
+    - cron:  '13 14 * * *'
 jobs:
   generate-githubae:
     runs-on: ubuntu-latest
