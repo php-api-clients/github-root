@@ -45,6 +45,10 @@ $PHP_PACKAGE_RENOVATE_EXTENDS = [...(static function (): iterable {
             continue;
         }
 
+        if (substr($file, strlen(RENOVATE_COMPOSER_CONFIG_PREFIX), -5) === 'bump') {
+            continue;
+        }
+
         yield "github>wyrihaximus/renovate-config//composer/" . substr($file, strlen(RENOVATE_COMPOSER_CONFIG_PREFIX), -5);
     }
 })()];
