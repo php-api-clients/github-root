@@ -255,7 +255,7 @@ file_put_contents(
                 ],
             ],
             'extends' => [
-                "github>wyrihaximus/renovate-config:base",
+                "github>wyrihaximus/renovate-config//internal/base",
                 ":prHourlyLimitNone",
                 ":prConcurrentLimitNone"
             ],
