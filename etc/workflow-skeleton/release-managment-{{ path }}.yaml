@@ -4,6 +4,7 @@ on:
     paths:
       - ".github/workflows/ci-{{ path }}.yaml"
       - ".github/workflows/generate-{{ path }}.yaml"
+      - ".github/workflows/release-management-{{ path }}.yaml"
       - "clients/{{ path }}/**"
     types:
       - opened
