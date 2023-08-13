@@ -4,6 +4,7 @@ on:
     paths:
       - ".github/workflows/ci-GitHubEnterpriseCloud.yaml"
       - ".github/workflows/generate-GitHubEnterpriseCloud.yaml"
+      - ".github/workflows/release-management-GitHubEnterpriseCloud.yaml"
       - "clients/GitHubEnterpriseCloud/**"
     types:
       - opened

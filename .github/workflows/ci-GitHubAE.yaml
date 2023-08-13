@@ -4,6 +4,7 @@ on:
     paths:
       - ".github/workflows/ci-GitHubAE.yaml"
       - ".github/workflows/generate-GitHubAE.yaml"
+      - ".github/workflows/release-management-GitHubAE.yaml"
       - "clients/GitHubAE/**"
 ## This workflow needs the `pull-request` permissions to work for the package diffing
 ## Refs: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#permissions
