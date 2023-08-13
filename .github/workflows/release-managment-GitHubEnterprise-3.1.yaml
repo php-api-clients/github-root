@@ -4,6 +4,7 @@ on:
     paths:
       - ".github/workflows/ci-GitHubEnterprise-3.1.yaml"
       - ".github/workflows/generate-GitHubEnterprise-3.1.yaml"
+      - ".github/workflows/release-management-GitHubEnterprise-3.1.yaml"
       - "clients/GitHubEnterprise-3.1/**"
     types:
       - opened

@@ -4,6 +4,7 @@ on:
     paths:
       - ".github/workflows/ci-GitHubEnterprise-3.0.yaml"
       - ".github/workflows/generate-GitHubEnterprise-3.0.yaml"
+      - ".github/workflows/release-management-GitHubEnterprise-3.0.yaml"
       - "clients/GitHubEnterprise-3.0/**"
 ## This workflow needs the `pull-request` permissions to work for the package diffing
 ## Refs: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#permissions
