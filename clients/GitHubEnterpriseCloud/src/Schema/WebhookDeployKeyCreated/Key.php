@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDeployKeyCreated
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class Key extends Schema\AliasAbstract\Tiet67D0EBD3\TietF72F50CB\Tiet5F7CE179\Tiet1BA70222
+final readonly class Key extends Schema\AliasAbstract\TietDE8B8C33\TietDD3CC7C9\TietD567FBE1\Tiet46B008A2
 {
 }
