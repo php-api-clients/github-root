@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Reactions\CreateForTeamDiscu
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet1259B144\TietEBF0EA47\TietC3C98AC8\Tiet08338FEE
+final readonly class ApplicationJson extends Schema\AliasAbstract\TietF6C256D2\Tiet0CB5829C\Tiet585EDFBB\Tiet5D2F67C6
 {
 }
