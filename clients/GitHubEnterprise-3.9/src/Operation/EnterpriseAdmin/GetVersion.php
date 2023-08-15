@@ -43,6 +43,12 @@ final class GetVersion
              **/
             case 401:
                 return ['code' => 401];
+            /**
+             * Internal error
+             **/
+
+            case 500:
+                return ['code' => 500];
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

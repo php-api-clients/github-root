@@ -3345,7 +3345,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### enterprise-admin/get-config-nodes
 
-Get all GHES node metadata for all nodes
+Get GHES node metadata for all nodes
 
 Using the `call` method:
 ```php
