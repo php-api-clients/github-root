@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\Operations\Meta\GetZen\Response\TextPlain;
+namespace ApiClients\Client\GitHubEnterprise\Schema\Operations\Meta\GetZen\Response\ApplicationJson;
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
