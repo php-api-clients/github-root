@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Cha
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class NewIssue extends Schema\AliasAbstract\Tiet971C9836\Tiet9A2AAFD4\TietCA755A6C\Tiet8D998C9D
+final readonly class NewIssue extends Schema\AliasAbstract\TietEC664CAE\TietF903A853\Tiet396F542F\Tiet27B39626
 {
 }
