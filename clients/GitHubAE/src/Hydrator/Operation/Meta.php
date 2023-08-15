@@ -78,6 +78,17 @@ class Meta implements ObjectMapper
 
             after_hooks:
 
+            $value = $payload['github_enterprise_importer'] ?? null;
+
+            if ($value === null) {
+                $properties['githubEnterpriseImporter'] = null;
+                goto after_githubEnterpriseImporter;
+            }
+
+            $properties['githubEnterpriseImporter'] = $value;
+
+            after_githubEnterpriseImporter:
+
             $value = $payload['web'] ?? null;
 
             if ($value === null) {
@@ -470,6 +481,22 @@ class Meta implements ObjectMapper
         
         $hooks = $hooksSerializer0->serialize($hooks, $this);
         after_hooks:        $result['hooks'] = $hooks;
+
+        
+        $githubEnterpriseImporter = $object->githubEnterpriseImporter;
+
+        if ($githubEnterpriseImporter === null) {
+            goto after_githubEnterpriseImporter;
+        }
+        static $githubEnterpriseImporterSerializer0;
+
+        if ($githubEnterpriseImporterSerializer0 === null) {
+            $githubEnterpriseImporterSerializer0 = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
+        }
+        
+        $githubEnterpriseImporter = $githubEnterpriseImporterSerializer0->serialize($githubEnterpriseImporter, $this);
+        after_githubEnterpriseImporter:        $result['github_enterprise_importer'] = $githubEnterpriseImporter;
 
         
         $web = $object->web;
