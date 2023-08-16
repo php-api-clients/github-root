@@ -25,6 +25,7 @@ jobs:
           labels: |
             Automated PR
             automerge
+            Enhancement ✨
           title: "[SetUp] Updated clients base"
           commit-message: |
             [SetUp] Updated clients base
