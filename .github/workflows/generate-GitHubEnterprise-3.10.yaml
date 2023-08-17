@@ -54,6 +54,7 @@ jobs:
             Automated PR
             New Version
             automerge
+            Enhancement ✨
             GitHubEnterprise-3.10
           title: "[GitHubEnterprise-3.10] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})"
           body: |
