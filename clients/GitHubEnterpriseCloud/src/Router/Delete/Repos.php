@@ -154,6 +154,30 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    public function disablePrivateVulnerabilityReporting(array $params)
+    {
+        $arguments = [];
+        if (array_key_exists('owner', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: owner');
+        }
+
+        $arguments['owner'] = $params['owner'];
+        unset($params['owner']);
+        if (array_key_exists('repo', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: repo');
+        }
+
+        $arguments['repo'] = $params['repo'];
+        unset($params['repo']);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting();
+        }
+
+        $operator = new Operator\Repos\DisablePrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting::class]);
+
+        return $operator->call($arguments['owner'], $arguments['repo']);
+    }
+
     public function disableVulnerabilityAlerts(array $params)
     {
         $arguments = [];

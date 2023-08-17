@@ -463,6 +463,7 @@ final class Hydrators implements ObjectMapper
     private Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\BuildId|null $operation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds🌀BuildId                                                                                                                       = null;
     private Hydrator\Operation\Repos\Owner\Repo\Pages\Deployment|null $operation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployment                                                                                                                               = null;
     private Hydrator\Operation\Repos\Owner\Repo\Pages\Health|null $operation🌀Repos🌀Owner🌀Repo🌀Pages🌀Health                                                                                                                                       = null;
+    private Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting|null $operation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting                                                                                                     = null;
     private Hydrator\Operation\Repos\Owner\Repo\Projects|null $operation🌀Repos🌀Owner🌀Repo🌀Projects                                                                                                                                               = null;
     private Hydrator\Operation\Repos\Owner\Repo\Pulls|null $operation🌀Repos🌀Owner🌀Repo🌀Pulls                                                                                                                                                     = null;
     private Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments|null $operation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments                                                                                                                                   = null;
@@ -5287,6 +5288,15 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Repos🌀Owner🌀Repo🌀Pages🌀Health;
+    }
+
+    public function getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting(): Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting
+    {
+        if ($this->operation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting instanceof Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting === false) {
+            $this->operation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting = new Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting();
+        }
+
+        return $this->operation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting;
     }
 
     public function getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Projects(): Hydrator\Operation\Repos\Owner\Repo\Projects

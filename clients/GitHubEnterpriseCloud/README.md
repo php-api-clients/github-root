@@ -16939,6 +16939,50 @@ $client->operations()->repos()->getPagesHealthCheck(        owner: 'generated',
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/pages/pages#get-a-dns-health-check-for-github-pages).
 
 
+### repos/enable-private-vulnerability-reporting
+
+Enable private vulnerability reporting for a repository
+
+Using the `call` method:
+```php
+$client->call('PUT /repos/{owner}/{repo}/private-vulnerability-reporting', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->enablePrivateVulnerabilityReporting(        owner: 'generated',
+        repo: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#enable-private-vulnerability-reporting-for-a-repository).
+
+
+### repos/disable-private-vulnerability-reporting
+
+Disable private vulnerability reporting for a repository
+
+Using the `call` method:
+```php
+$client->call('DELETE /repos/{owner}/{repo}/private-vulnerability-reporting', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->disablePrivateVulnerabilityReporting(        owner: 'generated',
+        repo: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#disable-private-vulnerability-reporting-for-a-repository).
+
+
 ### projects/list-for-repo
 
 List repository projects
