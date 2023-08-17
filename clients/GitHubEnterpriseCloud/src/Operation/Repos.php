@@ -1245,6 +1245,24 @@ final class Repos
         return $this->operator[Operator\Repos\GetPagesHealthCheck::class]->call($owner, $repo);
     }
 
+    public function enablePrivateVulnerabilityReporting(string $owner, string $repo): PromiseInterface
+    {
+        if (array_key_exists(Operator\Repos\EnablePrivateVulnerabilityReporting::class, $this->operator) === false) {
+            $this->operator[Operator\Repos\EnablePrivateVulnerabilityReporting::class] = new Operator\Repos\EnablePrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
+        }
+
+        return $this->operator[Operator\Repos\EnablePrivateVulnerabilityReporting::class]->call($owner, $repo);
+    }
+
+    public function disablePrivateVulnerabilityReporting(string $owner, string $repo): PromiseInterface
+    {
+        if (array_key_exists(Operator\Repos\DisablePrivateVulnerabilityReporting::class, $this->operator) === false) {
+            $this->operator[Operator\Repos\DisablePrivateVulnerabilityReporting::class] = new Operator\Repos\DisablePrivateVulnerabilityReporting($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting());
+        }
+
+        return $this->operator[Operator\Repos\DisablePrivateVulnerabilityReporting::class]->call($owner, $repo);
+    }
+
     public function getReadme(string $owner, string $repo, string $ref): PromiseInterface
     {
         if (array_key_exists(Operator\Repos\GetReadme::class, $this->operator) === false) {
