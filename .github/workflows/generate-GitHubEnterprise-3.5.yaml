@@ -35,13 +35,10 @@ jobs:
         with:
           cmd: yq '.info.version' 'etc/specs/GitHubEnterprise-3.5/previous.spec.yaml'
       - name: Generate spec diff
-        id: spec-diff
         run: |
-          curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh 
-          delimiter="$(openssl rand -hex 8)"
-          echo "diff<<${delimiter}" >> "${GITHUB_OUTPUT}"
-          echo "$(openapi-changes summary --no-color --no-logo etc/specs/GitHubEnterprise-3.5/current.spec.yaml etc/specs/GitHubEnterprise-3.5/previous.spec.yaml || true)" >> "${GITHUB_OUTPUT}"
-          echo "${delimiter}" >> "${GITHUB_OUTPUT}"
+          curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh
+          echo "Detected Schema changes:" >> "var/detected-schema-changes"
+          echo "$(openapi-changes summary --no-color --no-logo etc/specs/GitHubEnterprise-3.5/current.spec.yaml etc/specs/GitHubEnterprise-3.5/previous.spec.yaml || true)" >> "var/detected-schema-changes"
       - name: Update Client to ${{ steps.look-current-up-spec-version.outputs.result }}
         run: |
           make generate-client GitHubEnterprise-3.5
@@ -57,9 +54,7 @@ jobs:
             Enhancement ✨
             GitHubEnterprise-3.5
           title: "[GitHubEnterprise-3.5] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})"
-          body: |
-            Detected Schema changes:
-            ${{ steps.spec-diff.outputs.diff }}
+          body-path: "var/detected-schema-changes"
           commit-message: |
             [GitHubEnterprise-3.5] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})
             Detected Schema changes:
