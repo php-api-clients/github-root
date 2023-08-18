@@ -173,7 +173,7 @@ $renovatePackageRules[] = [
 ];
 
 foreach ($clients as $hour => $client) {
-    $client['hour'] = $hour + 1;
+    $client['hour'] = $hour + 3;
     $client['specPath'] = SPECS_RELATIVE . $client['path'] . '/current.spec.yaml';
     $subSplitConfig[$client['fullName']] = [
         'name' => $client['packageName'],
