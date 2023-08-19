@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\WebhookReleaseDeleted;
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class Release extends Schema\AliasAbstract\Tiet4D32A7E5\TietDD3AEF82\Tiet1C930EC2\TietFF3483E5
+final readonly class Release extends Schema\AliasAbstract\Tiet727C4590\TietCFC3983F\TietCE4867A2\Tiet911D0DCE
 {
 }
