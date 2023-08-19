@@ -35,17 +35,22 @@ jobs:
         with:
           cmd: yq '.info.version' 'etc/specs/GitHubAE/previous.spec.yaml'
       - name: Generate spec diff
+        id: spec-diff
         run: |
           curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh
           echo "Detected Schema changes:" >> "var/detected-schema-changes"
           echo "$(openapi-changes summary --no-color --no-logo etc/specs/GitHubAE/current.spec.yaml etc/specs/GitHubAE/previous.spec.yaml || true)" >> "var/detected-schema-changes"
+          delimiter="$(openssl rand -hex 8)"
+          echo "diff<<${delimiter}" >> "${GITHUB_OUTPUT}"
+          echo "$(cat var/detected-schema-changes)" >> "${GITHUB_OUTPUT}"
+          echo "${delimiter}" >> "${GITHUB_OUTPUT}"
       - name: Update Client to ${{ steps.look-current-up-spec-version.outputs.result }}
         run: |
           make generate-client GitHubAE
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: "GitHubAE/from-${{ steps.look-current-up-spec-version.outputs.result }}-hash-${{ steps.spec-hash.outputs.current }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}-hash-${{ steps.spec-hash.outputs.current }}"
+          branch: "GitHubAE/from-${{ steps.look-current-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }}"
           token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
           labels: |
             Automated PR
@@ -53,9 +58,8 @@ jobs:
             automerge
             Enhancement ✨
             GitHubAE
-          title: "[GitHubAE] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})"
+          title: "[GitHubAE] Update to ${{ steps.look-current-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }} from ${{ steps.look-previous-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.previous }}"
           body-path: "var/detected-schema-changes"
           commit-message: |
-            [GitHubAE] Update to ${{ steps.look-current-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.current }}) from ${{ steps.look-previous-up-spec-version.outputs.result }} (hash: ${{ steps.spec-hash.outputs.previous }})
-            Detected Schema changes:
+            [GitHubAE] Update to ${{ steps.look-current-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }} from ${{ steps.look-previous-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.previous }}
             ${{ steps.spec-diff.outputs.diff }}
