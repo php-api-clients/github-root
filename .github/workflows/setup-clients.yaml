@@ -4,7 +4,8 @@ on:
   schedule:
     - cron:  '13 0 * * *'
 jobs:
-  generate-githubenterprisecloud:
+  set-up-clients:
+    name: Set up Clients
     runs-on: ubuntu-latest
     container:
       image: wyrihaximusnet/php:8.2-nts-alpine-slim-dev-root
