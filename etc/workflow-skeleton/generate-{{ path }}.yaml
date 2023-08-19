@@ -1,5 +1,6 @@
 name: "Generate: {{ path }}"
 on:
+  workflow_dispatch:
   schedule:
     - cron:  '13 {{ hour }} * * *'
 jobs:
