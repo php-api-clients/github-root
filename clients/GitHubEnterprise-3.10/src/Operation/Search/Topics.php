@@ -23,7 +23,7 @@ final class Topics
     public const OPERATION_MATCH = 'GET /search/topics';
     private const METHOD         = 'GET';
     private const PATH           = '/search/topics';
-    /**The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub Enterprise Server. The REST API supports the same qualifiers as the web interface for GitHub Enterprise Server. To learn more about the format of the query, see [Constructing a search query](https://docs.github.com/enterprise-server@3.10/rest/reference/search#constructing-a-search-query). **/
+    /**The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub Enterprise Server. The REST API supports the same qualifiers as the web interface for GitHub Enterprise Server. To learn more about the format of the query, see [Constructing a search query](https://docs.github.com/enterprise-server@3.10/rest/search/search#constructing-a-search-query). **/
     private string $q;
     /**The number of results per page (max 100). **/
     private int $perPage;
