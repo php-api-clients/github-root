@@ -1,5 +1,6 @@
 name: "Generate: GitHubEnterprise-3.4"
 on:
+  workflow_dispatch:
   schedule:
     - cron:  '13 8 * * *'
 jobs:
@@ -40,6 +41,7 @@ jobs:
           curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh
           echo "Detected Schema changes:" >> "var/detected-schema-changes"
           echo "$(openapi-changes summary --no-color --no-logo etc/specs/GitHubEnterprise-3.4/current.spec.yaml etc/specs/GitHubEnterprise-3.4/previous.spec.yaml || true)" >> "var/detected-schema-changes"
+          cat var/detected-schema-changes
           delimiter="$(openssl rand -hex 8)"
           echo "diff<<${delimiter}" >> "${GITHUB_OUTPUT}"
           echo "$(cat var/detected-schema-changes)" >> "${GITHUB_OUTPUT}"
