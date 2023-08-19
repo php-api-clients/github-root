@@ -1,4 +1,4 @@
-name: Release Management
+name: "Release Management: GitHubAE"
 on:
   pull_request:
     paths:
