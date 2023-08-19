@@ -1,4 +1,4 @@
-name: Release Management
+name: "Release Management: GitHubEnterprise-3.10"
 on:
   pull_request:
     paths:
