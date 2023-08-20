@@ -7,6 +7,15 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
+use ApiClients\Client\GitHubEnterprise\Schema\HookDelivery;
+use ApiClients\Client\GitHubEnterprise\Schema\Installation;
+use ApiClients\Client\GitHubEnterprise\Schema\Integration;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListInstallationsForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +29,14 @@ final class Apps
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listInstallations(array $params)
+    /** @return iterable<Schema\Installation> */
+    public function listInstallations(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('since', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: since');
@@ -51,13 +62,19 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Apps\ListInstallations($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\App\Installations::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\App\Installations::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Installations();
+        }
+
+        $operator = new Operator\Apps\ListInstallations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations::class]);
 
         return $operator->call($arguments['since'], $arguments['outdated'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getBySlug(array $params)
+    /** @return */
+    public function getBySlug(array $params): Integration|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('app_slug', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: app_slug');
@@ -74,8 +91,10 @@ final class Apps
         return $operator->call($arguments['app_slug']);
     }
 
-    public function listReposAccessibleToInstallation(array $params)
+    /** @return (Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok | array{code: int}) */
+    public function listReposAccessibleToInstallation(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -98,8 +117,10 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function listInstallationsForAuthenticatedUser(array $params)
+    /** @return (Schema\Operations\Apps\ListInstallationsForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json | array{code: int}) */
+    public function listInstallationsForAuthenticatedUser(array $params): Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -122,8 +143,10 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function getWebhookConfigForApp(array $params)
+    /** @return */
+    public function getWebhookConfigForApp(array $params): WebhookConfig|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\App\Hook\Config::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\App\Hook\Config::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config();
         }
@@ -133,8 +156,10 @@ final class Apps
         return $operator->call();
     }
 
-    public function listWebhookDeliveries(array $params)
+    /** @return iterable<Schema\HookDeliveryItem> */
+    public function listWebhookDeliveries(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('cursor', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: cursor');
@@ -157,8 +182,10 @@ final class Apps
         return $operator->call($arguments['cursor'], $arguments['per_page']);
     }
 
-    public function getInstallation(array $params)
+    /** @return */
+    public function getInstallation(array $params): Installation|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('installation_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: installation_id');
@@ -175,8 +202,10 @@ final class Apps
         return $operator->call($arguments['installation_id']);
     }
 
-    public function getOrgInstallation(array $params)
+    /** @return */
+    public function getOrgInstallation(array $params): Installation|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -193,8 +222,10 @@ final class Apps
         return $operator->call($arguments['org']);
     }
 
-    public function getUserInstallation(array $params)
+    /** @return */
+    public function getUserInstallation(array $params): Installation|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -211,8 +242,10 @@ final class Apps
         return $operator->call($arguments['username']);
     }
 
-    public function getAuthenticated(array $params)
+    /** @return */
+    public function getAuthenticated(array $params): Integration|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\App::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\App::class] = $this->hydrators->getObjectMapperOperation🌀App();
         }
@@ -222,8 +255,10 @@ final class Apps
         return $operator->call();
     }
 
-    public function getWebhookDelivery(array $params)
+    /** @return */
+    public function getWebhookDelivery(array $params): HookDelivery|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('delivery_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: delivery_id');
@@ -240,8 +275,10 @@ final class Apps
         return $operator->call($arguments['delivery_id']);
     }
 
-    public function checkAuthorization(array $params)
+    /** @return */
+    public function checkAuthorization(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');
@@ -264,8 +301,10 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
-    public function getRepoInstallation(array $params)
+    /** @return */
+    public function getRepoInstallation(array $params): Installation|BasicError|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -288,8 +327,10 @@ final class Apps
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function listInstallationReposForAuthenticatedUser(array $params)
+    /** @return (Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok | array{code: int}) */
+    public function listInstallationReposForAuthenticatedUser(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('installation_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: installation_id');

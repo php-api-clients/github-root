@@ -6,10 +6,25 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\EnterpriseAdmin\UpdatePreRec
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"enforcement":{"enum":["enabled","disabled","testing"],"type":"string","description":"The state of enforcement for the hook on this repository."}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "enforcement": {
+            "enum": [
+                "enabled",
+                "disabled",
+                "testing"
+            ],
+            "type": "string",
+            "description": "The state of enforcement for the hook on this repository."
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"enforcement":"enabled"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "enforcement": "enabled"
+}';
 
     /**
      * enforcement: The state of enforcement for the hook on this repository.

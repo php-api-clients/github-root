@@ -8,10 +8,23 @@ use EventSauce\ObjectHydrator\MapFrom;
 
 abstract readonly class TietE1110A84
 {
-    public const SCHEMA_JSON         = '{"required":["access_token"],"type":"object","properties":{"access_token":{"type":"string","description":"The access_token of the OAuth application."}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "access_token"
+    ],
+    "type": "object",
+    "properties": {
+        "access_token": {
+            "type": "string",
+            "description": "The access_token of the OAuth application."
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"access_token":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "access_token": "generated"
+}';
 
     /**
      * accessToken: The access_token of the OAuth application.
