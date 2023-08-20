@@ -7,6 +7,8 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Put;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +22,14 @@ final class OauthAuthorizations
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function getOrCreateAuthorizationForAppAndFingerprint(array $params)
+    /** @return */
+    public function getOrCreateAuthorizationForAppAndFingerprint(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');
@@ -48,8 +52,10 @@ final class OauthAuthorizations
         return $operator->call($arguments['client_id'], $arguments['fingerprint'], $params);
     }
 
-    public function getOrCreateAuthorizationForApp(array $params)
+    /** @return (Schema\Authorization | array{code: int}) */
+    public function getOrCreateAuthorizationForApp(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');

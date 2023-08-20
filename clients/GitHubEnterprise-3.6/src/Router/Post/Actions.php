@@ -7,6 +7,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Post;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
+use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +25,14 @@ final class Actions
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function createSelfHostedRunnerGroupForOrg(array $params)
+    /** @return */
+    public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -42,8 +49,10 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    public function createRegistrationTokenForOrg(array $params)
+    /** @return */
+    public function createRegistrationTokenForOrg(array $params): AuthenticationToken|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -60,8 +69,10 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function createRemoveTokenForOrg(array $params)
+    /** @return */
+    public function createRemoveTokenForOrg(array $params): AuthenticationToken|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -78,8 +89,10 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function addCustomLabelsToSelfHostedRunnerForOrg(array $params)
+    /** @return */
+    public function addCustomLabelsToSelfHostedRunnerForOrg(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -102,8 +115,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id'], $params);
     }
 
-    public function createRegistrationTokenForRepo(array $params)
+    /** @return */
+    public function createRegistrationTokenForRepo(array $params): AuthenticationToken|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -126,8 +141,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function createRemoveTokenForRepo(array $params)
+    /** @return */
+    public function createRemoveTokenForRepo(array $params): AuthenticationToken|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -150,8 +167,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function reRunJobForWorkflowRun(array $params)
+    /** @return */
+    public function reRunJobForWorkflowRun(array $params): EmptyObject|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -180,8 +199,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id'], $params);
     }
 
-    public function addCustomLabelsToSelfHostedRunnerForRepo(array $params)
+    /** @return */
+    public function addCustomLabelsToSelfHostedRunnerForRepo(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -210,8 +231,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id'], $params);
     }
 
-    public function cancelWorkflowRun(array $params)
+    /** @return */
+    public function cancelWorkflowRun(array $params): EmptyObject|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -240,8 +263,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    public function reviewPendingDeploymentsForRun(array $params)
+    /** @return iterable<Schema\Deployment> */
+    public function reviewPendingDeploymentsForRun(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -261,13 +286,19 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Operator\Actions\ReviewPendingDeploymentsForRun($this->browser, $this->authentication, $this->requestSchemaValidator);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\PendingDeployments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\PendingDeployments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀PendingDeployments();
+        }
+
+        $operator = new Operator\Actions\ReviewPendingDeploymentsForRun($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\PendingDeployments::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    public function reRunWorkflow(array $params)
+    /** @return */
+    public function reRunWorkflow(array $params): EmptyObject|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -296,8 +327,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    public function reRunWorkflowFailedJobs(array $params)
+    /** @return */
+    public function reRunWorkflowFailedJobs(array $params): EmptyObject|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -326,8 +359,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    public function createWorkflowDispatch(array $params)
+    /** @return array{code: int} */
+    public function createWorkflowDispatch(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
