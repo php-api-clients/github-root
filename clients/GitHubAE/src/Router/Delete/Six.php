@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\Schema\FileCommit;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,12 +18,14 @@ final class Six
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return array{code: int}| */
+    public function call(string $call, array $params, array $pathChunks): FileCommit|array
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
@@ -30,6 +33,7 @@ final class Six
                         if ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'DELETE /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\EnterpriseAdmin::class, $this->router) === false) {
                                         $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -40,6 +44,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'runners') {
                             if ($pathChunks[5] === '{runner_id}') {
                                 if ($call === 'DELETE /enterprises/{enterprise}/actions/runners/{runner_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\EnterpriseAdmin::class, $this->router) === false) {
                                         $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -56,6 +61,7 @@ final class Six
                         if ($pathChunks[4] === 'runner-groups') {
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($call === 'DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
                                         $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -66,6 +72,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'runners') {
                             if ($pathChunks[5] === '{runner_id}') {
                                 if ($call === 'DELETE /orgs/{org}/actions/runners/{runner_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
                                         $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -76,6 +83,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'secrets') {
                             if ($pathChunks[5] === '{secret_name}') {
                                 if ($call === 'DELETE /orgs/{org}/actions/secrets/{secret_name}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
                                         $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -88,6 +96,7 @@ final class Six
                         if ($pathChunks[4] === '{migration_id}') {
                             if ($pathChunks[5] === 'archive') {
                                 if ($call === 'DELETE /orgs/{org}/migrations/{migration_id}/archive') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Migrations::class, $this->router) === false) {
                                         $this->router[Router\Delete\Migrations::class] = new Router\Delete\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -100,6 +109,7 @@ final class Six
                         if ($pathChunks[4] === '{team_slug}') {
                             if ($pathChunks[5] === 'external-groups') {
                                 if ($call === 'DELETE /orgs/{org}/teams/{team_slug}/external-groups') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
                                         $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -116,6 +126,7 @@ final class Six
                         if ($pathChunks[4] === 'autolinks') {
                             if ($pathChunks[5] === '{autolink_id}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -126,6 +137,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'collaborators') {
                             if ($pathChunks[5] === '{username}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/collaborators/{username}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -136,6 +148,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'comments') {
                             if ($pathChunks[5] === '{comment_id}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/comments/{comment_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -146,6 +159,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'contents') {
                             if ($pathChunks[5] === '{path}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/contents/{path}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -156,6 +170,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'deployments') {
                             if ($pathChunks[5] === '{deployment_id}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/deployments/{deployment_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -166,6 +181,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'environments') {
                             if ($pathChunks[5] === '{environment_name}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/environments/{environment_name}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -176,6 +192,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'hooks') {
                             if ($pathChunks[5] === '{hook_id}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/hooks/{hook_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -186,6 +203,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'invitations') {
                             if ($pathChunks[5] === '{invitation_id}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/invitations/{invitation_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -196,6 +214,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'keys') {
                             if ($pathChunks[5] === '{key_id}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/keys/{key_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -206,6 +225,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'labels') {
                             if ($pathChunks[5] === '{name}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/labels/{name}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Issues::class, $this->router) === false) {
                                         $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -216,6 +236,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'milestones') {
                             if ($pathChunks[5] === '{milestone_number}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/milestones/{milestone_number}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Issues::class, $this->router) === false) {
                                         $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -226,6 +247,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'releases') {
                             if ($pathChunks[5] === '{release_id}') {
                                 if ($call === 'DELETE /repos/{owner}/{repo}/releases/{release_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -242,6 +264,7 @@ final class Six
                         if ($pathChunks[4] === '{owner}') {
                             if ($pathChunks[5] === '{repo}') {
                                 if ($call === 'DELETE /teams/{team_id}/repos/{owner}/{repo}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
                                         $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -258,6 +281,7 @@ final class Six
                         if ($pathChunks[4] === 'repositories') {
                             if ($pathChunks[5] === '{repository_id}') {
                                 if ($call === 'DELETE /user/installations/{installation_id}/repositories/{repository_id}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Delete\Apps::class, $this->router) === false) {
                                         $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -271,6 +295,8 @@ final class Six
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

@@ -6,7 +6,11 @@ namespace ApiClients\Client\GitHubAE\Schema\AliasAbstract\TietE1799B92\Tiet5032A
 
 abstract readonly class Tiet34B34FE7
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{},"additionalProperties":false}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {},
+    "additionalProperties": false
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '[]';

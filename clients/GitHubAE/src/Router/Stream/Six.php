@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Router\Stream;
 
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironmentDownloadStatus;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,12 +18,14 @@ final class Six
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return |Observable<string> */
+    public function call(string $call, array $params, array $pathChunks): PreReceiveEnvironmentDownloadStatus|iterable
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {
                 if ($pathChunks[2] === 'pre-receive-environments') {
@@ -30,6 +33,7 @@ final class Six
                         if ($pathChunks[4] === 'downloads') {
                             if ($pathChunks[5] === 'latest') {
                                 if ($call === 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
                                         $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -46,6 +50,7 @@ final class Six
                         if ($pathChunks[4] === '{migration_id}') {
                             if ($pathChunks[5] === 'archive') {
                                 if ($call === 'STREAM /orgs/{org}/migrations/{migration_id}/archive') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Get\Migrations::class, $this->router) === false) {
                                         $this->router[Router\Get\Migrations::class] = new Router\Get\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -62,6 +67,7 @@ final class Six
                         if ($pathChunks[4] === 'tarball') {
                             if ($pathChunks[5] === '{ref}') {
                                 if ($call === 'STREAM /repos/{owner}/{repo}/tarball/{ref}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
                                         $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -72,6 +78,7 @@ final class Six
                         } elseif ($pathChunks[4] === 'zipball') {
                             if ($pathChunks[5] === '{ref}') {
                                 if ($call === 'STREAM /repos/{owner}/{repo}/zipball/{ref}') {
+                                    $matched = true;
                                     if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
                                         $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
@@ -85,6 +92,8 @@ final class Six
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

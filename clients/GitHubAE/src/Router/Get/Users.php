@@ -7,6 +7,12 @@ namespace ApiClients\Client\GitHubAE\Router\Get;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operator;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\Schema\GpgKey;
+use ApiClients\Client\GitHubAE\Schema\Hovercard;
+use ApiClients\Client\GitHubAE\Schema\Key;
+use ApiClients\Client\GitHubAE\Schema\PrivateUser;
+use ApiClients\Client\GitHubAE\Schema\PublicUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +26,14 @@ final class Users
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listFollowersForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\SimpleUser> | array{code: int}) */
+    public function listFollowersForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -48,8 +56,10 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function listFollowedByAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\SimpleUser> | array{code: int}) */
+    public function listFollowedByAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -72,8 +82,10 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function listGpgKeysForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\GpgKey> | array{code: int}) */
+    public function listGpgKeysForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -96,8 +108,10 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function listPublicSshKeysForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\Key> | array{code: int}) */
+    public function listPublicSshKeysForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -120,8 +134,10 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function getByUsername(array $params)
+    /** @return (Schema\PrivateUser | Schema\PublicUser) */
+    public function getByUsername(array $params): PrivateUser|PublicUser|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -138,8 +154,10 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
-    public function checkPersonIsFollowedByAuthenticated(array $params)
+    /** @return array{code: int} */
+    public function checkPersonIsFollowedByAuthenticated(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -156,8 +174,10 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
-    public function getGpgKeyForAuthenticatedUser(array $params)
+    /** @return (Schema\GpgKey | array{code: int}) */
+    public function getGpgKeyForAuthenticatedUser(array $params): GpgKey|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('gpg_key_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: gpg_key_id');
@@ -174,8 +194,10 @@ final class Users
         return $operator->call($arguments['gpg_key_id']);
     }
 
-    public function getPublicSshKeyForAuthenticatedUser(array $params)
+    /** @return (Schema\Key | array{code: int}) */
+    public function getPublicSshKeyForAuthenticatedUser(array $params): Key|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('key_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: key_id');
@@ -192,8 +214,10 @@ final class Users
         return $operator->call($arguments['key_id']);
     }
 
-    public function listFollowersForUser(array $params)
+    /** @return iterable<Schema\SimpleUser> */
+    public function listFollowersForUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -213,13 +237,19 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Users\ListFollowersForUser($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Users\Username\Followers::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Followers::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Followers();
+        }
+
+        $operator = new Operator\Users\ListFollowersForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Followers::class]);
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listFollowingForUser(array $params)
+    /** @return iterable<Schema\SimpleUser> */
+    public function listFollowingForUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -239,13 +269,19 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Users\ListFollowingForUser($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Users\Username\Following::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Following::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Following();
+        }
+
+        $operator = new Operator\Users\ListFollowingForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Following::class]);
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listGpgKeysForUser(array $params)
+    /** @return iterable<Schema\GpgKey> */
+    public function listGpgKeysForUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -265,13 +301,19 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Users\ListGpgKeysForUser($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Users\Username\GpgKeys::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\GpgKeys::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀GpgKeys();
+        }
+
+        $operator = new Operator\Users\ListGpgKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\GpgKeys::class]);
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getContextForUser(array $params)
+    /** @return */
+    public function getContextForUser(array $params): Hovercard|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -300,8 +342,10 @@ final class Users
         return $operator->call($arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
     }
 
-    public function listPublicKeysForUser(array $params)
+    /** @return iterable<Schema\KeySimple> */
+    public function listPublicKeysForUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -321,13 +365,19 @@ final class Users
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Users\ListPublicKeysForUser($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Users\Username\Keys::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Keys();
+        }
+
+        $operator = new Operator\Users\ListPublicKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Keys::class]);
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAuthenticated(array $params)
+    /** @return (Schema\PrivateUser | Schema\PublicUser | array{code: int}) */
+    public function getAuthenticated(array $params): PrivateUser|PublicUser|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\User::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\User::class] = $this->hydrators->getObjectMapperOperation🌀User();
         }
@@ -337,8 +387,10 @@ final class Users
         return $operator->call();
     }
 
-    public function list_(array $params)
+    /** @return (iterable<Schema\SimpleUser> | array{code: int}) */
+    public function list_(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('since', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: since');
@@ -352,13 +404,19 @@ final class Users
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Operator\Users\List_($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Users::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users::class] = $this->hydrators->getObjectMapperOperation🌀Users();
+        }
+
+        $operator = new Operator\Users\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users::class]);
 
         return $operator->call($arguments['since'], $arguments['per_page']);
     }
 
-    public function checkFollowingForUser(array $params)
+    /** @return array{code: int} */
+    public function checkFollowingForUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
