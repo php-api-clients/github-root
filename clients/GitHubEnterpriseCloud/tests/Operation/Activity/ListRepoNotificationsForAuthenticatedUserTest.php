@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Activity;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubEnterpriseCloud\Operation\Activity\ListRepoNotificationsForAuthenticatedUser */
 final class ListRepoNotificationsForAuthenticatedUserTest extends AsyncTestCase
 {
 }

@@ -5,11 +5,17 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operator\Users;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PrivateUser;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class GetAuthenticated
 {
@@ -22,14 +28,18 @@ final readonly class GetAuthenticated
     {
     }
 
-    /** @return PromiseInterface<array> **/
-    public function call(): PromiseInterface
+    /** @return (Schema\PrivateUser | Schema\PublicUser | array{code: int}) */
+    public function call(): PrivateUser|PublicUser|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\Users\GetAuthenticated($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PrivateUser|PublicUser|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }

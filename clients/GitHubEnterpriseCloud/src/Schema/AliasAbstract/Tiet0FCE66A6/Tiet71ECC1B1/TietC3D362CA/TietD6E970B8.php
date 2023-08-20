@@ -6,10 +6,23 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\Tiet0FCE6
 
 abstract readonly class TietD6E970B8
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"email":{"type":"string"},"verified":{"type":"boolean"}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "email": {
+            "type": "string"
+        },
+        "verified": {
+            "type": "boolean"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"email":"generated","verified":false}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "email": "generated",
+    "verified": false
+}';
 
     public function __construct(public string|null $email, public bool|null $verified)
     {

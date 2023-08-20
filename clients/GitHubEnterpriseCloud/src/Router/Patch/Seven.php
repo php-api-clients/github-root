@@ -6,6 +6,19 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
 use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlert;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitRef;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueComment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PorterAuthor;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestReviewComment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseAsset;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningAlert;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussionComment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,12 +30,14 @@ final class Seven
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return |array{code: int}|Schema\GitRef|(Schema\SecretScanningAlert|array{code: int})|(Schema\ScimUser */
+    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment|array
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
@@ -31,6 +46,7 @@ final class Seven
                             if ($pathChunks[5] === 'discussions') {
                                 if ($pathChunks[6] === '{discussion_number}') {
                                     if ($call === 'PATCH /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Teams::class, $this->router) === false) {
                                             $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -41,6 +57,7 @@ final class Seven
                             } elseif ($pathChunks[5] === 'team-sync') {
                                 if ($pathChunks[6] === 'group-mappings') {
                                     if ($call === 'PATCH /orgs/{org}/teams/{team_slug}/team-sync/group-mappings') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Teams::class, $this->router) === false) {
                                             $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -59,6 +76,7 @@ final class Seven
                             if ($pathChunks[5] === 'variables') {
                                 if ($pathChunks[6] === '{name}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/actions/variables/{name}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Actions::class, $this->router) === false) {
                                             $this->router[Router\Patch\Actions::class] = new Router\Patch\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -71,6 +89,7 @@ final class Seven
                             if ($pathChunks[5] === 'alerts') {
                                 if ($pathChunks[6] === '{alert_number}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\CodeScanning::class, $this->router) === false) {
                                             $this->router[Router\Patch\CodeScanning::class] = new Router\Patch\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -83,6 +102,7 @@ final class Seven
                             if ($pathChunks[5] === 'alerts') {
                                 if ($pathChunks[6] === '{alert_number}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/dependabot/alerts/{alert_number}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Dependabot::class, $this->router) === false) {
                                             $this->router[Router\Patch\Dependabot::class] = new Router\Patch\Dependabot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -95,6 +115,7 @@ final class Seven
                             if ($pathChunks[5] === 'refs') {
                                 if ($pathChunks[6] === '{ref}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/git/refs/{ref}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Git::class, $this->router) === false) {
                                             $this->router[Router\Patch\Git::class] = new Router\Patch\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -107,6 +128,7 @@ final class Seven
                             if ($pathChunks[5] === '{hook_id}') {
                                 if ($pathChunks[6] === 'config') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/hooks/{hook_id}/config') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Repos::class, $this->router) === false) {
                                             $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -119,6 +141,7 @@ final class Seven
                             if ($pathChunks[5] === 'authors') {
                                 if ($pathChunks[6] === '{author_id}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/import/authors/{author_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Migrations::class, $this->router) === false) {
                                             $this->router[Router\Patch\Migrations::class] = new Router\Patch\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -131,6 +154,7 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_id}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/issues/comments/{comment_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Issues::class, $this->router) === false) {
                                             $this->router[Router\Patch\Issues::class] = new Router\Patch\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -143,6 +167,7 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_id}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/pulls/comments/{comment_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Pulls::class, $this->router) === false) {
                                             $this->router[Router\Patch\Pulls::class] = new Router\Patch\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -155,6 +180,7 @@ final class Seven
                             if ($pathChunks[5] === 'assets') {
                                 if ($pathChunks[6] === '{asset_id}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/releases/assets/{asset_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Repos::class, $this->router) === false) {
                                             $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -167,6 +193,7 @@ final class Seven
                             if ($pathChunks[5] === 'alerts') {
                                 if ($pathChunks[6] === '{alert_number}') {
                                     if ($call === 'PATCH /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\SecretScanning::class, $this->router) === false) {
                                             $this->router[Router\Patch\SecretScanning::class] = new Router\Patch\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -185,6 +212,7 @@ final class Seven
                             if ($pathChunks[5] === 'variables') {
                                 if ($pathChunks[6] === '{name}') {
                                     if ($call === 'PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{name}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Actions::class, $this->router) === false) {
                                             $this->router[Router\Patch\Actions::class] = new Router\Patch\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -203,6 +231,7 @@ final class Seven
                             if ($pathChunks[5] === 'Users') {
                                 if ($pathChunks[6] === '{scim_user_id}') {
                                     if ($call === 'PATCH /scim/v2/organizations/{org}/Users/{scim_user_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Scim::class, $this->router) === false) {
                                             $this->router[Router\Patch\Scim::class] = new Router\Patch\Scim($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -221,6 +250,7 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_number}') {
                                     if ($call === 'PATCH /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Patch\Teams::class, $this->router) === false) {
                                             $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -235,6 +265,8 @@ final class Seven
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

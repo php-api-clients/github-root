@@ -6,10 +6,10 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
 use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
 
 use function array_key_exists;
 
@@ -21,7 +21,7 @@ final class RateLimit
     {
     }
 
-    public function get(): PromiseInterface
+    public function get(): Schema\RateLimitOverview
     {
         if (array_key_exists(Operator\RateLimit\Get::class, $this->operator) === false) {
             $this->operator[Operator\RateLimit\Get::class] = new Operator\RateLimit\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀RateLimit());

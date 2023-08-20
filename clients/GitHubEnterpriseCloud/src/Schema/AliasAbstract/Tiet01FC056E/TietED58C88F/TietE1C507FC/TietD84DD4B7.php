@@ -6,7 +6,9 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\Tiet01FC0
 
 abstract readonly class TietD84DD4B7
 {
-    public const SCHEMA_JSON         = '{"type":"object"}';
+    public const SCHEMA_JSON         = '{
+    "type": "object"
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '[]';

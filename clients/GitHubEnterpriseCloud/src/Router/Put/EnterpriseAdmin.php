@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Put;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
 use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +21,14 @@ final class EnterpriseAdmin
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function setGithubActionsPermissionsEnterprise(array $params)
+    /** @return array{code: int} */
+    public function setGithubActionsPermissionsEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -38,8 +41,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    public function enableSelectedOrganizationGithubActionsEnterprise(array $params)
+    /** @return array{code: int} */
+    public function enableSelectedOrganizationGithubActionsEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -58,8 +63,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
-    public function setOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params)
+    /** @return array{code: int} */
+    public function setOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -78,8 +85,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    public function setSelfHostedRunnersInGroupForEnterprise(array $params)
+    /** @return array{code: int} */
+    public function setSelfHostedRunnersInGroupForEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -98,8 +107,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    public function setCustomLabelsForSelfHostedRunnerForEnterprise(array $params)
+    /** @return */
+    public function setCustomLabelsForSelfHostedRunnerForEnterprise(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -122,8 +133,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id'], $params);
     }
 
-    public function setSelectedOrganizationsEnabledGithubActionsEnterprise(array $params)
+    /** @return array{code: int} */
+    public function setSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -136,8 +149,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    public function setAllowedActionsEnterprise(array $params)
+    /** @return array{code: int} */
+    public function setAllowedActionsEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -150,8 +165,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    public function addOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params)
+    /** @return array{code: int} */
+    public function addOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -176,8 +193,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
     }
 
-    public function addSelfHostedRunnerToGroupForEnterprise(array $params)
+    /** @return array{code: int} */
+    public function addSelfHostedRunnerToGroupForEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');

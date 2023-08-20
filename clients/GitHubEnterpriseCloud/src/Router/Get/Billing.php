@@ -7,6 +7,10 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Get;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrator;
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
 use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CombinedBillingUsage;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PackagesBillingUsage;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +24,14 @@ final class Billing
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function getGithubActionsBillingGhe(array $params)
+    /** @return */
+    public function getGithubActionsBillingGhe(array $params): ActionsBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -42,8 +48,10 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getGithubAdvancedSecurityBillingGhe(array $params)
+    /** @return */
+    public function getGithubAdvancedSecurityBillingGhe(array $params): AdvancedSecurityActiveCommitters|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -72,8 +80,10 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getGithubPackagesBillingGhe(array $params)
+    /** @return */
+    public function getGithubPackagesBillingGhe(array $params): PackagesBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -90,8 +100,10 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getSharedStorageBillingGhe(array $params)
+    /** @return */
+    public function getSharedStorageBillingGhe(array $params): CombinedBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -108,8 +120,10 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getGithubActionsBillingOrg(array $params)
+    /** @return */
+    public function getGithubActionsBillingOrg(array $params): ActionsBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -126,8 +140,10 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
-    public function getGithubAdvancedSecurityBillingOrg(array $params)
+    /** @return */
+    public function getGithubAdvancedSecurityBillingOrg(array $params): AdvancedSecurityActiveCommitters|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -156,8 +172,10 @@ final class Billing
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getGithubPackagesBillingOrg(array $params)
+    /** @return */
+    public function getGithubPackagesBillingOrg(array $params): PackagesBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -174,8 +192,10 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
-    public function getSharedStorageBillingOrg(array $params)
+    /** @return */
+    public function getSharedStorageBillingOrg(array $params): CombinedBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -192,8 +212,10 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
-    public function getGithubActionsBillingUser(array $params)
+    /** @return */
+    public function getGithubActionsBillingUser(array $params): ActionsBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -210,8 +232,10 @@ final class Billing
         return $operator->call($arguments['username']);
     }
 
-    public function getGithubPackagesBillingUser(array $params)
+    /** @return */
+    public function getGithubPackagesBillingUser(array $params): PackagesBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -228,8 +252,10 @@ final class Billing
         return $operator->call($arguments['username']);
     }
 
-    public function getSharedStorageBillingUser(array $params)
+    /** @return */
+    public function getSharedStorageBillingUser(array $params): CombinedBillingUsage|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
