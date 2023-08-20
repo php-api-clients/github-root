@@ -6,10 +6,10 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
 use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
 
 use function array_key_exists;
 
@@ -21,7 +21,7 @@ final class Billing
     {
     }
 
-    public function getGithubActionsBillingGhe(string $enterprise): PromiseInterface
+    public function getGithubActionsBillingGhe(string $enterprise): Schema\ActionsBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetGithubActionsBillingGhe::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubActionsBillingGhe::class] = new Operator\Billing\GetGithubActionsBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Actions());
@@ -30,7 +30,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubActionsBillingGhe::class]->call($enterprise);
     }
 
-    public function getGithubAdvancedSecurityBillingGhe(string $enterprise, int $perPage, int $page): PromiseInterface
+    public function getGithubAdvancedSecurityBillingGhe(string $enterprise, int $perPage, int $page): Schema\AdvancedSecurityActiveCommitters
     {
         if (array_key_exists(Operator\Billing\GetGithubAdvancedSecurityBillingGhe::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubAdvancedSecurityBillingGhe::class] = new Operator\Billing\GetGithubAdvancedSecurityBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀AdvancedSecurity());
@@ -39,7 +39,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubAdvancedSecurityBillingGhe::class]->call($enterprise, $perPage, $page);
     }
 
-    public function getGithubPackagesBillingGhe(string $enterprise): PromiseInterface
+    public function getGithubPackagesBillingGhe(string $enterprise): Schema\PackagesBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetGithubPackagesBillingGhe::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubPackagesBillingGhe::class] = new Operator\Billing\GetGithubPackagesBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Packages());
@@ -48,7 +48,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubPackagesBillingGhe::class]->call($enterprise);
     }
 
-    public function getSharedStorageBillingGhe(string $enterprise): PromiseInterface
+    public function getSharedStorageBillingGhe(string $enterprise): Schema\CombinedBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetSharedStorageBillingGhe::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetSharedStorageBillingGhe::class] = new Operator\Billing\GetSharedStorageBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀SharedStorage());
@@ -57,7 +57,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetSharedStorageBillingGhe::class]->call($enterprise);
     }
 
-    public function getGithubActionsBillingOrg(string $org): PromiseInterface
+    public function getGithubActionsBillingOrg(string $org): Schema\ActionsBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetGithubActionsBillingOrg::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubActionsBillingOrg::class] = new Operator\Billing\GetGithubActionsBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Actions());
@@ -66,7 +66,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubActionsBillingOrg::class]->call($org);
     }
 
-    public function getGithubAdvancedSecurityBillingOrg(string $org, int $perPage, int $page): PromiseInterface
+    public function getGithubAdvancedSecurityBillingOrg(string $org, int $perPage, int $page): Schema\AdvancedSecurityActiveCommitters
     {
         if (array_key_exists(Operator\Billing\GetGithubAdvancedSecurityBillingOrg::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubAdvancedSecurityBillingOrg::class] = new Operator\Billing\GetGithubAdvancedSecurityBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀AdvancedSecurity());
@@ -75,7 +75,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubAdvancedSecurityBillingOrg::class]->call($org, $perPage, $page);
     }
 
-    public function getGithubPackagesBillingOrg(string $org): PromiseInterface
+    public function getGithubPackagesBillingOrg(string $org): Schema\PackagesBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetGithubPackagesBillingOrg::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubPackagesBillingOrg::class] = new Operator\Billing\GetGithubPackagesBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀Packages());
@@ -84,7 +84,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubPackagesBillingOrg::class]->call($org);
     }
 
-    public function getSharedStorageBillingOrg(string $org): PromiseInterface
+    public function getSharedStorageBillingOrg(string $org): Schema\CombinedBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetSharedStorageBillingOrg::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetSharedStorageBillingOrg::class] = new Operator\Billing\GetSharedStorageBillingOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Settings🌀Billing🌀SharedStorage());
@@ -93,7 +93,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetSharedStorageBillingOrg::class]->call($org);
     }
 
-    public function getGithubActionsBillingUser(string $username): PromiseInterface
+    public function getGithubActionsBillingUser(string $username): Schema\ActionsBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetGithubActionsBillingUser::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubActionsBillingUser::class] = new Operator\Billing\GetGithubActionsBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Actions());
@@ -102,7 +102,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubActionsBillingUser::class]->call($username);
     }
 
-    public function getGithubPackagesBillingUser(string $username): PromiseInterface
+    public function getGithubPackagesBillingUser(string $username): Schema\PackagesBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetGithubPackagesBillingUser::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetGithubPackagesBillingUser::class] = new Operator\Billing\GetGithubPackagesBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀Packages());
@@ -111,7 +111,7 @@ final class Billing
         return $this->operator[Operator\Billing\GetGithubPackagesBillingUser::class]->call($username);
     }
 
-    public function getSharedStorageBillingUser(string $username): PromiseInterface
+    public function getSharedStorageBillingUser(string $username): Schema\CombinedBillingUsage
     {
         if (array_key_exists(Operator\Billing\GetSharedStorageBillingUser::class, $this->operator) === false) {
             $this->operator[Operator\Billing\GetSharedStorageBillingUser::class] = new Operator\Billing\GetSharedStorageBillingUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Settings🌀Billing🌀SharedStorage());

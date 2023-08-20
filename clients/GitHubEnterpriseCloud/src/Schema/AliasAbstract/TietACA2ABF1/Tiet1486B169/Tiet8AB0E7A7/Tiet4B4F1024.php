@@ -6,10 +6,23 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\TietACA2A
 
 abstract readonly class Tiet4B4F1024
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"digest":{"type":"string"},"name":{"type":"string"}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "digest": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"digest":"generated","name":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "digest": "generated",
+    "name": "generated"
+}';
 
     public function __construct(public string|null $digest, public string|null $name)
     {

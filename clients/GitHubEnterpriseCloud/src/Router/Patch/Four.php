@@ -6,6 +6,13 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
 use ApiClients\Client\GitHubEnterpriseCloud\Router;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\AnnouncementBanner;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Authorization;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectColumn;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,17 +24,20 @@ final class Four
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return |array{code: int}|(Schema\ProjectColumn|array{code: int})|(iterable<Schema\Email> */
+    public function call(string $call, array $params, array $pathChunks): WebhookConfig|Authorization|AnnouncementBanner|ProjectColumn|FullRepository|BasicError|Codespace|iterable
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
                 if ($pathChunks[2] === 'hook') {
                     if ($pathChunks[3] === 'config') {
                         if ($call === 'PATCH /app/hook/config') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Apps::class, $this->router) === false) {
                                 $this->router[Router\Patch\Apps::class] = new Router\Patch\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -40,6 +50,7 @@ final class Four
                 if ($pathChunks[2] === '{client_id}') {
                     if ($pathChunks[3] === 'token') {
                         if ($call === 'PATCH /applications/{client_id}/token') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Apps::class, $this->router) === false) {
                                 $this->router[Router\Patch\Apps::class] = new Router\Patch\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -52,6 +63,7 @@ final class Four
                 if ($pathChunks[2] === '{enterprise}') {
                     if ($pathChunks[3] === 'announcement') {
                         if ($call === 'PATCH /enterprises/{enterprise}/announcement') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\AnnouncementBanners::class, $this->router) === false) {
                                 $this->router[Router\Patch\AnnouncementBanners::class] = new Router\Patch\AnnouncementBanners($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -60,6 +72,7 @@ final class Four
                         }
                     } elseif ($pathChunks[3] === 'code_security_and_analysis') {
                         if ($call === 'PATCH /enterprises/{enterprise}/code_security_and_analysis') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\SecretScanning::class, $this->router) === false) {
                                 $this->router[Router\Patch\SecretScanning::class] = new Router\Patch\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -72,6 +85,7 @@ final class Four
                 if ($pathChunks[2] === 'threads') {
                     if ($pathChunks[3] === '{thread_id}') {
                         if ($call === 'PATCH /notifications/threads/{thread_id}') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Activity::class, $this->router) === false) {
                                 $this->router[Router\Patch\Activity::class] = new Router\Patch\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -84,6 +98,7 @@ final class Four
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'announcement') {
                         if ($call === 'PATCH /orgs/{org}/announcement') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\AnnouncementBanners::class, $this->router) === false) {
                                 $this->router[Router\Patch\AnnouncementBanners::class] = new Router\Patch\AnnouncementBanners($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -96,6 +111,7 @@ final class Four
                 if ($pathChunks[2] === 'columns') {
                     if ($pathChunks[3] === '{column_id}') {
                         if ($call === 'PATCH /projects/columns/{column_id}') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Projects::class, $this->router) === false) {
                                 $this->router[Router\Patch\Projects::class] = new Router\Patch\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -108,6 +124,7 @@ final class Four
                 if ($pathChunks[2] === '{owner}') {
                     if ($pathChunks[3] === '{repo}') {
                         if ($call === 'PATCH /repos/{owner}/{repo}') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Repos::class, $this->router) === false) {
                                 $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -120,6 +137,7 @@ final class Four
                 if ($pathChunks[2] === 'codespaces') {
                     if ($pathChunks[3] === '{codespace_name}') {
                         if ($call === 'PATCH /user/codespaces/{codespace_name}') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Codespaces::class, $this->router) === false) {
                                 $this->router[Router\Patch\Codespaces::class] = new Router\Patch\Codespaces($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -130,6 +148,7 @@ final class Four
                 } elseif ($pathChunks[2] === 'email') {
                     if ($pathChunks[3] === 'visibility') {
                         if ($call === 'PATCH /user/email/visibility') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Users::class, $this->router) === false) {
                                 $this->router[Router\Patch\Users::class] = new Router\Patch\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -140,6 +159,7 @@ final class Four
                 } elseif ($pathChunks[2] === 'repository_invitations') {
                     if ($pathChunks[3] === '{invitation_id}') {
                         if ($call === 'PATCH /user/repository_invitations/{invitation_id}') {
+                            $matched = true;
                             if (array_key_exists(Router\Patch\Repos::class, $this->router) === false) {
                                 $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -151,6 +171,8 @@ final class Four
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

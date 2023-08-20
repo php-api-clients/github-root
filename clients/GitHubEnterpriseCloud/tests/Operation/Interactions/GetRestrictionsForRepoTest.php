@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Interactions;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubEnterpriseCloud\Operation\Interactions\GetRestrictionsForRepo */
 final class GetRestrictionsForRepoTest extends AsyncTestCase
 {
 }

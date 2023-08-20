@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterpriseCloud\Operation\Pulls;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubEnterpriseCloud\Operation\Pulls\ListReviewCommentsForRepo */
 final class ListReviewCommentsForRepoTest extends AsyncTestCase
 {
 }

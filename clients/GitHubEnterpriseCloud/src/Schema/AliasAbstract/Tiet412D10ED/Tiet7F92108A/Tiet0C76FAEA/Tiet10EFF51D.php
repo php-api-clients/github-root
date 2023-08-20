@@ -6,10 +6,30 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\Tiet412D1
 
 abstract readonly class Tiet10EFF51D
 {
-    public const SCHEMA_JSON         = '{"required":["value"],"type":"object","properties":{"value":{"type":"string"},"primary":{"type":"boolean"},"type":{"type":"string"}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "value"
+    ],
+    "type": "object",
+    "properties": {
+        "value": {
+            "type": "string"
+        },
+        "primary": {
+            "type": "boolean"
+        },
+        "type": {
+            "type": "string"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"value":"generated","primary":false,"type":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "value": "generated",
+    "primary": false,
+    "type": "generated"
+}';
 
     public function __construct(public string $value, public bool|null $primary, public string|null $type)
     {

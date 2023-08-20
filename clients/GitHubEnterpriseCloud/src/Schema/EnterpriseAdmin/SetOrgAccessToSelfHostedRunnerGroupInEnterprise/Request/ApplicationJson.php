@@ -8,10 +8,30 @@ use EventSauce\ObjectHydrator\MapFrom;
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"required":["selected_organization_ids"],"type":"object","properties":{"selected_organization_ids":{"type":"array","items":{"type":"integer","description":"Unique identifier of the organization."},"description":"List of organization IDs that can access the runner group."}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "selected_organization_ids"
+    ],
+    "type": "object",
+    "properties": {
+        "selected_organization_ids": {
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "description": "Unique identifier of the organization."
+            },
+            "description": "List of organization IDs that can access the runner group."
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"selected_organization_ids":[26,27]}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "selected_organization_ids": [
+        26,
+        27
+    ]
+}';
 
     /**
      * selectedOrganizationIds: List of organization IDs that can access the runner group.
