@@ -6,10 +6,11 @@ namespace ApiClients\Client\GitHubAE\Operation;
 
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operator;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
+use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
 
 use function array_key_exists;
 
@@ -21,7 +22,7 @@ final class Users
     {
     }
 
-    public function getAuthenticated(): PromiseInterface
+    public function getAuthenticated(): Schema\Operations\Users\GetAuthenticated\Response\ApplicationJson\Ok
     {
         if (array_key_exists(Operator\Users\GetAuthenticated::class, $this->operator) === false) {
             $this->operator[Operator\Users\GetAuthenticated::class] = new Operator\Users\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User());
@@ -30,7 +31,7 @@ final class Users
         return $this->operator[Operator\Users\GetAuthenticated::class]->call();
     }
 
-    public function updateAuthenticated(array $params): PromiseInterface
+    public function updateAuthenticated(array $params): Schema\PrivateUser
     {
         if (array_key_exists(Operator\Users\UpdateAuthenticated::class, $this->operator) === false) {
             $this->operator[Operator\Users\UpdateAuthenticated::class] = new Operator\Users\UpdateAuthenticated($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User());
@@ -39,7 +40,7 @@ final class Users
         return $this->operator[Operator\Users\UpdateAuthenticated::class]->call($params);
     }
 
-    public function listFollowersForAuthenticatedUser(int $perPage, int $page): PromiseInterface
+    public function listFollowersForAuthenticatedUser(int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Users\ListFollowersForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListFollowersForAuthenticatedUser::class] = new Operator\Users\ListFollowersForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Followers());
@@ -48,7 +49,7 @@ final class Users
         return $this->operator[Operator\Users\ListFollowersForAuthenticatedUser::class]->call($perPage, $page);
     }
 
-    public function listFollowedByAuthenticatedUser(int $perPage, int $page): PromiseInterface
+    public function listFollowedByAuthenticatedUser(int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Users\ListFollowedByAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListFollowedByAuthenticatedUser::class] = new Operator\Users\ListFollowedByAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following());
@@ -57,7 +58,7 @@ final class Users
         return $this->operator[Operator\Users\ListFollowedByAuthenticatedUser::class]->call($perPage, $page);
     }
 
-    public function checkPersonIsFollowedByAuthenticated(string $username): PromiseInterface
+    public function checkPersonIsFollowedByAuthenticated(string $username): ResponseInterface
     {
         if (array_key_exists(Operator\Users\CheckPersonIsFollowedByAuthenticated::class, $this->operator) === false) {
             $this->operator[Operator\Users\CheckPersonIsFollowedByAuthenticated::class] = new Operator\Users\CheckPersonIsFollowedByAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username());
@@ -66,7 +67,7 @@ final class Users
         return $this->operator[Operator\Users\CheckPersonIsFollowedByAuthenticated::class]->call($username);
     }
 
-    public function follow(string $username): PromiseInterface
+    public function follow(string $username): ResponseInterface
     {
         if (array_key_exists(Operator\Users\Follow::class, $this->operator) === false) {
             $this->operator[Operator\Users\Follow::class] = new Operator\Users\Follow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username());
@@ -75,7 +76,7 @@ final class Users
         return $this->operator[Operator\Users\Follow::class]->call($username);
     }
 
-    public function unfollow(string $username): PromiseInterface
+    public function unfollow(string $username): ResponseInterface
     {
         if (array_key_exists(Operator\Users\Unfollow::class, $this->operator) === false) {
             $this->operator[Operator\Users\Unfollow::class] = new Operator\Users\Unfollow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following🌀Username());
@@ -84,7 +85,7 @@ final class Users
         return $this->operator[Operator\Users\Unfollow::class]->call($username);
     }
 
-    public function listGpgKeysForAuthenticatedUser(int $perPage, int $page): PromiseInterface
+    public function listGpgKeysForAuthenticatedUser(int $perPage, int $page): Schema\GpgKey
     {
         if (array_key_exists(Operator\Users\ListGpgKeysForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListGpgKeysForAuthenticatedUser::class] = new Operator\Users\ListGpgKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
@@ -93,7 +94,7 @@ final class Users
         return $this->operator[Operator\Users\ListGpgKeysForAuthenticatedUser::class]->call($perPage, $page);
     }
 
-    public function createGpgKeyForAuthenticatedUser(array $params): PromiseInterface
+    public function createGpgKeyForAuthenticatedUser(array $params): Schema\GpgKey
     {
         if (array_key_exists(Operator\Users\CreateGpgKeyForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\CreateGpgKeyForAuthenticatedUser::class] = new Operator\Users\CreateGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
@@ -102,7 +103,7 @@ final class Users
         return $this->operator[Operator\Users\CreateGpgKeyForAuthenticatedUser::class]->call($params);
     }
 
-    public function getGpgKeyForAuthenticatedUser(int $gpgKeyId): PromiseInterface
+    public function getGpgKeyForAuthenticatedUser(int $gpgKeyId): Schema\GpgKey
     {
         if (array_key_exists(Operator\Users\GetGpgKeyForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\GetGpgKeyForAuthenticatedUser::class] = new Operator\Users\GetGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId());
@@ -111,7 +112,7 @@ final class Users
         return $this->operator[Operator\Users\GetGpgKeyForAuthenticatedUser::class]->call($gpgKeyId);
     }
 
-    public function deleteGpgKeyForAuthenticatedUser(int $gpgKeyId): PromiseInterface
+    public function deleteGpgKeyForAuthenticatedUser(int $gpgKeyId): ResponseInterface
     {
         if (array_key_exists(Operator\Users\DeleteGpgKeyForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\DeleteGpgKeyForAuthenticatedUser::class] = new Operator\Users\DeleteGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys🌀GpgKeyId());
@@ -120,7 +121,7 @@ final class Users
         return $this->operator[Operator\Users\DeleteGpgKeyForAuthenticatedUser::class]->call($gpgKeyId);
     }
 
-    public function listPublicSshKeysForAuthenticatedUser(int $perPage, int $page): PromiseInterface
+    public function listPublicSshKeysForAuthenticatedUser(int $perPage, int $page): Schema\Key
     {
         if (array_key_exists(Operator\Users\ListPublicSshKeysForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListPublicSshKeysForAuthenticatedUser::class] = new Operator\Users\ListPublicSshKeysForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
@@ -129,7 +130,7 @@ final class Users
         return $this->operator[Operator\Users\ListPublicSshKeysForAuthenticatedUser::class]->call($perPage, $page);
     }
 
-    public function createPublicSshKeyForAuthenticatedUser(array $params): PromiseInterface
+    public function createPublicSshKeyForAuthenticatedUser(array $params): Schema\Key
     {
         if (array_key_exists(Operator\Users\CreatePublicSshKeyForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\CreatePublicSshKeyForAuthenticatedUser::class] = new Operator\Users\CreatePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
@@ -138,7 +139,7 @@ final class Users
         return $this->operator[Operator\Users\CreatePublicSshKeyForAuthenticatedUser::class]->call($params);
     }
 
-    public function getPublicSshKeyForAuthenticatedUser(int $keyId): PromiseInterface
+    public function getPublicSshKeyForAuthenticatedUser(int $keyId): Schema\Key
     {
         if (array_key_exists(Operator\Users\GetPublicSshKeyForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\GetPublicSshKeyForAuthenticatedUser::class] = new Operator\Users\GetPublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId());
@@ -147,7 +148,7 @@ final class Users
         return $this->operator[Operator\Users\GetPublicSshKeyForAuthenticatedUser::class]->call($keyId);
     }
 
-    public function deletePublicSshKeyForAuthenticatedUser(int $keyId): PromiseInterface
+    public function deletePublicSshKeyForAuthenticatedUser(int $keyId): ResponseInterface
     {
         if (array_key_exists(Operator\Users\DeletePublicSshKeyForAuthenticatedUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\DeletePublicSshKeyForAuthenticatedUser::class] = new Operator\Users\DeletePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys🌀KeyId());
@@ -156,7 +157,7 @@ final class Users
         return $this->operator[Operator\Users\DeletePublicSshKeyForAuthenticatedUser::class]->call($keyId);
     }
 
-    public function list(int $since, int $perPage): PromiseInterface
+    public function list(int $since, int $perPage): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Users\List_::class, $this->operator) === false) {
             $this->operator[Operator\Users\List_::class] = new Operator\Users\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users());
@@ -165,7 +166,7 @@ final class Users
         return $this->operator[Operator\Users\List_::class]->call($since, $perPage);
     }
 
-    public function getByUsername(string $username): PromiseInterface
+    public function getByUsername(string $username): Schema\Operations\Users\GetByUsername\Response\ApplicationJson\Ok
     {
         if (array_key_exists(Operator\Users\GetByUsername::class, $this->operator) === false) {
             $this->operator[Operator\Users\GetByUsername::class] = new Operator\Users\GetByUsername($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username());
@@ -174,7 +175,7 @@ final class Users
         return $this->operator[Operator\Users\GetByUsername::class]->call($username);
     }
 
-    public function listFollowersForUser(string $username, int $perPage, int $page): PromiseInterface
+    public function listFollowersForUser(string $username, int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Users\ListFollowersForUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListFollowersForUser::class] = new Operator\Users\ListFollowersForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Followers());
@@ -183,7 +184,7 @@ final class Users
         return $this->operator[Operator\Users\ListFollowersForUser::class]->call($username, $perPage, $page);
     }
 
-    public function listFollowingForUser(string $username, int $perPage, int $page): PromiseInterface
+    public function listFollowingForUser(string $username, int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Users\ListFollowingForUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListFollowingForUser::class] = new Operator\Users\ListFollowingForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Following());
@@ -192,7 +193,7 @@ final class Users
         return $this->operator[Operator\Users\ListFollowingForUser::class]->call($username, $perPage, $page);
     }
 
-    public function checkFollowingForUser(string $username, string $targetUser): PromiseInterface
+    public function checkFollowingForUser(string $username, string $targetUser): ResponseInterface
     {
         if (array_key_exists(Operator\Users\CheckFollowingForUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\CheckFollowingForUser::class] = new Operator\Users\CheckFollowingForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Following🌀TargetUser());
@@ -201,7 +202,7 @@ final class Users
         return $this->operator[Operator\Users\CheckFollowingForUser::class]->call($username, $targetUser);
     }
 
-    public function listGpgKeysForUser(string $username, int $perPage, int $page): PromiseInterface
+    public function listGpgKeysForUser(string $username, int $perPage, int $page): Schema\GpgKey
     {
         if (array_key_exists(Operator\Users\ListGpgKeysForUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListGpgKeysForUser::class] = new Operator\Users\ListGpgKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀GpgKeys());
@@ -210,7 +211,7 @@ final class Users
         return $this->operator[Operator\Users\ListGpgKeysForUser::class]->call($username, $perPage, $page);
     }
 
-    public function getContextForUser(string $username, string $subjectType, string $subjectId): PromiseInterface
+    public function getContextForUser(string $username, string $subjectType, string $subjectId): Schema\Hovercard
     {
         if (array_key_exists(Operator\Users\GetContextForUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\GetContextForUser::class] = new Operator\Users\GetContextForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Hovercard());
@@ -219,7 +220,7 @@ final class Users
         return $this->operator[Operator\Users\GetContextForUser::class]->call($username, $subjectType, $subjectId);
     }
 
-    public function listPublicKeysForUser(string $username, int $perPage, int $page): PromiseInterface
+    public function listPublicKeysForUser(string $username, int $perPage, int $page): Schema\KeySimple
     {
         if (array_key_exists(Operator\Users\ListPublicKeysForUser::class, $this->operator) === false) {
             $this->operator[Operator\Users\ListPublicKeysForUser::class] = new Operator\Users\ListPublicKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Keys());

@@ -20,12 +20,14 @@ final class Users
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function unfollow(array $params)
+    /** @return array{code: int} */
+    public function unfollow(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -42,8 +44,10 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
-    public function deleteGpgKeyForAuthenticatedUser(array $params)
+    /** @return array{code: int} */
+    public function deleteGpgKeyForAuthenticatedUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('gpg_key_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: gpg_key_id');
@@ -60,8 +64,10 @@ final class Users
         return $operator->call($arguments['gpg_key_id']);
     }
 
-    public function deletePublicSshKeyForAuthenticatedUser(array $params)
+    /** @return array{code: int} */
+    public function deletePublicSshKeyForAuthenticatedUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('key_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: key_id');

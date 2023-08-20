@@ -14,21 +14,22 @@ use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
 use function json_decode;
-use function React\Async\await;
+use function json_encode;
 use function React\Promise\resolve;
 
+/** @covers \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\CreateOrg */
 final class CreateOrgTest extends AsyncTestCase
 {
     /** @test */
     public function call_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], Schema\OrganizationSimple::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\OrganizationSimple::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/admin/organizations', Argument::type('array'), Schema\EnterpriseAdmin\CreateOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/admin/organizations', Argument::type('array'), json_encode(json_decode(Schema\EnterpriseAdmin\CreateOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\EnterpriseAdmin\CreateOrg::OPERATION_MATCH, (static function (array $data): array {
             return $data;
@@ -38,14 +39,14 @@ final class CreateOrgTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_201_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(201, ['Content-Type' => 'application/json'], Schema\OrganizationSimple::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(201, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\OrganizationSimple::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/admin/organizations', Argument::type('array'), Schema\EnterpriseAdmin\CreateOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA)->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/admin/organizations', Argument::type('array'), json_encode(json_decode(Schema\EnterpriseAdmin\CreateOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->createOrg(json_decode(Schema\EnterpriseAdmin\CreateOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        $result = $client->operations()->enterpriseAdmin()->createOrg(json_decode(Schema\EnterpriseAdmin\CreateOrg\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
     }
 }

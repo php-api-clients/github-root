@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operator\Projects;
 
 use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ProjectCollaboratorPermission;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class GetPermissionForUser
 {
@@ -23,14 +27,18 @@ final readonly class GetPermissionForUser
     {
     }
 
-    /** @return PromiseInterface<(ProjectCollaboratorPermission|array)> **/
-    public function call(int $projectId, string $username): PromiseInterface
+    /** @return (Schema\ProjectCollaboratorPermission | array{code: int}) */
+    public function call(int $projectId, string $username): ProjectCollaboratorPermission|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Projects\GetPermissionForUser($this->responseSchemaValidator, $this->hydrator, $projectId, $username);
         $request   = $operation->createRequest();
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ProjectCollaboratorPermission|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ProjectCollaboratorPermission|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }

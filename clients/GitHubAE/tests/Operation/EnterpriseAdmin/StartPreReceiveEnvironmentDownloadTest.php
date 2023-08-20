@@ -14,15 +14,17 @@ use React\Http\Browser;
 use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
-use function React\Async\await;
+use function json_decode;
+use function json_encode;
 use function React\Promise\resolve;
 
+/** @covers \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\StartPreReceiveEnvironmentDownload */
 final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
 {
     /** @test */
     public function call_httpCode_202_responseContentType_application_json_zero(): void
     {
-        $response = new Response(202, ['Content-Type' => 'application/json'], Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -40,7 +42,7 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_202_responseContentType_application_json_zero(): void
     {
-        $response = new Response(202, ['Content-Type' => 'application/json'], Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\PreReceiveEnvironmentDownloadStatus::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -48,14 +50,14 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/admin/pre-receive-environments/26/downloads', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->startPreReceiveEnvironmentDownload(26));
+        $result = $client->operations()->enterpriseAdmin()->startPreReceiveEnvironmentDownload(26);
     }
 
     /** @test */
     public function call_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);
-        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(422, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -74,7 +76,7 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
     public function operations_httpCode_422_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::class);
-        $response = new Response(422, ['Content-Type' => 'application/json'], Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(422, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -82,6 +84,6 @@ final class StartPreReceiveEnvironmentDownloadTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('POST', '/admin/pre-receive-environments/26/downloads', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->startPreReceiveEnvironmentDownload(26));
+        $result = $client->operations()->enterpriseAdmin()->startPreReceiveEnvironmentDownload(26);
     }
 }

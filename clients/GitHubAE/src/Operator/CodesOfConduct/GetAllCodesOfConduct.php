@@ -4,10 +4,16 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Operator\CodesOfConduct;
 
+use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class GetAllCodesOfConduct
 {
@@ -16,18 +22,22 @@ final readonly class GetAllCodesOfConduct
     private const METHOD         = 'GET';
     private const PATH           = '/codes_of_conduct';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\CodesOfConduct $hydrator)
     {
     }
 
-    /** @return PromiseInterface<array> **/
-    public function call(): PromiseInterface
+    /** @return (iterable<Schema\CodeOfConduct> | array{code: int}) */
+    public function call(): iterable
     {
-        $operation = new \ApiClients\Client\GitHubAE\Operation\CodesOfConduct\GetAllCodesOfConduct();
+        $operation = new \ApiClients\Client\GitHubAE\Operation\CodesOfConduct\GetAllCodesOfConduct($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }

@@ -7,6 +7,8 @@ namespace ApiClients\Client\GitHubAE\Router\Get;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operator;
+use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Client\GitHubAE\Schema\Migration;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +22,14 @@ final class Migrations
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\Migration> | array{code: int}) */
+    public function listForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -48,8 +52,10 @@ final class Migrations
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function listForOrg(array $params)
+    /** @return iterable<Schema\Migration> */
+    public function listForOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -75,13 +81,19 @@ final class Migrations
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Migrations\ListForOrg($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Migrations::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Migrations::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations();
+        }
+
+        $operator = new Operator\Migrations\ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Migrations::class]);
 
         return $operator->call($arguments['org'], $arguments['exclude'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function downloadArchiveForOrg(array $params)
+    /** @return array{code: int} */
+    public function downloadArchiveForOrg(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -104,8 +116,10 @@ final class Migrations
         return $operator->call($arguments['org'], $arguments['migration_id']);
     }
 
-    public function listReposForOrg(array $params)
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listReposForOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -140,8 +154,10 @@ final class Migrations
         return $operator->call($arguments['org'], $arguments['migration_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getStatusForOrg(array $params)
+    /** @return */
+    public function getStatusForOrg(array $params): Migration|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -170,8 +186,10 @@ final class Migrations
         return $operator->call($arguments['org'], $arguments['migration_id'], $arguments['exclude']);
     }
 
-    public function getArchiveForAuthenticatedUser(array $params)
+    /** @return array{code: int} */
+    public function getArchiveForAuthenticatedUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('migration_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: migration_id');
@@ -188,8 +206,10 @@ final class Migrations
         return $operator->call($arguments['migration_id']);
     }
 
-    public function listReposForAuthenticatedUser(array $params)
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listReposForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('migration_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: migration_id');
@@ -218,8 +238,10 @@ final class Migrations
         return $operator->call($arguments['migration_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function downloadArchiveForOrgStreaming(array $params)
+    /** @return Observable<string> */
+    public function downloadArchiveForOrgStreaming(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');

@@ -20,12 +20,14 @@ final class EnterpriseAdmin
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function deleteGlobalWebhook(array $params)
+    /** @return array{code: int} */
+    public function deleteGlobalWebhook(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: hook_id');
@@ -38,8 +40,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
-    public function deletePublicKey(array $params)
+    /** @return array{code: int} */
+    public function deletePublicKey(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('key_ids', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: key_ids');
@@ -52,8 +56,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['key_ids']);
     }
 
-    public function deletePreReceiveEnvironment(array $params)
+    /** @return array{code: int} */
+    public function deletePreReceiveEnvironment(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
@@ -70,8 +76,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    public function deletePersonalAccessToken(array $params)
+    /** @return array{code: int} */
+    public function deletePersonalAccessToken(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('token_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: token_id');
@@ -84,8 +92,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['token_id']);
     }
 
-    public function deleteUser(array $params)
+    /** @return array{code: int} */
+    public function deleteUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -98,8 +108,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    public function unsuspendUser(array $params)
+    /** @return array{code: int} */
+    public function unsuspendUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -112,8 +124,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    public function deleteImpersonationOAuthToken(array $params)
+    /** @return array{code: int} */
+    public function deleteImpersonationOAuthToken(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -126,15 +140,19 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    public function removeAnnouncement(array $params)
+    /** @return array{code: int} */
+    public function removeAnnouncement(array $params): array
     {
+        $matched  = true;
         $operator = new Operator\EnterpriseAdmin\RemoveAnnouncement($this->browser, $this->authentication);
 
         return $operator->call();
     }
 
-    public function disableSelectedOrganizationGithubActionsEnterprise(array $params)
+    /** @return array{code: int} */
+    public function disableSelectedOrganizationGithubActionsEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -153,8 +171,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
-    public function deleteSelfHostedRunnerGroupFromEnterprise(array $params)
+    /** @return array{code: int} */
+    public function deleteSelfHostedRunnerGroupFromEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -173,8 +193,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    public function deleteSelfHostedRunnerFromEnterprise(array $params)
+    /** @return array{code: int} */
+    public function deleteSelfHostedRunnerFromEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -193,8 +215,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    public function removeSelfHostedRunnerFromGroupForEnterprise(array $params)
+    /** @return array{code: int} */
+    public function removeSelfHostedRunnerFromGroupForEnterprise(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');

@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubAE\Operation\Teams;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubAE\Operation\Teams\ListReposInOrg */
 final class ListReposInOrgTest extends AsyncTestCase
 {
 }

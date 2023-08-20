@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubAE\Operation\Repos;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubAE\Operation\Repos\ListDeployments */
 final class ListDeploymentsTest extends AsyncTestCase
 {
 }

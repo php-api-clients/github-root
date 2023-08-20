@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operator\Activity;
 
 use ApiClients\Client\GitHubAE\Hydrator;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ThreadSubscription;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class GetThreadSubscriptionForAuthenticatedUser
 {
@@ -23,14 +27,18 @@ final readonly class GetThreadSubscriptionForAuthenticatedUser
     {
     }
 
-    /** @return PromiseInterface<(ThreadSubscription|array)> **/
-    public function call(int $threadId): PromiseInterface
+    /** @return (Schema\ThreadSubscription | array{code: int}) */
+    public function call(int $threadId): ThreadSubscription|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Activity\GetThreadSubscriptionForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $threadId);
         $request   = $operation->createRequest();
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ThreadSubscription|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ThreadSubscription|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }

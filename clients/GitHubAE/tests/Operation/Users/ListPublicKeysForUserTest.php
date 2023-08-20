@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubAE\Operation\Users;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubAE\Operation\Users\ListPublicKeysForUser */
 final class ListPublicKeysForUserTest extends AsyncTestCase
 {
 }

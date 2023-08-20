@@ -6,6 +6,11 @@ namespace ApiClients\Client\GitHubAE\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\Schema\Announcement;
+use ApiClients\Client\GitHubAE\Schema\GistSimple;
+use ApiClients\Client\GitHubAE\Schema\OrganizationFull;
+use ApiClients\Client\GitHubAE\Schema\Project;
+use ApiClients\Client\GitHubAE\Schema\TeamFull;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,16 +22,19 @@ final class Three
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return |Schema\OrganizationFull|(Schema\Project|array{code: int}) */
+    public function call(string $call, array $params, array $pathChunks): Announcement|GistSimple|OrganizationFull|Project|TeamFull|array
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprise') {
                 if ($pathChunks[2] === 'announcement') {
                     if ($call === 'PATCH /enterprise/announcement') {
+                        $matched = true;
                         if (array_key_exists(Router\Patch\EnterpriseAdmin::class, $this->router) === false) {
                             $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -37,6 +45,7 @@ final class Three
             } elseif ($pathChunks[1] === 'gists') {
                 if ($pathChunks[2] === '{gist_id}') {
                     if ($call === 'PATCH /gists/{gist_id}') {
+                        $matched = true;
                         if (array_key_exists(Router\Patch\Gists::class, $this->router) === false) {
                             $this->router[Router\Patch\Gists::class] = new Router\Patch\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -47,6 +56,7 @@ final class Three
             } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($call === 'PATCH /orgs/{org}') {
+                        $matched = true;
                         if (array_key_exists(Router\Patch\Orgs::class, $this->router) === false) {
                             $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -57,6 +67,7 @@ final class Three
             } elseif ($pathChunks[1] === 'projects') {
                 if ($pathChunks[2] === '{project_id}') {
                     if ($call === 'PATCH /projects/{project_id}') {
+                        $matched = true;
                         if (array_key_exists(Router\Patch\Projects::class, $this->router) === false) {
                             $this->router[Router\Patch\Projects::class] = new Router\Patch\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -67,6 +78,7 @@ final class Three
             } elseif ($pathChunks[1] === 'teams') {
                 if ($pathChunks[2] === '{team_id}') {
                     if ($call === 'PATCH /teams/{team_id}') {
+                        $matched = true;
                         if (array_key_exists(Router\Patch\Teams::class, $this->router) === false) {
                             $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -77,6 +89,8 @@ final class Three
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

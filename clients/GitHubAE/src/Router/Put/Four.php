@@ -17,17 +17,20 @@ final class Four
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return array{code: int} */
+    public function call(string $call, array $params, array $pathChunks): array
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {
                 if ($pathChunks[2] === '{gist_id}') {
                     if ($pathChunks[3] === 'star') {
                         if ($call === 'PUT /gists/{gist_id}/star') {
+                            $matched = true;
                             if (array_key_exists(Router\Put\Gists::class, $this->router) === false) {
                                 $this->router[Router\Put\Gists::class] = new Router\Put\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -40,6 +43,7 @@ final class Four
                 if ($pathChunks[2] === 'following') {
                     if ($pathChunks[3] === '{username}') {
                         if ($call === 'PUT /user/following/{username}') {
+                            $matched = true;
                             if (array_key_exists(Router\Put\Users::class, $this->router) === false) {
                                 $this->router[Router\Put\Users::class] = new Router\Put\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -52,6 +56,7 @@ final class Four
                 if ($pathChunks[2] === '{username}') {
                     if ($pathChunks[3] === 'suspended') {
                         if ($call === 'PUT /users/{username}/suspended') {
+                            $matched = true;
                             if (array_key_exists(Router\Put\EnterpriseAdmin::class, $this->router) === false) {
                                 $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
@@ -63,6 +68,8 @@ final class Four
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

@@ -7,6 +7,13 @@ namespace ApiClients\Client\GitHubAE\Router\Post;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operator;
+use ApiClients\Client\GitHubAE\Schema\AuthenticationToken;
+use ApiClients\Client\GitHubAE\Schema\Authorization;
+use ApiClients\Client\GitHubAE\Schema\GlobalHook;
+use ApiClients\Client\GitHubAE\Schema\OrganizationSimple;
+use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment;
+use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironmentDownloadStatus;
+use ApiClients\Client\GitHubAE\Schema\RunnerGroupsEnterprise;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +27,14 @@ final class EnterpriseAdmin
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function createGlobalWebhook(array $params)
+    /** @return */
+    public function createGlobalWebhook(array $params): GlobalHook|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Admin\Hooks::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Admin\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks();
         }
@@ -35,8 +44,10 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    public function createOrg(array $params)
+    /** @return */
+    public function createOrg(array $params): OrganizationSimple|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Admin\Organizations::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Admin\Organizations::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations();
         }
@@ -46,8 +57,10 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    public function createPreReceiveEnvironment(array $params)
+    /** @return */
+    public function createPreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Admin\PreReceiveEnvironments::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments();
         }
@@ -57,8 +70,10 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    public function pingGlobalWebhook(array $params)
+    /** @return array{code: int} */
+    public function pingGlobalWebhook(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: hook_id');
@@ -71,8 +86,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
-    public function startPreReceiveEnvironmentDownload(array $params)
+    /** @return */
+    public function startPreReceiveEnvironmentDownload(array $params): PreReceiveEnvironmentDownloadStatus|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
@@ -89,8 +106,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    public function createImpersonationOAuthToken(array $params)
+    /** @return */
+    public function createImpersonationOAuthToken(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -107,8 +126,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    public function createSelfHostedRunnerGroupForEnterprise(array $params)
+    /** @return */
+    public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -125,8 +146,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    public function createRegistrationTokenForEnterprise(array $params)
+    /** @return */
+    public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -143,8 +166,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    public function createRemoveTokenForEnterprise(array $params)
+    /** @return */
+    public function createRemoveTokenForEnterprise(array $params): AuthenticationToken|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -161,8 +186,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    public function startPreReceiveEnvironmentDownloadStreaming(array $params)
+    /** @return */
+    public function startPreReceiveEnvironmentDownloadStreaming(array $params): PreReceiveEnvironmentDownloadStatus|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');

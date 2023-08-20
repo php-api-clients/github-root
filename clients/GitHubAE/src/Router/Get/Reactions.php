@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubAE\Router\Get;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operator;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +21,14 @@ final class Reactions
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listForCommitComment(array $params)
+    /** @return iterable<Schema\Reaction> */
+    public function listForCommitComment(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -72,8 +75,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForIssue(array $params)
+    /** @return iterable<Schema\Reaction> */
+    public function listForIssue(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -120,8 +125,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForRelease(array $params)
+    /** @return iterable<Schema\Reaction> */
+    public function listForRelease(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -168,8 +175,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForTeamDiscussionInOrg(array $params)
+    /** @return iterable<Schema\Reaction> */
+    public function listForTeamDiscussionInOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -207,13 +216,19 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Reactions\ListForTeamDiscussionInOrg($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Reactions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Reactions();
+        }
+
+        $operator = new Operator\Reactions\ListForTeamDiscussionInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Reactions::class]);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForIssueComment(array $params)
+    /** @return iterable<Schema\Reaction> */
+    public function listForIssueComment(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -260,8 +275,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForPullRequestReviewComment(array $params)
+    /** @return iterable<Schema\Reaction> */
+    public function listForPullRequestReviewComment(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -308,8 +325,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForTeamDiscussionCommentInOrg(array $params)
+    /** @return iterable<Schema\Reaction> */
+    public function listForTeamDiscussionCommentInOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -353,7 +372,11 @@ final class Reactions
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Reactions\ListForTeamDiscussionCommentInOrg($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber\Reactions::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber\Reactions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments🌀CommentNumber🌀Reactions();
+        }
+
+        $operator = new Operator\Reactions\ListForTeamDiscussionCommentInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments\CommentNumber\Reactions::class]);
 
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $arguments['content'], $arguments['per_page'], $arguments['page']);
     }
