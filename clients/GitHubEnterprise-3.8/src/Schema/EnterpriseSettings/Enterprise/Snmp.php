@@ -6,10 +6,23 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterpris
 
 final readonly class Snmp
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"enabled":{"type":"boolean"},"community":{"type":"string"}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "enabled": {
+            "type": "boolean"
+        },
+        "community": {
+            "type": "string"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"enabled":false,"community":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "enabled": false,
+    "community": "generated"
+}';
 
     public function __construct(public bool|null $enabled, public string|null $community)
     {

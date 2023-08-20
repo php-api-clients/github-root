@@ -6,10 +6,23 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\Tiet026A8A20\T
 
 abstract readonly class Tiet5390232B
 {
-    public const SCHEMA_JSON         = '{"required":["body"],"type":"object","properties":{"body":{"type":"string","description":"The contents of the comment."}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "body"
+    ],
+    "type": "object",
+    "properties": {
+        "body": {
+            "type": "string",
+            "description": "The contents of the comment."
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"body":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "body": "generated"
+}';
 
     /**
      * body: The contents of the comment.
