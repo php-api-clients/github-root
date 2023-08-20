@@ -6,10 +6,28 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Teams\AddOrUpdateRepoPermiss
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"permission":{"enum":["pull","push","admin","maintain","triage"],"type":"string","description":"The permission to grant the team on this repository. If no permission is specified, the team\'s `permission` attribute will be used to determine what permission to grant the team on this repository.","default":"push"}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "permission": {
+            "enum": [
+                "pull",
+                "push",
+                "admin",
+                "maintain",
+                "triage"
+            ],
+            "type": "string",
+            "description": "The permission to grant the team on this repository. If no permission is specified, the team\'s `permission` attribute will be used to determine what permission to grant the team on this repository.",
+            "default": "push"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"permission":"triage"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "permission": "triage"
+}';
 
     /**
      * permission: The permission to grant the team on this repository. If no permission is specified, the team's `permission` attribute will be used to determine what permission to grant the team on this repository.

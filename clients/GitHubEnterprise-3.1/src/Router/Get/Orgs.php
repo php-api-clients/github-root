@@ -7,6 +7,12 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgMembership;
+use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +26,14 @@ final class Orgs
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function get(array $params)
+    /** @return */
+    public function get(array $params): OrganizationFull|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -42,8 +50,10 @@ final class Orgs
         return $operator->call($arguments['org']);
     }
 
-    public function listForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\OrganizationSimple> | array{code: int}) */
+    public function listForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -66,8 +76,10 @@ final class Orgs
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function listWebhooks(array $params)
+    /** @return iterable<Schema\OrgHook> */
+    public function listWebhooks(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -96,8 +108,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listAppInstallations(array $params)
+    /** @return */
+    public function listAppInstallations(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -126,8 +140,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listMembers(array $params)
+    /** @return (iterable<Schema\SimpleUser> | array{code: int, location: string}) */
+    public function listMembers(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -168,8 +184,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listOutsideCollaborators(array $params)
+    /** @return iterable<Schema\SimpleUser> */
+    public function listOutsideCollaborators(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -195,13 +213,19 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Orgs\ListOutsideCollaborators($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\OutsideCollaborators::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\OutsideCollaborators::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators();
+        }
+
+        $operator = new Operator\Orgs\ListOutsideCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\OutsideCollaborators::class]);
 
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listPublicMembers(array $params)
+    /** @return iterable<Schema\SimpleUser> */
+    public function listPublicMembers(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -221,13 +245,19 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Orgs\ListPublicMembers($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\PublicMembers::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\PublicMembers::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers();
+        }
+
+        $operator = new Operator\Orgs\ListPublicMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\PublicMembers::class]);
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listMembershipsForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\OrgMembership> | array{code: int}) */
+    public function listMembershipsForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('state', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: state');
@@ -256,8 +286,10 @@ final class Orgs
         return $operator->call($arguments['state'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForUser(array $params)
+    /** @return iterable<Schema\OrganizationSimple> */
+    public function listForUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -277,13 +309,19 @@ final class Orgs
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Orgs\ListForUser($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Users\Username\Orgs::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Orgs::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Orgs();
+        }
+
+        $operator = new Operator\Orgs\ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Orgs::class]);
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getWebhookConfigForOrg(array $params)
+    /** @return */
+    public function getWebhookConfigForOrg(array $params): WebhookConfig|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -306,8 +344,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    public function list_(array $params)
+    /** @return (iterable<Schema\OrganizationSimple> | array{code: int}) */
+    public function list_(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('since', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: since');
@@ -321,13 +361,19 @@ final class Orgs
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        $operator = new Operator\Orgs\List_($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Organizations::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Organizations::class] = $this->hydrators->getObjectMapperOperation🌀Organizations();
+        }
+
+        $operator = new Operator\Orgs\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Organizations::class]);
 
         return $operator->call($arguments['since'], $arguments['per_page']);
     }
 
-    public function getWebhook(array $params)
+    /** @return */
+    public function getWebhook(array $params): OrgHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -350,8 +396,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    public function checkMembershipForUser(array $params)
+    /** @return (array{code: int} | array{code: int, location: string}) */
+    public function checkMembershipForUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -370,8 +418,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    public function getMembershipForUser(array $params)
+    /** @return */
+    public function getMembershipForUser(array $params): OrgMembership|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -394,8 +444,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    public function checkPublicMembershipForUser(array $params)
+    /** @return array{code: int} */
+    public function checkPublicMembershipForUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -414,8 +466,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    public function getMembershipForAuthenticatedUser(array $params)
+    /** @return */
+    public function getMembershipForAuthenticatedUser(array $params): OrgMembership|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');

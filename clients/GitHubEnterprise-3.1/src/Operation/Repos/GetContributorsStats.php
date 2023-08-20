@@ -12,6 +12,9 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
 use RuntimeException;
+use Rx\Observable;
+use Rx\Scheduler\ImmediateScheduler;
+use Throwable;
 
 use function explode;
 use function json_decode;
@@ -39,8 +42,8 @@ final class GetContributorsStats
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
     }
 
-    /** @return Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array
+    /** @return Observable<Schema\ContributorActivity>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code: int} */
+    public function createResponse(ResponseInterface $response): Observable|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -49,8 +52,29 @@ final class GetContributorsStats
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
+                     * *   `w` - Start of the week, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).
+                    *   `a` - Number of additions
+                    *   `d` - Number of deletions
+                    *   `c` - Number of commits
+                     **/
+                    case 200:
+                        return Observable::fromArray($body, new ImmediateScheduler())->map(function (array $body): Schema\ContributorActivity {
+                            $error = new RuntimeException();
+                            try {
+                                $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContributorActivity::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
+
+                                return $this->hydrator->hydrateObject(Schema\ContributorActivity::class, $body);
+                            } catch (Throwable $error) {
+                                goto items_application_json_two_hundred_aaaaa;
+                            }
+
+                            items_application_json_two_hundred_aaaaa:
+                            throw $error;
+                        });
+                    /**
                      * Accepted
                      **/
+
                     case 202:
                         $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 

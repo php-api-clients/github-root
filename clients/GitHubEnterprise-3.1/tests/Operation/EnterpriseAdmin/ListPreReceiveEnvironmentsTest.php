@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\EnterpriseAdmin;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPreReceiveEnvironments */
 final class ListPreReceiveEnvironmentsTest extends AsyncTestCase
 {
 }
