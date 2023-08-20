@@ -7,6 +7,9 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
+use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +23,14 @@ final class OauthAuthorizations
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listGrants(array $params)
+    /** @return (iterable<Schema\ApplicationGrant> | array{code: int}) */
+    public function listGrants(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');
@@ -54,8 +59,10 @@ final class OauthAuthorizations
         return $operator->call($arguments['client_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAuthorization(array $params)
+    /** @return (Schema\Authorization | array{code: int}) */
+    public function getAuthorization(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('authorization_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: authorization_id');
@@ -72,8 +79,10 @@ final class OauthAuthorizations
         return $operator->call($arguments['authorization_id']);
     }
 
-    public function getGrant(array $params)
+    /** @return (Schema\ApplicationGrant | array{code: int}) */
+    public function getGrant(array $params): ApplicationGrant|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('grant_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: grant_id');
@@ -90,8 +99,10 @@ final class OauthAuthorizations
         return $operator->call($arguments['grant_id']);
     }
 
-    public function listAuthorizations(array $params)
+    /** @return (iterable<Schema\Authorization> | array{code: int}) */
+    public function listAuthorizations(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');

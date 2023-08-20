@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Projects;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ProjectCard;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class CreateCard
 {
@@ -23,14 +27,18 @@ final readonly class CreateCard
     {
     }
 
-    /** @return PromiseInterface<(ProjectCard|array)> **/
-    public function call(int $columnId, array $params): PromiseInterface
+    /** @return (Schema\ProjectCard | array{code: int}) */
+    public function call(int $columnId, array $params): ProjectCard|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Projects\CreateCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $columnId);
         $request   = $operation->createRequest($params);
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ProjectCard|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ProjectCard|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }

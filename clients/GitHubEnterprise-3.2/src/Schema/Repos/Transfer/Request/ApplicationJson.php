@@ -8,10 +8,34 @@ use EventSauce\ObjectHydrator\MapFrom;
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"required":["new_owner"],"type":"object","properties":{"new_owner":{"type":"string","description":"The username or organization name the repository will be transferred to."},"team_ids":{"type":"array","items":{"type":"integer"},"description":"ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories."}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "new_owner"
+    ],
+    "type": "object",
+    "properties": {
+        "new_owner": {
+            "type": "string",
+            "description": "The username or organization name the repository will be transferred to."
+        },
+        "team_ids": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            },
+            "description": "ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories."
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"new_owner":"generated","team_ids":[9,10]}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "new_owner": "generated",
+    "team_ids": [
+        9,
+        10
+    ]
+}';
 
     /**
      * newOwner: The username or organization name the repository will be transferred to.
