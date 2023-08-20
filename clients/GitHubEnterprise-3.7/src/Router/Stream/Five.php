@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Stream;
 
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,18 +18,20 @@ final class Five
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    public function call(string $call, array $params, array $pathChunks): PreReceiveEnvironmentDownloadStatus|array
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {
                 if ($pathChunks[2] === 'pre-receive-environments') {
                     if ($pathChunks[3] === '{pre_receive_environment_id}') {
                         if ($pathChunks[4] === 'downloads') {
                             if ($call === 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads') {
+                                $matched = true;
                                 if (array_key_exists(Router\Post\EnterpriseAdmin::class, $this->router) === false) {
                                     $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
@@ -41,6 +44,8 @@ final class Five
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

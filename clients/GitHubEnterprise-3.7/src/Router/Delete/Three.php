@@ -17,16 +17,19 @@ final class Three
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return array{code: int} */
+    public function call(string $call, array $params, array $pathChunks): array
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'authorizations') {
                 if ($pathChunks[2] === '{authorization_id}') {
                     if ($call === 'DELETE /authorizations/{authorization_id}') {
+                        $matched = true;
                         if (array_key_exists(Router\Delete\OauthAuthorizations::class, $this->router) === false) {
                             $this->router[Router\Delete\OauthAuthorizations::class] = new Router\Delete\OauthAuthorizations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -37,6 +40,7 @@ final class Three
             } elseif ($pathChunks[1] === 'enterprise') {
                 if ($pathChunks[2] === 'announcement') {
                     if ($call === 'DELETE /enterprise/announcement') {
+                        $matched = true;
                         if (array_key_exists(Router\Delete\EnterpriseAdmin::class, $this->router) === false) {
                             $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -47,6 +51,7 @@ final class Three
             } elseif ($pathChunks[1] === 'gists') {
                 if ($pathChunks[2] === '{gist_id}') {
                     if ($call === 'DELETE /gists/{gist_id}') {
+                        $matched = true;
                         if (array_key_exists(Router\Delete\Gists::class, $this->router) === false) {
                             $this->router[Router\Delete\Gists::class] = new Router\Delete\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -57,6 +62,7 @@ final class Three
             } elseif ($pathChunks[1] === 'installation') {
                 if ($pathChunks[2] === 'token') {
                     if ($call === 'DELETE /installation/token') {
+                        $matched = true;
                         if (array_key_exists(Router\Delete\Apps::class, $this->router) === false) {
                             $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -67,6 +73,7 @@ final class Three
             } elseif ($pathChunks[1] === 'projects') {
                 if ($pathChunks[2] === '{project_id}') {
                     if ($call === 'DELETE /projects/{project_id}') {
+                        $matched = true;
                         if (array_key_exists(Router\Delete\Projects::class, $this->router) === false) {
                             $this->router[Router\Delete\Projects::class] = new Router\Delete\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -77,6 +84,7 @@ final class Three
             } elseif ($pathChunks[1] === 'teams') {
                 if ($pathChunks[2] === '{team_id}') {
                     if ($call === 'DELETE /teams/{team_id}') {
+                        $matched = true;
                         if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
                             $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -87,6 +95,7 @@ final class Three
             } elseif ($pathChunks[1] === 'user') {
                 if ($pathChunks[2] === 'emails') {
                     if ($call === 'DELETE /user/emails') {
+                        $matched = true;
                         if (array_key_exists(Router\Delete\Users::class, $this->router) === false) {
                             $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
@@ -97,6 +106,8 @@ final class Three
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }
