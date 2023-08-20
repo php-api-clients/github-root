@@ -7,6 +7,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\PullRequest;
+use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview;
+use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment;
+use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewRequest;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +25,14 @@ final class Pulls
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listReviewCommentsForRepo(array $params)
+    /** @return iterable<Schema\PullRequestReviewComment> */
+    public function listReviewCommentsForRepo(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -69,13 +76,19 @@ final class Pulls
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Pulls\ListReviewCommentsForRepo($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments();
+        }
+
+        $operator = new Operator\Pulls\ListReviewCommentsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sort'], $arguments['direction'], $arguments['since'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function get(array $params)
+    /** @return (Schema\PullRequest | array{code: int}) */
+    public function get(array $params): PullRequest|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -104,8 +117,10 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number']);
     }
 
-    public function list_(array $params)
+    /** @return (iterable<Schema\PullRequestSimple> | array{code: int}) */
+    public function list_(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -170,8 +185,10 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['head'], $arguments['base'], $arguments['direction'], $arguments['state'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getReviewComment(array $params)
+    /** @return */
+    public function getReviewComment(array $params): PullRequestReviewComment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -200,8 +217,10 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
-    public function listReviewComments(array $params)
+    /** @return iterable<Schema\PullRequestReviewComment> */
+    public function listReviewComments(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -251,13 +270,19 @@ final class Pulls
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Pulls\ListReviewComments($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Comments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀PullNumber🌀Comments();
+        }
+
+        $operator = new Operator\Pulls\ListReviewComments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Comments::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['direction'], $arguments['since'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listCommits(array $params)
+    /** @return iterable<Schema\Commit> */
+    public function listCommits(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -289,13 +314,19 @@ final class Pulls
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Pulls\ListCommits($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Commits::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Commits::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀PullNumber🌀Commits();
+        }
+
+        $operator = new Operator\Pulls\ListCommits($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Commits::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listFiles(array $params)
+    /** @return iterable<Schema\DiffEntry> */
+    public function listFiles(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -336,8 +367,10 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function checkIfMerged(array $params)
+    /** @return array{code: int} */
+    public function checkIfMerged(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -362,8 +395,10 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number']);
     }
 
-    public function listRequestedReviewers(array $params)
+    /** @return */
+    public function listRequestedReviewers(array $params): PullRequestReviewRequest|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -404,8 +439,10 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listReviews(array $params)
+    /** @return iterable<Schema\PullRequestReview> */
+    public function listReviews(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -437,13 +474,19 @@ final class Pulls
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Pulls\ListReviews($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls🌀PullNumber🌀Reviews();
+        }
+
+        $operator = new Operator\Pulls\ListReviews($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\Reviews::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getReview(array $params)
+    /** @return */
+    public function getReview(array $params): PullRequestReview|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -478,8 +521,10 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $arguments['review_id']);
     }
 
-    public function listCommentsForReview(array $params)
+    /** @return iterable<Schema\ReviewComment> */
+    public function listCommentsForReview(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');

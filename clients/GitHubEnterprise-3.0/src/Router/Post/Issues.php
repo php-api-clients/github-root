@@ -7,6 +7,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Post;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Issue;
+use ApiClients\Client\GitHubEnterprise\Schema\IssueComment;
+use ApiClients\Client\GitHubEnterprise\Schema\Label;
+use ApiClients\Client\GitHubEnterprise\Schema\Milestone;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +25,14 @@ final class Issues
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function create(array $params)
+    /** @return */
+    public function create(array $params): Issue|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -48,8 +55,10 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    public function createLabel(array $params)
+    /** @return */
+    public function createLabel(array $params): Label|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -72,8 +81,10 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    public function createMilestone(array $params)
+    /** @return */
+    public function createMilestone(array $params): Milestone|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -96,8 +107,10 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    public function addAssignees(array $params)
+    /** @return */
+    public function addAssignees(array $params): Issue|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -126,8 +139,10 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
-    public function createComment(array $params)
+    /** @return */
+    public function createComment(array $params): IssueComment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -156,8 +171,10 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
-    public function addLabels(array $params)
+    /** @return iterable<Schema\Label> */
+    public function addLabels(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');

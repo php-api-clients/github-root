@@ -20,12 +20,14 @@ final class Reactions
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function deleteLegacy(array $params)
+    /** @return array{code: int} */
+    public function deleteLegacy(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('reaction_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: reaction_id');
@@ -42,8 +44,10 @@ final class Reactions
         return $operator->call($arguments['reaction_id']);
     }
 
-    public function deleteForCommitComment(array $params)
+    /** @return array{code: int} */
+    public function deleteForCommitComment(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -74,8 +78,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
-    public function deleteForIssue(array $params)
+    /** @return array{code: int} */
+    public function deleteForIssue(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -106,8 +112,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['reaction_id']);
     }
 
-    public function deleteForTeamDiscussion(array $params)
+    /** @return array{code: int} */
+    public function deleteForTeamDiscussion(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -138,8 +146,10 @@ final class Reactions
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['reaction_id']);
     }
 
-    public function deleteForIssueComment(array $params)
+    /** @return array{code: int} */
+    public function deleteForIssueComment(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -170,8 +180,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
-    public function deleteForPullRequestComment(array $params)
+    /** @return array{code: int} */
+    public function deleteForPullRequestComment(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -202,8 +214,10 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
-    public function deleteForTeamDiscussionComment(array $params)
+    /** @return array{code: int} */
+    public function deleteForTeamDiscussionComment(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');

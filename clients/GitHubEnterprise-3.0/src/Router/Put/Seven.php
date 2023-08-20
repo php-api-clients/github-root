@@ -6,6 +6,10 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranch;
+use ApiClients\Client\GitHubEnterprise\Schema\PullRequestMergeResult;
+use ApiClients\Client\GitHubEnterprise\Schema\TeamMembership;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,12 +21,14 @@ final class Seven
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return array{code: int}|(Schema\TeamMembership|array{code: int})|(Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json||iterable<Schema\Label> */
+    public function call(string $call, array $params, array $pathChunks): TeamMembership|Json|ProtectedBranch|iterable|PullRequestMergeResult|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
@@ -31,6 +37,7 @@ final class Seven
                             if ($pathChunks[5] === 'organizations') {
                                 if ($pathChunks[6] === '{org_id}') {
                                     if ($call === 'PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\EnterpriseAdmin::class, $this->router) === false) {
                                             $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -43,6 +50,7 @@ final class Seven
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($pathChunks[6] === 'organizations') {
                                     if ($call === 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\EnterpriseAdmin::class, $this->router) === false) {
                                             $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -51,6 +59,7 @@ final class Seven
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
                                     if ($call === 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\EnterpriseAdmin::class, $this->router) === false) {
                                             $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -69,6 +78,7 @@ final class Seven
                             if ($pathChunks[5] === 'repositories') {
                                 if ($pathChunks[6] === '{repository_id}') {
                                     if ($call === 'PUT /orgs/{org}/actions/permissions/repositories/{repository_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Actions::class, $this->router) === false) {
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -81,6 +91,7 @@ final class Seven
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($pathChunks[6] === 'repositories') {
                                     if ($call === 'PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Actions::class, $this->router) === false) {
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -89,6 +100,7 @@ final class Seven
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
                                     if ($call === 'PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Actions::class, $this->router) === false) {
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -101,6 +113,7 @@ final class Seven
                             if ($pathChunks[5] === '{secret_name}') {
                                 if ($pathChunks[6] === 'repositories') {
                                     if ($call === 'PUT /orgs/{org}/actions/secrets/{secret_name}/repositories') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Actions::class, $this->router) === false) {
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -115,6 +128,7 @@ final class Seven
                             if ($pathChunks[5] === 'memberships') {
                                 if ($pathChunks[6] === '{username}') {
                                     if ($call === 'PUT /orgs/{org}/teams/{team_slug}/memberships/{username}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Teams::class, $this->router) === false) {
                                             $this->router[Router\Put\Teams::class] = new Router\Put\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -125,6 +139,7 @@ final class Seven
                             } elseif ($pathChunks[5] === 'projects') {
                                 if ($pathChunks[6] === '{project_id}') {
                                     if ($call === 'PUT /orgs/{org}/teams/{team_slug}/projects/{project_id}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Teams::class, $this->router) === false) {
                                             $this->router[Router\Put\Teams::class] = new Router\Put\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -143,6 +158,7 @@ final class Seven
                             if ($pathChunks[5] === 'permissions') {
                                 if ($pathChunks[6] === 'selected-actions') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/actions/permissions/selected-actions') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Actions::class, $this->router) === false) {
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -153,6 +169,7 @@ final class Seven
                             } elseif ($pathChunks[5] === 'secrets') {
                                 if ($pathChunks[6] === '{secret_name}') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/actions/secrets/{secret_name}') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Actions::class, $this->router) === false) {
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -165,6 +182,7 @@ final class Seven
                             if ($pathChunks[5] === '{branch}') {
                                 if ($pathChunks[6] === 'protection') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/branches/{branch}/protection') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Repos::class, $this->router) === false) {
                                             $this->router[Router\Put\Repos::class] = new Router\Put\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -177,6 +195,7 @@ final class Seven
                             if ($pathChunks[5] === '{issue_number}') {
                                 if ($pathChunks[6] === 'labels') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/issues/{issue_number}/labels') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Issues::class, $this->router) === false) {
                                             $this->router[Router\Put\Issues::class] = new Router\Put\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -185,6 +204,7 @@ final class Seven
                                     }
                                 } elseif ($pathChunks[6] === 'lock') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/issues/{issue_number}/lock') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Issues::class, $this->router) === false) {
                                             $this->router[Router\Put\Issues::class] = new Router\Put\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -197,6 +217,7 @@ final class Seven
                             if ($pathChunks[5] === '{pull_number}') {
                                 if ($pathChunks[6] === 'merge') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/pulls/{pull_number}/merge') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Pulls::class, $this->router) === false) {
                                             $this->router[Router\Put\Pulls::class] = new Router\Put\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -205,6 +226,7 @@ final class Seven
                                     }
                                 } elseif ($pathChunks[6] === 'update-branch') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/pulls/{pull_number}/update-branch') {
+                                        $matched = true;
                                         if (array_key_exists(Router\Put\Pulls::class, $this->router) === false) {
                                             $this->router[Router\Put\Pulls::class] = new Router\Put\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
@@ -219,6 +241,8 @@ final class Seven
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

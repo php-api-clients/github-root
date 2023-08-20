@@ -6,7 +6,14 @@ namespace ApiClients\Client\GitHubEnterprise\Schema;
 
 final readonly class CodeScanningAlertSetState
 {
-    public const SCHEMA_JSON         = '{"enum":["open","dismissed"],"type":"string","description":"Sets the state of the code scanning alert. Can be one of `open` or `dismissed`. You must provide `dismissed_reason` when you set the state to `dismissed`."}';
+    public const SCHEMA_JSON         = '{
+    "enum": [
+        "open",
+        "dismissed"
+    ],
+    "type": "string",
+    "description": "Sets the state of the code scanning alert. Can be one of `open` or `dismissed`. You must provide `dismissed_reason` when you set the state to `dismissed`."
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = 'Sets the state of the code scanning alert. Can be one of `open` or `dismissed`. You must provide `dismissed_reason` when you set the state to `dismissed`.';
     public const SCHEMA_EXAMPLE_DATA = '[]';
