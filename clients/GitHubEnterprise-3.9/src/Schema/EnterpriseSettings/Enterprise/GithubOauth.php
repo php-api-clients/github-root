@@ -8,10 +8,31 @@ use EventSauce\ObjectHydrator\MapFrom;
 
 final readonly class GithubOauth
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"client_id":{"type":"string"},"client_secret":{"type":"string"},"organization_name":{"type":"string"},"organization_team":{"type":"string"}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "client_id": {
+            "type": "string"
+        },
+        "client_secret": {
+            "type": "string"
+        },
+        "organization_name": {
+            "type": "string"
+        },
+        "organization_team": {
+            "type": "string"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"client_id":"generated","client_secret":"generated","organization_name":"generated","organization_team":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "client_id": "generated",
+    "client_secret": "generated",
+    "organization_name": "generated",
+    "organization_team": "generated"
+}';
 
     public function __construct(#[MapFrom('client_id')]
     public string|null $clientId, #[MapFrom('client_secret')]

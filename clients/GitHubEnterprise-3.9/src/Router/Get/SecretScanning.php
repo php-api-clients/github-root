@@ -7,6 +7,9 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSecurityAnalysisSettings;
+use ApiClients\Client\GitHubEnterprise\Schema\SecretScanningAlert;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +23,14 @@ final class SecretScanning
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function getSecurityAnalysisSettingsForEnterprise(array $params)
+    /** @return */
+    public function getSecurityAnalysisSettingsForEnterprise(array $params): EnterpriseSecurityAnalysisSettings|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -42,8 +47,10 @@ final class SecretScanning
         return $operator->call($arguments['enterprise']);
     }
 
-    public function listAlertsForRepo(array $params)
+    /** @return (iterable<Schema\SecretScanningAlert> | array{code: int}) */
+    public function listAlertsForRepo(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -120,8 +127,10 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function listAlertsForEnterprise(array $params)
+    /** @return iterable<Schema\OrganizationSecretScanningAlert> */
+    public function listAlertsForEnterprise(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -186,8 +195,10 @@ final class SecretScanning
         return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['sort'], $arguments['direction'], $arguments['per_page']);
     }
 
-    public function listAlertsForOrg(array $params)
+    /** @return iterable<Schema\OrganizationSecretScanningAlert> */
+    public function listAlertsForOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -258,8 +269,10 @@ final class SecretScanning
         return $operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function getAlert(array $params)
+    /** @return (Schema\SecretScanningAlert | array{code: int}) */
+    public function getAlert(array $params): SecretScanningAlert|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -288,8 +301,10 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
-    public function listLocationsForAlert(array $params)
+    /** @return (iterable<Schema\SecretScanningLocation> | array{code: int}) */
+    public function listLocationsForAlert(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
