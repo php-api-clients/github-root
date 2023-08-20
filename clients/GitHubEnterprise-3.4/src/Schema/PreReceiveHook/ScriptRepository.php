@@ -8,10 +8,31 @@ use EventSauce\ObjectHydrator\MapFrom;
 
 final readonly class ScriptRepository
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"id":{"type":"integer"},"full_name":{"type":"string"},"url":{"type":"string"},"html_url":{"type":"string"}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "full_name": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string"
+        },
+        "html_url": {
+            "type": "string"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"id":2,"full_name":"generated","url":"generated","html_url":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "full_name": "generated",
+    "url": "generated",
+    "html_url": "generated"
+}';
 
     public function __construct(public int|null $id, #[MapFrom('full_name')]
     public string|null $fullName, public string|null $url, #[MapFrom('html_url')]

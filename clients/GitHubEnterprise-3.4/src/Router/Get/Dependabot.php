@@ -7,6 +7,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema\DependabotPublicKey;
+use ApiClients\Client\GitHubEnterprise\Schema\DependabotSecret;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListRepoSecrets\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationDependabotSecret;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +25,14 @@ final class Dependabot
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function getOrgPublicKey(array $params)
+    /** @return */
+    public function getOrgPublicKey(array $params): DependabotPublicKey|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -42,8 +49,10 @@ final class Dependabot
         return $operator->call($arguments['org']);
     }
 
-    public function getOrgSecret(array $params)
+    /** @return */
+    public function getOrgSecret(array $params): OrganizationDependabotSecret|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -66,8 +75,10 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    public function listRepoSecrets(array $params)
+    /** @return */
+    public function listRepoSecrets(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -102,8 +113,10 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listOrgSecrets(array $params)
+    /** @return */
+    public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -132,8 +145,10 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listSelectedReposForOrgSecret(array $params)
+    /** @return */
+    public function listSelectedReposForOrgSecret(array $params): Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -168,8 +183,10 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function getRepoPublicKey(array $params)
+    /** @return */
+    public function getRepoPublicKey(array $params): DependabotPublicKey|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -192,8 +209,10 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getRepoSecret(array $params)
+    /** @return */
+    public function getRepoSecret(array $params): DependabotSecret|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
