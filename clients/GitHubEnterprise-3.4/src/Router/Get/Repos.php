@@ -7,6 +7,42 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Autolink;
+use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
+use ApiClients\Client\GitHubEnterprise\Schema\BranchProtection;
+use ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy;
+use ApiClients\Client\GitHubEnterprise\Schema\BranchWithProtection;
+use ApiClients\Client\GitHubEnterprise\Schema\CombinedCommitStatus;
+use ApiClients\Client\GitHubEnterprise\Schema\Commit;
+use ApiClients\Client\GitHubEnterprise\Schema\CommitComment;
+use ApiClients\Client\GitHubEnterprise\Schema\CommitComparison;
+use ApiClients\Client\GitHubEnterprise\Schema\ContentDirectory;
+use ApiClients\Client\GitHubEnterprise\Schema\ContentFile;
+use ApiClients\Client\GitHubEnterprise\Schema\ContentSubmodule;
+use ApiClients\Client\GitHubEnterprise\Schema\ContentSymlink;
+use ApiClients\Client\GitHubEnterprise\Schema\DeployKey;
+use ApiClients\Client\GitHubEnterprise\Schema\Deployment;
+use ApiClients\Client\GitHubEnterprise\Schema\DeploymentBranchPolicy;
+use ApiClients\Client\GitHubEnterprise\Schema\DeploymentStatus;
+use ApiClients\Client\GitHubEnterprise\Schema\Environment;
+use ApiClients\Client\GitHubEnterprise\Schema\FullRepository;
+use ApiClients\Client\GitHubEnterprise\Schema\Hook;
+use ApiClients\Client\GitHubEnterprise\Schema\HookDelivery;
+use ApiClients\Client\GitHubEnterprise\Schema\Language;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\Page;
+use ApiClients\Client\GitHubEnterprise\Schema\PageBuild;
+use ApiClients\Client\GitHubEnterprise\Schema\ParticipationStats;
+use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced;
+use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchPullRequestReview;
+use ApiClients\Client\GitHubEnterprise\Schema\Release;
+use ApiClients\Client\GitHubEnterprise\Schema\ReleaseAsset;
+use ApiClients\Client\GitHubEnterprise\Schema\RepositoryCollaboratorPermission;
+use ApiClients\Client\GitHubEnterprise\Schema\StatusCheckPolicy;
+use ApiClients\Client\GitHubEnterprise\Schema\Topic;
+use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +56,14 @@ final class Repos
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\Repository> | array{code: int}) */
+    public function listForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('direction', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: direction');
@@ -90,8 +128,10 @@ final class Repos
         return $operator->call($arguments['direction'], $arguments['since'], $arguments['before'], $arguments['visibility'], $arguments['affiliation'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listInvitationsForAuthenticatedUser(array $params)
+    /** @return (iterable<Schema\RepositoryInvitation> | array{code: int}) */
+    public function listInvitationsForAuthenticatedUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -114,8 +154,10 @@ final class Repos
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function listForOrg(array $params)
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listForOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -153,13 +195,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListForOrg($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Repos::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Repos();
+        }
+
+        $operator = new Operator\Repos\ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Repos::class]);
 
         return $operator->call($arguments['org'], $arguments['type'], $arguments['direction'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function get(array $params)
+    /** @return */
+    public function get(array $params): FullRepository|BasicError|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -182,8 +230,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function listForUser(array $params)
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listForUser(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -221,13 +271,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListForUser($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Users\Username\Repos::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Users\Username\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Repos();
+        }
+
+        $operator = new Operator\Repos\ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Users\Username\Repos::class]);
 
         return $operator->call($arguments['username'], $arguments['direction'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAutolink(array $params)
+    /** @return */
+    public function getAutolink(array $params): Autolink|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -256,8 +312,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['autolink_id']);
     }
 
-    public function getBranch(array $params)
+    /** @return */
+    public function getBranch(array $params): BranchWithProtection|BasicError|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -286,8 +344,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function checkCollaborator(array $params)
+    /** @return array{code: int} */
+    public function checkCollaborator(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -312,8 +372,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
 
-    public function getCommitComment(array $params)
+    /** @return */
+    public function getCommitComment(array $params): CommitComment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -342,8 +404,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
-    public function getCommit(array $params)
+    /** @return */
+    public function getCommit(array $params): Commit|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -384,8 +448,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function compareCommits(array $params)
+    /** @return */
+    public function compareCommits(array $params): CommitComparison|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -426,8 +492,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['basehead'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function getContent(array $params)
+    /** @return (Schema\ContentDirectory | Schema\ContentFile | Schema\ContentSymlink | Schema\ContentSubmodule | array{code: int}) */
+    public function getContent(array $params): ContentDirectory|ContentFile|ContentSymlink|ContentSubmodule|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -462,8 +530,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $arguments['ref']);
     }
 
-    public function getDeployment(array $params)
+    /** @return */
+    public function getDeployment(array $params): Deployment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -492,8 +562,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
 
-    public function getEnvironment(array $params)
+    /** @return */
+    public function getEnvironment(array $params): Environment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -522,8 +594,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name']);
     }
 
-    public function getWebhook(array $params)
+    /** @return */
+    public function getWebhook(array $params): Hook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -552,8 +626,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
-    public function getDeployKey(array $params)
+    /** @return */
+    public function getDeployKey(array $params): DeployKey|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -582,8 +658,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key_id']);
     }
 
-    public function listPagesBuilds(array $params)
+    /** @return iterable<Schema\PageBuild> */
+    public function listPagesBuilds(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -609,13 +687,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListPagesBuilds($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Pages\Builds::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pages\Builds::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Builds();
+        }
+
+        $operator = new Operator\Repos\ListPagesBuilds($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Pages\Builds::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getReadmeInDirectory(array $params)
+    /** @return */
+    public function getReadmeInDirectory(array $params): ContentFile|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -650,8 +734,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['dir'], $arguments['ref']);
     }
 
-    public function getLatestRelease(array $params)
+    /** @return */
+    public function getLatestRelease(array $params): Release|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -674,8 +760,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getRelease(array $params)
+    /** @return (Schema\Release | array{code: int}) */
+    public function getRelease(array $params): Release|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -704,8 +792,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id']);
     }
 
-    public function listCacheInfo(array $params)
+    /** @return iterable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
+    public function listCacheInfo(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -740,8 +830,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getCodeFrequencyStats(array $params)
+    /** @return (iterable<int> | Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    public function getCodeFrequencyStats(array $params): iterable|Json
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -764,8 +856,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getCommitActivityStats(array $params)
+    /** @return (iterable<Schema\CommitActivity> | Schema\Operations\Repos\GetCommitActivityStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    public function getCommitActivityStats(array $params): iterable|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetCommitActivityStats\Response\ApplicationJson\Accepted\Application\Json
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -788,8 +882,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getContributorsStats(array $params)
+    /** @return (iterable<Schema\ContributorActivity> | Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    public function getContributorsStats(array $params): iterable|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -812,8 +908,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getParticipationStats(array $params)
+    /** @return */
+    public function getParticipationStats(array $params): ParticipationStats|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -836,8 +934,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getPunchCardStats(array $params)
+    /** @return (iterable<int> | array{code: int}) */
+    public function getPunchCardStats(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -851,13 +951,19 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Operator\Repos\GetPunchCardStats($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Stats\PunchCard::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Stats\PunchCard::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Stats🌀PunchCard();
+        }
+
+        $operator = new Operator\Repos\GetPunchCardStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Stats\PunchCard::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function downloadTarballArchive(array $params)
+    /** @return array{code: int, location: string} */
+    public function downloadTarballArchive(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -882,8 +988,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    public function downloadZipballArchive(array $params)
+    /** @return array{code: int, location: string} */
+    public function downloadZipballArchive(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -908,8 +1016,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    public function listPublic(array $params)
+    /** @return (iterable<Schema\MinimalRepository> | array{code: int}) */
+    public function listPublic(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('since', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: since');
@@ -932,8 +1042,10 @@ final class Repos
         return $operator->call($arguments['since'], $arguments['visibility']);
     }
 
-    public function listAutolinks(array $params)
+    /** @return iterable<Schema\Autolink> */
+    public function listAutolinks(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -953,13 +1065,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListAutolinks($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Autolinks::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Autolinks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks();
+        }
+
+        $operator = new Operator\Repos\ListAutolinks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Autolinks::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['page']);
     }
 
-    public function listBranches(array $params)
+    /** @return iterable<Schema\ShortBranch> */
+    public function listBranches(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1000,8 +1118,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['protected'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listCollaborators(array $params)
+    /** @return iterable<Schema\Collaborator> */
+    public function listCollaborators(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1042,8 +1162,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['affiliation'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listCommitCommentsForRepo(array $params)
+    /** @return iterable<Schema\CommitComment> */
+    public function listCommitCommentsForRepo(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1069,13 +1191,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListCommitCommentsForRepo($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Comments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Comments();
+        }
+
+        $operator = new Operator\Repos\ListCommitCommentsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Comments::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listCommits(array $params)
+    /** @return iterable<Schema\Commit> */
+    public function listCommits(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1146,8 +1274,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sha'], $arguments['path'], $arguments['author'], $arguments['committer'], $arguments['since'], $arguments['until'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listContributors(array $params)
+    /** @return (iterable<Schema\Contributor> | array{code: int}) */
+    public function listContributors(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1188,8 +1318,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['anon'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listDeployments(array $params)
+    /** @return iterable<Schema\Deployment> */
+    public function listDeployments(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1239,13 +1371,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListDeployments($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Deployments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Deployments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Deployments();
+        }
+
+        $operator = new Operator\Repos\ListDeployments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Deployments::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sha'], $arguments['ref'], $arguments['task'], $arguments['environment'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAllEnvironments(array $params)
+    /** @return */
+    public function getAllEnvironments(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1280,8 +1418,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listForks(array $params)
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listForks(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1322,8 +1462,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listWebhooks(array $params)
+    /** @return iterable<Schema\Hook> */
+    public function listWebhooks(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1358,8 +1500,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listInvitations(array $params)
+    /** @return iterable<Schema\RepositoryInvitation> */
+    public function listInvitations(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1385,13 +1529,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListInvitations($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Invitations::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Invitations::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Invitations();
+        }
+
+        $operator = new Operator\Repos\ListInvitations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Invitations::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listDeployKeys(array $params)
+    /** @return iterable<Schema\DeployKey> */
+    public function listDeployKeys(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1417,13 +1567,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListDeployKeys($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Keys::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Keys();
+        }
+
+        $operator = new Operator\Repos\ListDeployKeys($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Keys::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listLanguages(array $params)
+    /** @return */
+    public function listLanguages(array $params): Language|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1446,8 +1602,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getPages(array $params)
+    /** @return */
+    public function getPages(array $params): Page|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1470,8 +1628,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getReadme(array $params)
+    /** @return */
+    public function getReadme(array $params): ContentFile|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1500,8 +1660,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    public function listReleases(array $params)
+    /** @return iterable<Schema\Release> */
+    public function listReleases(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1536,8 +1698,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listTags(array $params)
+    /** @return iterable<Schema\Tag> */
+    public function listTags(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1563,13 +1727,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListTags($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Tags::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Tags::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Tags();
+        }
+
+        $operator = new Operator\Repos\ListTags($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Tags::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listTeams(array $params)
+    /** @return iterable<Schema\Team> */
+    public function listTeams(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1604,8 +1774,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAllTopics(array $params)
+    /** @return */
+    public function getAllTopics(array $params): Topic|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1640,8 +1812,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function getBranchProtection(array $params)
+    /** @return */
+    public function getBranchProtection(array $params): BranchProtection|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1670,8 +1844,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getCollaboratorPermissionLevel(array $params)
+    /** @return */
+    public function getCollaboratorPermissionLevel(array $params): RepositoryCollaboratorPermission|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1700,8 +1876,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
 
-    public function listBranchesForHeadCommit(array $params)
+    /** @return iterable<Schema\BranchShort> */
+    public function listBranchesForHeadCommit(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1730,8 +1908,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
     }
 
-    public function listCommentsForCommit(array $params)
+    /** @return iterable<Schema\CommitComment> */
+    public function listCommentsForCommit(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1763,13 +1943,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListCommentsForCommit($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Comments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀Comments();
+        }
+
+        $operator = new Operator\Repos\ListCommentsForCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Comments::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listPullRequestsAssociatedWithCommit(array $params)
+    /** @return iterable<Schema\PullRequestSimple> */
+    public function listPullRequestsAssociatedWithCommit(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1801,13 +1987,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListPullRequestsAssociatedWithCommit($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Pulls::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Pulls::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Commits🌀CommitSha🌀Pulls();
+        }
+
+        $operator = new Operator\Repos\ListPullRequestsAssociatedWithCommit($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Commits\CommitSha\Pulls::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getCombinedStatusForRef(array $params)
+    /** @return */
+    public function getCombinedStatusForRef(array $params): CombinedCommitStatus|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1848,8 +2040,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listCommitStatusesForRef(array $params)
+    /** @return (iterable<Schema\Status> | Schema\BasicError) */
+    public function listCommitStatusesForRef(array $params): iterable|BasicError
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1890,8 +2084,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listDeploymentStatuses(array $params)
+    /** @return iterable<Schema\DeploymentStatus> */
+    public function listDeploymentStatuses(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1932,8 +2128,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listDeploymentBranchPolicies(array $params)
+    /** @return */
+    public function listDeploymentBranchPolicies(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1974,8 +2172,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getWebhookConfigForRepo(array $params)
+    /** @return */
+    public function getWebhookConfigForRepo(array $params): WebhookConfig|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2004,8 +2204,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
-    public function listWebhookDeliveries(array $params)
+    /** @return iterable<Schema\HookDeliveryItem> */
+    public function listWebhookDeliveries(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2052,8 +2254,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id'], $arguments['cursor'], $arguments['redelivery'], $arguments['per_page']);
     }
 
-    public function getLatestPagesBuild(array $params)
+    /** @return */
+    public function getLatestPagesBuild(array $params): PageBuild|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2076,8 +2280,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getPagesBuild(array $params)
+    /** @return */
+    public function getPagesBuild(array $params): PageBuild|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2106,8 +2312,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['build_id']);
     }
 
-    public function getReleaseAsset(array $params)
+    /** @return (Schema\ReleaseAsset | array{code: int}) */
+    public function getReleaseAsset(array $params): ReleaseAsset|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2136,8 +2344,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['asset_id']);
     }
 
-    public function getReleaseByTag(array $params)
+    /** @return */
+    public function getReleaseByTag(array $params): Release|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2166,8 +2376,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag']);
     }
 
-    public function listReleaseAssets(array $params)
+    /** @return iterable<Schema\ReleaseAsset> */
+    public function listReleaseAssets(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2199,13 +2411,19 @@ final class Repos
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\Repos\ListReleaseAssets($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Releases🌀ReleaseId🌀Assets();
+        }
+
+        $operator = new Operator\Repos\ListReleaseAssets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Assets::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAdminBranchProtection(array $params)
+    /** @return */
+    public function getAdminBranchProtection(array $params): ProtectedBranchAdminEnforced|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2234,8 +2452,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getPullRequestReviewProtection(array $params)
+    /** @return */
+    public function getPullRequestReviewProtection(array $params): ProtectedBranchPullRequestReview|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2264,8 +2484,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getCommitSignatureProtection(array $params)
+    /** @return */
+    public function getCommitSignatureProtection(array $params): ProtectedBranchAdminEnforced|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2294,8 +2516,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getStatusChecksProtection(array $params)
+    /** @return */
+    public function getStatusChecksProtection(array $params): StatusCheckPolicy|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2324,8 +2548,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getAccessRestrictions(array $params)
+    /** @return */
+    public function getAccessRestrictions(array $params): BranchRestrictionPolicy|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2354,8 +2580,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getDeploymentStatus(array $params)
+    /** @return */
+    public function getDeploymentStatus(array $params): DeploymentStatus|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2390,8 +2618,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['status_id']);
     }
 
-    public function getDeploymentBranchPolicy(array $params)
+    /** @return */
+    public function getDeploymentBranchPolicy(array $params): DeploymentBranchPolicy|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2426,8 +2656,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id']);
     }
 
-    public function getWebhookDelivery(array $params)
+    /** @return */
+    public function getWebhookDelivery(array $params): HookDelivery|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2462,8 +2694,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id'], $arguments['delivery_id']);
     }
 
-    public function getAllStatusCheckContexts(array $params)
+    /** @return iterable<string> */
+    public function getAllStatusCheckContexts(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2492,8 +2726,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getAppsWithAccessToProtectedBranch(array $params)
+    /** @return iterable<Schema\Integration> */
+    public function getAppsWithAccessToProtectedBranch(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2522,8 +2758,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getTeamsWithAccessToProtectedBranch(array $params)
+    /** @return iterable<Schema\Team> */
+    public function getTeamsWithAccessToProtectedBranch(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2552,8 +2790,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function getUsersWithAccessToProtectedBranch(array $params)
+    /** @return iterable<Schema\SimpleUser> */
+    public function getUsersWithAccessToProtectedBranch(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2582,8 +2822,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function downloadTarballArchiveStreaming(array $params)
+    /** @return Observable<string> */
+    public function downloadTarballArchiveStreaming(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2608,8 +2850,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    public function downloadZipballArchiveStreaming(array $params)
+    /** @return Observable<string> */
+    public function downloadZipballArchiveStreaming(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
