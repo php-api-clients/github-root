@@ -7,6 +7,12 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Patch;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgMembership;
+use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +26,14 @@ final class Orgs
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function updateWebhookConfigForOrg(array $params)
+    /** @return */
+    public function updateWebhookConfigForOrg(array $params): WebhookConfig|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -48,8 +56,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
-    public function update(array $params)
+    /** @return Schema\OrganizationFull */
+    public function update(array $params): OrganizationFull|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -66,8 +76,10 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    public function updateCustomRepoRole(array $params)
+    /** @return */
+    public function updateCustomRepoRole(array $params): OrganizationCustomRepositoryRole|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -90,8 +102,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id'], $params);
     }
 
-    public function updateWebhook(array $params)
+    /** @return */
+    public function updateWebhook(array $params): OrgHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -114,8 +128,10 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
-    public function updateMembershipForAuthenticatedUser(array $params)
+    /** @return */
+    public function updateMembershipForAuthenticatedUser(array $params): OrgMembership|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');

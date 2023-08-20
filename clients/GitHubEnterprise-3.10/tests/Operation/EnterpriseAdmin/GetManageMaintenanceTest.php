@@ -12,9 +12,9 @@ use React\Http\Browser;
 use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
-use function React\Async\await;
 use function React\Promise\resolve;
 
+/** @covers \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetManageMaintenance */
 final class GetManageMaintenanceTest extends AsyncTestCase
 {
     /** @test */
@@ -47,7 +47,7 @@ final class GetManageMaintenanceTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/manage/v1/maintenance?uuid=generated&cluster_roles=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->getManageMaintenance('generated', 'generated'));
+        $result = $client->operations()->enterpriseAdmin()->getManageMaintenance('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(400, $result['code']);
     }
@@ -82,7 +82,7 @@ final class GetManageMaintenanceTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/manage/v1/maintenance?uuid=generated&cluster_roles=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->getManageMaintenance('generated', 'generated'));
+        $result = $client->operations()->enterpriseAdmin()->getManageMaintenance('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(401, $result['code']);
     }
@@ -117,7 +117,7 @@ final class GetManageMaintenanceTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/manage/v1/maintenance?uuid=generated&cluster_roles=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->getManageMaintenance('generated', 'generated'));
+        $result = $client->operations()->enterpriseAdmin()->getManageMaintenance('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(500, $result['code']);
     }

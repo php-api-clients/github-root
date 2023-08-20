@@ -7,6 +7,8 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Put;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +22,14 @@ final class Dependabot
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function createOrUpdateOrgSecret(array $params)
+    /** @return (Schema\EmptyObject | array{code: int}) */
+    public function createOrUpdateOrgSecret(array $params): EmptyObject|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -48,8 +52,10 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
-    public function setSelectedReposForOrgSecret(array $params)
+    /** @return array{code: int} */
+    public function setSelectedReposForOrgSecret(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -68,8 +74,10 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
-    public function createOrUpdateRepoSecret(array $params)
+    /** @return (Schema\EmptyObject | array{code: int}) */
+    public function createOrUpdateRepoSecret(array $params): EmptyObject|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -98,8 +106,10 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name'], $params);
     }
 
-    public function addSelectedRepoToOrgSecret(array $params)
+    /** @return array{code: int} */
+    public function addSelectedRepoToOrgSecret(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');

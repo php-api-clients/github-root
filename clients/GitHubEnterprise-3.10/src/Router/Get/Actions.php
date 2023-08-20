@@ -7,6 +7,31 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheList;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageByRepository;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyEnterprise;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsGetDefaultWorkflowPermissions;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsOrganizationPermissions;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsPublicKey;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsRepositoryPermissions;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsVariable;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsWorkflowAccessToRepository;
+use ApiClients\Client\GitHubEnterprise\Schema\Artifact;
+use ApiClients\Client\GitHubEnterprise\Schema\Job;
+use ApiClients\Client\GitHubEnterprise\Schema\OidcCustomSubRepo;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\GetActionsCacheUsageByRepoForOrg\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationActionsSecret;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationActionsVariable;
+use ApiClients\Client\GitHubEnterprise\Schema\Runner;
+use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg;
+use ApiClients\Client\GitHubEnterprise\Schema\SelectedActions;
+use ApiClients\Client\GitHubEnterprise\Schema\Workflow;
+use ApiClients\Client\GitHubEnterprise\Schema\WorkflowRun;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +45,14 @@ final class Actions
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function getActionsCacheUsageForEnterprise(array $params)
+    /** @return */
+    public function getActionsCacheUsageForEnterprise(array $params): ActionsCacheUsageOrgEnterprise|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -42,8 +69,10 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getActionsCacheUsagePolicyForEnterprise(array $params)
+    /** @return */
+    public function getActionsCacheUsagePolicyForEnterprise(array $params): ActionsCacheUsagePolicyEnterprise|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -60,8 +89,10 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getGithubActionsDefaultWorkflowPermissionsEnterprise(array $params)
+    /** @return */
+    public function getGithubActionsDefaultWorkflowPermissionsEnterprise(array $params): ActionsGetDefaultWorkflowPermissions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -78,8 +109,10 @@ final class Actions
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getActionsCacheUsageForOrg(array $params)
+    /** @return */
+    public function getActionsCacheUsageForOrg(array $params): ActionsCacheUsageOrgEnterprise|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -96,8 +129,10 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function getActionsCacheUsageByRepoForOrg(array $params)
+    /** @return */
+    public function getActionsCacheUsageByRepoForOrg(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -126,8 +161,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listSelectedRepositoriesEnabledGithubActionsOrganization(array $params)
+    /** @return */
+    public function listSelectedRepositoriesEnabledGithubActionsOrganization(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -156,8 +193,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAllowedActionsOrganization(array $params)
+    /** @return */
+    public function getAllowedActionsOrganization(array $params): SelectedActions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -174,8 +213,10 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function getGithubActionsDefaultWorkflowPermissionsOrganization(array $params)
+    /** @return */
+    public function getGithubActionsDefaultWorkflowPermissionsOrganization(array $params): ActionsGetDefaultWorkflowPermissions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -192,8 +233,10 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function getSelfHostedRunnerGroupForOrg(array $params)
+    /** @return */
+    public function getSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -216,8 +259,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id']);
     }
 
-    public function listRunnerApplicationsForOrg(array $params)
+    /** @return iterable<Schema\RunnerApplication> */
+    public function listRunnerApplicationsForOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -225,13 +270,19 @@ final class Actions
 
         $arguments['org'] = $params['org'];
         unset($params['org']);
-        $operator = new Operator\Actions\ListRunnerApplicationsForOrg($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\Actions\Runners\Downloads::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀Downloads();
+        }
+
+        $operator = new Operator\Actions\ListRunnerApplicationsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Actions\Runners\Downloads::class]);
 
         return $operator->call($arguments['org']);
     }
 
-    public function getSelfHostedRunnerForOrg(array $params)
+    /** @return */
+    public function getSelfHostedRunnerForOrg(array $params): Runner|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -254,8 +305,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
-    public function getOrgPublicKey(array $params)
+    /** @return */
+    public function getOrgPublicKey(array $params): ActionsPublicKey|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -272,8 +325,10 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function getOrgSecret(array $params)
+    /** @return */
+    public function getOrgSecret(array $params): OrganizationActionsSecret|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -296,8 +351,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    public function getOrgVariable(array $params)
+    /** @return */
+    public function getOrgVariable(array $params): OrganizationActionsVariable|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -320,8 +377,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['name']);
     }
 
-    public function listArtifactsForRepo(array $params)
+    /** @return */
+    public function listArtifactsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -362,8 +421,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getActionsCacheList(array $params)
+    /** @return */
+    public function getActionsCacheList(array $params): ActionsCacheList|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -422,8 +483,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['key'], $arguments['per_page'], $arguments['page'], $arguments['sort'], $arguments['direction']);
     }
 
-    public function listRepoOrganizationSecrets(array $params)
+    /** @return */
+    public function listRepoOrganizationSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoOrganizationSecrets\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -458,8 +521,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listRepoOrganizationVariables(array $params)
+    /** @return */
+    public function listRepoOrganizationVariables(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoOrganizationVariables\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -494,8 +559,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getGithubActionsPermissionsRepository(array $params)
+    /** @return */
+    public function getGithubActionsPermissionsRepository(array $params): ActionsRepositoryPermissions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -518,8 +585,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function listSelfHostedRunnersForRepo(array $params)
+    /** @return */
+    public function listSelfHostedRunnersForRepo(array $params): Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -554,8 +623,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listWorkflowRunsForRepo(array $params)
+    /** @return */
+    public function listWorkflowRunsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -638,8 +709,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['check_suite_id'], $arguments['head_sha'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
-    public function listRepoSecrets(array $params)
+    /** @return */
+    public function listRepoSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -674,8 +747,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listRepoVariables(array $params)
+    /** @return */
+    public function listRepoVariables(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoVariables\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -710,8 +785,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listRepoWorkflows(array $params)
+    /** @return */
+    public function listRepoWorkflows(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -746,8 +823,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listEnvironmentSecrets(array $params)
+    /** @return */
+    public function listEnvironmentSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('repository_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: repository_id');
@@ -782,8 +861,10 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listEnvironmentVariables(array $params)
+    /** @return */
+    public function listEnvironmentVariables(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentVariables\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('repository_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: repository_id');
@@ -818,8 +899,10 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getGithubActionsPermissionsOrganization(array $params)
+    /** @return */
+    public function getGithubActionsPermissionsOrganization(array $params): ActionsOrganizationPermissions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -836,8 +919,10 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    public function listSelfHostedRunnerGroupsForOrg(array $params)
+    /** @return */
+    public function listSelfHostedRunnerGroupsForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -872,8 +957,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['visible_to_repository'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listSelfHostedRunnersForOrg(array $params)
+    /** @return */
+    public function listSelfHostedRunnersForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -902,8 +989,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listOrgSecrets(array $params)
+    /** @return */
+    public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -932,8 +1021,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listOrgVariables(array $params)
+    /** @return */
+    public function listOrgVariables(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -962,8 +1053,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listRepoAccessToSelfHostedRunnerGroupInOrg(array $params)
+    /** @return */
+    public function listRepoAccessToSelfHostedRunnerGroupInOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -998,8 +1091,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function listSelfHostedRunnersInGroupForOrg(array $params)
+    /** @return */
+    public function listSelfHostedRunnersInGroupForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -1034,8 +1129,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listLabelsForSelfHostedRunnerForOrg(array $params)
+    /** @return */
+    public function listLabelsForSelfHostedRunnerForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -1058,8 +1155,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
-    public function listSelectedReposForOrgSecret(array $params)
+    /** @return */
+    public function listSelectedReposForOrgSecret(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -1094,8 +1193,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function listSelectedReposForOrgVariable(array $params)
+    /** @return (Schema\Operations\Actions\ListSelectedReposForOrgVariable\Response\ApplicationJson\Ok\Application\Json | array{code: int}) */
+    public function listSelectedReposForOrgVariable(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgVariable\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -1130,8 +1231,10 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['name'], $arguments['page'], $arguments['per_page']);
     }
 
-    public function getArtifact(array $params)
+    /** @return */
+    public function getArtifact(array $params): Artifact|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1160,8 +1263,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
     }
 
-    public function getActionsCacheUsage(array $params)
+    /** @return */
+    public function getActionsCacheUsage(array $params): ActionsCacheUsageByRepository|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1184,8 +1289,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getActionsCacheUsagePolicy(array $params)
+    /** @return */
+    public function getActionsCacheUsagePolicy(array $params): ActionsCacheUsagePolicyForRepository|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1208,8 +1315,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getJobForWorkflowRun(array $params)
+    /** @return */
+    public function getJobForWorkflowRun(array $params): Job|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1238,8 +1347,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    public function getWorkflowAccessToRepository(array $params)
+    /** @return */
+    public function getWorkflowAccessToRepository(array $params): ActionsWorkflowAccessToRepository|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1262,8 +1373,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getAllowedActionsRepository(array $params)
+    /** @return */
+    public function getAllowedActionsRepository(array $params): SelectedActions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1286,8 +1399,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getGithubActionsDefaultWorkflowPermissionsRepository(array $params)
+    /** @return */
+    public function getGithubActionsDefaultWorkflowPermissionsRepository(array $params): ActionsGetDefaultWorkflowPermissions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1310,8 +1425,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function listRunnerApplicationsForRepo(array $params)
+    /** @return iterable<Schema\RunnerApplication> */
+    public function listRunnerApplicationsForRepo(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1325,13 +1442,19 @@ final class Actions
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Operator\Actions\ListRunnerApplicationsForRepo($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\Downloads::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀Downloads();
+        }
+
+        $operator = new Operator\Actions\ListRunnerApplicationsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runners\Downloads::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getSelfHostedRunnerForRepo(array $params)
+    /** @return */
+    public function getSelfHostedRunnerForRepo(array $params): Runner|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1360,8 +1483,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
-    public function getWorkflowRun(array $params)
+    /** @return */
+    public function getWorkflowRun(array $params): WorkflowRun|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1396,8 +1521,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['exclude_pull_requests']);
     }
 
-    public function getRepoPublicKey(array $params)
+    /** @return */
+    public function getRepoPublicKey(array $params): ActionsPublicKey|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1420,8 +1547,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function getRepoSecret(array $params)
+    /** @return */
+    public function getRepoSecret(array $params): ActionsSecret|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1450,8 +1579,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
 
-    public function getRepoVariable(array $params)
+    /** @return */
+    public function getRepoVariable(array $params): ActionsVariable|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1480,8 +1611,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name']);
     }
 
-    public function getWorkflow(array $params)
+    /** @return */
+    public function getWorkflow(array $params): Workflow|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1510,8 +1643,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
-    public function getEnvironmentPublicKey(array $params)
+    /** @return */
+    public function getEnvironmentPublicKey(array $params): ActionsPublicKey|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('repository_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: repository_id');
@@ -1534,8 +1669,10 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name']);
     }
 
-    public function getEnvironmentSecret(array $params)
+    /** @return */
+    public function getEnvironmentSecret(array $params): ActionsSecret|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('repository_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: repository_id');
@@ -1564,8 +1701,10 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['secret_name']);
     }
 
-    public function getEnvironmentVariable(array $params)
+    /** @return */
+    public function getEnvironmentVariable(array $params): ActionsVariable|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('repository_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: repository_id');
@@ -1594,8 +1733,10 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['name']);
     }
 
-    public function downloadArtifact(array $params)
+    /** @return array{code: int, location: string} */
+    public function downloadArtifact(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1630,8 +1771,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id'], $arguments['archive_format']);
     }
 
-    public function downloadJobLogsForWorkflowRun(array $params)
+    /** @return array{code: int, location: string} */
+    public function downloadJobLogsForWorkflowRun(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1656,8 +1799,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    public function getCustomOidcSubClaimForRepo(array $params)
+    /** @return */
+    public function getCustomOidcSubClaimForRepo(array $params): OidcCustomSubRepo|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1680,8 +1825,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function listLabelsForSelfHostedRunnerForRepo(array $params)
+    /** @return */
+    public function listLabelsForSelfHostedRunnerForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1710,8 +1857,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
-    public function getReviewsForRun(array $params)
+    /** @return iterable<Schema\EnvironmentApprovals> */
+    public function getReviewsForRun(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1731,13 +1880,19 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Operator\Actions\GetReviewsForRun($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Approvals::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Approvals::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Approvals();
+        }
+
+        $operator = new Operator\Actions\GetReviewsForRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\Approvals::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    public function listWorkflowRunArtifacts(array $params)
+    /** @return */
+    public function listWorkflowRunArtifacts(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1778,8 +1933,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listJobsForWorkflowRun(array $params)
+    /** @return */
+    public function listJobsForWorkflowRun(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1826,8 +1983,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function downloadWorkflowRunLogs(array $params)
+    /** @return array{code: int, location: string} */
+    public function downloadWorkflowRunLogs(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1852,8 +2011,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    public function getPendingDeploymentsForRun(array $params)
+    /** @return iterable<Schema\PendingDeployment> */
+    public function getPendingDeploymentsForRun(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1873,13 +2034,19 @@ final class Actions
 
         $arguments['run_id'] = $params['run_id'];
         unset($params['run_id']);
-        $operator = new Operator\Actions\GetPendingDeploymentsForRun($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\PendingDeployments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\PendingDeployments::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀PendingDeployments();
+        }
+
+        $operator = new Operator\Actions\GetPendingDeploymentsForRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Actions\Runs\RunId\PendingDeployments::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    public function listWorkflowRuns(array $params)
+    /** @return */
+    public function listWorkflowRuns(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -1968,8 +2135,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['check_suite_id'], $arguments['head_sha'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
-    public function getWorkflowRunAttempt(array $params)
+    /** @return */
+    public function getWorkflowRunAttempt(array $params): WorkflowRun|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2010,8 +2179,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['attempt_number'], $arguments['exclude_pull_requests']);
     }
 
-    public function listJobsForWorkflowRunAttempt(array $params)
+    /** @return */
+    public function listJobsForWorkflowRunAttempt(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRunAttempt\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2058,8 +2229,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['attempt_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function downloadWorkflowRunAttemptLogs(array $params)
+    /** @return array{code: int, location: string} */
+    public function downloadWorkflowRunAttemptLogs(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2090,8 +2263,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['attempt_number']);
     }
 
-    public function downloadArtifactStreaming(array $params)
+    /** @return Observable<string> */
+    public function downloadArtifactStreaming(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2126,8 +2301,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id'], $arguments['archive_format']);
     }
 
-    public function downloadJobLogsForWorkflowRunStreaming(array $params)
+    /** @return Observable<string> */
+    public function downloadJobLogsForWorkflowRunStreaming(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2152,8 +2329,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    public function downloadWorkflowRunLogsStreaming(array $params)
+    /** @return Observable<string> */
+    public function downloadWorkflowRunLogsStreaming(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -2178,8 +2357,10 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    public function downloadWorkflowRunAttemptLogsStreaming(array $params)
+    /** @return Observable<string> */
+    public function downloadWorkflowRunAttemptLogsStreaming(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');

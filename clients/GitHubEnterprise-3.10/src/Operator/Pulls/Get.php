@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Pulls;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequest;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class Get
 {
@@ -23,14 +27,18 @@ final readonly class Get
     {
     }
 
-    /** @return PromiseInterface<PullRequest|array> **/
-    public function call(string $owner, string $repo, int $pullNumber): PromiseInterface
+    /** @return (Schema\PullRequest | array{code: int}) */
+    public function call(string $owner, string $repo, int $pullNumber): PullRequest|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Pulls\Get($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $pullNumber);
         $request   = $operation->createRequest();
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PullRequest|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PullRequest|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }

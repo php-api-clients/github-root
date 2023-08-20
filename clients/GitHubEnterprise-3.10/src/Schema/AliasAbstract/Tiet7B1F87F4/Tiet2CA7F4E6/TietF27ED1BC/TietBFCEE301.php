@@ -6,10 +6,19 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\Tiet7B1F87F4\T
 
 abstract readonly class TietBFCEE301
 {
-    public const SCHEMA_JSON         = '{"type":"object","properties":{"message":{"type":"string"}}}';
+    public const SCHEMA_JSON         = '{
+    "type": "object",
+    "properties": {
+        "message": {
+            "type": "string"
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"message":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "message": "generated"
+}';
 
     public function __construct(public string|null $message)
     {

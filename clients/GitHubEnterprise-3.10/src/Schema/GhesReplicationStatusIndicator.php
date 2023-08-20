@@ -6,7 +6,15 @@ namespace ApiClients\Client\GitHubEnterprise\Schema;
 
 final readonly class GhesReplicationStatusIndicator
 {
-    public const SCHEMA_JSON         = '{"enum":["UNKNOWN","OK","WARNING","CRITICAL"],"type":"string"}';
+    public const SCHEMA_JSON         = '{
+    "enum": [
+        "UNKNOWN",
+        "OK",
+        "WARNING",
+        "CRITICAL"
+    ],
+    "type": "string"
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '[]';

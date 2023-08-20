@@ -7,6 +7,8 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Post;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -19,12 +21,14 @@ final class OauthAuthorizations
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function createAuthorization(array $params)
+    /** @return (Schema\Authorization | array{code: int}) */
+    public function createAuthorization(array $params): Authorization|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Authorizations::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Authorizations::class] = $this->hydrators->getObjectMapperOperation🌀Authorizations();
         }
