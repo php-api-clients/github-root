@@ -7,6 +7,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Put;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\RepositorySubscription;
+use ApiClients\Client\GitHubEnterprise\Schema\ThreadSubscription;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +25,14 @@ final class Activity
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function setThreadSubscription(array $params)
+    /** @return (Schema\ThreadSubscription | array{code: int}) */
+    public function setThreadSubscription(array $params): ThreadSubscription|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('thread_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: thread_id');
@@ -42,8 +49,10 @@ final class Activity
         return $operator->call($arguments['thread_id'], $params);
     }
 
-    public function markRepoNotificationsAsRead(array $params)
+    /** @return (Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    public function markRepoNotificationsAsRead(array $params): Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -66,8 +75,10 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    public function setRepoSubscription(array $params)
+    /** @return */
+    public function setRepoSubscription(array $params): RepositorySubscription|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -90,8 +101,10 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    public function starRepoForAuthenticatedUser(array $params)
+    /** @return array{code: int} */
+    public function starRepoForAuthenticatedUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -114,8 +127,10 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function markNotificationsAsRead(array $params)
+    /** @return (Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted | array{code: int}) */
+    public function markNotificationsAsRead(array $params): Accepted|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Notifications::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Notifications::class] = $this->hydrators->getObjectMapperOperation🌀Notifications();
         }

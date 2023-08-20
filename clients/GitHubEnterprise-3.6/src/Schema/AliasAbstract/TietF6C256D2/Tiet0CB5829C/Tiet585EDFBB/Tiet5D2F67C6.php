@@ -6,10 +6,33 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietF6C256D2\T
 
 abstract readonly class Tiet5D2F67C6
 {
-    public const SCHEMA_JSON         = '{"required":["content"],"type":"object","properties":{"content":{"enum":["+1","-1","laugh","confused","heart","hooray","rocket","eyes"],"type":"string","description":"The [reaction type](https:\\/\\/docs.github.com\\/enterprise-server@3.6\\/rest\\/reactions\\/reactions#about-reactions) to add to the team discussion."}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "content"
+    ],
+    "type": "object",
+    "properties": {
+        "content": {
+            "enum": [
+                "+1",
+                "-1",
+                "laugh",
+                "confused",
+                "heart",
+                "hooray",
+                "rocket",
+                "eyes"
+            ],
+            "type": "string",
+            "description": "The [reaction type](https:\\/\\/docs.github.com\\/enterprise-server@3.6\\/rest\\/reactions\\/reactions#about-reactions) to add to the team discussion."
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"content":"+1"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "content": "+1"
+}';
 
     /**
      * content: The [reaction type](https://docs.github.com/enterprise-server@3.6/rest/reactions/reactions#about-reactions) to add to the team discussion.

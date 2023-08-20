@@ -14,15 +14,17 @@ use React\Http\Browser;
 use React\Http\Message\Response;
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
-use function React\Async\await;
+use function json_decode;
+use function json_encode;
 use function React\Promise\resolve;
 
+/** @covers \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise */
 final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
 {
     /** @test */
     public function call_httpCode_200_responseContentType_application_scim_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\ScimEnterpriseGroupList::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(200, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimEnterpriseGroupList::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -43,7 +45,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_200_responseContentType_application_scim_json_zero(): void
     {
-        $response = new Response(200, ['Content-Type' => 'application/scim+json'], Schema\ScimEnterpriseGroupList::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(200, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimEnterpriseGroupList::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -51,14 +53,14 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
     }
 
     /** @test */
     public function call_httpCode_400_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(400, ['Content-Type' => 'application/json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(400, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -80,7 +82,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
     public function operations_httpCode_400_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(400, ['Content-Type' => 'application/json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(400, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -88,14 +90,14 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
     }
 
     /** @test */
     public function call_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(400, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(400, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -117,7 +119,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
     public function operations_httpCode_400_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(400, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(400, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -125,14 +127,14 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
     }
 
     /** @test */
     public function call_httpCode_429_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(429, ['Content-Type' => 'application/json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(429, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -154,7 +156,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
     public function operations_httpCode_429_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(429, ['Content-Type' => 'application/json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(429, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -162,14 +164,14 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
     }
 
     /** @test */
     public function call_httpCode_429_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(429, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(429, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -191,7 +193,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
     public function operations_httpCode_429_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(429, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(429, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -199,14 +201,14 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
     }
 
     /** @test */
     public function call_httpCode_500_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(500, ['Content-Type' => 'application/json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(500, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -228,7 +230,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
     public function operations_httpCode_500_responseContentType_application_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(500, ['Content-Type' => 'application/json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(500, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -236,14 +238,14 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
     }
 
     /** @test */
     public function call_httpCode_500_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(500, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(500, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -265,7 +267,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
     public function operations_httpCode_500_responseContentType_application_scim_json_zero(): void
     {
         self::expectException(ErrorSchemas\ScimError::class);
-        $response = new Response(500, ['Content-Type' => 'application/scim+json'], Schema\ScimError::SCHEMA_EXAMPLE_DATA);
+        $response = new Response(500, ['Content-Type' => 'application/scim+json'], json_encode(json_decode(Schema\ScimError::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -273,7 +275,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -308,7 +310,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
         self::assertArrayHasKey('code', $result);
         self::assertSame(401, $result['code']);
     }
@@ -345,7 +347,7 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
         $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = await($client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5));
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
         self::assertArrayHasKey('code', $result);
         self::assertSame(403, $result['code']);
     }
