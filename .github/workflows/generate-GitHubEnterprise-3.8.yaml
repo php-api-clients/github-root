@@ -7,7 +7,7 @@ jobs:
   generate-githubenterprise-3_8:
     runs-on: ubuntu-latest
     container:
-      image: wyrihaximusnet/php:8.2-nts-alpine-dev-root
+      image: wyrihaximusnet/php:8.2-nts-alpine-slim-dev-root
     steps:
       - uses: actions/checkout@v3
       - uses: ramsey/composer-install@v2
@@ -40,8 +40,7 @@ jobs:
         run: |
           curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh
           echo "Detected Schema changes:" >> "var/detected-schema-changes"
-          openapi-changes summary --no-color --no-logo etc/specs/GitHubEnterprise-3.8/current.spec.yaml etc/specs/GitHubEnterprise-3.8/previous.spec.yaml
-          echo "$(openapi-changes summary --no-color --no-logo etc/specs/GitHubEnterprise-3.8/current.spec.yaml etc/specs/GitHubEnterprise-3.8/previous.spec.yaml || true)" >> "var/detected-schema-changes"
+          echo "$(openapi-changes summary --no-color --no-logo etc/specs/GitHubEnterprise-3.8/current.spec.yaml etc/specs/GitHubEnterprise-3.8/previous.spec.yaml)" >> "var/detected-schema-changes"
           cat var/detected-schema-changes
           delimiter="$(openssl rand -hex 8)"
           echo "diff<<${delimiter}" >> "${GITHUB_OUTPUT}"
