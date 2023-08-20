@@ -7,6 +7,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Post;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Client\GitHubEnterprise\Schema\ContentReferenceAttachment;
+use ApiClients\Client\GitHubEnterprise\Schema\InstallationToken;
+use ApiClients\Client\GitHubEnterprise\Schema\Integration;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +25,14 @@ final class Apps
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function createInstallationAccessToken(array $params)
+    /** @return */
+    public function createInstallationAccessToken(array $params): InstallationToken|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('installation_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: installation_id');
@@ -42,8 +49,10 @@ final class Apps
         return $operator->call($arguments['installation_id'], $params);
     }
 
-    public function scopeToken(array $params)
+    /** @return */
+    public function scopeToken(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');
@@ -60,8 +69,10 @@ final class Apps
         return $operator->call($arguments['client_id'], $params);
     }
 
-    public function resetAuthorization(array $params)
+    /** @return */
+    public function resetAuthorization(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');
@@ -84,8 +95,10 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
-    public function createFromManifest(array $params)
+    /** @return */
+    public function createFromManifest(array $params): Integration|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('code', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: code');
@@ -102,8 +115,10 @@ final class Apps
         return $operator->call($arguments['code'], $params);
     }
 
-    public function checkToken(array $params)
+    /** @return */
+    public function checkToken(array $params): Authorization|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: client_id');
@@ -120,8 +135,10 @@ final class Apps
         return $operator->call($arguments['client_id'], $params);
     }
 
-    public function createContentAttachment(array $params)
+    /** @return (Schema\ContentReferenceAttachment | array{code: int}) */
+    public function createContentAttachment(array $params): ContentReferenceAttachment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');

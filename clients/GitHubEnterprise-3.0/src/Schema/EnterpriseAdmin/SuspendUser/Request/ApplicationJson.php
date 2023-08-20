@@ -6,10 +6,23 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\EnterpriseAdmin\SuspendUser\
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"type":["object","null"],"properties":{"reason":{"type":"string","description":"The reason the user is being suspended. This message will be logged in the [audit log](https:\\/\\/docs.github.com\\/enterprise\\/admin\\/articles\\/audit-logging\\/). If you don\'t provide a `reason`, it will default to \\"Suspended via API by _SITE\\\\_ADMINISTRATOR_\\", where _SITE\\\\_ADMINISTRATOR_ is the person who performed the action."}}}';
+    public const SCHEMA_JSON         = '{
+    "type": [
+        "object",
+        "null"
+    ],
+    "properties": {
+        "reason": {
+            "type": "string",
+            "description": "The reason the user is being suspended. This message will be logged in the [audit log](https:\\/\\/docs.github.com\\/enterprise\\/admin\\/articles\\/audit-logging\\/). If you don\'t provide a `reason`, it will default to \\"Suspended via API by _SITE\\\\_ADMINISTRATOR_\\", where _SITE\\\\_ADMINISTRATOR_ is the person who performed the action."
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"reason":"generated"}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "reason": "generated"
+}';
 
     /**
      * reason: The reason the user is being suspended. This message will be logged in the [audit log](https://docs.github.com/enterprise/admin/articles/audit-logging/). If you don't provide a `reason`, it will default to "Suspended via API by _SITE\_ADMINISTRATOR_", where _SITE\_ADMINISTRATOR_ is the person who performed the action.

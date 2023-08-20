@@ -7,6 +7,35 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsEnterprisePermissions;
+use ApiClients\Client\GitHubEnterprise\Schema\Announcement;
+use ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseGistOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseHookOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseIssueOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOrganizationOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterprisePageOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterprisePullRequestOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseRepositoryOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings;
+use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseUserOverview;
+use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook;
+use ApiClients\Client\GitHubEnterprise\Schema\LicenseInfo;
+use ApiClients\Client\GitHubEnterprise\Schema\MaintenanceStatus;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook;
+use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment;
+use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus;
+use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook;
+use ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook;
+use ApiClients\Client\GitHubEnterprise\Schema\Runner;
+use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise;
+use ApiClients\Client\GitHubEnterprise\Schema\SelectedActions;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +49,14 @@ final class EnterpriseAdmin
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listGlobalWebhooks(array $params)
+    /** @return iterable<Schema\GlobalHook> */
+    public function listGlobalWebhooks(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('accept', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: accept');
@@ -45,13 +76,19 @@ final class EnterpriseAdmin
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\EnterpriseAdmin\ListGlobalWebhooks($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Admin\Hooks::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListGlobalWebhooks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Hooks::class]);
 
         return $operator->call($arguments['accept'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listPublicKeys(array $params)
+    /** @return iterable<Schema\PublicKeyFull> */
+    public function listPublicKeys(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('since', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: since');
@@ -83,13 +120,19 @@ final class EnterpriseAdmin
 
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
-        $operator = new Operator\EnterpriseAdmin\ListPublicKeys($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Admin\Keys::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\Keys::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Keys();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListPublicKeys($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Keys::class]);
 
         return $operator->call($arguments['since'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function listPreReceiveEnvironments(array $params)
+    /** @return iterable<Schema\PreReceiveEnvironment> */
+    public function listPreReceiveEnvironments(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -115,13 +158,19 @@ final class EnterpriseAdmin
 
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
-        $operator = new Operator\EnterpriseAdmin\ListPreReceiveEnvironments($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Admin\PreReceiveEnvironments::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListPreReceiveEnvironments($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments::class]);
 
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function listPreReceiveHooks(array $params)
+    /** @return iterable<Schema\PreReceiveHook> */
+    public function listPreReceiveHooks(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -147,13 +196,19 @@ final class EnterpriseAdmin
 
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
-        $operator = new Operator\EnterpriseAdmin\ListPreReceiveHooks($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Admin\PreReceiveHooks::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\PreReceiveHooks::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveHooks();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListPreReceiveHooks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveHooks::class]);
 
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function listPersonalAccessTokens(array $params)
+    /** @return iterable<Schema\Authorization> */
+    public function listPersonalAccessTokens(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -167,13 +222,19 @@ final class EnterpriseAdmin
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        $operator = new Operator\EnterpriseAdmin\ListPersonalAccessTokens($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Admin\Tokens::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Admin\Tokens::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀Tokens();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListPersonalAccessTokens($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\Tokens::class]);
 
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    public function getAnnouncement(array $params)
+    /** @return */
+    public function getAnnouncement(array $params): Announcement|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Announcement::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement();
         }
@@ -183,8 +244,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getGlobalWebhook(array $params)
+    /** @return */
+    public function getGlobalWebhook(array $params): GlobalHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: hook_id');
@@ -207,8 +270,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id'], $arguments['accept']);
     }
 
-    public function getPreReceiveEnvironment(array $params)
+    /** @return */
+    public function getPreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
@@ -225,8 +290,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    public function getPreReceiveHook(array $params)
+    /** @return */
+    public function getPreReceiveHook(array $params): PreReceiveHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_hook_id');
@@ -243,8 +310,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_hook_id']);
     }
 
-    public function getLicenseInformation(array $params)
+    /** @return */
+    public function getLicenseInformation(array $params): LicenseInfo|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Settings\License::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Settings\License::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Settings🌀License();
         }
@@ -254,8 +323,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getAllStats(array $params)
+    /** @return */
+    public function getAllStats(array $params): EnterpriseOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\All::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\All::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀All();
         }
@@ -265,8 +336,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getCommentStats(array $params)
+    /** @return */
+    public function getCommentStats(array $params): EnterpriseCommentOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Comments::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Comments();
         }
@@ -276,8 +349,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getGistStats(array $params)
+    /** @return */
+    public function getGistStats(array $params): EnterpriseGistOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Gists::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Gists::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Gists();
         }
@@ -287,8 +362,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getHooksStats(array $params)
+    /** @return */
+    public function getHooksStats(array $params): EnterpriseHookOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Hooks::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Hooks::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Hooks();
         }
@@ -298,8 +375,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getIssueStats(array $params)
+    /** @return */
+    public function getIssueStats(array $params): EnterpriseIssueOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Issues::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Issues::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Issues();
         }
@@ -309,8 +388,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getMilestoneStats(array $params)
+    /** @return */
+    public function getMilestoneStats(array $params): EnterpriseMilestoneOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Milestones::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Milestones::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Milestones();
         }
@@ -320,8 +401,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getOrgStats(array $params)
+    /** @return */
+    public function getOrgStats(array $params): EnterpriseOrganizationOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Orgs::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Orgs::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Orgs();
         }
@@ -331,8 +414,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getPagesStats(array $params)
+    /** @return */
+    public function getPagesStats(array $params): EnterprisePageOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Pages::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pages::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pages();
         }
@@ -342,8 +427,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getPullRequestStats(array $params)
+    /** @return */
+    public function getPullRequestStats(array $params): EnterprisePullRequestOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Pulls::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Pulls::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pulls();
         }
@@ -353,8 +440,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getRepoStats(array $params)
+    /** @return */
+    public function getRepoStats(array $params): EnterpriseRepositoryOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Repos::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Repos();
         }
@@ -364,8 +453,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getUserStats(array $params)
+    /** @return */
+    public function getUserStats(array $params): EnterpriseUserOverview|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Stats\Users::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Stats\Users::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Users();
         }
@@ -375,8 +466,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function listPreReceiveHooksForOrg(array $params)
+    /** @return iterable<Schema\OrgPreReceiveHook> */
+    public function listPreReceiveHooksForOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -408,13 +501,19 @@ final class EnterpriseAdmin
 
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
-        $operator = new Operator\EnterpriseAdmin\ListPreReceiveHooksForOrg($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Orgs\Org\PreReceiveHooks::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Orgs\Org\PreReceiveHooks::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PreReceiveHooks();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListPreReceiveHooksForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\PreReceiveHooks::class]);
 
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function getConfigurationStatus(array $params)
+    /** @return */
+    public function getConfigurationStatus(array $params): ConfigurationStatus|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Setup\Api\Configcheck::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Setup\Api\Configcheck::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Configcheck();
         }
@@ -424,8 +523,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getMaintenanceStatus(array $params)
+    /** @return */
+    public function getMaintenanceStatus(array $params): MaintenanceStatus|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Setup\Api\Maintenance::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Setup\Api\Maintenance::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance();
         }
@@ -435,8 +536,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getSettings(array $params)
+    /** @return */
+    public function getSettings(array $params): EnterpriseSettings|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Setup\Api\Settings::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Setup\Api\Settings::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings();
         }
@@ -446,8 +549,10 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    public function getDownloadStatusForPreReceiveEnvironment(array $params)
+    /** @return */
+    public function getDownloadStatusForPreReceiveEnvironment(array $params): PreReceiveEnvironmentDownloadStatus|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
@@ -464,8 +569,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params)
+    /** @return */
+    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -494,8 +601,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getAllowedActionsEnterprise(array $params)
+    /** @return */
+    public function getAllowedActionsEnterprise(array $params): SelectedActions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -512,8 +621,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getSelfHostedRunnerGroupForEnterprise(array $params)
+    /** @return */
+    public function getSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -536,8 +647,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    public function listRunnerApplicationsForEnterprise(array $params)
+    /** @return iterable<Schema\RunnerApplication> */
+    public function listRunnerApplicationsForEnterprise(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -545,13 +658,19 @@ final class EnterpriseAdmin
 
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
-        $operator = new Operator\EnterpriseAdmin\ListRunnerApplicationsForEnterprise($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\Downloads::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀Downloads();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListRunnerApplicationsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\Downloads::class]);
 
         return $operator->call($arguments['enterprise']);
     }
 
-    public function getSelfHostedRunnerForEnterprise(array $params)
+    /** @return */
+    public function getSelfHostedRunnerForEnterprise(array $params): Runner|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -574,8 +693,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    public function getPreReceiveHookForRepo(array $params)
+    /** @return */
+    public function getPreReceiveHookForRepo(array $params): RepositoryPreReceiveHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -604,8 +725,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
     }
 
-    public function getGithubActionsPermissionsEnterprise(array $params)
+    /** @return */
+    public function getGithubActionsPermissionsEnterprise(array $params): ActionsEnterprisePermissions|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -622,8 +745,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    public function listSelfHostedRunnerGroupsForEnterprise(array $params)
+    /** @return */
+    public function listSelfHostedRunnerGroupsForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -652,8 +777,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listSelfHostedRunnersForEnterprise(array $params)
+    /** @return */
+    public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -682,8 +809,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getPreReceiveHookForOrg(array $params)
+    /** @return */
+    public function getPreReceiveHookForOrg(array $params): OrgPreReceiveHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -706,8 +835,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    public function listPreReceiveHooksForRepo(array $params)
+    /** @return iterable<Schema\RepositoryPreReceiveHook> */
+    public function listPreReceiveHooksForRepo(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -745,20 +876,32 @@ final class EnterpriseAdmin
 
         $arguments['sort'] = $params['sort'];
         unset($params['sort']);
-        $operator = new Operator\EnterpriseAdmin\ListPreReceiveHooksForRepo($this->browser, $this->authentication);
+        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PreReceiveHooks();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\ListPreReceiveHooksForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function getAllAuthorizedSshKeys(array $params)
+    /** @return iterable<Schema\SshKey> */
+    public function getAllAuthorizedSshKeys(array $params): iterable
     {
-        $operator = new Operator\EnterpriseAdmin\GetAllAuthorizedSshKeys($this->browser, $this->authentication);
+        $matched = true;
+        if (array_key_exists(Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class, $this->hydrator) === false) {
+            $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys();
+        }
+
+        $operator = new Operator\EnterpriseAdmin\GetAllAuthorizedSshKeys($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class]);
 
         return $operator->call();
     }
 
-    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params)
+    /** @return */
+    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -793,8 +936,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function listSelfHostedRunnersInGroupForEnterprise(array $params)
+    /** @return */
+    public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -829,8 +974,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    public function getDownloadStatusForPreReceiveEnvironmentStreaming(array $params)
+    /** @return */
+    public function getDownloadStatusForPreReceiveEnvironmentStreaming(array $params): PreReceiveEnvironmentDownloadStatus|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
