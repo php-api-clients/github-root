@@ -7,6 +7,11 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAlert;
+use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAnalysis;
+use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningDefaultSetup;
+use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningSarifsStatus;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +25,14 @@ final class CodeScanning
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function listAlertsForRepo(array $params)
+    /** @return (iterable<Schema\CodeScanningAlertItems> | array{code: int}) */
+    public function listAlertsForRepo(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -102,8 +109,10 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['severity'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function listRecentAnalyses(array $params)
+    /** @return iterable<Schema\CodeScanningAnalysis> */
+    public function listRecentAnalyses(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -174,8 +183,10 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function getDefaultSetup(array $params)
+    /** @return */
+    public function getDefaultSetup(array $params): CodeScanningDefaultSetup|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -198,8 +209,10 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function listAlertsForEnterprise(array $params)
+    /** @return iterable<Schema\CodeScanningOrganizationAlertItems> */
+    public function listAlertsForEnterprise(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -270,8 +283,10 @@ final class CodeScanning
         return $operator->call($arguments['enterprise'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function listAlertsForOrg(array $params)
+    /** @return iterable<Schema\CodeScanningOrganizationAlertItems> */
+    public function listAlertsForOrg(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -348,8 +363,10 @@ final class CodeScanning
         return $operator->call($arguments['org'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['severity'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    public function getAlert(array $params)
+    /** @return (Schema\CodeScanningAlert | array{code: int}) */
+    public function getAlert(array $params): CodeScanningAlert|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -378,8 +395,10 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
-    public function getAnalysis(array $params)
+    /** @return */
+    public function getAnalysis(array $params): CodeScanningAnalysis|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -408,8 +427,10 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['analysis_id']);
     }
 
-    public function getSarif(array $params)
+    /** @return (Schema\CodeScanningSarifsStatus | array{code: int}) */
+    public function getSarif(array $params): CodeScanningSarifsStatus|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -438,8 +459,10 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sarif_id']);
     }
 
-    public function listAlertInstances(array $params)
+    /** @return iterable<Schema\CodeScanningAlertInstance> */
+    public function listAlertInstances(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');

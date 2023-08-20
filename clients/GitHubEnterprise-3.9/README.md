@@ -3362,7 +3362,7 @@ $client->operations()->enterpriseAdmin()->getConfigNodes(        uuid: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-all-ghes-node-metadata-for-all-nodes).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.9/rest/enterprise-admin/manage-ghes#get-ghes-node-metadata-for-all-nodes).
 
 
 ### enterprise-admin/get-replication-status
