@@ -7,6 +7,20 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Patch;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\Announcement;
+use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook2;
+use ApiClients\Client\GitHubEnterprise\Schema\GroupResponse;
+use ApiClients\Client\GitHubEnterprise\Schema\LdapMappingTeam;
+use ApiClients\Client\GitHubEnterprise\Schema\LdapMappingUser;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\UpdateUsernameForUser\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook;
+use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment;
+use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook;
+use ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook;
+use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise;
+use ApiClients\Client\GitHubEnterprise\Schema\UserResponse;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +34,14 @@ final class EnterpriseAdmin
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function updateGlobalWebhook(array $params)
+    /** @return */
+    public function updateGlobalWebhook(array $params): GlobalHook2|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: hook_id');
@@ -42,8 +58,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id'], $params);
     }
 
-    public function updateOrgName(array $params)
+    /** @return */
+    public function updateOrgName(array $params): Accepted|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -60,8 +78,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $params);
     }
 
-    public function updatePreReceiveEnvironment(array $params)
+    /** @return */
+    public function updatePreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
@@ -78,8 +98,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id'], $params);
     }
 
-    public function updatePreReceiveHook(array $params)
+    /** @return */
+    public function updatePreReceiveHook(array $params): PreReceiveHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_hook_id');
@@ -96,8 +118,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_hook_id'], $params);
     }
 
-    public function updateUsernameForUser(array $params)
+    /** @return */
+    public function updateUsernameForUser(array $params): Json|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -114,8 +138,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    public function updateLdapMappingForTeam(array $params)
+    /** @return */
+    public function updateLdapMappingForTeam(array $params): LdapMappingTeam|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: team_id');
@@ -132,8 +158,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['team_id'], $params);
     }
 
-    public function updateLdapMappingForUser(array $params)
+    /** @return */
+    public function updateLdapMappingForUser(array $params): LdapMappingUser|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -150,8 +178,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    public function updateSelfHostedRunnerGroupForEnterprise(array $params)
+    /** @return */
+    public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -174,8 +204,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    public function updatePreReceiveHookEnforcementForRepo(array $params)
+    /** @return */
+    public function updatePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -204,8 +236,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id'], $params);
     }
 
-    public function setAnnouncement(array $params)
+    /** @return */
+    public function setAnnouncement(array $params): Announcement|array
     {
+        $matched = true;
         if (array_key_exists(Hydrator\Operation\Enterprise\Announcement::class, $this->hydrator) === false) {
             $this->hydrator[Hydrator\Operation\Enterprise\Announcement::class] = $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement();
         }
@@ -215,8 +249,10 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    public function updatePreReceiveHookEnforcementForOrg(array $params)
+    /** @return */
+    public function updatePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -239,8 +275,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id'], $params);
     }
 
-    public function updateAttributeForEnterpriseGroup(array $params)
+    /** @return (Schema\GroupResponse | array{code: int}) */
+    public function updateAttributeForEnterpriseGroup(array $params): GroupResponse|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('scim_group_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
@@ -257,8 +295,10 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id'], $params);
     }
 
-    public function updateAttributeForEnterpriseUser(array $params)
+    /** @return (Schema\UserResponse | array{code: int}) */
+    public function updateAttributeForEnterpriseUser(array $params): UserResponse|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('scim_user_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: scim_user_id');

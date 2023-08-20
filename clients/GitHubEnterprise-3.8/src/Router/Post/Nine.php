@@ -6,6 +6,9 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview;
+use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,12 +20,14 @@ final class Nine
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return iterable<string>|iterable<Schema\Integration>|iterable<Schema\Team>|iterable<Schema\SimpleUser>| */
+    public function call(string $call, array $params, array $pathChunks): iterable|Json|PullRequestReviewComment|PullRequestReview
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'repos') {
                 if ($pathChunks[2] === '{owner}') {
@@ -33,6 +38,7 @@ final class Nine
                                     if ($pathChunks[7] === 'required_status_checks') {
                                         if ($pathChunks[8] === 'contexts') {
                                             if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Post\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -43,6 +49,7 @@ final class Nine
                                     } elseif ($pathChunks[7] === 'restrictions') {
                                         if ($pathChunks[8] === 'apps') {
                                             if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Post\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -51,6 +58,7 @@ final class Nine
                                             }
                                         } elseif ($pathChunks[8] === 'teams') {
                                             if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Post\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -59,6 +67,7 @@ final class Nine
                                             }
                                         } elseif ($pathChunks[8] === 'users') {
                                             if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Post\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -75,6 +84,7 @@ final class Nine
                                     if ($pathChunks[7] === '{delivery_id}') {
                                         if ($pathChunks[8] === 'attempts') {
                                             if ($call === 'POST /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Post\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -91,6 +101,7 @@ final class Nine
                                     if ($pathChunks[7] === '{comment_id}') {
                                         if ($pathChunks[8] === 'replies') {
                                             if ($call === 'POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Post\Pulls::class, $this->router) === false) {
                                                     $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -103,6 +114,7 @@ final class Nine
                                     if ($pathChunks[7] === '{review_id}') {
                                         if ($pathChunks[8] === 'events') {
                                             if ($call === 'POST /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/events') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Post\Pulls::class, $this->router) === false) {
                                                     $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -119,6 +131,8 @@ final class Nine
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

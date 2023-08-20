@@ -6,10 +6,32 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Users\CreateSshSigningKeyFor
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"required":["key"],"type":"object","properties":{"title":{"type":"string","description":"A descriptive name for the new key.","examples":["Personal MacBook Air"]},"key":{"pattern":"^ssh-(rsa|dss|ed25519) |^ecdsa-sha2-nistp(256|384|521) |^(sk-ssh-ed25519|sk-ecdsa-sha2-nistp256)@openssh.com ","type":"string","description":"The public SSH key to add to your GitHub account. For more information, see \\"[Checking for existing SSH keys](https:\\/\\/docs.github.com\\/enterprise-server@3.8\\/authentication\\/connecting-to-github-with-ssh\\/checking-for-existing-ssh-keys).\\""}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "key"
+    ],
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string",
+            "description": "A descriptive name for the new key.",
+            "examples": [
+                "Personal MacBook Air"
+            ]
+        },
+        "key": {
+            "pattern": "^ssh-(rsa|dss|ed25519) |^ecdsa-sha2-nistp(256|384|521) |^(sk-ssh-ed25519|sk-ecdsa-sha2-nistp256)@openssh.com ",
+            "type": "string",
+            "description": "The public SSH key to add to your GitHub account. For more information, see \\"[Checking for existing SSH keys](https:\\/\\/docs.github.com\\/enterprise-server@3.8\\/authentication\\/connecting-to-github-with-ssh\\/checking-for-existing-ssh-keys).\\""
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"title":"Personal MacBook Air","key":"sk-ecdsa-sha2-nistp256@opensshlcom "}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "title": "Personal MacBook Air",
+    "key": "sk-ecdsa-sha2-nistp256@opensshlcom "
+}';
 
     /**
      * title: A descriptive name for the new key.
