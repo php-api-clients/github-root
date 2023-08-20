@@ -7,6 +7,9 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
+use ApiClients\Client\GitHubEnterprise\Schema\FileCommit;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
@@ -20,12 +23,14 @@ final class Repos
     /** @var array<class-string, ObjectMapper> */
     private array $hydrator = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function delete(array $params)
+    /** @return (Schema\BasicError | array{code: int}) */
+    public function delete(array $params): BasicError|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -48,8 +53,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function declineInvitationForAuthenticatedUser(array $params)
+    /** @return array{code: int} */
+    public function declineInvitationForAuthenticatedUser(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('invitation_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: invitation_id');
@@ -66,8 +73,10 @@ final class Repos
         return $operator->call($arguments['invitation_id']);
     }
 
-    public function deletePagesSite(array $params)
+    /** @return array{code: int} */
+    public function deletePagesSite(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -90,8 +99,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    public function deleteBranchProtection(array $params)
+    /** @return array{code: int} */
+    public function deleteBranchProtection(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -120,8 +131,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function deleteReleaseAsset(array $params)
+    /** @return array{code: int} */
+    public function deleteReleaseAsset(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -146,8 +159,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['asset_id']);
     }
 
-    public function removeCollaborator(array $params)
+    /** @return array{code: int} */
+    public function removeCollaborator(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -172,8 +187,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
 
-    public function deleteCommitComment(array $params)
+    /** @return array{code: int} */
+    public function deleteCommitComment(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -202,8 +219,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
-    public function deleteFile(array $params)
+    /** @return */
+    public function deleteFile(array $params): FileCommit|array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -232,8 +251,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
 
-    public function deleteDeployment(array $params)
+    /** @return array{code: int} */
+    public function deleteDeployment(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -262,8 +283,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
 
-    public function deleteWebhook(array $params)
+    /** @return array{code: int} */
+    public function deleteWebhook(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -292,8 +315,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
-    public function deleteInvitation(array $params)
+    /** @return array{code: int} */
+    public function deleteInvitation(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -318,8 +343,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['invitation_id']);
     }
 
-    public function deleteDeployKey(array $params)
+    /** @return array{code: int} */
+    public function deleteDeployKey(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -344,8 +371,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key_id']);
     }
 
-    public function deleteRelease(array $params)
+    /** @return array{code: int} */
+    public function deleteRelease(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -370,8 +399,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id']);
     }
 
-    public function deleteAdminBranchProtection(array $params)
+    /** @return array{code: int} */
+    public function deleteAdminBranchProtection(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -400,8 +431,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function deletePullRequestReviewProtection(array $params)
+    /** @return array{code: int} */
+    public function deletePullRequestReviewProtection(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -430,8 +463,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function deleteCommitSignatureProtection(array $params)
+    /** @return array{code: int} */
+    public function deleteCommitSignatureProtection(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -460,8 +495,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function removeStatusCheckProtection(array $params)
+    /** @return array{code: int} */
+    public function removeStatusCheckProtection(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -486,8 +523,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function deleteAccessRestrictions(array $params)
+    /** @return array{code: int} */
+    public function deleteAccessRestrictions(array $params): array
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -512,8 +551,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    public function removeStatusCheckContexts(array $params)
+    /** @return iterable<string> */
+    public function removeStatusCheckContexts(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -542,8 +583,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    public function removeAppAccessRestrictions(array $params)
+    /** @return iterable<Schema\Integration> */
+    public function removeAppAccessRestrictions(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -572,8 +615,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    public function removeTeamAccessRestrictions(array $params)
+    /** @return iterable<Schema\Team> */
+    public function removeTeamAccessRestrictions(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -602,8 +647,10 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    public function removeUserAccessRestrictions(array $params)
+    /** @return iterable<Schema\SimpleUser> */
+    public function removeUserAccessRestrictions(array $params): iterable
     {
+        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');

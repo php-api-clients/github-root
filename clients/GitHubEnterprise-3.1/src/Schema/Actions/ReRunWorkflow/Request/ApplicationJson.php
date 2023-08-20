@@ -6,7 +6,12 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Actions\ReRunWorkflow\Reques
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"type":["object","null"]}';
+    public const SCHEMA_JSON         = '{
+    "type": [
+        "object",
+        "null"
+    ]
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '[]';

@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -17,12 +18,14 @@ final class Nine
 {
     private array $router = [];
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Hydrators $hydrators, private readonly Browser $browser, private readonly AuthenticationInterface $authentication)
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks)
+    /** @return array{code: int}|iterable<string>|iterable<Schema\Integration>|iterable<Schema\Team>|iterable<Schema\SimpleUser> */
+    public function call(string $call, array $params, array $pathChunks): iterable
     {
+        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
@@ -33,6 +36,7 @@ final class Nine
                                     if ($pathChunks[7] === 'comments') {
                                         if ($pathChunks[8] === '{comment_number}') {
                                             if ($call === 'DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -43,6 +47,7 @@ final class Nine
                                     } elseif ($pathChunks[7] === 'reactions') {
                                         if ($pathChunks[8] === '{reaction_id}') {
                                             if ($call === 'DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Reactions::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Reactions::class] = new Router\Delete\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -65,6 +70,7 @@ final class Nine
                                     if ($pathChunks[7] === 'required_status_checks') {
                                         if ($pathChunks[8] === 'contexts') {
                                             if ($call === 'DELETE /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -75,6 +81,7 @@ final class Nine
                                     } elseif ($pathChunks[7] === 'restrictions') {
                                         if ($pathChunks[8] === 'apps') {
                                             if ($call === 'DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -83,6 +90,7 @@ final class Nine
                                             }
                                         } elseif ($pathChunks[8] === 'teams') {
                                             if ($call === 'DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -91,6 +99,7 @@ final class Nine
                                             }
                                         } elseif ($pathChunks[8] === 'users') {
                                             if ($call === 'DELETE /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -107,6 +116,7 @@ final class Nine
                                     if ($pathChunks[7] === 'reactions') {
                                         if ($pathChunks[8] === '{reaction_id}') {
                                             if ($call === 'DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions/{reaction_id}') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Reactions::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Reactions::class] = new Router\Delete\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -123,6 +133,7 @@ final class Nine
                                     if ($pathChunks[7] === 'reactions') {
                                         if ($pathChunks[8] === '{reaction_id}') {
                                             if ($call === 'DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}') {
+                                                $matched = true;
                                                 if (array_key_exists(Router\Delete\Reactions::class, $this->router) === false) {
                                                     $this->router[Router\Delete\Reactions::class] = new Router\Delete\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
@@ -139,6 +150,8 @@ final class Nine
             }
         }
 
-        throw new InvalidArgumentException();
+        if ($matched === false) {
+            throw new InvalidArgumentException();
+        }
     }
 }

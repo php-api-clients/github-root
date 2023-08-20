@@ -8,10 +8,150 @@ use EventSauce\ObjectHydrator\MapFrom;
 
 final readonly class ApplicationJson
 {
-    public const SCHEMA_JSON         = '{"required":["name"],"type":"object","properties":{"name":{"type":"string","description":"The name of the repository.","examples":["Team Environment"]},"description":{"type":"string","description":"A short description of the repository."},"homepage":{"type":"string","description":"A URL with more information about the repository."},"private":{"type":"boolean","description":"Whether the repository is private.","default":false},"has_issues":{"type":"boolean","description":"Whether issues are enabled.","default":true,"examples":[true]},"has_projects":{"type":"boolean","description":"Whether projects are enabled.","default":true,"examples":[true]},"has_wiki":{"type":"boolean","description":"Whether the wiki is enabled.","default":true,"examples":[true]},"team_id":{"type":"integer","description":"The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."},"auto_init":{"type":"boolean","description":"Whether the repository is initialized with a minimal README.","default":false},"gitignore_template":{"type":"string","description":"The desired language or platform to apply to the .gitignore.","examples":["Haskell"]},"license_template":{"type":"string","description":"The license keyword of the open source license for this repository.","examples":["mit"]},"allow_squash_merge":{"type":"boolean","description":"Whether to allow squash merges for pull requests.","default":true,"examples":[true]},"allow_merge_commit":{"type":"boolean","description":"Whether to allow merge commits for pull requests.","default":true,"examples":[true]},"allow_rebase_merge":{"type":"boolean","description":"Whether to allow rebase merges for pull requests.","default":true,"examples":[true]},"delete_branch_on_merge":{"type":"boolean","description":"Whether to delete head branches when pull requests are merged","default":false,"examples":[false]},"has_downloads":{"type":"boolean","description":"Whether downloads are enabled.","default":true,"examples":[true]},"is_template":{"type":"boolean","description":"Whether this repository acts as a template that can be used to generate new repositories.","default":false,"examples":[true]}}}';
+    public const SCHEMA_JSON         = '{
+    "required": [
+        "name"
+    ],
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the repository.",
+            "examples": [
+                "Team Environment"
+            ]
+        },
+        "description": {
+            "type": "string",
+            "description": "A short description of the repository."
+        },
+        "homepage": {
+            "type": "string",
+            "description": "A URL with more information about the repository."
+        },
+        "private": {
+            "type": "boolean",
+            "description": "Whether the repository is private.",
+            "default": false
+        },
+        "has_issues": {
+            "type": "boolean",
+            "description": "Whether issues are enabled.",
+            "default": true,
+            "examples": [
+                true
+            ]
+        },
+        "has_projects": {
+            "type": "boolean",
+            "description": "Whether projects are enabled.",
+            "default": true,
+            "examples": [
+                true
+            ]
+        },
+        "has_wiki": {
+            "type": "boolean",
+            "description": "Whether the wiki is enabled.",
+            "default": true,
+            "examples": [
+                true
+            ]
+        },
+        "team_id": {
+            "type": "integer",
+            "description": "The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization."
+        },
+        "auto_init": {
+            "type": "boolean",
+            "description": "Whether the repository is initialized with a minimal README.",
+            "default": false
+        },
+        "gitignore_template": {
+            "type": "string",
+            "description": "The desired language or platform to apply to the .gitignore.",
+            "examples": [
+                "Haskell"
+            ]
+        },
+        "license_template": {
+            "type": "string",
+            "description": "The license keyword of the open source license for this repository.",
+            "examples": [
+                "mit"
+            ]
+        },
+        "allow_squash_merge": {
+            "type": "boolean",
+            "description": "Whether to allow squash merges for pull requests.",
+            "default": true,
+            "examples": [
+                true
+            ]
+        },
+        "allow_merge_commit": {
+            "type": "boolean",
+            "description": "Whether to allow merge commits for pull requests.",
+            "default": true,
+            "examples": [
+                true
+            ]
+        },
+        "allow_rebase_merge": {
+            "type": "boolean",
+            "description": "Whether to allow rebase merges for pull requests.",
+            "default": true,
+            "examples": [
+                true
+            ]
+        },
+        "delete_branch_on_merge": {
+            "type": "boolean",
+            "description": "Whether to delete head branches when pull requests are merged",
+            "default": false,
+            "examples": [
+                false
+            ]
+        },
+        "has_downloads": {
+            "type": "boolean",
+            "description": "Whether downloads are enabled.",
+            "default": true,
+            "examples": [
+                true
+            ]
+        },
+        "is_template": {
+            "type": "boolean",
+            "description": "Whether this repository acts as a template that can be used to generate new repositories.",
+            "default": false,
+            "examples": [
+                true
+            ]
+        }
+    }
+}';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{"name":"Team Environment","description":"generated","homepage":"generated","private":false,"has_issues":true,"has_projects":true,"has_wiki":true,"team_id":7,"auto_init":false,"gitignore_template":"Haskell","license_template":"mit","allow_squash_merge":true,"allow_merge_commit":true,"allow_rebase_merge":true,"delete_branch_on_merge":false,"has_downloads":true,"is_template":true}';
+    public const SCHEMA_EXAMPLE_DATA = '{
+    "name": "Team Environment",
+    "description": "generated",
+    "homepage": "generated",
+    "private": false,
+    "has_issues": true,
+    "has_projects": true,
+    "has_wiki": true,
+    "team_id": 7,
+    "auto_init": false,
+    "gitignore_template": "Haskell",
+    "license_template": "mit",
+    "allow_squash_merge": true,
+    "allow_merge_commit": true,
+    "allow_rebase_merge": true,
+    "delete_branch_on_merge": false,
+    "has_downloads": true,
+    "is_template": true
+}';
 
     /**
      * name: The name of the repository.

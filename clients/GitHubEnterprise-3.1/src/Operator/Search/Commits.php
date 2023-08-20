@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Search;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Commits\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class Commits
 {
@@ -23,14 +27,18 @@ final readonly class Commits
     {
     }
 
-    /** @return PromiseInterface<(Ok|array)> **/
-    public function call(string $q, string $sort, string $order = 'desc', int $perPage = 30, int $page = 1): PromiseInterface
+    /** @return (Schema\Operations\Search\Commits\Response\ApplicationJson\Ok | array{code: int}) */
+    public function call(string $q, string $sort, string $order = 'desc', int $perPage = 30, int $page = 1): Ok|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Search\Commits($this->responseSchemaValidator, $this->hydrator, $q, $sort, $order, $perPage, $page);
         $request   = $operation->createRequest();
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Ok|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Ok|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }

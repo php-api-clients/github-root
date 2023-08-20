@@ -6,6 +6,7 @@ namespace ApiClients\Tests\Client\GitHubEnterprise\Operation\Repos;
 
 use WyriHaximus\AsyncTestUtilities\AsyncTestCase;
 
+/** @covers \ApiClients\Client\GitHubEnterprise\Operation\Repos\ListPagesBuilds */
 final class ListPagesBuildsTest extends AsyncTestCase
 {
 }

@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\OauthAuthorizations;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
-use React\Promise\PromiseInterface;
+use Rx\Observable;
+
+use function React\Async\await;
+use function WyriHaximus\React\awaitObservable;
 
 final readonly class ListAuthorizations
 {
@@ -22,14 +26,18 @@ final readonly class ListAuthorizations
     {
     }
 
-    /** @return PromiseInterface<array> **/
-    public function call(string $clientId, int $perPage = 30, int $page = 1): PromiseInterface
+    /** @return (iterable<Schema\Authorization> | array{code: int}) */
+    public function call(string $clientId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\ListAuthorizations($this->responseSchemaValidator, $this->hydrator, $clientId, $perPage, $page);
         $request   = $operation->createRequest();
-
-        return $this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
             return $operation->createResponse($response);
-        });
+        }));
+        if ($result instanceof Observable) {
+            $result = awaitObservable($result);
+        }
+
+        return $result;
     }
 }
