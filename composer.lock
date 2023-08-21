@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/github.git",
-                "reference": "8dcd67f583cb03691269bd34745545284602018a"
+                "reference": "624dc61bed64cf9f7d3a3e538ad25fc9c705cca8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/github/zipball/8dcd67f583cb03691269bd34745545284602018a",
-                "reference": "8dcd67f583cb03691269bd34745545284602018a",
+                "url": "https://api.github.com/repos/php-api-clients/github/zipball/624dc61bed64cf9f7d3a3e538ad25fc9c705cca8",
+                "reference": "624dc61bed64cf9f7d3a3e538ad25fc9c705cca8",
                 "shasum": ""
             },
             "require": {
@@ -261,7 +261,7 @@
                 "issues": "https://github.com/php-api-clients/github/issues",
                 "source": "https://github.com/php-api-clients/github/tree/v0.2.x"
             },
-            "time": "2023-08-17T13:00:45+00:00"
+            "time": "2023-08-20T00:07:17+00:00"
         },
         {
             "name": "api-clients/openapi-client-generator",
@@ -269,12 +269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "1a7acf40cf04e92cb05098129f668443f9d22a39"
+                "reference": "0af5f66929b0b658ef4e9fcd89dbcb487d773add"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/1a7acf40cf04e92cb05098129f668443f9d22a39",
-                "reference": "1a7acf40cf04e92cb05098129f668443f9d22a39",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/0af5f66929b0b658ef4e9fcd89dbcb487d773add",
+                "reference": "0af5f66929b0b658ef4e9fcd89dbcb487d773add",
                 "shasum": ""
             },
             "require": {
@@ -346,7 +346,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-19T23:13:54+00:00"
+            "time": "2023-08-21T17:27:32+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -11768,16 +11768,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "5.14.1",
+            "version": "5.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "b9d355e0829c397b9b3b47d0c0ed042a8a70284d"
+                "reference": "5c774aca4746caf3d239d9c8cadb9f882ca29352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/b9d355e0829c397b9b3b47d0c0ed042a8a70284d",
-                "reference": "b9d355e0829c397b9b3b47d0c0ed042a8a70284d",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/5c774aca4746caf3d239d9c8cadb9f882ca29352",
+                "reference": "5c774aca4746caf3d239d9c8cadb9f882ca29352",
                 "shasum": ""
             },
             "require": {
@@ -11804,6 +11804,9 @@
                 "spatie/array-to-xml": "^2.17.0 || ^3.0",
                 "symfony/console": "^4.1.6 || ^5.0 || ^6.0",
                 "symfony/filesystem": "^5.4 || ^6.0"
+            },
+            "conflict": {
+                "nikic/php-parser": "4.17.0"
             },
             "provide": {
                 "psalm/psalm": "self.version"
@@ -11868,9 +11871,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vimeo/psalm/issues",
-                "source": "https://github.com/vimeo/psalm/tree/5.14.1"
+                "source": "https://github.com/vimeo/psalm/tree/5.15.0"
             },
-            "time": "2023-08-01T05:16:55+00:00"
+            "time": "2023-08-20T23:07:30+00:00"
         },
         {
             "name": "webmozart/assert",
