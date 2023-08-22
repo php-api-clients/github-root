@@ -210,7 +210,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['milestone_number']);
     }
 
-    /** @return iterable<Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function removeLabel(array $params): iterable
     {
         $matched   = true;
