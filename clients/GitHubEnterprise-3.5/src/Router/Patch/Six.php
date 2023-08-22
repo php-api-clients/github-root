@@ -54,7 +54,7 @@ final class Six
                                         $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->updateLdapMappingForTeam($params);
+                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdateLdapMappingForTeam($params);
                                 }
                             }
                         }
@@ -67,7 +67,7 @@ final class Six
                                         $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->updateLdapMappingForUser($params);
+                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdateLdapMappingForUser($params);
                                 }
                             }
                         }
@@ -84,7 +84,7 @@ final class Six
                                         $this->router[Router\Patch\Actions::class] = new Router\Patch\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Actions::class]->setActionsCacheUsagePolicyForEnterprise($params);
+                                    return $this->router[Router\Patch\Actions::class]->SetActionsCacheUsagePolicyForEnterprise($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'runner-groups') {
@@ -95,7 +95,7 @@ final class Six
                                         $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->updateSelfHostedRunnerGroupForEnterprise($params);
+                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdateSelfHostedRunnerGroupForEnterprise($params);
                                 }
                             }
                         }
@@ -112,7 +112,7 @@ final class Six
                                         $this->router[Router\Patch\Actions::class] = new Router\Patch\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Actions::class]->updateSelfHostedRunnerGroupForOrg($params);
+                                    return $this->router[Router\Patch\Actions::class]->UpdateSelfHostedRunnerGroupForOrg($params);
                                 }
                             }
                         }
@@ -125,7 +125,7 @@ final class Six
                                         $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Orgs::class]->updateWebhookConfigForOrg($params);
+                                    return $this->router[Router\Patch\Orgs::class]->UpdateWebhookConfigForOrg($params);
                                 }
                             }
                         }
@@ -142,7 +142,7 @@ final class Six
                                         $this->router[Router\Patch\Checks::class] = new Router\Patch\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Checks::class]->update($params);
+                                    return $this->router[Router\Patch\Checks::class]->Update($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'check-suites') {
@@ -153,7 +153,7 @@ final class Six
                                         $this->router[Router\Patch\Checks::class] = new Router\Patch\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Checks::class]->setSuitesPreferences($params);
+                                    return $this->router[Router\Patch\Checks::class]->SetSuitesPreferences($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'comments') {
@@ -164,7 +164,7 @@ final class Six
                                         $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Repos::class]->updateCommitComment($params);
+                                    return $this->router[Router\Patch\Repos::class]->UpdateCommitComment($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'hooks') {
@@ -175,7 +175,7 @@ final class Six
                                         $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Repos::class]->updateWebhook($params);
+                                    return $this->router[Router\Patch\Repos::class]->UpdateWebhook($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'invitations') {
@@ -186,7 +186,7 @@ final class Six
                                         $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Repos::class]->updateInvitation($params);
+                                    return $this->router[Router\Patch\Repos::class]->UpdateInvitation($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'issues') {
@@ -197,7 +197,7 @@ final class Six
                                         $this->router[Router\Patch\Issues::class] = new Router\Patch\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Issues::class]->update($params);
+                                    return $this->router[Router\Patch\Issues::class]->Update($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'labels') {
@@ -208,7 +208,7 @@ final class Six
                                         $this->router[Router\Patch\Issues::class] = new Router\Patch\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Issues::class]->updateLabel($params);
+                                    return $this->router[Router\Patch\Issues::class]->UpdateLabel($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'milestones') {
@@ -219,7 +219,7 @@ final class Six
                                         $this->router[Router\Patch\Issues::class] = new Router\Patch\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Issues::class]->updateMilestone($params);
+                                    return $this->router[Router\Patch\Issues::class]->UpdateMilestone($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'pre-receive-hooks') {
@@ -230,7 +230,7 @@ final class Six
                                         $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->updatePreReceiveHookEnforcementForRepo($params);
+                                    return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdatePreReceiveHookEnforcementForRepo($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'pulls') {
@@ -241,7 +241,7 @@ final class Six
                                         $this->router[Router\Patch\Pulls::class] = new Router\Patch\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Pulls::class]->update($params);
+                                    return $this->router[Router\Patch\Pulls::class]->Update($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'releases') {
@@ -252,7 +252,7 @@ final class Six
                                         $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Patch\Repos::class]->updateRelease($params);
+                                    return $this->router[Router\Patch\Repos::class]->UpdateRelease($params);
                                 }
                             }
                         }

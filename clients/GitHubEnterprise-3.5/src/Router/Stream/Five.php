@@ -32,11 +32,11 @@ final class Five
                         if ($pathChunks[4] === 'downloads') {
                             if ($call === 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads') {
                                 $matched = true;
-                                if (array_key_exists(Router\Post\EnterpriseAdmin::class, $this->router) === false) {
-                                    $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
+                                if (array_key_exists(Router\Stream\EnterpriseAdmin::class, $this->router) === false) {
+                                    $this->router[Router\Stream\EnterpriseAdmin::class] = new Router\Stream\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\EnterpriseAdmin::class]->startPreReceiveEnvironmentDownloadStreaming($params);
+                                return $this->router[Router\Stream\EnterpriseAdmin::class]->StartPreReceiveEnvironmentDownloadStreaming($params);
                             }
                         }
                     }

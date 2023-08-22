@@ -32,7 +32,7 @@ final class Apps
     {
     }
 
-    /** @return (iterable<Schema\IntegrationInstallationRequest> | array{code: int}) */
+    /** @return (Observable<Schema\IntegrationInstallationRequest> | array{code: int}) */
     public function listInstallationRequestsForAuthenticatedApp(array $params): iterable
     {
         $matched   = true;
@@ -58,7 +58,7 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallations(array $params): iterable
     {
         $matched   = true;
@@ -181,7 +181,7 @@ final class Apps
         return $operator->call();
     }
 
-    /** @return iterable<Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $matched   = true;

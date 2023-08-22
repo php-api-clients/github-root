@@ -36,7 +36,7 @@ final class Seven
     {
     }
 
-    /** @return |(Schema\DeploymentBranchPolicy|array{code: int})|array{code: int}|(iterable<Schema\Label>|Schema\BasicError)|(Schema\PullRequestSimple|(Schema\ReleaseAsset */
+    /** @return |(Schema\DeploymentBranchPolicy|array{code: int})|array{code: int}|(Observable<Schema\Label>|Schema\BasicError)|(Schema\PullRequestSimple|(Schema\ReleaseAsset */
     public function call(string $call, array $params, array $pathChunks): Ok|AuthenticationToken|BranchWithProtection|EmptyObject|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|Issue|IssueComment|iterable|BasicError|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
     {
         $matched = false;
@@ -53,7 +53,7 @@ final class Seven
                                             $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\EnterpriseAdmin::class]->addCustomLabelsToSelfHostedRunnerForEnterprise($params);
+                                        return $this->router[Router\Post\EnterpriseAdmin::class]->AddCustomLabelsToSelfHostedRunnerForEnterprise($params);
                                     }
                                 }
                             }
@@ -72,7 +72,7 @@ final class Seven
                                             $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Actions::class]->addCustomLabelsToSelfHostedRunnerForOrg($params);
+                                        return $this->router[Router\Post\Actions::class]->AddCustomLabelsToSelfHostedRunnerForOrg($params);
                                     }
                                 }
                             }
@@ -91,7 +91,7 @@ final class Seven
                                             $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Actions::class]->createRegistrationTokenForRepo($params);
+                                        return $this->router[Router\Post\Actions::class]->CreateRegistrationTokenForRepo($params);
                                     }
                                 } elseif ($pathChunks[6] === 'remove-token') {
                                     if ($call === 'POST /repos/{owner}/{repo}/actions/runners/remove-token') {
@@ -100,7 +100,7 @@ final class Seven
                                             $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Actions::class]->createRemoveTokenForRepo($params);
+                                        return $this->router[Router\Post\Actions::class]->CreateRemoveTokenForRepo($params);
                                     }
                                 }
                             }
@@ -113,7 +113,7 @@ final class Seven
                                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Repos::class]->renameBranch($params);
+                                        return $this->router[Router\Post\Repos::class]->RenameBranch($params);
                                     }
                                 }
                             }
@@ -126,7 +126,7 @@ final class Seven
                                             $this->router[Router\Post\Checks::class] = new Router\Post\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Checks::class]->rerequestRun($params);
+                                        return $this->router[Router\Post\Checks::class]->RerequestRun($params);
                                     }
                                 }
                             }
@@ -139,7 +139,7 @@ final class Seven
                                             $this->router[Router\Post\Checks::class] = new Router\Post\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Checks::class]->rerequestSuite($params);
+                                        return $this->router[Router\Post\Checks::class]->RerequestSuite($params);
                                     }
                                 }
                             }
@@ -152,7 +152,7 @@ final class Seven
                                             $this->router[Router\Post\Reactions::class] = new Router\Post\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Reactions::class]->createForCommitComment($params);
+                                        return $this->router[Router\Post\Reactions::class]->CreateForCommitComment($params);
                                     }
                                 }
                             }
@@ -165,7 +165,7 @@ final class Seven
                                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Repos::class]->createCommitComment($params);
+                                        return $this->router[Router\Post\Repos::class]->CreateCommitComment($params);
                                     }
                                 }
                             }
@@ -178,7 +178,7 @@ final class Seven
                                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Repos::class]->createDeploymentStatus($params);
+                                        return $this->router[Router\Post\Repos::class]->CreateDeploymentStatus($params);
                                     }
                                 }
                             }
@@ -191,7 +191,7 @@ final class Seven
                                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Repos::class]->createDeploymentBranchPolicy($params);
+                                        return $this->router[Router\Post\Repos::class]->CreateDeploymentBranchPolicy($params);
                                     }
                                 }
                             }
@@ -204,7 +204,7 @@ final class Seven
                                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Repos::class]->pingWebhook($params);
+                                        return $this->router[Router\Post\Repos::class]->PingWebhook($params);
                                     }
                                 } elseif ($pathChunks[6] === 'tests') {
                                     if ($call === 'POST /repos/{owner}/{repo}/hooks/{hook_id}/tests') {
@@ -213,7 +213,7 @@ final class Seven
                                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Repos::class]->testPushWebhook($params);
+                                        return $this->router[Router\Post\Repos::class]->TestPushWebhook($params);
                                     }
                                 }
                             }
@@ -226,7 +226,7 @@ final class Seven
                                             $this->router[Router\Post\Issues::class] = new Router\Post\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Issues::class]->addAssignees($params);
+                                        return $this->router[Router\Post\Issues::class]->AddAssignees($params);
                                     }
                                 } elseif ($pathChunks[6] === 'comments') {
                                     if ($call === 'POST /repos/{owner}/{repo}/issues/{issue_number}/comments') {
@@ -235,7 +235,7 @@ final class Seven
                                             $this->router[Router\Post\Issues::class] = new Router\Post\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Issues::class]->createComment($params);
+                                        return $this->router[Router\Post\Issues::class]->CreateComment($params);
                                     }
                                 } elseif ($pathChunks[6] === 'labels') {
                                     if ($call === 'POST /repos/{owner}/{repo}/issues/{issue_number}/labels') {
@@ -244,7 +244,7 @@ final class Seven
                                             $this->router[Router\Post\Issues::class] = new Router\Post\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Issues::class]->addLabels($params);
+                                        return $this->router[Router\Post\Issues::class]->AddLabels($params);
                                     }
                                 } elseif ($pathChunks[6] === 'reactions') {
                                     if ($call === 'POST /repos/{owner}/{repo}/issues/{issue_number}/reactions') {
@@ -253,7 +253,7 @@ final class Seven
                                             $this->router[Router\Post\Reactions::class] = new Router\Post\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Reactions::class]->createForIssue($params);
+                                        return $this->router[Router\Post\Reactions::class]->CreateForIssue($params);
                                     }
                                 }
                             }
@@ -266,7 +266,7 @@ final class Seven
                                             $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Pulls::class]->createReviewComment($params);
+                                        return $this->router[Router\Post\Pulls::class]->CreateReviewComment($params);
                                     }
                                 } elseif ($pathChunks[6] === 'requested_reviewers') {
                                     if ($call === 'POST /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers') {
@@ -275,7 +275,7 @@ final class Seven
                                             $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Pulls::class]->requestReviewers($params);
+                                        return $this->router[Router\Post\Pulls::class]->RequestReviewers($params);
                                     }
                                 } elseif ($pathChunks[6] === 'reviews') {
                                     if ($call === 'POST /repos/{owner}/{repo}/pulls/{pull_number}/reviews') {
@@ -284,7 +284,7 @@ final class Seven
                                             $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Pulls::class]->createReview($params);
+                                        return $this->router[Router\Post\Pulls::class]->CreateReview($params);
                                     }
                                 }
                             }
@@ -297,7 +297,7 @@ final class Seven
                                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Repos::class]->uploadReleaseAsset($params);
+                                        return $this->router[Router\Post\Repos::class]->UploadReleaseAsset($params);
                                     }
                                 } elseif ($pathChunks[6] === 'reactions') {
                                     if ($call === 'POST /repos/{owner}/{repo}/releases/{release_id}/reactions') {
@@ -306,7 +306,7 @@ final class Seven
                                             $this->router[Router\Post\Reactions::class] = new Router\Post\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Post\Reactions::class]->createForRelease($params);
+                                        return $this->router[Router\Post\Reactions::class]->CreateForRelease($params);
                                     }
                                 }
                             }
