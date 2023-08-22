@@ -34,7 +34,7 @@ final class Eight
     {
     }
 
-    /** @return |iterable<Schema\TeamDiscussionComment>|iterable<Schema\Reaction>|(Schema\TeamRepository|array{code: int})|array{code: int, location: string}|iterable<Schema\EnvironmentApprovals>|iterable<Schema\PendingDeployment>|iterable<Schema\CodeScanningAlertInstance>|array{code: int}|(iterable<Schema\SecretScanningLocation> */
+    /** @return |Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|(Schema\TeamRepository|array{code: int})|array{code: int, location: string}|Observable<Schema\EnvironmentApprovals>|Observable<Schema\PendingDeployment>|Observable<Schema\CodeScanningAlertInstance>|array{code: int}|(Observable<Schema\SecretScanningLocation> */
     public function call(string $call, array $params, array $pathChunks): PackageVersion|iterable|TeamRepository|OidcCustomSubRepo|Ok|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|ProtectedBranchAdminEnforced|ProtectedBranchPullRequestReview|StatusCheckPolicy|BranchRestrictionPolicy|DeploymentStatus|DeploymentBranchPolicy|HookDelivery|PullRequestReview
     {
         $matched = false;
@@ -52,7 +52,7 @@ final class Eight
                                                 $this->router[Router\Get\Packages::class] = new Router\Get\Packages($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Packages::class]->getPackageVersionForOrganization($params);
+                                            return $this->router[Router\Get\Packages::class]->GetPackageVersionForOrganization($params);
                                         }
                                     }
                                 }
@@ -69,7 +69,7 @@ final class Eight
                                                 $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Teams::class]->listDiscussionCommentsInOrg($params);
+                                            return $this->router[Router\Get\Teams::class]->ListDiscussionCommentsInOrg($params);
                                         }
                                     } elseif ($pathChunks[7] === 'reactions') {
                                         if ($call === 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions') {
@@ -78,7 +78,7 @@ final class Eight
                                                 $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Reactions::class]->listForTeamDiscussionInOrg($params);
+                                            return $this->router[Router\Get\Reactions::class]->ListForTeamDiscussionInOrg($params);
                                         }
                                     }
                                 }
@@ -91,7 +91,7 @@ final class Eight
                                                 $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Teams::class]->checkPermissionsForRepoInOrg($params);
+                                            return $this->router[Router\Get\Teams::class]->CheckPermissionsForRepoInOrg($params);
                                         }
                                     }
                                 }
@@ -112,7 +112,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->downloadArtifact($params);
+                                            return $this->router[Router\Get\Actions::class]->DownloadArtifact($params);
                                         }
                                     }
                                 }
@@ -125,7 +125,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->downloadJobLogsForWorkflowRun($params);
+                                            return $this->router[Router\Get\Actions::class]->DownloadJobLogsForWorkflowRun($params);
                                         }
                                     }
                                 }
@@ -138,7 +138,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->getCustomOidcSubClaimForRepo($params);
+                                            return $this->router[Router\Get\Actions::class]->GetCustomOidcSubClaimForRepo($params);
                                         }
                                     }
                                 }
@@ -151,7 +151,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->listLabelsForSelfHostedRunnerForRepo($params);
+                                            return $this->router[Router\Get\Actions::class]->ListLabelsForSelfHostedRunnerForRepo($params);
                                         }
                                     }
                                 }
@@ -164,7 +164,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->getReviewsForRun($params);
+                                            return $this->router[Router\Get\Actions::class]->GetReviewsForRun($params);
                                         }
                                     } elseif ($pathChunks[7] === 'artifacts') {
                                         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts') {
@@ -173,7 +173,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->listWorkflowRunArtifacts($params);
+                                            return $this->router[Router\Get\Actions::class]->ListWorkflowRunArtifacts($params);
                                         }
                                     } elseif ($pathChunks[7] === 'jobs') {
                                         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs') {
@@ -182,7 +182,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->listJobsForWorkflowRun($params);
+                                            return $this->router[Router\Get\Actions::class]->ListJobsForWorkflowRun($params);
                                         }
                                     } elseif ($pathChunks[7] === 'logs') {
                                         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs') {
@@ -191,7 +191,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->downloadWorkflowRunLogs($params);
+                                            return $this->router[Router\Get\Actions::class]->DownloadWorkflowRunLogs($params);
                                         }
                                     } elseif ($pathChunks[7] === 'pending_deployments') {
                                         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments') {
@@ -200,7 +200,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->getPendingDeploymentsForRun($params);
+                                            return $this->router[Router\Get\Actions::class]->GetPendingDeploymentsForRun($params);
                                         }
                                     }
                                 }
@@ -213,7 +213,7 @@ final class Eight
                                                 $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Actions::class]->listWorkflowRuns($params);
+                                            return $this->router[Router\Get\Actions::class]->ListWorkflowRuns($params);
                                         }
                                     }
                                 }
@@ -228,7 +228,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getAdminBranchProtection($params);
+                                            return $this->router[Router\Get\Repos::class]->GetAdminBranchProtection($params);
                                         }
                                     } elseif ($pathChunks[7] === 'required_pull_request_reviews') {
                                         if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}/protection/required_pull_request_reviews') {
@@ -237,7 +237,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getPullRequestReviewProtection($params);
+                                            return $this->router[Router\Get\Repos::class]->GetPullRequestReviewProtection($params);
                                         }
                                     } elseif ($pathChunks[7] === 'required_signatures') {
                                         if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures') {
@@ -246,7 +246,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getCommitSignatureProtection($params);
+                                            return $this->router[Router\Get\Repos::class]->GetCommitSignatureProtection($params);
                                         }
                                     } elseif ($pathChunks[7] === 'required_status_checks') {
                                         if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks') {
@@ -255,7 +255,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getStatusChecksProtection($params);
+                                            return $this->router[Router\Get\Repos::class]->GetStatusChecksProtection($params);
                                         }
                                     } elseif ($pathChunks[7] === 'restrictions') {
                                         if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictions') {
@@ -264,7 +264,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getAccessRestrictions($params);
+                                            return $this->router[Router\Get\Repos::class]->GetAccessRestrictions($params);
                                         }
                                     }
                                 }
@@ -279,7 +279,7 @@ final class Eight
                                                 $this->router[Router\Get\CodeScanning::class] = new Router\Get\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\CodeScanning::class]->listAlertInstances($params);
+                                            return $this->router[Router\Get\CodeScanning::class]->ListAlertInstances($params);
                                         }
                                     }
                                 }
@@ -294,7 +294,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getDeploymentStatus($params);
+                                            return $this->router[Router\Get\Repos::class]->GetDeploymentStatus($params);
                                         }
                                     }
                                 }
@@ -309,7 +309,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getDeploymentBranchPolicy($params);
+                                            return $this->router[Router\Get\Repos::class]->GetDeploymentBranchPolicy($params);
                                         }
                                     }
                                 }
@@ -324,7 +324,7 @@ final class Eight
                                                 $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Repos::class]->getWebhookDelivery($params);
+                                            return $this->router[Router\Get\Repos::class]->GetWebhookDelivery($params);
                                         }
                                     }
                                 }
@@ -339,7 +339,7 @@ final class Eight
                                                 $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Reactions::class]->listForIssueComment($params);
+                                            return $this->router[Router\Get\Reactions::class]->ListForIssueComment($params);
                                         }
                                     }
                                 }
@@ -352,7 +352,7 @@ final class Eight
                                                 $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Issues::class]->checkUserCanBeAssignedToIssue($params);
+                                            return $this->router[Router\Get\Issues::class]->CheckUserCanBeAssignedToIssue($params);
                                         }
                                     }
                                 }
@@ -367,7 +367,7 @@ final class Eight
                                                 $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Reactions::class]->listForPullRequestReviewComment($params);
+                                            return $this->router[Router\Get\Reactions::class]->ListForPullRequestReviewComment($params);
                                         }
                                     }
                                 }
@@ -380,7 +380,7 @@ final class Eight
                                                 $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Pulls::class]->getReview($params);
+                                            return $this->router[Router\Get\Pulls::class]->GetReview($params);
                                         }
                                     }
                                 }
@@ -395,7 +395,7 @@ final class Eight
                                                 $this->router[Router\Get\SecretScanning::class] = new Router\Get\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\SecretScanning::class]->listLocationsForAlert($params);
+                                            return $this->router[Router\Get\SecretScanning::class]->ListLocationsForAlert($params);
                                         }
                                     }
                                 }
@@ -416,7 +416,7 @@ final class Eight
                                                 $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Reactions::class]->listForTeamDiscussionCommentLegacy($params);
+                                            return $this->router[Router\Get\Reactions::class]->ListForTeamDiscussionCommentLegacy($params);
                                         }
                                     }
                                 }
@@ -437,7 +437,7 @@ final class Eight
                                                 $this->router[Router\Get\Packages::class] = new Router\Get\Packages($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Get\Packages::class]->getPackageVersionForUser($params);
+                                            return $this->router[Router\Get\Packages::class]->GetPackageVersionForUser($params);
                                         }
                                     }
                                 }

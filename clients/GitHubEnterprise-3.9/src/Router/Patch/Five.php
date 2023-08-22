@@ -46,7 +46,7 @@ final class Five
                                     $this->router[Router\Patch\Gists::class] = new Router\Patch\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\Gists::class]->updateComment($params);
+                                return $this->router[Router\Patch\Gists::class]->UpdateComment($params);
                             }
                         }
                     }
@@ -61,7 +61,7 @@ final class Five
                                     $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\Orgs::class]->updateCustomRepoRole($params);
+                                return $this->router[Router\Patch\Orgs::class]->UpdateCustomRepoRole($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'hooks') {
@@ -72,7 +72,7 @@ final class Five
                                     $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\Orgs::class]->updateWebhook($params);
+                                return $this->router[Router\Patch\Orgs::class]->UpdateWebhook($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'pre-receive-hooks') {
@@ -83,7 +83,7 @@ final class Five
                                     $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\EnterpriseAdmin::class]->updatePreReceiveHookEnforcementForOrg($params);
+                                return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdatePreReceiveHookEnforcementForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'teams') {
@@ -94,7 +94,7 @@ final class Five
                                     $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\Teams::class]->updateInOrg($params);
+                                return $this->router[Router\Patch\Teams::class]->UpdateInOrg($params);
                             }
                         }
                     }
@@ -109,7 +109,7 @@ final class Five
                                     $this->router[Router\Patch\Projects::class] = new Router\Patch\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\Projects::class]->updateCard($params);
+                                return $this->router[Router\Patch\Projects::class]->UpdateCard($params);
                             }
                         }
                     }
@@ -124,7 +124,7 @@ final class Five
                                     $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\EnterpriseAdmin::class]->updateAttributeForEnterpriseGroup($params);
+                                return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdateAttributeForEnterpriseGroup($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'Users') {
@@ -135,7 +135,7 @@ final class Five
                                     $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\EnterpriseAdmin::class]->updateAttributeForEnterpriseUser($params);
+                                return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdateAttributeForEnterpriseUser($params);
                             }
                         }
                     }
@@ -150,7 +150,7 @@ final class Five
                                     $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\Teams::class]->updateDiscussionLegacy($params);
+                                return $this->router[Router\Patch\Teams::class]->UpdateDiscussionLegacy($params);
                             }
                         }
                     }
@@ -165,7 +165,7 @@ final class Five
                                     $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Patch\Orgs::class]->updateMembershipForAuthenticatedUser($params);
+                                return $this->router[Router\Patch\Orgs::class]->UpdateMembershipForAuthenticatedUser($params);
                             }
                         }
                     }
