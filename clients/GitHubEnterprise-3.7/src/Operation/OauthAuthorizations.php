@@ -31,6 +31,15 @@ final class OauthAuthorizations
         return $this->operator[Operator\OauthAuthorizations\ListGrants::class]->call($clientId, $perPage, $page);
     }
 
+    public function listGrantsListing(string $clientId, int $perPage, int $page): Schema\ApplicationGrant
+    {
+        if (array_key_exists(Operator\OauthAuthorizations\ListGrantsListing::class, $this->operator) === false) {
+            $this->operator[Operator\OauthAuthorizations\ListGrantsListing::class] = new Operator\OauthAuthorizations\ListGrantsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants());
+        }
+
+        return $this->operator[Operator\OauthAuthorizations\ListGrantsListing::class]->call($clientId, $perPage, $page);
+    }
+
     public function getGrant(int $grantId): Schema\ApplicationGrant
     {
         if (array_key_exists(Operator\OauthAuthorizations\GetGrant::class, $this->operator) === false) {
@@ -56,6 +65,15 @@ final class OauthAuthorizations
         }
 
         return $this->operator[Operator\OauthAuthorizations\ListAuthorizations::class]->call($clientId, $perPage, $page);
+    }
+
+    public function listAuthorizationsListing(string $clientId, int $perPage, int $page): Schema\Authorization
+    {
+        if (array_key_exists(Operator\OauthAuthorizations\ListAuthorizationsListing::class, $this->operator) === false) {
+            $this->operator[Operator\OauthAuthorizations\ListAuthorizationsListing::class] = new Operator\OauthAuthorizations\ListAuthorizationsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations());
+        }
+
+        return $this->operator[Operator\OauthAuthorizations\ListAuthorizationsListing::class]->call($clientId, $perPage, $page);
     }
 
     public function createAuthorization(array $params): Schema\Authorization
