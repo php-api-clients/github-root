@@ -29,13 +29,13 @@ final class ListOrgAccessToSelfHostedRunnerGroupInEnterpriseTest extends AsyncTe
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/enterprises/generated/actions/runner-groups/15/organizations?per_page=8&page=4', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/enterprises/generated/actions/runner-groups/15/organizations?per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['enterprise']      = 'generated';
             $data['runner_group_id'] = 15;
             $data['per_page']        = 8;
-            $data['page']            = 4;
+            $data['page']            = 1;
 
             return $data;
         })([]));
@@ -50,8 +50,8 @@ final class ListOrgAccessToSelfHostedRunnerGroupInEnterpriseTest extends AsyncTe
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/enterprises/generated/actions/runner-groups/15/organizations?per_page=8&page=4', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/enterprises/generated/actions/runner-groups/15/organizations?per_page=8&page=1', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listOrgAccessToSelfHostedRunnerGroupInEnterprise('generated', 15, 8, 4);
+        $result = $client->operations()->enterpriseAdmin()->listOrgAccessToSelfHostedRunnerGroupInEnterprise('generated', 15, 8, 1);
     }
 }

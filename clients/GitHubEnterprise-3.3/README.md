@@ -61,14 +61,36 @@ Using the `call` method:
 ```php
 $client->call('GET /admin/hooks', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listGlobalWebhooks(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#list-global-webhooks).
+
+
+### enterprise-admin/list-global-webhooks
+
+List global webhooks
+
+Using the `call` method:
+```php
+$client->call('LIST /admin/hooks', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listGlobalWebhooksListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -181,7 +203,7 @@ Using the `call` method:
 $client->call('GET /admin/keys', [
         'since' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
         'direction' => 'generated',
         'sort' => 'generated',
 ]);
@@ -191,7 +213,35 @@ Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listPublicKeys(        since: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+        direction: 'generated',
+        sort: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#list-public-keys).
+
+
+### enterprise-admin/list-public-keys
+
+List public keys
+
+Using the `call` method:
+```php
+$client->call('LIST /admin/keys', [
+        'since' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+        'direction' => 'generated',
+        'sort' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPublicKeysListing(        since: 'generated',
+        per_page: 8,
+        page: 1,
         direction: 'generated',
         sort: 'generated',
 );
@@ -345,7 +395,7 @@ Using the `call` method:
 ```php
 $client->call('GET /admin/pre-receive-environments', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
         'direction' => 'generated',
         'sort' => 'generated',
 ]);
@@ -354,7 +404,33 @@ $client->call('GET /admin/pre-receive-environments', [
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listPreReceiveEnvironments(        per_page: 8,
-        page: 4,
+        page: 1,
+        direction: 'generated',
+        sort: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#list-pre-receive-environments).
+
+
+### enterprise-admin/list-pre-receive-environments
+
+List pre-receive environments
+
+Using the `call` method:
+```php
+$client->call('LIST /admin/pre-receive-environments', [
+        'per_page' => 8,
+        'page' => 1,
+        'direction' => 'generated',
+        'sort' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPreReceiveEnvironmentsListing(        per_page: 8,
+        page: 1,
         direction: 'generated',
         sort: 'generated',
 );
@@ -528,7 +604,7 @@ Using the `call` method:
 ```php
 $client->call('GET /admin/pre-receive-hooks', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
         'direction' => 'generated',
         'sort' => 'generated',
 ]);
@@ -537,7 +613,33 @@ $client->call('GET /admin/pre-receive-hooks', [
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listPreReceiveHooks(        per_page: 8,
-        page: 4,
+        page: 1,
+        direction: 'generated',
+        sort: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#list-pre-receive-hooks).
+
+
+### enterprise-admin/list-pre-receive-hooks
+
+List pre-receive hooks
+
+Using the `call` method:
+```php
+$client->call('LIST /admin/pre-receive-hooks', [
+        'per_page' => 8,
+        'page' => 1,
+        'direction' => 'generated',
+        'sort' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPreReceiveHooksListing(        per_page: 8,
+        page: 1,
         direction: 'generated',
         sort: 'generated',
 );
@@ -631,14 +733,36 @@ Using the `call` method:
 ```php
 $client->call('GET /admin/tokens', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listPersonalAccessTokens(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#list-personal-access-tokens).
+
+
+### enterprise-admin/list-personal-access-tokens
+
+List personal access tokens
+
+Using the `call` method:
+```php
+$client->call('LIST /admin/tokens', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPersonalAccessTokensListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -907,7 +1031,7 @@ $client->call('GET /app/installations', [
         'since' => '1970-01-01T00:00:00+00:00',
         'outdated' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -916,7 +1040,33 @@ Operations method:
 $client->operations()->apps()->listInstallations(        since: '1970-01-01T00:00:00+00:00',
         outdated: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/apps#list-installations-for-the-authenticated-app).
+
+
+### apps/list-installations
+
+List installations for the authenticated app
+
+Using the `call` method:
+```php
+$client->call('LIST /app/installations', [
+        'since' => '1970-01-01T00:00:00+00:00',
+        'outdated' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->apps()->listInstallationsListing(        since: '1970-01-01T00:00:00+00:00',
+        outdated: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -1032,7 +1182,7 @@ Using the `call` method:
 $client->call('GET /applications/grants', [
         'client_id' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -1040,7 +1190,31 @@ Operations method:
 ```php
 $client->operations()->oauthAuthorizations()->listGrants(        client_id: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/oauth-authorizations#list-your-grants).
+
+
+### oauth-authorizations/list-grants
+
+List your grants
+
+Using the `call` method:
+```php
+$client->call('LIST /applications/grants', [
+        'client_id' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->oauthAuthorizations()->listGrantsListing(        client_id: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -1304,7 +1478,7 @@ Using the `call` method:
 $client->call('GET /authorizations', [
         'client_id' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -1312,7 +1486,31 @@ Operations method:
 ```php
 $client->operations()->oauthAuthorizations()->listAuthorizations(        client_id: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/oauth-authorizations#list-your-authorizations).
+
+
+### oauth-authorizations/list-authorizations
+
+List your authorizations
+
+Using the `call` method:
+```php
+$client->call('LIST /authorizations', [
+        'client_id' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->oauthAuthorizations()->listAuthorizationsListing(        client_id: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -1796,7 +1994,7 @@ Using the `call` method:
 $client->call('GET /enterprises/{enterprise}/actions/permissions/organizations', [
         'enterprise' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -1804,7 +2002,7 @@ Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listSelectedOrganizationsEnabledGithubActionsEnterprise(        enterprise: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -1924,7 +2122,7 @@ Using the `call` method:
 $client->call('GET /enterprises/{enterprise}/actions/runner-groups', [
         'enterprise' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -1932,7 +2130,7 @@ Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listSelfHostedRunnerGroupsForEnterprise(        enterprise: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -2035,7 +2233,7 @@ $client->call('GET /enterprises/{enterprise}/actions/runner-groups/{runner_group
         'enterprise' => 'generated',
         'runner_group_id' => 15,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2044,7 +2242,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->listOrgAccessToSelfHostedRunnerGroupInEnterprise(        enterprise: 'generated',
         runner_group_id: 15,
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -2131,7 +2329,7 @@ $client->call('GET /enterprises/{enterprise}/actions/runner-groups/{runner_group
         'enterprise' => 'generated',
         'runner_group_id' => 15,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2140,7 +2338,7 @@ Operations method:
 $client->operations()->enterpriseAdmin()->listSelfHostedRunnersInGroupForEnterprise(        enterprise: 'generated',
         runner_group_id: 15,
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -2226,7 +2424,7 @@ Using the `call` method:
 $client->call('GET /enterprises/{enterprise}/actions/runners', [
         'enterprise' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2234,7 +2432,7 @@ Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listSelfHostedRunnersForEnterprise(        enterprise: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -2357,7 +2555,7 @@ $client->call('GET /enterprises/{enterprise}/audit-log', [
         'after' => 'generated',
         'before' => 'generated',
         'order' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -2369,7 +2567,39 @@ $client->operations()->enterpriseAdmin()->getAuditLog(        enterprise: 'gener
         after: 'generated',
         before: 'generated',
         order: 'generated',
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise).
+
+
+### enterprise-admin/get-audit-log
+
+Get the audit log for an enterprise
+
+Using the `call` method:
+```php
+$client->call('LIST /enterprises/{enterprise}/audit-log', [
+        'enterprise' => 'generated',
+        'phrase' => 'generated',
+        'after' => 'generated',
+        'before' => 'generated',
+        'order' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getAuditLogListing(        enterprise: 'generated',
+        phrase: 'generated',
+        after: 'generated',
+        before: 'generated',
+        order: 'generated',
+        page: 1,
         per_page: 8,
 );
 ```
@@ -2385,14 +2615,36 @@ Using the `call` method:
 ```php
 $client->call('GET /events', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->activity()->listPublicEvents(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-public-events).
+
+
+### activity/list-public-events
+
+List public events
+
+Using the `call` method:
+```php
+$client->call('LIST /events', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listPublicEventsListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2425,7 +2677,7 @@ Using the `call` method:
 $client->call('GET /gists', [
         'since' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2433,7 +2685,31 @@ Operations method:
 ```php
 $client->operations()->gists()->list(        since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/gists#list-gists-for-the-authenticated-user).
+
+
+### gists/list
+
+List gists for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /gists', [
+        'since' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->gists()->listListing(        since: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2466,7 +2742,7 @@ Using the `call` method:
 $client->call('GET /gists/public', [
         'since' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2474,7 +2750,31 @@ Operations method:
 ```php
 $client->operations()->gists()->listPublic(        since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/gists#list-public-gists).
+
+
+### gists/list-public
+
+List public gists
+
+Using the `call` method:
+```php
+$client->call('LIST /gists/public', [
+        'since' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->gists()->listPublicListing(        since: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2490,7 +2790,7 @@ Using the `call` method:
 $client->call('GET /gists/starred', [
         'since' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2498,7 +2798,31 @@ Operations method:
 ```php
 $client->operations()->gists()->listStarred(        since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/gists#list-starred-gists).
+
+
+### gists/list-starred
+
+List starred gists
+
+Using the `call` method:
+```php
+$client->call('LIST /gists/starred', [
+        'since' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->gists()->listStarredListing(        since: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2574,7 +2898,7 @@ Using the `call` method:
 $client->call('GET /gists/{gist_id}/comments', [
         'gist_id' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2582,7 +2906,31 @@ Operations method:
 ```php
 $client->operations()->gists()->listComments(        gist_id: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/gists#list-gist-comments).
+
+
+### gists/list-comments
+
+List gist comments
+
+Using the `call` method:
+```php
+$client->call('LIST /gists/{gist_id}/comments', [
+        'gist_id' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->gists()->listCommentsListing(        gist_id: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2684,7 +3032,7 @@ Using the `call` method:
 $client->call('GET /gists/{gist_id}/commits', [
         'gist_id' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2692,7 +3040,31 @@ Operations method:
 ```php
 $client->operations()->gists()->listCommits(        gist_id: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/gists#list-gist-commits).
+
+
+### gists/list-commits
+
+List gist commits
+
+Using the `call` method:
+```php
+$client->call('LIST /gists/{gist_id}/commits', [
+        'gist_id' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->gists()->listCommitsListing(        gist_id: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2708,7 +3080,7 @@ Using the `call` method:
 $client->call('GET /gists/{gist_id}/forks', [
         'gist_id' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2716,7 +3088,31 @@ Operations method:
 ```php
 $client->operations()->gists()->listForks(        gist_id: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/gists#list-gist-forks).
+
+
+### gists/list-forks
+
+List gist forks
+
+Using the `call` method:
+```php
+$client->call('LIST /gists/{gist_id}/forks', [
+        'gist_id' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->gists()->listForksListing(        gist_id: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2870,14 +3266,14 @@ Using the `call` method:
 ```php
 $client->call('GET /installation/repositories', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->apps()->listReposAccessibleToInstallation(        per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -2919,7 +3315,7 @@ $client->call('GET /issues', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2936,7 +3332,49 @@ $client->operations()->issues()->list(        labels: 'generated',
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-issues-assigned-to-the-authenticated-user).
+
+
+### issues/list
+
+List issues assigned to the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /issues', [
+        'labels' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'collab' => ,
+        'orgs' => ,
+        'owned' => ,
+        'pulls' => ,
+        'filter' => 'generated',
+        'state' => 'generated',
+        'sort' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listListing(        labels: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        collab: ,
+        orgs: ,
+        owned: ,
+        pulls: ,
+        filter: 'generated',
+        state: 'generated',
+        sort: 'generated',
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -2952,7 +3390,7 @@ Using the `call` method:
 $client->call('GET /licenses', [
         'featured' => ,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -2960,7 +3398,31 @@ Operations method:
 ```php
 $client->operations()->licenses()->getAllCommonlyUsed(        featured: ,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/licenses#get-all-commonly-used-licenses).
+
+
+### licenses/get-all-commonly-used
+
+Get all commonly used licenses
+
+Using the `call` method:
+```php
+$client->call('LIST /licenses', [
+        'featured' => ,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->licenses()->getAllCommonlyUsedListing(        featured: ,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -3048,7 +3510,7 @@ $client->call('GET /networks/{owner}/{repo}/events', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -3057,7 +3519,33 @@ Operations method:
 $client->operations()->activity()->listPublicEventsForRepoNetwork(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-public-events-for-a-network-of-repositories).
+
+
+### activity/list-public-events-for-repo-network
+
+List public events for a network of repositories
+
+Using the `call` method:
+```php
+$client->call('LIST /networks/{owner}/{repo}/events', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listPublicEventsForRepoNetworkListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -3075,7 +3563,7 @@ $client->call('GET /notifications', [
         'before' => '1970-01-01T00:00:00+00:00',
         'all' => ,
         'participating' => ,
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -3086,7 +3574,37 @@ $client->operations()->activity()->listNotificationsForAuthenticatedUser(       
         before: '1970-01-01T00:00:00+00:00',
         all: ,
         participating: ,
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-notifications-for-the-authenticated-user).
+
+
+### activity/list-notifications-for-authenticated-user
+
+List notifications for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /notifications', [
+        'since' => '1970-01-01T00:00:00+00:00',
+        'before' => '1970-01-01T00:00:00+00:00',
+        'all' => ,
+        'participating' => ,
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listNotificationsForAuthenticatedUserListing(        since: '1970-01-01T00:00:00+00:00',
+        before: '1970-01-01T00:00:00+00:00',
+        all: ,
+        participating: ,
+        page: 1,
         per_page: 8,
 );
 ```
@@ -3342,7 +3860,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/actions/permissions/repositories', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -3350,7 +3868,7 @@ Operations method:
 ```php
 $client->operations()->actions()->listSelectedRepositoriesEnabledGithubActionsOrganization(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -3470,7 +3988,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/actions/runner-groups', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -3478,7 +3996,7 @@ Operations method:
 ```php
 $client->operations()->actions()->listSelfHostedRunnerGroupsForOrg(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -3580,7 +4098,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories', [
         'org' => 'generated',
         'runner_group_id' => 15,
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -3589,7 +4107,7 @@ Operations method:
 ```php
 $client->operations()->actions()->listRepoAccessToSelfHostedRunnerGroupInOrg(        org: 'generated',
         runner_group_id: 15,
-        page: 4,
+        page: 1,
         per_page: 8,
 );
 ```
@@ -3677,7 +4195,7 @@ $client->call('GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners',
         'org' => 'generated',
         'runner_group_id' => 15,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -3686,7 +4204,7 @@ Operations method:
 $client->operations()->actions()->listSelfHostedRunnersInGroupForOrg(        org: 'generated',
         runner_group_id: 15,
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -3772,7 +4290,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/actions/runners', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -3780,7 +4298,7 @@ Operations method:
 ```php
 $client->operations()->actions()->listSelfHostedRunnersForOrg(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -3900,7 +4418,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/actions/secrets', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -3908,7 +4426,7 @@ Operations method:
 ```php
 $client->operations()->actions()->listOrgSecrets(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -4010,7 +4528,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/actions/secrets/{secret_name}/repositories', [
         'org' => 'generated',
         'secret_name' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -4019,7 +4537,7 @@ Operations method:
 ```php
 $client->operations()->actions()->listSelectedReposForOrgSecret(        org: 'generated',
         secret_name: 'generated',
-        page: 4,
+        page: 1,
         per_page: 8,
 );
 ```
@@ -4110,7 +4628,7 @@ $client->call('GET /orgs/{org}/audit-log', [
         'before' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4122,7 +4640,39 @@ $client->operations()->orgs()->getAuditLog(        org: 'generated',
         before: 'generated',
         order: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#get-audit-log).
+
+
+### orgs/get-audit-log
+
+Get the audit log for an organization
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/audit-log', [
+        'org' => 'generated',
+        'phrase' => 'generated',
+        'after' => 'generated',
+        'before' => 'generated',
+        'order' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->getAuditLogListing(        org: 'generated',
+        phrase: 'generated',
+        after: 'generated',
+        before: 'generated',
+        order: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4138,7 +4688,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/events', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4146,7 +4696,31 @@ Operations method:
 ```php
 $client->operations()->activity()->listPublicOrgEvents(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-public-organization-events).
+
+
+### activity/list-public-org-events
+
+List public organization events
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/events', [
+        'org' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listPublicOrgEventsListing(        org: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4162,7 +4736,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/hooks', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4170,7 +4744,31 @@ Operations method:
 ```php
 $client->operations()->orgs()->listWebhooks(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#list-organization-webhooks).
+
+
+### orgs/list-webhooks
+
+List organization webhooks
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/hooks', [
+        'org' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listWebhooksListing(        org: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4434,7 +5032,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/installations', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4442,7 +5040,7 @@ Operations method:
 ```php
 $client->operations()->orgs()->listAppInstallations(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -4464,7 +5062,7 @@ $client->call('GET /orgs/{org}/issues', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4478,7 +5076,43 @@ $client->operations()->issues()->listForOrg(        org: 'generated',
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-organization-issues-assigned-to-the-authenticated-user).
+
+
+### issues/list-for-org
+
+List organization issues assigned to the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/issues', [
+        'org' => 'generated',
+        'labels' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'filter' => 'generated',
+        'state' => 'generated',
+        'sort' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listForOrgListing(        org: 'generated',
+        labels: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        filter: 'generated',
+        state: 'generated',
+        sort: 'generated',
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4496,7 +5130,7 @@ $client->call('GET /orgs/{org}/members', [
         'filter' => 'generated',
         'role' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4506,7 +5140,35 @@ $client->operations()->orgs()->listMembers(        org: 'generated',
         filter: 'generated',
         role: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#list-organization-members).
+
+
+### orgs/list-members
+
+List organization members
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/members', [
+        'org' => 'generated',
+        'filter' => 'generated',
+        'role' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listMembersListing(        org: 'generated',
+        filter: 'generated',
+        role: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4633,7 +5295,7 @@ $client->call('GET /orgs/{org}/outside_collaborators', [
         'org' => 'generated',
         'filter' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4642,7 +5304,33 @@ Operations method:
 $client->operations()->orgs()->listOutsideCollaborators(        org: 'generated',
         filter: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#list-outside-collaborators-for-an-organization).
+
+
+### orgs/list-outside-collaborators
+
+List outside collaborators for an organization
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/outside_collaborators', [
+        'org' => 'generated',
+        'filter' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listOutsideCollaboratorsListing(        org: 'generated',
+        filter: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4702,7 +5390,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/pre-receive-hooks', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
         'direction' => 'generated',
         'sort' => 'generated',
 ]);
@@ -4712,7 +5400,35 @@ Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listPreReceiveHooksForOrg(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+        direction: 'generated',
+        sort: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization).
+
+
+### enterprise-admin/list-pre-receive-hooks-for-org
+
+List pre-receive hooks for an organization
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/pre-receive-hooks', [
+        'org' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+        'direction' => 'generated',
+        'sort' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPreReceiveHooksForOrgListing(        org: 'generated',
+        per_page: 8,
+        page: 1,
         direction: 'generated',
         sort: 'generated',
 );
@@ -4797,7 +5513,7 @@ $client->call('GET /orgs/{org}/projects', [
         'org' => 'generated',
         'state' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4806,7 +5522,33 @@ Operations method:
 $client->operations()->projects()->listForOrg(        org: 'generated',
         state: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/projects#list-organization-projects).
+
+
+### projects/list-for-org
+
+List organization projects
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/projects', [
+        'org' => 'generated',
+        'state' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->projects()->listForOrgListing(        org: 'generated',
+        state: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4842,7 +5584,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/public_members', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4850,7 +5592,31 @@ Operations method:
 ```php
 $client->operations()->orgs()->listPublicMembers(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#list-public-organization-members).
+
+
+### orgs/list-public-members
+
+List public organization members
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/public_members', [
+        'org' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listPublicMembersListing(        org: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4935,7 +5701,7 @@ $client->call('GET /orgs/{org}/repos', [
         'direction' => 'generated',
         'sort' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -4946,7 +5712,37 @@ $client->operations()->repos()->listForOrg(        org: 'generated',
         direction: 'generated',
         sort: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-organization-repositories).
+
+
+### repos/list-for-org
+
+List organization repositories
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/repos', [
+        'org' => 'generated',
+        'type' => 'generated',
+        'direction' => 'generated',
+        'sort' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listForOrgListing(        org: 'generated',
+        type: 'generated',
+        direction: 'generated',
+        sort: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -4984,7 +5780,7 @@ $client->call('GET /orgs/{org}/secret-scanning/alerts', [
         'state' => 'generated',
         'secret_type' => 'generated',
         'resolution' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -4995,7 +5791,37 @@ $client->operations()->secretScanning()->listAlertsForOrg(        org: 'generate
         state: 'generated',
         secret_type: 'generated',
         resolution: 'generated',
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/secret-scanning#list-secret-scanning-alerts-for-an-organization).
+
+
+### secret-scanning/list-alerts-for-org
+
+List secret scanning alerts for an organization
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/secret-scanning/alerts', [
+        'org' => 'generated',
+        'state' => 'generated',
+        'secret_type' => 'generated',
+        'resolution' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->listAlertsForOrgListing(        org: 'generated',
+        state: 'generated',
+        secret_type: 'generated',
+        resolution: 'generated',
+        page: 1,
         per_page: 8,
 );
 ```
@@ -5012,7 +5838,7 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/teams', [
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5020,7 +5846,31 @@ Operations method:
 ```php
 $client->operations()->teams()->list(        org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-teams).
+
+
+### teams/list
+
+List teams
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams', [
+        'org' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listListing(        org: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5125,7 +5975,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions', [
         'pinned' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5136,7 +5986,37 @@ $client->operations()->teams()->listDiscussionsInOrg(        org: 'generated',
         pinned: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-discussions).
+
+
+### teams/list-discussions-in-org
+
+List discussions
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'pinned' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listDiscussionsInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        pinned: 'generated',
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5249,7 +6129,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
         'discussion_number' => 17,
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5260,7 +6140,37 @@ $client->operations()->teams()->listDiscussionCommentsInOrg(        org: 'genera
         discussion_number: 17,
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-discussion-comments).
+
+
+### teams/list-discussion-comments-in-org
+
+List discussion comments
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'discussion_number' => 17,
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listDiscussionCommentsInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        discussion_number: 17,
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5382,7 +6292,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
         'comment_number' => 14,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5394,7 +6304,39 @@ $client->operations()->reactions()->listForTeamDiscussionCommentInOrg(        or
         comment_number: 14,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions#list-reactions-for-a-team-discussion-comment).
+
+
+### reactions/list-for-team-discussion-comment-in-org
+
+List reactions for a team discussion comment
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'discussion_number' => 17,
+        'comment_number' => 14,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForTeamDiscussionCommentInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        discussion_number: 17,
+        comment_number: 14,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5467,7 +6409,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}
         'discussion_number' => 17,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5478,7 +6420,37 @@ $client->operations()->reactions()->listForTeamDiscussionInOrg(        org: 'gen
         discussion_number: 17,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions#list-reactions-for-a-team-discussion).
+
+
+### reactions/list-for-team-discussion-in-org
+
+List reactions for a team discussion
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'discussion_number' => 17,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForTeamDiscussionInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        discussion_number: 17,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5546,7 +6518,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/members', [
         'team_slug' => 'generated',
         'role' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5556,7 +6528,35 @@ $client->operations()->teams()->listMembersInOrg(        org: 'generated',
         team_slug: 'generated',
         role: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-team-members).
+
+
+### teams/list-members-in-org
+
+List team members
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/members', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'role' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listMembersInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        role: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5645,7 +6645,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/projects', [
         'org' => 'generated',
         'team_slug' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5654,7 +6654,33 @@ Operations method:
 $client->operations()->teams()->listProjectsInOrg(        org: 'generated',
         team_slug: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-team-projects).
+
+
+### teams/list-projects-in-org
+
+List team projects
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/projects', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listProjectsInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5743,7 +6769,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/repos', [
         'org' => 'generated',
         'team_slug' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5752,7 +6778,33 @@ Operations method:
 $client->operations()->teams()->listReposInOrg(        org: 'generated',
         team_slug: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-team-repositories).
+
+
+### teams/list-repos-in-org
+
+List team repositories
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/repos', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listReposInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -5847,7 +6899,7 @@ $client->call('GET /orgs/{org}/teams/{team_slug}/teams', [
         'org' => 'generated',
         'team_slug' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -5856,7 +6908,33 @@ Operations method:
 $client->operations()->teams()->listChildInOrg(        org: 'generated',
         team_slug: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-child-teams).
+
+
+### teams/list-child-in-org
+
+List child teams
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/teams/{team_slug}/teams', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listChildInOrgListing(        org: 'generated',
+        team_slug: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -6013,7 +7091,7 @@ $client->call('GET /projects/columns/{column_id}/cards', [
         'column_id' => 9,
         'archived_state' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -6022,7 +7100,33 @@ Operations method:
 $client->operations()->projects()->listCards(        column_id: 9,
         archived_state: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/projects#list-project-cards).
+
+
+### projects/list-cards
+
+List project cards
+
+Using the `call` method:
+```php
+$client->call('LIST /projects/columns/{column_id}/cards', [
+        'column_id' => 9,
+        'archived_state' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->projects()->listCardsListing(        column_id: 9,
+        archived_state: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -6139,7 +7243,7 @@ $client->call('GET /projects/{project_id}/collaborators', [
         'project_id' => 10,
         'affiliation' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -6148,7 +7252,33 @@ Operations method:
 $client->operations()->projects()->listCollaborators(        project_id: 10,
         affiliation: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/projects#list-project-collaborators).
+
+
+### projects/list-collaborators
+
+List project collaborators
+
+Using the `call` method:
+```php
+$client->call('LIST /projects/{project_id}/collaborators', [
+        'project_id' => 10,
+        'affiliation' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->projects()->listCollaboratorsListing(        project_id: 10,
+        affiliation: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -6230,7 +7360,7 @@ Using the `call` method:
 $client->call('GET /projects/{project_id}/columns', [
         'project_id' => 10,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -6238,7 +7368,31 @@ Operations method:
 ```php
 $client->operations()->projects()->listColumns(        project_id: 10,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/projects#list-project-columns).
+
+
+### projects/list-columns
+
+List project columns
+
+Using the `call` method:
+```php
+$client->call('LIST /projects/{project_id}/columns', [
+        'project_id' => 10,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->projects()->listColumnsListing(        project_id: 10,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -6379,7 +7533,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/artifacts', [
         'repo' => 'generated',
         'name' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -6389,7 +7543,7 @@ $client->operations()->actions()->listArtifactsForRepo(        owner: 'generated
         repo: 'generated',
         name: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -6666,7 +7820,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/runners', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -6675,7 +7829,7 @@ Operations method:
 $client->operations()->actions()->listSelfHostedRunnersForRepo(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -6811,7 +7965,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs', [
         'status' => 'generated',
         'created' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
         'exclude_pull_requests' => ,
 ]);
 ```
@@ -6826,7 +7980,7 @@ $client->operations()->actions()->listWorkflowRunsForRepo(        owner: 'genera
         status: 'generated',
         created: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
         exclude_pull_requests: ,
 );
 ```
@@ -6919,7 +8073,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts', [
         'repo' => 'generated',
         'run_id' => 6,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -6929,7 +8083,7 @@ $client->operations()->actions()->listWorkflowRunArtifacts(        owner: 'gener
         repo: 'generated',
         run_id: 6,
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -6972,7 +8126,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs', [
         'run_id' => 6,
         'filter' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -6983,7 +8137,7 @@ $client->operations()->actions()->listJobsForWorkflowRun(        owner: 'generat
         run_id: 6,
         filter: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -7144,7 +8298,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/secrets', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -7153,7 +8307,7 @@ Operations method:
 $client->operations()->actions()->listRepoSecrets(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -7264,7 +8418,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/workflows', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -7273,7 +8427,7 @@ Operations method:
 $client->operations()->actions()->listRepoWorkflows(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -7392,7 +8546,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs', 
         'status' => 'generated',
         'created' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
         'exclude_pull_requests' => ,
 ]);
 ```
@@ -7408,7 +8562,7 @@ $client->operations()->actions()->listWorkflowRuns(        owner: 'generated',
         status: 'generated',
         created: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
         exclude_pull_requests: ,
 );
 ```
@@ -7426,7 +8580,7 @@ $client->call('GET /repos/{owner}/{repo}/assignees', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -7435,7 +8589,33 @@ Operations method:
 $client->operations()->issues()->listAssignees(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-assignees).
+
+
+### issues/list-assignees
+
+List assignees
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/assignees', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listAssigneesListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -7475,7 +8655,7 @@ Using the `call` method:
 $client->call('GET /repos/{owner}/{repo}/autolinks', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -7483,7 +8663,7 @@ Operations method:
 ```php
 $client->operations()->repos()->listAutolinks(        owner: 'generated',
         repo: 'generated',
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -7571,7 +8751,7 @@ $client->call('GET /repos/{owner}/{repo}/branches', [
         'repo' => 'generated',
         'protected' => ,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -7581,7 +8761,35 @@ $client->operations()->repos()->listBranches(        owner: 'generated',
         repo: 'generated',
         protected: ,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/branches/branches#list-branches).
+
+
+### repos/list-branches
+
+List branches
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/branches', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'protected' => ,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listBranchesListing(        owner: 'generated',
+        repo: 'generated',
+        protected: ,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -8509,7 +9717,7 @@ $client->call('GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations',
         'repo' => 'generated',
         'check_run_id' => 12,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -8519,7 +9727,35 @@ $client->operations()->checks()->listAnnotations(        owner: 'generated',
         repo: 'generated',
         check_run_id: 12,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/checks#list-check-run-annotations).
+
+
+### checks/list-annotations
+
+List check run annotations
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'check_run_id' => 12,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->checks()->listAnnotationsListing(        owner: 'generated',
+        repo: 'generated',
+        check_run_id: 12,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -8632,7 +9868,7 @@ $client->call('GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-run
         'status' => 'generated',
         'filter' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -8645,7 +9881,7 @@ $client->operations()->checks()->listForSuite(        owner: 'generated',
         status: 'generated',
         filter: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -8689,7 +9925,7 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts', [
         'tool_guid' => ,
         'ref' => 'generated',
         'state' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -8702,7 +9938,41 @@ $client->operations()->codeScanning()->listAlertsForRepo(        owner: 'generat
         tool_guid: ,
         ref: 'generated',
         state: 'generated',
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository).
+
+
+### code-scanning/list-alerts-for-repo
+
+List code scanning alerts for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'tool_name' => 'generated',
+        'tool_guid' => ,
+        'ref' => 'generated',
+        'state' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeScanning()->listAlertsForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        tool_name: 'generated',
+        tool_guid: ,
+        ref: 'generated',
+        state: 'generated',
+        page: 1,
         per_page: 8,
 );
 ```
@@ -8769,7 +10039,7 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/ins
         'repo' => 'generated',
         'alert_number' => 12,
         'ref' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -8780,7 +10050,37 @@ $client->operations()->codeScanning()->listAlertInstances(        owner: 'genera
         repo: 'generated',
         alert_number: 12,
         ref: 'generated',
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/code-scanning#list-instances-of-a-code-scanning-alert).
+
+
+### code-scanning/list-alert-instances
+
+List instances of a code scanning alert
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'alert_number' => 12,
+        'ref' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeScanning()->listAlertInstancesListing(        owner: 'generated',
+        repo: 'generated',
+        alert_number: 12,
+        ref: 'generated',
+        page: 1,
         per_page: 8,
 );
 ```
@@ -8801,7 +10101,7 @@ $client->call('GET /repos/{owner}/{repo}/code-scanning/analyses', [
         'tool_guid' => ,
         'ref' => 'generated',
         'sarif_id' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -8814,7 +10114,41 @@ $client->operations()->codeScanning()->listRecentAnalyses(        owner: 'genera
         tool_guid: ,
         ref: 'generated',
         sarif_id: 'generated',
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/code-scanning#list-code-scanning-analyses-for-a-repository).
+
+
+### code-scanning/list-recent-analyses
+
+List code scanning analyses for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/code-scanning/analyses', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'tool_name' => 'generated',
+        'tool_guid' => ,
+        'ref' => 'generated',
+        'sarif_id' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->codeScanning()->listRecentAnalysesListing(        owner: 'generated',
+        repo: 'generated',
+        tool_name: 'generated',
+        tool_guid: ,
+        ref: 'generated',
+        sarif_id: 'generated',
+        page: 1,
         per_page: 8,
 );
 ```
@@ -8929,7 +10263,7 @@ $client->call('GET /repos/{owner}/{repo}/collaborators', [
         'repo' => 'generated',
         'affiliation' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -8939,7 +10273,35 @@ $client->operations()->repos()->listCollaborators(        owner: 'generated',
         repo: 'generated',
         affiliation: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/collaborators/collaborators#list-repository-collaborators).
+
+
+### repos/list-collaborators
+
+List repository collaborators
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/collaborators', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'affiliation' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listCollaboratorsListing(        owner: 'generated',
+        repo: 'generated',
+        affiliation: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9052,7 +10414,7 @@ $client->call('GET /repos/{owner}/{repo}/comments', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9061,7 +10423,33 @@ Operations method:
 $client->operations()->repos()->listCommitCommentsForRepo(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/commits/comments#list-commit-comments-for-a-repository).
+
+
+### repos/list-commit-comments-for-repo
+
+List commit comments for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/comments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listCommitCommentsForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9152,7 +10540,7 @@ $client->call('GET /repos/{owner}/{repo}/comments/{comment_id}/reactions', [
         'comment_id' => 10,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9163,7 +10551,37 @@ $client->operations()->reactions()->listForCommitComment(        owner: 'generat
         comment_id: 10,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions#list-reactions-for-a-commit-comment).
+
+
+### reactions/list-for-commit-comment
+
+List reactions for a commit comment
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/comments/{comment_id}/reactions', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'comment_id' => 10,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForCommitCommentListing(        owner: 'generated',
+        repo: 'generated',
+        comment_id: 10,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9235,7 +10653,7 @@ $client->call('GET /repos/{owner}/{repo}/commits', [
         'since' => '1970-01-01T00:00:00+00:00',
         'until' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9249,7 +10667,43 @@ $client->operations()->repos()->listCommits(        owner: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         until: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/commits/commits#list-commits).
+
+
+### repos/list-commits
+
+List commits
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/commits', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'sha' => 'generated',
+        'path' => 'generated',
+        'author' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'until' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listCommitsListing(        owner: 'generated',
+        repo: 'generated',
+        sha: 'generated',
+        path: 'generated',
+        author: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        until: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9291,7 +10745,7 @@ $client->call('GET /repos/{owner}/{repo}/commits/{commit_sha}/comments', [
         'repo' => 'generated',
         'commit_sha' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9301,7 +10755,35 @@ $client->operations()->repos()->listCommentsForCommit(        owner: 'generated'
         repo: 'generated',
         commit_sha: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/commits/comments#list-commit-comments).
+
+
+### repos/list-comments-for-commit
+
+List commit comments
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/commits/{commit_sha}/comments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'commit_sha' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listCommentsForCommitListing(        owner: 'generated',
+        repo: 'generated',
+        commit_sha: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9343,7 +10825,7 @@ $client->call('GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls', [
         'repo' => 'generated',
         'commit_sha' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9353,7 +10835,35 @@ $client->operations()->repos()->listPullRequestsAssociatedWithCommit(        own
         repo: 'generated',
         commit_sha: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/commits/commits#list-pull-requests-associated-with-a-commit).
+
+
+### repos/list-pull-requests-associated-with-commit
+
+List pull requests associated with a commit
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/commits/{commit_sha}/pulls', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'commit_sha' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listPullRequestsAssociatedWithCommitListing(        owner: 'generated',
+        repo: 'generated',
+        commit_sha: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9370,7 +10880,7 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}', [
         'owner' => 'generated',
         'repo' => 'generated',
         'ref' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -9380,7 +10890,7 @@ Operations method:
 $client->operations()->repos()->getCommit(        owner: 'generated',
         repo: 'generated',
         ref: 'generated',
-        page: 4,
+        page: 1,
         per_page: 8,
 );
 ```
@@ -9403,7 +10913,7 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/check-runs', [
         'app_id' => 6,
         'filter' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9417,7 +10927,7 @@ $client->operations()->checks()->listForRef(        owner: 'generated',
         app_id: 6,
         filter: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -9437,7 +10947,7 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/check-suites', [
         'app_id' => 6,
         'check_name' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9449,7 +10959,7 @@ $client->operations()->checks()->listSuitesForRef(        owner: 'generated',
         app_id: 6,
         check_name: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -9467,7 +10977,7 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/status', [
         'repo' => 'generated',
         'ref' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9477,7 +10987,7 @@ $client->operations()->repos()->getCombinedStatusForRef(        owner: 'generate
         repo: 'generated',
         ref: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -9495,7 +11005,7 @@ $client->call('GET /repos/{owner}/{repo}/commits/{ref}/statuses', [
         'repo' => 'generated',
         'ref' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9505,7 +11015,35 @@ $client->operations()->repos()->listCommitStatusesForRef(        owner: 'generat
         repo: 'generated',
         ref: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/commits/statuses#list-commit-statuses-for-a-reference).
+
+
+### repos/list-commit-statuses-for-ref
+
+List commit statuses for a reference
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/commits/{ref}/statuses', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'ref' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listCommitStatusesForRefListing(        owner: 'generated',
+        repo: 'generated',
+        ref: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9522,7 +11060,7 @@ $client->call('GET /repos/{owner}/{repo}/compare/{basehead}', [
         'owner' => 'generated',
         'repo' => 'generated',
         'basehead' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -9532,7 +11070,7 @@ Operations method:
 $client->operations()->repos()->compareCommits(        owner: 'generated',
         repo: 'generated',
         basehead: 'generated',
-        page: 4,
+        page: 1,
         per_page: 8,
 );
 ```
@@ -9649,7 +11187,7 @@ $client->call('GET /repos/{owner}/{repo}/contributors', [
         'repo' => 'generated',
         'anon' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9659,7 +11197,35 @@ $client->operations()->repos()->listContributors(        owner: 'generated',
         repo: 'generated',
         anon: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-repository-contributors).
+
+
+### repos/list-contributors
+
+List repository contributors
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/contributors', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'anon' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listContributorsListing(        owner: 'generated',
+        repo: 'generated',
+        anon: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9680,7 +11246,7 @@ $client->call('GET /repos/{owner}/{repo}/deployments', [
         'task' => 'generated',
         'environment' => ,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9693,7 +11259,41 @@ $client->operations()->repos()->listDeployments(        owner: 'generated',
         task: 'generated',
         environment: ,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/deployments/deployments#list-deployments).
+
+
+### repos/list-deployments
+
+List deployments
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/deployments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'sha' => 'generated',
+        'ref' => 'generated',
+        'task' => 'generated',
+        'environment' => ,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listDeploymentsListing(        owner: 'generated',
+        repo: 'generated',
+        sha: 'generated',
+        ref: 'generated',
+        task: 'generated',
+        environment: ,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9781,7 +11381,7 @@ $client->call('GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses', 
         'repo' => 'generated',
         'deployment_id' => 13,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9791,7 +11391,35 @@ $client->operations()->repos()->listDeploymentStatuses(        owner: 'generated
         repo: 'generated',
         deployment_id: 13,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/deployments/statuses#list-deployment-statuses).
+
+
+### repos/list-deployment-statuses
+
+List deployment statuses
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'deployment_id' => 13,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listDeploymentStatusesListing(        owner: 'generated',
+        repo: 'generated',
+        deployment_id: 13,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -9880,7 +11508,7 @@ $client->call('GET /repos/{owner}/{repo}/environments', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9889,7 +11517,7 @@ Operations method:
 $client->operations()->repos()->getAllEnvironments(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -9979,7 +11607,7 @@ $client->call('GET /repos/{owner}/{repo}/environments/{environment_name}/deploym
         'repo' => 'generated',
         'environment_name' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -9989,7 +11617,7 @@ $client->operations()->repos()->listDeploymentBranchPolicies(        owner: 'gen
         repo: 'generated',
         environment_name: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -10108,7 +11736,7 @@ $client->call('GET /repos/{owner}/{repo}/events', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -10117,7 +11745,33 @@ Operations method:
 $client->operations()->activity()->listRepoEvents(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-repository-events).
+
+
+### activity/list-repo-events
+
+List repository events
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/events', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listRepoEventsListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -10135,7 +11789,7 @@ $client->call('GET /repos/{owner}/{repo}/forks', [
         'repo' => 'generated',
         'sort' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -10145,7 +11799,35 @@ $client->operations()->repos()->listForks(        owner: 'generated',
         repo: 'generated',
         sort: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-forks).
+
+
+### repos/list-forks
+
+List forks
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/forks', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'sort' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listForksListing(        owner: 'generated',
+        repo: 'generated',
+        sort: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -10488,7 +12170,7 @@ $client->call('GET /repos/{owner}/{repo}/hooks', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -10497,7 +12179,33 @@ Operations method:
 $client->operations()->repos()->listWebhooks(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/webhooks/repos#list-repository-webhooks).
+
+
+### repos/list-webhooks
+
+List repository webhooks
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/hooks', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listWebhooksListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -10808,7 +12516,7 @@ $client->call('GET /repos/{owner}/{repo}/invitations', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -10817,7 +12525,33 @@ Operations method:
 $client->operations()->repos()->listInvitations(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/collaborators/invitations#list-repository-invitations).
+
+
+### repos/list-invitations
+
+List repository invitations
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/invitations', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listInvitationsListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -10891,7 +12625,7 @@ $client->call('GET /repos/{owner}/{repo}/issues', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -10909,7 +12643,51 @@ $client->operations()->issues()->listForRepo(        owner: 'generated',
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-repository-issues).
+
+
+### issues/list-for-repo
+
+List repository issues
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'milestone' => 'generated',
+        'assignee' => 'generated',
+        'creator' => 'generated',
+        'mentioned' => 'generated',
+        'labels' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'state' => 'generated',
+        'sort' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        milestone: 'generated',
+        assignee: 'generated',
+        creator: 'generated',
+        mentioned: 'generated',
+        labels: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        state: 'generated',
+        sort: 'generated',
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -10951,7 +12729,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/comments', [
         'since' => '1970-01-01T00:00:00+00:00',
         'sort' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -10963,7 +12741,39 @@ $client->operations()->issues()->listCommentsForRepo(        owner: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         sort: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-issue-comments-for-a-repository).
+
+
+### issues/list-comments-for-repo
+
+List issue comments for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/comments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'direction' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'sort' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listCommentsForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        direction: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        sort: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11054,7 +12864,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions'
         'comment_id' => 10,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11065,7 +12875,37 @@ $client->operations()->reactions()->listForIssueComment(        owner: 'generate
         comment_id: 10,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions#list-reactions-for-an-issue-comment).
+
+
+### reactions/list-for-issue-comment
+
+List reactions for an issue comment
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'comment_id' => 10,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForIssueCommentListing(        owner: 'generated',
+        repo: 'generated',
+        comment_id: 10,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11132,7 +12972,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/events', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11141,7 +12981,33 @@ Operations method:
 $client->operations()->issues()->listEventsForRepo(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-issue-events-for-a-repository).
+
+
+### issues/list-events-for-repo
+
+List issue events for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/events', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listEventsForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11306,7 +13172,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/comments', [
         'issue_number' => 12,
         'since' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11317,7 +13183,37 @@ $client->operations()->issues()->listComments(        owner: 'generated',
         issue_number: 12,
         since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-issue-comments).
+
+
+### issues/list-comments
+
+List issue comments
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/comments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'issue_number' => 12,
+        'since' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listCommentsListing(        owner: 'generated',
+        repo: 'generated',
+        issue_number: 12,
+        since: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11359,7 +13255,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/events', [
         'repo' => 'generated',
         'issue_number' => 12,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11369,7 +13265,35 @@ $client->operations()->issues()->listEvents(        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-issue-events).
+
+
+### issues/list-events
+
+List issue events
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/events', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'issue_number' => 12,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listEventsListing(        owner: 'generated',
+        repo: 'generated',
+        issue_number: 12,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11387,7 +13311,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/labels', [
         'repo' => 'generated',
         'issue_number' => 12,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11397,7 +13321,35 @@ $client->operations()->issues()->listLabelsOnIssue(        owner: 'generated',
         repo: 'generated',
         issue_number: 12,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-labels-for-an-issue).
+
+
+### issues/list-labels-on-issue
+
+List labels for an issue
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/labels', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'issue_number' => 12,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listLabelsOnIssueListing(        owner: 'generated',
+        repo: 'generated',
+        issue_number: 12,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11562,7 +13514,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/reactions', [
         'issue_number' => 12,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11573,7 +13525,37 @@ $client->operations()->reactions()->listForIssue(        owner: 'generated',
         issue_number: 12,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions#list-reactions-for-an-issue).
+
+
+### reactions/list-for-issue
+
+List reactions for an issue
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/reactions', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'issue_number' => 12,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForIssueListing(        owner: 'generated',
+        repo: 'generated',
+        issue_number: 12,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11641,7 +13623,7 @@ $client->call('GET /repos/{owner}/{repo}/issues/{issue_number}/timeline', [
         'repo' => 'generated',
         'issue_number' => 12,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11651,7 +13633,35 @@ $client->operations()->issues()->listEventsForTimeline(        owner: 'generated
         repo: 'generated',
         issue_number: 12,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-timeline-events-for-an-issue).
+
+
+### issues/list-events-for-timeline
+
+List timeline events for an issue
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/issues/{issue_number}/timeline', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'issue_number' => 12,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listEventsForTimelineListing(        owner: 'generated',
+        repo: 'generated',
+        issue_number: 12,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11668,7 +13678,7 @@ $client->call('GET /repos/{owner}/{repo}/keys', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11677,7 +13687,33 @@ Operations method:
 $client->operations()->repos()->listDeployKeys(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/deploy-keys#list-deploy-keys).
+
+
+### repos/list-deploy-keys
+
+List deploy keys
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/keys', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listDeployKeysListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -11764,7 +13800,7 @@ $client->call('GET /repos/{owner}/{repo}/labels', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -11773,7 +13809,33 @@ Operations method:
 $client->operations()->issues()->listLabelsForRepo(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-labels-for-a-repository).
+
+
+### issues/list-labels-for-repo
+
+List labels for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/labels', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listLabelsForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12019,7 +14081,7 @@ $client->call('GET /repos/{owner}/{repo}/milestones', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12031,7 +14093,39 @@ $client->operations()->issues()->listMilestones(        owner: 'generated',
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-milestones).
+
+
+### issues/list-milestones
+
+List milestones
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/milestones', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'state' => 'generated',
+        'sort' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listMilestonesListing(        owner: 'generated',
+        repo: 'generated',
+        state: 'generated',
+        sort: 'generated',
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12143,7 +14237,7 @@ $client->call('GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels', 
         'repo' => 'generated',
         'milestone_number' => 16,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12153,7 +14247,35 @@ $client->operations()->issues()->listLabelsForMilestone(        owner: 'generate
         repo: 'generated',
         milestone_number: 16,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-labels-for-issues-in-a-milestone).
+
+
+### issues/list-labels-for-milestone
+
+List labels for issues in a milestone
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/milestones/{milestone_number}/labels', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'milestone_number' => 16,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listLabelsForMilestoneListing(        owner: 'generated',
+        repo: 'generated',
+        milestone_number: 16,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12174,7 +14296,7 @@ $client->call('GET /repos/{owner}/{repo}/notifications', [
         'all' => ,
         'participating' => ,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12187,7 +14309,41 @@ $client->operations()->activity()->listRepoNotificationsForAuthenticatedUser(   
         all: ,
         participating: ,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-repository-notifications-for-the-authenticated-user).
+
+
+### activity/list-repo-notifications-for-authenticated-user
+
+List repository notifications for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/notifications', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'before' => '1970-01-01T00:00:00+00:00',
+        'all' => ,
+        'participating' => ,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listRepoNotificationsForAuthenticatedUserListing(        owner: 'generated',
+        repo: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        before: '1970-01-01T00:00:00+00:00',
+        all: ,
+        participating: ,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12314,7 +14470,7 @@ $client->call('GET /repos/{owner}/{repo}/pages/builds', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12323,7 +14479,33 @@ Operations method:
 $client->operations()->repos()->listPagesBuilds(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/pages#list-github-pages-builds).
+
+
+### repos/list-pages-builds
+
+List GitHub Enterprise Server Pages builds
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pages/builds', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listPagesBuildsListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12408,7 +14590,7 @@ $client->call('GET /repos/{owner}/{repo}/pre-receive-hooks', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
         'direction' => 'generated',
         'sort' => 'generated',
 ]);
@@ -12419,7 +14601,37 @@ Operations method:
 $client->operations()->enterpriseAdmin()->listPreReceiveHooksForRepo(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+        direction: 'generated',
+        sort: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository).
+
+
+### enterprise-admin/list-pre-receive-hooks-for-repo
+
+List pre-receive hooks for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pre-receive-hooks', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+        'direction' => 'generated',
+        'sort' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listPreReceiveHooksForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
         direction: 'generated',
         sort: 'generated',
 );
@@ -12511,7 +14723,7 @@ $client->call('GET /repos/{owner}/{repo}/projects', [
         'repo' => 'generated',
         'state' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12521,7 +14733,35 @@ $client->operations()->projects()->listForRepo(        owner: 'generated',
         repo: 'generated',
         state: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/projects#list-repository-projects).
+
+
+### projects/list-for-repo
+
+List repository projects
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/projects', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'state' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->projects()->listForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        state: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12565,7 +14805,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls', [
         'state' => 'generated',
         'sort' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12579,7 +14819,43 @@ $client->operations()->pulls()->list(        owner: 'generated',
         state: 'generated',
         sort: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/pulls#list-pull-requests).
+
+
+### pulls/list
+
+List pull requests
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'head' => 'generated',
+        'base' => 'generated',
+        'direction' => 'generated',
+        'state' => 'generated',
+        'sort' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->pulls()->listListing(        owner: 'generated',
+        repo: 'generated',
+        head: 'generated',
+        base: 'generated',
+        direction: 'generated',
+        state: 'generated',
+        sort: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12621,7 +14897,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls/comments', [
         'direction' => 'generated',
         'since' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12633,7 +14909,39 @@ $client->operations()->pulls()->listReviewCommentsForRepo(        owner: 'genera
         direction: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/pulls#list-review-comments-in-a-repository).
+
+
+### pulls/list-review-comments-for-repo
+
+List review comments in a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls/comments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'sort' => 'generated',
+        'direction' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->pulls()->listReviewCommentsForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        sort: 'generated',
+        direction: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12724,7 +15032,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions',
         'comment_id' => 10,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12735,7 +15043,37 @@ $client->operations()->reactions()->listForPullRequestReviewComment(        owne
         comment_id: 10,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions#list-reactions-for-a-pull-request-review-comment).
+
+
+### reactions/list-for-pull-request-review-comment
+
+List reactions for a pull request review comment
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'comment_id' => 10,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForPullRequestReviewCommentListing(        owner: 'generated',
+        repo: 'generated',
+        comment_id: 10,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12854,7 +15192,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/comments', [
         'since' => '1970-01-01T00:00:00+00:00',
         'sort' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12867,7 +15205,41 @@ $client->operations()->pulls()->listReviewComments(        owner: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         sort: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/pulls#list-review-comments-on-a-pull-request).
+
+
+### pulls/list-review-comments
+
+List review comments on a pull request
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/comments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'pull_number' => 11,
+        'direction' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'sort' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->pulls()->listReviewCommentsListing(        owner: 'generated',
+        repo: 'generated',
+        pull_number: 11,
+        direction: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        sort: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12935,7 +15307,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/commits', [
         'repo' => 'generated',
         'pull_number' => 11,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12945,7 +15317,35 @@ $client->operations()->pulls()->listCommits(        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/pulls#list-commits-on-a-pull-request).
+
+
+### pulls/list-commits
+
+List commits on a pull request
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/commits', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'pull_number' => 11,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->pulls()->listCommitsListing(        owner: 'generated',
+        repo: 'generated',
+        pull_number: 11,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -12963,7 +15363,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', [
         'repo' => 'generated',
         'pull_number' => 11,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -12973,7 +15373,35 @@ $client->operations()->pulls()->listFiles(        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/pulls#list-pull-requests-files).
+
+
+### pulls/list-files
+
+List pull requests files
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/files', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'pull_number' => 11,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->pulls()->listFilesListing(        owner: 'generated',
+        repo: 'generated',
+        pull_number: 11,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -13111,7 +15539,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews', [
         'repo' => 'generated',
         'pull_number' => 11,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -13121,7 +15549,35 @@ $client->operations()->pulls()->listReviews(        owner: 'generated',
         repo: 'generated',
         pull_number: 11,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/pulls#list-reviews-for-a-pull-request).
+
+
+### pulls/list-reviews
+
+List reviews for a pull request
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/reviews', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'pull_number' => 11,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->pulls()->listReviewsListing(        owner: 'generated',
+        repo: 'generated',
+        pull_number: 11,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -13242,7 +15698,7 @@ $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}
         'pull_number' => 11,
         'review_id' => 9,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -13253,7 +15709,37 @@ $client->operations()->pulls()->listCommentsForReview(        owner: 'generated'
         pull_number: 11,
         review_id: 9,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/pulls#list-comments-for-a-pull-request-review).
+
+
+### pulls/list-comments-for-review
+
+List comments for a pull request review
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'pull_number' => 11,
+        'review_id' => 9,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->pulls()->listCommentsForReviewListing(        owner: 'generated',
+        repo: 'generated',
+        pull_number: 11,
+        review_id: 9,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -13396,7 +15882,7 @@ $client->call('GET /repos/{owner}/{repo}/releases', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -13405,7 +15891,33 @@ Operations method:
 $client->operations()->repos()->listReleases(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-releases).
+
+
+### repos/list-releases
+
+List releases
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/releases', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listReleasesListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -13657,7 +16169,7 @@ $client->call('GET /repos/{owner}/{repo}/releases/{release_id}/assets', [
         'repo' => 'generated',
         'release_id' => 10,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -13667,7 +16179,35 @@ $client->operations()->repos()->listReleaseAssets(        owner: 'generated',
         repo: 'generated',
         release_id: 10,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-release-assets).
+
+
+### repos/list-release-assets
+
+List release assets
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/releases/{release_id}/assets', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'release_id' => 10,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listReleaseAssetsListing(        owner: 'generated',
+        repo: 'generated',
+        release_id: 10,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -13714,7 +16254,7 @@ $client->call('GET /repos/{owner}/{repo}/releases/{release_id}/reactions', [
         'release_id' => 10,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -13725,7 +16265,37 @@ $client->operations()->reactions()->listForRelease(        owner: 'generated',
         release_id: 10,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions/#list-reactions-for-a-release).
+
+
+### reactions/list-for-release
+
+List reactions for a release
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/releases/{release_id}/reactions', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'release_id' => 10,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForReleaseListing(        owner: 'generated',
+        repo: 'generated',
+        release_id: 10,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -13794,7 +16364,7 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts', [
         'state' => 'generated',
         'secret_type' => 'generated',
         'resolution' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -13806,7 +16376,39 @@ $client->operations()->secretScanning()->listAlertsForRepo(        owner: 'gener
         state: 'generated',
         secret_type: 'generated',
         resolution: 'generated',
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository).
+
+
+### secret-scanning/list-alerts-for-repo
+
+List secret scanning alerts for a repository
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/secret-scanning/alerts', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'state' => 'generated',
+        'secret_type' => 'generated',
+        'resolution' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->listAlertsForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        state: 'generated',
+        secret_type: 'generated',
+        resolution: 'generated',
+        page: 1,
         per_page: 8,
 );
 ```
@@ -13872,7 +16474,7 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/l
         'owner' => 'generated',
         'repo' => 'generated',
         'alert_number' => 12,
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -13882,7 +16484,35 @@ Operations method:
 $client->operations()->secretScanning()->listLocationsForAlert(        owner: 'generated',
         repo: 'generated',
         alert_number: 12,
-        page: 4,
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/secret-scanning#list-locations-for-a-secret-scanning-alert).
+
+
+### secret-scanning/list-locations-for-alert
+
+List locations for a secret scanning alert
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'alert_number' => 12,
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->listLocationsForAlertListing(        owner: 'generated',
+        repo: 'generated',
+        alert_number: 12,
+        page: 1,
         per_page: 8,
 );
 ```
@@ -13900,7 +16530,7 @@ $client->call('GET /repos/{owner}/{repo}/stargazers', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -13909,7 +16539,7 @@ Operations method:
 $client->operations()->activity()->listStargazersForRepo(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14060,7 +16690,7 @@ $client->call('GET /repos/{owner}/{repo}/subscribers', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14069,7 +16699,33 @@ Operations method:
 $client->operations()->activity()->listWatchersForRepo(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-watchers).
+
+
+### activity/list-watchers-for-repo
+
+List watchers
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/subscribers', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listWatchersForRepoListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -14152,7 +16808,7 @@ $client->call('GET /repos/{owner}/{repo}/tags', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14161,7 +16817,33 @@ Operations method:
 $client->operations()->repos()->listTags(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-repository-tags).
+
+
+### repos/list-tags
+
+List repository tags
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/tags', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listTagsListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -14226,7 +16908,7 @@ $client->call('GET /repos/{owner}/{repo}/teams', [
         'owner' => 'generated',
         'repo' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14235,7 +16917,33 @@ Operations method:
 $client->operations()->repos()->listTeams(        owner: 'generated',
         repo: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-repository-teams).
+
+
+### repos/list-teams
+
+List repository teams
+
+Using the `call` method:
+```php
+$client->call('LIST /repos/{owner}/{repo}/teams', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listTeamsListing(        owner: 'generated',
+        repo: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -14251,7 +16959,7 @@ Using the `call` method:
 $client->call('GET /repos/{owner}/{repo}/topics', [
         'owner' => 'generated',
         'repo' => 'generated',
-        'page' => 4,
+        'page' => 1,
         'per_page' => 8,
 ]);
 ```
@@ -14260,7 +16968,7 @@ Operations method:
 ```php
 $client->operations()->repos()->getAllTopics(        owner: 'generated',
         repo: 'generated',
-        page: 4,
+        page: 1,
         per_page: 8,
 );
 ```
@@ -14414,7 +17122,7 @@ $client->call('GET /repositories/{repository_id}/environments/{environment_name}
         'repository_id' => 13,
         'environment_name' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14423,7 +17131,7 @@ Operations method:
 $client->operations()->actions()->listEnvironmentSecrets(        repository_id: 13,
         environment_name: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14535,7 +17243,7 @@ $client->call('GET /search/code', [
         'sort' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14545,7 +17253,7 @@ $client->operations()->search()->code(        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14563,7 +17271,7 @@ $client->call('GET /search/commits', [
         'sort' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14573,7 +17281,7 @@ $client->operations()->search()->commits(        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14591,7 +17299,7 @@ $client->call('GET /search/issues', [
         'sort' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14601,7 +17309,7 @@ $client->operations()->search()->issuesAndPullRequests(        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14620,7 +17328,7 @@ $client->call('GET /search/labels', [
         'sort' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14631,7 +17339,7 @@ $client->operations()->search()->labels(        repository_id: 13,
         sort: 'generated',
         order: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14649,7 +17357,7 @@ $client->call('GET /search/repositories', [
         'sort' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14659,7 +17367,7 @@ $client->operations()->search()->repos(        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14675,7 +17383,7 @@ Using the `call` method:
 $client->call('GET /search/topics', [
         'q' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14683,7 +17391,7 @@ Operations method:
 ```php
 $client->operations()->search()->topics(        q: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14701,7 +17409,7 @@ $client->call('GET /search/users', [
         'sort' => 'generated',
         'order' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14711,7 +17419,7 @@ $client->operations()->search()->users(        q: 'generated',
         sort: 'generated',
         order: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -14975,7 +17683,7 @@ $client->call('GET /teams/{team_id}/discussions', [
         'team_id' => 7,
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -14984,7 +17692,33 @@ Operations method:
 $client->operations()->teams()->listDiscussionsLegacy(        team_id: 7,
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-discussions-legacy).
+
+
+### teams/list-discussions-legacy
+
+List discussions (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/discussions', [
+        'team_id' => 7,
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listDiscussionsLegacyListing(        team_id: 7,
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15088,7 +17822,7 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}/comments', [
         'discussion_number' => 17,
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15098,7 +17832,35 @@ $client->operations()->teams()->listDiscussionCommentsLegacy(        team_id: 7,
         discussion_number: 17,
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-discussion-comments-legacy).
+
+
+### teams/list-discussion-comments-legacy
+
+List discussion comments (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/discussions/{discussion_number}/comments', [
+        'team_id' => 7,
+        'discussion_number' => 17,
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listDiscussionCommentsLegacyListing(        team_id: 7,
+        discussion_number: 17,
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15211,7 +17973,7 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}/comments/{co
         'comment_number' => 14,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15222,7 +17984,37 @@ $client->operations()->reactions()->listForTeamDiscussionCommentLegacy(        t
         comment_number: 14,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions/#list-reactions-for-a-team-discussion-comment-legacy).
+
+
+### reactions/list-for-team-discussion-comment-legacy
+
+List reactions for a team discussion comment (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions', [
+        'team_id' => 7,
+        'discussion_number' => 17,
+        'comment_number' => 14,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForTeamDiscussionCommentLegacyListing(        team_id: 7,
+        discussion_number: 17,
+        comment_number: 14,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15264,7 +18056,7 @@ $client->call('GET /teams/{team_id}/discussions/{discussion_number}/reactions', 
         'discussion_number' => 17,
         'content' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15274,7 +18066,35 @@ $client->operations()->reactions()->listForTeamDiscussionLegacy(        team_id:
         discussion_number: 17,
         content: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/reactions/#list-reactions-for-a-team-discussion-legacy).
+
+
+### reactions/list-for-team-discussion-legacy
+
+List reactions for a team discussion (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/discussions/{discussion_number}/reactions', [
+        'team_id' => 7,
+        'discussion_number' => 17,
+        'content' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->reactions()->listForTeamDiscussionLegacyListing(        team_id: 7,
+        discussion_number: 17,
+        content: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15313,7 +18133,7 @@ $client->call('GET /teams/{team_id}/members', [
         'team_id' => 7,
         'role' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15322,7 +18142,33 @@ Operations method:
 $client->operations()->teams()->listMembersLegacy(        team_id: 7,
         role: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-team-members-legacy).
+
+
+### teams/list-members-legacy
+
+List team members (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/members', [
+        'team_id' => 7,
+        'role' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listMembersLegacyListing(        team_id: 7,
+        role: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15470,7 +18316,7 @@ Using the `call` method:
 $client->call('GET /teams/{team_id}/projects', [
         'team_id' => 7,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15478,7 +18324,31 @@ Operations method:
 ```php
 $client->operations()->teams()->listProjectsLegacy(        team_id: 7,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams/#list-team-projects-legacy).
+
+
+### teams/list-projects-legacy
+
+List team projects (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/projects', [
+        'team_id' => 7,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listProjectsLegacyListing(        team_id: 7,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15560,7 +18430,7 @@ Using the `call` method:
 $client->call('GET /teams/{team_id}/repos', [
         'team_id' => 7,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15568,7 +18438,31 @@ Operations method:
 ```php
 $client->operations()->teams()->listReposLegacy(        team_id: 7,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams/#list-team-repositories-legacy).
+
+
+### teams/list-repos-legacy
+
+List team repositories (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/repos', [
+        'team_id' => 7,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listReposLegacyListing(        team_id: 7,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15656,7 +18550,7 @@ Using the `call` method:
 $client->call('GET /teams/{team_id}/teams', [
         'team_id' => 7,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15664,7 +18558,31 @@ Operations method:
 ```php
 $client->operations()->teams()->listChildLegacy(        team_id: 7,
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams/#list-child-teams-legacy).
+
+
+### teams/list-child-legacy
+
+List child teams (Legacy)
+
+Using the `call` method:
+```php
+$client->call('LIST /teams/{team_id}/teams', [
+        'team_id' => 7,
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listChildLegacyListing(        team_id: 7,
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15713,14 +18631,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/emails', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->users()->listEmailsForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-email-addresses-for-the-authenticated-user).
+
+
+### users/list-emails-for-authenticated-user
+
+List email addresses for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/emails', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listEmailsForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15769,14 +18709,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/followers', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->users()->listFollowersForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-followers-of-the-authenticated-user).
+
+
+### users/list-followers-for-authenticated-user
+
+List followers of the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/followers', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listFollowersForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15791,14 +18753,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/following', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->users()->listFollowedByAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-the-people-the-authenticated-user-follows).
+
+
+### users/list-followed-by-authenticated-user
+
+List the people the authenticated user follows
+
+Using the `call` method:
+```php
+$client->call('LIST /user/following', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listFollowedByAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15873,14 +18857,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/gpg_keys', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->users()->listGpgKeysForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-gpg-keys-for-the-authenticated-user).
+
+
+### users/list-gpg-keys-for-authenticated-user
+
+List GPG keys for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/gpg_keys', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listGpgKeysForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -15952,14 +18958,14 @@ Using the `call` method:
 ```php
 $client->call('GET /user/installations', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->apps()->listInstallationsForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -15975,7 +18981,7 @@ Using the `call` method:
 $client->call('GET /user/installations/{installation_id}/repositories', [
         'installation_id' => 15,
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -15983,7 +18989,7 @@ Operations method:
 ```php
 $client->operations()->apps()->listInstallationReposForAuthenticatedUser(        installation_id: 15,
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -16048,7 +19054,7 @@ $client->call('GET /user/issues', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16061,7 +19067,41 @@ $client->operations()->issues()->listForAuthenticatedUser(        labels: 'gener
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/issues#list-user-account-issues-assigned-to-the-authenticated-user).
+
+
+### issues/list-for-authenticated-user
+
+List user account issues assigned to the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/issues', [
+        'labels' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'filter' => 'generated',
+        'state' => 'generated',
+        'sort' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->issues()->listForAuthenticatedUserListing(        labels: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        filter: 'generated',
+        state: 'generated',
+        sort: 'generated',
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16076,14 +19116,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/keys', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->users()->listPublicSshKeysForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-public-ssh-keys-for-the-authenticated-user).
+
+
+### users/list-public-ssh-keys-for-authenticated-user
+
+List public SSH keys for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/keys', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listPublicSshKeysForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16156,7 +19218,7 @@ Using the `call` method:
 $client->call('GET /user/memberships/orgs', [
         'state' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16164,7 +19226,31 @@ Operations method:
 ```php
 $client->operations()->orgs()->listMembershipsForAuthenticatedUser(        state: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#list-organization-memberships-for-the-authenticated-user).
+
+
+### orgs/list-memberships-for-authenticated-user
+
+List organization memberships for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/memberships/orgs', [
+        'state' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listMembershipsForAuthenticatedUserListing(        state: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16219,14 +19305,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/orgs', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->orgs()->listForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#list-organizations-for-the-authenticated-user).
+
+
+### orgs/list-for-authenticated-user
+
+List organizations for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/orgs', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16258,14 +19366,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/public_emails', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->users()->listPublicEmailsForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-public-email-addresses-for-the-authenticated-user).
+
+
+### users/list-public-emails-for-authenticated-user
+
+List public email addresses for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/public_emails', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listPublicEmailsForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16287,7 +19417,7 @@ $client->call('GET /user/repos', [
         'type' => 'generated',
         'sort' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16301,7 +19431,43 @@ $client->operations()->repos()->listForAuthenticatedUser(        direction: 'gen
         type: 'generated',
         sort: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-repositories-for-the-authenticated-user).
+
+
+### repos/list-for-authenticated-user
+
+List repositories for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/repos', [
+        'direction' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'before' => '1970-01-01T00:00:00+00:00',
+        'visibility' => 'generated',
+        'affiliation' => 'generated',
+        'type' => 'generated',
+        'sort' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listForAuthenticatedUserListing(        direction: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        before: '1970-01-01T00:00:00+00:00',
+        visibility: 'generated',
+        affiliation: 'generated',
+        type: 'generated',
+        sort: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16333,14 +19499,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/repository_invitations', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->repos()->listInvitationsForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/collaborators/invitations#list-repository-invitations-for-the-authenticated-user).
+
+
+### repos/list-invitations-for-authenticated-user
+
+List repository invitations for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/repository_invitations', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listInvitationsForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16397,7 +19585,7 @@ $client->call('GET /user/starred', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16406,7 +19594,33 @@ Operations method:
 $client->operations()->activity()->listReposStarredByAuthenticatedUser(        sort: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-repositories-starred-by-the-authenticated-user).
+
+
+### activity/list-repos-starred-by-authenticated-user
+
+List repositories starred by the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/starred', [
+        'sort' => 'generated',
+        'direction' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listReposStarredByAuthenticatedUserListing(        sort: 'generated',
+        direction: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16487,14 +19701,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/subscriptions', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->activity()->listWatchedReposForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-repositories-watched-by-the-authenticated-user).
+
+
+### activity/list-watched-repos-for-authenticated-user
+
+List repositories watched by the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/subscriptions', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listWatchedReposForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16509,14 +19745,36 @@ Using the `call` method:
 ```php
 $client->call('GET /user/teams', [
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->teams()->listForAuthenticatedUser(        per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/teams#list-teams-for-the-authenticated-user).
+
+
+### teams/list-for-authenticated-user
+
+List teams for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /user/teams', [
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->teams()->listForAuthenticatedUserListing(        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16574,7 +19832,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/events', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16582,7 +19840,31 @@ Operations method:
 ```php
 $client->operations()->activity()->listEventsForAuthenticatedUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-events-for-the-authenticated-user).
+
+
+### activity/list-events-for-authenticated-user
+
+List events for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/events', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listEventsForAuthenticatedUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16599,7 +19881,7 @@ $client->call('GET /users/{username}/events/orgs/{org}', [
         'username' => 'generated',
         'org' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16608,7 +19890,33 @@ Operations method:
 $client->operations()->activity()->listOrgEventsForAuthenticatedUser(        username: 'generated',
         org: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-organization-events-for-the-authenticated-user).
+
+
+### activity/list-org-events-for-authenticated-user
+
+List organization events for the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/events/orgs/{org}', [
+        'username' => 'generated',
+        'org' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listOrgEventsForAuthenticatedUserListing(        username: 'generated',
+        org: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16624,7 +19932,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/events/public', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16632,7 +19940,31 @@ Operations method:
 ```php
 $client->operations()->activity()->listPublicEventsForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-public-events-for-a-user).
+
+
+### activity/list-public-events-for-user
+
+List public events for a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/events/public', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listPublicEventsForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16648,7 +19980,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/followers', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16656,7 +19988,31 @@ Operations method:
 ```php
 $client->operations()->users()->listFollowersForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-followers-of-a-user).
+
+
+### users/list-followers-for-user
+
+List followers of a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/followers', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listFollowersForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16672,7 +20028,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/following', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16680,7 +20036,31 @@ Operations method:
 ```php
 $client->operations()->users()->listFollowingForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-the-people-a-user-follows).
+
+
+### users/list-following-for-user
+
+List the people a user follows
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/following', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listFollowingForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16719,7 +20099,7 @@ $client->call('GET /users/{username}/gists', [
         'username' => 'generated',
         'since' => '1970-01-01T00:00:00+00:00',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16728,7 +20108,33 @@ Operations method:
 $client->operations()->gists()->listForUser(        username: 'generated',
         since: '1970-01-01T00:00:00+00:00',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/gists#list-gists-for-a-user).
+
+
+### gists/list-for-user
+
+List gists for a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/gists', [
+        'username' => 'generated',
+        'since' => '1970-01-01T00:00:00+00:00',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->gists()->listForUserListing(        username: 'generated',
+        since: '1970-01-01T00:00:00+00:00',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16744,7 +20150,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/gpg_keys', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16752,7 +20158,31 @@ Operations method:
 ```php
 $client->operations()->users()->listGpgKeysForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-gpg-keys-for-a-user).
+
+
+### users/list-gpg-keys-for-user
+
+List GPG keys for a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/gpg_keys', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listGpgKeysForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16812,7 +20242,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/keys', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16820,7 +20250,31 @@ Operations method:
 ```php
 $client->operations()->users()->listPublicKeysForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/users#list-public-keys-for-a-user).
+
+
+### users/list-public-keys-for-user
+
+List public keys for a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/keys', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listPublicKeysForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16836,7 +20290,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/orgs', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16844,7 +20298,31 @@ Operations method:
 ```php
 $client->operations()->orgs()->listForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/orgs#list-organizations-for-a-user).
+
+
+### orgs/list-for-user
+
+List organizations for a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/orgs', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16861,7 +20339,7 @@ $client->call('GET /users/{username}/projects', [
         'username' => 'generated',
         'state' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16870,7 +20348,33 @@ Operations method:
 $client->operations()->projects()->listForUser(        username: 'generated',
         state: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/projects#list-user-projects).
+
+
+### projects/list-for-user
+
+List user projects
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/projects', [
+        'username' => 'generated',
+        'state' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->projects()->listForUserListing(        username: 'generated',
+        state: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16886,7 +20390,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/received_events', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16894,7 +20398,31 @@ Operations method:
 ```php
 $client->operations()->activity()->listReceivedEventsForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-events-received-by-the-authenticated-user).
+
+
+### activity/list-received-events-for-user
+
+List events received by the authenticated user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/received_events', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listReceivedEventsForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16910,7 +20438,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/received_events/public', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16918,7 +20446,31 @@ Operations method:
 ```php
 $client->operations()->activity()->listReceivedPublicEventsForUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-public-events-received-by-a-user).
+
+
+### activity/list-received-public-events-for-user
+
+List public events received by a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/received_events/public', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listReceivedPublicEventsForUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -16937,7 +20489,7 @@ $client->call('GET /users/{username}/repos', [
         'type' => 'generated',
         'sort' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -16948,7 +20500,37 @@ $client->operations()->repos()->listForUser(        username: 'generated',
         type: 'generated',
         sort: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/repos#list-repositories-for-a-user).
+
+
+### repos/list-for-user
+
+List repositories for a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/repos', [
+        'username' => 'generated',
+        'direction' => 'generated',
+        'type' => 'generated',
+        'sort' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listForUserListing(        username: 'generated',
+        direction: 'generated',
+        type: 'generated',
+        sort: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
@@ -17006,7 +20588,7 @@ $client->call('GET /users/{username}/starred', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -17016,7 +20598,7 @@ $client->operations()->activity()->listReposStarredByUser(        username: 'gen
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
 );
 ```
 
@@ -17032,7 +20614,7 @@ Using the `call` method:
 $client->call('GET /users/{username}/subscriptions', [
         'username' => 'generated',
         'per_page' => 8,
-        'page' => 4,
+        'page' => 1,
 ]);
 ```
 
@@ -17040,7 +20622,31 @@ Operations method:
 ```php
 $client->operations()->activity()->listReposWatchedByUser(        username: 'generated',
         per_page: 8,
-        page: 4,
+        page: 1,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.3/rest/reference/activity#list-repositories-watched-by-a-user).
+
+
+### activity/list-repos-watched-by-user
+
+List repositories watched by a user
+
+Using the `call` method:
+```php
+$client->call('LIST /users/{username}/subscriptions', [
+        'username' => 'generated',
+        'per_page' => 8,
+        'page' => 1,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->activity()->listReposWatchedByUserListing(        username: 'generated',
+        per_page: 8,
+        page: 1,
 );
 ```
 
