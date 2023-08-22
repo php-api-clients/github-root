@@ -34,7 +34,7 @@ final class Three
                             $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Delete\EnterpriseAdmin::class]->removeAnnouncement($params);
+                        return $this->router[Router\Delete\EnterpriseAdmin::class]->RemoveAnnouncement($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'gists') {
@@ -45,7 +45,7 @@ final class Three
                             $this->router[Router\Delete\Gists::class] = new Router\Delete\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Delete\Gists::class]->delete($params);
+                        return $this->router[Router\Delete\Gists::class]->Delete($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'installation') {
@@ -56,7 +56,7 @@ final class Three
                             $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Delete\Apps::class]->revokeInstallationAccessToken($params);
+                        return $this->router[Router\Delete\Apps::class]->RevokeInstallationAccessToken($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'projects') {
@@ -67,7 +67,7 @@ final class Three
                             $this->router[Router\Delete\Projects::class] = new Router\Delete\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Delete\Projects::class]->delete($params);
+                        return $this->router[Router\Delete\Projects::class]->Delete($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'teams') {
@@ -78,7 +78,7 @@ final class Three
                             $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Delete\Teams::class]->deleteLegacy($params);
+                        return $this->router[Router\Delete\Teams::class]->DeleteLegacy($params);
                     }
                 }
             }

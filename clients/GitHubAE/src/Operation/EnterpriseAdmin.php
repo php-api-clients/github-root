@@ -31,6 +31,15 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\ListGlobalWebhooks::class]->call($perPage, $page);
     }
 
+    public function listGlobalWebhooksListing(int $perPage, int $page): Schema\GlobalHook
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListGlobalWebhooksListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListGlobalWebhooksListing::class] = new Operator\EnterpriseAdmin\ListGlobalWebhooksListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListGlobalWebhooksListing::class]->call($perPage, $page);
+    }
+
     public function createGlobalWebhook(array $params): Schema\GlobalHook
     {
         if (array_key_exists(Operator\EnterpriseAdmin\CreateGlobalWebhook::class, $this->operator) === false) {
@@ -85,6 +94,15 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\ListPublicKeys::class]->call($since, $perPage, $page, $direction, $sort);
     }
 
+    public function listPublicKeysListing(string $since, int $perPage, int $page, string $direction, string $sort): Schema\PublicKeyFull
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPublicKeysListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPublicKeysListing::class] = new Operator\EnterpriseAdmin\ListPublicKeysListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Keys());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPublicKeysListing::class]->call($since, $perPage, $page, $direction, $sort);
+    }
+
     public function deletePublicKey(string $keyIds): ResponseInterface
     {
         if (array_key_exists(Operator\EnterpriseAdmin\DeletePublicKey::class, $this->operator) === false) {
@@ -119,6 +137,15 @@ final class EnterpriseAdmin
         }
 
         return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveEnvironments::class]->call($perPage, $page, $direction, $sort);
+    }
+
+    public function listPreReceiveEnvironmentsListing(int $perPage, int $page, string $direction, string $sort): Schema\PreReceiveEnvironment
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing::class] = new Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing::class]->call($perPage, $page, $direction, $sort);
     }
 
     public function createPreReceiveEnvironment(array $params): Schema\PreReceiveEnvironment
@@ -200,6 +227,15 @@ final class EnterpriseAdmin
         }
 
         return $this->operator[Operator\EnterpriseAdmin\ListPersonalAccessTokens::class]->call($perPage, $page);
+    }
+
+    public function listPersonalAccessTokensListing(int $perPage, int $page): Schema\Authorization
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPersonalAccessTokensListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPersonalAccessTokensListing::class] = new Operator\EnterpriseAdmin\ListPersonalAccessTokensListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Tokens());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPersonalAccessTokensListing::class]->call($perPage, $page);
     }
 
     public function deletePersonalAccessToken(int $tokenId): ResponseInterface
@@ -587,6 +623,15 @@ final class EnterpriseAdmin
         }
 
         return $this->operator[Operator\EnterpriseAdmin\GetAuditLog::class]->call($enterprise, $phrase, $after, $before, $order, $page, $perPage);
+    }
+
+    public function getAuditLogListing(string $enterprise, string $phrase, string $after, string $before, string $order, int $page, int $perPage): Schema\AuditLogEvent
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\GetAuditLogListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class] = new Operator\EnterpriseAdmin\GetAuditLogListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class]->call($enterprise, $phrase, $after, $before, $order, $page, $perPage);
     }
 
     public function suspendUser(string $username, array $params): ResponseInterface

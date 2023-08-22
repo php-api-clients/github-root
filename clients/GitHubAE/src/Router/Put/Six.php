@@ -41,7 +41,7 @@ final class Six
                                         $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\EnterpriseAdmin::class]->setSelectedOrganizationsEnabledGithubActionsEnterprise($params);
+                                    return $this->router[Router\Put\EnterpriseAdmin::class]->SetSelectedOrganizationsEnabledGithubActionsEnterprise($params);
                                 }
                             } elseif ($pathChunks[5] === 'selected-actions') {
                                 if ($call === 'PUT /enterprises/{enterprise}/actions/permissions/selected-actions') {
@@ -50,7 +50,7 @@ final class Six
                                         $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\EnterpriseAdmin::class]->setAllowedActionsEnterprise($params);
+                                    return $this->router[Router\Put\EnterpriseAdmin::class]->SetAllowedActionsEnterprise($params);
                                 }
                             }
                         }
@@ -67,7 +67,7 @@ final class Six
                                         $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Actions::class]->setSelectedRepositoriesEnabledGithubActionsOrganization($params);
+                                    return $this->router[Router\Put\Actions::class]->SetSelectedRepositoriesEnabledGithubActionsOrganization($params);
                                 }
                             } elseif ($pathChunks[5] === 'selected-actions') {
                                 if ($call === 'PUT /orgs/{org}/actions/permissions/selected-actions') {
@@ -76,7 +76,7 @@ final class Six
                                         $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Actions::class]->setAllowedActionsOrganization($params);
+                                    return $this->router[Router\Put\Actions::class]->SetAllowedActionsOrganization($params);
                                 }
                             } elseif ($pathChunks[5] === 'workflow') {
                                 if ($call === 'PUT /orgs/{org}/actions/permissions/workflow') {
@@ -85,7 +85,7 @@ final class Six
                                         $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Actions::class]->setGithubActionsDefaultWorkflowPermissionsOrganization($params);
+                                    return $this->router[Router\Put\Actions::class]->SetGithubActionsDefaultWorkflowPermissionsOrganization($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'secrets') {
@@ -96,7 +96,7 @@ final class Six
                                         $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Actions::class]->createOrUpdateOrgSecret($params);
+                                    return $this->router[Router\Put\Actions::class]->CreateOrUpdateOrgSecret($params);
                                 }
                             }
                         }
@@ -113,7 +113,7 @@ final class Six
                                         $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Actions::class]->setGithubActionsPermissionsRepository($params);
+                                    return $this->router[Router\Put\Actions::class]->SetGithubActionsPermissionsRepository($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'collaborators') {
@@ -124,7 +124,7 @@ final class Six
                                         $this->router[Router\Put\Repos::class] = new Router\Put\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Repos::class]->addCollaborator($params);
+                                    return $this->router[Router\Put\Repos::class]->AddCollaborator($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'contents') {
@@ -135,7 +135,7 @@ final class Six
                                         $this->router[Router\Put\Repos::class] = new Router\Put\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Repos::class]->createOrUpdateFileContents($params);
+                                    return $this->router[Router\Put\Repos::class]->CreateOrUpdateFileContents($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'environments') {
@@ -146,7 +146,7 @@ final class Six
                                         $this->router[Router\Put\Repos::class] = new Router\Put\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Repos::class]->createOrUpdateEnvironment($params);
+                                    return $this->router[Router\Put\Repos::class]->CreateOrUpdateEnvironment($params);
                                 }
                             }
                         }
@@ -163,7 +163,7 @@ final class Six
                                         $this->router[Router\Put\Teams::class] = new Router\Put\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Teams::class]->addOrUpdateRepoPermissionsLegacy($params);
+                                    return $this->router[Router\Put\Teams::class]->AddOrUpdateRepoPermissionsLegacy($params);
                                 }
                             }
                         }
@@ -180,7 +180,7 @@ final class Six
                                         $this->router[Router\Put\Apps::class] = new Router\Put\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Put\Apps::class]->addRepoToInstallationForAuthenticatedUser($params);
+                                    return $this->router[Router\Put\Apps::class]->AddRepoToInstallationForAuthenticatedUser($params);
                                 }
                             }
                         }
