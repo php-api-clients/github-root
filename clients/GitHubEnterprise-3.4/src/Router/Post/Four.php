@@ -47,7 +47,7 @@ final class Four
                                 $this->router[Router\Post\Apps::class] = new Router\Post\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Apps::class]->createFromManifest($params);
+                            return $this->router[Router\Post\Apps::class]->CreateFromManifest($params);
                         }
                     }
                 }
@@ -60,7 +60,7 @@ final class Four
                                 $this->router[Router\Post\Apps::class] = new Router\Post\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Apps::class]->checkToken($params);
+                            return $this->router[Router\Post\Apps::class]->CheckToken($params);
                         }
                     }
                 }
@@ -73,7 +73,7 @@ final class Four
                                 $this->router[Router\Post\Gists::class] = new Router\Post\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Gists::class]->createComment($params);
+                            return $this->router[Router\Post\Gists::class]->CreateComment($params);
                         }
                     } elseif ($pathChunks[3] === 'forks') {
                         if ($call === 'POST /gists/{gist_id}/forks') {
@@ -82,7 +82,7 @@ final class Four
                                 $this->router[Router\Post\Gists::class] = new Router\Post\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Gists::class]->fork($params);
+                            return $this->router[Router\Post\Gists::class]->Fork($params);
                         }
                     }
                 }
@@ -95,7 +95,7 @@ final class Four
                                 $this->router[Router\Post\Orgs::class] = new Router\Post\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Orgs::class]->createWebhook($params);
+                            return $this->router[Router\Post\Orgs::class]->CreateWebhook($params);
                         }
                     } elseif ($pathChunks[3] === 'migrations') {
                         if ($call === 'POST /orgs/{org}/migrations') {
@@ -104,7 +104,7 @@ final class Four
                                 $this->router[Router\Post\Migrations::class] = new Router\Post\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Migrations::class]->startForOrg($params);
+                            return $this->router[Router\Post\Migrations::class]->StartForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'projects') {
                         if ($call === 'POST /orgs/{org}/projects') {
@@ -113,7 +113,7 @@ final class Four
                                 $this->router[Router\Post\Projects::class] = new Router\Post\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Projects::class]->createForOrg($params);
+                            return $this->router[Router\Post\Projects::class]->CreateForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'repos') {
                         if ($call === 'POST /orgs/{org}/repos') {
@@ -122,7 +122,7 @@ final class Four
                                 $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Repos::class]->createInOrg($params);
+                            return $this->router[Router\Post\Repos::class]->CreateInOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'teams') {
                         if ($call === 'POST /orgs/{org}/teams') {
@@ -131,7 +131,7 @@ final class Four
                                 $this->router[Router\Post\Teams::class] = new Router\Post\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Teams::class]->create($params);
+                            return $this->router[Router\Post\Teams::class]->Create($params);
                         }
                     }
                 }
@@ -144,7 +144,7 @@ final class Four
                                 $this->router[Router\Post\Projects::class] = new Router\Post\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Projects::class]->createColumn($params);
+                            return $this->router[Router\Post\Projects::class]->CreateColumn($params);
                         }
                     }
                 }
@@ -157,7 +157,7 @@ final class Four
                                 $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\EnterpriseAdmin::class]->startConfigurationProcess($params);
+                            return $this->router[Router\Post\EnterpriseAdmin::class]->StartConfigurationProcess($params);
                         }
                     } elseif ($pathChunks[3] === 'maintenance') {
                         if ($call === 'POST /setup/api/maintenance') {
@@ -166,7 +166,7 @@ final class Four
                                 $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\EnterpriseAdmin::class]->enableOrDisableMaintenanceMode($params);
+                            return $this->router[Router\Post\EnterpriseAdmin::class]->EnableOrDisableMaintenanceMode($params);
                         }
                     } elseif ($pathChunks[3] === 'start') {
                         if ($call === 'POST /setup/api/start') {
@@ -175,7 +175,7 @@ final class Four
                                 $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\EnterpriseAdmin::class]->createEnterpriseServerLicense($params);
+                            return $this->router[Router\Post\EnterpriseAdmin::class]->CreateEnterpriseServerLicense($params);
                         }
                     } elseif ($pathChunks[3] === 'upgrade') {
                         if ($call === 'POST /setup/api/upgrade') {
@@ -184,7 +184,7 @@ final class Four
                                 $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\EnterpriseAdmin::class]->upgradeLicense($params);
+                            return $this->router[Router\Post\EnterpriseAdmin::class]->UpgradeLicense($params);
                         }
                     }
                 }
@@ -197,7 +197,7 @@ final class Four
                                 $this->router[Router\Post\Teams::class] = new Router\Post\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Post\Teams::class]->createDiscussionLegacy($params);
+                            return $this->router[Router\Post\Teams::class]->CreateDiscussionLegacy($params);
                         }
                     }
                 }

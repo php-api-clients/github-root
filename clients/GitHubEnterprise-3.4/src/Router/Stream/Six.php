@@ -34,11 +34,11 @@ final class Six
                             if ($pathChunks[5] === 'latest') {
                                 if ($call === 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest') {
                                     $matched = true;
-                                    if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                        $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
+                                    if (array_key_exists(Router\Stream\EnterpriseAdmin::class, $this->router) === false) {
+                                        $this->router[Router\Stream\EnterpriseAdmin::class] = new Router\Stream\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Get\EnterpriseAdmin::class]->getDownloadStatusForPreReceiveEnvironmentStreaming($params);
+                                    return $this->router[Router\Stream\EnterpriseAdmin::class]->GetDownloadStatusForPreReceiveEnvironmentStreaming($params);
                                 }
                             }
                         }
@@ -51,11 +51,11 @@ final class Six
                             if ($pathChunks[5] === 'archive') {
                                 if ($call === 'STREAM /orgs/{org}/migrations/{migration_id}/archive') {
                                     $matched = true;
-                                    if (array_key_exists(Router\Get\Migrations::class, $this->router) === false) {
-                                        $this->router[Router\Get\Migrations::class] = new Router\Get\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
+                                    if (array_key_exists(Router\Stream\Migrations::class, $this->router) === false) {
+                                        $this->router[Router\Stream\Migrations::class] = new Router\Stream\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Get\Migrations::class]->downloadArchiveForOrgStreaming($params);
+                                    return $this->router[Router\Stream\Migrations::class]->DownloadArchiveForOrgStreaming($params);
                                 }
                             }
                         }
@@ -68,22 +68,22 @@ final class Six
                             if ($pathChunks[5] === '{ref}') {
                                 if ($call === 'STREAM /repos/{owner}/{repo}/tarball/{ref}') {
                                     $matched = true;
-                                    if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                        $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
+                                    if (array_key_exists(Router\Stream\Repos::class, $this->router) === false) {
+                                        $this->router[Router\Stream\Repos::class] = new Router\Stream\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Get\Repos::class]->downloadTarballArchiveStreaming($params);
+                                    return $this->router[Router\Stream\Repos::class]->DownloadTarballArchiveStreaming($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'zipball') {
                             if ($pathChunks[5] === '{ref}') {
                                 if ($call === 'STREAM /repos/{owner}/{repo}/zipball/{ref}') {
                                     $matched = true;
-                                    if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                        $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
+                                    if (array_key_exists(Router\Stream\Repos::class, $this->router) === false) {
+                                        $this->router[Router\Stream\Repos::class] = new Router\Stream\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Get\Repos::class]->downloadZipballArchiveStreaming($params);
+                                    return $this->router[Router\Stream\Repos::class]->DownloadZipballArchiveStreaming($params);
                                 }
                             }
                         }
