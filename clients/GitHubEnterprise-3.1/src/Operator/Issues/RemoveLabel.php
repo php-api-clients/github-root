@@ -26,7 +26,7 @@ final readonly class RemoveLabel
     {
     }
 
-    /** @return iterable<Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function call(string $owner, string $repo, int $issueNumber, string $name): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Issues\RemoveLabel($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $issueNumber, $name);

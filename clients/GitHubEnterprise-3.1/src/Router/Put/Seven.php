@@ -25,7 +25,7 @@ final class Seven
     {
     }
 
-    /** @return array{code: int}|(Schema\TeamMembership|array{code: int})|(Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json||iterable<Schema\Label> */
+    /** @return array{code: int}|(Schema\TeamMembership|array{code: int})|(Schema\Operations\Actions\CreateOrUpdateRepoSecret\Response\ApplicationJson\Created\Application\Json||Observable<Schema\Label> */
     public function call(string $call, array $params, array $pathChunks): TeamMembership|Json|ProtectedBranch|iterable|PullRequestMergeResult|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json
     {
         $matched = false;
@@ -42,7 +42,7 @@ final class Seven
                                             $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\EnterpriseAdmin::class]->enableSelectedOrganizationGithubActionsEnterprise($params);
+                                        return $this->router[Router\Put\EnterpriseAdmin::class]->EnableSelectedOrganizationGithubActionsEnterprise($params);
                                     }
                                 }
                             }
@@ -55,7 +55,7 @@ final class Seven
                                             $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\EnterpriseAdmin::class]->setOrgAccessToSelfHostedRunnerGroupInEnterprise($params);
+                                        return $this->router[Router\Put\EnterpriseAdmin::class]->SetOrgAccessToSelfHostedRunnerGroupInEnterprise($params);
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
                                     if ($call === 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners') {
@@ -64,7 +64,7 @@ final class Seven
                                             $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\EnterpriseAdmin::class]->setSelfHostedRunnersInGroupForEnterprise($params);
+                                        return $this->router[Router\Put\EnterpriseAdmin::class]->SetSelfHostedRunnersInGroupForEnterprise($params);
                                     }
                                 }
                             }
@@ -83,7 +83,7 @@ final class Seven
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Actions::class]->enableSelectedRepositoryGithubActionsOrganization($params);
+                                        return $this->router[Router\Put\Actions::class]->EnableSelectedRepositoryGithubActionsOrganization($params);
                                     }
                                 }
                             }
@@ -96,7 +96,7 @@ final class Seven
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Actions::class]->setRepoAccessToSelfHostedRunnerGroupInOrg($params);
+                                        return $this->router[Router\Put\Actions::class]->SetRepoAccessToSelfHostedRunnerGroupInOrg($params);
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
                                     if ($call === 'PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners') {
@@ -105,7 +105,7 @@ final class Seven
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Actions::class]->setSelfHostedRunnersInGroupForOrg($params);
+                                        return $this->router[Router\Put\Actions::class]->SetSelfHostedRunnersInGroupForOrg($params);
                                     }
                                 }
                             }
@@ -118,7 +118,7 @@ final class Seven
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Actions::class]->setSelectedReposForOrgSecret($params);
+                                        return $this->router[Router\Put\Actions::class]->SetSelectedReposForOrgSecret($params);
                                     }
                                 }
                             }
@@ -133,7 +133,7 @@ final class Seven
                                             $this->router[Router\Put\Teams::class] = new Router\Put\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Teams::class]->addOrUpdateMembershipForUserInOrg($params);
+                                        return $this->router[Router\Put\Teams::class]->AddOrUpdateMembershipForUserInOrg($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'projects') {
@@ -144,7 +144,7 @@ final class Seven
                                             $this->router[Router\Put\Teams::class] = new Router\Put\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Teams::class]->addOrUpdateProjectPermissionsInOrg($params);
+                                        return $this->router[Router\Put\Teams::class]->AddOrUpdateProjectPermissionsInOrg($params);
                                     }
                                 }
                             }
@@ -163,7 +163,7 @@ final class Seven
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Actions::class]->setAllowedActionsRepository($params);
+                                        return $this->router[Router\Put\Actions::class]->SetAllowedActionsRepository($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'secrets') {
@@ -174,7 +174,7 @@ final class Seven
                                             $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Actions::class]->createOrUpdateRepoSecret($params);
+                                        return $this->router[Router\Put\Actions::class]->CreateOrUpdateRepoSecret($params);
                                     }
                                 }
                             }
@@ -187,7 +187,7 @@ final class Seven
                                             $this->router[Router\Put\Repos::class] = new Router\Put\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Repos::class]->updateBranchProtection($params);
+                                        return $this->router[Router\Put\Repos::class]->UpdateBranchProtection($params);
                                     }
                                 }
                             }
@@ -200,7 +200,7 @@ final class Seven
                                             $this->router[Router\Put\Issues::class] = new Router\Put\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Issues::class]->setLabels($params);
+                                        return $this->router[Router\Put\Issues::class]->SetLabels($params);
                                     }
                                 } elseif ($pathChunks[6] === 'lock') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/issues/{issue_number}/lock') {
@@ -209,7 +209,7 @@ final class Seven
                                             $this->router[Router\Put\Issues::class] = new Router\Put\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Issues::class]->lock($params);
+                                        return $this->router[Router\Put\Issues::class]->Lock($params);
                                     }
                                 }
                             }
@@ -222,7 +222,7 @@ final class Seven
                                             $this->router[Router\Put\Pulls::class] = new Router\Put\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Pulls::class]->merge($params);
+                                        return $this->router[Router\Put\Pulls::class]->Merge($params);
                                     }
                                 } elseif ($pathChunks[6] === 'update-branch') {
                                     if ($call === 'PUT /repos/{owner}/{repo}/pulls/{pull_number}/update-branch') {
@@ -231,7 +231,7 @@ final class Seven
                                             $this->router[Router\Put\Pulls::class] = new Router\Put\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Put\Pulls::class]->updateBranch($params);
+                                        return $this->router[Router\Put\Pulls::class]->UpdateBranch($params);
                                     }
                                 }
                             }

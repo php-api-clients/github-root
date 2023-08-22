@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Orgs;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -27,7 +26,7 @@ final readonly class Update
     {
     }
 
-    /** @return Schema\OrganizationFull */
+    /** @return */
     public function call(string $org, array $params): OrganizationFull|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

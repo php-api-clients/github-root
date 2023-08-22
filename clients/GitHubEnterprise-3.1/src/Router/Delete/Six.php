@@ -39,7 +39,7 @@ final class Six
                                         $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\EnterpriseAdmin::class]->deleteSelfHostedRunnerGroupFromEnterprise($params);
+                                    return $this->router[Router\Delete\EnterpriseAdmin::class]->DeleteSelfHostedRunnerGroupFromEnterprise($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'runners') {
@@ -50,7 +50,7 @@ final class Six
                                         $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\EnterpriseAdmin::class]->deleteSelfHostedRunnerFromEnterprise($params);
+                                    return $this->router[Router\Delete\EnterpriseAdmin::class]->DeleteSelfHostedRunnerFromEnterprise($params);
                                 }
                             }
                         }
@@ -67,7 +67,7 @@ final class Six
                                         $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Actions::class]->deleteSelfHostedRunnerGroupFromOrg($params);
+                                    return $this->router[Router\Delete\Actions::class]->DeleteSelfHostedRunnerGroupFromOrg($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'runners') {
@@ -78,7 +78,7 @@ final class Six
                                         $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Actions::class]->deleteSelfHostedRunnerFromOrg($params);
+                                    return $this->router[Router\Delete\Actions::class]->DeleteSelfHostedRunnerFromOrg($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'secrets') {
@@ -89,7 +89,7 @@ final class Six
                                         $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Actions::class]->deleteOrgSecret($params);
+                                    return $this->router[Router\Delete\Actions::class]->DeleteOrgSecret($params);
                                 }
                             }
                         }
@@ -106,7 +106,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->removeCollaborator($params);
+                                    return $this->router[Router\Delete\Repos::class]->RemoveCollaborator($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'comments') {
@@ -117,7 +117,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->deleteCommitComment($params);
+                                    return $this->router[Router\Delete\Repos::class]->DeleteCommitComment($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'contents') {
@@ -128,7 +128,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->deleteFile($params);
+                                    return $this->router[Router\Delete\Repos::class]->DeleteFile($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'deployments') {
@@ -139,7 +139,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->deleteDeployment($params);
+                                    return $this->router[Router\Delete\Repos::class]->DeleteDeployment($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'hooks') {
@@ -150,7 +150,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->deleteWebhook($params);
+                                    return $this->router[Router\Delete\Repos::class]->DeleteWebhook($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'invitations') {
@@ -161,7 +161,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->deleteInvitation($params);
+                                    return $this->router[Router\Delete\Repos::class]->DeleteInvitation($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'keys') {
@@ -172,7 +172,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->deleteDeployKey($params);
+                                    return $this->router[Router\Delete\Repos::class]->DeleteDeployKey($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'labels') {
@@ -183,7 +183,7 @@ final class Six
                                         $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Issues::class]->deleteLabel($params);
+                                    return $this->router[Router\Delete\Issues::class]->DeleteLabel($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'milestones') {
@@ -194,7 +194,7 @@ final class Six
                                         $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Issues::class]->deleteMilestone($params);
+                                    return $this->router[Router\Delete\Issues::class]->DeleteMilestone($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'pre-receive-hooks') {
@@ -205,7 +205,7 @@ final class Six
                                         $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\EnterpriseAdmin::class]->removePreReceiveHookEnforcementForRepo($params);
+                                    return $this->router[Router\Delete\EnterpriseAdmin::class]->RemovePreReceiveHookEnforcementForRepo($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'releases') {
@@ -216,7 +216,7 @@ final class Six
                                         $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Repos::class]->deleteRelease($params);
+                                    return $this->router[Router\Delete\Repos::class]->DeleteRelease($params);
                                 }
                             }
                         }
@@ -233,7 +233,7 @@ final class Six
                                         $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Teams::class]->removeRepoLegacy($params);
+                                    return $this->router[Router\Delete\Teams::class]->RemoveRepoLegacy($params);
                                 }
                             }
                         }
@@ -250,7 +250,7 @@ final class Six
                                         $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                     }
 
-                                    return $this->router[Router\Delete\Apps::class]->removeRepoFromInstallationForAuthenticatedUser($params);
+                                    return $this->router[Router\Delete\Apps::class]->RemoveRepoFromInstallationForAuthenticatedUser($params);
                                 }
                             }
                         }

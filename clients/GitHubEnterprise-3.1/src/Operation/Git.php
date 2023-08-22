@@ -67,6 +67,15 @@ final class Git
         return $this->operator[Operator\Git\ListMatchingRefs::class]->call($owner, $repo, $ref, $perPage, $page);
     }
 
+    public function listMatchingRefsListing(string $owner, string $repo, string $ref, int $perPage, int $page): Schema\GitRef
+    {
+        if (array_key_exists(Operator\Git\ListMatchingRefsListing::class, $this->operator) === false) {
+            $this->operator[Operator\Git\ListMatchingRefsListing::class] = new Operator\Git\ListMatchingRefsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Git🌀MatchingRefs🌀Ref());
+        }
+
+        return $this->operator[Operator\Git\ListMatchingRefsListing::class]->call($owner, $repo, $ref, $perPage, $page);
+    }
+
     public function getRef(string $owner, string $repo, string $ref): Schema\GitRef
     {
         if (array_key_exists(Operator\Git\GetRef::class, $this->operator) === false) {
