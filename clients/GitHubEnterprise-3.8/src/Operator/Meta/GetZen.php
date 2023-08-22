@@ -25,7 +25,7 @@ final readonly class GetZen
     {
     }
 
-    /** @return string */
+    /** @return */
     public function call(): string|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Meta\GetZen($this->responseSchemaValidator, $this->hydrator);

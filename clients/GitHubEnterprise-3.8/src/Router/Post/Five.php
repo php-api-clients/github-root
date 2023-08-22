@@ -47,7 +47,7 @@ final class Five
     {
     }
 
-    /** @return array{code: int}||(Schema\ProjectCard|array{code: int})|(Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json|(Schema\Deployment|Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|(Schema\MergedUpstream|(Schema\Commit|(iterable<Schema\SshKey> */
+    /** @return array{code: int}||(Schema\ProjectCard|array{code: int})|(Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json|(Schema\Deployment|Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|(Schema\MergedUpstream|(Schema\Commit|(Observable<Schema\SshKey> */
     public function call(string $call, array $params, array $pathChunks): PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|MinimalRepository|Repository|iterable
     {
         $matched = false;
@@ -62,7 +62,7 @@ final class Five
                                     $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\EnterpriseAdmin::class]->pingGlobalWebhook($params);
+                                return $this->router[Router\Post\EnterpriseAdmin::class]->PingGlobalWebhook($params);
                             }
                         }
                     }
@@ -75,7 +75,7 @@ final class Five
                                     $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\EnterpriseAdmin::class]->startPreReceiveEnvironmentDownload($params);
+                                return $this->router[Router\Post\EnterpriseAdmin::class]->StartPreReceiveEnvironmentDownload($params);
                             }
                         }
                     }
@@ -88,7 +88,7 @@ final class Five
                                     $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\EnterpriseAdmin::class]->createImpersonationOAuthToken($params);
+                                return $this->router[Router\Post\EnterpriseAdmin::class]->CreateImpersonationOAuthToken($params);
                             }
                         }
                     }
@@ -103,7 +103,7 @@ final class Five
                                     $this->router[Router\Post\Apps::class] = new Router\Post\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Apps::class]->createInstallationAccessToken($params);
+                                return $this->router[Router\Post\Apps::class]->CreateInstallationAccessToken($params);
                             }
                         }
                     }
@@ -118,7 +118,7 @@ final class Five
                                     $this->router[Router\Post\Apps::class] = new Router\Post\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Apps::class]->scopeToken($params);
+                                return $this->router[Router\Post\Apps::class]->ScopeToken($params);
                             }
                         }
                     }
@@ -133,7 +133,7 @@ final class Five
                                     $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\EnterpriseAdmin::class]->createSelfHostedRunnerGroupForEnterprise($params);
+                                return $this->router[Router\Post\EnterpriseAdmin::class]->CreateSelfHostedRunnerGroupForEnterprise($params);
                             }
                         }
                     } elseif ($pathChunks[3] === '{security_product}') {
@@ -144,7 +144,7 @@ final class Five
                                     $this->router[Router\Post\SecretScanning::class] = new Router\Post\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\SecretScanning::class]->postSecurityProductEnablementForEnterprise($params);
+                                return $this->router[Router\Post\SecretScanning::class]->PostSecurityProductEnablementForEnterprise($params);
                             }
                         }
                     }
@@ -159,7 +159,7 @@ final class Five
                                     $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Actions::class]->createSelfHostedRunnerGroupForOrg($params);
+                                return $this->router[Router\Post\Actions::class]->CreateSelfHostedRunnerGroupForOrg($params);
                             }
                         } elseif ($pathChunks[4] === 'variables') {
                             if ($call === 'POST /orgs/{org}/actions/variables') {
@@ -168,7 +168,7 @@ final class Five
                                     $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Actions::class]->createOrgVariable($params);
+                                return $this->router[Router\Post\Actions::class]->CreateOrgVariable($params);
                             }
                         }
                     } elseif ($pathChunks[3] === '{security_product}') {
@@ -179,7 +179,7 @@ final class Five
                                     $this->router[Router\Post\Orgs::class] = new Router\Post\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Orgs::class]->enableOrDisableSecurityProductOnAllOrgRepos($params);
+                                return $this->router[Router\Post\Orgs::class]->EnableOrDisableSecurityProductOnAllOrgRepos($params);
                             }
                         }
                     }
@@ -194,7 +194,7 @@ final class Five
                                     $this->router[Router\Post\Projects::class] = new Router\Post\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Projects::class]->createCard($params);
+                                return $this->router[Router\Post\Projects::class]->CreateCard($params);
                             }
                         } elseif ($pathChunks[4] === 'moves') {
                             if ($call === 'POST /projects/columns/{column_id}/moves') {
@@ -203,7 +203,7 @@ final class Five
                                     $this->router[Router\Post\Projects::class] = new Router\Post\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Projects::class]->moveColumn($params);
+                                return $this->router[Router\Post\Projects::class]->MoveColumn($params);
                             }
                         }
                     }
@@ -218,7 +218,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createAutolink($params);
+                                return $this->router[Router\Post\Repos::class]->CreateAutolink($params);
                             }
                         } elseif ($pathChunks[4] === 'check-runs') {
                             if ($call === 'POST /repos/{owner}/{repo}/check-runs') {
@@ -227,7 +227,7 @@ final class Five
                                     $this->router[Router\Post\Checks::class] = new Router\Post\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Checks::class]->create($params);
+                                return $this->router[Router\Post\Checks::class]->Create($params);
                             }
                         } elseif ($pathChunks[4] === 'check-suites') {
                             if ($call === 'POST /repos/{owner}/{repo}/check-suites') {
@@ -236,7 +236,7 @@ final class Five
                                     $this->router[Router\Post\Checks::class] = new Router\Post\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Checks::class]->createSuite($params);
+                                return $this->router[Router\Post\Checks::class]->CreateSuite($params);
                             }
                         } elseif ($pathChunks[4] === 'deployments') {
                             if ($call === 'POST /repos/{owner}/{repo}/deployments') {
@@ -245,7 +245,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createDeployment($params);
+                                return $this->router[Router\Post\Repos::class]->CreateDeployment($params);
                             }
                         } elseif ($pathChunks[4] === 'dispatches') {
                             if ($call === 'POST /repos/{owner}/{repo}/dispatches') {
@@ -254,7 +254,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createDispatchEvent($params);
+                                return $this->router[Router\Post\Repos::class]->CreateDispatchEvent($params);
                             }
                         } elseif ($pathChunks[4] === 'forks') {
                             if ($call === 'POST /repos/{owner}/{repo}/forks') {
@@ -263,7 +263,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createFork($params);
+                                return $this->router[Router\Post\Repos::class]->CreateFork($params);
                             }
                         } elseif ($pathChunks[4] === 'hooks') {
                             if ($call === 'POST /repos/{owner}/{repo}/hooks') {
@@ -272,7 +272,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createWebhook($params);
+                                return $this->router[Router\Post\Repos::class]->CreateWebhook($params);
                             }
                         } elseif ($pathChunks[4] === 'issues') {
                             if ($call === 'POST /repos/{owner}/{repo}/issues') {
@@ -281,7 +281,7 @@ final class Five
                                     $this->router[Router\Post\Issues::class] = new Router\Post\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Issues::class]->create($params);
+                                return $this->router[Router\Post\Issues::class]->Create($params);
                             }
                         } elseif ($pathChunks[4] === 'keys') {
                             if ($call === 'POST /repos/{owner}/{repo}/keys') {
@@ -290,7 +290,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createDeployKey($params);
+                                return $this->router[Router\Post\Repos::class]->CreateDeployKey($params);
                             }
                         } elseif ($pathChunks[4] === 'labels') {
                             if ($call === 'POST /repos/{owner}/{repo}/labels') {
@@ -299,7 +299,7 @@ final class Five
                                     $this->router[Router\Post\Issues::class] = new Router\Post\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Issues::class]->createLabel($params);
+                                return $this->router[Router\Post\Issues::class]->CreateLabel($params);
                             }
                         } elseif ($pathChunks[4] === 'merge-upstream') {
                             if ($call === 'POST /repos/{owner}/{repo}/merge-upstream') {
@@ -308,7 +308,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->mergeUpstream($params);
+                                return $this->router[Router\Post\Repos::class]->MergeUpstream($params);
                             }
                         } elseif ($pathChunks[4] === 'merges') {
                             if ($call === 'POST /repos/{owner}/{repo}/merges') {
@@ -317,7 +317,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->merge($params);
+                                return $this->router[Router\Post\Repos::class]->Merge($params);
                             }
                         } elseif ($pathChunks[4] === 'milestones') {
                             if ($call === 'POST /repos/{owner}/{repo}/milestones') {
@@ -326,7 +326,7 @@ final class Five
                                     $this->router[Router\Post\Issues::class] = new Router\Post\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Issues::class]->createMilestone($params);
+                                return $this->router[Router\Post\Issues::class]->CreateMilestone($params);
                             }
                         } elseif ($pathChunks[4] === 'pages') {
                             if ($call === 'POST /repos/{owner}/{repo}/pages') {
@@ -335,7 +335,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createPagesSite($params);
+                                return $this->router[Router\Post\Repos::class]->CreatePagesSite($params);
                             }
                         } elseif ($pathChunks[4] === 'projects') {
                             if ($call === 'POST /repos/{owner}/{repo}/projects') {
@@ -344,7 +344,7 @@ final class Five
                                     $this->router[Router\Post\Projects::class] = new Router\Post\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Projects::class]->createForRepo($params);
+                                return $this->router[Router\Post\Projects::class]->CreateForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'pulls') {
                             if ($call === 'POST /repos/{owner}/{repo}/pulls') {
@@ -353,7 +353,7 @@ final class Five
                                     $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Pulls::class]->create($params);
+                                return $this->router[Router\Post\Pulls::class]->Create($params);
                             }
                         } elseif ($pathChunks[4] === 'releases') {
                             if ($call === 'POST /repos/{owner}/{repo}/releases') {
@@ -362,7 +362,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createRelease($params);
+                                return $this->router[Router\Post\Repos::class]->CreateRelease($params);
                             }
                         } elseif ($pathChunks[4] === 'transfer') {
                             if ($call === 'POST /repos/{owner}/{repo}/transfer') {
@@ -371,7 +371,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->transfer($params);
+                                return $this->router[Router\Post\Repos::class]->Transfer($params);
                             }
                         }
                     }
@@ -384,7 +384,7 @@ final class Five
                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\Repos::class]->createUsingTemplate($params);
+                                return $this->router[Router\Post\Repos::class]->CreateUsingTemplate($params);
                             }
                         }
                     }
@@ -399,7 +399,7 @@ final class Five
                                     $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Post\EnterpriseAdmin::class]->addAuthorizedSshKey($params);
+                                return $this->router[Router\Post\EnterpriseAdmin::class]->AddAuthorizedSshKey($params);
                             }
                         }
                     }

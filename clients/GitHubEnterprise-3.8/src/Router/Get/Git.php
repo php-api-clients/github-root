@@ -94,7 +94,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
     }
 
-    /** @return iterable<Schema\GitRef> */
+    /** @return Observable<Schema\GitRef> */
     public function listMatchingRefs(array $params): iterable
     {
         $matched   = true;
@@ -190,7 +190,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag_sha']);
     }
 
-    /** @return Schema\GitTree */
+    /** @return */
     public function getTree(array $params): GitTree|array
     {
         $matched   = true;

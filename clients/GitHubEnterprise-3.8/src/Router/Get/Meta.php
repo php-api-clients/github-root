@@ -70,7 +70,7 @@ final class Meta
         return $operator->call($arguments['s']);
     }
 
-    /** @return string */
+    /** @return */
     public function getZen(array $params): string|array
     {
         $matched = true;

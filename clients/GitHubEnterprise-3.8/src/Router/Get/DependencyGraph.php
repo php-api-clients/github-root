@@ -25,7 +25,7 @@ final class DependencyGraph
     {
     }
 
-    /** @return iterable<Schema\DependencyGraphDiff> */
+    /** @return Observable<Schema\DependencyGraphDiff> */
     public function diffRange(array $params): iterable
     {
         $matched   = true;

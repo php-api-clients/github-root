@@ -26,7 +26,7 @@ final readonly class ListSecurityManagerTeams
     {
     }
 
-    /** @return iterable<Schema\TeamSimple> */
+    /** @return Observable<Schema\TeamSimple> */
     public function call(string $org): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\ListSecurityManagerTeams($this->responseSchemaValidator, $this->hydrator, $org);
