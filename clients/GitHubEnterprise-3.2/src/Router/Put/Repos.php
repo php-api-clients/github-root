@@ -249,7 +249,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id'], $params);
     }
 
-    /** @return iterable<string> */
+    /** @return Observable<string> */
     public function setStatusCheckContexts(array $params): iterable
     {
         $matched   = true;
@@ -281,7 +281,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\Integration> */
+    /** @return Observable<Schema\Integration> */
     public function setAppAccessRestrictions(array $params): iterable
     {
         $matched   = true;
@@ -313,7 +313,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function setTeamAccessRestrictions(array $params): iterable
     {
         $matched   = true;
@@ -345,7 +345,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function setUserAccessRestrictions(array $params): iterable
     {
         $matched   = true;

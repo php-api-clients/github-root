@@ -22,7 +22,7 @@ final class Ten
     {
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
         $matched = false;
@@ -42,7 +42,7 @@ final class Ten
                                                         $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                     }
 
-                                                    return $this->router[Router\Get\Reactions::class]->listForTeamDiscussionCommentInOrg($params);
+                                                    return $this->router[Router\Get\Reactions::class]->ListForTeamDiscussionCommentInOrg($params);
                                                 }
                                             }
                                         }
