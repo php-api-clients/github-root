@@ -243,7 +243,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_user_id']);
     }
 
-    /** @return (iterable<Schema\SshKey> | array{code: int}) */
+    /** @return (Observable<Schema\SshKey> | array{code: int}) */
     public function removeAuthorizedSshKey(array $params): iterable
     {
         $matched = true;

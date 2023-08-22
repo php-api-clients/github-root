@@ -24,7 +24,7 @@ final class Nine
     {
     }
 
-    /** @return iterable<string>|iterable<Schema\Integration>|iterable<Schema\Team>|iterable<Schema\SimpleUser>| */
+    /** @return Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>| */
     public function call(string $call, array $params, array $pathChunks): iterable|Json|PullRequestReviewComment|PullRequestReview
     {
         $matched = false;
@@ -43,7 +43,7 @@ final class Nine
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Post\Repos::class]->addStatusCheckContexts($params);
+                                                return $this->router[Router\Post\Repos::class]->AddStatusCheckContexts($params);
                                             }
                                         }
                                     } elseif ($pathChunks[7] === 'restrictions') {
@@ -54,7 +54,7 @@ final class Nine
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Post\Repos::class]->addAppAccessRestrictions($params);
+                                                return $this->router[Router\Post\Repos::class]->AddAppAccessRestrictions($params);
                                             }
                                         } elseif ($pathChunks[8] === 'teams') {
                                             if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams') {
@@ -63,7 +63,7 @@ final class Nine
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Post\Repos::class]->addTeamAccessRestrictions($params);
+                                                return $this->router[Router\Post\Repos::class]->AddTeamAccessRestrictions($params);
                                             }
                                         } elseif ($pathChunks[8] === 'users') {
                                             if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users') {
@@ -72,7 +72,7 @@ final class Nine
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Post\Repos::class]->addUserAccessRestrictions($params);
+                                                return $this->router[Router\Post\Repos::class]->AddUserAccessRestrictions($params);
                                             }
                                         }
                                     }
@@ -89,7 +89,7 @@ final class Nine
                                                     $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Post\Repos::class]->redeliverWebhookDelivery($params);
+                                                return $this->router[Router\Post\Repos::class]->RedeliverWebhookDelivery($params);
                                             }
                                         }
                                     }
@@ -106,7 +106,7 @@ final class Nine
                                                     $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Post\Pulls::class]->createReplyForReviewComment($params);
+                                                return $this->router[Router\Post\Pulls::class]->CreateReplyForReviewComment($params);
                                             }
                                         }
                                     }
@@ -119,7 +119,7 @@ final class Nine
                                                     $this->router[Router\Post\Pulls::class] = new Router\Post\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Post\Pulls::class]->submitReview($params);
+                                                return $this->router[Router\Post\Pulls::class]->SubmitReview($params);
                                             }
                                         }
                                     }

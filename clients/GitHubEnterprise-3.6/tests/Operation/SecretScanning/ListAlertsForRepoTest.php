@@ -31,7 +31,7 @@ final class ListAlertsForRepoTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\SecretScanning\ListAlertsForRepo::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
@@ -41,7 +41,7 @@ final class ListAlertsForRepoTest extends AsyncTestCase
             $data['resolution']  = 'generated';
             $data['sort']        = 'generated';
             $data['direction']   = 'generated';
-            $data['page']        = 4;
+            $data['page']        = 1;
             $data['per_page']    = 8;
 
             return $data;
@@ -58,9 +58,9 @@ final class ListAlertsForRepoTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->secretScanning()->listAlertsForRepo('generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 4, 8);
+        $result = $client->operations()->secretScanning()->listAlertsForRepo('generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 1, 8);
     }
 
     /** @test */
@@ -72,7 +72,7 @@ final class ListAlertsForRepoTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\SecretScanning\ListAlertsForRepo::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']       = 'generated';
@@ -82,7 +82,7 @@ final class ListAlertsForRepoTest extends AsyncTestCase
             $data['resolution']  = 'generated';
             $data['sort']        = 'generated';
             $data['direction']   = 'generated';
-            $data['page']        = 4;
+            $data['page']        = 1;
             $data['per_page']    = 8;
 
             return $data;
@@ -98,9 +98,9 @@ final class ListAlertsForRepoTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/secret-scanning/alerts?state=generated&secret_type=generated&resolution=generated&sort=generated&direction=generated&page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->secretScanning()->listAlertsForRepo('generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 4, 8);
+        $result = $client->operations()->secretScanning()->listAlertsForRepo('generated', 'generated', 'generated', 'generated', 'generated', 'generated', 'generated', 1, 8);
         self::assertArrayHasKey('code', $result);
         self::assertSame(404, $result['code']);
     }
