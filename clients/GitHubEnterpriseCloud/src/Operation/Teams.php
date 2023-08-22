@@ -58,6 +58,15 @@ final class Teams
         return $this->operator[Operator\Teams\List_::class]->call($org, $perPage, $page);
     }
 
+    public function listListing(string $org, int $perPage, int $page): Schema\Team
+    {
+        if (array_key_exists(Operator\Teams\ListListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListListing::class] = new Operator\Teams\ListListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams());
+        }
+
+        return $this->operator[Operator\Teams\ListListing::class]->call($org, $perPage, $page);
+    }
+
     public function create(string $org, array $params): Schema\TeamFull
     {
         if (array_key_exists(Operator\Teams\Create::class, $this->operator) === false) {
@@ -103,6 +112,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListDiscussionsInOrg::class]->call($org, $teamSlug, $pinned, $direction, $perPage, $page);
     }
 
+    public function listDiscussionsInOrgListing(string $org, string $teamSlug, string $pinned, string $direction, int $perPage, int $page): Schema\TeamDiscussion
+    {
+        if (array_key_exists(Operator\Teams\ListDiscussionsInOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListDiscussionsInOrgListing::class] = new Operator\Teams\ListDiscussionsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions());
+        }
+
+        return $this->operator[Operator\Teams\ListDiscussionsInOrgListing::class]->call($org, $teamSlug, $pinned, $direction, $perPage, $page);
+    }
+
     public function createDiscussionInOrg(string $org, string $teamSlug, array $params): Schema\TeamDiscussion
     {
         if (array_key_exists(Operator\Teams\CreateDiscussionInOrg::class, $this->operator) === false) {
@@ -146,6 +164,15 @@ final class Teams
         }
 
         return $this->operator[Operator\Teams\ListDiscussionCommentsInOrg::class]->call($org, $teamSlug, $discussionNumber, $direction, $perPage, $page);
+    }
+
+    public function listDiscussionCommentsInOrgListing(string $org, string $teamSlug, int $discussionNumber, string $direction, int $perPage, int $page): Schema\TeamDiscussionComment
+    {
+        if (array_key_exists(Operator\Teams\ListDiscussionCommentsInOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListDiscussionCommentsInOrgListing::class] = new Operator\Teams\ListDiscussionCommentsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments());
+        }
+
+        return $this->operator[Operator\Teams\ListDiscussionCommentsInOrgListing::class]->call($org, $teamSlug, $discussionNumber, $direction, $perPage, $page);
     }
 
     public function createDiscussionCommentInOrg(string $org, string $teamSlug, int $discussionNumber, array $params): Schema\TeamDiscussionComment
@@ -220,6 +247,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListPendingInvitationsInOrg::class]->call($org, $teamSlug, $perPage, $page);
     }
 
+    public function listPendingInvitationsInOrgListing(string $org, string $teamSlug, int $perPage, int $page): Schema\OrganizationInvitation
+    {
+        if (array_key_exists(Operator\Teams\ListPendingInvitationsInOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListPendingInvitationsInOrgListing::class] = new Operator\Teams\ListPendingInvitationsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Invitations());
+        }
+
+        return $this->operator[Operator\Teams\ListPendingInvitationsInOrgListing::class]->call($org, $teamSlug, $perPage, $page);
+    }
+
     public function listMembersInOrg(string $org, string $teamSlug, string $role, int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Teams\ListMembersInOrg::class, $this->operator) === false) {
@@ -227,6 +263,15 @@ final class Teams
         }
 
         return $this->operator[Operator\Teams\ListMembersInOrg::class]->call($org, $teamSlug, $role, $perPage, $page);
+    }
+
+    public function listMembersInOrgListing(string $org, string $teamSlug, string $role, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Teams\ListMembersInOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListMembersInOrgListing::class] = new Operator\Teams\ListMembersInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Members());
+        }
+
+        return $this->operator[Operator\Teams\ListMembersInOrgListing::class]->call($org, $teamSlug, $role, $perPage, $page);
     }
 
     public function getMembershipForUserInOrg(string $org, string $teamSlug, string $username): Schema\TeamMembership
@@ -265,6 +310,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListProjectsInOrg::class]->call($org, $teamSlug, $perPage, $page);
     }
 
+    public function listProjectsInOrgListing(string $org, string $teamSlug, int $perPage, int $page): Schema\TeamProject
+    {
+        if (array_key_exists(Operator\Teams\ListProjectsInOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListProjectsInOrgListing::class] = new Operator\Teams\ListProjectsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects());
+        }
+
+        return $this->operator[Operator\Teams\ListProjectsInOrgListing::class]->call($org, $teamSlug, $perPage, $page);
+    }
+
     public function checkPermissionsForProjectInOrg(string $org, string $teamSlug, int $projectId): Schema\TeamProject
     {
         if (array_key_exists(Operator\Teams\CheckPermissionsForProjectInOrg::class, $this->operator) === false) {
@@ -299,6 +353,15 @@ final class Teams
         }
 
         return $this->operator[Operator\Teams\ListReposInOrg::class]->call($org, $teamSlug, $perPage, $page);
+    }
+
+    public function listReposInOrgListing(string $org, string $teamSlug, int $perPage, int $page): Schema\MinimalRepository
+    {
+        if (array_key_exists(Operator\Teams\ListReposInOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListReposInOrgListing::class] = new Operator\Teams\ListReposInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos());
+        }
+
+        return $this->operator[Operator\Teams\ListReposInOrgListing::class]->call($org, $teamSlug, $perPage, $page);
     }
 
     public function checkPermissionsForRepoInOrg(string $org, string $teamSlug, string $owner, string $repo): Schema\TeamRepository
@@ -355,6 +418,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListChildInOrg::class]->call($org, $teamSlug, $perPage, $page);
     }
 
+    public function listChildInOrgListing(string $org, string $teamSlug, int $perPage, int $page): Schema\Team
+    {
+        if (array_key_exists(Operator\Teams\ListChildInOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListChildInOrgListing::class] = new Operator\Teams\ListChildInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Teams());
+        }
+
+        return $this->operator[Operator\Teams\ListChildInOrgListing::class]->call($org, $teamSlug, $perPage, $page);
+    }
+
     public function getLegacy(int $teamId): Schema\TeamFull
     {
         if (array_key_exists(Operator\Teams\GetLegacy::class, $this->operator) === false) {
@@ -389,6 +461,15 @@ final class Teams
         }
 
         return $this->operator[Operator\Teams\ListDiscussionsLegacy::class]->call($teamId, $direction, $perPage, $page);
+    }
+
+    public function listDiscussionsLegacyListing(int $teamId, string $direction, int $perPage, int $page): Schema\TeamDiscussion
+    {
+        if (array_key_exists(Operator\Teams\ListDiscussionsLegacyListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListDiscussionsLegacyListing::class] = new Operator\Teams\ListDiscussionsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions());
+        }
+
+        return $this->operator[Operator\Teams\ListDiscussionsLegacyListing::class]->call($teamId, $direction, $perPage, $page);
     }
 
     public function createDiscussionLegacy(int $teamId, array $params): Schema\TeamDiscussion
@@ -436,6 +517,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListDiscussionCommentsLegacy::class]->call($teamId, $discussionNumber, $direction, $perPage, $page);
     }
 
+    public function listDiscussionCommentsLegacyListing(int $teamId, int $discussionNumber, string $direction, int $perPage, int $page): Schema\TeamDiscussionComment
+    {
+        if (array_key_exists(Operator\Teams\ListDiscussionCommentsLegacyListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListDiscussionCommentsLegacyListing::class] = new Operator\Teams\ListDiscussionCommentsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments());
+        }
+
+        return $this->operator[Operator\Teams\ListDiscussionCommentsLegacyListing::class]->call($teamId, $discussionNumber, $direction, $perPage, $page);
+    }
+
     public function createDiscussionCommentLegacy(int $teamId, int $discussionNumber, array $params): Schema\TeamDiscussionComment
     {
         if (array_key_exists(Operator\Teams\CreateDiscussionCommentLegacy::class, $this->operator) === false) {
@@ -481,6 +571,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListPendingInvitationsLegacy::class]->call($teamId, $perPage, $page);
     }
 
+    public function listPendingInvitationsLegacyListing(int $teamId, int $perPage, int $page): Schema\OrganizationInvitation
+    {
+        if (array_key_exists(Operator\Teams\ListPendingInvitationsLegacyListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListPendingInvitationsLegacyListing::class] = new Operator\Teams\ListPendingInvitationsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Invitations());
+        }
+
+        return $this->operator[Operator\Teams\ListPendingInvitationsLegacyListing::class]->call($teamId, $perPage, $page);
+    }
+
     public function listMembersLegacy(int $teamId, string $role, int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Teams\ListMembersLegacy::class, $this->operator) === false) {
@@ -488,6 +587,15 @@ final class Teams
         }
 
         return $this->operator[Operator\Teams\ListMembersLegacy::class]->call($teamId, $role, $perPage, $page);
+    }
+
+    public function listMembersLegacyListing(int $teamId, string $role, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Teams\ListMembersLegacyListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListMembersLegacyListing::class] = new Operator\Teams\ListMembersLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Members());
+        }
+
+        return $this->operator[Operator\Teams\ListMembersLegacyListing::class]->call($teamId, $role, $perPage, $page);
     }
 
     public function getMemberLegacy(int $teamId, string $username): ResponseInterface
@@ -553,6 +661,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListProjectsLegacy::class]->call($teamId, $perPage, $page);
     }
 
+    public function listProjectsLegacyListing(int $teamId, int $perPage, int $page): Schema\TeamProject
+    {
+        if (array_key_exists(Operator\Teams\ListProjectsLegacyListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListProjectsLegacyListing::class] = new Operator\Teams\ListProjectsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects());
+        }
+
+        return $this->operator[Operator\Teams\ListProjectsLegacyListing::class]->call($teamId, $perPage, $page);
+    }
+
     public function checkPermissionsForProjectLegacy(int $teamId, int $projectId): Schema\TeamProject
     {
         if (array_key_exists(Operator\Teams\CheckPermissionsForProjectLegacy::class, $this->operator) === false) {
@@ -587,6 +704,15 @@ final class Teams
         }
 
         return $this->operator[Operator\Teams\ListReposLegacy::class]->call($teamId, $perPage, $page);
+    }
+
+    public function listReposLegacyListing(int $teamId, int $perPage, int $page): Schema\MinimalRepository
+    {
+        if (array_key_exists(Operator\Teams\ListReposLegacyListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListReposLegacyListing::class] = new Operator\Teams\ListReposLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos());
+        }
+
+        return $this->operator[Operator\Teams\ListReposLegacyListing::class]->call($teamId, $perPage, $page);
     }
 
     public function checkPermissionsForRepoLegacy(int $teamId, string $owner, string $repo): Schema\TeamRepository
@@ -643,6 +769,15 @@ final class Teams
         return $this->operator[Operator\Teams\ListChildLegacy::class]->call($teamId, $perPage, $page);
     }
 
+    public function listChildLegacyListing(int $teamId, int $perPage, int $page): Schema\Team
+    {
+        if (array_key_exists(Operator\Teams\ListChildLegacyListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListChildLegacyListing::class] = new Operator\Teams\ListChildLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Teams());
+        }
+
+        return $this->operator[Operator\Teams\ListChildLegacyListing::class]->call($teamId, $perPage, $page);
+    }
+
     public function listForAuthenticatedUser(int $perPage, int $page): Schema\TeamFull
     {
         if (array_key_exists(Operator\Teams\ListForAuthenticatedUser::class, $this->operator) === false) {
@@ -650,5 +785,14 @@ final class Teams
         }
 
         return $this->operator[Operator\Teams\ListForAuthenticatedUser::class]->call($perPage, $page);
+    }
+
+    public function listForAuthenticatedUserListing(int $perPage, int $page): Schema\TeamFull
+    {
+        if (array_key_exists(Operator\Teams\ListForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Teams\ListForAuthenticatedUserListing::class] = new Operator\Teams\ListForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Teams());
+        }
+
+        return $this->operator[Operator\Teams\ListForAuthenticatedUserListing::class]->call($perPage, $page);
     }
 }
