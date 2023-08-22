@@ -7,7 +7,6 @@ namespace ApiClients\Client\GitHubAE\Router\Patch;
 use ApiClients\Client\GitHubAE\Hydrator;
 use ApiClients\Client\GitHubAE\Hydrators;
 use ApiClients\Client\GitHubAE\Operator;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\OrganizationFull;
 use ApiClients\Client\GitHubAE\Schema\OrgHook;
 use ApiClients\Client\GitHubAE\Schema\OrgMembership;
@@ -29,7 +28,7 @@ final class Orgs
     {
     }
 
-    /** @return Schema\OrganizationFull */
+    /** @return */
     public function update(array $params): OrganizationFull|array
     {
         $matched   = true;

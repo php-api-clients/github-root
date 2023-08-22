@@ -47,7 +47,7 @@ final class Licenses
         return $operator->call($arguments['license']);
     }
 
-    /** @return (iterable<Schema\LicenseSimple> | array{code: int}) */
+    /** @return (Observable<Schema\LicenseSimple> | array{code: int}) */
     public function getAllCommonlyUsed(array $params): iterable
     {
         $matched   = true;

@@ -40,6 +40,15 @@ final class Activity
         return $this->operator[Operator\Activity\ListNotificationsForAuthenticatedUser::class]->call($since, $before, $all, $participating, $page, $perPage);
     }
 
+    public function listNotificationsForAuthenticatedUserListing(string $since, string $before, bool $all, bool $participating, int $page, int $perPage): Schema\Thread
+    {
+        if (array_key_exists(Operator\Activity\ListNotificationsForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListNotificationsForAuthenticatedUserListing::class] = new Operator\Activity\ListNotificationsForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());
+        }
+
+        return $this->operator[Operator\Activity\ListNotificationsForAuthenticatedUserListing::class]->call($since, $before, $all, $participating, $page, $perPage);
+    }
+
     public function markNotificationsAsRead(array $params): Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted
     {
         if (array_key_exists(Operator\Activity\MarkNotificationsAsRead::class, $this->operator) === false) {
@@ -103,6 +112,15 @@ final class Activity
         return $this->operator[Operator\Activity\ListRepoEvents::class]->call($owner, $repo, $perPage, $page);
     }
 
+    public function listRepoEventsListing(string $owner, string $repo, int $perPage, int $page): Schema\Event
+    {
+        if (array_key_exists(Operator\Activity\ListRepoEventsListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListRepoEventsListing::class] = new Operator\Activity\ListRepoEventsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Events());
+        }
+
+        return $this->operator[Operator\Activity\ListRepoEventsListing::class]->call($owner, $repo, $perPage, $page);
+    }
+
     public function listRepoNotificationsForAuthenticatedUser(string $owner, string $repo, string $since, string $before, bool $all, bool $participating, int $perPage, int $page): Schema\Thread
     {
         if (array_key_exists(Operator\Activity\ListRepoNotificationsForAuthenticatedUser::class, $this->operator) === false) {
@@ -110,6 +128,15 @@ final class Activity
         }
 
         return $this->operator[Operator\Activity\ListRepoNotificationsForAuthenticatedUser::class]->call($owner, $repo, $since, $before, $all, $participating, $perPage, $page);
+    }
+
+    public function listRepoNotificationsForAuthenticatedUserListing(string $owner, string $repo, string $since, string $before, bool $all, bool $participating, int $perPage, int $page): Schema\Thread
+    {
+        if (array_key_exists(Operator\Activity\ListRepoNotificationsForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListRepoNotificationsForAuthenticatedUserListing::class] = new Operator\Activity\ListRepoNotificationsForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Notifications());
+        }
+
+        return $this->operator[Operator\Activity\ListRepoNotificationsForAuthenticatedUserListing::class]->call($owner, $repo, $since, $before, $all, $participating, $perPage, $page);
     }
 
     public function markRepoNotificationsAsRead(string $owner, string $repo, array $params): Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted
@@ -137,6 +164,15 @@ final class Activity
         }
 
         return $this->operator[Operator\Activity\ListWatchersForRepo::class]->call($owner, $repo, $perPage, $page);
+    }
+
+    public function listWatchersForRepoListing(string $owner, string $repo, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Activity\ListWatchersForRepoListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListWatchersForRepoListing::class] = new Operator\Activity\ListWatchersForRepoListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Subscribers());
+        }
+
+        return $this->operator[Operator\Activity\ListWatchersForRepoListing::class]->call($owner, $repo, $perPage, $page);
     }
 
     public function getRepoSubscription(string $owner, string $repo): Schema\RepositorySubscription
@@ -175,6 +211,15 @@ final class Activity
         return $this->operator[Operator\Activity\ListReposStarredByAuthenticatedUser::class]->call($sort, $direction, $perPage, $page);
     }
 
+    public function listReposStarredByAuthenticatedUserListing(string $sort, string $direction, int $perPage, int $page): Schema\Repository|Schema\StarredRepository
+    {
+        if (array_key_exists(Operator\Activity\ListReposStarredByAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListReposStarredByAuthenticatedUserListing::class] = new Operator\Activity\ListReposStarredByAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Starred());
+        }
+
+        return $this->operator[Operator\Activity\ListReposStarredByAuthenticatedUserListing::class]->call($sort, $direction, $perPage, $page);
+    }
+
     public function checkRepoIsStarredByAuthenticatedUser(string $owner, string $repo): ResponseInterface
     {
         if (array_key_exists(Operator\Activity\CheckRepoIsStarredByAuthenticatedUser::class, $this->operator) === false) {
@@ -211,6 +256,15 @@ final class Activity
         return $this->operator[Operator\Activity\ListWatchedReposForAuthenticatedUser::class]->call($perPage, $page);
     }
 
+    public function listWatchedReposForAuthenticatedUserListing(int $perPage, int $page): Schema\MinimalRepository
+    {
+        if (array_key_exists(Operator\Activity\ListWatchedReposForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListWatchedReposForAuthenticatedUserListing::class] = new Operator\Activity\ListWatchedReposForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Subscriptions());
+        }
+
+        return $this->operator[Operator\Activity\ListWatchedReposForAuthenticatedUserListing::class]->call($perPage, $page);
+    }
+
     public function listEventsForAuthenticatedUser(string $username, int $perPage, int $page): Schema\Event
     {
         if (array_key_exists(Operator\Activity\ListEventsForAuthenticatedUser::class, $this->operator) === false) {
@@ -220,6 +274,15 @@ final class Activity
         return $this->operator[Operator\Activity\ListEventsForAuthenticatedUser::class]->call($username, $perPage, $page);
     }
 
+    public function listEventsForAuthenticatedUserListing(string $username, int $perPage, int $page): Schema\Event
+    {
+        if (array_key_exists(Operator\Activity\ListEventsForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListEventsForAuthenticatedUserListing::class] = new Operator\Activity\ListEventsForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events());
+        }
+
+        return $this->operator[Operator\Activity\ListEventsForAuthenticatedUserListing::class]->call($username, $perPage, $page);
+    }
+
     public function listOrgEventsForAuthenticatedUser(string $username, string $org, int $perPage, int $page): Schema\Event
     {
         if (array_key_exists(Operator\Activity\ListOrgEventsForAuthenticatedUser::class, $this->operator) === false) {
@@ -227,6 +290,15 @@ final class Activity
         }
 
         return $this->operator[Operator\Activity\ListOrgEventsForAuthenticatedUser::class]->call($username, $org, $perPage, $page);
+    }
+
+    public function listOrgEventsForAuthenticatedUserListing(string $username, string $org, int $perPage, int $page): Schema\Event
+    {
+        if (array_key_exists(Operator\Activity\ListOrgEventsForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListOrgEventsForAuthenticatedUserListing::class] = new Operator\Activity\ListOrgEventsForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Events🌀Orgs🌀Org());
+        }
+
+        return $this->operator[Operator\Activity\ListOrgEventsForAuthenticatedUserListing::class]->call($username, $org, $perPage, $page);
     }
 
     public function listReposStarredByUser(string $username, string $sort, string $direction, int $perPage, int $page): Schema\Operations\Activity\ListReposStarredByUser\Response\ApplicationJson\Ok
@@ -245,5 +317,14 @@ final class Activity
         }
 
         return $this->operator[Operator\Activity\ListReposWatchedByUser::class]->call($username, $perPage, $page);
+    }
+
+    public function listReposWatchedByUserListing(string $username, int $perPage, int $page): Schema\MinimalRepository
+    {
+        if (array_key_exists(Operator\Activity\ListReposWatchedByUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Activity\ListReposWatchedByUserListing::class] = new Operator\Activity\ListReposWatchedByUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Subscriptions());
+        }
+
+        return $this->operator[Operator\Activity\ListReposWatchedByUserListing::class]->call($username, $perPage, $page);
     }
 }

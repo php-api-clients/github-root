@@ -49,6 +49,15 @@ final class Users
         return $this->operator[Operator\Users\ListFollowersForAuthenticatedUser::class]->call($perPage, $page);
     }
 
+    public function listFollowersForAuthenticatedUserListing(int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Users\ListFollowersForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListFollowersForAuthenticatedUserListing::class] = new Operator\Users\ListFollowersForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Followers());
+        }
+
+        return $this->operator[Operator\Users\ListFollowersForAuthenticatedUserListing::class]->call($perPage, $page);
+    }
+
     public function listFollowedByAuthenticatedUser(int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Users\ListFollowedByAuthenticatedUser::class, $this->operator) === false) {
@@ -56,6 +65,15 @@ final class Users
         }
 
         return $this->operator[Operator\Users\ListFollowedByAuthenticatedUser::class]->call($perPage, $page);
+    }
+
+    public function listFollowedByAuthenticatedUserListing(int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Users\ListFollowedByAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListFollowedByAuthenticatedUserListing::class] = new Operator\Users\ListFollowedByAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Following());
+        }
+
+        return $this->operator[Operator\Users\ListFollowedByAuthenticatedUserListing::class]->call($perPage, $page);
     }
 
     public function checkPersonIsFollowedByAuthenticated(string $username): ResponseInterface
@@ -94,6 +112,15 @@ final class Users
         return $this->operator[Operator\Users\ListGpgKeysForAuthenticatedUser::class]->call($perPage, $page);
     }
 
+    public function listGpgKeysForAuthenticatedUserListing(int $perPage, int $page): Schema\GpgKey
+    {
+        if (array_key_exists(Operator\Users\ListGpgKeysForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListGpgKeysForAuthenticatedUserListing::class] = new Operator\Users\ListGpgKeysForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
+        }
+
+        return $this->operator[Operator\Users\ListGpgKeysForAuthenticatedUserListing::class]->call($perPage, $page);
+    }
+
     public function createGpgKeyForAuthenticatedUser(array $params): Schema\GpgKey
     {
         if (array_key_exists(Operator\Users\CreateGpgKeyForAuthenticatedUser::class, $this->operator) === false) {
@@ -128,6 +155,15 @@ final class Users
         }
 
         return $this->operator[Operator\Users\ListPublicSshKeysForAuthenticatedUser::class]->call($perPage, $page);
+    }
+
+    public function listPublicSshKeysForAuthenticatedUserListing(int $perPage, int $page): Schema\Key
+    {
+        if (array_key_exists(Operator\Users\ListPublicSshKeysForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListPublicSshKeysForAuthenticatedUserListing::class] = new Operator\Users\ListPublicSshKeysForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
+        }
+
+        return $this->operator[Operator\Users\ListPublicSshKeysForAuthenticatedUserListing::class]->call($perPage, $page);
     }
 
     public function createPublicSshKeyForAuthenticatedUser(array $params): Schema\Key
@@ -184,6 +220,15 @@ final class Users
         return $this->operator[Operator\Users\ListFollowersForUser::class]->call($username, $perPage, $page);
     }
 
+    public function listFollowersForUserListing(string $username, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Users\ListFollowersForUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListFollowersForUserListing::class] = new Operator\Users\ListFollowersForUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Followers());
+        }
+
+        return $this->operator[Operator\Users\ListFollowersForUserListing::class]->call($username, $perPage, $page);
+    }
+
     public function listFollowingForUser(string $username, int $perPage, int $page): Schema\SimpleUser
     {
         if (array_key_exists(Operator\Users\ListFollowingForUser::class, $this->operator) === false) {
@@ -191,6 +236,15 @@ final class Users
         }
 
         return $this->operator[Operator\Users\ListFollowingForUser::class]->call($username, $perPage, $page);
+    }
+
+    public function listFollowingForUserListing(string $username, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Users\ListFollowingForUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListFollowingForUserListing::class] = new Operator\Users\ListFollowingForUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Following());
+        }
+
+        return $this->operator[Operator\Users\ListFollowingForUserListing::class]->call($username, $perPage, $page);
     }
 
     public function checkFollowingForUser(string $username, string $targetUser): ResponseInterface
@@ -211,6 +265,15 @@ final class Users
         return $this->operator[Operator\Users\ListGpgKeysForUser::class]->call($username, $perPage, $page);
     }
 
+    public function listGpgKeysForUserListing(string $username, int $perPage, int $page): Schema\GpgKey
+    {
+        if (array_key_exists(Operator\Users\ListGpgKeysForUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListGpgKeysForUserListing::class] = new Operator\Users\ListGpgKeysForUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀GpgKeys());
+        }
+
+        return $this->operator[Operator\Users\ListGpgKeysForUserListing::class]->call($username, $perPage, $page);
+    }
+
     public function getContextForUser(string $username, string $subjectType, string $subjectId): Schema\Hovercard
     {
         if (array_key_exists(Operator\Users\GetContextForUser::class, $this->operator) === false) {
@@ -227,5 +290,14 @@ final class Users
         }
 
         return $this->operator[Operator\Users\ListPublicKeysForUser::class]->call($username, $perPage, $page);
+    }
+
+    public function listPublicKeysForUserListing(string $username, int $perPage, int $page): Schema\KeySimple
+    {
+        if (array_key_exists(Operator\Users\ListPublicKeysForUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Users\ListPublicKeysForUserListing::class] = new Operator\Users\ListPublicKeysForUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Keys());
+        }
+
+        return $this->operator[Operator\Users\ListPublicKeysForUserListing::class]->call($username, $perPage, $page);
     }
 }

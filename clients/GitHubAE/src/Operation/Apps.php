@@ -94,6 +94,15 @@ final class Apps
         return $this->operator[Operator\Apps\ListInstallationRequestsForAuthenticatedApp::class]->call($perPage, $page);
     }
 
+    public function listInstallationRequestsForAuthenticatedAppListing(int $perPage, int $page): Schema\IntegrationInstallationRequest
+    {
+        if (array_key_exists(Operator\Apps\ListInstallationRequestsForAuthenticatedAppListing::class, $this->operator) === false) {
+            $this->operator[Operator\Apps\ListInstallationRequestsForAuthenticatedAppListing::class] = new Operator\Apps\ListInstallationRequestsForAuthenticatedAppListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀InstallationRequests());
+        }
+
+        return $this->operator[Operator\Apps\ListInstallationRequestsForAuthenticatedAppListing::class]->call($perPage, $page);
+    }
+
     public function listInstallations(string $since, string $outdated, int $perPage, int $page): Schema\Installation
     {
         if (array_key_exists(Operator\Apps\ListInstallations::class, $this->operator) === false) {
@@ -101,6 +110,15 @@ final class Apps
         }
 
         return $this->operator[Operator\Apps\ListInstallations::class]->call($since, $outdated, $perPage, $page);
+    }
+
+    public function listInstallationsListing(string $since, string $outdated, int $perPage, int $page): Schema\Installation
+    {
+        if (array_key_exists(Operator\Apps\ListInstallationsListing::class, $this->operator) === false) {
+            $this->operator[Operator\Apps\ListInstallationsListing::class] = new Operator\Apps\ListInstallationsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations());
+        }
+
+        return $this->operator[Operator\Apps\ListInstallationsListing::class]->call($since, $outdated, $perPage, $page);
     }
 
     public function getInstallation(int $installationId): Schema\Installation

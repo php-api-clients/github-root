@@ -26,7 +26,7 @@ final class SecretScanning
     {
     }
 
-    /** @return (iterable<Schema\SecretScanningAlert> | array{code: int}) */
+    /** @return (Observable<Schema\SecretScanningAlert> | array{code: int}) */
     public function listAlertsForRepo(array $params): iterable
     {
         $matched   = true;
@@ -82,7 +82,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return iterable<Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForEnterprise(array $params): iterable
     {
         $matched   = true;
@@ -182,7 +182,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
-    /** @return (iterable<Schema\SecretScanningLocation> | array{code: int}) */
+    /** @return (Observable<Schema\SecretScanningLocation> | array{code: int}) */
     public function listLocationsForAlert(array $params): iterable
     {
         $matched   = true;
