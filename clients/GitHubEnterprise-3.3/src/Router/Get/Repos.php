@@ -60,7 +60,7 @@ final class Repos
     {
     }
 
-    /** @return (iterable<Schema\Repository> | array{code: int}) */
+    /** @return (Observable<Schema\Repository> | array{code: int}) */
     public function listForAuthenticatedUser(array $params): iterable
     {
         $matched   = true;
@@ -128,7 +128,7 @@ final class Repos
         return $operator->call($arguments['direction'], $arguments['since'], $arguments['before'], $arguments['visibility'], $arguments['affiliation'], $arguments['type'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return (iterable<Schema\RepositoryInvitation> | array{code: int}) */
+    /** @return (Observable<Schema\RepositoryInvitation> | array{code: int}) */
     public function listInvitationsForAuthenticatedUser(array $params): iterable
     {
         $matched   = true;
@@ -154,7 +154,7 @@ final class Repos
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForOrg(array $params): iterable
     {
         $matched   = true;
@@ -230,7 +230,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForUser(array $params): iterable
     {
         $matched   = true;
@@ -658,7 +658,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key_id']);
     }
 
-    /** @return iterable<Schema\PageBuild> */
+    /** @return Observable<Schema\PageBuild> */
     public function listPagesBuilds(array $params): iterable
     {
         $matched   = true;
@@ -792,7 +792,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id']);
     }
 
-    /** @return (iterable<int> | Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    /** @return (Observable<int> | Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
     public function getCodeFrequencyStats(array $params): iterable|Json
     {
         $matched   = true;
@@ -818,7 +818,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return (iterable<Schema\CommitActivity> | Schema\Operations\Repos\GetCommitActivityStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    /** @return (Observable<Schema\CommitActivity> | Schema\Operations\Repos\GetCommitActivityStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
     public function getCommitActivityStats(array $params): iterable|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetCommitActivityStats\Response\ApplicationJson\Accepted\Application\Json
     {
         $matched   = true;
@@ -844,7 +844,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return (iterable<Schema\ContributorActivity> | Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    /** @return (Observable<Schema\ContributorActivity> | Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
     public function getContributorsStats(array $params): iterable|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetContributorsStats\Response\ApplicationJson\Accepted\Application\Json
     {
         $matched   = true;
@@ -896,7 +896,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return (iterable<int> | array{code: int}) */
+    /** @return (Observable<int> | array{code: int}) */
     public function getPunchCardStats(array $params): iterable
     {
         $matched   = true;
@@ -978,7 +978,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    /** @return (iterable<Schema\MinimalRepository> | array{code: int}) */
+    /** @return (Observable<Schema\MinimalRepository> | array{code: int}) */
     public function listPublic(array $params): iterable
     {
         $matched   = true;
@@ -1004,7 +1004,7 @@ final class Repos
         return $operator->call($arguments['since'], $arguments['visibility']);
     }
 
-    /** @return iterable<Schema\Autolink> */
+    /** @return Observable<Schema\Autolink> */
     public function listAutolinks(array $params): iterable
     {
         $matched   = true;
@@ -1036,7 +1036,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\ShortBranch> */
+    /** @return Observable<Schema\ShortBranch> */
     public function listBranches(array $params): iterable
     {
         $matched   = true;
@@ -1080,7 +1080,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['protected'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Collaborator> */
+    /** @return Observable<Schema\Collaborator> */
     public function listCollaborators(array $params): iterable
     {
         $matched   = true;
@@ -1124,7 +1124,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['affiliation'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\CommitComment> */
+    /** @return Observable<Schema\CommitComment> */
     public function listCommitCommentsForRepo(array $params): iterable
     {
         $matched   = true;
@@ -1162,7 +1162,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Commit> */
+    /** @return Observable<Schema\Commit> */
     public function listCommits(array $params): iterable
     {
         $matched   = true;
@@ -1230,7 +1230,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sha'], $arguments['path'], $arguments['author'], $arguments['since'], $arguments['until'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return (iterable<Schema\Contributor> | array{code: int}) */
+    /** @return (Observable<Schema\Contributor> | array{code: int}) */
     public function listContributors(array $params): iterable
     {
         $matched   = true;
@@ -1274,7 +1274,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['anon'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Deployment> */
+    /** @return Observable<Schema\Deployment> */
     public function listDeployments(array $params): iterable
     {
         $matched   = true;
@@ -1374,7 +1374,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForks(array $params): iterable
     {
         $matched   = true;
@@ -1418,7 +1418,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Hook> */
+    /** @return Observable<Schema\Hook> */
     public function listWebhooks(array $params): iterable
     {
         $matched   = true;
@@ -1456,7 +1456,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\RepositoryInvitation> */
+    /** @return Observable<Schema\RepositoryInvitation> */
     public function listInvitations(array $params): iterable
     {
         $matched   = true;
@@ -1494,7 +1494,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\DeployKey> */
+    /** @return Observable<Schema\DeployKey> */
     public function listDeployKeys(array $params): iterable
     {
         $matched   = true;
@@ -1616,7 +1616,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    /** @return iterable<Schema\Release> */
+    /** @return Observable<Schema\Release> */
     public function listReleases(array $params): iterable
     {
         $matched   = true;
@@ -1654,7 +1654,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Tag> */
+    /** @return Observable<Schema\Tag> */
     public function listTags(array $params): iterable
     {
         $matched   = true;
@@ -1692,7 +1692,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listTeams(array $params): iterable
     {
         $matched   = true;
@@ -1832,7 +1832,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
 
-    /** @return iterable<Schema\BranchShort> */
+    /** @return Observable<Schema\BranchShort> */
     public function listBranchesForHeadCommit(array $params): iterable
     {
         $matched   = true;
@@ -1864,7 +1864,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
     }
 
-    /** @return iterable<Schema\CommitComment> */
+    /** @return Observable<Schema\CommitComment> */
     public function listCommentsForCommit(array $params): iterable
     {
         $matched   = true;
@@ -1908,7 +1908,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\PullRequestSimple> */
+    /** @return Observable<Schema\PullRequestSimple> */
     public function listPullRequestsAssociatedWithCommit(array $params): iterable
     {
         $matched   = true;
@@ -1996,7 +1996,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return (iterable<Schema\Status> | Schema\BasicError) */
+    /** @return (Observable<Schema\Status> | Schema\BasicError) */
     public function listCommitStatusesForRef(array $params): iterable|BasicError
     {
         $matched   = true;
@@ -2040,7 +2040,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\DeploymentStatus> */
+    /** @return Observable<Schema\DeploymentStatus> */
     public function listDeploymentStatuses(array $params): iterable
     {
         $matched   = true;
@@ -2160,7 +2160,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
-    /** @return iterable<Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $matched   = true;
@@ -2332,7 +2332,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag']);
     }
 
-    /** @return iterable<Schema\ReleaseAsset> */
+    /** @return Observable<Schema\ReleaseAsset> */
     public function listReleaseAssets(array $params): iterable
     {
         $matched   = true;
@@ -2650,7 +2650,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id'], $arguments['delivery_id']);
     }
 
-    /** @return iterable<string> */
+    /** @return Observable<string> */
     public function getAllStatusCheckContexts(array $params): iterable
     {
         $matched   = true;
@@ -2682,7 +2682,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return iterable<Schema\Integration> */
+    /** @return Observable<Schema\Integration> */
     public function getAppsWithAccessToProtectedBranch(array $params): iterable
     {
         $matched   = true;
@@ -2714,7 +2714,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function getTeamsWithAccessToProtectedBranch(array $params): iterable
     {
         $matched   = true;
@@ -2746,7 +2746,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function getUsersWithAccessToProtectedBranch(array $params): iterable
     {
         $matched   = true;
@@ -2776,61 +2776,5 @@ final class Repos
         $operator = new Operator\Repos\GetUsersWithAccessToProtectedBranch($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Branches\Branch\Protection\Restrictions\Users::class]);
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
-    }
-
-    /** @return Observable<string> */
-    public function downloadTarballArchiveStreaming(array $params): iterable
-    {
-        $matched   = true;
-        $arguments = [];
-        if (array_key_exists('owner', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: owner');
-        }
-
-        $arguments['owner'] = $params['owner'];
-        unset($params['owner']);
-        if (array_key_exists('repo', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: repo');
-        }
-
-        $arguments['repo'] = $params['repo'];
-        unset($params['repo']);
-        if (array_key_exists('ref', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: ref');
-        }
-
-        $arguments['ref'] = $params['ref'];
-        unset($params['ref']);
-        $operator = new Operator\Repos\DownloadTarballArchiveStreaming($this->browser, $this->authentication);
-
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
-    }
-
-    /** @return Observable<string> */
-    public function downloadZipballArchiveStreaming(array $params): iterable
-    {
-        $matched   = true;
-        $arguments = [];
-        if (array_key_exists('owner', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: owner');
-        }
-
-        $arguments['owner'] = $params['owner'];
-        unset($params['owner']);
-        if (array_key_exists('repo', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: repo');
-        }
-
-        $arguments['repo'] = $params['repo'];
-        unset($params['repo']);
-        if (array_key_exists('ref', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: ref');
-        }
-
-        $arguments['ref'] = $params['ref'];
-        unset($params['ref']);
-        $operator = new Operator\Repos\DownloadZipballArchiveStreaming($this->browser, $this->authentication);
-
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 }
