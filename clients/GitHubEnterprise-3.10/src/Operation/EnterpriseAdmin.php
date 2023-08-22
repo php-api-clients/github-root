@@ -31,6 +31,15 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\ListGlobalWebhooks::class]->call($perPage, $page);
     }
 
+    public function listGlobalWebhooksListing(int $perPage, int $page): Schema\GlobalHook
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListGlobalWebhooksListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListGlobalWebhooksListing::class] = new Operator\EnterpriseAdmin\ListGlobalWebhooksListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListGlobalWebhooksListing::class]->call($perPage, $page);
+    }
+
     public function createGlobalWebhook(array $params): Schema\GlobalHook
     {
         if (array_key_exists(Operator\EnterpriseAdmin\CreateGlobalWebhook::class, $this->operator) === false) {
@@ -83,6 +92,15 @@ final class EnterpriseAdmin
         }
 
         return $this->operator[Operator\EnterpriseAdmin\ListPublicKeys::class]->call($since, $perPage, $page, $direction, $sort);
+    }
+
+    public function listPublicKeysListing(string $since, int $perPage, int $page, string $direction, string $sort): Schema\PublicKeyFull
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPublicKeysListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPublicKeysListing::class] = new Operator\EnterpriseAdmin\ListPublicKeysListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Keys());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPublicKeysListing::class]->call($since, $perPage, $page, $direction, $sort);
     }
 
     public function deletePublicKey(string $keyIds): ResponseInterface
@@ -155,6 +173,15 @@ final class EnterpriseAdmin
         }
 
         return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveEnvironments::class]->call($perPage, $page, $direction, $sort);
+    }
+
+    public function listPreReceiveEnvironmentsListing(int $perPage, int $page, string $direction, string $sort): Schema\PreReceiveEnvironment
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing::class] = new Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveEnvironmentsListing::class]->call($perPage, $page, $direction, $sort);
     }
 
     public function createPreReceiveEnvironment(array $params): Schema\PreReceiveEnvironment
@@ -238,6 +265,15 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooks::class]->call($perPage, $page, $direction, $sort);
     }
 
+    public function listPreReceiveHooksListing(int $perPage, int $page, string $direction, string $sort): Schema\PreReceiveHook
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPreReceiveHooksListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksListing::class] = new Operator\EnterpriseAdmin\ListPreReceiveHooksListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveHooks());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksListing::class]->call($perPage, $page, $direction, $sort);
+    }
+
     public function createPreReceiveHook(array $params): Schema\PreReceiveHook
     {
         if (array_key_exists(Operator\EnterpriseAdmin\CreatePreReceiveHook::class, $this->operator) === false) {
@@ -281,6 +317,15 @@ final class EnterpriseAdmin
         }
 
         return $this->operator[Operator\EnterpriseAdmin\ListPersonalAccessTokens::class]->call($perPage, $page);
+    }
+
+    public function listPersonalAccessTokensListing(int $perPage, int $page): Schema\Authorization
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPersonalAccessTokensListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPersonalAccessTokensListing::class] = new Operator\EnterpriseAdmin\ListPersonalAccessTokensListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Tokens());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPersonalAccessTokensListing::class]->call($perPage, $page);
     }
 
     public function deletePersonalAccessToken(int $tokenId): ResponseInterface
@@ -778,6 +823,15 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\GetAuditLog::class]->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
     }
 
+    public function getAuditLogListing(string $enterprise, string $phrase, string $include, string $after, string $before, string $order, int $page, int $perPage): Schema\AuditLogEvent
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\GetAuditLogListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class] = new Operator\EnterpriseAdmin\GetAuditLogListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class]->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
+    }
+
     public function getConfigNodes(string $uuid, string $clusterRoles): Schema\GhesConfigNodes
     {
         if (array_key_exists(Operator\EnterpriseAdmin\GetConfigNodes::class, $this->operator) === false) {
@@ -832,6 +886,15 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksForOrg::class]->call($org, $perPage, $page, $direction, $sort);
     }
 
+    public function listPreReceiveHooksForOrgListing(string $org, int $perPage, int $page, string $direction, string $sort): Schema\OrgPreReceiveHook
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPreReceiveHooksForOrgListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksForOrgListing::class] = new Operator\EnterpriseAdmin\ListPreReceiveHooksForOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PreReceiveHooks());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksForOrgListing::class]->call($org, $perPage, $page, $direction, $sort);
+    }
+
     public function getPreReceiveHookForOrg(string $org, int $preReceiveHookId): Schema\OrgPreReceiveHook
     {
         if (array_key_exists(Operator\EnterpriseAdmin\GetPreReceiveHookForOrg::class, $this->operator) === false) {
@@ -866,6 +929,15 @@ final class EnterpriseAdmin
         }
 
         return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksForRepo::class]->call($owner, $repo, $perPage, $page, $direction, $sort);
+    }
+
+    public function listPreReceiveHooksForRepoListing(string $owner, string $repo, int $perPage, int $page, string $direction, string $sort): Schema\RepositoryPreReceiveHook
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\ListPreReceiveHooksForRepoListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksForRepoListing::class] = new Operator\EnterpriseAdmin\ListPreReceiveHooksForRepoListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PreReceiveHooks());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\ListPreReceiveHooksForRepoListing::class]->call($owner, $repo, $perPage, $page, $direction, $sort);
     }
 
     public function getPreReceiveHookForRepo(string $owner, string $repo, int $preReceiveHookId): Schema\RepositoryPreReceiveHook

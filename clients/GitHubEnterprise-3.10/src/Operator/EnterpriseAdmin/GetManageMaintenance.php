@@ -26,7 +26,7 @@ final readonly class GetManageMaintenance
     {
     }
 
-    /** @return (iterable<Schema\GhesGetMaintenance> | array{code: int}) */
+    /** @return (Observable<Schema\GhesGetMaintenance> | array{code: int}) */
     public function call(string $uuid, string $clusterRoles): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetManageMaintenance($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);
