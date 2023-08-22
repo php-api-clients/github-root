@@ -179,7 +179,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return (iterable<Schema\SshKey> | array{code: int}) */
+    /** @return (Observable<Schema\SshKey> | array{code: int}) */
     public function addAuthorizedSshKey(array $params): iterable
     {
         $matched = true;
@@ -336,25 +336,5 @@ final class EnterpriseAdmin
         $operator = new Operator\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels::class]);
 
         return $operator->call($arguments['enterprise'], $arguments['runner_id'], $params);
-    }
-
-    /** @return */
-    public function startPreReceiveEnvironmentDownloadStreaming(array $params): PreReceiveEnvironmentDownloadStatus|array
-    {
-        $matched   = true;
-        $arguments = [];
-        if (array_key_exists('pre_receive_environment_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
-        }
-
-        $arguments['pre_receive_environment_id'] = $params['pre_receive_environment_id'];
-        unset($params['pre_receive_environment_id']);
-        if (array_key_exists(Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments🌀PreReceiveEnvironmentId🌀Downloads();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads::class]);
-
-        return $operator->call($arguments['pre_receive_environment_id']);
     }
 }

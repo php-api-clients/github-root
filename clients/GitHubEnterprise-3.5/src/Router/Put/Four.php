@@ -37,7 +37,7 @@ final class Four
                                 $this->router[Router\Put\OauthAuthorizations::class] = new Router\Put\OauthAuthorizations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Put\OauthAuthorizations::class]->getOrCreateAuthorizationForApp($params);
+                            return $this->router[Router\Put\OauthAuthorizations::class]->GetOrCreateAuthorizationForApp($params);
                         }
                     }
                 }
@@ -50,7 +50,7 @@ final class Four
                                 $this->router[Router\Put\Gists::class] = new Router\Put\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Put\Gists::class]->star($params);
+                            return $this->router[Router\Put\Gists::class]->Star($params);
                         }
                     }
                 }
@@ -63,7 +63,7 @@ final class Four
                                 $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Put\EnterpriseAdmin::class]->setSettings($params);
+                            return $this->router[Router\Put\EnterpriseAdmin::class]->SetSettings($params);
                         }
                     }
                 }
@@ -76,7 +76,7 @@ final class Four
                                 $this->router[Router\Put\Users::class] = new Router\Put\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Put\Users::class]->follow($params);
+                            return $this->router[Router\Put\Users::class]->Follow($params);
                         }
                     }
                 }
@@ -89,7 +89,7 @@ final class Four
                                 $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Put\EnterpriseAdmin::class]->promoteUserToBeSiteAdministrator($params);
+                            return $this->router[Router\Put\EnterpriseAdmin::class]->PromoteUserToBeSiteAdministrator($params);
                         }
                     } elseif ($pathChunks[3] === 'suspended') {
                         if ($call === 'PUT /users/{username}/suspended') {
@@ -98,7 +98,7 @@ final class Four
                                 $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Put\EnterpriseAdmin::class]->suspendUser($params);
+                            return $this->router[Router\Put\EnterpriseAdmin::class]->SuspendUser($params);
                         }
                     }
                 }
