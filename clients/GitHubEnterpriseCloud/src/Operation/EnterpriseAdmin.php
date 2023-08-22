@@ -328,6 +328,15 @@ final class EnterpriseAdmin
         return $this->operator[Operator\EnterpriseAdmin\GetAuditLog::class]->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
     }
 
+    public function getAuditLogListing(string $enterprise, string $phrase, string $include, string $after, string $before, string $order, int $page, int $perPage): Schema\AuditLogEvent
+    {
+        if (array_key_exists(Operator\EnterpriseAdmin\GetAuditLogListing::class, $this->operator) === false) {
+            $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class] = new Operator\EnterpriseAdmin\GetAuditLogListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog());
+        }
+
+        return $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class]->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
+    }
+
     public function getConsumedLicenses(string $enterprise, int $perPage, int $page): Schema\GetConsumedLicenses
     {
         if (array_key_exists(Operator\EnterpriseAdmin\GetConsumedLicenses::class, $this->operator) === false) {

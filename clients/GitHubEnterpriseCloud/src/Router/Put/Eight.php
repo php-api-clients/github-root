@@ -43,7 +43,7 @@ final class Eight
                                                 $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\EnterpriseAdmin::class]->addOrgAccessToSelfHostedRunnerGroupInEnterprise($params);
+                                            return $this->router[Router\Put\EnterpriseAdmin::class]->AddOrgAccessToSelfHostedRunnerGroupInEnterprise($params);
                                         }
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
@@ -54,7 +54,7 @@ final class Eight
                                                 $this->router[Router\Put\EnterpriseAdmin::class] = new Router\Put\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\EnterpriseAdmin::class]->addSelfHostedRunnerToGroupForEnterprise($params);
+                                            return $this->router[Router\Put\EnterpriseAdmin::class]->AddSelfHostedRunnerToGroupForEnterprise($params);
                                         }
                                     }
                                 }
@@ -75,7 +75,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->addRepoAccessToSelfHostedRunnerGroupInOrg($params);
+                                            return $this->router[Router\Put\Actions::class]->AddRepoAccessToSelfHostedRunnerGroupInOrg($params);
                                         }
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
@@ -86,7 +86,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->addSelfHostedRunnerToGroupForOrg($params);
+                                            return $this->router[Router\Put\Actions::class]->AddSelfHostedRunnerToGroupForOrg($params);
                                         }
                                     }
                                 }
@@ -101,7 +101,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->addSelectedRepoToOrgSecret($params);
+                                            return $this->router[Router\Put\Actions::class]->AddSelectedRepoToOrgSecret($params);
                                         }
                                     }
                                 }
@@ -116,7 +116,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->addSelectedRepoToOrgVariable($params);
+                                            return $this->router[Router\Put\Actions::class]->AddSelectedRepoToOrgVariable($params);
                                         }
                                     }
                                 }
@@ -133,7 +133,7 @@ final class Eight
                                                 $this->router[Router\Put\Codespaces::class] = new Router\Put\Codespaces($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Codespaces::class]->addSelectedRepoToOrgSecret($params);
+                                            return $this->router[Router\Put\Codespaces::class]->AddSelectedRepoToOrgSecret($params);
                                         }
                                     }
                                 }
@@ -150,7 +150,7 @@ final class Eight
                                                 $this->router[Router\Put\Dependabot::class] = new Router\Put\Dependabot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Dependabot::class]->addSelectedRepoToOrgSecret($params);
+                                            return $this->router[Router\Put\Dependabot::class]->AddSelectedRepoToOrgSecret($params);
                                         }
                                     }
                                 }
@@ -167,7 +167,7 @@ final class Eight
                                                 $this->router[Router\Put\Teams::class] = new Router\Put\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Teams::class]->addOrUpdateRepoPermissionsInOrg($params);
+                                            return $this->router[Router\Put\Teams::class]->AddOrUpdateRepoPermissionsInOrg($params);
                                         }
                                     }
                                 }
@@ -188,7 +188,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->setCustomOidcSubClaimForRepo($params);
+                                            return $this->router[Router\Put\Actions::class]->SetCustomOidcSubClaimForRepo($params);
                                         }
                                     }
                                 }
@@ -201,7 +201,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->setCustomLabelsForSelfHostedRunnerForRepo($params);
+                                            return $this->router[Router\Put\Actions::class]->SetCustomLabelsForSelfHostedRunnerForRepo($params);
                                         }
                                     }
                                 }
@@ -214,7 +214,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->disableWorkflow($params);
+                                            return $this->router[Router\Put\Actions::class]->DisableWorkflow($params);
                                         }
                                     } elseif ($pathChunks[7] === 'enable') {
                                         if ($call === 'PUT /repos/{owner}/{repo}/actions/workflows/{workflow_id}/enable') {
@@ -223,7 +223,7 @@ final class Eight
                                                 $this->router[Router\Put\Actions::class] = new Router\Put\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Actions::class]->enableWorkflow($params);
+                                            return $this->router[Router\Put\Actions::class]->EnableWorkflow($params);
                                         }
                                     }
                                 }
@@ -238,7 +238,7 @@ final class Eight
                                                 $this->router[Router\Put\Repos::class] = new Router\Put\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Repos::class]->updateDeploymentBranchPolicy($params);
+                                            return $this->router[Router\Put\Repos::class]->UpdateDeploymentBranchPolicy($params);
                                         }
                                     }
                                 }
@@ -253,7 +253,7 @@ final class Eight
                                                 $this->router[Router\Put\Pulls::class] = new Router\Put\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Put\Pulls::class]->updateReview($params);
+                                            return $this->router[Router\Put\Pulls::class]->UpdateReview($params);
                                         }
                                     }
                                 }

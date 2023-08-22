@@ -34,7 +34,7 @@ final class Seven
     {
     }
 
-    /** @return |array{code: int}|Schema\GitRef|(Schema\SecretScanningAlert|array{code: int})|(Schema\ScimUser */
+    /** @return |array{code: int}|(Schema\SecretScanningAlert|array{code: int})|(Schema\ScimUser */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment|array
     {
         $matched = false;
@@ -51,7 +51,7 @@ final class Seven
                                             $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Teams::class]->updateDiscussionInOrg($params);
+                                        return $this->router[Router\Patch\Teams::class]->UpdateDiscussionInOrg($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'team-sync') {
@@ -62,7 +62,7 @@ final class Seven
                                             $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Teams::class]->createOrUpdateIdpGroupConnectionsInOrg($params);
+                                        return $this->router[Router\Patch\Teams::class]->CreateOrUpdateIdpGroupConnectionsInOrg($params);
                                     }
                                 }
                             }
@@ -81,7 +81,7 @@ final class Seven
                                             $this->router[Router\Patch\Actions::class] = new Router\Patch\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Actions::class]->updateRepoVariable($params);
+                                        return $this->router[Router\Patch\Actions::class]->UpdateRepoVariable($params);
                                     }
                                 }
                             }
@@ -94,7 +94,7 @@ final class Seven
                                             $this->router[Router\Patch\CodeScanning::class] = new Router\Patch\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\CodeScanning::class]->updateAlert($params);
+                                        return $this->router[Router\Patch\CodeScanning::class]->UpdateAlert($params);
                                     }
                                 }
                             }
@@ -107,7 +107,7 @@ final class Seven
                                             $this->router[Router\Patch\Dependabot::class] = new Router\Patch\Dependabot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Dependabot::class]->updateAlert($params);
+                                        return $this->router[Router\Patch\Dependabot::class]->UpdateAlert($params);
                                     }
                                 }
                             }
@@ -120,7 +120,7 @@ final class Seven
                                             $this->router[Router\Patch\Git::class] = new Router\Patch\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Git::class]->updateRef($params);
+                                        return $this->router[Router\Patch\Git::class]->UpdateRef($params);
                                     }
                                 }
                             }
@@ -133,7 +133,7 @@ final class Seven
                                             $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Repos::class]->updateWebhookConfigForRepo($params);
+                                        return $this->router[Router\Patch\Repos::class]->UpdateWebhookConfigForRepo($params);
                                     }
                                 }
                             }
@@ -146,7 +146,7 @@ final class Seven
                                             $this->router[Router\Patch\Migrations::class] = new Router\Patch\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Migrations::class]->mapCommitAuthor($params);
+                                        return $this->router[Router\Patch\Migrations::class]->MapCommitAuthor($params);
                                     }
                                 }
                             }
@@ -159,7 +159,7 @@ final class Seven
                                             $this->router[Router\Patch\Issues::class] = new Router\Patch\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Issues::class]->updateComment($params);
+                                        return $this->router[Router\Patch\Issues::class]->UpdateComment($params);
                                     }
                                 }
                             }
@@ -172,7 +172,7 @@ final class Seven
                                             $this->router[Router\Patch\Pulls::class] = new Router\Patch\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Pulls::class]->updateReviewComment($params);
+                                        return $this->router[Router\Patch\Pulls::class]->UpdateReviewComment($params);
                                     }
                                 }
                             }
@@ -185,7 +185,7 @@ final class Seven
                                             $this->router[Router\Patch\Repos::class] = new Router\Patch\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Repos::class]->updateReleaseAsset($params);
+                                        return $this->router[Router\Patch\Repos::class]->UpdateReleaseAsset($params);
                                     }
                                 }
                             }
@@ -198,7 +198,7 @@ final class Seven
                                             $this->router[Router\Patch\SecretScanning::class] = new Router\Patch\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\SecretScanning::class]->updateAlert($params);
+                                        return $this->router[Router\Patch\SecretScanning::class]->UpdateAlert($params);
                                     }
                                 }
                             }
@@ -217,7 +217,7 @@ final class Seven
                                             $this->router[Router\Patch\Actions::class] = new Router\Patch\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Actions::class]->updateEnvironmentVariable($params);
+                                        return $this->router[Router\Patch\Actions::class]->UpdateEnvironmentVariable($params);
                                     }
                                 }
                             }
@@ -236,7 +236,7 @@ final class Seven
                                             $this->router[Router\Patch\Scim::class] = new Router\Patch\Scim($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Scim::class]->updateAttributeForUser($params);
+                                        return $this->router[Router\Patch\Scim::class]->UpdateAttributeForUser($params);
                                     }
                                 }
                             }
@@ -255,7 +255,7 @@ final class Seven
                                             $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                         }
 
-                                        return $this->router[Router\Patch\Teams::class]->updateDiscussionCommentLegacy($params);
+                                        return $this->router[Router\Patch\Teams::class]->UpdateDiscussionCommentLegacy($params);
                                     }
                                 }
                             }

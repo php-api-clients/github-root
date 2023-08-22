@@ -26,7 +26,7 @@ final readonly class ListCodeqlDatabases
     {
     }
 
-    /** @return iterable<Schema\CodeScanningCodeqlDatabase> */
+    /** @return Observable<Schema\CodeScanningCodeqlDatabase> */
     public function call(string $owner, string $repo): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Operation\CodeScanning\ListCodeqlDatabases($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

@@ -29,12 +29,12 @@ final class ListRepoAccessToSelfHostedRunnerGroupInOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/actions/runner-groups/15/repositories?page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/actions/runner-groups/15/repositories?page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg::OPERATION_MATCH, (static function (array $data): array {
             $data['org']             = 'generated';
             $data['runner_group_id'] = 15;
-            $data['page']            = 4;
+            $data['page']            = 1;
             $data['per_page']        = 8;
 
             return $data;
@@ -50,8 +50,8 @@ final class ListRepoAccessToSelfHostedRunnerGroupInOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/actions/runner-groups/15/repositories?page=4&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/actions/runner-groups/15/repositories?page=1&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->actions()->listRepoAccessToSelfHostedRunnerGroupInOrg('generated', 15, 4, 8);
+        $result = $client->operations()->actions()->listRepoAccessToSelfHostedRunnerGroupInOrg('generated', 15, 1, 8);
     }
 }

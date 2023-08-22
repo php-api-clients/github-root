@@ -37,7 +37,7 @@ final class Four
                                 $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Apps::class]->deleteInstallation($params);
+                            return $this->router[Router\Delete\Apps::class]->DeleteInstallation($params);
                         }
                     }
                 }
@@ -50,7 +50,7 @@ final class Four
                                 $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Apps::class]->deleteAuthorization($params);
+                            return $this->router[Router\Delete\Apps::class]->DeleteAuthorization($params);
                         }
                     } elseif ($pathChunks[3] === 'token') {
                         if ($call === 'DELETE /applications/{client_id}/token') {
@@ -59,7 +59,7 @@ final class Four
                                 $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Apps::class]->deleteToken($params);
+                            return $this->router[Router\Delete\Apps::class]->DeleteToken($params);
                         }
                     }
                 }
@@ -72,7 +72,7 @@ final class Four
                                 $this->router[Router\Delete\AnnouncementBanners::class] = new Router\Delete\AnnouncementBanners($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\AnnouncementBanners::class]->removeAnnouncementBannerForEnterprise($params);
+                            return $this->router[Router\Delete\AnnouncementBanners::class]->RemoveAnnouncementBannerForEnterprise($params);
                         }
                     }
                 }
@@ -85,7 +85,7 @@ final class Four
                                 $this->router[Router\Delete\Gists::class] = new Router\Delete\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Gists::class]->unstar($params);
+                            return $this->router[Router\Delete\Gists::class]->Unstar($params);
                         }
                     }
                 }
@@ -98,7 +98,7 @@ final class Four
                                 $this->router[Router\Delete\AnnouncementBanners::class] = new Router\Delete\AnnouncementBanners($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\AnnouncementBanners::class]->removeAnnouncementBannerForOrg($params);
+                            return $this->router[Router\Delete\AnnouncementBanners::class]->RemoveAnnouncementBannerForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'interaction-limits') {
                         if ($call === 'DELETE /orgs/{org}/interaction-limits') {
@@ -107,7 +107,7 @@ final class Four
                                 $this->router[Router\Delete\Interactions::class] = new Router\Delete\Interactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Interactions::class]->removeRestrictionsForOrg($params);
+                            return $this->router[Router\Delete\Interactions::class]->RemoveRestrictionsForOrg($params);
                         }
                     }
                 }
@@ -120,7 +120,7 @@ final class Four
                                 $this->router[Router\Delete\Projects::class] = new Router\Delete\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Projects::class]->deleteColumn($params);
+                            return $this->router[Router\Delete\Projects::class]->DeleteColumn($params);
                         }
                     }
                 }
@@ -133,7 +133,7 @@ final class Four
                                 $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Repos::class]->delete($params);
+                            return $this->router[Router\Delete\Repos::class]->Delete($params);
                         }
                     }
                 }
@@ -146,7 +146,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->unblock($params);
+                            return $this->router[Router\Delete\Users::class]->Unblock($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'codespaces') {
@@ -157,7 +157,7 @@ final class Four
                                 $this->router[Router\Delete\Codespaces::class] = new Router\Delete\Codespaces($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Codespaces::class]->deleteForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Codespaces::class]->DeleteForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'following') {
@@ -168,7 +168,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->unfollow($params);
+                            return $this->router[Router\Delete\Users::class]->Unfollow($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'gpg_keys') {
@@ -179,7 +179,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->deleteGpgKeyForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Users::class]->DeleteGpgKeyForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'keys') {
@@ -190,7 +190,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->deletePublicSshKeyForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Users::class]->DeletePublicSshKeyForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'repository_invitations') {
@@ -201,7 +201,7 @@ final class Four
                                 $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Repos::class]->declineInvitationForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Repos::class]->DeclineInvitationForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'ssh_signing_keys') {
@@ -212,7 +212,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->deleteSshSigningKeyForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Users::class]->DeleteSshSigningKeyForAuthenticatedUser($params);
                         }
                     }
                 }

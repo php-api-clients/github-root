@@ -31,7 +31,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<Schema\ServerStatistics> */
+    /** @return Observable<Schema\ServerStatistics> */
     public function getServerStatistics(array $params): iterable
     {
         $matched   = true;
@@ -63,7 +63,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise_or_org'], $arguments['date_start'], $arguments['date_end']);
     }
 
-    /** @return iterable<Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLog(array $params): iterable
     {
         $matched   = true;
@@ -345,7 +345,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    /** @return iterable<Schema\RunnerApplication> */
+    /** @return Observable<Schema\RunnerApplication> */
     public function listRunnerApplicationsForEnterprise(array $params): iterable
     {
         $matched   = true;

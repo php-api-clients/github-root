@@ -29,11 +29,11 @@ final class ListExternalIdpGroupsForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/external-groups?page=4&display_name=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/external-groups?page=1&display_name=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Teams\ListExternalIdpGroupsForOrg::OPERATION_MATCH, (static function (array $data): array {
             $data['org']          = 'generated';
-            $data['page']         = 4;
+            $data['page']         = 1;
             $data['display_name'] = 'generated';
             $data['per_page']     = 8;
 
@@ -50,8 +50,8 @@ final class ListExternalIdpGroupsForOrgTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/orgs/generated/external-groups?page=4&display_name=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/orgs/generated/external-groups?page=1&display_name=generated&per_page=8', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->teams()->listExternalIdpGroupsForOrg('generated', 4, 'generated', 8);
+        $result = $client->operations()->teams()->listExternalIdpGroupsForOrg('generated', 1, 'generated', 8);
     }
 }
