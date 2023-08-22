@@ -49,7 +49,7 @@ final class Five
     {
     }
 
-    /** @return |iterable<Schema\OrganizationSecretScanningAlert>|(Schema\GistComment|array{code: int})|(iterable<Schema\Event>|Schema\BasicError|(Schema\ThreadSubscription|iterable<Schema\CodeScanningOrganizationAlertItems>|(array{code: int}|array{code: int, location: string})|array{code: int}|(Schema\ProjectCard|(iterable<Schema\ProjectCard>|iterable<Schema\SimpleUser>|iterable<Schema\Autolink>|iterable<Schema\ShortBranch>|iterable<Schema\Collaborator>|iterable<Schema\CommitComment>|iterable<Schema\Commit>|(iterable<Schema\Contributor>|iterable<Schema\Deployment>|iterable<Schema\Event>|iterable<Schema\MinimalRepository>|iterable<Schema\Hook>|iterable<Schema\RepositoryInvitation>|(iterable<Schema\Issue>|Schema\BasicError)|iterable<Schema\DeployKey>|iterable<Schema\Label>|iterable<Schema\Milestone>|iterable<Schema\Thread>|iterable<Schema\RepositoryPreReceiveHook>|iterable<Schema\Project>|(iterable<Schema\PullRequestSimple>|iterable<Schema\Release>|(Schema\SimpleUser|Schema\Stargazer)|(Schema\RepositorySubscription|iterable<Schema\Tag>|iterable<Schema\Team>|(Schema\GroupResponse|(Schema\UserResponse|(iterable<Schema\SshKey>|(Schema\TeamProject|(Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok */
+    /** @return |Observable<Schema\OrganizationSecretScanningAlert>|(Schema\GistComment|array{code: int})|(Observable<Schema\Event>|Schema\BasicError|(Schema\ThreadSubscription|Observable<Schema\CodeScanningOrganizationAlertItems>|(array{code: int}|array{code: int, location: string})|array{code: int}|(Schema\ProjectCard|(Observable<Schema\ProjectCard>|Observable<Schema\SimpleUser>|Observable<Schema\Autolink>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|(Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\Event>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|(Observable<Schema\Issue>|Schema\BasicError)|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\RepositoryPreReceiveHook>|Observable<Schema\Project>|(Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|(Schema\RepositorySubscription|Observable<Schema\Tag>|Observable<Schema\Team>|(Schema\GroupResponse|(Schema\UserResponse|(Observable<Schema\SshKey>|(Schema\TeamProject|(Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok */
     public function call(string $call, array $params, array $pathChunks): HookDelivery|ActionsEnterprisePermissions|Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|iterable|GistComment|BasicError|ThreadSubscription|ActionsOrganizationPermissions|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|ExternalGroup|OrgHook|OrgMembership|Migration|OrgPreReceiveHook|TeamFull|ProjectCard|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok|Installation|Language|LicenseContent|Page|ContentFile|SimpleUser|Stargazer|RepositorySubscription|Topic|GroupResponse|UserResponse|TeamDiscussion|TeamMembership|TeamProject|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok
     {
         $matched = false;
@@ -64,7 +64,7 @@ final class Five
                                     $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Apps::class]->getWebhookDelivery($params);
+                                return $this->router[Router\Get\Apps::class]->GetWebhookDelivery($params);
                             }
                         }
                     }
@@ -79,7 +79,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->getGithubActionsPermissionsEnterprise($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->GetGithubActionsPermissionsEnterprise($params);
                             }
                         } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($call === 'GET /enterprises/{enterprise}/actions/runner-groups') {
@@ -88,7 +88,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->listSelfHostedRunnerGroupsForEnterprise($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->ListSelfHostedRunnerGroupsForEnterprise($params);
                             }
                         } elseif ($pathChunks[4] === 'runners') {
                             if ($call === 'GET /enterprises/{enterprise}/actions/runners') {
@@ -97,7 +97,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->listSelfHostedRunnersForEnterprise($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->ListSelfHostedRunnersForEnterprise($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'secret-scanning') {
@@ -108,7 +108,7 @@ final class Five
                                     $this->router[Router\Get\SecretScanning::class] = new Router\Get\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\SecretScanning::class]->listAlertsForEnterprise($params);
+                                return $this->router[Router\Get\SecretScanning::class]->ListAlertsForEnterprise($params);
                             }
                         }
                     }
@@ -123,7 +123,7 @@ final class Five
                                     $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Gists::class]->getComment($params);
+                                return $this->router[Router\Get\Gists::class]->GetComment($params);
                             }
                         }
                     }
@@ -138,7 +138,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->listPublicEventsForRepoNetwork($params);
+                                return $this->router[Router\Get\Activity::class]->ListPublicEventsForRepoNetwork($params);
                             }
                         }
                     }
@@ -153,7 +153,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->getThreadSubscriptionForAuthenticatedUser($params);
+                                return $this->router[Router\Get\Activity::class]->GetThreadSubscriptionForAuthenticatedUser($params);
                             }
                         }
                     }
@@ -168,7 +168,7 @@ final class Five
                                     $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Actions::class]->getGithubActionsPermissionsOrganization($params);
+                                return $this->router[Router\Get\Actions::class]->GetGithubActionsPermissionsOrganization($params);
                             }
                         } elseif ($pathChunks[4] === 'runner-groups') {
                             if ($call === 'GET /orgs/{org}/actions/runner-groups') {
@@ -177,7 +177,7 @@ final class Five
                                     $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Actions::class]->listSelfHostedRunnerGroupsForOrg($params);
+                                return $this->router[Router\Get\Actions::class]->ListSelfHostedRunnerGroupsForOrg($params);
                             }
                         } elseif ($pathChunks[4] === 'runners') {
                             if ($call === 'GET /orgs/{org}/actions/runners') {
@@ -186,7 +186,7 @@ final class Five
                                     $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Actions::class]->listSelfHostedRunnersForOrg($params);
+                                return $this->router[Router\Get\Actions::class]->ListSelfHostedRunnersForOrg($params);
                             }
                         } elseif ($pathChunks[4] === 'secrets') {
                             if ($call === 'GET /orgs/{org}/actions/secrets') {
@@ -195,7 +195,7 @@ final class Five
                                     $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Actions::class]->listOrgSecrets($params);
+                                return $this->router[Router\Get\Actions::class]->ListOrgSecrets($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'code-scanning') {
@@ -206,7 +206,7 @@ final class Five
                                     $this->router[Router\Get\CodeScanning::class] = new Router\Get\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\CodeScanning::class]->listAlertsForOrg($params);
+                                return $this->router[Router\Get\CodeScanning::class]->ListAlertsForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'dependabot') {
@@ -217,7 +217,7 @@ final class Five
                                     $this->router[Router\Get\Dependabot::class] = new Router\Get\Dependabot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Dependabot::class]->listOrgSecrets($params);
+                                return $this->router[Router\Get\Dependabot::class]->ListOrgSecrets($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'external-group') {
@@ -228,7 +228,7 @@ final class Five
                                     $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Teams::class]->externalIdpGroupInfoForOrg($params);
+                                return $this->router[Router\Get\Teams::class]->ExternalIdpGroupInfoForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'hooks') {
@@ -239,7 +239,7 @@ final class Five
                                     $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Orgs::class]->getWebhook($params);
+                                return $this->router[Router\Get\Orgs::class]->GetWebhook($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'members') {
@@ -250,7 +250,7 @@ final class Five
                                     $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Orgs::class]->checkMembershipForUser($params);
+                                return $this->router[Router\Get\Orgs::class]->CheckMembershipForUser($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'memberships') {
@@ -261,7 +261,7 @@ final class Five
                                     $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Orgs::class]->getMembershipForUser($params);
+                                return $this->router[Router\Get\Orgs::class]->GetMembershipForUser($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'migrations') {
@@ -272,7 +272,7 @@ final class Five
                                     $this->router[Router\Get\Migrations::class] = new Router\Get\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Migrations::class]->getStatusForOrg($params);
+                                return $this->router[Router\Get\Migrations::class]->GetStatusForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'pre-receive-hooks') {
@@ -283,7 +283,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->getPreReceiveHookForOrg($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->GetPreReceiveHookForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'public_members') {
@@ -294,7 +294,7 @@ final class Five
                                     $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Orgs::class]->checkPublicMembershipForUser($params);
+                                return $this->router[Router\Get\Orgs::class]->CheckPublicMembershipForUser($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'secret-scanning') {
@@ -305,7 +305,7 @@ final class Five
                                     $this->router[Router\Get\SecretScanning::class] = new Router\Get\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\SecretScanning::class]->listAlertsForOrg($params);
+                                return $this->router[Router\Get\SecretScanning::class]->ListAlertsForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'teams') {
@@ -316,7 +316,7 @@ final class Five
                                     $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Teams::class]->getByName($params);
+                                return $this->router[Router\Get\Teams::class]->GetByName($params);
                             }
                         }
                     }
@@ -331,7 +331,7 @@ final class Five
                                     $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Projects::class]->getCard($params);
+                                return $this->router[Router\Get\Projects::class]->GetCard($params);
                             }
                         }
                     } elseif ($pathChunks[3] === '{column_id}') {
@@ -342,7 +342,7 @@ final class Five
                                     $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Projects::class]->listCards($params);
+                                return $this->router[Router\Get\Projects::class]->ListCards($params);
                             }
                         }
                     }
@@ -357,7 +357,7 @@ final class Five
                                     $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Issues::class]->listAssignees($params);
+                                return $this->router[Router\Get\Issues::class]->ListAssignees($params);
                             }
                         } elseif ($pathChunks[4] === 'autolinks') {
                             if ($call === 'GET /repos/{owner}/{repo}/autolinks') {
@@ -366,7 +366,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listAutolinks($params);
+                                return $this->router[Router\Get\Repos::class]->ListAutolinks($params);
                             }
                         } elseif ($pathChunks[4] === 'branches') {
                             if ($call === 'GET /repos/{owner}/{repo}/branches') {
@@ -375,7 +375,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listBranches($params);
+                                return $this->router[Router\Get\Repos::class]->ListBranches($params);
                             }
                         } elseif ($pathChunks[4] === 'collaborators') {
                             if ($call === 'GET /repos/{owner}/{repo}/collaborators') {
@@ -384,7 +384,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listCollaborators($params);
+                                return $this->router[Router\Get\Repos::class]->ListCollaborators($params);
                             }
                         } elseif ($pathChunks[4] === 'comments') {
                             if ($call === 'GET /repos/{owner}/{repo}/comments') {
@@ -393,7 +393,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listCommitCommentsForRepo($params);
+                                return $this->router[Router\Get\Repos::class]->ListCommitCommentsForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'commits') {
                             if ($call === 'GET /repos/{owner}/{repo}/commits') {
@@ -402,7 +402,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listCommits($params);
+                                return $this->router[Router\Get\Repos::class]->ListCommits($params);
                             }
                         } elseif ($pathChunks[4] === 'contributors') {
                             if ($call === 'GET /repos/{owner}/{repo}/contributors') {
@@ -411,7 +411,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listContributors($params);
+                                return $this->router[Router\Get\Repos::class]->ListContributors($params);
                             }
                         } elseif ($pathChunks[4] === 'deployments') {
                             if ($call === 'GET /repos/{owner}/{repo}/deployments') {
@@ -420,7 +420,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listDeployments($params);
+                                return $this->router[Router\Get\Repos::class]->ListDeployments($params);
                             }
                         } elseif ($pathChunks[4] === 'environments') {
                             if ($call === 'GET /repos/{owner}/{repo}/environments') {
@@ -429,7 +429,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->getAllEnvironments($params);
+                                return $this->router[Router\Get\Repos::class]->GetAllEnvironments($params);
                             }
                         } elseif ($pathChunks[4] === 'events') {
                             if ($call === 'GET /repos/{owner}/{repo}/events') {
@@ -438,7 +438,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->listRepoEvents($params);
+                                return $this->router[Router\Get\Activity::class]->ListRepoEvents($params);
                             }
                         } elseif ($pathChunks[4] === 'forks') {
                             if ($call === 'GET /repos/{owner}/{repo}/forks') {
@@ -447,7 +447,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listForks($params);
+                                return $this->router[Router\Get\Repos::class]->ListForks($params);
                             }
                         } elseif ($pathChunks[4] === 'hooks') {
                             if ($call === 'GET /repos/{owner}/{repo}/hooks') {
@@ -456,7 +456,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listWebhooks($params);
+                                return $this->router[Router\Get\Repos::class]->ListWebhooks($params);
                             }
                         } elseif ($pathChunks[4] === 'installation') {
                             if ($call === 'GET /repos/{owner}/{repo}/installation') {
@@ -465,7 +465,7 @@ final class Five
                                     $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Apps::class]->getRepoInstallation($params);
+                                return $this->router[Router\Get\Apps::class]->GetRepoInstallation($params);
                             }
                         } elseif ($pathChunks[4] === 'invitations') {
                             if ($call === 'GET /repos/{owner}/{repo}/invitations') {
@@ -474,7 +474,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listInvitations($params);
+                                return $this->router[Router\Get\Repos::class]->ListInvitations($params);
                             }
                         } elseif ($pathChunks[4] === 'issues') {
                             if ($call === 'GET /repos/{owner}/{repo}/issues') {
@@ -483,7 +483,7 @@ final class Five
                                     $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Issues::class]->listForRepo($params);
+                                return $this->router[Router\Get\Issues::class]->ListForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'keys') {
                             if ($call === 'GET /repos/{owner}/{repo}/keys') {
@@ -492,7 +492,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listDeployKeys($params);
+                                return $this->router[Router\Get\Repos::class]->ListDeployKeys($params);
                             }
                         } elseif ($pathChunks[4] === 'labels') {
                             if ($call === 'GET /repos/{owner}/{repo}/labels') {
@@ -501,7 +501,7 @@ final class Five
                                     $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Issues::class]->listLabelsForRepo($params);
+                                return $this->router[Router\Get\Issues::class]->ListLabelsForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'languages') {
                             if ($call === 'GET /repos/{owner}/{repo}/languages') {
@@ -510,7 +510,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listLanguages($params);
+                                return $this->router[Router\Get\Repos::class]->ListLanguages($params);
                             }
                         } elseif ($pathChunks[4] === 'license') {
                             if ($call === 'GET /repos/{owner}/{repo}/license') {
@@ -519,7 +519,7 @@ final class Five
                                     $this->router[Router\Get\Licenses::class] = new Router\Get\Licenses($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Licenses::class]->getForRepo($params);
+                                return $this->router[Router\Get\Licenses::class]->GetForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'milestones') {
                             if ($call === 'GET /repos/{owner}/{repo}/milestones') {
@@ -528,7 +528,7 @@ final class Five
                                     $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Issues::class]->listMilestones($params);
+                                return $this->router[Router\Get\Issues::class]->ListMilestones($params);
                             }
                         } elseif ($pathChunks[4] === 'notifications') {
                             if ($call === 'GET /repos/{owner}/{repo}/notifications') {
@@ -537,7 +537,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->listRepoNotificationsForAuthenticatedUser($params);
+                                return $this->router[Router\Get\Activity::class]->ListRepoNotificationsForAuthenticatedUser($params);
                             }
                         } elseif ($pathChunks[4] === 'pages') {
                             if ($call === 'GET /repos/{owner}/{repo}/pages') {
@@ -546,7 +546,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->getPages($params);
+                                return $this->router[Router\Get\Repos::class]->GetPages($params);
                             }
                         } elseif ($pathChunks[4] === 'pre-receive-hooks') {
                             if ($call === 'GET /repos/{owner}/{repo}/pre-receive-hooks') {
@@ -555,7 +555,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->listPreReceiveHooksForRepo($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->ListPreReceiveHooksForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'projects') {
                             if ($call === 'GET /repos/{owner}/{repo}/projects') {
@@ -564,7 +564,7 @@ final class Five
                                     $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Projects::class]->listForRepo($params);
+                                return $this->router[Router\Get\Projects::class]->ListForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'pulls') {
                             if ($call === 'GET /repos/{owner}/{repo}/pulls') {
@@ -573,7 +573,7 @@ final class Five
                                     $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Pulls::class]->list_($params);
+                                return $this->router[Router\Get\Pulls::class]->List($params);
                             }
                         } elseif ($pathChunks[4] === 'readme') {
                             if ($call === 'GET /repos/{owner}/{repo}/readme') {
@@ -582,7 +582,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->getReadme($params);
+                                return $this->router[Router\Get\Repos::class]->GetReadme($params);
                             }
                         } elseif ($pathChunks[4] === 'releases') {
                             if ($call === 'GET /repos/{owner}/{repo}/releases') {
@@ -591,7 +591,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listReleases($params);
+                                return $this->router[Router\Get\Repos::class]->ListReleases($params);
                             }
                         } elseif ($pathChunks[4] === 'stargazers') {
                             if ($call === 'GET /repos/{owner}/{repo}/stargazers') {
@@ -600,7 +600,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->listStargazersForRepo($params);
+                                return $this->router[Router\Get\Activity::class]->ListStargazersForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'subscribers') {
                             if ($call === 'GET /repos/{owner}/{repo}/subscribers') {
@@ -609,7 +609,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->listWatchersForRepo($params);
+                                return $this->router[Router\Get\Activity::class]->ListWatchersForRepo($params);
                             }
                         } elseif ($pathChunks[4] === 'subscription') {
                             if ($call === 'GET /repos/{owner}/{repo}/subscription') {
@@ -618,7 +618,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->getRepoSubscription($params);
+                                return $this->router[Router\Get\Activity::class]->GetRepoSubscription($params);
                             }
                         } elseif ($pathChunks[4] === 'tags') {
                             if ($call === 'GET /repos/{owner}/{repo}/tags') {
@@ -627,7 +627,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listTags($params);
+                                return $this->router[Router\Get\Repos::class]->ListTags($params);
                             }
                         } elseif ($pathChunks[4] === 'teams') {
                             if ($call === 'GET /repos/{owner}/{repo}/teams') {
@@ -636,7 +636,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->listTeams($params);
+                                return $this->router[Router\Get\Repos::class]->ListTeams($params);
                             }
                         } elseif ($pathChunks[4] === 'topics') {
                             if ($call === 'GET /repos/{owner}/{repo}/topics') {
@@ -645,7 +645,7 @@ final class Five
                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Repos::class]->getAllTopics($params);
+                                return $this->router[Router\Get\Repos::class]->GetAllTopics($params);
                             }
                         }
                     }
@@ -660,7 +660,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->getProvisioningInformationForEnterpriseGroup($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->GetProvisioningInformationForEnterpriseGroup($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'Users') {
@@ -671,7 +671,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->getProvisioningInformationForEnterpriseUser($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->GetProvisioningInformationForEnterpriseUser($params);
                             }
                         }
                     }
@@ -686,7 +686,7 @@ final class Five
                                     $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\EnterpriseAdmin::class]->getAllAuthorizedSshKeys($params);
+                                return $this->router[Router\Get\EnterpriseAdmin::class]->GetAllAuthorizedSshKeys($params);
                             }
                         }
                     }
@@ -701,7 +701,7 @@ final class Five
                                     $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Teams::class]->getDiscussionLegacy($params);
+                                return $this->router[Router\Get\Teams::class]->GetDiscussionLegacy($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'members') {
@@ -712,7 +712,7 @@ final class Five
                                     $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Teams::class]->getMemberLegacy($params);
+                                return $this->router[Router\Get\Teams::class]->GetMemberLegacy($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'memberships') {
@@ -723,7 +723,7 @@ final class Five
                                     $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Teams::class]->getMembershipForUserLegacy($params);
+                                return $this->router[Router\Get\Teams::class]->GetMembershipForUserLegacy($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'projects') {
@@ -734,7 +734,7 @@ final class Five
                                     $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Teams::class]->checkPermissionsForProjectLegacy($params);
+                                return $this->router[Router\Get\Teams::class]->CheckPermissionsForProjectLegacy($params);
                             }
                         }
                     }
@@ -749,7 +749,7 @@ final class Five
                                     $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Apps::class]->listInstallationReposForAuthenticatedUser($params);
+                                return $this->router[Router\Get\Apps::class]->ListInstallationReposForAuthenticatedUser($params);
                             }
                         }
                     }
@@ -762,7 +762,7 @@ final class Five
                                     $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Orgs::class]->getMembershipForAuthenticatedUser($params);
+                                return $this->router[Router\Get\Orgs::class]->GetMembershipForAuthenticatedUser($params);
                             }
                         }
                     }
@@ -775,7 +775,7 @@ final class Five
                                     $this->router[Router\Get\Migrations::class] = new Router\Get\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Migrations::class]->getArchiveForAuthenticatedUser($params);
+                                return $this->router[Router\Get\Migrations::class]->GetArchiveForAuthenticatedUser($params);
                             }
                         } elseif ($pathChunks[4] === 'repositories') {
                             if ($call === 'GET /user/migrations/{migration_id}/repositories') {
@@ -784,7 +784,7 @@ final class Five
                                     $this->router[Router\Get\Migrations::class] = new Router\Get\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Migrations::class]->listReposForAuthenticatedUser($params);
+                                return $this->router[Router\Get\Migrations::class]->ListReposForAuthenticatedUser($params);
                             }
                         }
                     }
@@ -797,7 +797,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->checkRepoIsStarredByAuthenticatedUser($params);
+                                return $this->router[Router\Get\Activity::class]->CheckRepoIsStarredByAuthenticatedUser($params);
                             }
                         }
                     }
@@ -812,7 +812,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->listPublicEventsForUser($params);
+                                return $this->router[Router\Get\Activity::class]->ListPublicEventsForUser($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'following') {
@@ -823,7 +823,7 @@ final class Five
                                     $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Users::class]->checkFollowingForUser($params);
+                                return $this->router[Router\Get\Users::class]->CheckFollowingForUser($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'received_events') {
@@ -834,7 +834,7 @@ final class Five
                                     $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                 }
 
-                                return $this->router[Router\Get\Activity::class]->listReceivedPublicEventsForUser($params);
+                                return $this->router[Router\Get\Activity::class]->ListReceivedPublicEventsForUser($params);
                             }
                         }
                     }
