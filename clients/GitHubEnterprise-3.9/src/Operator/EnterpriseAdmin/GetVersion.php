@@ -26,7 +26,7 @@ final readonly class GetVersion
     {
     }
 
-    /** @return (iterable<Schema\GhesVersion> | array{code: int}) */
+    /** @return (Observable<Schema\GhesVersion> | array{code: int}) */
     public function call(string $uuid, string $clusterRoles): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetVersion($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

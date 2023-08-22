@@ -7,7 +7,6 @@ namespace ApiClients\Client\GitHubEnterprise\Router\Patch;
 use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull;
 use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
@@ -56,7 +55,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
-    /** @return Schema\OrganizationFull */
+    /** @return */
     public function update(array $params): OrganizationFull|array
     {
         $matched   = true;

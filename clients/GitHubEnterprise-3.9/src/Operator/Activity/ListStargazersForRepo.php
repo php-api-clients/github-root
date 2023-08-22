@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Activity;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterprise\Schema\Stargazer;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -28,7 +27,7 @@ final readonly class ListStargazersForRepo
     {
     }
 
-    /** @return (Schema\SimpleUser | Schema\Stargazer) */
+    /** @return */
     public function call(string $owner, string $repo, int $perPage = 30, int $page = 1): SimpleUser|Stargazer|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Activity\ListStargazersForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $perPage, $page);
