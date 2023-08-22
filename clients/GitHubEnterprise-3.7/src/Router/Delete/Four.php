@@ -37,7 +37,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->deleteGlobalWebhook($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->DeleteGlobalWebhook($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'keys') {
@@ -48,7 +48,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->deletePublicKey($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->DeletePublicKey($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-environments') {
@@ -59,7 +59,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->deletePreReceiveEnvironment($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->DeletePreReceiveEnvironment($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-hooks') {
@@ -70,7 +70,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->deletePreReceiveHook($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->DeletePreReceiveHook($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'tokens') {
@@ -81,7 +81,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->deletePersonalAccessToken($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->DeletePersonalAccessToken($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'users') {
@@ -92,7 +92,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->deleteUser($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->DeleteUser($params);
                         }
                     }
                 }
@@ -105,7 +105,7 @@ final class Four
                                 $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Apps::class]->deleteInstallation($params);
+                            return $this->router[Router\Delete\Apps::class]->DeleteInstallation($params);
                         }
                     }
                 }
@@ -118,7 +118,7 @@ final class Four
                                 $this->router[Router\Delete\OauthAuthorizations::class] = new Router\Delete\OauthAuthorizations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\OauthAuthorizations::class]->deleteGrant($params);
+                            return $this->router[Router\Delete\OauthAuthorizations::class]->DeleteGrant($params);
                         }
                     }
                 } elseif ($pathChunks[2] === '{client_id}') {
@@ -129,7 +129,7 @@ final class Four
                                 $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Apps::class]->deleteAuthorization($params);
+                            return $this->router[Router\Delete\Apps::class]->DeleteAuthorization($params);
                         }
                     } elseif ($pathChunks[3] === 'token') {
                         if ($call === 'DELETE /applications/{client_id}/token') {
@@ -138,7 +138,7 @@ final class Four
                                 $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Apps::class]->deleteToken($params);
+                            return $this->router[Router\Delete\Apps::class]->DeleteToken($params);
                         }
                     }
                 }
@@ -151,7 +151,7 @@ final class Four
                                 $this->router[Router\Delete\Gists::class] = new Router\Delete\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Gists::class]->unstar($params);
+                            return $this->router[Router\Delete\Gists::class]->Unstar($params);
                         }
                     }
                 }
@@ -164,7 +164,7 @@ final class Four
                                 $this->router[Router\Delete\Projects::class] = new Router\Delete\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Projects::class]->deleteColumn($params);
+                            return $this->router[Router\Delete\Projects::class]->DeleteColumn($params);
                         }
                     }
                 }
@@ -177,7 +177,7 @@ final class Four
                                 $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Repos::class]->delete($params);
+                            return $this->router[Router\Delete\Repos::class]->Delete($params);
                         }
                     }
                 }
@@ -190,7 +190,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->unfollow($params);
+                            return $this->router[Router\Delete\Users::class]->Unfollow($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'gpg_keys') {
@@ -201,7 +201,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->deleteGpgKeyForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Users::class]->DeleteGpgKeyForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'keys') {
@@ -212,7 +212,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->deletePublicSshKeyForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Users::class]->DeletePublicSshKeyForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'repository_invitations') {
@@ -223,7 +223,7 @@ final class Four
                                 $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Repos::class]->declineInvitationForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Repos::class]->DeclineInvitationForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'ssh_signing_keys') {
@@ -234,7 +234,7 @@ final class Four
                                 $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\Users::class]->deleteSshSigningKeyForAuthenticatedUser($params);
+                            return $this->router[Router\Delete\Users::class]->DeleteSshSigningKeyForAuthenticatedUser($params);
                         }
                     }
                 }
@@ -247,7 +247,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->demoteSiteAdministrator($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->DemoteSiteAdministrator($params);
                         }
                     } elseif ($pathChunks[3] === 'suspended') {
                         if ($call === 'DELETE /users/{username}/suspended') {
@@ -256,7 +256,7 @@ final class Four
                                 $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                             }
 
-                            return $this->router[Router\Delete\EnterpriseAdmin::class]->unsuspendUser($params);
+                            return $this->router[Router\Delete\EnterpriseAdmin::class]->UnsuspendUser($params);
                         }
                     }
                 }
