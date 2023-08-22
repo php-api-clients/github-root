@@ -26,7 +26,7 @@ final class Users
     {
     }
 
-    /** @return (iterable<Schema\Email> | array{code: int}) */
+    /** @return (Observable<Schema\Email> | array{code: int}) */
     public function addEmailForAuthenticatedUser(array $params): iterable
     {
         $matched = true;

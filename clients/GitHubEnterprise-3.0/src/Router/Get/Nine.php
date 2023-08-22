@@ -22,7 +22,7 @@ final class Nine
     {
     }
 
-    /** @return |iterable<string>|iterable<Schema\Integration>|iterable<Schema\Team>|iterable<Schema\SimpleUser>|iterable<Schema\ReviewComment> */
+    /** @return |Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>|Observable<Schema\ReviewComment> */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussionComment|iterable
     {
         $matched = false;
@@ -41,7 +41,7 @@ final class Nine
                                                     $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Get\Teams::class]->getDiscussionCommentInOrg($params);
+                                                return $this->router[Router\Get\Teams::class]->GetDiscussionCommentInOrg($params);
                                             }
                                         }
                                     }
@@ -64,7 +64,7 @@ final class Nine
                                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Get\Repos::class]->getAllStatusCheckContexts($params);
+                                                return $this->router[Router\Get\Repos::class]->GetAllStatusCheckContexts($params);
                                             }
                                         }
                                     } elseif ($pathChunks[7] === 'restrictions') {
@@ -75,7 +75,7 @@ final class Nine
                                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Get\Repos::class]->getAppsWithAccessToProtectedBranch($params);
+                                                return $this->router[Router\Get\Repos::class]->GetAppsWithAccessToProtectedBranch($params);
                                             }
                                         } elseif ($pathChunks[8] === 'teams') {
                                             if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams') {
@@ -84,7 +84,7 @@ final class Nine
                                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Get\Repos::class]->getTeamsWithAccessToProtectedBranch($params);
+                                                return $this->router[Router\Get\Repos::class]->GetTeamsWithAccessToProtectedBranch($params);
                                             }
                                         } elseif ($pathChunks[8] === 'users') {
                                             if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/users') {
@@ -93,7 +93,7 @@ final class Nine
                                                     $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Get\Repos::class]->getUsersWithAccessToProtectedBranch($params);
+                                                return $this->router[Router\Get\Repos::class]->GetUsersWithAccessToProtectedBranch($params);
                                             }
                                         }
                                     }
@@ -110,7 +110,7 @@ final class Nine
                                                     $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                                 }
 
-                                                return $this->router[Router\Get\Pulls::class]->listCommentsForReview($params);
+                                                return $this->router[Router\Get\Pulls::class]->ListCommentsForReview($params);
                                             }
                                         }
                                     }

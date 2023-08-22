@@ -50,7 +50,7 @@ final class Orgs
         return $operator->call($arguments['org']);
     }
 
-    /** @return (iterable<Schema\OrganizationSimple> | array{code: int}) */
+    /** @return (Observable<Schema\OrganizationSimple> | array{code: int}) */
     public function listForAuthenticatedUser(array $params): iterable
     {
         $matched   = true;
@@ -76,7 +76,7 @@ final class Orgs
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\OrgHook> */
+    /** @return Observable<Schema\OrgHook> */
     public function listWebhooks(array $params): iterable
     {
         $matched   = true;
@@ -140,7 +140,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return (iterable<Schema\SimpleUser> | array{code: int, location: string}) */
+    /** @return (Observable<Schema\SimpleUser> | array{code: int, location: string}) */
     public function listMembers(array $params): iterable
     {
         $matched   = true;
@@ -184,7 +184,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listOutsideCollaborators(array $params): iterable
     {
         $matched   = true;
@@ -222,7 +222,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listPublicMembers(array $params): iterable
     {
         $matched   = true;
@@ -254,7 +254,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return (iterable<Schema\OrgMembership> | array{code: int}) */
+    /** @return (Observable<Schema\OrgMembership> | array{code: int}) */
     public function listMembershipsForAuthenticatedUser(array $params): iterable
     {
         $matched   = true;
@@ -286,7 +286,7 @@ final class Orgs
         return $operator->call($arguments['state'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\OrganizationSimple> */
+    /** @return Observable<Schema\OrganizationSimple> */
     public function listForUser(array $params): iterable
     {
         $matched   = true;
@@ -344,8 +344,8 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    /** @return (iterable<Schema\OrganizationSimple> | array{code: int}) */
-    public function list_(array $params): iterable
+    /** @return (Observable<Schema\OrganizationSimple> | array{code: int}) */
+    public function list(array $params): iterable
     {
         $matched   = true;
         $arguments = [];

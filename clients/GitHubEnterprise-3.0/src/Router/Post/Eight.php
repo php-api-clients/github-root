@@ -43,7 +43,7 @@ final class Eight
                                                 $this->router[Router\Post\Teams::class] = new Router\Post\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Teams::class]->createDiscussionCommentInOrg($params);
+                                            return $this->router[Router\Post\Teams::class]->CreateDiscussionCommentInOrg($params);
                                         }
                                     } elseif ($pathChunks[7] === 'reactions') {
                                         if ($call === 'POST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions') {
@@ -52,7 +52,7 @@ final class Eight
                                                 $this->router[Router\Post\Reactions::class] = new Router\Post\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Reactions::class]->createForTeamDiscussionInOrg($params);
+                                            return $this->router[Router\Post\Reactions::class]->CreateForTeamDiscussionInOrg($params);
                                         }
                                     }
                                 }
@@ -73,7 +73,7 @@ final class Eight
                                                 $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Actions::class]->cancelWorkflowRun($params);
+                                            return $this->router[Router\Post\Actions::class]->CancelWorkflowRun($params);
                                         }
                                     } elseif ($pathChunks[7] === 'rerun') {
                                         if ($call === 'POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun') {
@@ -82,7 +82,7 @@ final class Eight
                                                 $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Actions::class]->reRunWorkflow($params);
+                                            return $this->router[Router\Post\Actions::class]->ReRunWorkflow($params);
                                         }
                                     }
                                 }
@@ -95,7 +95,7 @@ final class Eight
                                                 $this->router[Router\Post\Actions::class] = new Router\Post\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Actions::class]->createWorkflowDispatch($params);
+                                            return $this->router[Router\Post\Actions::class]->CreateWorkflowDispatch($params);
                                         }
                                     }
                                 }
@@ -110,7 +110,7 @@ final class Eight
                                                 $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Repos::class]->setAdminBranchProtection($params);
+                                            return $this->router[Router\Post\Repos::class]->SetAdminBranchProtection($params);
                                         }
                                     } elseif ($pathChunks[7] === 'required_signatures') {
                                         if ($call === 'POST /repos/{owner}/{repo}/branches/{branch}/protection/required_signatures') {
@@ -119,7 +119,7 @@ final class Eight
                                                 $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Repos::class]->createCommitSignatureProtection($params);
+                                            return $this->router[Router\Post\Repos::class]->CreateCommitSignatureProtection($params);
                                         }
                                     }
                                 }
@@ -134,7 +134,7 @@ final class Eight
                                                 $this->router[Router\Post\Reactions::class] = new Router\Post\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Reactions::class]->createForIssueComment($params);
+                                            return $this->router[Router\Post\Reactions::class]->CreateForIssueComment($params);
                                         }
                                     }
                                 }
@@ -149,7 +149,7 @@ final class Eight
                                                 $this->router[Router\Post\Reactions::class] = new Router\Post\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Reactions::class]->createForPullRequestReviewComment($params);
+                                            return $this->router[Router\Post\Reactions::class]->CreateForPullRequestReviewComment($params);
                                         }
                                     }
                                 }
@@ -170,7 +170,7 @@ final class Eight
                                                 $this->router[Router\Post\Reactions::class] = new Router\Post\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                                             }
 
-                                            return $this->router[Router\Post\Reactions::class]->createForTeamDiscussionCommentLegacy($params);
+                                            return $this->router[Router\Post\Reactions::class]->CreateForTeamDiscussionCommentLegacy($params);
                                         }
                                     }
                                 }
