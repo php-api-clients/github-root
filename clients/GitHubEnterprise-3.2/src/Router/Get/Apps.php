@@ -33,7 +33,7 @@ final class Apps
     {
     }
 
-    /** @return iterable<Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallations(array $params): iterable
     {
         $matched   = true;
@@ -156,7 +156,7 @@ final class Apps
         return $operator->call();
     }
 
-    /** @return iterable<Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $matched   = true;
