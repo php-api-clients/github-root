@@ -26,7 +26,7 @@ final readonly class AddLabels
     {
     }
 
-    /** @return iterable<Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function call(string $owner, string $repo, int $issueNumber, array $params): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Issues\AddLabels($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $issueNumber);

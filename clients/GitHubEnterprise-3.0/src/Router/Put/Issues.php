@@ -25,7 +25,7 @@ final class Issues
     {
     }
 
-    /** @return iterable<Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function setLabels(array $params): iterable
     {
         $matched   = true;

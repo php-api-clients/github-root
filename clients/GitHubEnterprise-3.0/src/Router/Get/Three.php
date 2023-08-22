@@ -34,7 +34,7 @@ final class Three
     {
     }
 
-    /** @return iterable<Schema\GlobalHook>|iterable<Schema\PublicKeyFull>|iterable<Schema\PreReceiveEnvironment>|iterable<Schema\PreReceiveHook>|iterable<Schema\Authorization>|iterable<Schema\Installation>|(iterable<Schema\ApplicationGrant>|array{code: int})||(Schema\Authorization|(Schema\CodeOfConduct|(iterable<Schema\BaseGist>|(Schema\GistSimple|(iterable<string>|(Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok|(Schema\License|(Schema\Project|(Schema\Operations\Search\Code\Response\ApplicationJson\Ok|(Schema\Operations\Search\Commits\Response\ApplicationJson\Ok|(Schema\Operations\Search\IssuesAndPullRequests\Response\ApplicationJson\Ok|(Schema\Operations\Search\Labels\Response\ApplicationJson\Ok|(Schema\Operations\Search\Repos\Response\ApplicationJson\Ok|(Schema\Operations\Search\Topics\Response\ApplicationJson\Ok|(Schema\Operations\Search\Users\Response\ApplicationJson\Ok|(iterable<Schema\Email>|(iterable<Schema\SimpleUser>|(iterable<Schema\GpgKey>|(Schema\Operations\Apps\ListInstallationsForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|(iterable<Schema\Issue>|(iterable<Schema\Key>|(iterable<Schema\OrganizationSimple>|(iterable<Schema\Repository>|(iterable<Schema\RepositoryInvitation>|(iterable<Schema\MinimalRepository>|(iterable<Schema\TeamFull>|(Schema\PrivateUser|Schema\PublicUser) */
+    /** @return Observable<Schema\GlobalHook>|Observable<Schema\PublicKeyFull>|Observable<Schema\PreReceiveEnvironment>|Observable<Schema\PreReceiveHook>|Observable<Schema\Authorization>|Observable<Schema\Installation>|(Observable<Schema\ApplicationGrant>|array{code: int})||(Schema\Authorization|(Schema\CodeOfConduct|(Observable<Schema\BaseGist>|(Schema\GistSimple|(Observable<string>|(Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok|(Schema\License|(Schema\Project|(Schema\Operations\Search\Code\Response\ApplicationJson\Ok|(Schema\Operations\Search\Commits\Response\ApplicationJson\Ok|(Schema\Operations\Search\IssuesAndPullRequests\Response\ApplicationJson\Ok|(Schema\Operations\Search\Labels\Response\ApplicationJson\Ok|(Schema\Operations\Search\Repos\Response\ApplicationJson\Ok|(Schema\Operations\Search\Topics\Response\ApplicationJson\Ok|(Schema\Operations\Search\Users\Response\ApplicationJson\Ok|(Observable<Schema\Email>|(Observable<Schema\SimpleUser>|(Observable<Schema\GpgKey>|(Schema\Operations\Apps\ListInstallationsForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|(Observable<Schema\Issue>|(Observable<Schema\Key>|(Observable<Schema\OrganizationSimple>|(Observable<Schema\Repository>|(Observable<Schema\RepositoryInvitation>|(Observable<Schema\MinimalRepository>|(Observable<Schema\TeamFull> */
     public function call(string $call, array $params, array $pathChunks): iterable|Integration|Authorization|CodeOfConduct|Announcement|GistSimple|Ok|License|OrganizationFull|Project|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Code\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Commits\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\IssuesAndPullRequests\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Labels\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Repos\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Topics\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Users\Response\ApplicationJson\Ok|TeamFull|Json|PrivateUser|PublicUser
     {
         $matched = false;
@@ -47,7 +47,7 @@ final class Three
                             $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\EnterpriseAdmin::class]->listGlobalWebhooks($params);
+                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListGlobalWebhooks($params);
                     }
                 } elseif ($pathChunks[2] === 'keys') {
                     if ($call === 'GET /admin/keys') {
@@ -56,7 +56,7 @@ final class Three
                             $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\EnterpriseAdmin::class]->listPublicKeys($params);
+                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListPublicKeys($params);
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-environments') {
                     if ($call === 'GET /admin/pre-receive-environments') {
@@ -65,7 +65,7 @@ final class Three
                             $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\EnterpriseAdmin::class]->listPreReceiveEnvironments($params);
+                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListPreReceiveEnvironments($params);
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-hooks') {
                     if ($call === 'GET /admin/pre-receive-hooks') {
@@ -74,7 +74,7 @@ final class Three
                             $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\EnterpriseAdmin::class]->listPreReceiveHooks($params);
+                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListPreReceiveHooks($params);
                     }
                 } elseif ($pathChunks[2] === 'tokens') {
                     if ($call === 'GET /admin/tokens') {
@@ -83,7 +83,7 @@ final class Three
                             $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\EnterpriseAdmin::class]->listPersonalAccessTokens($params);
+                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListPersonalAccessTokens($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'app') {
@@ -94,7 +94,7 @@ final class Three
                             $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Apps::class]->listInstallations($params);
+                        return $this->router[Router\Get\Apps::class]->ListInstallations($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'applications') {
@@ -105,7 +105,7 @@ final class Three
                             $this->router[Router\Get\OauthAuthorizations::class] = new Router\Get\OauthAuthorizations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\OauthAuthorizations::class]->listGrants($params);
+                        return $this->router[Router\Get\OauthAuthorizations::class]->ListGrants($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'apps') {
@@ -116,7 +116,7 @@ final class Three
                             $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Apps::class]->getBySlug($params);
+                        return $this->router[Router\Get\Apps::class]->GetBySlug($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'authorizations') {
@@ -127,7 +127,7 @@ final class Three
                             $this->router[Router\Get\OauthAuthorizations::class] = new Router\Get\OauthAuthorizations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\OauthAuthorizations::class]->getAuthorization($params);
+                        return $this->router[Router\Get\OauthAuthorizations::class]->GetAuthorization($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'codes_of_conduct') {
@@ -138,7 +138,7 @@ final class Three
                             $this->router[Router\Get\CodesOfConduct::class] = new Router\Get\CodesOfConduct($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\CodesOfConduct::class]->getConductCode($params);
+                        return $this->router[Router\Get\CodesOfConduct::class]->GetConductCode($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'enterprise') {
@@ -149,7 +149,7 @@ final class Three
                             $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\EnterpriseAdmin::class]->getAnnouncement($params);
+                        return $this->router[Router\Get\EnterpriseAdmin::class]->GetAnnouncement($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'gists') {
@@ -160,7 +160,7 @@ final class Three
                             $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Gists::class]->listPublic($params);
+                        return $this->router[Router\Get\Gists::class]->ListPublic($params);
                     }
                 } elseif ($pathChunks[2] === 'starred') {
                     if ($call === 'GET /gists/starred') {
@@ -169,7 +169,7 @@ final class Three
                             $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Gists::class]->listStarred($params);
+                        return $this->router[Router\Get\Gists::class]->ListStarred($params);
                     }
                 } elseif ($pathChunks[2] === '{gist_id}') {
                     if ($call === 'GET /gists/{gist_id}') {
@@ -178,7 +178,7 @@ final class Three
                             $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Gists::class]->get($params);
+                        return $this->router[Router\Get\Gists::class]->Get($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'gitignore') {
@@ -189,7 +189,7 @@ final class Three
                             $this->router[Router\Get\Gitignore::class] = new Router\Get\Gitignore($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Gitignore::class]->getAllTemplates($params);
+                        return $this->router[Router\Get\Gitignore::class]->GetAllTemplates($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'installation') {
@@ -200,7 +200,7 @@ final class Three
                             $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Apps::class]->listReposAccessibleToInstallation($params);
+                        return $this->router[Router\Get\Apps::class]->ListReposAccessibleToInstallation($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'licenses') {
@@ -211,7 +211,7 @@ final class Three
                             $this->router[Router\Get\Licenses::class] = new Router\Get\Licenses($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Licenses::class]->get($params);
+                        return $this->router[Router\Get\Licenses::class]->Get($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'orgs') {
@@ -222,7 +222,7 @@ final class Three
                             $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Orgs::class]->get($params);
+                        return $this->router[Router\Get\Orgs::class]->Get($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'projects') {
@@ -233,7 +233,7 @@ final class Three
                             $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Projects::class]->get($params);
+                        return $this->router[Router\Get\Projects::class]->Get($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'search') {
@@ -244,7 +244,7 @@ final class Three
                             $this->router[Router\Get\Search::class] = new Router\Get\Search($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Search::class]->code($params);
+                        return $this->router[Router\Get\Search::class]->Code($params);
                     }
                 } elseif ($pathChunks[2] === 'commits') {
                     if ($call === 'GET /search/commits') {
@@ -253,7 +253,7 @@ final class Three
                             $this->router[Router\Get\Search::class] = new Router\Get\Search($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Search::class]->commits($params);
+                        return $this->router[Router\Get\Search::class]->Commits($params);
                     }
                 } elseif ($pathChunks[2] === 'issues') {
                     if ($call === 'GET /search/issues') {
@@ -262,7 +262,7 @@ final class Three
                             $this->router[Router\Get\Search::class] = new Router\Get\Search($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Search::class]->issuesAndPullRequests($params);
+                        return $this->router[Router\Get\Search::class]->IssuesAndPullRequests($params);
                     }
                 } elseif ($pathChunks[2] === 'labels') {
                     if ($call === 'GET /search/labels') {
@@ -271,7 +271,7 @@ final class Three
                             $this->router[Router\Get\Search::class] = new Router\Get\Search($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Search::class]->labels($params);
+                        return $this->router[Router\Get\Search::class]->Labels($params);
                     }
                 } elseif ($pathChunks[2] === 'repositories') {
                     if ($call === 'GET /search/repositories') {
@@ -280,7 +280,7 @@ final class Three
                             $this->router[Router\Get\Search::class] = new Router\Get\Search($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Search::class]->repos($params);
+                        return $this->router[Router\Get\Search::class]->Repos($params);
                     }
                 } elseif ($pathChunks[2] === 'topics') {
                     if ($call === 'GET /search/topics') {
@@ -289,7 +289,7 @@ final class Three
                             $this->router[Router\Get\Search::class] = new Router\Get\Search($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Search::class]->topics($params);
+                        return $this->router[Router\Get\Search::class]->Topics($params);
                     }
                 } elseif ($pathChunks[2] === 'users') {
                     if ($call === 'GET /search/users') {
@@ -298,7 +298,7 @@ final class Three
                             $this->router[Router\Get\Search::class] = new Router\Get\Search($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Search::class]->users($params);
+                        return $this->router[Router\Get\Search::class]->Users($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'teams') {
@@ -309,7 +309,7 @@ final class Three
                             $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Teams::class]->getLegacy($params);
+                        return $this->router[Router\Get\Teams::class]->GetLegacy($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'user') {
@@ -320,7 +320,7 @@ final class Three
                             $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Users::class]->listEmailsForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Users::class]->ListEmailsForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'followers') {
                     if ($call === 'GET /user/followers') {
@@ -329,7 +329,7 @@ final class Three
                             $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Users::class]->listFollowersForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Users::class]->ListFollowersForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'following') {
                     if ($call === 'GET /user/following') {
@@ -338,7 +338,7 @@ final class Three
                             $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Users::class]->listFollowedByAuthenticatedUser($params);
+                        return $this->router[Router\Get\Users::class]->ListFollowedByAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'gpg_keys') {
                     if ($call === 'GET /user/gpg_keys') {
@@ -347,7 +347,7 @@ final class Three
                             $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Users::class]->listGpgKeysForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Users::class]->ListGpgKeysForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'installations') {
                     if ($call === 'GET /user/installations') {
@@ -356,7 +356,7 @@ final class Three
                             $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Apps::class]->listInstallationsForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Apps::class]->ListInstallationsForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'issues') {
                     if ($call === 'GET /user/issues') {
@@ -365,7 +365,7 @@ final class Three
                             $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Issues::class]->listForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Issues::class]->ListForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'keys') {
                     if ($call === 'GET /user/keys') {
@@ -374,7 +374,7 @@ final class Three
                             $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Users::class]->listPublicSshKeysForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Users::class]->ListPublicSshKeysForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'orgs') {
                     if ($call === 'GET /user/orgs') {
@@ -383,7 +383,7 @@ final class Three
                             $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Orgs::class]->listForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Orgs::class]->ListForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'public_emails') {
                     if ($call === 'GET /user/public_emails') {
@@ -392,7 +392,7 @@ final class Three
                             $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Users::class]->listPublicEmailsForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Users::class]->ListPublicEmailsForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'repos') {
                     if ($call === 'GET /user/repos') {
@@ -401,7 +401,7 @@ final class Three
                             $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Repos::class]->listForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Repos::class]->ListForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'repository_invitations') {
                     if ($call === 'GET /user/repository_invitations') {
@@ -410,7 +410,7 @@ final class Three
                             $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Repos::class]->listInvitationsForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Repos::class]->ListInvitationsForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'starred') {
                     if ($call === 'GET /user/starred') {
@@ -419,7 +419,7 @@ final class Three
                             $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Activity::class]->listReposStarredByAuthenticatedUser($params);
+                        return $this->router[Router\Get\Activity::class]->ListReposStarredByAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'subscriptions') {
                     if ($call === 'GET /user/subscriptions') {
@@ -428,7 +428,7 @@ final class Three
                             $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Activity::class]->listWatchedReposForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Activity::class]->ListWatchedReposForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'teams') {
                     if ($call === 'GET /user/teams') {
@@ -437,7 +437,7 @@ final class Three
                             $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Teams::class]->listForAuthenticatedUser($params);
+                        return $this->router[Router\Get\Teams::class]->ListForAuthenticatedUser($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'users') {
@@ -448,7 +448,7 @@ final class Three
                             $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Get\Users::class]->getByUsername($params);
+                        return $this->router[Router\Get\Users::class]->GetByUsername($params);
                     }
                 }
             }

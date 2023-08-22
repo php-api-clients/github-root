@@ -67,6 +67,15 @@ final class Apps
         return $this->operator[Operator\Apps\ListInstallations::class]->call($since, $outdated, $perPage, $page);
     }
 
+    public function listInstallationsListing(string $since, string $outdated, int $perPage, int $page): Schema\Installation
+    {
+        if (array_key_exists(Operator\Apps\ListInstallationsListing::class, $this->operator) === false) {
+            $this->operator[Operator\Apps\ListInstallationsListing::class] = new Operator\Apps\ListInstallationsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations());
+        }
+
+        return $this->operator[Operator\Apps\ListInstallationsListing::class]->call($since, $outdated, $perPage, $page);
+    }
+
     public function getInstallation(int $installationId): Schema\Installation
     {
         if (array_key_exists(Operator\Apps\GetInstallation::class, $this->operator) === false) {

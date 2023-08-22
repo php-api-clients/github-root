@@ -53,7 +53,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function listGlobalWebhooks(array $params): iterable
     {
         $matched   = true;
@@ -85,7 +85,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['accept'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function listPublicKeys(array $params): iterable
     {
         $matched   = true;
@@ -129,7 +129,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['since'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return iterable<Schema\PreReceiveEnvironment> */
+    /** @return Observable<Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironments(array $params): iterable
     {
         $matched   = true;
@@ -167,7 +167,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return iterable<Schema\PreReceiveHook> */
+    /** @return Observable<Schema\PreReceiveHook> */
     public function listPreReceiveHooks(array $params): iterable
     {
         $matched   = true;
@@ -205,7 +205,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return iterable<Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function listPersonalAccessTokens(array $params): iterable
     {
         $matched   = true;
@@ -466,7 +466,7 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    /** @return iterable<Schema\OrgPreReceiveHook> */
+    /** @return Observable<Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrg(array $params): iterable
     {
         $matched   = true;
@@ -647,7 +647,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    /** @return iterable<Schema\RunnerApplication> */
+    /** @return Observable<Schema\RunnerApplication> */
     public function listRunnerApplicationsForEnterprise(array $params): iterable
     {
         $matched   = true;
@@ -835,7 +835,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return iterable<Schema\RepositoryPreReceiveHook> */
+    /** @return Observable<Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepo(array $params): iterable
     {
         $matched   = true;
@@ -885,7 +885,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return iterable<Schema\SshKey> */
+    /** @return Observable<Schema\SshKey> */
     public function getAllAuthorizedSshKeys(array $params): iterable
     {
         $matched = true;
@@ -972,25 +972,5 @@ final class EnterpriseAdmin
         $operator = new Operator\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups\RunnerGroupId\Runners::class]);
 
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
-    }
-
-    /** @return */
-    public function getDownloadStatusForPreReceiveEnvironmentStreaming(array $params): PreReceiveEnvironmentDownloadStatus|array
-    {
-        $matched   = true;
-        $arguments = [];
-        if (array_key_exists('pre_receive_environment_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
-        }
-
-        $arguments['pre_receive_environment_id'] = $params['pre_receive_environment_id'];
-        unset($params['pre_receive_environment_id']);
-        if (array_key_exists(Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments🌀PreReceiveEnvironmentId🌀Downloads🌀Latest();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironmentStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest::class]);
-
-        return $operator->call($arguments['pre_receive_environment_id']);
     }
 }

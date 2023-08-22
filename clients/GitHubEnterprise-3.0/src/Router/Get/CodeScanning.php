@@ -26,7 +26,7 @@ final class CodeScanning
     {
     }
 
-    /** @return iterable<Schema\CodeScanningAlertItems> */
+    /** @return Observable<Schema\CodeScanningAlertItems> */
     public function listAlertsForRepo(array $params): iterable
     {
         $matched   = true;
@@ -88,7 +88,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return iterable<Schema\CodeScanningAnalysis> */
+    /** @return Observable<Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(array $params): iterable
     {
         $matched   = true;
