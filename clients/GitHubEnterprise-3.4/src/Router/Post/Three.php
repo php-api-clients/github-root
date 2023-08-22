@@ -31,7 +31,7 @@ final class Three
     {
     }
 
-    /** @return |(string|array{code: int})|(iterable<Schema\Email>|(Schema\GpgKey|(Schema\Key|(Schema\Migration|(Schema\Project|(Schema\Repository */
+    /** @return |(string|array{code: int})|(Observable<Schema\Email>|(Schema\GpgKey|(Schema\Key|(Schema\Migration|(Schema\Project|(Schema\Repository */
     public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|PreReceiveHook|SimpleUser|string|iterable|GpgKey|Key|Migration|Project|Repository
     {
         $matched = false;
@@ -44,7 +44,7 @@ final class Three
                             $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\EnterpriseAdmin::class]->createGlobalWebhook($params);
+                        return $this->router[Router\Post\EnterpriseAdmin::class]->CreateGlobalWebhook($params);
                     }
                 } elseif ($pathChunks[2] === 'organizations') {
                     if ($call === 'POST /admin/organizations') {
@@ -53,7 +53,7 @@ final class Three
                             $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\EnterpriseAdmin::class]->createOrg($params);
+                        return $this->router[Router\Post\EnterpriseAdmin::class]->CreateOrg($params);
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-environments') {
                     if ($call === 'POST /admin/pre-receive-environments') {
@@ -62,7 +62,7 @@ final class Three
                             $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\EnterpriseAdmin::class]->createPreReceiveEnvironment($params);
+                        return $this->router[Router\Post\EnterpriseAdmin::class]->CreatePreReceiveEnvironment($params);
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-hooks') {
                     if ($call === 'POST /admin/pre-receive-hooks') {
@@ -71,7 +71,7 @@ final class Three
                             $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\EnterpriseAdmin::class]->createPreReceiveHook($params);
+                        return $this->router[Router\Post\EnterpriseAdmin::class]->CreatePreReceiveHook($params);
                     }
                 } elseif ($pathChunks[2] === 'users') {
                     if ($call === 'POST /admin/users') {
@@ -80,7 +80,7 @@ final class Three
                             $this->router[Router\Post\EnterpriseAdmin::class] = new Router\Post\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\EnterpriseAdmin::class]->createUser($params);
+                        return $this->router[Router\Post\EnterpriseAdmin::class]->CreateUser($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'markdown') {
@@ -91,7 +91,7 @@ final class Three
                             $this->router[Router\Post\Markdown::class] = new Router\Post\Markdown($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\Markdown::class]->renderRaw($params);
+                        return $this->router[Router\Post\Markdown::class]->RenderRaw($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'user') {
@@ -102,7 +102,7 @@ final class Three
                             $this->router[Router\Post\Users::class] = new Router\Post\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\Users::class]->addEmailForAuthenticatedUser($params);
+                        return $this->router[Router\Post\Users::class]->AddEmailForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'gpg_keys') {
                     if ($call === 'POST /user/gpg_keys') {
@@ -111,7 +111,7 @@ final class Three
                             $this->router[Router\Post\Users::class] = new Router\Post\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\Users::class]->createGpgKeyForAuthenticatedUser($params);
+                        return $this->router[Router\Post\Users::class]->CreateGpgKeyForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'keys') {
                     if ($call === 'POST /user/keys') {
@@ -120,7 +120,7 @@ final class Three
                             $this->router[Router\Post\Users::class] = new Router\Post\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\Users::class]->createPublicSshKeyForAuthenticatedUser($params);
+                        return $this->router[Router\Post\Users::class]->CreatePublicSshKeyForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'migrations') {
                     if ($call === 'POST /user/migrations') {
@@ -129,7 +129,7 @@ final class Three
                             $this->router[Router\Post\Migrations::class] = new Router\Post\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\Migrations::class]->startForAuthenticatedUser($params);
+                        return $this->router[Router\Post\Migrations::class]->StartForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'projects') {
                     if ($call === 'POST /user/projects') {
@@ -138,7 +138,7 @@ final class Three
                             $this->router[Router\Post\Projects::class] = new Router\Post\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\Projects::class]->createForAuthenticatedUser($params);
+                        return $this->router[Router\Post\Projects::class]->CreateForAuthenticatedUser($params);
                     }
                 } elseif ($pathChunks[2] === 'repos') {
                     if ($call === 'POST /user/repos') {
@@ -147,7 +147,7 @@ final class Three
                             $this->router[Router\Post\Repos::class] = new Router\Post\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
                         }
 
-                        return $this->router[Router\Post\Repos::class]->createForAuthenticatedUser($params);
+                        return $this->router[Router\Post\Repos::class]->CreateForAuthenticatedUser($params);
                     }
                 }
             }

@@ -67,6 +67,15 @@ final class Orgs
         return $this->operator[Operator\Orgs\GetAuditLog::class]->call($org, $phrase, $include, $after, $before, $order, $perPage, $page);
     }
 
+    public function getAuditLogListing(string $org, string $phrase, string $include, string $after, string $before, string $order, int $perPage, int $page): Schema\AuditLogEvent
+    {
+        if (array_key_exists(Operator\Orgs\GetAuditLogListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\GetAuditLogListing::class] = new Operator\Orgs\GetAuditLogListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀AuditLog());
+        }
+
+        return $this->operator[Operator\Orgs\GetAuditLogListing::class]->call($org, $phrase, $include, $after, $before, $order, $perPage, $page);
+    }
+
     public function listWebhooks(string $org, int $perPage, int $page): Schema\OrgHook
     {
         if (array_key_exists(Operator\Orgs\ListWebhooks::class, $this->operator) === false) {
@@ -74,6 +83,15 @@ final class Orgs
         }
 
         return $this->operator[Operator\Orgs\ListWebhooks::class]->call($org, $perPage, $page);
+    }
+
+    public function listWebhooksListing(string $org, int $perPage, int $page): Schema\OrgHook
+    {
+        if (array_key_exists(Operator\Orgs\ListWebhooksListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\ListWebhooksListing::class] = new Operator\Orgs\ListWebhooksListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
+        }
+
+        return $this->operator[Operator\Orgs\ListWebhooksListing::class]->call($org, $perPage, $page);
     }
 
     public function createWebhook(string $org, array $params): Schema\OrgHook
@@ -184,6 +202,15 @@ final class Orgs
         return $this->operator[Operator\Orgs\ListMembers::class]->call($org, $filter, $role, $perPage, $page);
     }
 
+    public function listMembersListing(string $org, string $filter, string $role, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Orgs\ListMembersListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\ListMembersListing::class] = new Operator\Orgs\ListMembersListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members());
+        }
+
+        return $this->operator[Operator\Orgs\ListMembersListing::class]->call($org, $filter, $role, $perPage, $page);
+    }
+
     public function checkMembershipForUser(string $org, string $username): ResponseInterface
     {
         if (array_key_exists(Operator\Orgs\CheckMembershipForUser::class, $this->operator) === false) {
@@ -238,6 +265,15 @@ final class Orgs
         return $this->operator[Operator\Orgs\ListOutsideCollaborators::class]->call($org, $filter, $perPage, $page);
     }
 
+    public function listOutsideCollaboratorsListing(string $org, string $filter, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Orgs\ListOutsideCollaboratorsListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\ListOutsideCollaboratorsListing::class] = new Operator\Orgs\ListOutsideCollaboratorsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators());
+        }
+
+        return $this->operator[Operator\Orgs\ListOutsideCollaboratorsListing::class]->call($org, $filter, $perPage, $page);
+    }
+
     public function convertMemberToOutsideCollaborator(string $org, string $username, array $params): Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted
     {
         if (array_key_exists(Operator\Orgs\ConvertMemberToOutsideCollaborator::class, $this->operator) === false) {
@@ -263,6 +299,15 @@ final class Orgs
         }
 
         return $this->operator[Operator\Orgs\ListPublicMembers::class]->call($org, $perPage, $page);
+    }
+
+    public function listPublicMembersListing(string $org, int $perPage, int $page): Schema\SimpleUser
+    {
+        if (array_key_exists(Operator\Orgs\ListPublicMembersListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\ListPublicMembersListing::class] = new Operator\Orgs\ListPublicMembersListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers());
+        }
+
+        return $this->operator[Operator\Orgs\ListPublicMembersListing::class]->call($org, $perPage, $page);
     }
 
     public function checkPublicMembershipForUser(string $org, string $username): ResponseInterface
@@ -301,6 +346,15 @@ final class Orgs
         return $this->operator[Operator\Orgs\ListMembershipsForAuthenticatedUser::class]->call($state, $perPage, $page);
     }
 
+    public function listMembershipsForAuthenticatedUserListing(string $state, int $perPage, int $page): Schema\OrgMembership
+    {
+        if (array_key_exists(Operator\Orgs\ListMembershipsForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\ListMembershipsForAuthenticatedUserListing::class] = new Operator\Orgs\ListMembershipsForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs());
+        }
+
+        return $this->operator[Operator\Orgs\ListMembershipsForAuthenticatedUserListing::class]->call($state, $perPage, $page);
+    }
+
     public function getMembershipForAuthenticatedUser(string $org): Schema\OrgMembership
     {
         if (array_key_exists(Operator\Orgs\GetMembershipForAuthenticatedUser::class, $this->operator) === false) {
@@ -328,6 +382,15 @@ final class Orgs
         return $this->operator[Operator\Orgs\ListForAuthenticatedUser::class]->call($perPage, $page);
     }
 
+    public function listForAuthenticatedUserListing(int $perPage, int $page): Schema\OrganizationSimple
+    {
+        if (array_key_exists(Operator\Orgs\ListForAuthenticatedUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\ListForAuthenticatedUserListing::class] = new Operator\Orgs\ListForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Orgs());
+        }
+
+        return $this->operator[Operator\Orgs\ListForAuthenticatedUserListing::class]->call($perPage, $page);
+    }
+
     public function listForUser(string $username, int $perPage, int $page): Schema\OrganizationSimple
     {
         if (array_key_exists(Operator\Orgs\ListForUser::class, $this->operator) === false) {
@@ -335,5 +398,14 @@ final class Orgs
         }
 
         return $this->operator[Operator\Orgs\ListForUser::class]->call($username, $perPage, $page);
+    }
+
+    public function listForUserListing(string $username, int $perPage, int $page): Schema\OrganizationSimple
+    {
+        if (array_key_exists(Operator\Orgs\ListForUserListing::class, $this->operator) === false) {
+            $this->operator[Operator\Orgs\ListForUserListing::class] = new Operator\Orgs\ListForUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Orgs());
+        }
+
+        return $this->operator[Operator\Orgs\ListForUserListing::class]->call($username, $perPage, $page);
     }
 }

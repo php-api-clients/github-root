@@ -203,7 +203,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return (iterable<Schema\SshKey> | array{code: int}) */
+    /** @return (Observable<Schema\SshKey> | array{code: int}) */
     public function removeAuthorizedSshKey(array $params): iterable
     {
         $matched = true;

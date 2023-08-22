@@ -29,7 +29,7 @@ final class ListWorkflowRunsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated/generated/actions/workflows//runs?actor=generated&branch=generated&event=generated&status=generated&created=1970-01-01T00:00:00+00:00&per_page=8&page=4&exclude_pull_requests=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/actions/workflows//runs?actor=generated&branch=generated&event=generated&status=generated&created=1970-01-01T00:00:00+00:00&per_page=8&page=1&exclude_pull_requests=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Operation\Actions\ListWorkflowRuns::OPERATION_MATCH, (static function (array $data): array {
             $data['owner']                 = 'generated';
@@ -41,7 +41,7 @@ final class ListWorkflowRunsTest extends AsyncTestCase
             $data['status']                = 'generated';
             $data['created']               = '1970-01-01T00:00:00+00:00';
             $data['per_page']              = 8;
-            $data['page']                  = 4;
+            $data['page']                  = 1;
             $data['exclude_pull_requests'] = false;
 
             return $data;
@@ -57,8 +57,8 @@ final class ListWorkflowRunsTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/repos/generated/generated/actions/workflows//runs?actor=generated&branch=generated&event=generated&status=generated&created=1970-01-01T00:00:00+00:00&per_page=8&page=4&exclude_pull_requests=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/repos/generated/generated/actions/workflows//runs?actor=generated&branch=generated&event=generated&status=generated&created=1970-01-01T00:00:00+00:00&per_page=8&page=1&exclude_pull_requests=', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->actions()->listWorkflowRuns('generated', 'generated', null, 'generated', 'generated', 'generated', 'generated', '1970-01-01T00:00:00+00:00', 8, 4, false);
+        $result = $client->operations()->actions()->listWorkflowRuns('generated', 'generated', null, 'generated', 'generated', 'generated', 'generated', '1970-01-01T00:00:00+00:00', 8, 1, false);
     }
 }

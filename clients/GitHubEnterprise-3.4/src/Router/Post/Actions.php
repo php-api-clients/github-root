@@ -231,7 +231,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return iterable<Schema\Deployment> */
+    /** @return Observable<Schema\Deployment> */
     public function reviewPendingDeploymentsForRun(array $params): iterable
     {
         $matched   = true;

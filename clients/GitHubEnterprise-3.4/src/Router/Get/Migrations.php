@@ -26,7 +26,7 @@ final class Migrations
     {
     }
 
-    /** @return (iterable<Schema\Migration> | array{code: int}) */
+    /** @return (Observable<Schema\Migration> | array{code: int}) */
     public function listForAuthenticatedUser(array $params): iterable
     {
         $matched   = true;
@@ -52,7 +52,7 @@ final class Migrations
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Migration> */
+    /** @return Observable<Schema\Migration> */
     public function listForOrg(array $params): iterable
     {
         $matched   = true;
@@ -116,7 +116,7 @@ final class Migrations
         return $operator->call($arguments['org'], $arguments['migration_id']);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForOrg(array $params): iterable
     {
         $matched   = true;
@@ -206,7 +206,7 @@ final class Migrations
         return $operator->call($arguments['migration_id']);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForAuthenticatedUser(array $params): iterable
     {
         $matched   = true;
@@ -236,31 +236,5 @@ final class Migrations
         $operator = new Operator\Migrations\ListReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Migrations\MigrationId\Repositories::class]);
 
         return $operator->call($arguments['migration_id'], $arguments['per_page'], $arguments['page']);
-    }
-
-    /** @return Observable<string> */
-    public function downloadArchiveForOrgStreaming(array $params): iterable
-    {
-        $matched   = true;
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        if (array_key_exists('migration_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: migration_id');
-        }
-
-        $arguments['migration_id'] = $params['migration_id'];
-        unset($params['migration_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Migrations\MigrationId\Archive::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Migrations\MigrationId\Archive::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive();
-        }
-
-        $operator = new Operator\Migrations\DownloadArchiveForOrgStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Migrations\MigrationId\Archive::class]);
-
-        return $operator->call($arguments['org'], $arguments['migration_id']);
     }
 }
