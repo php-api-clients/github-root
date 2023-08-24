@@ -26,7 +26,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return (iterable<Schema\ApplicationGrant> | array{code: int}) */
+    /** @return (Observable<Schema\ApplicationGrant> | array{code: int}) */
     public function listGrantsListing(array $params): iterable
     {
         $matched   = true;
@@ -64,7 +64,7 @@ final class OauthAuthorizations
         } while (count($items) > 0);
     }
 
-    /** @return (iterable<Schema\Authorization> | array{code: int}) */
+    /** @return (Observable<Schema\Authorization> | array{code: int}) */
     public function listAuthorizationsListing(array $params): iterable
     {
         $matched   = true;
