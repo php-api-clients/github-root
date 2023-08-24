@@ -26,7 +26,7 @@ final class Migrations
     {
     }
 
-    /** @return (iterable<Schema\Migration> | array{code: int}) */
+    /** @return (Observable<Schema\Migration> | array{code: int}) */
     public function listForAuthenticatedUserListing(array $params): iterable
     {
         $matched   = true;
@@ -58,7 +58,7 @@ final class Migrations
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Migration> */
+    /** @return Observable<Schema\Migration> */
     public function listForOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -102,7 +102,7 @@ final class Migrations
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForAuthenticatedUserListing(array $params): iterable
     {
         $matched   = true;
@@ -140,7 +140,7 @@ final class Migrations
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForOrgListing(array $params): iterable
     {
         $matched   = true;

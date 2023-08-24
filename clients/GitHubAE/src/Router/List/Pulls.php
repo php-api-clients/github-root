@@ -26,7 +26,7 @@ final class Pulls
     {
     }
 
-    /** @return (iterable<Schema\PullRequestSimple> | array{code: int}) */
+    /** @return (Observable<Schema\PullRequestSimple> | array{code: int}) */
     public function listListing(array $params): iterable
     {
         $matched   = true;
@@ -100,7 +100,7 @@ final class Pulls
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PullRequestReviewComment> */
+    /** @return Observable<Schema\PullRequestReviewComment> */
     public function listReviewCommentsForRepoListing(array $params): iterable
     {
         $matched   = true;
@@ -162,7 +162,7 @@ final class Pulls
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PullRequestReviewComment> */
+    /** @return Observable<Schema\PullRequestReviewComment> */
     public function listReviewCommentsListing(array $params): iterable
     {
         $matched   = true;
@@ -230,7 +230,7 @@ final class Pulls
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Commit> */
+    /** @return Observable<Schema\Commit> */
     public function listCommitsListing(array $params): iterable
     {
         $matched   = true;
@@ -280,7 +280,7 @@ final class Pulls
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\DiffEntry> */
+    /** @return Observable<Schema\DiffEntry> */
     public function listFilesListing(array $params): iterable
     {
         $matched   = true;
@@ -330,7 +330,7 @@ final class Pulls
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PullRequestReview> */
+    /** @return Observable<Schema\PullRequestReview> */
     public function listReviewsListing(array $params): iterable
     {
         $matched   = true;
@@ -380,7 +380,7 @@ final class Pulls
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\ReviewComment> */
+    /** @return Observable<Schema\ReviewComment> */
     public function listCommentsForReviewListing(array $params): iterable
     {
         $matched   = true;

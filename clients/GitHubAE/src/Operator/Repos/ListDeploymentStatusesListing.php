@@ -26,7 +26,7 @@ final readonly class ListDeploymentStatusesListing
     {
     }
 
-    /** @return iterable<Schema\DeploymentStatus> */
+    /** @return Observable<Schema\DeploymentStatus> */
     public function call(string $owner, string $repo, int $deploymentId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\ListDeploymentStatusesListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $deploymentId, $perPage, $page);

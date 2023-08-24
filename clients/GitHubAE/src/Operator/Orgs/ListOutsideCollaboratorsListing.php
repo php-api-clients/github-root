@@ -26,7 +26,7 @@ final readonly class ListOutsideCollaboratorsListing
     {
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function call(string $org, string $filter = 'all', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Orgs\ListOutsideCollaboratorsListing($this->responseSchemaValidator, $this->hydrator, $org, $filter, $perPage, $page);
