@@ -26,7 +26,7 @@ final readonly class ListGrantsListing
     {
     }
 
-    /** @return (iterable<Schema\ApplicationGrant> | array{code: int}) */
+    /** @return (Observable<Schema\ApplicationGrant> | array{code: int}) */
     public function call(string $clientId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\ListGrantsListing($this->responseSchemaValidator, $this->hydrator, $clientId, $perPage, $page);

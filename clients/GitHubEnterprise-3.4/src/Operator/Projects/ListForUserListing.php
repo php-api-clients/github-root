@@ -26,7 +26,7 @@ final readonly class ListForUserListing
     {
     }
 
-    /** @return iterable<Schema\Project> */
+    /** @return Observable<Schema\Project> */
     public function call(string $username, string $state = 'open', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Projects\ListForUserListing($this->responseSchemaValidator, $this->hydrator, $username, $state, $perPage, $page);

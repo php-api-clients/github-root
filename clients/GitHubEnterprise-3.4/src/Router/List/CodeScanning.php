@@ -26,7 +26,7 @@ final class CodeScanning
     {
     }
 
-    /** @return (iterable<Schema\CodeScanningAlertItems> | array{code: int}) */
+    /** @return (Observable<Schema\CodeScanningAlertItems> | array{code: int}) */
     public function listAlertsForRepoListing(array $params): iterable
     {
         $matched   = true;
@@ -106,7 +106,7 @@ final class CodeScanning
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\CodeScanningAnalysis> */
+    /** @return Observable<Schema\CodeScanningAnalysis> */
     public function listRecentAnalysesListing(array $params): iterable
     {
         $matched   = true;
@@ -174,7 +174,7 @@ final class CodeScanning
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\CodeScanningAlertInstance> */
+    /** @return Observable<Schema\CodeScanningAlertInstance> */
     public function listAlertInstancesListing(array $params): iterable
     {
         $matched   = true;
