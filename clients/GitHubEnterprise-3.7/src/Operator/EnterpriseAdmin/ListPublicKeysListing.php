@@ -26,7 +26,7 @@ final readonly class ListPublicKeysListing
     {
     }
 
-    /** @return iterable<Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function call(string $since, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPublicKeysListing($this->responseSchemaValidator, $this->hydrator, $since, $perPage, $page, $direction, $sort);
