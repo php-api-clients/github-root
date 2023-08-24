@@ -26,7 +26,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function listGlobalWebhooksListing(array $params): iterable
     {
         $matched   = true;
@@ -58,7 +58,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function listPublicKeysListing(array $params): iterable
     {
         $matched   = true;
@@ -108,7 +108,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PreReceiveEnvironment> */
+    /** @return Observable<Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironmentsListing(array $params): iterable
     {
         $matched   = true;
@@ -152,7 +152,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PreReceiveHook> */
+    /** @return Observable<Schema\PreReceiveHook> */
     public function listPreReceiveHooksListing(array $params): iterable
     {
         $matched   = true;
@@ -196,7 +196,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function listPersonalAccessTokensListing(array $params): iterable
     {
         $matched   = true;
@@ -228,7 +228,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLogListing(array $params): iterable
     {
         $matched   = true;
@@ -296,7 +296,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrgPreReceiveHook> */
+    /** @return Observable<Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -346,7 +346,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\RepositoryPreReceiveHook> */
+    /** @return Observable<Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepoListing(array $params): iterable
     {
         $matched   = true;

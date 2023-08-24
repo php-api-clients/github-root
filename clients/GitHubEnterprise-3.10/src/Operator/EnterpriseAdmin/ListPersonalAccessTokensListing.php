@@ -26,7 +26,7 @@ final readonly class ListPersonalAccessTokensListing
     {
     }
 
-    /** @return iterable<Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function call(int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPersonalAccessTokensListing($this->responseSchemaValidator, $this->hydrator, $perPage, $page);
