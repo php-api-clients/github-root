@@ -21,7 +21,7 @@ final class Two
     {
     }
 
-    /** @return (iterable<Schema\Authorization>|array{code: int})|(iterable<Schema\Event>|(iterable<Schema\BaseGist>|(iterable<Schema\Issue>|(iterable<Schema\LicenseSimple>|(iterable<Schema\Thread> */
+    /** @return (Observable<Schema\Authorization>|array{code: int})|(Observable<Schema\Event>|(Observable<Schema\BaseGist>|(Observable<Schema\Issue>|(Observable<Schema\LicenseSimple>|(Observable<Schema\Thread> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
         $matched = false;
