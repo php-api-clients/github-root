@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/github.git",
-                "reference": "624dc61bed64cf9f7d3a3e538ad25fc9c705cca8"
+                "reference": "753fc6f2661735ea5d7448a4672b7150abad5657"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/github/zipball/624dc61bed64cf9f7d3a3e538ad25fc9c705cca8",
-                "reference": "624dc61bed64cf9f7d3a3e538ad25fc9c705cca8",
+                "url": "https://api.github.com/repos/php-api-clients/github/zipball/753fc6f2661735ea5d7448a4672b7150abad5657",
+                "reference": "753fc6f2661735ea5d7448a4672b7150abad5657",
                 "shasum": ""
             },
             "require": {
@@ -261,7 +261,7 @@
                 "issues": "https://github.com/php-api-clients/github/issues",
                 "source": "https://github.com/php-api-clients/github/tree/v0.2.x"
             },
-            "time": "2023-08-20T00:07:17+00:00"
+            "time": "2023-08-22T14:46:01+00:00"
         },
         {
             "name": "api-clients/openapi-client-generator",
@@ -269,12 +269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "0af5f66929b0b658ef4e9fcd89dbcb487d773add"
+                "reference": "036370f99eb8ca0e73acc4891ac09f86c8b2450f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/0af5f66929b0b658ef4e9fcd89dbcb487d773add",
-                "reference": "0af5f66929b0b658ef4e9fcd89dbcb487d773add",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/036370f99eb8ca0e73acc4891ac09f86c8b2450f",
+                "reference": "036370f99eb8ca0e73acc4891ac09f86c8b2450f",
                 "shasum": ""
             },
             "require": {
@@ -346,7 +346,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-21T17:27:32+00:00"
+            "time": "2023-08-24T06:40:32+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -5742,16 +5742,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.29",
+            "version": "1.10.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "ee5d8f2d3977fb09e55603eee6fb53bdd76ee9c1"
+                "reference": "2910afdd3fe33e5afd71c09f3fb0d0845b48c410"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/ee5d8f2d3977fb09e55603eee6fb53bdd76ee9c1",
-                "reference": "ee5d8f2d3977fb09e55603eee6fb53bdd76ee9c1",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2910afdd3fe33e5afd71c09f3fb0d0845b48c410",
+                "reference": "2910afdd3fe33e5afd71c09f3fb0d0845b48c410",
                 "shasum": ""
             },
             "require": {
@@ -5800,7 +5800,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-14T13:24:11+00:00"
+            "time": "2023-08-22T13:48:25+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
