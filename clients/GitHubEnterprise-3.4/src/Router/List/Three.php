@@ -21,7 +21,7 @@ final class Three
     {
     }
 
-    /** @return iterable<Schema\GlobalHook>|iterable<Schema\PublicKeyFull>|iterable<Schema\PreReceiveEnvironment>|iterable<Schema\PreReceiveHook>|iterable<Schema\Authorization>|(iterable<Schema\IntegrationInstallationRequest>|array{code: int})|iterable<Schema\Installation>|(iterable<Schema\ApplicationGrant>|(iterable<Schema\BaseGist>|(iterable<Schema\Email>|(iterable<Schema\SimpleUser>|(iterable<Schema\GpgKey>|(iterable<Schema\Issue>|(iterable<Schema\Key>|(iterable<Schema\Migration>|(iterable<Schema\OrganizationSimple>|(iterable<Schema\Repository>|(iterable<Schema\RepositoryInvitation>|(iterable<Schema\MinimalRepository>|(iterable<Schema\TeamFull> */
+    /** @return Observable<Schema\GlobalHook>|Observable<Schema\PublicKeyFull>|Observable<Schema\PreReceiveEnvironment>|Observable<Schema\PreReceiveHook>|Observable<Schema\Authorization>|(Observable<Schema\IntegrationInstallationRequest>|array{code: int})|Observable<Schema\Installation>|(Observable<Schema\ApplicationGrant>|(Observable<Schema\BaseGist>|(Observable<Schema\Email>|(Observable<Schema\SimpleUser>|(Observable<Schema\GpgKey>|(Observable<Schema\Issue>|(Observable<Schema\Key>|(Observable<Schema\Migration>|(Observable<Schema\OrganizationSimple>|(Observable<Schema\Repository>|(Observable<Schema\RepositoryInvitation>|(Observable<Schema\MinimalRepository>|(Observable<Schema\TeamFull> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
         $matched = false;

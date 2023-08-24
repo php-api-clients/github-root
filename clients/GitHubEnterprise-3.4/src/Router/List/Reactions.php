@@ -26,7 +26,7 @@ final class Reactions
     {
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForTeamDiscussionLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -76,7 +76,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForTeamDiscussionInOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -132,7 +132,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForIssueCommentListing(array $params): iterable
     {
         $matched   = true;
@@ -188,7 +188,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForPullRequestReviewCommentListing(array $params): iterable
     {
         $matched   = true;
@@ -244,7 +244,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForTeamDiscussionCommentLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -300,7 +300,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForTeamDiscussionCommentInOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -362,7 +362,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForCommitCommentListing(array $params): iterable
     {
         $matched   = true;
@@ -418,7 +418,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForIssueListing(array $params): iterable
     {
         $matched   = true;
@@ -474,7 +474,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Reaction> */
+    /** @return Observable<Schema\Reaction> */
     public function listForReleaseListing(array $params): iterable
     {
         $matched   = true;
