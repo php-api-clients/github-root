@@ -377,7 +377,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['name']);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok */
     public function listArtifactsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok|array
     {
         $matched   = true;
