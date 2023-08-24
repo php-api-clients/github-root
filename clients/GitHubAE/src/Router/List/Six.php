@@ -21,7 +21,7 @@ final class Six
     {
     }
 
-    /** @return iterable<Schema\MinimalRepository>|iterable<Schema\TeamDiscussion>|iterable<Schema\SimpleUser>|iterable<Schema\TeamProject>|iterable<Schema\Team>|(iterable<Schema\CodeScanningAlertItems>|array{code: int})|iterable<Schema\CodeScanningAnalysis>|iterable<Schema\IssueComment>|iterable<Schema\IssueEvent>|iterable<Schema\PageBuild>|iterable<Schema\PullRequestReviewComment>|(iterable<Schema\SecretScanningAlert>|iterable<Schema\TeamDiscussionComment>|iterable<Schema\Event> */
+    /** @return Observable<Schema\MinimalRepository>|Observable<Schema\TeamDiscussion>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\Team>|(Observable<Schema\CodeScanningAlertItems>|array{code: int})|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|(Observable<Schema\SecretScanningAlert>|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Event> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
         $matched = false;

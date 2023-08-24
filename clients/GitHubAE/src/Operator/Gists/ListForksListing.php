@@ -26,7 +26,7 @@ final readonly class ListForksListing
     {
     }
 
-    /** @return (iterable<Schema\GistSimple> | array{code: int}) */
+    /** @return (Observable<Schema\GistSimple> | array{code: int}) */
     public function call(string $gistId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Gists\ListForksListing($this->responseSchemaValidator, $this->hydrator, $gistId, $perPage, $page);

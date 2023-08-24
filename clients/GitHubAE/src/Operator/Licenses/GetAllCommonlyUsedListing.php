@@ -26,7 +26,7 @@ final readonly class GetAllCommonlyUsedListing
     {
     }
 
-    /** @return (iterable<Schema\LicenseSimple> | array{code: int}) */
+    /** @return (Observable<Schema\LicenseSimple> | array{code: int}) */
     public function call(bool $featured, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Licenses\GetAllCommonlyUsedListing($this->responseSchemaValidator, $this->hydrator, $featured, $perPage, $page);

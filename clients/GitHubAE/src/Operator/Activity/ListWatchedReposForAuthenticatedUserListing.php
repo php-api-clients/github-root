@@ -26,7 +26,7 @@ final readonly class ListWatchedReposForAuthenticatedUserListing
     {
     }
 
-    /** @return (iterable<Schema\MinimalRepository> | array{code: int}) */
+    /** @return (Observable<Schema\MinimalRepository> | array{code: int}) */
     public function call(int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Activity\ListWatchedReposForAuthenticatedUserListing($this->responseSchemaValidator, $this->hydrator, $perPage, $page);

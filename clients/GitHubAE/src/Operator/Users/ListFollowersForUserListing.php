@@ -26,7 +26,7 @@ final readonly class ListFollowersForUserListing
     {
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function call(string $username, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Users\ListFollowersForUserListing($this->responseSchemaValidator, $this->hydrator, $username, $perPage, $page);
