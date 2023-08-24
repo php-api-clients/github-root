@@ -26,7 +26,7 @@ final readonly class ListAuthorizationsListing
     {
     }
 
-    /** @return (iterable<Schema\Authorization> | array{code: int}) */
+    /** @return (Observable<Schema\Authorization> | array{code: int}) */
     public function call(string $clientId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\ListAuthorizationsListing($this->responseSchemaValidator, $this->hydrator, $clientId, $perPage, $page);

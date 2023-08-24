@@ -26,7 +26,7 @@ final class Packages
     {
     }
 
-    /** @return (iterable<Schema\Package> | array{code: int}) */
+    /** @return (Observable<Schema\Package> | array{code: int}) */
     public function listPackagesForAuthenticatedUserListing(array $params): iterable
     {
         $matched   = true;
@@ -70,7 +70,7 @@ final class Packages
         } while (count($items) > 0);
     }
 
-    /** @return (iterable<Schema\Package> | array{code: int}) */
+    /** @return (Observable<Schema\Package> | array{code: int}) */
     public function listPackagesForOrganizationListing(array $params): iterable
     {
         $matched   = true;
@@ -120,7 +120,7 @@ final class Packages
         } while (count($items) > 0);
     }
 
-    /** @return (iterable<Schema\Package> | array{code: int}) */
+    /** @return (Observable<Schema\Package> | array{code: int}) */
     public function listPackagesForUserListing(array $params): iterable
     {
         $matched   = true;
@@ -170,7 +170,7 @@ final class Packages
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PackageVersion> */
+    /** @return Observable<Schema\PackageVersion> */
     public function getAllPackageVersionsForPackageOwnedByAuthenticatedUserListing(array $params): iterable
     {
         $matched   = true;
@@ -220,7 +220,7 @@ final class Packages
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\PackageVersion> */
+    /** @return Observable<Schema\PackageVersion> */
     public function getAllPackageVersionsForPackageOwnedByOrgListing(array $params): iterable
     {
         $matched   = true;
