@@ -26,7 +26,7 @@ final class SecretScanning
     {
     }
 
-    /** @return iterable<Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -94,7 +94,7 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return (iterable<Schema\SecretScanningAlert> | array{code: int}) */
+    /** @return (Observable<Schema\SecretScanningAlert> | array{code: int}) */
     public function listAlertsForRepoListing(array $params): iterable
     {
         $matched   = true;
@@ -168,7 +168,7 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return (iterable<Schema\SecretScanningLocation> | array{code: int}) */
+    /** @return (Observable<Schema\SecretScanningLocation> | array{code: int}) */
     public function listLocationsForAlertListing(array $params): iterable
     {
         $matched   = true;
