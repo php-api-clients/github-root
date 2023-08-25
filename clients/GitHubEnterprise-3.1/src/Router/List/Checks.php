@@ -26,7 +26,7 @@ final class Checks
     {
     }
 
-    /** @return iterable<Schema\CheckAnnotation> */
+    /** @return Observable<Schema\CheckAnnotation> */
     public function listAnnotationsListing(array $params): iterable
     {
         $matched   = true;
