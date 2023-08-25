@@ -269,12 +269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-api-clients/openapi-client-generator.git",
-                "reference": "036370f99eb8ca0e73acc4891ac09f86c8b2450f"
+                "reference": "60e8dd2a09d9cf56d9c3e35e11f0fe705f38d274"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/036370f99eb8ca0e73acc4891ac09f86c8b2450f",
-                "reference": "036370f99eb8ca0e73acc4891ac09f86c8b2450f",
+                "url": "https://api.github.com/repos/php-api-clients/openapi-client-generator/zipball/60e8dd2a09d9cf56d9c3e35e11f0fe705f38d274",
+                "reference": "60e8dd2a09d9cf56d9c3e35e11f0fe705f38d274",
                 "shasum": ""
             },
             "require": {
@@ -346,7 +346,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-24T06:40:32+00:00"
+            "time": "2023-08-25T06:52:48+00:00"
         },
         {
             "name": "azjezz/psl",
@@ -5742,16 +5742,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.30",
+            "version": "1.10.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "2910afdd3fe33e5afd71c09f3fb0d0845b48c410"
+                "reference": "c47e47d3ab03137c0e121e77c4d2cb58672f6d44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/2910afdd3fe33e5afd71c09f3fb0d0845b48c410",
-                "reference": "2910afdd3fe33e5afd71c09f3fb0d0845b48c410",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c47e47d3ab03137c0e121e77c4d2cb58672f6d44",
+                "reference": "c47e47d3ab03137c0e121e77c4d2cb58672f6d44",
                 "shasum": ""
             },
             "require": {
@@ -5800,7 +5800,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-22T13:48:25+00:00"
+            "time": "2023-08-24T21:54:50+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
