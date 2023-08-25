@@ -4388,7 +4388,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operator\/Actions\/ListArtifactsForRepo.php",
-                "hash": "bcc529740a8459c9fb749a94acba570d"
+                "hash": "85b05792e4a249492fea26497e5b28f3"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Operation\/Actions\/ListArtifactsForRepoTest.php",
@@ -24096,11 +24096,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "655ffddeb7ccfd395048f8c1a5651652"
+                "hash": "36cc7185533747322d313262ede9f553"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Client.php",
-                "hash": "acd4b113e4dcef8e4e9291996c70fe9e"
+                "hash": "ff339775056565742c3ebae6f1013fb3"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Router\/Get\/Meta.php",
@@ -24184,7 +24184,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Router\/Get\/Actions.php",
-                "hash": "880eb799f93c9c0bcb97373e30c66bfa"
+                "hash": "963e3dd1ef75b9b2aa125e688c577290"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Router\/Get\/Billing.php",
@@ -24544,7 +24544,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Router\/Get\/Six.php",
-                "hash": "845c51f63d339c71452723b4934e71e5"
+                "hash": "33331a65c6c41de8c142eaa73eb578f8"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Router\/Get\/Two.php",
@@ -28868,7 +28868,7 @@
             },
             {
                 "name": "..\/..\/composer.lock",
-                "hash": "01d5f51c3f46ee52c3fc15cacfd2dde3"
+                "hash": "e7958ce7e1deabbe5fb233a21b3ab835"
             }
         ]
     }
