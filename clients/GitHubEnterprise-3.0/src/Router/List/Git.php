@@ -26,7 +26,7 @@ final class Git
     {
     }
 
-    /** @return iterable<Schema\GitRef> */
+    /** @return Observable<Schema\GitRef> */
     public function listMatchingRefsListing(array $params): iterable
     {
         $matched   = true;
