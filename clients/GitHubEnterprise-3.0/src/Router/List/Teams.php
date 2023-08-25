@@ -26,7 +26,7 @@ final class Teams
     {
     }
 
-    /** @return (iterable<Schema\TeamFull> | array{code: int}) */
+    /** @return (Observable<Schema\TeamFull> | array{code: int}) */
     public function listForAuthenticatedUserListing(array $params): iterable
     {
         $matched   = true;
@@ -58,7 +58,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listListing(array $params): iterable
     {
         $matched   = true;
@@ -96,7 +96,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\TeamDiscussion> */
+    /** @return Observable<Schema\TeamDiscussion> */
     public function listDiscussionsLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -140,7 +140,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -184,7 +184,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\TeamProject> */
+    /** @return Observable<Schema\TeamProject> */
     public function listProjectsLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -222,7 +222,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -260,7 +260,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listChildLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -298,7 +298,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\TeamDiscussion> */
+    /** @return Observable<Schema\TeamDiscussion> */
     public function listDiscussionsInOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -354,7 +354,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersInOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -404,7 +404,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\TeamProject> */
+    /** @return Observable<Schema\TeamProject> */
     public function listProjectsInOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -448,7 +448,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposInOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -492,7 +492,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listChildInOrgListing(array $params): iterable
     {
         $matched   = true;
@@ -536,7 +536,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\TeamDiscussionComment> */
+    /** @return Observable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsLegacyListing(array $params): iterable
     {
         $matched   = true;
@@ -586,7 +586,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\TeamDiscussionComment> */
+    /** @return Observable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsInOrgListing(array $params): iterable
     {
         $matched   = true;
