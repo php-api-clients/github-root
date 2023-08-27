@@ -19,14 +19,12 @@ final readonly class ListPreReceiveEnvironmentsListing
 {
     public const OPERATION_ID    = 'enterprise-admin/list-pre-receive-environments';
     public const OPERATION_MATCH = 'LIST /admin/pre-receive-environments';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/pre-receive-environments';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\PreReceiveEnvironments $hydrator)
     {
     }
 
-    /** @return Observable<Schema\PreReceiveEnvironment> */
+    /** @return iterable<Schema\PreReceiveEnvironment> */
     public function call(int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPreReceiveEnvironmentsListing($this->responseSchemaValidator, $this->hydrator, $perPage, $page, $direction, $sort);

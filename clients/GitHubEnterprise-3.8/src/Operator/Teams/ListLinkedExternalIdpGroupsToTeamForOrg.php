@@ -19,8 +19,6 @@ final readonly class ListLinkedExternalIdpGroupsToTeamForOrg
 {
     public const OPERATION_ID    = 'teams/list-linked-external-idp-groups-to-team-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/external-groups';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/teams/{team_slug}/external-groups';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Teams\TeamSlug\ExternalGroups $hydrator)
     {

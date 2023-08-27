@@ -17,14 +17,12 @@ final readonly class SetActionsCacheUsagePolicy
 {
     public const OPERATION_ID    = 'actions/set-actions-cache-usage-policy';
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/actions/cache/usage-policy';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/repos/{owner}/{repo}/actions/cache/usage-policy';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $owner, string $repo, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\SetActionsCacheUsagePolicy($this->requestSchemaValidator, $owner, $repo);
