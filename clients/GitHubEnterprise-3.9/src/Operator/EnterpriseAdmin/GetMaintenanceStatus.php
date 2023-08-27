@@ -20,14 +20,12 @@ final readonly class GetMaintenanceStatus
 {
     public const OPERATION_ID    = 'enterprise-admin/get-maintenance-status';
     public const OPERATION_MATCH = 'GET /setup/api/maintenance';
-    private const METHOD         = 'GET';
-    private const PATH           = '/setup/api/maintenance';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
     }
 
-    /** @return (Schema\MaintenanceStatus | array{code: int}) */
+    /** @return Schema\MaintenanceStatus|array{code:int} */
     public function call(): MaintenanceStatus|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetMaintenanceStatus($this->responseSchemaValidator, $this->hydrator);

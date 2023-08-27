@@ -19,14 +19,12 @@ final readonly class RemoveAuthorizedSshKey
 {
     public const OPERATION_ID    = 'enterprise-admin/remove-authorized-ssh-key';
     public const OPERATION_MATCH = 'DELETE /setup/api/settings/authorized-keys';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/setup/api/settings/authorized-keys';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\SshKey> | array{code: int}) */
+    /** @return iterable<Schema\SshKey>|array{code:int} */
     public function call(array $params): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\RemoveAuthorizedSshKey($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

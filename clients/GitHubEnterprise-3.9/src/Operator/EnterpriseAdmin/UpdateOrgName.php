@@ -19,8 +19,6 @@ final readonly class UpdateOrgName
 {
     public const OPERATION_ID    = 'enterprise-admin/update-org-name';
     public const OPERATION_MATCH = 'PATCH /admin/organizations/{org}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/organizations/{org}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Organizations\Org $hydrator)
     {

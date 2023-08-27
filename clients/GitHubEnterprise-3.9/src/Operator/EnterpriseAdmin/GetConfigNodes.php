@@ -20,14 +20,12 @@ final readonly class GetConfigNodes
 {
     public const OPERATION_ID    = 'enterprise-admin/get-config-nodes';
     public const OPERATION_MATCH = 'GET /manage/v1/config/nodes';
-    private const METHOD         = 'GET';
-    private const PATH           = '/manage/v1/config/nodes';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Manage\V1\Config\Nodes $hydrator)
     {
     }
 
-    /** @return (Schema\GhesConfigNodes | array{code: int}) */
+    /** @return Schema\GhesConfigNodes|array{code:int} */
     public function call(string $uuid, string $clusterRoles): GhesConfigNodes|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetConfigNodes($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

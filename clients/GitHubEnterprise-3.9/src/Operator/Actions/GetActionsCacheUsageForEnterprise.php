@@ -19,8 +19,6 @@ final readonly class GetActionsCacheUsageForEnterprise
 {
     public const OPERATION_ID    = 'actions/get-actions-cache-usage-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/cache/usage';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/cache/usage';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\Cache\Usage $hydrator)
     {

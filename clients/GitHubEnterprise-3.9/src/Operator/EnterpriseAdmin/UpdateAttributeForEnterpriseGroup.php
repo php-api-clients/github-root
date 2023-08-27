@@ -20,14 +20,12 @@ final readonly class UpdateAttributeForEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/update-attribute-for-enterprise-group';
     public const OPERATION_MATCH = 'PATCH /scim/v2/Groups/{scim_group_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/scim/v2/Groups/{scim_group_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator)
     {
     }
 
-    /** @return (Schema\GroupResponse | array{code: int}) */
+    /** @return Schema\GroupResponse|array{code:int} */
     public function call(string $scimGroupId, array $params): GroupResponse|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimGroupId);

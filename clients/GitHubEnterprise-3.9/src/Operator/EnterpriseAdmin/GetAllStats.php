@@ -19,8 +19,6 @@ final readonly class GetAllStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-all-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/all';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/all';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\All $hydrator)
     {

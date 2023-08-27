@@ -20,14 +20,12 @@ final readonly class ProvisionEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/provision-enterprise-group';
     public const OPERATION_MATCH = 'POST /scim/v2/Groups';
-    private const METHOD         = 'POST';
-    private const PATH           = '/scim/v2/Groups';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Groups $hydrator)
     {
     }
 
-    /** @return (Schema\GroupResponse | array{code: int}) */
+    /** @return Schema\GroupResponse|array{code:int} */
     public function call(array $params): GroupResponse|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ProvisionEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

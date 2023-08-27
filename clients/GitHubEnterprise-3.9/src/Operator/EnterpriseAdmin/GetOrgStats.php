@@ -19,8 +19,6 @@ final readonly class GetOrgStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-org-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/orgs';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/orgs';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Orgs $hydrator)
     {

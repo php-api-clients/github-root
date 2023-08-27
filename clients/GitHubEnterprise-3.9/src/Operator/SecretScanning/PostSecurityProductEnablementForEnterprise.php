@@ -18,14 +18,12 @@ final readonly class PostSecurityProductEnablementForEnterprise
 {
     public const OPERATION_ID    = 'secret-scanning/post-security-product-enablement-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/{security_product}/{enablement}';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/{security_product}/{enablement}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\SecurityProduct\Enablement $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, string $securityProduct, string $enablement): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\SecretScanning\PostSecurityProductEnablementForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $securityProduct, $enablement);
