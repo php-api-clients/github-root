@@ -18,14 +18,12 @@ final readonly class DeleteGrant
 {
     public const OPERATION_ID    = 'oauth-authorizations/delete-grant';
     public const OPERATION_MATCH = 'DELETE /applications/grants/{grant_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/applications/grants/{grant_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Applications\Grants\GrantId $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $grantId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\DeleteGrant($this->responseSchemaValidator, $this->hydrator, $grantId);
