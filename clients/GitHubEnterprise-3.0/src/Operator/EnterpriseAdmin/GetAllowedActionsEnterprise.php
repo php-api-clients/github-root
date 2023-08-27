@@ -19,8 +19,6 @@ final readonly class GetAllowedActionsEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/get-allowed-actions-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/permissions/selected-actions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/selected-actions';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\Permissions\SelectedActions $hydrator)
     {

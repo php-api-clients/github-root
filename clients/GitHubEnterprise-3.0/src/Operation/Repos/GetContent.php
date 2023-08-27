@@ -58,7 +58,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentDirectory::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentDirectory::class, $body);
+                            return $this->hydrators->hydrateObject(Schema\ContentDirectory::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaaa;
                         }
@@ -67,7 +67,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentFile::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentFile::class, $body);
+                            return $this->hydrators->hydrateObject(Schema\ContentFile::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaab;
                         }
@@ -76,7 +76,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentSymlink::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentSymlink::class, $body);
+                            return $this->hydrators->hydrateObject(Schema\ContentSymlink::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaac;
                         }
@@ -85,7 +85,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentSubmodule::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ContentSubmodule::class, $body);
+                            return $this->hydrators->hydrateObject(Schema\ContentSubmodule::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaad;
                         }

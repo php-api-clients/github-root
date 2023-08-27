@@ -16,14 +16,12 @@ final readonly class PromoteUserToBeSiteAdministrator
 {
     public const OPERATION_ID    = 'enterprise-admin/promote-user-to-be-site-administrator';
     public const OPERATION_MATCH = 'PUT /users/{username}/site_admin';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/users/{username}/site_admin';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $username): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\PromoteUserToBeSiteAdministrator($username);

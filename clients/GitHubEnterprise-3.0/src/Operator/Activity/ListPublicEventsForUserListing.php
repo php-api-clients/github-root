@@ -19,14 +19,12 @@ final readonly class ListPublicEventsForUserListing
 {
     public const OPERATION_ID    = 'activity/list-public-events-for-user';
     public const OPERATION_MATCH = 'LIST /users/{username}/events/public';
-    private const METHOD         = 'GET';
-    private const PATH           = '/users/{username}/events/public';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Users\Username\Events\Public_ $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return iterable<Schema\Event> */
     public function call(string $username, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Activity\ListPublicEventsForUserListing($this->responseSchemaValidator, $this->hydrator, $username, $perPage, $page);

@@ -16,14 +16,12 @@ final readonly class DeletePublicKey
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-public-key';
     public const OPERATION_MATCH = 'DELETE /admin/keys/{key_ids}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/keys/{key_ids}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $keyIds): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeletePublicKey($keyIds);
