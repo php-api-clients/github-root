@@ -19,8 +19,6 @@ final readonly class CreateSelfHostedRunnerGroupForOrg
 {
     public const OPERATION_ID    = 'actions/create-self-hosted-runner-group-for-org';
     public const OPERATION_MATCH = 'POST /orgs/{org}/actions/runner-groups';
-    private const METHOD         = 'POST';
-    private const PATH           = '/orgs/{org}/actions/runner-groups';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Actions\RunnerGroups $hydrator)
     {

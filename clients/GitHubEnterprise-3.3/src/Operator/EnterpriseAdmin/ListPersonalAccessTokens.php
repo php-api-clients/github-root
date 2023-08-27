@@ -19,14 +19,12 @@ final readonly class ListPersonalAccessTokens
 {
     public const OPERATION_ID    = 'enterprise-admin/list-personal-access-tokens';
     public const OPERATION_MATCH = 'GET /admin/tokens';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/tokens';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Tokens $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Authorization> */
+    /** @return iterable<Schema\Authorization> */
     public function call(int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPersonalAccessTokens($this->responseSchemaValidator, $this->hydrator, $perPage, $page);

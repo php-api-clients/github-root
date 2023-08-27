@@ -18,14 +18,12 @@ final readonly class DeletePreReceiveEnvironment
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-pre-receive-environment';
     public const OPERATION_MATCH = 'DELETE /admin/pre-receive-environments/{pre_receive_environment_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $preReceiveEnvironmentId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator, $preReceiveEnvironmentId);

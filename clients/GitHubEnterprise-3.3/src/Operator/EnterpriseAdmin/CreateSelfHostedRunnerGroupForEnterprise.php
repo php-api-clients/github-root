@@ -19,8 +19,6 @@ final readonly class CreateSelfHostedRunnerGroupForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/create-self-hosted-runner-group-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runner-groups';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups $hydrator)
     {

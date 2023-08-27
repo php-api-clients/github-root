@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\List;
 
-use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -19,17 +17,13 @@ use function count;
 
 final class SecretScanning
 {
-    /** @var array<class-string, ObjectMapper> */
-    private array $hydrator = [];
-
     public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return iterable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrgListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -67,14 +61,10 @@ final class SecretScanning
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\SecretScanning\Alerts::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\SecretScanning\Alerts::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecretScanning🌀Alerts();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\SecretScanning\ListAlertsForOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\SecretScanning\Alerts::class]);
-            $items    = $operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['page'], $arguments['per_page']);
+            $operator = new Operator\SecretScanning\ListAlertsForOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecretScanning🌀Alerts());
+            $items    = [...$operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['page'], $arguments['per_page'])];
 
             yield from $items;
 
@@ -82,10 +72,9 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return (Observable<Schema\SecretScanningAlert> | array{code: int}) */
+    /** @return iterable<Schema\SecretScanningAlert>|array{code:int} */
     public function listAlertsForRepoListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -129,14 +118,10 @@ final class SecretScanning
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\SecretScanning\ListAlertsForRepoListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts::class]);
-            $items    = $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['page'], $arguments['per_page']);
+            $operator = new Operator\SecretScanning\ListAlertsForRepoListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts());
+            $items    = [...$operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['page'], $arguments['per_page'])];
 
             yield from $items;
 
@@ -144,10 +129,9 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return (Observable<Schema\SecretScanningLocation> | array{code: int}) */
+    /** @return iterable<Schema\SecretScanningLocation>|array{code:int} */
     public function listLocationsForAlertListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -179,14 +163,10 @@ final class SecretScanning
 
         $arguments['per_page'] = $params['per_page'];
         unset($params['per_page']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts\AlertNumber\Locations::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts\AlertNumber\Locations::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts🌀AlertNumber🌀Locations();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\SecretScanning\ListLocationsForAlertListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\SecretScanning\Alerts\AlertNumber\Locations::class]);
-            $items    = $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number'], $arguments['page'], $arguments['per_page']);
+            $operator = new Operator\SecretScanning\ListLocationsForAlertListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts🌀AlertNumber🌀Locations());
+            $items    = [...$operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number'], $arguments['page'], $arguments['per_page'])];
 
             yield from $items;
 

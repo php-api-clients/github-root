@@ -16,14 +16,12 @@ final readonly class RemoveAnnouncement
 {
     public const OPERATION_ID    = 'enterprise-admin/remove-announcement';
     public const OPERATION_MATCH = 'DELETE /enterprise/announcement';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/enterprise/announcement';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\RemoveAnnouncement();
