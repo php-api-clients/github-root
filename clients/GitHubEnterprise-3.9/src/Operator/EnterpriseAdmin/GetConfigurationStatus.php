@@ -20,14 +20,12 @@ final readonly class GetConfigurationStatus
 {
     public const OPERATION_ID    = 'enterprise-admin/get-configuration-status';
     public const OPERATION_MATCH = 'GET /setup/api/configcheck';
-    private const METHOD         = 'GET';
-    private const PATH           = '/setup/api/configcheck';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Setup\Api\Configcheck $hydrator)
     {
     }
 
-    /** @return (Schema\ConfigurationStatus | array{code: int}) */
+    /** @return Schema\ConfigurationStatus|array{code:int} */
     public function call(): ConfigurationStatus|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator);

@@ -19,8 +19,6 @@ final readonly class GetSecurityAnalysisSettingsForEnterprise
 {
     public const OPERATION_ID    = 'secret-scanning/get-security-analysis-settings-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/code_security_and_analysis';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/code_security_and_analysis';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator)
     {

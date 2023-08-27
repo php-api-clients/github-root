@@ -19,14 +19,12 @@ final readonly class GetVersion
 {
     public const OPERATION_ID    = 'enterprise-admin/get-version';
     public const OPERATION_MATCH = 'GET /manage/v1/version';
-    private const METHOD         = 'GET';
-    private const PATH           = '/manage/v1/version';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Manage\V1\Version $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\GhesVersion> | array{code: int}) */
+    /** @return iterable<Schema\GhesVersion>|array{code:int} */
     public function call(string $uuid, string $clusterRoles): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetVersion($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

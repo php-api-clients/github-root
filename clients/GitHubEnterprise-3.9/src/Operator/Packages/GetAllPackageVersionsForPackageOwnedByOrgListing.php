@@ -19,14 +19,12 @@ final readonly class GetAllPackageVersionsForPackageOwnedByOrgListing
 {
     public const OPERATION_ID    = 'packages/get-all-package-versions-for-package-owned-by-org';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/packages/{package_type}/{package_name}/versions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/packages/{package_type}/{package_name}/versions';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Packages\PackageType\PackageName\Versions $hydrator)
     {
     }
 
-    /** @return Observable<Schema\PackageVersion> */
+    /** @return iterable<Schema\PackageVersion> */
     public function call(string $packageType, string $packageName, string $org, int $page = 1, int $perPage = 30, string $state = 'active'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Packages\GetAllPackageVersionsForPackageOwnedByOrgListing($this->responseSchemaValidator, $this->hydrator, $packageType, $packageName, $org, $page, $perPage, $state);

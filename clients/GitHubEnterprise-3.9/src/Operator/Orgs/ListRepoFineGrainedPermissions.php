@@ -19,14 +19,12 @@ final readonly class ListRepoFineGrainedPermissions
 {
     public const OPERATION_ID    = 'orgs/list-repo-fine-grained-permissions';
     public const OPERATION_MATCH = 'GET /orgs/{org}/repository-fine-grained-permissions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/repository-fine-grained-permissions';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\RepositoryFineGrainedPermissions $hydrator)
     {
     }
 
-    /** @return Observable<Schema\RepositoryFineGrainedPermission> */
+    /** @return iterable<Schema\RepositoryFineGrainedPermission> */
     public function call(string $org): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\ListRepoFineGrainedPermissions($this->responseSchemaValidator, $this->hydrator, $org);

@@ -19,8 +19,6 @@ final readonly class UpdateCustomRepoRole
 {
     public const OPERATION_ID    = 'orgs/update-custom-repo-role';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/custom-repository-roles/{role_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/custom-repository-roles/{role_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\CustomRepositoryRoles\RoleId $hydrator)
     {

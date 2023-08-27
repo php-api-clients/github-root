@@ -20,14 +20,12 @@ final readonly class ListProvisionedIdentitiesEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-provisioned-identities-enterprise';
     public const OPERATION_MATCH = 'GET /scim/v2/Users';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/Users';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Users $hydrator)
     {
     }
 
-    /** @return (Schema\ScimEnterpriseUserList | array{code: int}) */
+    /** @return Schema\ScimEnterpriseUserList|array{code:int} */
     public function call(string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30): ScimEnterpriseUserList|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->responseSchemaValidator, $this->hydrator, $filter, $excludedAttributes, $startIndex, $count);
