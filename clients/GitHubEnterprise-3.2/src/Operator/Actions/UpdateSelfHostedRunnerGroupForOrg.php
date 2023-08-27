@@ -19,8 +19,6 @@ final readonly class UpdateSelfHostedRunnerGroupForOrg
 {
     public const OPERATION_ID    = 'actions/update-self-hosted-runner-group-for-org';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId $hydrator)
     {

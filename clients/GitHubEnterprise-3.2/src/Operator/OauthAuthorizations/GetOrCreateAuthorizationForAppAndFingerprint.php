@@ -19,8 +19,6 @@ final readonly class GetOrCreateAuthorizationForAppAndFingerprint
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-or-create-authorization-for-app-and-fingerprint';
     public const OPERATION_MATCH = 'PUT /authorizations/clients/{client_id}/{fingerprint}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/authorizations/clients/{client_id}/{fingerprint}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations\Clients\ClientId\Fingerprint $hydrator)
     {

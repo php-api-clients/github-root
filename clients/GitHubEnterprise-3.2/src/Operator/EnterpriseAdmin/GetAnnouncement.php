@@ -19,8 +19,6 @@ final readonly class GetAnnouncement
 {
     public const OPERATION_ID    = 'enterprise-admin/get-announcement';
     public const OPERATION_MATCH = 'GET /enterprise/announcement';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/announcement';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Announcement $hydrator)
     {

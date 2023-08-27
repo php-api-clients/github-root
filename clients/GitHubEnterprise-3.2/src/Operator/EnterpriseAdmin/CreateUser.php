@@ -19,8 +19,6 @@ final readonly class CreateUser
 {
     public const OPERATION_ID    = 'enterprise-admin/create-user';
     public const OPERATION_MATCH = 'POST /admin/users';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/users';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Users $hydrator)
     {

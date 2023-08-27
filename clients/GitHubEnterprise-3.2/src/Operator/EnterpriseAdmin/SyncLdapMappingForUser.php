@@ -19,8 +19,6 @@ final readonly class SyncLdapMappingForUser
 {
     public const OPERATION_ID    = 'enterprise-admin/sync-ldap-mapping-for-user';
     public const OPERATION_MATCH = 'POST /admin/ldap/users/{username}/sync';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/ldap/users/{username}/sync';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Ldap\Users\Username\Sync $hydrator)
     {
