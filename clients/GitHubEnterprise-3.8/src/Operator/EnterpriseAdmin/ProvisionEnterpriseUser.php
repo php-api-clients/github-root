@@ -20,14 +20,12 @@ final readonly class ProvisionEnterpriseUser
 {
     public const OPERATION_ID    = 'enterprise-admin/provision-enterprise-user';
     public const OPERATION_MATCH = 'POST /scim/v2/Users';
-    private const METHOD         = 'POST';
-    private const PATH           = '/scim/v2/Users';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Users $hydrator)
     {
     }
 
-    /** @return (Schema\UserResponse | array{code: int}) */
+    /** @return Schema\UserResponse|array{code:int} */
     public function call(array $params): UserResponse|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ProvisionEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

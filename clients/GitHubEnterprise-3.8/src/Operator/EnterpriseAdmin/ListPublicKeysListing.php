@@ -19,14 +19,12 @@ final readonly class ListPublicKeysListing
 {
     public const OPERATION_ID    = 'enterprise-admin/list-public-keys';
     public const OPERATION_MATCH = 'LIST /admin/keys';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/keys';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Keys $hydrator)
     {
     }
 
-    /** @return Observable<Schema\PublicKeyFull> */
+    /** @return iterable<Schema\PublicKeyFull> */
     public function call(string $since, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPublicKeysListing($this->responseSchemaValidator, $this->hydrator, $since, $perPage, $page, $direction, $sort);

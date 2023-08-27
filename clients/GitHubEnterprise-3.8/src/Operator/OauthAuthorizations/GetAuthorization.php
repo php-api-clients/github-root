@@ -20,14 +20,12 @@ final readonly class GetAuthorization
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-authorization';
     public const OPERATION_MATCH = 'GET /authorizations/{authorization_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/authorizations/{authorization_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations\AuthorizationId $hydrator)
     {
     }
 
-    /** @return (Schema\Authorization | array{code: int}) */
+    /** @return Schema\Authorization|array{code:int} */
     public function call(int $authorizationId): Authorization|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\GetAuthorization($this->responseSchemaValidator, $this->hydrator, $authorizationId);

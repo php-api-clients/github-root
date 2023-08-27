@@ -17,14 +17,12 @@ final readonly class SetGithubActionsDefaultWorkflowPermissionsEnterprise
 {
     public const OPERATION_ID    = 'actions/set-github-actions-default-workflow-permissions-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/workflow';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/workflow';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\SetGithubActionsDefaultWorkflowPermissionsEnterprise($this->requestSchemaValidator, $enterprise);

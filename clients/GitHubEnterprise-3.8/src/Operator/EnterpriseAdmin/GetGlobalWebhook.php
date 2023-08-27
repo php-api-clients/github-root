@@ -19,8 +19,6 @@ final readonly class GetGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/get-global-webhook';
     public const OPERATION_MATCH = 'GET /admin/hooks/{hook_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/hooks/{hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Hooks\HookId $hydrator)
     {

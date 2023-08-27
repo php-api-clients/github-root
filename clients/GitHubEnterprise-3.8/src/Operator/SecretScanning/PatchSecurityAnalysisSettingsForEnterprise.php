@@ -18,14 +18,12 @@ final readonly class PatchSecurityAnalysisSettingsForEnterprise
 {
     public const OPERATION_ID    = 'secret-scanning/patch-security-analysis-settings-for-enterprise';
     public const OPERATION_MATCH = 'PATCH /enterprises/{enterprise}/code_security_and_analysis';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/enterprises/{enterprise}/code_security_and_analysis';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\SecretScanning\PatchSecurityAnalysisSettingsForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);

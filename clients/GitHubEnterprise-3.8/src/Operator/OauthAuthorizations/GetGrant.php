@@ -20,14 +20,12 @@ final readonly class GetGrant
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-grant';
     public const OPERATION_MATCH = 'GET /applications/grants/{grant_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/applications/grants/{grant_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Applications\Grants\GrantId $hydrator)
     {
     }
 
-    /** @return (Schema\ApplicationGrant | array{code: int}) */
+    /** @return Schema\ApplicationGrant|array{code:int} */
     public function call(int $grantId): ApplicationGrant|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\GetGrant($this->responseSchemaValidator, $this->hydrator, $grantId);

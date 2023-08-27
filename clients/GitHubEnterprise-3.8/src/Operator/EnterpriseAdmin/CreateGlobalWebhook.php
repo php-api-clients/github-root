@@ -19,8 +19,6 @@ final readonly class CreateGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/create-global-webhook';
     public const OPERATION_MATCH = 'POST /admin/hooks';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/hooks';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Hooks $hydrator)
     {
