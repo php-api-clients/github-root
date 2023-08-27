@@ -19,8 +19,6 @@ final readonly class UpdatePreReceiveHook
 {
     public const OPERATION_ID    = 'enterprise-admin/update-pre-receive-hook';
     public const OPERATION_MATCH = 'PATCH /admin/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/pre-receive-hooks/{pre_receive_hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\PreReceiveHooks\PreReceiveHookId $hydrator)
     {

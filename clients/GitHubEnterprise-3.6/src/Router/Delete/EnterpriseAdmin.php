@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 
-use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Client\GitHubEnterprise\Schema;
@@ -13,7 +12,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\RemoveA
 use ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -22,17 +20,13 @@ use function array_key_exists;
 
 final class EnterpriseAdmin
 {
-    /** @var array<class-string, ObjectMapper> */
-    private array $hydrator = [];
-
     public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteGlobalWebhook(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: hook_id');
@@ -45,10 +39,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deletePublicKey(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('key_ids', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: key_ids');
@@ -61,10 +54,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['key_ids']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deletePreReceiveEnvironment(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_environment_id');
@@ -72,19 +64,14 @@ final class EnterpriseAdmin
 
         $arguments['pre_receive_environment_id'] = $params['pre_receive_environment_id'];
         unset($params['pre_receive_environment_id']);
-        if (array_key_exists(Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId::class] = $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments🌀PreReceiveEnvironmentId();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\DeletePreReceiveEnvironment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId::class]);
+        $operator = new Operator\EnterpriseAdmin\DeletePreReceiveEnvironment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments🌀PreReceiveEnvironmentId());
 
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deletePreReceiveHook(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('pre_receive_hook_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: pre_receive_hook_id');
@@ -97,10 +84,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_hook_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deletePersonalAccessToken(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('token_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: token_id');
@@ -113,10 +99,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['token_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteUser(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -129,10 +114,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function demoteSiteAdministrator(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -145,10 +129,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function unsuspendUser(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -161,10 +144,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteImpersonationOAuthToken(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: username');
@@ -180,7 +162,6 @@ final class EnterpriseAdmin
     /** @return */
     public function removePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook|array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -194,19 +175,14 @@ final class EnterpriseAdmin
 
         $arguments['pre_receive_hook_id'] = $params['pre_receive_hook_id'];
         unset($params['pre_receive_hook_id']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PreReceiveHooks🌀PreReceiveHookId();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\RemovePreReceiveHookEnforcementForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId::class]);
+        $operator = new Operator\EnterpriseAdmin\RemovePreReceiveHookEnforcementForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PreReceiveHooks🌀PreReceiveHookId());
 
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteScimGroupFromEnterprise(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('scim_group_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
@@ -214,19 +190,14 @@ final class EnterpriseAdmin
 
         $arguments['scim_group_id'] = $params['scim_group_id'];
         unset($params['scim_group_id']);
-        if (array_key_exists(Hydrator\Operation\Scim\V2\Groups\ScimGroupId::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Scim\V2\Groups\ScimGroupId::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Groups\ScimGroupId::class]);
+        $operator = new Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
 
         return $operator->call($arguments['scim_group_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteUserFromEnterprise(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('scim_user_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
@@ -234,41 +205,30 @@ final class EnterpriseAdmin
 
         $arguments['scim_user_id'] = $params['scim_user_id'];
         unset($params['scim_user_id']);
-        if (array_key_exists(Hydrator\Operation\Scim\V2\Users\ScimUserId::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Scim\V2\Users\ScimUserId::class] = $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\DeleteUserFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Scim\V2\Users\ScimUserId::class]);
+        $operator = new Operator\EnterpriseAdmin\DeleteUserFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
 
         return $operator->call($arguments['scim_user_id']);
     }
 
-    /** @return (Observable<Schema\SshKey> | array{code: int}) */
+    /** @return iterable<Schema\SshKey>|array{code:int} */
     public function removeAuthorizedSshKey(array $params): iterable
     {
-        $matched = true;
-        if (array_key_exists(Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class] = $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\RemoveAuthorizedSshKey($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys::class]);
+        $operator = new Operator\EnterpriseAdmin\RemoveAuthorizedSshKey($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys());
 
         return $operator->call($params);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function removeAnnouncement(array $params): array
     {
-        $matched  = true;
         $operator = new Operator\EnterpriseAdmin\RemoveAnnouncement($this->browser, $this->authentication);
 
         return $operator->call();
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function disableSelectedOrganizationGithubActionsEnterprise(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -290,7 +250,6 @@ final class EnterpriseAdmin
     /** @return */
     public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params): Json|array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -304,19 +263,14 @@ final class EnterpriseAdmin
 
         $arguments['runner_id'] = $params['runner_id'];
         unset($params['runner_id']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels::class]);
+        $operator = new Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteSelfHostedRunnerGroupFromEnterprise(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -335,10 +289,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteSelfHostedRunnerFromEnterprise(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -360,7 +313,6 @@ final class EnterpriseAdmin
     /** @return */
     public function removePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook|array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -380,19 +332,14 @@ final class EnterpriseAdmin
 
         $arguments['pre_receive_hook_id'] = $params['pre_receive_hook_id'];
         unset($params['pre_receive_hook_id']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks\PreReceiveHookId::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks\PreReceiveHookId::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PreReceiveHooks🌀PreReceiveHookId();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\RemovePreReceiveHookEnforcementForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks\PreReceiveHookId::class]);
+        $operator = new Operator\EnterpriseAdmin\RemovePreReceiveHookEnforcementForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀PreReceiveHooks🌀PreReceiveHookId());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -417,10 +364,9 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function removeSelfHostedRunnerFromGroupForEnterprise(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -448,7 +394,6 @@ final class EnterpriseAdmin
     /** @return */
     public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params): Ok|array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
@@ -468,11 +413,7 @@ final class EnterpriseAdmin
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        if (array_key_exists(Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name::class] = $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name();
-        }
-
-        $operator = new Operator\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name::class]);
+        $operator = new Operator\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name());
 
         return $operator->call($arguments['enterprise'], $arguments['runner_id'], $arguments['name']);
     }

@@ -20,14 +20,12 @@ final readonly class SetInformationForProvisionedEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/set-information-for-provisioned-enterprise-group';
     public const OPERATION_MATCH = 'PUT /scim/v2/Groups/{scim_group_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/scim/v2/Groups/{scim_group_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator)
     {
     }
 
-    /** @return (Schema\GroupResponse | array{code: int}) */
+    /** @return Schema\GroupResponse|array{code:int} */
     public function call(string $scimGroupId, array $params): GroupResponse|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimGroupId);

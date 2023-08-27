@@ -17,14 +17,12 @@ final readonly class UnsuspendUser
 {
     public const OPERATION_ID    = 'enterprise-admin/unsuspend-user';
     public const OPERATION_MATCH = 'DELETE /users/{username}/suspended';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/users/{username}/suspended';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $username, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UnsuspendUser($this->requestSchemaValidator, $username);

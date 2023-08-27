@@ -20,14 +20,12 @@ final readonly class GetProvisioningInformationForEnterpriseUser
 {
     public const OPERATION_ID    = 'enterprise-admin/get-provisioning-information-for-enterprise-user';
     public const OPERATION_MATCH = 'GET /scim/v2/Users/{scim_user_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/Users/{scim_user_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator)
     {
     }
 
-    /** @return (Schema\UserResponse | array{code: int}) */
+    /** @return Schema\UserResponse|array{code:int} */
     public function call(string $scimUserId): UserResponse|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->responseSchemaValidator, $this->hydrator, $scimUserId);

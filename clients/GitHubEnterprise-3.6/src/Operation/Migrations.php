@@ -4,165 +4,109 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Operators;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterprise\Schema\Migration;
 
 final class Migrations
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Operators $operators)
     {
     }
 
-    public function listForOrg(string $org, array $exclude, int $perPage, int $page): Schema\Migration
+    /** @return iterable<Schema\Migration> */
+    public function listForOrg(string $org, array $exclude, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListForOrg::class] = new Operator\Migrations\ListForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations());
-        }
-
-        return $this->operator[Operator\Migrations\ListForOrg::class]->call($org, $exclude, $perPage, $page);
+        return $this->operators->migrations👷ListForOrg()->call($org, $exclude, $perPage, $page);
     }
 
-    public function listForOrgListing(string $org, array $exclude, int $perPage, int $page): Schema\Migration
+    /** @return iterable<Schema\Migration> */
+    public function listForOrgListing(string $org, array $exclude, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListForOrgListing::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListForOrgListing::class] = new Operator\Migrations\ListForOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations());
-        }
-
-        return $this->operator[Operator\Migrations\ListForOrgListing::class]->call($org, $exclude, $perPage, $page);
+        return $this->operators->migrations👷ListForOrgListing()->call($org, $exclude, $perPage, $page);
     }
 
-    public function startForOrg(string $org, array $params): Schema\Migration
+    /** @return */
+    public function startForOrg(string $org, array $params): Migration|array
     {
-        if (array_key_exists(Operator\Migrations\StartForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\StartForOrg::class] = new Operator\Migrations\StartForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations());
-        }
-
-        return $this->operator[Operator\Migrations\StartForOrg::class]->call($org, $params);
+        return $this->operators->migrations👷StartForOrg()->call($org, $params);
     }
 
-    public function getStatusForOrg(string $org, int $migrationId, array $exclude): Schema\Migration
+    /** @return */
+    public function getStatusForOrg(string $org, int $migrationId, array $exclude): Migration|array
     {
-        if (array_key_exists(Operator\Migrations\GetStatusForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\GetStatusForOrg::class] = new Operator\Migrations\GetStatusForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId());
-        }
-
-        return $this->operator[Operator\Migrations\GetStatusForOrg::class]->call($org, $migrationId, $exclude);
+        return $this->operators->migrations👷GetStatusForOrg()->call($org, $migrationId, $exclude);
     }
 
-    public function downloadArchiveForOrg(string $org, int $migrationId): ResponseInterface
+    /** @return array{code:int} */
+    public function downloadArchiveForOrg(string $org, int $migrationId): array
     {
-        if (array_key_exists(Operator\Migrations\DownloadArchiveForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\DownloadArchiveForOrg::class] = new Operator\Migrations\DownloadArchiveForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive());
-        }
-
-        return $this->operator[Operator\Migrations\DownloadArchiveForOrg::class]->call($org, $migrationId);
+        return $this->operators->migrations👷DownloadArchiveForOrg()->call($org, $migrationId);
     }
 
-    public function downloadArchiveForOrgStreaming(string $org, int $migrationId): ResponseInterface
+    /** @return Observable<string> */
+    public function downloadArchiveForOrgStreaming(string $org, int $migrationId): iterable
     {
-        if (array_key_exists(Operator\Migrations\DownloadArchiveForOrgStreaming::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\DownloadArchiveForOrgStreaming::class] = new Operator\Migrations\DownloadArchiveForOrgStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive());
-        }
-
-        return $this->operator[Operator\Migrations\DownloadArchiveForOrgStreaming::class]->call($org, $migrationId);
+        return $this->operators->migrations👷DownloadArchiveForOrgStreaming()->call($org, $migrationId);
     }
 
-    public function deleteArchiveForOrg(string $org, int $migrationId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteArchiveForOrg(string $org, int $migrationId): array
     {
-        if (array_key_exists(Operator\Migrations\DeleteArchiveForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\DeleteArchiveForOrg::class] = new Operator\Migrations\DeleteArchiveForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Archive());
-        }
-
-        return $this->operator[Operator\Migrations\DeleteArchiveForOrg::class]->call($org, $migrationId);
+        return $this->operators->migrations👷DeleteArchiveForOrg()->call($org, $migrationId);
     }
 
-    public function unlockRepoForOrg(string $org, int $migrationId, string $repoName): ResponseInterface
+    /** @return array{code:int} */
+    public function unlockRepoForOrg(string $org, int $migrationId, string $repoName): array
     {
-        if (array_key_exists(Operator\Migrations\UnlockRepoForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\UnlockRepoForOrg::class] = new Operator\Migrations\UnlockRepoForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Repos🌀RepoName🌀Lock());
-        }
-
-        return $this->operator[Operator\Migrations\UnlockRepoForOrg::class]->call($org, $migrationId, $repoName);
+        return $this->operators->migrations👷UnlockRepoForOrg()->call($org, $migrationId, $repoName);
     }
 
-    public function listReposForOrg(string $org, int $migrationId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listReposForOrg(string $org, int $migrationId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListReposForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListReposForOrg::class] = new Operator\Migrations\ListReposForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Migrations\ListReposForOrg::class]->call($org, $migrationId, $perPage, $page);
+        return $this->operators->migrations👷ListReposForOrg()->call($org, $migrationId, $perPage, $page);
     }
 
-    public function listReposForOrgListing(string $org, int $migrationId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listReposForOrgListing(string $org, int $migrationId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListReposForOrgListing::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListReposForOrgListing::class] = new Operator\Migrations\ListReposForOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Migrations🌀MigrationId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Migrations\ListReposForOrgListing::class]->call($org, $migrationId, $perPage, $page);
+        return $this->operators->migrations👷ListReposForOrgListing()->call($org, $migrationId, $perPage, $page);
     }
 
-    public function listForAuthenticatedUser(int $perPage, int $page): Schema\Migration
+    /** @return iterable<Schema\Migration>|array{code:int} */
+    public function listForAuthenticatedUser(int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListForAuthenticatedUser::class] = new Operator\Migrations\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations());
-        }
-
-        return $this->operator[Operator\Migrations\ListForAuthenticatedUser::class]->call($perPage, $page);
+        return $this->operators->migrations👷ListForAuthenticatedUser()->call($perPage, $page);
     }
 
-    public function listForAuthenticatedUserListing(int $perPage, int $page): Schema\Migration
+    /** @return iterable<Schema\Migration>|array{code:int} */
+    public function listForAuthenticatedUserListing(int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListForAuthenticatedUserListing::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListForAuthenticatedUserListing::class] = new Operator\Migrations\ListForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations());
-        }
-
-        return $this->operator[Operator\Migrations\ListForAuthenticatedUserListing::class]->call($perPage, $page);
+        return $this->operators->migrations👷ListForAuthenticatedUserListing()->call($perPage, $page);
     }
 
-    public function startForAuthenticatedUser(array $params): Schema\Migration
+    /** @return Schema\Migration|array{code:int} */
+    public function startForAuthenticatedUser(array $params): Migration|array
     {
-        if (array_key_exists(Operator\Migrations\StartForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\StartForAuthenticatedUser::class] = new Operator\Migrations\StartForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations());
-        }
-
-        return $this->operator[Operator\Migrations\StartForAuthenticatedUser::class]->call($params);
+        return $this->operators->migrations👷StartForAuthenticatedUser()->call($params);
     }
 
-    public function getArchiveForAuthenticatedUser(int $migrationId): ResponseInterface
+    /** @return array{code:int} */
+    public function getArchiveForAuthenticatedUser(int $migrationId): array
     {
-        if (array_key_exists(Operator\Migrations\GetArchiveForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\GetArchiveForAuthenticatedUser::class] = new Operator\Migrations\GetArchiveForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Archive());
-        }
-
-        return $this->operator[Operator\Migrations\GetArchiveForAuthenticatedUser::class]->call($migrationId);
+        return $this->operators->migrations👷GetArchiveForAuthenticatedUser()->call($migrationId);
     }
 
-    public function listReposForAuthenticatedUser(int $migrationId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listReposForAuthenticatedUser(int $migrationId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListReposForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListReposForAuthenticatedUser::class] = new Operator\Migrations\ListReposForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Migrations\ListReposForAuthenticatedUser::class]->call($migrationId, $perPage, $page);
+        return $this->operators->migrations👷ListReposForAuthenticatedUser()->call($migrationId, $perPage, $page);
     }
 
-    public function listReposForAuthenticatedUserListing(int $migrationId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listReposForAuthenticatedUserListing(int $migrationId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Migrations\ListReposForAuthenticatedUserListing::class, $this->operator) === false) {
-            $this->operator[Operator\Migrations\ListReposForAuthenticatedUserListing::class] = new Operator\Migrations\ListReposForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations🌀MigrationId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Migrations\ListReposForAuthenticatedUserListing::class]->call($migrationId, $perPage, $page);
+        return $this->operators->migrations👷ListReposForAuthenticatedUserListing()->call($migrationId, $perPage, $page);
     }
 }

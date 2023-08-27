@@ -19,8 +19,6 @@ final readonly class UpdateLdapMappingForUser
 {
     public const OPERATION_ID    = 'enterprise-admin/update-ldap-mapping-for-user';
     public const OPERATION_MATCH = 'PATCH /admin/ldap/users/{username}/mapping';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/ldap/users/{username}/mapping';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Ldap\Users\Username\Mapping $hydrator)
     {
