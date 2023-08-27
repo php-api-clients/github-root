@@ -19,8 +19,6 @@ final readonly class GetRepoStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-repo-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/repos';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/repos';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Repos $hydrator)
     {

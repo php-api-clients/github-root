@@ -19,8 +19,6 @@ final readonly class CheckAuthorization
 {
     public const OPERATION_ID    = 'apps/check-authorization';
     public const OPERATION_MATCH = 'GET /applications/{client_id}/tokens/{access_token}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/applications/{client_id}/tokens/{access_token}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Applications\ClientId\Tokens\AccessToken $hydrator)
     {

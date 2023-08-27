@@ -19,8 +19,6 @@ final readonly class RemovePreReceiveHookEnforcementForOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/remove-pre-receive-hook-enforcement-for-org';
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator)
     {

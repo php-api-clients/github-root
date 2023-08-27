@@ -66,7 +66,7 @@ final class ListPreReceiveHooks
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\PreReceiveHook::class, $body);
+                                return $this->hydrators->hydrateObject(Schema\PreReceiveHook::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

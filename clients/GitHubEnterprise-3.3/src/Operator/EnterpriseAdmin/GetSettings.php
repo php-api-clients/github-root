@@ -19,8 +19,6 @@ final readonly class GetSettings
 {
     public const OPERATION_ID    = 'enterprise-admin/get-settings';
     public const OPERATION_MATCH = 'GET /setup/api/settings';
-    private const METHOD         = 'GET';
-    private const PATH           = '/setup/api/settings';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Setup\Api\Settings $hydrator)
     {

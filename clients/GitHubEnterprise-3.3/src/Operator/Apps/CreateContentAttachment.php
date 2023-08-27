@@ -20,14 +20,12 @@ final readonly class CreateContentAttachment
 {
     public const OPERATION_ID    = 'apps/create-content-attachment';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/content_references/{content_reference_id}/attachments';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/content_references/{content_reference_id}/attachments';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\ContentReferences\ContentReferenceId\Attachments $hydrator)
     {
     }
 
-    /** @return (Schema\ContentReferenceAttachment | array{code: int}) */
+    /** @return Schema\ContentReferenceAttachment|array{code:int} */
     public function call(string $owner, string $repo, int $contentReferenceId, array $params): ContentReferenceAttachment|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\CreateContentAttachment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $contentReferenceId);
