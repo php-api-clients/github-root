@@ -16,14 +16,12 @@ final readonly class AddSelfHostedRunnerToGroupForOrg
 {
     public const OPERATION_ID    = 'actions/add-self-hosted-runner-to-group-for-org';
     public const OPERATION_MATCH = 'PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $org, int $runnerGroupId, int $runnerId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\AddSelfHostedRunnerToGroupForOrg($org, $runnerGroupId, $runnerId);

@@ -4,27 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\List;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Client\GitHubEnterprise\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use InvalidArgumentException;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
 
 final class Six
 {
-    private array $router = [];
-
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private Routers $routers)
     {
     }
 
-    /** @return Observable<Schema\MinimalRepository>|Observable<Schema\TeamDiscussion>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\Team>|(Observable<Schema\CodeScanningAlertItems>|array{code: int})|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok>|(Observable<Schema\SecretScanningAlert>|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\Event> */
+    /** @return iterable<Schema\MinimalRepository>|iterable<Schema\TeamDiscussion>|iterable<Schema\SimpleUser>|iterable<Schema\TeamProject>|iterable<Schema\Team>|iterable<Schema\CodeScanningAlertItems>|array{code:int}|iterable<Schema\CodeScanningAnalysis>|iterable<Schema\IssueComment>|iterable<Schema\IssueEvent>|iterable<Schema\PageBuild>|iterable<Schema\PullRequestReviewComment>|iterable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok>|iterable<Schema\SecretScanningAlert>|iterable<Schema\TeamDiscussionComment>|iterable<Schema\Reaction>|iterable<Schema\Event> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
-        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
@@ -32,12 +24,7 @@ final class Six
                         if ($pathChunks[4] === '{migration_id}') {
                             if ($pathChunks[5] === 'repositories') {
                                 if ($call === 'LIST /orgs/{org}/migrations/{migration_id}/repositories') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Migrations::class, $this->router) === false) {
-                                        $this->router[Router\List\Migrations::class] = new Router\List\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Migrations::class]->ListReposForOrgListing($params);
+                                    return $this->routers->router🔀List🔀Migrations()->listReposForOrgListing($params);
                                 }
                             }
                         }
@@ -45,48 +32,23 @@ final class Six
                         if ($pathChunks[4] === '{team_slug}') {
                             if ($pathChunks[5] === 'discussions') {
                                 if ($call === 'LIST /orgs/{org}/teams/{team_slug}/discussions') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Teams::class, $this->router) === false) {
-                                        $this->router[Router\List\Teams::class] = new Router\List\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Teams::class]->ListDiscussionsInOrgListing($params);
+                                    return $this->routers->router🔀List🔀Teams()->listDiscussionsInOrgListing($params);
                                 }
                             } elseif ($pathChunks[5] === 'members') {
                                 if ($call === 'LIST /orgs/{org}/teams/{team_slug}/members') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Teams::class, $this->router) === false) {
-                                        $this->router[Router\List\Teams::class] = new Router\List\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Teams::class]->ListMembersInOrgListing($params);
+                                    return $this->routers->router🔀List🔀Teams()->listMembersInOrgListing($params);
                                 }
                             } elseif ($pathChunks[5] === 'projects') {
                                 if ($call === 'LIST /orgs/{org}/teams/{team_slug}/projects') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Teams::class, $this->router) === false) {
-                                        $this->router[Router\List\Teams::class] = new Router\List\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Teams::class]->ListProjectsInOrgListing($params);
+                                    return $this->routers->router🔀List🔀Teams()->listProjectsInOrgListing($params);
                                 }
                             } elseif ($pathChunks[5] === 'repos') {
                                 if ($call === 'LIST /orgs/{org}/teams/{team_slug}/repos') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Teams::class, $this->router) === false) {
-                                        $this->router[Router\List\Teams::class] = new Router\List\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Teams::class]->ListReposInOrgListing($params);
+                                    return $this->routers->router🔀List🔀Teams()->listReposInOrgListing($params);
                                 }
                             } elseif ($pathChunks[5] === 'teams') {
                                 if ($call === 'LIST /orgs/{org}/teams/{team_slug}/teams') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Teams::class, $this->router) === false) {
-                                        $this->router[Router\List\Teams::class] = new Router\List\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Teams::class]->ListChildInOrgListing($params);
+                                    return $this->routers->router🔀List🔀Teams()->listChildInOrgListing($params);
                                 }
                             }
                         }
@@ -98,85 +60,45 @@ final class Six
                         if ($pathChunks[4] === 'code-scanning') {
                             if ($pathChunks[5] === 'alerts') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/code-scanning/alerts') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\CodeScanning::class, $this->router) === false) {
-                                        $this->router[Router\List\CodeScanning::class] = new Router\List\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\CodeScanning::class]->ListAlertsForRepoListing($params);
+                                    return $this->routers->router🔀List🔀CodeScanning()->listAlertsForRepoListing($params);
                                 }
                             } elseif ($pathChunks[5] === 'analyses') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/code-scanning/analyses') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\CodeScanning::class, $this->router) === false) {
-                                        $this->router[Router\List\CodeScanning::class] = new Router\List\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\CodeScanning::class]->ListRecentAnalysesListing($params);
+                                    return $this->routers->router🔀List🔀CodeScanning()->listRecentAnalysesListing($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'issues') {
                             if ($pathChunks[5] === 'comments') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/issues/comments') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Issues::class, $this->router) === false) {
-                                        $this->router[Router\List\Issues::class] = new Router\List\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Issues::class]->ListCommentsForRepoListing($params);
+                                    return $this->routers->router🔀List🔀Issues()->listCommentsForRepoListing($params);
                                 }
                             } elseif ($pathChunks[5] === 'events') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/issues/events') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Issues::class, $this->router) === false) {
-                                        $this->router[Router\List\Issues::class] = new Router\List\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Issues::class]->ListEventsForRepoListing($params);
+                                    return $this->routers->router🔀List🔀Issues()->listEventsForRepoListing($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'pages') {
                             if ($pathChunks[5] === 'builds') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/pages/builds') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Repos::class, $this->router) === false) {
-                                        $this->router[Router\List\Repos::class] = new Router\List\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Repos::class]->ListPagesBuildsListing($params);
+                                    return $this->routers->router🔀List🔀Repos()->listPagesBuildsListing($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'pulls') {
                             if ($pathChunks[5] === 'comments') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/pulls/comments') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Pulls::class, $this->router) === false) {
-                                        $this->router[Router\List\Pulls::class] = new Router\List\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Pulls::class]->ListReviewCommentsForRepoListing($params);
+                                    return $this->routers->router🔀List🔀Pulls()->listReviewCommentsForRepoListing($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'replicas') {
                             if ($pathChunks[5] === 'caches') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/replicas/caches') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Repos::class, $this->router) === false) {
-                                        $this->router[Router\List\Repos::class] = new Router\List\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Repos::class]->ListCacheInfoListing($params);
+                                    return $this->routers->router🔀List🔀Repos()->listCacheInfoListing($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'secret-scanning') {
                             if ($pathChunks[5] === 'alerts') {
                                 if ($call === 'LIST /repos/{owner}/{repo}/secret-scanning/alerts') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\SecretScanning::class, $this->router) === false) {
-                                        $this->router[Router\List\SecretScanning::class] = new Router\List\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\SecretScanning::class]->ListAlertsForRepoListing($params);
+                                    return $this->routers->router🔀List🔀SecretScanning()->listAlertsForRepoListing($params);
                                 }
                             }
                         }
@@ -188,21 +110,11 @@ final class Six
                         if ($pathChunks[4] === '{discussion_number}') {
                             if ($pathChunks[5] === 'comments') {
                                 if ($call === 'LIST /teams/{team_id}/discussions/{discussion_number}/comments') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Teams::class, $this->router) === false) {
-                                        $this->router[Router\List\Teams::class] = new Router\List\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Teams::class]->ListDiscussionCommentsLegacyListing($params);
+                                    return $this->routers->router🔀List🔀Teams()->listDiscussionCommentsLegacyListing($params);
                                 }
                             } elseif ($pathChunks[5] === 'reactions') {
                                 if ($call === 'LIST /teams/{team_id}/discussions/{discussion_number}/reactions') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Reactions::class, $this->router) === false) {
-                                        $this->router[Router\List\Reactions::class] = new Router\List\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Reactions::class]->ListForTeamDiscussionLegacyListing($params);
+                                    return $this->routers->router🔀List🔀Reactions()->listForTeamDiscussionLegacyListing($params);
                                 }
                             }
                         }
@@ -214,12 +126,7 @@ final class Six
                         if ($pathChunks[4] === 'orgs') {
                             if ($pathChunks[5] === '{org}') {
                                 if ($call === 'LIST /users/{username}/events/orgs/{org}') {
-                                    $matched = true;
-                                    if (array_key_exists(Router\List\Activity::class, $this->router) === false) {
-                                        $this->router[Router\List\Activity::class] = new Router\List\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                    }
-
-                                    return $this->router[Router\List\Activity::class]->ListOrgEventsForAuthenticatedUserListing($params);
+                                    return $this->routers->router🔀List🔀Activity()->listOrgEventsForAuthenticatedUserListing($params);
                                 }
                             }
                         }
@@ -228,8 +135,6 @@ final class Six
             }
         }
 
-        if ($matched === false) {
-            throw new InvalidArgumentException();
-        }
+        throw new InvalidArgumentException();
     }
 }

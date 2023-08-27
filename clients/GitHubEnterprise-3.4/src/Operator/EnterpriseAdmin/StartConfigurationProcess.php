@@ -16,14 +16,12 @@ final readonly class StartConfigurationProcess
 {
     public const OPERATION_ID    = 'enterprise-admin/start-configuration-process';
     public const OPERATION_MATCH = 'POST /setup/api/configure';
-    private const METHOD         = 'POST';
-    private const PATH           = '/setup/api/configure';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\StartConfigurationProcess();
