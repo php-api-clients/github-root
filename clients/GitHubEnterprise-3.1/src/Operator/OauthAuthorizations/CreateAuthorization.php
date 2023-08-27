@@ -20,14 +20,12 @@ final readonly class CreateAuthorization
 {
     public const OPERATION_ID    = 'oauth-authorizations/create-authorization';
     public const OPERATION_MATCH = 'POST /authorizations';
-    private const METHOD         = 'POST';
-    private const PATH           = '/authorizations';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations $hydrator)
     {
     }
 
-    /** @return (Schema\Authorization | array{code: int}) */
+    /** @return Schema\Authorization|array{code:int} */
     public function call(array $params): Authorization|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\CreateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

@@ -4,29 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Operators;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok;
 
 final class Emojis
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Operators $operators)
     {
     }
 
-    public function get(): Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok|array{code:int} */
+    public function get(): Ok|array
     {
-        if (array_key_exists(Operator\Emojis\Get::class, $this->operator) === false) {
-            $this->operator[Operator\Emojis\Get::class] = new Operator\Emojis\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Emojis());
-        }
-
-        return $this->operator[Operator\Emojis\Get::class]->call();
+        return $this->operators->emojis👷Get()->call();
     }
 }

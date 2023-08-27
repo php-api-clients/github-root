@@ -19,14 +19,12 @@ final readonly class ListMatchingRefsListing
 {
     public const OPERATION_ID    = 'git/list-matching-refs';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/git/matching-refs/{ref}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/git/matching-refs/{ref}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Git\MatchingRefs\Ref $hydrator)
     {
     }
 
-    /** @return Observable<Schema\GitRef> */
+    /** @return iterable<Schema\GitRef> */
     public function call(string $owner, string $repo, string $ref, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Git\ListMatchingRefsListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref, $perPage, $page);

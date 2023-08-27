@@ -17,14 +17,12 @@ final readonly class SetSelfHostedRunnersInGroupForOrg
 {
     public const OPERATION_ID    = 'actions/set-self-hosted-runners-in-group-for-org';
     public const OPERATION_MATCH = 'PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $org, int $runnerGroupId, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\SetSelfHostedRunnersInGroupForOrg($this->requestSchemaValidator, $org, $runnerGroupId);

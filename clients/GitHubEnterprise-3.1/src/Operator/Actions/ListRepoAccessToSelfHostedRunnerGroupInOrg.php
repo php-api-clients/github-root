@@ -19,8 +19,6 @@ final readonly class ListRepoAccessToSelfHostedRunnerGroupInOrg
 {
     public const OPERATION_ID    = 'actions/list-repo-access-to-self-hosted-runner-group-in-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Actions\RunnerGroups\RunnerGroupId\Repositories $hydrator)
     {

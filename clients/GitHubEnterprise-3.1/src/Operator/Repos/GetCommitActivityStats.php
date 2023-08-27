@@ -20,14 +20,12 @@ final readonly class GetCommitActivityStats
 {
     public const OPERATION_ID    = 'repos/get-commit-activity-stats';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/stats/commit_activity';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/stats/commit_activity';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Stats\CommitActivity $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\CommitActivity> | Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted | array{code: int}) */
+    /** @return iterable<Schema\CommitActivity>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code:int} */
     public function call(string $owner, string $repo): iterable|Accepted
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\GetCommitActivityStats($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

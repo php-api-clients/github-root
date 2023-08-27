@@ -18,14 +18,12 @@ final readonly class DeleteLegacy
 {
     public const OPERATION_ID    = 'reactions/delete-legacy';
     public const OPERATION_MATCH = 'DELETE /reactions/{reaction_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/reactions/{reaction_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Reactions\ReactionId $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $reactionId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Reactions\DeleteLegacy($this->responseSchemaValidator, $this->hydrator, $reactionId);
