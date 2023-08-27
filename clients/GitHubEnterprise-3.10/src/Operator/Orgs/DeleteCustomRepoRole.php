@@ -16,14 +16,12 @@ final readonly class DeleteCustomRepoRole
 {
     public const OPERATION_ID    = 'orgs/delete-custom-repo-role';
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/custom-repository-roles/{role_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/orgs/{org}/custom-repository-roles/{role_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $org, int $roleId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\DeleteCustomRepoRole($org, $roleId);

@@ -19,14 +19,12 @@ final readonly class ListPreReceiveHooksForRepo
 {
     public const OPERATION_ID    = 'enterprise-admin/list-pre-receive-hooks-for-repo';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pre-receive-hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/pre-receive-hooks';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks $hydrator)
     {
     }
 
-    /** @return Observable<Schema\RepositoryPreReceiveHook> */
+    /** @return iterable<Schema\RepositoryPreReceiveHook> */
     public function call(string $owner, string $repo, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPreReceiveHooksForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $perPage, $page, $direction, $sort);

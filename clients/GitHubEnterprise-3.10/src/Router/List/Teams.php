@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\List;
 
-use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -19,17 +17,13 @@ use function count;
 
 final class Teams
 {
-    /** @var array<class-string, ObjectMapper> */
-    private array $hydrator = [];
-
     public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return (Observable<Schema\TeamFull> | array{code: int}) */
+    /** @return iterable<Schema\TeamFull>|array{code:int} */
     public function listForAuthenticatedUserListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -43,14 +37,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\User\Teams::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\User\Teams::class] = $this->hydrators->getObjectMapperOperation🌀User🌀Teams();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\User\Teams::class]);
-            $items    = $operator->call($arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Teams());
+            $items    = [...$operator->call($arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -58,10 +48,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<Schema\Team> */
     public function listListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -81,14 +70,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams::class]);
-            $items    = $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams());
+            $items    = [...$operator->call($arguments['org'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -96,10 +81,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return iterable<Schema\TeamDiscussion> */
     public function listDiscussionsLegacyListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: team_id');
@@ -125,14 +109,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Discussions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListDiscussionsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions::class]);
-            $items    = $operator->call($arguments['team_id'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListDiscussionsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions());
+            $items    = [...$operator->call($arguments['team_id'], $arguments['direction'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -140,10 +120,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<Schema\SimpleUser> */
     public function listMembersLegacyListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: team_id');
@@ -169,14 +148,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Members::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\TeamId\Members::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Members();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListMembersLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Members::class]);
-            $items    = $operator->call($arguments['team_id'], $arguments['role'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListMembersLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Members());
+            $items    = [...$operator->call($arguments['team_id'], $arguments['role'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -184,10 +159,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return iterable<Schema\TeamProject> */
     public function listProjectsLegacyListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: team_id');
@@ -207,14 +181,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Projects::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListProjectsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Projects::class]);
-            $items    = $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListProjectsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Projects());
+            $items    = [...$operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -222,10 +192,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<Schema\MinimalRepository> */
     public function listReposLegacyListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: team_id');
@@ -245,14 +214,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Repos::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\TeamId\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListReposLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Repos::class]);
-            $items    = $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListReposLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Repos());
+            $items    = [...$operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -260,10 +225,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<Schema\Team> */
     public function listChildLegacyListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: team_id');
@@ -283,14 +247,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Teams::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\TeamId\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Teams();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListChildLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Teams::class]);
-            $items    = $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListChildLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Teams());
+            $items    = [...$operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -298,10 +258,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return iterable<Schema\TeamDiscussion> */
     public function listDiscussionsInOrgListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -339,14 +298,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListDiscussionsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions::class]);
-            $items    = $operator->call($arguments['org'], $arguments['team_slug'], $arguments['pinned'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListDiscussionsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions());
+            $items    = [...$operator->call($arguments['org'], $arguments['team_slug'], $arguments['pinned'], $arguments['direction'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -354,10 +309,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<Schema\SimpleUser> */
     public function listMembersInOrgListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -389,14 +343,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Members::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Members::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Members();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListMembersInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Members::class]);
-            $items    = $operator->call($arguments['org'], $arguments['team_slug'], $arguments['role'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListMembersInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Members());
+            $items    = [...$operator->call($arguments['org'], $arguments['team_slug'], $arguments['role'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -404,10 +354,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return iterable<Schema\TeamProject> */
     public function listProjectsInOrgListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -433,14 +382,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListProjectsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Projects::class]);
-            $items    = $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListProjectsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Projects());
+            $items    = [...$operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -448,10 +393,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<Schema\MinimalRepository> */
     public function listReposInOrgListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -477,14 +421,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListReposInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Repos::class]);
-            $items    = $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListReposInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Repos());
+            $items    = [...$operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -492,10 +432,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<Schema\Team> */
     public function listChildInOrgListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -521,14 +460,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Teams::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Teams::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Teams();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListChildInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Teams::class]);
-            $items    = $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListChildInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Teams());
+            $items    = [...$operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -536,10 +471,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return iterable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsLegacyListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: team_id');
@@ -571,14 +505,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListDiscussionCommentsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber\Comments::class]);
-            $items    = $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListDiscussionCommentsLegacyListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀Discussions🌀DiscussionNumber🌀Comments());
+            $items    = [...$operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -586,10 +516,9 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return iterable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsInOrgListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: org');
@@ -627,14 +556,10 @@ final class Teams
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments::class] = $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Teams\ListDiscussionCommentsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Discussions\DiscussionNumber\Comments::class]);
-            $items    = $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Teams\ListDiscussionCommentsInOrgListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Teams🌀TeamSlug🌀Discussions🌀DiscussionNumber🌀Comments());
+            $items    = [...$operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['direction'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 

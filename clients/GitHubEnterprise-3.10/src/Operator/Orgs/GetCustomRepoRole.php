@@ -19,8 +19,6 @@ final readonly class GetCustomRepoRole
 {
     public const OPERATION_ID    = 'orgs/get-custom-repo-role';
     public const OPERATION_MATCH = 'GET /orgs/{org}/custom-repository-roles/{role_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/custom-repository-roles/{role_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\CustomRepositoryRoles\RoleId $hydrator)
     {

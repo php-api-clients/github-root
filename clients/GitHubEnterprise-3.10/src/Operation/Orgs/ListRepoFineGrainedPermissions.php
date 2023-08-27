@@ -57,7 +57,7 @@ final class ListRepoFineGrainedPermissions
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RepositoryFineGrainedPermission::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\RepositoryFineGrainedPermission::class, $body);
+                                return $this->hydrators->hydrateObject(Schema\RepositoryFineGrainedPermission::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

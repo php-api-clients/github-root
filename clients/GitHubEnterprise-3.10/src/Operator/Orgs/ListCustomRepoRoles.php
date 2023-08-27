@@ -19,8 +19,6 @@ final readonly class ListCustomRepoRoles
 {
     public const OPERATION_ID    = 'orgs/list-custom-repo-roles';
     public const OPERATION_MATCH = 'GET /orgs/{org}/custom-repository-roles';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/custom-repository-roles';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\CustomRepositoryRoles $hydrator)
     {

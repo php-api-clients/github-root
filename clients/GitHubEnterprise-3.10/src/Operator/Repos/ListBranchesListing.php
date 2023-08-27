@@ -19,14 +19,12 @@ final readonly class ListBranchesListing
 {
     public const OPERATION_ID    = 'repos/list-branches';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/branches';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/branches';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Branches $hydrator)
     {
     }
 
-    /** @return Observable<Schema\ShortBranch> */
+    /** @return iterable<Schema\ShortBranch> */
     public function call(string $owner, string $repo, bool $protected, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\ListBranchesListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $protected, $perPage, $page);

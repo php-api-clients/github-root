@@ -19,14 +19,12 @@ final readonly class SetManageMaintenance
 {
     public const OPERATION_ID    = 'enterprise-admin/set-manage-maintenance';
     public const OPERATION_MATCH = 'POST /manage/v1/maintenance';
-    private const METHOD         = 'POST';
-    private const PATH           = '/manage/v1/maintenance';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Manage\V1\Maintenance $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\GhesSetMaintenanceResponse> | array{code: int}) */
+    /** @return iterable<Schema\GhesSetMaintenanceResponse>|array{code:int} */
     public function call(array $params): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SetManageMaintenance($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

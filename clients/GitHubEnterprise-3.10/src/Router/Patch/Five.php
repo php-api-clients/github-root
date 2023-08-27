@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\Patch;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\GistComment;
 use ApiClients\Client\GitHubEnterprise\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
@@ -16,37 +15,24 @@ use ApiClients\Client\GitHubEnterprise\Schema\ProjectCard;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamFull;
 use ApiClients\Client\GitHubEnterprise\Schema\UserResponse;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
 
 final class Five
 {
-    private array $router = [];
-
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private Routers $routers)
     {
     }
 
-    /** @return |(Schema\ProjectCard|array{code: int})|(Schema\GroupResponse|(Schema\UserResponse */
+    /** @return |Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse */
     public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrgPreReceiveHook|TeamFull|ProjectCard|GroupResponse|UserResponse|TeamDiscussion|OrgMembership|array
     {
-        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {
                 if ($pathChunks[2] === '{gist_id}') {
                     if ($pathChunks[3] === 'comments') {
                         if ($pathChunks[4] === '{comment_id}') {
                             if ($call === 'PATCH /gists/{gist_id}/comments/{comment_id}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\Gists::class, $this->router) === false) {
-                                    $this->router[Router\Patch\Gists::class] = new Router\Patch\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\Gists::class]->UpdateComment($params);
+                                return $this->routers->router🔀Patch🔀Gists()->updateComment($params);
                             }
                         }
                     }
@@ -56,45 +42,25 @@ final class Five
                     if ($pathChunks[3] === 'custom-repository-roles') {
                         if ($pathChunks[4] === '{role_id}') {
                             if ($call === 'PATCH /orgs/{org}/custom-repository-roles/{role_id}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\Orgs::class, $this->router) === false) {
-                                    $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\Orgs::class]->UpdateCustomRepoRole($params);
+                                return $this->routers->router🔀Patch🔀Orgs()->updateCustomRepoRole($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'hooks') {
                         if ($pathChunks[4] === '{hook_id}') {
                             if ($call === 'PATCH /orgs/{org}/hooks/{hook_id}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\Orgs::class, $this->router) === false) {
-                                    $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\Orgs::class]->UpdateWebhook($params);
+                                return $this->routers->router🔀Patch🔀Orgs()->updateWebhook($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'pre-receive-hooks') {
                         if ($pathChunks[4] === '{pre_receive_hook_id}') {
                             if ($call === 'PATCH /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\EnterpriseAdmin::class, $this->router) === false) {
-                                    $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdatePreReceiveHookEnforcementForOrg($params);
+                                return $this->routers->router🔀Patch🔀EnterpriseAdmin()->updatePreReceiveHookEnforcementForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'teams') {
                         if ($pathChunks[4] === '{team_slug}') {
                             if ($call === 'PATCH /orgs/{org}/teams/{team_slug}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\Teams::class, $this->router) === false) {
-                                    $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\Teams::class]->UpdateInOrg($params);
+                                return $this->routers->router🔀Patch🔀Teams()->updateInOrg($params);
                             }
                         }
                     }
@@ -104,12 +70,7 @@ final class Five
                     if ($pathChunks[3] === 'cards') {
                         if ($pathChunks[4] === '{card_id}') {
                             if ($call === 'PATCH /projects/columns/cards/{card_id}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\Projects::class, $this->router) === false) {
-                                    $this->router[Router\Patch\Projects::class] = new Router\Patch\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\Projects::class]->UpdateCard($params);
+                                return $this->routers->router🔀Patch🔀Projects()->updateCard($params);
                             }
                         }
                     }
@@ -119,23 +80,13 @@ final class Five
                     if ($pathChunks[3] === 'Groups') {
                         if ($pathChunks[4] === '{scim_group_id}') {
                             if ($call === 'PATCH /scim/v2/Groups/{scim_group_id}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\EnterpriseAdmin::class, $this->router) === false) {
-                                    $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdateAttributeForEnterpriseGroup($params);
+                                return $this->routers->router🔀Patch🔀EnterpriseAdmin()->updateAttributeForEnterpriseGroup($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'Users') {
                         if ($pathChunks[4] === '{scim_user_id}') {
                             if ($call === 'PATCH /scim/v2/Users/{scim_user_id}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\EnterpriseAdmin::class, $this->router) === false) {
-                                    $this->router[Router\Patch\EnterpriseAdmin::class] = new Router\Patch\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\EnterpriseAdmin::class]->UpdateAttributeForEnterpriseUser($params);
+                                return $this->routers->router🔀Patch🔀EnterpriseAdmin()->updateAttributeForEnterpriseUser($params);
                             }
                         }
                     }
@@ -145,12 +96,7 @@ final class Five
                     if ($pathChunks[3] === 'discussions') {
                         if ($pathChunks[4] === '{discussion_number}') {
                             if ($call === 'PATCH /teams/{team_id}/discussions/{discussion_number}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\Teams::class, $this->router) === false) {
-                                    $this->router[Router\Patch\Teams::class] = new Router\Patch\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\Teams::class]->UpdateDiscussionLegacy($params);
+                                return $this->routers->router🔀Patch🔀Teams()->updateDiscussionLegacy($params);
                             }
                         }
                     }
@@ -160,12 +106,7 @@ final class Five
                     if ($pathChunks[3] === 'orgs') {
                         if ($pathChunks[4] === '{org}') {
                             if ($call === 'PATCH /user/memberships/orgs/{org}') {
-                                $matched = true;
-                                if (array_key_exists(Router\Patch\Orgs::class, $this->router) === false) {
-                                    $this->router[Router\Patch\Orgs::class] = new Router\Patch\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                }
-
-                                return $this->router[Router\Patch\Orgs::class]->UpdateMembershipForAuthenticatedUser($params);
+                                return $this->routers->router🔀Patch🔀Orgs()->updateMembershipForAuthenticatedUser($params);
                             }
                         }
                     }
@@ -173,8 +114,6 @@ final class Five
             }
         }
 
-        if ($matched === false) {
-            throw new InvalidArgumentException();
-        }
+        throw new InvalidArgumentException();
     }
 }
