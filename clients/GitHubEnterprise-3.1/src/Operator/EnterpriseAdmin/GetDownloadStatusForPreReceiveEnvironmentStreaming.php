@@ -19,8 +19,6 @@ final readonly class GetDownloadStatusForPreReceiveEnvironmentStreaming
 {
     public const OPERATION_ID    = 'enterprise-admin/get-download-status-for-pre-receive-environment';
     public const OPERATION_MATCH = 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest $hydrator)
     {

@@ -19,14 +19,12 @@ final readonly class AddAuthorizedSshKey
 {
     public const OPERATION_ID    = 'enterprise-admin/add-authorized-ssh-key';
     public const OPERATION_MATCH = 'POST /setup/api/settings/authorized-keys';
-    private const METHOD         = 'POST';
-    private const PATH           = '/setup/api/settings/authorized-keys';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys $hydrator)
     {
     }
 
-    /** @return Observable<Schema\SshKey> */
+    /** @return iterable<Schema\SshKey> */
     public function call(array $params): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\AddAuthorizedSshKey($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

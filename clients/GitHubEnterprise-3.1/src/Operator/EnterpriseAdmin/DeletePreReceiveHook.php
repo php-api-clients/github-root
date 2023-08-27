@@ -16,14 +16,12 @@ final readonly class DeletePreReceiveHook
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-pre-receive-hook';
     public const OPERATION_MATCH = 'DELETE /admin/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/pre-receive-hooks/{pre_receive_hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $preReceiveHookId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeletePreReceiveHook($preReceiveHookId);

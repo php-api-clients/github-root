@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 
-use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Issue;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -19,17 +17,13 @@ use function array_key_exists;
 
 final class Issues
 {
-    /** @var array<class-string, ObjectMapper> */
-    private array $hydrator = [];
-
     public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteComment(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -57,7 +51,6 @@ final class Issues
     /** @return */
     public function removeAssignees(array $params): Issue|array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -77,19 +70,14 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Assignees();
-        }
-
-        $operator = new Operator\Issues\RemoveAssignees($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Assignees::class]);
+        $operator = new Operator\Issues\RemoveAssignees($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Assignees());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function removeAllLabels(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -109,19 +97,14 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels();
-        }
-
-        $operator = new Operator\Issues\RemoveAllLabels($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels::class]);
+        $operator = new Operator\Issues\RemoveAllLabels($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function unlock(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -141,19 +124,14 @@ final class Issues
 
         $arguments['issue_number'] = $params['issue_number'];
         unset($params['issue_number']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Lock::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Lock::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Lock();
-        }
-
-        $operator = new Operator\Issues\Unlock($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Lock::class]);
+        $operator = new Operator\Issues\Unlock($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Lock());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteLabel(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -178,10 +156,9 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name']);
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function deleteMilestone(array $params): array
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -201,19 +178,14 @@ final class Issues
 
         $arguments['milestone_number'] = $params['milestone_number'];
         unset($params['milestone_number']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Milestones🌀MilestoneNumber();
-        }
-
-        $operator = new Operator\Issues\DeleteMilestone($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Milestones\MilestoneNumber::class]);
+        $operator = new Operator\Issues\DeleteMilestone($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Milestones🌀MilestoneNumber());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['milestone_number']);
     }
 
-    /** @return Observable<Schema\Label> */
+    /** @return iterable<Schema\Label> */
     public function removeLabel(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: owner');
@@ -239,11 +211,7 @@ final class Issues
 
         $arguments['name'] = $params['name'];
         unset($params['name']);
-        if (array_key_exists(Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name::class] = $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels🌀Name();
-        }
-
-        $operator = new Operator\Issues\RemoveLabel($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\Repos\Owner\Repo\Issues\IssueNumber\Labels\Name::class]);
+        $operator = new Operator\Issues\RemoveLabel($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Issues🌀IssueNumber🌀Labels🌀Name());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['name']);
     }

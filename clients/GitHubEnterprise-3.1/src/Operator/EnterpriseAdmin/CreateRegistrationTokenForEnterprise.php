@@ -19,8 +19,6 @@ final readonly class CreateRegistrationTokenForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/create-registration-token-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runners/registration-token';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/registration-token';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RegistrationToken $hydrator)
     {

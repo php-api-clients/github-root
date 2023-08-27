@@ -18,14 +18,12 @@ final readonly class DeleteAuthorization
 {
     public const OPERATION_ID    = 'oauth-authorizations/delete-authorization';
     public const OPERATION_MATCH = 'DELETE /authorizations/{authorization_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/authorizations/{authorization_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations\AuthorizationId $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $authorizationId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\DeleteAuthorization($this->responseSchemaValidator, $this->hydrator, $authorizationId);

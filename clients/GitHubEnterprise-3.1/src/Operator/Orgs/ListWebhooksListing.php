@@ -19,14 +19,12 @@ final readonly class ListWebhooksListing
 {
     public const OPERATION_ID    = 'orgs/list-webhooks';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/hooks';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Hooks $hydrator)
     {
     }
 
-    /** @return Observable<Schema\OrgHook> */
+    /** @return iterable<Schema\OrgHook> */
     public function call(string $org, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Orgs\ListWebhooksListing($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page);

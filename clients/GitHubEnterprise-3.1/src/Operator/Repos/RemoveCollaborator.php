@@ -16,14 +16,12 @@ final readonly class RemoveCollaborator
 {
     public const OPERATION_ID    = 'repos/remove-collaborator';
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/collaborators/{username}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/repos/{owner}/{repo}/collaborators/{username}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $owner, string $repo, string $username): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\RemoveCollaborator($owner, $repo, $username);

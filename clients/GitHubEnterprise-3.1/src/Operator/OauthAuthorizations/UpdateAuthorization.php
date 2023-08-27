@@ -19,8 +19,6 @@ final readonly class UpdateAuthorization
 {
     public const OPERATION_ID    = 'oauth-authorizations/update-authorization';
     public const OPERATION_MATCH = 'PATCH /authorizations/{authorization_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/authorizations/{authorization_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations\AuthorizationId $hydrator)
     {
