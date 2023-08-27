@@ -19,8 +19,6 @@ final readonly class UpdateUsernameForUser
 {
     public const OPERATION_ID    = 'enterprise-admin/update-username-for-user';
     public const OPERATION_MATCH = 'PATCH /admin/users/{username}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/users/{username}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Users\Username $hydrator)
     {

@@ -19,14 +19,12 @@ final readonly class GetManageMaintenance
 {
     public const OPERATION_ID    = 'enterprise-admin/get-manage-maintenance';
     public const OPERATION_MATCH = 'GET /manage/v1/maintenance';
-    private const METHOD         = 'GET';
-    private const PATH           = '/manage/v1/maintenance';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Manage\V1\Maintenance $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\GhesGetMaintenance> | array{code: int}) */
+    /** @return iterable<Schema\GhesGetMaintenance>|array{code:int} */
     public function call(string $uuid, string $clusterRoles): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetManageMaintenance($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

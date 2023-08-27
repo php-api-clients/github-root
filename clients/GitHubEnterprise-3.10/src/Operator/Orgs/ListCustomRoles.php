@@ -19,8 +19,6 @@ final readonly class ListCustomRoles
 {
     public const OPERATION_ID    = 'orgs/list-custom-roles';
     public const OPERATION_MATCH = 'GET /organizations/{organization_id}/custom_roles';
-    private const METHOD         = 'GET';
-    private const PATH           = '/organizations/{organization_id}/custom_roles';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Organizations\OrganizationId\CustomRoles $hydrator)
     {

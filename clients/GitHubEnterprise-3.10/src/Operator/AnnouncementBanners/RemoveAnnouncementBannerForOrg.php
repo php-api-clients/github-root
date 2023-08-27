@@ -16,14 +16,12 @@ final readonly class RemoveAnnouncementBannerForOrg
 {
     public const OPERATION_ID    = 'announcement-banners/remove-announcement-banner-for-org';
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/announcement';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/orgs/{org}/announcement';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $org): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\AnnouncementBanners\RemoveAnnouncementBannerForOrg($org);

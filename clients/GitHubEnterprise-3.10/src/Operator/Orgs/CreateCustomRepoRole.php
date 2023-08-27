@@ -19,8 +19,6 @@ final readonly class CreateCustomRepoRole
 {
     public const OPERATION_ID    = 'orgs/create-custom-repo-role';
     public const OPERATION_MATCH = 'POST /orgs/{org}/custom-repository-roles';
-    private const METHOD         = 'POST';
-    private const PATH           = '/orgs/{org}/custom-repository-roles';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\CustomRepositoryRoles $hydrator)
     {

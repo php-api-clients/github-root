@@ -20,14 +20,12 @@ final readonly class GetReplicationStatus
 {
     public const OPERATION_ID    = 'enterprise-admin/get-replication-status';
     public const OPERATION_MATCH = 'GET /manage/v1/replication/status';
-    private const METHOD         = 'GET';
-    private const PATH           = '/manage/v1/replication/status';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Manage\V1\Replication\Status $hydrator)
     {
     }
 
-    /** @return (Schema\GhesReplicationStatus | array{code: int}) */
+    /** @return Schema\GhesReplicationStatus|array{code:int} */
     public function call(string $uuid, string $clusterRoles): GhesReplicationStatus|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetReplicationStatus($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

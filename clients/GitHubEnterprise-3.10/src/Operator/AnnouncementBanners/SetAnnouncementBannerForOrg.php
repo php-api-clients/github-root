@@ -19,8 +19,6 @@ final readonly class SetAnnouncementBannerForOrg
 {
     public const OPERATION_ID    = 'announcement-banners/set-announcement-banner-for-org';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/announcement';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/announcement';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Announcement $hydrator)
     {

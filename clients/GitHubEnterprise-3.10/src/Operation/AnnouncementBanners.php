@@ -4,48 +4,30 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operator;
-use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Schema\AnnouncementBanner;
 
 final class AnnouncementBanners
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Operators $operators)
     {
     }
 
-    public function getAnnouncementBannerForOrg(string $org): Schema\AnnouncementBanner
+    /** @return */
+    public function getAnnouncementBannerForOrg(string $org): AnnouncementBanner|array
     {
-        if (array_key_exists(Operator\AnnouncementBanners\GetAnnouncementBannerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\AnnouncementBanners\GetAnnouncementBannerForOrg::class] = new Operator\AnnouncementBanners\GetAnnouncementBannerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Announcement());
-        }
-
-        return $this->operator[Operator\AnnouncementBanners\GetAnnouncementBannerForOrg::class]->call($org);
+        return $this->operators->announcementBanners👷GetAnnouncementBannerForOrg()->call($org);
     }
 
-    public function removeAnnouncementBannerForOrg(string $org): ResponseInterface
+    /** @return array{code:int} */
+    public function removeAnnouncementBannerForOrg(string $org): array
     {
-        if (array_key_exists(Operator\AnnouncementBanners\RemoveAnnouncementBannerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\AnnouncementBanners\RemoveAnnouncementBannerForOrg::class] = new Operator\AnnouncementBanners\RemoveAnnouncementBannerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Announcement());
-        }
-
-        return $this->operator[Operator\AnnouncementBanners\RemoveAnnouncementBannerForOrg::class]->call($org);
+        return $this->operators->announcementBanners👷RemoveAnnouncementBannerForOrg()->call($org);
     }
 
-    public function setAnnouncementBannerForOrg(string $org, array $params): Schema\AnnouncementBanner
+    /** @return */
+    public function setAnnouncementBannerForOrg(string $org, array $params): AnnouncementBanner|array
     {
-        if (array_key_exists(Operator\AnnouncementBanners\SetAnnouncementBannerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\AnnouncementBanners\SetAnnouncementBannerForOrg::class] = new Operator\AnnouncementBanners\SetAnnouncementBannerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Announcement());
-        }
-
-        return $this->operator[Operator\AnnouncementBanners\SetAnnouncementBannerForOrg::class]->call($org, $params);
+        return $this->operators->announcementBanners👷SetAnnouncementBannerForOrg()->call($org, $params);
     }
 }

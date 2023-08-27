@@ -4,615 +4,416 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Operators;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterprise\Schema\HookDelivery;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\Delete\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
+use ApiClients\Client\GitHubEnterprise\Schema\OrgMembership;
+use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 
 final class Orgs
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Operators $operators)
     {
     }
 
-    public function list(int $since, int $perPage): Schema\OrganizationSimple
+    /** @return iterable<Schema\OrganizationSimple>|array{code:int} */
+    public function list(int $since, int $perPage): iterable
     {
-        if (array_key_exists(Operator\Orgs\List_::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\List_::class] = new Operator\Orgs\List_($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Organizations());
-        }
-
-        return $this->operator[Operator\Orgs\List_::class]->call($since, $perPage);
+        return $this->operators->orgs👷List_()->call($since, $perPage);
     }
 
-    public function listCustomRoles(string $organizationId): Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok
+    /** @return */
+    public function listCustomRoles(string $organizationId): Ok|array
     {
-        if (array_key_exists(Operator\Orgs\ListCustomRoles::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListCustomRoles::class] = new Operator\Orgs\ListCustomRoles($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Organizations🌀OrganizationId🌀CustomRoles());
-        }
-
-        return $this->operator[Operator\Orgs\ListCustomRoles::class]->call($organizationId);
+        return $this->operators->orgs👷ListCustomRoles()->call($organizationId);
     }
 
-    public function get(string $org): Schema\OrganizationFull
+    /** @return */
+    public function get(string $org): OrganizationFull|array
     {
-        if (array_key_exists(Operator\Orgs\Get::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\Get::class] = new Operator\Orgs\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
-        }
-
-        return $this->operator[Operator\Orgs\Get::class]->call($org);
+        return $this->operators->orgs👷Get()->call($org);
     }
 
-    public function delete(string $org): Schema\Operations\Orgs\Delete\Response\ApplicationJson\Accepted
+    /** @return */
+    public function delete(string $org): Json|array
     {
-        if (array_key_exists(Operator\Orgs\Delete::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\Delete::class] = new Operator\Orgs\Delete($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
-        }
-
-        return $this->operator[Operator\Orgs\Delete::class]->call($org);
+        return $this->operators->orgs👷Delete()->call($org);
     }
 
-    public function update(string $org, array $params): Schema\OrganizationFull
+    /** @return Schema\OrganizationFull */
+    public function update(string $org, array $params): OrganizationFull|array
     {
-        if (array_key_exists(Operator\Orgs\Update::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\Update::class] = new Operator\Orgs\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
-        }
-
-        return $this->operator[Operator\Orgs\Update::class]->call($org, $params);
+        return $this->operators->orgs👷Update()->call($org, $params);
     }
 
-    public function getAuditLog(string $org, string $phrase, string $include, string $after, string $before, string $order, int $perPage, int $page): Schema\AuditLogEvent
+    /** @return iterable<Schema\AuditLogEvent> */
+    public function getAuditLog(string $org, string $phrase, string $include, string $after, string $before, string $order, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\GetAuditLog::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetAuditLog::class] = new Operator\Orgs\GetAuditLog($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀AuditLog());
-        }
-
-        return $this->operator[Operator\Orgs\GetAuditLog::class]->call($org, $phrase, $include, $after, $before, $order, $perPage, $page);
+        return $this->operators->orgs👷GetAuditLog()->call($org, $phrase, $include, $after, $before, $order, $perPage, $page);
     }
 
-    public function getAuditLogListing(string $org, string $phrase, string $include, string $after, string $before, string $order, int $perPage, int $page): Schema\AuditLogEvent
+    /** @return iterable<Schema\AuditLogEvent> */
+    public function getAuditLogListing(string $org, string $phrase, string $include, string $after, string $before, string $order, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\GetAuditLogListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetAuditLogListing::class] = new Operator\Orgs\GetAuditLogListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀AuditLog());
-        }
-
-        return $this->operator[Operator\Orgs\GetAuditLogListing::class]->call($org, $phrase, $include, $after, $before, $order, $perPage, $page);
+        return $this->operators->orgs👷GetAuditLogListing()->call($org, $phrase, $include, $after, $before, $order, $perPage, $page);
     }
 
-    public function listCustomRepoRoles(string $org): Schema\Operations\Orgs\ListCustomRepoRoles\Response\ApplicationJson\Ok
+    /** @return */
+    public function listCustomRepoRoles(string $org): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListCustomRepoRoles\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Orgs\ListCustomRepoRoles::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListCustomRepoRoles::class] = new Operator\Orgs\ListCustomRepoRoles($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CustomRepositoryRoles());
-        }
-
-        return $this->operator[Operator\Orgs\ListCustomRepoRoles::class]->call($org);
+        return $this->operators->orgs👷ListCustomRepoRoles()->call($org);
     }
 
-    public function createCustomRepoRole(string $org, array $params): Schema\OrganizationCustomRepositoryRole
+    /** @return */
+    public function createCustomRepoRole(string $org, array $params): OrganizationCustomRepositoryRole|array
     {
-        if (array_key_exists(Operator\Orgs\CreateCustomRepoRole::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\CreateCustomRepoRole::class] = new Operator\Orgs\CreateCustomRepoRole($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CustomRepositoryRoles());
-        }
-
-        return $this->operator[Operator\Orgs\CreateCustomRepoRole::class]->call($org, $params);
+        return $this->operators->orgs👷CreateCustomRepoRole()->call($org, $params);
     }
 
-    public function getCustomRepoRole(string $org, int $roleId): Schema\OrganizationCustomRepositoryRole
+    /** @return */
+    public function getCustomRepoRole(string $org, int $roleId): OrganizationCustomRepositoryRole|array
     {
-        if (array_key_exists(Operator\Orgs\GetCustomRepoRole::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetCustomRepoRole::class] = new Operator\Orgs\GetCustomRepoRole($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CustomRepositoryRoles🌀RoleId());
-        }
-
-        return $this->operator[Operator\Orgs\GetCustomRepoRole::class]->call($org, $roleId);
+        return $this->operators->orgs👷GetCustomRepoRole()->call($org, $roleId);
     }
 
-    public function deleteCustomRepoRole(string $org, int $roleId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteCustomRepoRole(string $org, int $roleId): array
     {
-        if (array_key_exists(Operator\Orgs\DeleteCustomRepoRole::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\DeleteCustomRepoRole::class] = new Operator\Orgs\DeleteCustomRepoRole($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CustomRepositoryRoles🌀RoleId());
-        }
-
-        return $this->operator[Operator\Orgs\DeleteCustomRepoRole::class]->call($org, $roleId);
+        return $this->operators->orgs👷DeleteCustomRepoRole()->call($org, $roleId);
     }
 
-    public function updateCustomRepoRole(string $org, int $roleId, array $params): Schema\OrganizationCustomRepositoryRole
+    /** @return */
+    public function updateCustomRepoRole(string $org, int $roleId, array $params): OrganizationCustomRepositoryRole|array
     {
-        if (array_key_exists(Operator\Orgs\UpdateCustomRepoRole::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\UpdateCustomRepoRole::class] = new Operator\Orgs\UpdateCustomRepoRole($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀CustomRepositoryRoles🌀RoleId());
-        }
-
-        return $this->operator[Operator\Orgs\UpdateCustomRepoRole::class]->call($org, $roleId, $params);
+        return $this->operators->orgs👷UpdateCustomRepoRole()->call($org, $roleId, $params);
     }
 
-    public function listWebhooks(string $org, int $perPage, int $page): Schema\OrgHook
+    /** @return iterable<Schema\OrgHook> */
+    public function listWebhooks(string $org, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListWebhooks::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListWebhooks::class] = new Operator\Orgs\ListWebhooks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
-        }
-
-        return $this->operator[Operator\Orgs\ListWebhooks::class]->call($org, $perPage, $page);
+        return $this->operators->orgs👷ListWebhooks()->call($org, $perPage, $page);
     }
 
-    public function listWebhooksListing(string $org, int $perPage, int $page): Schema\OrgHook
+    /** @return iterable<Schema\OrgHook> */
+    public function listWebhooksListing(string $org, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListWebhooksListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListWebhooksListing::class] = new Operator\Orgs\ListWebhooksListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
-        }
-
-        return $this->operator[Operator\Orgs\ListWebhooksListing::class]->call($org, $perPage, $page);
+        return $this->operators->orgs👷ListWebhooksListing()->call($org, $perPage, $page);
     }
 
-    public function createWebhook(string $org, array $params): Schema\OrgHook
+    /** @return */
+    public function createWebhook(string $org, array $params): OrgHook|array
     {
-        if (array_key_exists(Operator\Orgs\CreateWebhook::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\CreateWebhook::class] = new Operator\Orgs\CreateWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks());
-        }
-
-        return $this->operator[Operator\Orgs\CreateWebhook::class]->call($org, $params);
+        return $this->operators->orgs👷CreateWebhook()->call($org, $params);
     }
 
-    public function getWebhook(string $org, int $hookId): Schema\OrgHook
+    /** @return */
+    public function getWebhook(string $org, int $hookId): OrgHook|array
     {
-        if (array_key_exists(Operator\Orgs\GetWebhook::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetWebhook::class] = new Operator\Orgs\GetWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId());
-        }
-
-        return $this->operator[Operator\Orgs\GetWebhook::class]->call($org, $hookId);
+        return $this->operators->orgs👷GetWebhook()->call($org, $hookId);
     }
 
-    public function deleteWebhook(string $org, int $hookId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteWebhook(string $org, int $hookId): array
     {
-        if (array_key_exists(Operator\Orgs\DeleteWebhook::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\DeleteWebhook::class] = new Operator\Orgs\DeleteWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId());
-        }
-
-        return $this->operator[Operator\Orgs\DeleteWebhook::class]->call($org, $hookId);
+        return $this->operators->orgs👷DeleteWebhook()->call($org, $hookId);
     }
 
-    public function updateWebhook(string $org, int $hookId, array $params): Schema\OrgHook
+    /** @return */
+    public function updateWebhook(string $org, int $hookId, array $params): OrgHook|array
     {
-        if (array_key_exists(Operator\Orgs\UpdateWebhook::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\UpdateWebhook::class] = new Operator\Orgs\UpdateWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId());
-        }
-
-        return $this->operator[Operator\Orgs\UpdateWebhook::class]->call($org, $hookId, $params);
+        return $this->operators->orgs👷UpdateWebhook()->call($org, $hookId, $params);
     }
 
-    public function getWebhookConfigForOrg(string $org, int $hookId): Schema\WebhookConfig
+    /** @return */
+    public function getWebhookConfigForOrg(string $org, int $hookId): WebhookConfig|array
     {
-        if (array_key_exists(Operator\Orgs\GetWebhookConfigForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetWebhookConfigForOrg::class] = new Operator\Orgs\GetWebhookConfigForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Config());
-        }
-
-        return $this->operator[Operator\Orgs\GetWebhookConfigForOrg::class]->call($org, $hookId);
+        return $this->operators->orgs👷GetWebhookConfigForOrg()->call($org, $hookId);
     }
 
-    public function updateWebhookConfigForOrg(string $org, int $hookId, array $params): Schema\WebhookConfig
+    /** @return */
+    public function updateWebhookConfigForOrg(string $org, int $hookId, array $params): WebhookConfig|array
     {
-        if (array_key_exists(Operator\Orgs\UpdateWebhookConfigForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\UpdateWebhookConfigForOrg::class] = new Operator\Orgs\UpdateWebhookConfigForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Config());
-        }
-
-        return $this->operator[Operator\Orgs\UpdateWebhookConfigForOrg::class]->call($org, $hookId, $params);
+        return $this->operators->orgs👷UpdateWebhookConfigForOrg()->call($org, $hookId, $params);
     }
 
-    public function listWebhookDeliveries(string $org, int $hookId, string $cursor, bool $redelivery, int $perPage): Schema\HookDeliveryItem
+    /** @return iterable<Schema\HookDeliveryItem> */
+    public function listWebhookDeliveries(string $org, int $hookId, string $cursor, bool $redelivery, int $perPage): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListWebhookDeliveries::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListWebhookDeliveries::class] = new Operator\Orgs\ListWebhookDeliveries($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries());
-        }
-
-        return $this->operator[Operator\Orgs\ListWebhookDeliveries::class]->call($org, $hookId, $cursor, $redelivery, $perPage);
+        return $this->operators->orgs👷ListWebhookDeliveries()->call($org, $hookId, $cursor, $redelivery, $perPage);
     }
 
-    public function getWebhookDelivery(string $org, int $hookId, int $deliveryId): Schema\HookDelivery
+    /** @return */
+    public function getWebhookDelivery(string $org, int $hookId, int $deliveryId): HookDelivery|array
     {
-        if (array_key_exists(Operator\Orgs\GetWebhookDelivery::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetWebhookDelivery::class] = new Operator\Orgs\GetWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId());
-        }
-
-        return $this->operator[Operator\Orgs\GetWebhookDelivery::class]->call($org, $hookId, $deliveryId);
+        return $this->operators->orgs👷GetWebhookDelivery()->call($org, $hookId, $deliveryId);
     }
 
-    public function redeliverWebhookDelivery(string $org, int $hookId, int $deliveryId): Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted
+    /** @return */
+    public function redeliverWebhookDelivery(string $org, int $hookId, int $deliveryId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|array
     {
-        if (array_key_exists(Operator\Orgs\RedeliverWebhookDelivery::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\RedeliverWebhookDelivery::class] = new Operator\Orgs\RedeliverWebhookDelivery($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId🌀Attempts());
-        }
-
-        return $this->operator[Operator\Orgs\RedeliverWebhookDelivery::class]->call($org, $hookId, $deliveryId);
+        return $this->operators->orgs👷RedeliverWebhookDelivery()->call($org, $hookId, $deliveryId);
     }
 
-    public function pingWebhook(string $org, int $hookId): ResponseInterface
+    /** @return array{code:int} */
+    public function pingWebhook(string $org, int $hookId): array
     {
-        if (array_key_exists(Operator\Orgs\PingWebhook::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\PingWebhook::class] = new Operator\Orgs\PingWebhook($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Pings());
-        }
-
-        return $this->operator[Operator\Orgs\PingWebhook::class]->call($org, $hookId);
+        return $this->operators->orgs👷PingWebhook()->call($org, $hookId);
     }
 
-    public function listAppInstallations(string $org, int $perPage, int $page): Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok
+    /** @return */
+    public function listAppInstallations(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Orgs\ListAppInstallations::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListAppInstallations::class] = new Operator\Orgs\ListAppInstallations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Installations());
-        }
-
-        return $this->operator[Operator\Orgs\ListAppInstallations::class]->call($org, $perPage, $page);
+        return $this->operators->orgs👷ListAppInstallations()->call($org, $perPage, $page);
     }
 
-    public function listMembers(string $org, string $filter, string $role, int $perPage, int $page): Schema\SimpleUser
+    /** @return iterable<Schema\SimpleUser> */
+    public function listMembers(string $org, string $filter, string $role, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListMembers::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListMembers::class] = new Operator\Orgs\ListMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members());
-        }
-
-        return $this->operator[Operator\Orgs\ListMembers::class]->call($org, $filter, $role, $perPage, $page);
+        return $this->operators->orgs👷ListMembers()->call($org, $filter, $role, $perPage, $page);
     }
 
-    public function listMembersListing(string $org, string $filter, string $role, int $perPage, int $page): Schema\SimpleUser
+    /** @return iterable<Schema\SimpleUser> */
+    public function listMembersListing(string $org, string $filter, string $role, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListMembersListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListMembersListing::class] = new Operator\Orgs\ListMembersListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members());
-        }
-
-        return $this->operator[Operator\Orgs\ListMembersListing::class]->call($org, $filter, $role, $perPage, $page);
+        return $this->operators->orgs👷ListMembersListing()->call($org, $filter, $role, $perPage, $page);
     }
 
-    public function checkMembershipForUser(string $org, string $username): ResponseInterface
+    /** @return array{code:int}|array{code:int,location:string} */
+    public function checkMembershipForUser(string $org, string $username): array
     {
-        if (array_key_exists(Operator\Orgs\CheckMembershipForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\CheckMembershipForUser::class] = new Operator\Orgs\CheckMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\CheckMembershipForUser::class]->call($org, $username);
+        return $this->operators->orgs👷CheckMembershipForUser()->call($org, $username);
     }
 
-    public function removeMember(string $org, string $username): ResponseInterface
+    /** @return array{code:int} */
+    public function removeMember(string $org, string $username): array
     {
-        if (array_key_exists(Operator\Orgs\RemoveMember::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\RemoveMember::class] = new Operator\Orgs\RemoveMember($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\RemoveMember::class]->call($org, $username);
+        return $this->operators->orgs👷RemoveMember()->call($org, $username);
     }
 
-    public function getMembershipForUser(string $org, string $username): Schema\OrgMembership
+    /** @return */
+    public function getMembershipForUser(string $org, string $username): OrgMembership|array
     {
-        if (array_key_exists(Operator\Orgs\GetMembershipForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetMembershipForUser::class] = new Operator\Orgs\GetMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\GetMembershipForUser::class]->call($org, $username);
+        return $this->operators->orgs👷GetMembershipForUser()->call($org, $username);
     }
 
-    public function setMembershipForUser(string $org, string $username, array $params): Schema\OrgMembership
+    /** @return */
+    public function setMembershipForUser(string $org, string $username, array $params): OrgMembership|array
     {
-        if (array_key_exists(Operator\Orgs\SetMembershipForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\SetMembershipForUser::class] = new Operator\Orgs\SetMembershipForUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\SetMembershipForUser::class]->call($org, $username, $params);
+        return $this->operators->orgs👷SetMembershipForUser()->call($org, $username, $params);
     }
 
-    public function removeMembershipForUser(string $org, string $username): ResponseInterface
+    /** @return array{code:int} */
+    public function removeMembershipForUser(string $org, string $username): array
     {
-        if (array_key_exists(Operator\Orgs\RemoveMembershipForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\RemoveMembershipForUser::class] = new Operator\Orgs\RemoveMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Memberships🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\RemoveMembershipForUser::class]->call($org, $username);
+        return $this->operators->orgs👷RemoveMembershipForUser()->call($org, $username);
     }
 
-    public function listOutsideCollaborators(string $org, string $filter, int $perPage, int $page): Schema\SimpleUser
+    /** @return iterable<Schema\SimpleUser> */
+    public function listOutsideCollaborators(string $org, string $filter, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListOutsideCollaborators::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListOutsideCollaborators::class] = new Operator\Orgs\ListOutsideCollaborators($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators());
-        }
-
-        return $this->operator[Operator\Orgs\ListOutsideCollaborators::class]->call($org, $filter, $perPage, $page);
+        return $this->operators->orgs👷ListOutsideCollaborators()->call($org, $filter, $perPage, $page);
     }
 
-    public function listOutsideCollaboratorsListing(string $org, string $filter, int $perPage, int $page): Schema\SimpleUser
+    /** @return iterable<Schema\SimpleUser> */
+    public function listOutsideCollaboratorsListing(string $org, string $filter, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListOutsideCollaboratorsListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListOutsideCollaboratorsListing::class] = new Operator\Orgs\ListOutsideCollaboratorsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators());
-        }
-
-        return $this->operator[Operator\Orgs\ListOutsideCollaboratorsListing::class]->call($org, $filter, $perPage, $page);
+        return $this->operators->orgs👷ListOutsideCollaboratorsListing()->call($org, $filter, $perPage, $page);
     }
 
-    public function convertMemberToOutsideCollaborator(string $org, string $username, array $params): Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted
+    /** @return Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|array{code:int} */
+    public function convertMemberToOutsideCollaborator(string $org, string $username, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|array
     {
-        if (array_key_exists(Operator\Orgs\ConvertMemberToOutsideCollaborator::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ConvertMemberToOutsideCollaborator::class] = new Operator\Orgs\ConvertMemberToOutsideCollaborator($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\ConvertMemberToOutsideCollaborator::class]->call($org, $username, $params);
+        return $this->operators->orgs👷ConvertMemberToOutsideCollaborator()->call($org, $username, $params);
     }
 
-    public function removeOutsideCollaborator(string $org, string $username): ResponseInterface
+    /** @return array{code:int} */
+    public function removeOutsideCollaborator(string $org, string $username): array
     {
-        if (array_key_exists(Operator\Orgs\RemoveOutsideCollaborator::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\RemoveOutsideCollaborator::class] = new Operator\Orgs\RemoveOutsideCollaborator($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OutsideCollaborators🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\RemoveOutsideCollaborator::class]->call($org, $username);
+        return $this->operators->orgs👷RemoveOutsideCollaborator()->call($org, $username);
     }
 
-    public function listPatGrantRequests(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): Schema\OrganizationProgrammaticAccessGrantRequest
+    /** @return iterable<Schema\OrganizationProgrammaticAccessGrantRequest> */
+    public function listPatGrantRequests(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrantRequests::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrantRequests::class] = new Operator\Orgs\ListPatGrantRequests($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrantRequests::class]->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
+        return $this->operators->orgs👷ListPatGrantRequests()->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
     }
 
-    public function listPatGrantRequestsListing(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): Schema\OrganizationProgrammaticAccessGrantRequest
+    /** @return iterable<Schema\OrganizationProgrammaticAccessGrantRequest> */
+    public function listPatGrantRequestsListing(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrantRequestsListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrantRequestsListing::class] = new Operator\Orgs\ListPatGrantRequestsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrantRequestsListing::class]->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
+        return $this->operators->orgs👷ListPatGrantRequestsListing()->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
     }
 
-    public function reviewPatGrantRequestsInBulk(string $org, array $params): Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted
+    /** @return */
+    public function reviewPatGrantRequestsInBulk(string $org, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json|array
     {
-        if (array_key_exists(Operator\Orgs\ReviewPatGrantRequestsInBulk::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ReviewPatGrantRequestsInBulk::class] = new Operator\Orgs\ReviewPatGrantRequestsInBulk($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests());
-        }
-
-        return $this->operator[Operator\Orgs\ReviewPatGrantRequestsInBulk::class]->call($org, $params);
+        return $this->operators->orgs👷ReviewPatGrantRequestsInBulk()->call($org, $params);
     }
 
-    public function reviewPatGrantRequest(string $org, int $patRequestId, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function reviewPatGrantRequest(string $org, int $patRequestId, array $params): array
     {
-        if (array_key_exists(Operator\Orgs\ReviewPatGrantRequest::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ReviewPatGrantRequest::class] = new Operator\Orgs\ReviewPatGrantRequest($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests🌀PatRequestId());
-        }
-
-        return $this->operator[Operator\Orgs\ReviewPatGrantRequest::class]->call($org, $patRequestId, $params);
+        return $this->operators->orgs👷ReviewPatGrantRequest()->call($org, $patRequestId, $params);
     }
 
-    public function listPatGrantRequestRepositories(string $org, int $patRequestId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listPatGrantRequestRepositories(string $org, int $patRequestId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrantRequestRepositories::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrantRequestRepositories::class] = new Operator\Orgs\ListPatGrantRequestRepositories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests🌀PatRequestId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrantRequestRepositories::class]->call($org, $patRequestId, $perPage, $page);
+        return $this->operators->orgs👷ListPatGrantRequestRepositories()->call($org, $patRequestId, $perPage, $page);
     }
 
-    public function listPatGrantRequestRepositoriesListing(string $org, int $patRequestId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listPatGrantRequestRepositoriesListing(string $org, int $patRequestId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrantRequestRepositoriesListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrantRequestRepositoriesListing::class] = new Operator\Orgs\ListPatGrantRequestRepositoriesListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests🌀PatRequestId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrantRequestRepositoriesListing::class]->call($org, $patRequestId, $perPage, $page);
+        return $this->operators->orgs👷ListPatGrantRequestRepositoriesListing()->call($org, $patRequestId, $perPage, $page);
     }
 
-    public function listPatGrants(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): Schema\OrganizationProgrammaticAccessGrant
+    /** @return iterable<Schema\OrganizationProgrammaticAccessGrant> */
+    public function listPatGrants(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrants::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrants::class] = new Operator\Orgs\ListPatGrants($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrants::class]->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
+        return $this->operators->orgs👷ListPatGrants()->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
     }
 
-    public function listPatGrantsListing(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): Schema\OrganizationProgrammaticAccessGrant
+    /** @return iterable<Schema\OrganizationProgrammaticAccessGrant> */
+    public function listPatGrantsListing(string $org, array $owner, string $repository, string $permission, string $lastUsedBefore, string $lastUsedAfter, int $perPage, int $page, string $sort, string $direction): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrantsListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrantsListing::class] = new Operator\Orgs\ListPatGrantsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrantsListing::class]->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
+        return $this->operators->orgs👷ListPatGrantsListing()->call($org, $owner, $repository, $permission, $lastUsedBefore, $lastUsedAfter, $perPage, $page, $sort, $direction);
     }
 
-    public function updatePatAccesses(string $org, array $params): Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted
+    /** @return */
+    public function updatePatAccesses(string $org, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|array
     {
-        if (array_key_exists(Operator\Orgs\UpdatePatAccesses::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\UpdatePatAccesses::class] = new Operator\Orgs\UpdatePatAccesses($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens());
-        }
-
-        return $this->operator[Operator\Orgs\UpdatePatAccesses::class]->call($org, $params);
+        return $this->operators->orgs👷UpdatePatAccesses()->call($org, $params);
     }
 
-    public function updatePatAccess(string $org, int $patId, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function updatePatAccess(string $org, int $patId, array $params): array
     {
-        if (array_key_exists(Operator\Orgs\UpdatePatAccess::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\UpdatePatAccess::class] = new Operator\Orgs\UpdatePatAccess($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId());
-        }
-
-        return $this->operator[Operator\Orgs\UpdatePatAccess::class]->call($org, $patId, $params);
+        return $this->operators->orgs👷UpdatePatAccess()->call($org, $patId, $params);
     }
 
-    public function listPatGrantRepositories(string $org, int $patId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listPatGrantRepositories(string $org, int $patId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrantRepositories::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrantRepositories::class] = new Operator\Orgs\ListPatGrantRepositories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrantRepositories::class]->call($org, $patId, $perPage, $page);
+        return $this->operators->orgs👷ListPatGrantRepositories()->call($org, $patId, $perPage, $page);
     }
 
-    public function listPatGrantRepositoriesListing(string $org, int $patId, int $perPage, int $page): Schema\MinimalRepository
+    /** @return iterable<Schema\MinimalRepository> */
+    public function listPatGrantRepositoriesListing(string $org, int $patId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPatGrantRepositoriesListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPatGrantRepositoriesListing::class] = new Operator\Orgs\ListPatGrantRepositoriesListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Orgs\ListPatGrantRepositoriesListing::class]->call($org, $patId, $perPage, $page);
+        return $this->operators->orgs👷ListPatGrantRepositoriesListing()->call($org, $patId, $perPage, $page);
     }
 
-    public function listPublicMembers(string $org, int $perPage, int $page): Schema\SimpleUser
+    /** @return iterable<Schema\SimpleUser> */
+    public function listPublicMembers(string $org, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPublicMembers::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPublicMembers::class] = new Operator\Orgs\ListPublicMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers());
-        }
-
-        return $this->operator[Operator\Orgs\ListPublicMembers::class]->call($org, $perPage, $page);
+        return $this->operators->orgs👷ListPublicMembers()->call($org, $perPage, $page);
     }
 
-    public function listPublicMembersListing(string $org, int $perPage, int $page): Schema\SimpleUser
+    /** @return iterable<Schema\SimpleUser> */
+    public function listPublicMembersListing(string $org, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListPublicMembersListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListPublicMembersListing::class] = new Operator\Orgs\ListPublicMembersListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers());
-        }
-
-        return $this->operator[Operator\Orgs\ListPublicMembersListing::class]->call($org, $perPage, $page);
+        return $this->operators->orgs👷ListPublicMembersListing()->call($org, $perPage, $page);
     }
 
-    public function checkPublicMembershipForUser(string $org, string $username): ResponseInterface
+    /** @return array{code:int} */
+    public function checkPublicMembershipForUser(string $org, string $username): array
     {
-        if (array_key_exists(Operator\Orgs\CheckPublicMembershipForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\CheckPublicMembershipForUser::class] = new Operator\Orgs\CheckPublicMembershipForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\CheckPublicMembershipForUser::class]->call($org, $username);
+        return $this->operators->orgs👷CheckPublicMembershipForUser()->call($org, $username);
     }
 
-    public function setPublicMembershipForAuthenticatedUser(string $org, string $username): ResponseInterface
+    /** @return array{code:int} */
+    public function setPublicMembershipForAuthenticatedUser(string $org, string $username): array
     {
-        if (array_key_exists(Operator\Orgs\SetPublicMembershipForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\SetPublicMembershipForAuthenticatedUser::class] = new Operator\Orgs\SetPublicMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\SetPublicMembershipForAuthenticatedUser::class]->call($org, $username);
+        return $this->operators->orgs👷SetPublicMembershipForAuthenticatedUser()->call($org, $username);
     }
 
-    public function removePublicMembershipForAuthenticatedUser(string $org, string $username): ResponseInterface
+    /** @return array{code:int} */
+    public function removePublicMembershipForAuthenticatedUser(string $org, string $username): array
     {
-        if (array_key_exists(Operator\Orgs\RemovePublicMembershipForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\RemovePublicMembershipForAuthenticatedUser::class] = new Operator\Orgs\RemovePublicMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers🌀Username());
-        }
-
-        return $this->operator[Operator\Orgs\RemovePublicMembershipForAuthenticatedUser::class]->call($org, $username);
+        return $this->operators->orgs👷RemovePublicMembershipForAuthenticatedUser()->call($org, $username);
     }
 
-    public function listRepoFineGrainedPermissions(string $org): Schema\RepositoryFineGrainedPermission
+    /** @return iterable<Schema\RepositoryFineGrainedPermission> */
+    public function listRepoFineGrainedPermissions(string $org): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListRepoFineGrainedPermissions::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListRepoFineGrainedPermissions::class] = new Operator\Orgs\ListRepoFineGrainedPermissions($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀RepositoryFineGrainedPermissions());
-        }
-
-        return $this->operator[Operator\Orgs\ListRepoFineGrainedPermissions::class]->call($org);
+        return $this->operators->orgs👷ListRepoFineGrainedPermissions()->call($org);
     }
 
-    public function listSecurityManagerTeams(string $org): Schema\TeamSimple
+    /** @return iterable<Schema\TeamSimple> */
+    public function listSecurityManagerTeams(string $org): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListSecurityManagerTeams::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListSecurityManagerTeams::class] = new Operator\Orgs\ListSecurityManagerTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityManagers());
-        }
-
-        return $this->operator[Operator\Orgs\ListSecurityManagerTeams::class]->call($org);
+        return $this->operators->orgs👷ListSecurityManagerTeams()->call($org);
     }
 
-    public function addSecurityManagerTeam(string $org, string $teamSlug): ResponseInterface
+    /** @return array{code:int} */
+    public function addSecurityManagerTeam(string $org, string $teamSlug): array
     {
-        if (array_key_exists(Operator\Orgs\AddSecurityManagerTeam::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\AddSecurityManagerTeam::class] = new Operator\Orgs\AddSecurityManagerTeam($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityManagers🌀Teams🌀TeamSlug());
-        }
-
-        return $this->operator[Operator\Orgs\AddSecurityManagerTeam::class]->call($org, $teamSlug);
+        return $this->operators->orgs👷AddSecurityManagerTeam()->call($org, $teamSlug);
     }
 
-    public function removeSecurityManagerTeam(string $org, string $teamSlug): ResponseInterface
+    /** @return array{code:int} */
+    public function removeSecurityManagerTeam(string $org, string $teamSlug): array
     {
-        if (array_key_exists(Operator\Orgs\RemoveSecurityManagerTeam::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\RemoveSecurityManagerTeam::class] = new Operator\Orgs\RemoveSecurityManagerTeam($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityManagers🌀Teams🌀TeamSlug());
-        }
-
-        return $this->operator[Operator\Orgs\RemoveSecurityManagerTeam::class]->call($org, $teamSlug);
+        return $this->operators->orgs👷RemoveSecurityManagerTeam()->call($org, $teamSlug);
     }
 
-    public function enableOrDisableSecurityProductOnAllOrgRepos(string $org, string $securityProduct, string $enablement): ResponseInterface
+    /** @return array{code:int} */
+    public function enableOrDisableSecurityProductOnAllOrgRepos(string $org, string $securityProduct, string $enablement): array
     {
-        if (array_key_exists(Operator\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos::class] = new Operator\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecurityProduct🌀Enablement());
-        }
-
-        return $this->operator[Operator\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos::class]->call($org, $securityProduct, $enablement);
+        return $this->operators->orgs👷EnableOrDisableSecurityProductOnAllOrgRepos()->call($org, $securityProduct, $enablement);
     }
 
-    public function listMembershipsForAuthenticatedUser(string $state, int $perPage, int $page): Schema\OrgMembership
+    /** @return iterable<Schema\OrgMembership>|array{code:int} */
+    public function listMembershipsForAuthenticatedUser(string $state, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListMembershipsForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListMembershipsForAuthenticatedUser::class] = new Operator\Orgs\ListMembershipsForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs());
-        }
-
-        return $this->operator[Operator\Orgs\ListMembershipsForAuthenticatedUser::class]->call($state, $perPage, $page);
+        return $this->operators->orgs👷ListMembershipsForAuthenticatedUser()->call($state, $perPage, $page);
     }
 
-    public function listMembershipsForAuthenticatedUserListing(string $state, int $perPage, int $page): Schema\OrgMembership
+    /** @return iterable<Schema\OrgMembership>|array{code:int} */
+    public function listMembershipsForAuthenticatedUserListing(string $state, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListMembershipsForAuthenticatedUserListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListMembershipsForAuthenticatedUserListing::class] = new Operator\Orgs\ListMembershipsForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs());
-        }
-
-        return $this->operator[Operator\Orgs\ListMembershipsForAuthenticatedUserListing::class]->call($state, $perPage, $page);
+        return $this->operators->orgs👷ListMembershipsForAuthenticatedUserListing()->call($state, $perPage, $page);
     }
 
-    public function getMembershipForAuthenticatedUser(string $org): Schema\OrgMembership
+    /** @return */
+    public function getMembershipForAuthenticatedUser(string $org): OrgMembership|array
     {
-        if (array_key_exists(Operator\Orgs\GetMembershipForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\GetMembershipForAuthenticatedUser::class] = new Operator\Orgs\GetMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀Org());
-        }
-
-        return $this->operator[Operator\Orgs\GetMembershipForAuthenticatedUser::class]->call($org);
+        return $this->operators->orgs👷GetMembershipForAuthenticatedUser()->call($org);
     }
 
-    public function updateMembershipForAuthenticatedUser(string $org, array $params): Schema\OrgMembership
+    /** @return */
+    public function updateMembershipForAuthenticatedUser(string $org, array $params): OrgMembership|array
     {
-        if (array_key_exists(Operator\Orgs\UpdateMembershipForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\UpdateMembershipForAuthenticatedUser::class] = new Operator\Orgs\UpdateMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀Org());
-        }
-
-        return $this->operator[Operator\Orgs\UpdateMembershipForAuthenticatedUser::class]->call($org, $params);
+        return $this->operators->orgs👷UpdateMembershipForAuthenticatedUser()->call($org, $params);
     }
 
-    public function listForAuthenticatedUser(int $perPage, int $page): Schema\OrganizationSimple
+    /** @return iterable<Schema\OrganizationSimple>|array{code:int} */
+    public function listForAuthenticatedUser(int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListForAuthenticatedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListForAuthenticatedUser::class] = new Operator\Orgs\ListForAuthenticatedUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Orgs());
-        }
-
-        return $this->operator[Operator\Orgs\ListForAuthenticatedUser::class]->call($perPage, $page);
+        return $this->operators->orgs👷ListForAuthenticatedUser()->call($perPage, $page);
     }
 
-    public function listForAuthenticatedUserListing(int $perPage, int $page): Schema\OrganizationSimple
+    /** @return iterable<Schema\OrganizationSimple>|array{code:int} */
+    public function listForAuthenticatedUserListing(int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListForAuthenticatedUserListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListForAuthenticatedUserListing::class] = new Operator\Orgs\ListForAuthenticatedUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Orgs());
-        }
-
-        return $this->operator[Operator\Orgs\ListForAuthenticatedUserListing::class]->call($perPage, $page);
+        return $this->operators->orgs👷ListForAuthenticatedUserListing()->call($perPage, $page);
     }
 
-    public function listForUser(string $username, int $perPage, int $page): Schema\OrganizationSimple
+    /** @return iterable<Schema\OrganizationSimple> */
+    public function listForUser(string $username, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListForUser::class] = new Operator\Orgs\ListForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Orgs());
-        }
-
-        return $this->operator[Operator\Orgs\ListForUser::class]->call($username, $perPage, $page);
+        return $this->operators->orgs👷ListForUser()->call($username, $perPage, $page);
     }
 
-    public function listForUserListing(string $username, int $perPage, int $page): Schema\OrganizationSimple
+    /** @return iterable<Schema\OrganizationSimple> */
+    public function listForUserListing(string $username, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\Orgs\ListForUserListing::class, $this->operator) === false) {
-            $this->operator[Operator\Orgs\ListForUserListing::class] = new Operator\Orgs\ListForUserListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Orgs());
-        }
-
-        return $this->operator[Operator\Orgs\ListForUserListing::class]->call($username, $perPage, $page);
+        return $this->operators->orgs👷ListForUserListing()->call($username, $perPage, $page);
     }
 }

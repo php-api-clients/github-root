@@ -67,7 +67,7 @@ final class ListCacheInfo
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok::class, $body);
+                                return $this->hydrators->hydrateObject(Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
