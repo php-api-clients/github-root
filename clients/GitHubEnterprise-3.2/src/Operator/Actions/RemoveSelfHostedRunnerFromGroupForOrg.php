@@ -16,14 +16,12 @@ final readonly class RemoveSelfHostedRunnerFromGroupForOrg
 {
     public const OPERATION_ID    = 'actions/remove-self-hosted-runner-from-group-for-org';
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $org, int $runnerGroupId, int $runnerId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Actions\RemoveSelfHostedRunnerFromGroupForOrg($org, $runnerGroupId, $runnerId);

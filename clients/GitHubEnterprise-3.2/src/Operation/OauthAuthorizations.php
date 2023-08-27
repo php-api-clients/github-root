@@ -4,129 +4,86 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Operators;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
+use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 
 final class OauthAuthorizations
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Operators $operators)
     {
     }
 
-    public function listGrants(string $clientId, int $perPage, int $page): Schema\ApplicationGrant
+    /** @return iterable<Schema\ApplicationGrant>|array{code:int} */
+    public function listGrants(string $clientId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\OauthAuthorizations\ListGrants::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\ListGrants::class] = new Operator\OauthAuthorizations\ListGrants($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\ListGrants::class]->call($clientId, $perPage, $page);
+        return $this->operators->oauthAuthorizations👷ListGrants()->call($clientId, $perPage, $page);
     }
 
-    public function listGrantsListing(string $clientId, int $perPage, int $page): Schema\ApplicationGrant
+    /** @return iterable<Schema\ApplicationGrant>|array{code:int} */
+    public function listGrantsListing(string $clientId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\OauthAuthorizations\ListGrantsListing::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\ListGrantsListing::class] = new Operator\OauthAuthorizations\ListGrantsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\ListGrantsListing::class]->call($clientId, $perPage, $page);
+        return $this->operators->oauthAuthorizations👷ListGrantsListing()->call($clientId, $perPage, $page);
     }
 
-    public function getGrant(int $grantId): Schema\ApplicationGrant
+    /** @return Schema\ApplicationGrant|array{code:int} */
+    public function getGrant(int $grantId): ApplicationGrant|array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\GetGrant::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\GetGrant::class] = new Operator\OauthAuthorizations\GetGrant($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants🌀GrantId());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\GetGrant::class]->call($grantId);
+        return $this->operators->oauthAuthorizations👷GetGrant()->call($grantId);
     }
 
-    public function deleteGrant(int $grantId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteGrant(int $grantId): array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\DeleteGrant::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\DeleteGrant::class] = new Operator\OauthAuthorizations\DeleteGrant($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants🌀GrantId());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\DeleteGrant::class]->call($grantId);
+        return $this->operators->oauthAuthorizations👷DeleteGrant()->call($grantId);
     }
 
-    public function listAuthorizations(string $clientId, int $perPage, int $page): Schema\Authorization
+    /** @return iterable<Schema\Authorization>|array{code:int} */
+    public function listAuthorizations(string $clientId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\OauthAuthorizations\ListAuthorizations::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\ListAuthorizations::class] = new Operator\OauthAuthorizations\ListAuthorizations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\ListAuthorizations::class]->call($clientId, $perPage, $page);
+        return $this->operators->oauthAuthorizations👷ListAuthorizations()->call($clientId, $perPage, $page);
     }
 
-    public function listAuthorizationsListing(string $clientId, int $perPage, int $page): Schema\Authorization
+    /** @return iterable<Schema\Authorization>|array{code:int} */
+    public function listAuthorizationsListing(string $clientId, int $perPage, int $page): iterable
     {
-        if (array_key_exists(Operator\OauthAuthorizations\ListAuthorizationsListing::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\ListAuthorizationsListing::class] = new Operator\OauthAuthorizations\ListAuthorizationsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\ListAuthorizationsListing::class]->call($clientId, $perPage, $page);
+        return $this->operators->oauthAuthorizations👷ListAuthorizationsListing()->call($clientId, $perPage, $page);
     }
 
-    public function createAuthorization(array $params): Schema\Authorization
+    /** @return Schema\Authorization|array{code:int} */
+    public function createAuthorization(array $params): Authorization|array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\CreateAuthorization::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\CreateAuthorization::class] = new Operator\OauthAuthorizations\CreateAuthorization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\CreateAuthorization::class]->call($params);
+        return $this->operators->oauthAuthorizations👷CreateAuthorization()->call($params);
     }
 
-    public function getOrCreateAuthorizationForApp(string $clientId, array $params): Schema\Authorization
+    /** @return Schema\Authorization|array{code:int} */
+    public function getOrCreateAuthorizationForApp(string $clientId, array $params): Authorization|array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\GetOrCreateAuthorizationForApp::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\GetOrCreateAuthorizationForApp::class] = new Operator\OauthAuthorizations\GetOrCreateAuthorizationForApp($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀ClientId());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\GetOrCreateAuthorizationForApp::class]->call($clientId, $params);
+        return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForApp()->call($clientId, $params);
     }
 
-    public function getOrCreateAuthorizationForAppAndFingerprint(string $clientId, string $fingerprint, array $params): Schema\Authorization
+    /** @return */
+    public function getOrCreateAuthorizationForAppAndFingerprint(string $clientId, string $fingerprint, array $params): Authorization|array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint::class] = new Operator\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations🌀Clients🌀ClientId🌀Fingerprint());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint::class]->call($clientId, $fingerprint, $params);
+        return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForAppAndFingerprint()->call($clientId, $fingerprint, $params);
     }
 
-    public function getAuthorization(int $authorizationId): Schema\Authorization
+    /** @return Schema\Authorization|array{code:int} */
+    public function getAuthorization(int $authorizationId): Authorization|array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\GetAuthorization::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\GetAuthorization::class] = new Operator\OauthAuthorizations\GetAuthorization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations🌀AuthorizationId());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\GetAuthorization::class]->call($authorizationId);
+        return $this->operators->oauthAuthorizations👷GetAuthorization()->call($authorizationId);
     }
 
-    public function deleteAuthorization(int $authorizationId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteAuthorization(int $authorizationId): array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\DeleteAuthorization::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\DeleteAuthorization::class] = new Operator\OauthAuthorizations\DeleteAuthorization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations🌀AuthorizationId());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\DeleteAuthorization::class]->call($authorizationId);
+        return $this->operators->oauthAuthorizations👷DeleteAuthorization()->call($authorizationId);
     }
 
-    public function updateAuthorization(int $authorizationId, array $params): Schema\Authorization
+    /** @return */
+    public function updateAuthorization(int $authorizationId, array $params): Authorization|array
     {
-        if (array_key_exists(Operator\OauthAuthorizations\UpdateAuthorization::class, $this->operator) === false) {
-            $this->operator[Operator\OauthAuthorizations\UpdateAuthorization::class] = new Operator\OauthAuthorizations\UpdateAuthorization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations🌀AuthorizationId());
-        }
-
-        return $this->operator[Operator\OauthAuthorizations\UpdateAuthorization::class]->call($authorizationId, $params);
+        return $this->operators->oauthAuthorizations👷UpdateAuthorization()->call($authorizationId, $params);
     }
 }

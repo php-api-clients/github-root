@@ -16,14 +16,12 @@ final readonly class RevokeGrantForApplication
 {
     public const OPERATION_ID    = 'apps/revoke-grant-for-application';
     public const OPERATION_MATCH = 'DELETE /applications/{client_id}/grants/{access_token}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/applications/{client_id}/grants/{access_token}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $clientId, string $accessToken): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Apps\RevokeGrantForApplication($clientId, $accessToken);
