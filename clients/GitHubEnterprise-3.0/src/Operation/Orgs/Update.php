@@ -62,7 +62,7 @@ final class Update
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
+                            return $this->hydrators->hydrateObject(Schema\ValidationError::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_four_hundred_twenty_two_aaaaa;
                         }
@@ -71,7 +71,7 @@ final class Update
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body);
+                            return $this->hydrators->hydrateObject(Schema\ValidationErrorSimple::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_four_hundred_twenty_two_aaaab;
                         }

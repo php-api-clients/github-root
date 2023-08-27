@@ -19,14 +19,12 @@ final readonly class ListGlobalWebhooksListing
 {
     public const OPERATION_ID    = 'enterprise-admin/list-global-webhooks';
     public const OPERATION_MATCH = 'LIST /admin/hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/hooks';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Hooks $hydrator)
     {
     }
 
-    /** @return Observable<Schema\GlobalHook> */
+    /** @return iterable<Schema\GlobalHook> */
     public function call(string $accept = 'application/vnd.github.superpro-preview+json', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListGlobalWebhooksListing($this->responseSchemaValidator, $this->hydrator, $accept, $perPage, $page);

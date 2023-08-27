@@ -16,14 +16,12 @@ final readonly class DeleteImpersonationOAuthToken
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-impersonation-o-auth-token';
     public const OPERATION_MATCH = 'DELETE /admin/users/{username}/authorizations';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/users/{username}/authorizations';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $username): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteImpersonationOAuthToken($username);

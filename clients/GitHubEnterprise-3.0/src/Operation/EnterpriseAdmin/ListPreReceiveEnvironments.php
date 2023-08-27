@@ -63,7 +63,7 @@ final class ListPreReceiveEnvironments
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PreReceiveEnvironment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrator->hydrateObject(Schema\PreReceiveEnvironment::class, $body);
+                                return $this->hydrators->hydrateObject(Schema\PreReceiveEnvironment::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

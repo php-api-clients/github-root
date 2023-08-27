@@ -16,14 +16,12 @@ final readonly class PingGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/ping-global-webhook';
     public const OPERATION_MATCH = 'POST /admin/hooks/{hook_id}/pings';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/hooks/{hook_id}/pings';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json'): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\PingGlobalWebhook($hookId, $accept);
