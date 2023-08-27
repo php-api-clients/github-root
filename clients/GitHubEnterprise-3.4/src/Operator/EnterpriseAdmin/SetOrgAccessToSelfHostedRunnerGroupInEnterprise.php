@@ -17,14 +17,12 @@ final readonly class SetOrgAccessToSelfHostedRunnerGroupInEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, int $runnerGroupId, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SetOrgAccessToSelfHostedRunnerGroupInEnterprise($this->requestSchemaValidator, $enterprise, $runnerGroupId);

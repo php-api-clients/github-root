@@ -19,14 +19,12 @@ final readonly class ListGrants
 {
     public const OPERATION_ID    = 'oauth-authorizations/list-grants';
     public const OPERATION_MATCH = 'GET /applications/grants';
-    private const METHOD         = 'GET';
-    private const PATH           = '/applications/grants';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Applications\Grants $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\ApplicationGrant> | array{code: int}) */
+    /** @return iterable<Schema\ApplicationGrant>|array{code:int} */
     public function call(string $clientId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\ListGrants($this->responseSchemaValidator, $this->hydrator, $clientId, $perPage, $page);

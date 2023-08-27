@@ -20,14 +20,12 @@ final readonly class EnableOrDisableMaintenanceMode
 {
     public const OPERATION_ID    = 'enterprise-admin/enable-or-disable-maintenance-mode';
     public const OPERATION_MATCH = 'POST /setup/api/maintenance';
-    private const METHOD         = 'POST';
-    private const PATH           = '/setup/api/maintenance';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
     }
 
-    /** @return (Schema\MaintenanceStatus | array{code: int}) */
+    /** @return Schema\MaintenanceStatus|array{code:int} */
     public function call(array $params): MaintenanceStatus|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\EnableOrDisableMaintenanceMode($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
