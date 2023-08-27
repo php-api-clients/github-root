@@ -19,8 +19,6 @@ final readonly class RemovePreReceiveHookEnforcementForRepo
 {
     public const OPERATION_ID    = 'enterprise-admin/remove-pre-receive-hook-enforcement-for-repo';
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\PreReceiveHooks\PreReceiveHookId $hydrator)
     {

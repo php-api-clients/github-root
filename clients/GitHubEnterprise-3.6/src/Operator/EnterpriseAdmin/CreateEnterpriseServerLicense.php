@@ -17,14 +17,12 @@ final readonly class CreateEnterpriseServerLicense
 {
     public const OPERATION_ID    = 'enterprise-admin/create-enterprise-server-license';
     public const OPERATION_MATCH = 'POST /setup/api/start';
-    private const METHOD         = 'POST';
-    private const PATH           = '/setup/api/start';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\CreateEnterpriseServerLicense($this->requestSchemaValidator);

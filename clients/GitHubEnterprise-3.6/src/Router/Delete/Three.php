@@ -4,110 +4,64 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\Delete;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Router;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Client\GitHubEnterprise\Routers;
 use InvalidArgumentException;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
 
 final class Three
 {
-    private array $router = [];
-
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private Routers $routers)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $call, array $params, array $pathChunks): array
     {
-        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'authorizations') {
                 if ($pathChunks[2] === '{authorization_id}') {
                     if ($call === 'DELETE /authorizations/{authorization_id}') {
-                        $matched = true;
-                        if (array_key_exists(Router\Delete\OauthAuthorizations::class, $this->router) === false) {
-                            $this->router[Router\Delete\OauthAuthorizations::class] = new Router\Delete\OauthAuthorizations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                        }
-
-                        return $this->router[Router\Delete\OauthAuthorizations::class]->DeleteAuthorization($params);
+                        return $this->routers->router🔀Delete🔀OauthAuthorizations()->deleteAuthorization($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'enterprise') {
                 if ($pathChunks[2] === 'announcement') {
                     if ($call === 'DELETE /enterprise/announcement') {
-                        $matched = true;
-                        if (array_key_exists(Router\Delete\EnterpriseAdmin::class, $this->router) === false) {
-                            $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                        }
-
-                        return $this->router[Router\Delete\EnterpriseAdmin::class]->RemoveAnnouncement($params);
+                        return $this->routers->router🔀Delete🔀EnterpriseAdmin()->removeAnnouncement($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'gists') {
                 if ($pathChunks[2] === '{gist_id}') {
                     if ($call === 'DELETE /gists/{gist_id}') {
-                        $matched = true;
-                        if (array_key_exists(Router\Delete\Gists::class, $this->router) === false) {
-                            $this->router[Router\Delete\Gists::class] = new Router\Delete\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                        }
-
-                        return $this->router[Router\Delete\Gists::class]->Delete($params);
+                        return $this->routers->router🔀Delete🔀Gists()->delete($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'installation') {
                 if ($pathChunks[2] === 'token') {
                     if ($call === 'DELETE /installation/token') {
-                        $matched = true;
-                        if (array_key_exists(Router\Delete\Apps::class, $this->router) === false) {
-                            $this->router[Router\Delete\Apps::class] = new Router\Delete\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                        }
-
-                        return $this->router[Router\Delete\Apps::class]->RevokeInstallationAccessToken($params);
+                        return $this->routers->router🔀Delete🔀Apps()->revokeInstallationAccessToken($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'projects') {
                 if ($pathChunks[2] === '{project_id}') {
                     if ($call === 'DELETE /projects/{project_id}') {
-                        $matched = true;
-                        if (array_key_exists(Router\Delete\Projects::class, $this->router) === false) {
-                            $this->router[Router\Delete\Projects::class] = new Router\Delete\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                        }
-
-                        return $this->router[Router\Delete\Projects::class]->Delete($params);
+                        return $this->routers->router🔀Delete🔀Projects()->delete($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'teams') {
                 if ($pathChunks[2] === '{team_id}') {
                     if ($call === 'DELETE /teams/{team_id}') {
-                        $matched = true;
-                        if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
-                            $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                        }
-
-                        return $this->router[Router\Delete\Teams::class]->DeleteLegacy($params);
+                        return $this->routers->router🔀Delete🔀Teams()->deleteLegacy($params);
                     }
                 }
             } elseif ($pathChunks[1] === 'user') {
                 if ($pathChunks[2] === 'emails') {
                     if ($call === 'DELETE /user/emails') {
-                        $matched = true;
-                        if (array_key_exists(Router\Delete\Users::class, $this->router) === false) {
-                            $this->router[Router\Delete\Users::class] = new Router\Delete\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                        }
-
-                        return $this->router[Router\Delete\Users::class]->DeleteEmailForAuthenticatedUser($params);
+                        return $this->routers->router🔀Delete🔀Users()->deleteEmailForAuthenticatedUser($params);
                     }
                 }
             }
         }
 
-        if ($matched === false) {
-            throw new InvalidArgumentException();
-        }
+        throw new InvalidArgumentException();
     }
 }

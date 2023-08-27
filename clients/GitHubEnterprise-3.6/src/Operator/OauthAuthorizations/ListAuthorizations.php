@@ -19,14 +19,12 @@ final readonly class ListAuthorizations
 {
     public const OPERATION_ID    = 'oauth-authorizations/list-authorizations';
     public const OPERATION_MATCH = 'GET /authorizations';
-    private const METHOD         = 'GET';
-    private const PATH           = '/authorizations';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\Authorization> | array{code: int}) */
+    /** @return iterable<Schema\Authorization>|array{code:int} */
     public function call(string $clientId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\ListAuthorizations($this->responseSchemaValidator, $this->hydrator, $clientId, $perPage, $page);

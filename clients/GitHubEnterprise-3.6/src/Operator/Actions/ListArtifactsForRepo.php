@@ -19,8 +19,6 @@ final readonly class ListArtifactsForRepo
 {
     public const OPERATION_ID    = 'actions/list-artifacts-for-repo';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/artifacts';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/artifacts';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Actions\Artifacts $hydrator)
     {

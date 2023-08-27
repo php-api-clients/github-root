@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\List;
 
-use ApiClients\Client\GitHubEnterprise\Hydrator;
 use ApiClients\Client\GitHubEnterprise\Hydrators;
 use ApiClients\Client\GitHubEnterprise\Operator;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use EventSauce\ObjectHydrator\ObjectMapper;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -19,17 +17,13 @@ use function count;
 
 final class Apps
 {
-    /** @var array<class-string, ObjectMapper> */
-    private array $hydrator = [];
-
     public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return (Observable<Schema\IntegrationInstallationRequest> | array{code: int}) */
+    /** @return iterable<Schema\IntegrationInstallationRequest>|array{code:int} */
     public function listInstallationRequestsForAuthenticatedAppListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: per_page');
@@ -43,14 +37,10 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\App\InstallationRequests::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\App\InstallationRequests::class] = $this->hydrators->getObjectMapperOperation🌀App🌀InstallationRequests();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Apps\ListInstallationRequestsForAuthenticatedAppListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\InstallationRequests::class]);
-            $items    = $operator->call($arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Apps\ListInstallationRequestsForAuthenticatedAppListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀InstallationRequests());
+            $items    = [...$operator->call($arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 
@@ -58,10 +48,9 @@ final class Apps
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Installation> */
+    /** @return iterable<Schema\Installation> */
     public function listInstallationsListing(array $params): iterable
     {
-        $matched   = true;
         $arguments = [];
         if (array_key_exists('since', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: since');
@@ -87,14 +76,10 @@ final class Apps
 
         $arguments['page'] = $params['page'];
         unset($params['page']);
-        if (array_key_exists(Hydrator\Operation\App\Installations::class, $this->hydrator) === false) {
-            $this->hydrator[Hydrator\Operation\App\Installations::class] = $this->hydrators->getObjectMapperOperation🌀App🌀Installations();
-        }
-
         $arguments['page'] = 1;
         do {
-            $operator = new Operator\Apps\ListInstallationsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrator[Hydrator\Operation\App\Installations::class]);
-            $items    = $operator->call($arguments['since'], $arguments['outdated'], $arguments['per_page'], $arguments['page']);
+            $operator = new Operator\Apps\ListInstallationsListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Installations());
+            $items    = [...$operator->call($arguments['since'], $arguments['outdated'], $arguments['per_page'], $arguments['page'])];
 
             yield from $items;
 

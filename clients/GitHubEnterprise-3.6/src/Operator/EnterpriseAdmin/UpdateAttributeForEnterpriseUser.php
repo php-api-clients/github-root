@@ -20,14 +20,12 @@ final readonly class UpdateAttributeForEnterpriseUser
 {
     public const OPERATION_ID    = 'enterprise-admin/update-attribute-for-enterprise-user';
     public const OPERATION_MATCH = 'PATCH /scim/v2/Users/{scim_user_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/scim/v2/Users/{scim_user_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator)
     {
     }
 
-    /** @return (Schema\UserResponse | array{code: int}) */
+    /** @return Schema\UserResponse|array{code:int} */
     public function call(string $scimUserId, array $params): UserResponse|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimUserId);

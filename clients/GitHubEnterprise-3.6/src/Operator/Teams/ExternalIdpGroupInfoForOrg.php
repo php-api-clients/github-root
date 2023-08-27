@@ -19,8 +19,6 @@ final readonly class ExternalIdpGroupInfoForOrg
 {
     public const OPERATION_ID    = 'teams/external-idp-group-info-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/external-group/{group_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/external-group/{group_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\ExternalGroup\GroupId $hydrator)
     {

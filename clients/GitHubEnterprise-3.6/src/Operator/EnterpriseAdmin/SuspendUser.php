@@ -17,14 +17,12 @@ final readonly class SuspendUser
 {
     public const OPERATION_ID    = 'enterprise-admin/suspend-user';
     public const OPERATION_MATCH = 'PUT /users/{username}/suspended';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/users/{username}/suspended';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $username, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\SuspendUser($this->requestSchemaValidator, $username);

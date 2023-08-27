@@ -19,8 +19,6 @@ final readonly class GetGithubAdvancedSecurityBillingOrg
 {
     public const OPERATION_ID    = 'billing/get-github-advanced-security-billing-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/settings/billing/advanced-security';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/settings/billing/advanced-security';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Settings\Billing\AdvancedSecurity $hydrator)
     {

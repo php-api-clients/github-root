@@ -19,8 +19,6 @@ final readonly class GetPreReceiveHookForOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/get-pre-receive-hook-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\PreReceiveHooks\PreReceiveHookId $hydrator)
     {
