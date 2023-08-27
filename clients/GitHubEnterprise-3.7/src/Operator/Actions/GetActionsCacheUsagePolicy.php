@@ -19,8 +19,6 @@ final readonly class GetActionsCacheUsagePolicy
 {
     public const OPERATION_ID    = 'actions/get-actions-cache-usage-policy';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/cache/usage-policy';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/cache/usage-policy';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Actions\Cache\UsagePolicy $hydrator)
     {

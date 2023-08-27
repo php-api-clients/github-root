@@ -19,8 +19,6 @@ final readonly class SetCustomLabelsForSelfHostedRunnerForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/set-custom-labels-for-self-hosted-runner-for-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/runners/{runner_id}/labels';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}/labels';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels $hydrator)
     {

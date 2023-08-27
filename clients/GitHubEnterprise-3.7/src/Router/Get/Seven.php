@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageByRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsGetDefaultWorkflowPermissions;
@@ -49,25 +48,17 @@ use ApiClients\Client\GitHubEnterprise\Schema\TeamProject;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 use ApiClients\Client\GitHubEnterprise\Schema\Workflow;
 use ApiClients\Client\GitHubEnterprise\Schema\WorkflowRun;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
 
 final class Seven
 {
-    private array $router = [];
-
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private Routers $routers)
     {
     }
 
-    /** @return |(Schema\TeamMembership|array{code: int})|(Schema\TeamProject|Observable<Schema\RunnerApplication>|Observable<Schema\CheckAnnotation>|(Schema\CodeScanningAlert|(Schema\CodeScanningSarifsStatus|Observable<Schema\Reaction>|Observable<Schema\BranchShort>|Observable<Schema\CommitComment>|Observable<Schema\PullRequestSimple>|(Observable<Schema\Status>|Schema\BasicError)|Observable<Schema\DependencyGraphDiff>|Observable<Schema\DeploymentStatus>|Observable<Schema\GitRef>|Observable<Schema\HookDeliveryItem>|Observable<Schema\IssueComment>|Observable<(Schema\LabeledIssueEvent|Schema\UnlabeledIssueEvent|Schema\AssignedIssueEvent|Schema\UnassignedIssueEvent|Schema\MilestonedIssueEvent|Schema\DemilestonedIssueEvent|Schema\RenamedIssueEvent|Schema\ReviewRequestedIssueEvent|Schema\ReviewRequestRemovedIssueEvent|Schema\ReviewDismissedIssueEvent|Schema\LockedIssueEvent|Schema\AddedToProjectIssueEvent|Schema\MovedColumnInProjectIssueEvent|Schema\RemovedFromProjectIssueEvent|Schema\ConvertedNoteToIssueIssueEvent)>|(Observable<Schema\Label>|Schema\ConvertedNoteToIssueIssueEvent|Schema\TimelineCommentEvent|Schema\TimelineCrossReferencedEvent|Schema\TimelineCommittedEvent|Schema\TimelineReviewedEvent|Schema\TimelineLineCommentedEvent|Schema\TimelineCommitCommentedEvent|Schema\TimelineAssignedIssueEvent|Schema\TimelineUnassignedIssueEvent|Schema\StateChangeIssueEvent)>|Observable<Schema\Label>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\Commit>|Observable<Schema\DiffEntry>|array{code: int}|Observable<Schema\PullRequestReview>|(Schema\ReleaseAsset|Observable<Schema\ReleaseAsset>|(Schema\SecretScanningAlert */
+    /** @return |Schema\TeamMembership|array{code:int}|Schema\TeamProject|iterable<Schema\RunnerApplication>|iterable<Schema\CheckAnnotation>|Schema\CodeScanningAlert|Schema\CodeScanningSarifsStatus|iterable<Schema\Reaction>|iterable<Schema\BranchShort>|iterable<Schema\CommitComment>|iterable<Schema\PullRequestSimple>|iterable<Schema\Status>|Schema\BasicError|iterable<Schema\DependencyGraphDiff>|iterable<Schema\DeploymentStatus>|iterable<Schema\GitRef>|iterable<Schema\HookDeliveryItem>|iterable<Schema\IssueComment>|iterable<Schema\LabeledIssueEvent|Schema\UnlabeledIssueEvent|Schema\AssignedIssueEvent|Schema\UnassignedIssueEvent|Schema\MilestonedIssueEvent|Schema\DemilestonedIssueEvent|Schema\RenamedIssueEvent|Schema\ReviewRequestedIssueEvent|Schema\ReviewRequestRemovedIssueEvent|Schema\ReviewDismissedIssueEvent|Schema\LockedIssueEvent|Schema\AddedToProjectIssueEvent|Schema\MovedColumnInProjectIssueEvent|Schema\RemovedFromProjectIssueEvent|Schema\ConvertedNoteToIssueIssueEvent>|iterable<Schema\Label>|Schema\ConvertedNoteToIssueIssueEvent|Schema\TimelineCommentEvent|Schema\TimelineCrossReferencedEvent|Schema\TimelineCommittedEvent|Schema\TimelineReviewedEvent|Schema\TimelineLineCommentedEvent|Schema\TimelineCommitCommentedEvent|Schema\TimelineAssignedIssueEvent|Schema\TimelineUnassignedIssueEvent|Schema\StateChangeIssueEvent>|iterable<Schema\PullRequestReviewComment>|iterable<Schema\Commit>|iterable<Schema\DiffEntry>|iterable<Schema\PullRequestReview>|Schema\ReleaseAsset|iterable<Schema\ReleaseAsset>|Schema\SecretScanningAlert */
     public function call(string $call, array $params, array $pathChunks): Json|Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|OidcCustomSub|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok\Application\Json|HookDelivery|TeamDiscussion|TeamMembership|TeamProject|Artifact|ActionsCacheUsageByRepository|ActionsCacheUsagePolicyForRepository|Job|ActionsWorkflowAccessToRepository|SelectedActions|ActionsGetDefaultWorkflowPermissions|iterable|Runner|WorkflowRun|ActionsPublicKey|ActionsSecret|Workflow|BranchProtection|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Checks\ListForSuite\Response\ApplicationJson\Ok|CodeScanningAlert|CodeScanningAnalysis|CodeScanningSarifsStatus|RepositoryCollaboratorPermission|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Checks\ListForRef\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Checks\ListSuitesForRef\Response\ApplicationJson\Ok|CombinedCommitStatus|BasicError|DependabotPublicKey|DependabotSecret|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson\Ok|Blob|GitCommit|GitRef|GitTag|GitTree|WebhookConfig|IssueComment|IssueEvent|PageBuild|PullRequestReviewComment|PullRequestReviewRequest|ReleaseAsset|Release|SecretScanningAlert|TeamDiscussionComment
     {
-        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
@@ -76,21 +67,11 @@ final class Seven
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($pathChunks[6] === 'organizations') {
                                     if ($call === 'GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                            $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListOrgAccessToSelfHostedRunnerGroupInEnterprise($params);
+                                        return $this->routers->router🔀Get🔀EnterpriseAdmin()->listOrgAccessToSelfHostedRunnerGroupInEnterprise($params);
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
                                     if ($call === 'GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                            $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListSelfHostedRunnersInGroupForEnterprise($params);
+                                        return $this->routers->router🔀Get🔀EnterpriseAdmin()->listSelfHostedRunnersInGroupForEnterprise($params);
                                     }
                                 }
                             }
@@ -98,12 +79,7 @@ final class Seven
                             if ($pathChunks[5] === '{runner_id}') {
                                 if ($pathChunks[6] === 'labels') {
                                     if ($call === 'GET /enterprises/{enterprise}/actions/runners/{runner_id}/labels') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                            $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\EnterpriseAdmin::class]->ListLabelsForSelfHostedRunnerForEnterprise($params);
+                                        return $this->routers->router🔀Get🔀EnterpriseAdmin()->listLabelsForSelfHostedRunnerForEnterprise($params);
                                     }
                                 }
                             }
@@ -117,12 +93,7 @@ final class Seven
                             if ($pathChunks[5] === 'customization') {
                                 if ($pathChunks[6] === 'sub') {
                                     if ($call === 'GET /orgs/{org}/actions/oidc/customization/sub') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Oidc::class, $this->router) === false) {
-                                            $this->router[Router\Get\Oidc::class] = new Router\Get\Oidc($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Oidc::class]->GetOidcCustomSubTemplateForOrg($params);
+                                        return $this->routers->router🔀Get🔀Oidc()->getOidcCustomSubTemplateForOrg($params);
                                     }
                                 }
                             }
@@ -130,21 +101,11 @@ final class Seven
                             if ($pathChunks[5] === '{runner_group_id}') {
                                 if ($pathChunks[6] === 'repositories') {
                                     if ($call === 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->ListRepoAccessToSelfHostedRunnerGroupInOrg($params);
+                                        return $this->routers->router🔀Get🔀Actions()->listRepoAccessToSelfHostedRunnerGroupInOrg($params);
                                     }
                                 } elseif ($pathChunks[6] === 'runners') {
                                     if ($call === 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->ListSelfHostedRunnersInGroupForOrg($params);
+                                        return $this->routers->router🔀Get🔀Actions()->listSelfHostedRunnersInGroupForOrg($params);
                                     }
                                 }
                             }
@@ -152,12 +113,7 @@ final class Seven
                             if ($pathChunks[5] === '{runner_id}') {
                                 if ($pathChunks[6] === 'labels') {
                                     if ($call === 'GET /orgs/{org}/actions/runners/{runner_id}/labels') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->ListLabelsForSelfHostedRunnerForOrg($params);
+                                        return $this->routers->router🔀Get🔀Actions()->listLabelsForSelfHostedRunnerForOrg($params);
                                     }
                                 }
                             }
@@ -165,12 +121,7 @@ final class Seven
                             if ($pathChunks[5] === '{secret_name}') {
                                 if ($pathChunks[6] === 'repositories') {
                                     if ($call === 'GET /orgs/{org}/actions/secrets/{secret_name}/repositories') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->ListSelectedReposForOrgSecret($params);
+                                        return $this->routers->router🔀Get🔀Actions()->listSelectedReposForOrgSecret($params);
                                     }
                                 }
                             }
@@ -180,12 +131,7 @@ final class Seven
                             if ($pathChunks[5] === '{secret_name}') {
                                 if ($pathChunks[6] === 'repositories') {
                                     if ($call === 'GET /orgs/{org}/dependabot/secrets/{secret_name}/repositories') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Dependabot::class, $this->router) === false) {
-                                            $this->router[Router\Get\Dependabot::class] = new Router\Get\Dependabot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Dependabot::class]->ListSelectedReposForOrgSecret($params);
+                                        return $this->routers->router🔀Get🔀Dependabot()->listSelectedReposForOrgSecret($params);
                                     }
                                 }
                             }
@@ -195,12 +141,7 @@ final class Seven
                             if ($pathChunks[5] === 'deliveries') {
                                 if ($pathChunks[6] === '{delivery_id}') {
                                     if ($call === 'GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                            $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Orgs::class]->GetWebhookDelivery($params);
+                                        return $this->routers->router🔀Get🔀Orgs()->getWebhookDelivery($params);
                                     }
                                 }
                             }
@@ -210,34 +151,19 @@ final class Seven
                             if ($pathChunks[5] === 'discussions') {
                                 if ($pathChunks[6] === '{discussion_number}') {
                                     if ($call === 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Teams::class]->GetDiscussionInOrg($params);
+                                        return $this->routers->router🔀Get🔀Teams()->getDiscussionInOrg($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'memberships') {
                                 if ($pathChunks[6] === '{username}') {
                                     if ($call === 'GET /orgs/{org}/teams/{team_slug}/memberships/{username}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Teams::class]->GetMembershipForUserInOrg($params);
+                                        return $this->routers->router🔀Get🔀Teams()->getMembershipForUserInOrg($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'projects') {
                                 if ($pathChunks[6] === '{project_id}') {
                                     if ($call === 'GET /orgs/{org}/teams/{team_slug}/projects/{project_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Teams::class]->CheckPermissionsForProjectInOrg($params);
+                                        return $this->routers->router🔀Get🔀Teams()->checkPermissionsForProjectInOrg($params);
                                     }
                                 }
                             }
@@ -251,134 +177,69 @@ final class Seven
                             if ($pathChunks[5] === 'artifacts') {
                                 if ($pathChunks[6] === '{artifact_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetArtifact($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getArtifact($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'cache') {
                                 if ($pathChunks[6] === 'usage') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/cache/usage') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetActionsCacheUsage($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getActionsCacheUsage($params);
                                     }
                                 } elseif ($pathChunks[6] === 'usage-policy') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/cache/usage-policy') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetActionsCacheUsagePolicy($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getActionsCacheUsagePolicy($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'jobs') {
                                 if ($pathChunks[6] === '{job_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/jobs/{job_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetJobForWorkflowRun($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getJobForWorkflowRun($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'permissions') {
                                 if ($pathChunks[6] === 'access') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/permissions/access') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetWorkflowAccessToRepository($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getWorkflowAccessToRepository($params);
                                     }
                                 } elseif ($pathChunks[6] === 'selected-actions') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/permissions/selected-actions') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetAllowedActionsRepository($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getAllowedActionsRepository($params);
                                     }
                                 } elseif ($pathChunks[6] === 'workflow') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/permissions/workflow') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetGithubActionsDefaultWorkflowPermissionsRepository($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getGithubActionsDefaultWorkflowPermissionsRepository($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'runners') {
                                 if ($pathChunks[6] === 'downloads') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/runners/downloads') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->ListRunnerApplicationsForRepo($params);
+                                        return $this->routers->router🔀Get🔀Actions()->listRunnerApplicationsForRepo($params);
                                     }
                                 } elseif ($pathChunks[6] === '{runner_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/runners/{runner_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetSelfHostedRunnerForRepo($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getSelfHostedRunnerForRepo($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'runs') {
                                 if ($pathChunks[6] === '{run_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetWorkflowRun($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getWorkflowRun($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'secrets') {
                                 if ($pathChunks[6] === 'public-key') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/secrets/public-key') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetRepoPublicKey($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getRepoPublicKey($params);
                                     }
                                 } elseif ($pathChunks[6] === '{secret_name}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/secrets/{secret_name}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetRepoSecret($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getRepoSecret($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'workflows') {
                                 if ($pathChunks[6] === '{workflow_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetWorkflow($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getWorkflow($params);
                                     }
                                 }
                             }
@@ -386,12 +247,7 @@ final class Seven
                             if ($pathChunks[5] === '{branch}') {
                                 if ($pathChunks[6] === 'protection') {
                                     if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}/protection') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetBranchProtection($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getBranchProtection($params);
                                     }
                                 }
                             }
@@ -399,12 +255,7 @@ final class Seven
                             if ($pathChunks[5] === '{check_run_id}') {
                                 if ($pathChunks[6] === 'annotations') {
                                     if ($call === 'GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Checks::class, $this->router) === false) {
-                                            $this->router[Router\Get\Checks::class] = new Router\Get\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Checks::class]->ListAnnotations($params);
+                                        return $this->routers->router🔀Get🔀Checks()->listAnnotations($params);
                                     }
                                 }
                             }
@@ -412,12 +263,7 @@ final class Seven
                             if ($pathChunks[5] === '{check_suite_id}') {
                                 if ($pathChunks[6] === 'check-runs') {
                                     if ($call === 'GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Checks::class, $this->router) === false) {
-                                            $this->router[Router\Get\Checks::class] = new Router\Get\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Checks::class]->ListForSuite($params);
+                                        return $this->routers->router🔀Get🔀Checks()->listForSuite($params);
                                     }
                                 }
                             }
@@ -425,34 +271,19 @@ final class Seven
                             if ($pathChunks[5] === 'alerts') {
                                 if ($pathChunks[6] === '{alert_number}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\CodeScanning::class, $this->router) === false) {
-                                            $this->router[Router\Get\CodeScanning::class] = new Router\Get\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\CodeScanning::class]->GetAlert($params);
+                                        return $this->routers->router🔀Get🔀CodeScanning()->getAlert($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'analyses') {
                                 if ($pathChunks[6] === '{analysis_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\CodeScanning::class, $this->router) === false) {
-                                            $this->router[Router\Get\CodeScanning::class] = new Router\Get\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\CodeScanning::class]->GetAnalysis($params);
+                                        return $this->routers->router🔀Get🔀CodeScanning()->getAnalysis($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'sarifs') {
                                 if ($pathChunks[6] === '{sarif_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\CodeScanning::class, $this->router) === false) {
-                                            $this->router[Router\Get\CodeScanning::class] = new Router\Get\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\CodeScanning::class]->GetSarif($params);
+                                        return $this->routers->router🔀Get🔀CodeScanning()->getSarif($params);
                                     }
                                 }
                             }
@@ -460,12 +291,7 @@ final class Seven
                             if ($pathChunks[5] === '{username}') {
                                 if ($pathChunks[6] === 'permission') {
                                     if ($call === 'GET /repos/{owner}/{repo}/collaborators/{username}/permission') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetCollaboratorPermissionLevel($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getCollaboratorPermissionLevel($params);
                                     }
                                 }
                             }
@@ -473,12 +299,7 @@ final class Seven
                             if ($pathChunks[5] === '{comment_id}') {
                                 if ($pathChunks[6] === 'reactions') {
                                     if ($call === 'GET /repos/{owner}/{repo}/comments/{comment_id}/reactions') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Reactions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Reactions::class]->ListForCommitComment($params);
+                                        return $this->routers->router🔀Get🔀Reactions()->listForCommitComment($params);
                                     }
                                 }
                             }
@@ -486,68 +307,33 @@ final class Seven
                             if ($pathChunks[5] === '{commit_sha}') {
                                 if ($pathChunks[6] === 'branches-where-head') {
                                     if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListBranchesForHeadCommit($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listBranchesForHeadCommit($params);
                                     }
                                 } elseif ($pathChunks[6] === 'comments') {
                                     if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/comments') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListCommentsForCommit($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listCommentsForCommit($params);
                                     }
                                 } elseif ($pathChunks[6] === 'pulls') {
                                     if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListPullRequestsAssociatedWithCommit($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listPullRequestsAssociatedWithCommit($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === '{ref}') {
                                 if ($pathChunks[6] === 'check-runs') {
                                     if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/check-runs') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Checks::class, $this->router) === false) {
-                                            $this->router[Router\Get\Checks::class] = new Router\Get\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Checks::class]->ListForRef($params);
+                                        return $this->routers->router🔀Get🔀Checks()->listForRef($params);
                                     }
                                 } elseif ($pathChunks[6] === 'check-suites') {
                                     if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/check-suites') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Checks::class, $this->router) === false) {
-                                            $this->router[Router\Get\Checks::class] = new Router\Get\Checks($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Checks::class]->ListSuitesForRef($params);
+                                        return $this->routers->router🔀Get🔀Checks()->listSuitesForRef($params);
                                     }
                                 } elseif ($pathChunks[6] === 'status') {
                                     if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/status') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetCombinedStatusForRef($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getCombinedStatusForRef($params);
                                     }
                                 } elseif ($pathChunks[6] === 'statuses') {
                                     if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/statuses') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListCommitStatusesForRef($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listCommitStatusesForRef($params);
                                     }
                                 }
                             }
@@ -555,21 +341,11 @@ final class Seven
                             if ($pathChunks[5] === 'secrets') {
                                 if ($pathChunks[6] === 'public-key') {
                                     if ($call === 'GET /repos/{owner}/{repo}/dependabot/secrets/public-key') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Dependabot::class, $this->router) === false) {
-                                            $this->router[Router\Get\Dependabot::class] = new Router\Get\Dependabot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Dependabot::class]->GetRepoPublicKey($params);
+                                        return $this->routers->router🔀Get🔀Dependabot()->getRepoPublicKey($params);
                                     }
                                 } elseif ($pathChunks[6] === '{secret_name}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/dependabot/secrets/{secret_name}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Dependabot::class, $this->router) === false) {
-                                            $this->router[Router\Get\Dependabot::class] = new Router\Get\Dependabot($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Dependabot::class]->GetRepoSecret($params);
+                                        return $this->routers->router🔀Get🔀Dependabot()->getRepoSecret($params);
                                     }
                                 }
                             }
@@ -577,12 +353,7 @@ final class Seven
                             if ($pathChunks[5] === 'compare') {
                                 if ($pathChunks[6] === '{basehead}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/dependency-graph/compare/{basehead}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\DependencyGraph::class, $this->router) === false) {
-                                            $this->router[Router\Get\DependencyGraph::class] = new Router\Get\DependencyGraph($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\DependencyGraph::class]->DiffRange($params);
+                                        return $this->routers->router🔀Get🔀DependencyGraph()->diffRange($params);
                                     }
                                 }
                             }
@@ -590,12 +361,7 @@ final class Seven
                             if ($pathChunks[5] === '{deployment_id}') {
                                 if ($pathChunks[6] === 'statuses') {
                                     if ($call === 'GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListDeploymentStatuses($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listDeploymentStatuses($params);
                                     }
                                 }
                             }
@@ -603,12 +369,7 @@ final class Seven
                             if ($pathChunks[5] === '{environment_name}') {
                                 if ($pathChunks[6] === 'deployment-branch-policies') {
                                     if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListDeploymentBranchPolicies($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listDeploymentBranchPolicies($params);
                                     }
                                 }
                             }
@@ -616,67 +377,37 @@ final class Seven
                             if ($pathChunks[5] === 'blobs') {
                                 if ($pathChunks[6] === '{file_sha}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/git/blobs/{file_sha}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Git::class, $this->router) === false) {
-                                            $this->router[Router\Get\Git::class] = new Router\Get\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Git::class]->GetBlob($params);
+                                        return $this->routers->router🔀Get🔀Git()->getBlob($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'commits') {
                                 if ($pathChunks[6] === '{commit_sha}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/git/commits/{commit_sha}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Git::class, $this->router) === false) {
-                                            $this->router[Router\Get\Git::class] = new Router\Get\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Git::class]->GetCommit($params);
+                                        return $this->routers->router🔀Get🔀Git()->getCommit($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'matching-refs') {
                                 if ($pathChunks[6] === '{ref}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/git/matching-refs/{ref}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Git::class, $this->router) === false) {
-                                            $this->router[Router\Get\Git::class] = new Router\Get\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Git::class]->ListMatchingRefs($params);
+                                        return $this->routers->router🔀Get🔀Git()->listMatchingRefs($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'ref') {
                                 if ($pathChunks[6] === '{ref}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/git/ref/{ref}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Git::class, $this->router) === false) {
-                                            $this->router[Router\Get\Git::class] = new Router\Get\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Git::class]->GetRef($params);
+                                        return $this->routers->router🔀Get🔀Git()->getRef($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'tags') {
                                 if ($pathChunks[6] === '{tag_sha}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/git/tags/{tag_sha}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Git::class, $this->router) === false) {
-                                            $this->router[Router\Get\Git::class] = new Router\Get\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Git::class]->GetTag($params);
+                                        return $this->routers->router🔀Get🔀Git()->getTag($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'trees') {
                                 if ($pathChunks[6] === '{tree_sha}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/git/trees/{tree_sha}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Git::class, $this->router) === false) {
-                                            $this->router[Router\Get\Git::class] = new Router\Get\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Git::class]->GetTree($params);
+                                        return $this->routers->router🔀Get🔀Git()->getTree($params);
                                     }
                                 }
                             }
@@ -684,21 +415,11 @@ final class Seven
                             if ($pathChunks[5] === '{hook_id}') {
                                 if ($pathChunks[6] === 'config') {
                                     if ($call === 'GET /repos/{owner}/{repo}/hooks/{hook_id}/config') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetWebhookConfigForRepo($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getWebhookConfigForRepo($params);
                                     }
                                 } elseif ($pathChunks[6] === 'deliveries') {
                                     if ($call === 'GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListWebhookDeliveries($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listWebhookDeliveries($params);
                                     }
                                 }
                             }
@@ -706,70 +427,35 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/issues/comments/{comment_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Issues::class]->GetComment($params);
+                                        return $this->routers->router🔀Get🔀Issues()->getComment($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'events') {
                                 if ($pathChunks[6] === '{event_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/issues/events/{event_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Issues::class]->GetEvent($params);
+                                        return $this->routers->router🔀Get🔀Issues()->getEvent($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === '{issue_number}') {
                                 if ($pathChunks[6] === 'comments') {
                                     if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/comments') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Issues::class]->ListComments($params);
+                                        return $this->routers->router🔀Get🔀Issues()->listComments($params);
                                     }
                                 } elseif ($pathChunks[6] === 'events') {
                                     if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/events') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Issues::class]->ListEvents($params);
+                                        return $this->routers->router🔀Get🔀Issues()->listEvents($params);
                                     }
                                 } elseif ($pathChunks[6] === 'labels') {
                                     if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/labels') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Issues::class]->ListLabelsOnIssue($params);
+                                        return $this->routers->router🔀Get🔀Issues()->listLabelsOnIssue($params);
                                     }
                                 } elseif ($pathChunks[6] === 'reactions') {
                                     if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/reactions') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Reactions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Reactions::class]->ListForIssue($params);
+                                        return $this->routers->router🔀Get🔀Reactions()->listForIssue($params);
                                     }
                                 } elseif ($pathChunks[6] === 'timeline') {
                                     if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/timeline') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Issues::class]->ListEventsForTimeline($params);
+                                        return $this->routers->router🔀Get🔀Issues()->listEventsForTimeline($params);
                                     }
                                 }
                             }
@@ -777,12 +463,7 @@ final class Seven
                             if ($pathChunks[5] === '{milestone_number}') {
                                 if ($pathChunks[6] === 'labels') {
                                     if ($call === 'GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Issues::class]->ListLabelsForMilestone($params);
+                                        return $this->routers->router🔀Get🔀Issues()->listLabelsForMilestone($params);
                                     }
                                 }
                             }
@@ -790,21 +471,11 @@ final class Seven
                             if ($pathChunks[5] === 'builds') {
                                 if ($pathChunks[6] === 'latest') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pages/builds/latest') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetLatestPagesBuild($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getLatestPagesBuild($params);
                                     }
                                 } elseif ($pathChunks[6] === '{build_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pages/builds/{build_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetPagesBuild($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getPagesBuild($params);
                                     }
                                 }
                             }
@@ -812,68 +483,33 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pulls/comments/{comment_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Pulls::class]->GetReviewComment($params);
+                                        return $this->routers->router🔀Get🔀Pulls()->getReviewComment($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === '{pull_number}') {
                                 if ($pathChunks[6] === 'comments') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/comments') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Pulls::class]->ListReviewComments($params);
+                                        return $this->routers->router🔀Get🔀Pulls()->listReviewComments($params);
                                     }
                                 } elseif ($pathChunks[6] === 'commits') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/commits') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Pulls::class]->ListCommits($params);
+                                        return $this->routers->router🔀Get🔀Pulls()->listCommits($params);
                                     }
                                 } elseif ($pathChunks[6] === 'files') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/files') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Pulls::class]->ListFiles($params);
+                                        return $this->routers->router🔀Get🔀Pulls()->listFiles($params);
                                     }
                                 } elseif ($pathChunks[6] === 'merge') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/merge') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Pulls::class]->CheckIfMerged($params);
+                                        return $this->routers->router🔀Get🔀Pulls()->checkIfMerged($params);
                                     }
                                 } elseif ($pathChunks[6] === 'requested_reviewers') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Pulls::class]->ListRequestedReviewers($params);
+                                        return $this->routers->router🔀Get🔀Pulls()->listRequestedReviewers($params);
                                     }
                                 } elseif ($pathChunks[6] === 'reviews') {
                                     if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Get\Pulls::class] = new Router\Get\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Pulls::class]->ListReviews($params);
+                                        return $this->routers->router🔀Get🔀Pulls()->listReviews($params);
                                     }
                                 }
                             }
@@ -881,43 +517,23 @@ final class Seven
                             if ($pathChunks[5] === 'assets') {
                                 if ($pathChunks[6] === '{asset_id}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/releases/assets/{asset_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetReleaseAsset($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getReleaseAsset($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'tags') {
                                 if ($pathChunks[6] === '{tag}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/releases/tags/{tag}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->GetReleaseByTag($params);
+                                        return $this->routers->router🔀Get🔀Repos()->getReleaseByTag($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === '{release_id}') {
                                 if ($pathChunks[6] === 'assets') {
                                     if ($call === 'GET /repos/{owner}/{repo}/releases/{release_id}/assets') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Repos::class]->ListReleaseAssets($params);
+                                        return $this->routers->router🔀Get🔀Repos()->listReleaseAssets($params);
                                     }
                                 } elseif ($pathChunks[6] === 'reactions') {
                                     if ($call === 'GET /repos/{owner}/{repo}/releases/{release_id}/reactions') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Reactions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Reactions::class] = new Router\Get\Reactions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Reactions::class]->ListForRelease($params);
+                                        return $this->routers->router🔀Get🔀Reactions()->listForRelease($params);
                                     }
                                 }
                             }
@@ -925,12 +541,7 @@ final class Seven
                             if ($pathChunks[5] === 'alerts') {
                                 if ($pathChunks[6] === '{alert_number}') {
                                     if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\SecretScanning::class, $this->router) === false) {
-                                            $this->router[Router\Get\SecretScanning::class] = new Router\Get\SecretScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\SecretScanning::class]->GetAlert($params);
+                                        return $this->routers->router🔀Get🔀SecretScanning()->getAlert($params);
                                     }
                                 }
                             }
@@ -944,21 +555,11 @@ final class Seven
                             if ($pathChunks[5] === 'secrets') {
                                 if ($pathChunks[6] === 'public-key') {
                                     if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/secrets/public-key') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetEnvironmentPublicKey($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getEnvironmentPublicKey($params);
                                     }
                                 } elseif ($pathChunks[6] === '{secret_name}') {
                                     if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Get\Actions::class] = new Router\Get\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Actions::class]->GetEnvironmentSecret($params);
+                                        return $this->routers->router🔀Get🔀Actions()->getEnvironmentSecret($params);
                                     }
                                 }
                             }
@@ -972,12 +573,7 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_number}') {
                                     if ($call === 'GET /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Get\Teams::class]->GetDiscussionCommentLegacy($params);
+                                        return $this->routers->router🔀Get🔀Teams()->getDiscussionCommentLegacy($params);
                                     }
                                 }
                             }
@@ -987,8 +583,6 @@ final class Seven
             }
         }
 
-        if ($matched === false) {
-            throw new InvalidArgumentException();
-        }
+        throw new InvalidArgumentException();
     }
 }

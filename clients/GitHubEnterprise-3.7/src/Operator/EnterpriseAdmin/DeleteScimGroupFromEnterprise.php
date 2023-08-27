@@ -18,14 +18,12 @@ final readonly class DeleteScimGroupFromEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-scim-group-from-enterprise';
     public const OPERATION_MATCH = 'DELETE /scim/v2/Groups/{scim_group_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/scim/v2/Groups/{scim_group_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $scimGroupId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->responseSchemaValidator, $this->hydrator, $scimGroupId);

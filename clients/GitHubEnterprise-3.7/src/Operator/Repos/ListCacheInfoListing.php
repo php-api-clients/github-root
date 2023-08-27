@@ -19,14 +19,12 @@ final readonly class ListCacheInfoListing
 {
     public const OPERATION_ID    = 'repos/list-cache-info';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/replicas/caches';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/replicas/caches';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Replicas\Caches $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
+    /** @return iterable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
     public function call(string $owner, string $repo, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\ListCacheInfoListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $perPage, $page);
