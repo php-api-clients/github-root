@@ -19,14 +19,12 @@ final readonly class ListPreReceiveHooksForOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/list-pre-receive-hooks-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/pre-receive-hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/pre-receive-hooks';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\PreReceiveHooks $hydrator)
     {
     }
 
-    /** @return Observable<Schema\OrgPreReceiveHook> */
+    /** @return iterable<Schema\OrgPreReceiveHook> */
     public function call(string $org, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListPreReceiveHooksForOrg($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page, $direction, $sort);

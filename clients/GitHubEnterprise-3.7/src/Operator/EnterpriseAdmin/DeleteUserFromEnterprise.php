@@ -18,14 +18,12 @@ final readonly class DeleteUserFromEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-user-from-enterprise';
     public const OPERATION_MATCH = 'DELETE /scim/v2/Users/{scim_user_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/scim/v2/Users/{scim_user_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $scimUserId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteUserFromEnterprise($this->responseSchemaValidator, $this->hydrator, $scimUserId);

@@ -20,14 +20,12 @@ final readonly class ListProvisionedGroupsEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-provisioned-groups-enterprise';
     public const OPERATION_MATCH = 'GET /scim/v2/Groups';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/Groups';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Scim\V2\Groups $hydrator)
     {
     }
 
-    /** @return (Schema\ScimEnterpriseGroupList | array{code: int}) */
+    /** @return Schema\ScimEnterpriseGroupList|array{code:int} */
     public function call(string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30): ScimEnterpriseGroupList|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->responseSchemaValidator, $this->hydrator, $filter, $excludedAttributes, $startIndex, $count);

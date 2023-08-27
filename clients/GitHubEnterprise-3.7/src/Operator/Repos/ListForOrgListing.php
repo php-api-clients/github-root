@@ -19,14 +19,12 @@ final readonly class ListForOrgListing
 {
     public const OPERATION_ID    = 'repos/list-for-org';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/repos';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/repos';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Repos $hydrator)
     {
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<Schema\MinimalRepository> */
     public function call(string $org, string $type, string $direction, string $sort = 'created', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Repos\ListForOrgListing($this->responseSchemaValidator, $this->hydrator, $org, $type, $direction, $sort, $perPage, $page);

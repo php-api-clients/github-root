@@ -19,14 +19,12 @@ final readonly class ListRunnerApplicationsForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-runner-applications-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runners/downloads';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/downloads';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\Downloads $hydrator)
     {
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return iterable<Schema\RunnerApplication> */
     public function call(string $enterprise): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\ListRunnerApplicationsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

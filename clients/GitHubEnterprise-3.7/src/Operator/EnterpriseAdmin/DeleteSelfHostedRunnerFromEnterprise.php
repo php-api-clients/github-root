@@ -16,14 +16,12 @@ final readonly class DeleteSelfHostedRunnerFromEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-self-hosted-runner-from-enterprise';
     public const OPERATION_MATCH = 'DELETE /enterprises/{enterprise}/actions/runners/{runner_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, int $runnerId): array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise($enterprise, $runnerId);
