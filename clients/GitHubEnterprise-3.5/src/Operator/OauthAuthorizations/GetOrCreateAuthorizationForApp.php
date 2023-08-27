@@ -20,14 +20,12 @@ final readonly class GetOrCreateAuthorizationForApp
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-or-create-authorization-for-app';
     public const OPERATION_MATCH = 'PUT /authorizations/clients/{client_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/authorizations/clients/{client_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Authorizations\Clients\ClientId $hydrator)
     {
     }
 
-    /** @return (Schema\Authorization | array{code: int}) */
+    /** @return Schema\Authorization|array{code:int} */
     public function call(string $clientId, array $params): Authorization|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\OauthAuthorizations\GetOrCreateAuthorizationForApp($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $clientId);

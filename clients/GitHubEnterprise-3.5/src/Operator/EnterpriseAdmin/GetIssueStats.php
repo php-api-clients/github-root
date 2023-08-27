@@ -19,8 +19,6 @@ final readonly class GetIssueStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-issue-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/issues';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/issues';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Issues $hydrator)
     {

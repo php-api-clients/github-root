@@ -19,14 +19,12 @@ final readonly class GetAllAuthorizedSshKeys
 {
     public const OPERATION_ID    = 'enterprise-admin/get-all-authorized-ssh-keys';
     public const OPERATION_MATCH = 'GET /setup/api/settings/authorized-keys';
-    private const METHOD         = 'GET';
-    private const PATH           = '/setup/api/settings/authorized-keys';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys $hydrator)
     {
     }
 
-    /** @return (Observable<Schema\SshKey> | array{code: int}) */
+    /** @return iterable<Schema\SshKey>|array{code:int} */
     public function call(): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\EnterpriseAdmin\GetAllAuthorizedSshKeys($this->responseSchemaValidator, $this->hydrator);

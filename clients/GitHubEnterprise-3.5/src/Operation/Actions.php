@@ -4,1020 +4,700 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Operator;
+use ApiClients\Client\GitHubEnterprise\Operators;
 use ApiClients\Client\GitHubEnterprise\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageByRepository;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyEnterprise;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsagePolicyForRepository;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsGetDefaultWorkflowPermissions;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsOrganizationPermissions;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsPublicKey;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsRepositoryPermissions;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsWorkflowAccessToRepository;
+use ApiClients\Client\GitHubEnterprise\Schema\Artifact;
+use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
+use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
+use ApiClients\Client\GitHubEnterprise\Schema\Job;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\GetActionsCacheUsageByRepoForOrg\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterprise\Schema\OrganizationActionsSecret;
+use ApiClients\Client\GitHubEnterprise\Schema\Runner;
+use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg;
+use ApiClients\Client\GitHubEnterprise\Schema\SelectedActions;
+use ApiClients\Client\GitHubEnterprise\Schema\Workflow;
+use ApiClients\Client\GitHubEnterprise\Schema\WorkflowRun;
 
 final class Actions
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Operators $operators)
     {
     }
 
-    public function getActionsCacheUsageForEnterprise(string $enterprise): Schema\ActionsCacheUsageOrgEnterprise
+    /** @return */
+    public function getActionsCacheUsageForEnterprise(string $enterprise): ActionsCacheUsageOrgEnterprise|array
     {
-        if (array_key_exists(Operator\Actions\GetActionsCacheUsageForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetActionsCacheUsageForEnterprise::class] = new Operator\Actions\GetActionsCacheUsageForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Cache🌀Usage());
-        }
-
-        return $this->operator[Operator\Actions\GetActionsCacheUsageForEnterprise::class]->call($enterprise);
+        return $this->operators->actions👷GetActionsCacheUsageForEnterprise()->call($enterprise);
     }
 
-    public function getActionsCacheUsagePolicyForEnterprise(string $enterprise): Schema\ActionsCacheUsagePolicyEnterprise
+    /** @return */
+    public function getActionsCacheUsagePolicyForEnterprise(string $enterprise): ActionsCacheUsagePolicyEnterprise|array
     {
-        if (array_key_exists(Operator\Actions\GetActionsCacheUsagePolicyForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetActionsCacheUsagePolicyForEnterprise::class] = new Operator\Actions\GetActionsCacheUsagePolicyForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Cache🌀UsagePolicy());
-        }
-
-        return $this->operator[Operator\Actions\GetActionsCacheUsagePolicyForEnterprise::class]->call($enterprise);
+        return $this->operators->actions👷GetActionsCacheUsagePolicyForEnterprise()->call($enterprise);
     }
 
-    public function setActionsCacheUsagePolicyForEnterprise(string $enterprise, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setActionsCacheUsagePolicyForEnterprise(string $enterprise, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetActionsCacheUsagePolicyForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetActionsCacheUsagePolicyForEnterprise::class] = new Operator\Actions\SetActionsCacheUsagePolicyForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Cache🌀UsagePolicy());
-        }
-
-        return $this->operator[Operator\Actions\SetActionsCacheUsagePolicyForEnterprise::class]->call($enterprise, $params);
+        return $this->operators->actions👷SetActionsCacheUsagePolicyForEnterprise()->call($enterprise, $params);
     }
 
-    public function getActionsCacheUsageForOrg(string $org): Schema\ActionsCacheUsageOrgEnterprise
+    /** @return */
+    public function getActionsCacheUsageForOrg(string $org): ActionsCacheUsageOrgEnterprise|array
     {
-        if (array_key_exists(Operator\Actions\GetActionsCacheUsageForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetActionsCacheUsageForOrg::class] = new Operator\Actions\GetActionsCacheUsageForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Cache🌀Usage());
-        }
-
-        return $this->operator[Operator\Actions\GetActionsCacheUsageForOrg::class]->call($org);
+        return $this->operators->actions👷GetActionsCacheUsageForOrg()->call($org);
     }
 
-    public function getActionsCacheUsageByRepoForOrg(string $org, int $perPage, int $page): Schema\Operations\Actions\GetActionsCacheUsageByRepoForOrg\Response\ApplicationJson\Ok
+    /** @return */
+    public function getActionsCacheUsageByRepoForOrg(string $org, int $perPage, int $page): Ok|array
     {
-        if (array_key_exists(Operator\Actions\GetActionsCacheUsageByRepoForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetActionsCacheUsageByRepoForOrg::class] = new Operator\Actions\GetActionsCacheUsageByRepoForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Cache🌀UsageByRepository());
-        }
-
-        return $this->operator[Operator\Actions\GetActionsCacheUsageByRepoForOrg::class]->call($org, $perPage, $page);
+        return $this->operators->actions👷GetActionsCacheUsageByRepoForOrg()->call($org, $perPage, $page);
     }
 
-    public function getGithubActionsPermissionsOrganization(string $org): Schema\ActionsOrganizationPermissions
+    /** @return */
+    public function getGithubActionsPermissionsOrganization(string $org): ActionsOrganizationPermissions|array
     {
-        if (array_key_exists(Operator\Actions\GetGithubActionsPermissionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetGithubActionsPermissionsOrganization::class] = new Operator\Actions\GetGithubActionsPermissionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions());
-        }
-
-        return $this->operator[Operator\Actions\GetGithubActionsPermissionsOrganization::class]->call($org);
+        return $this->operators->actions👷GetGithubActionsPermissionsOrganization()->call($org);
     }
 
-    public function setGithubActionsPermissionsOrganization(string $org, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setGithubActionsPermissionsOrganization(string $org, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetGithubActionsPermissionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetGithubActionsPermissionsOrganization::class] = new Operator\Actions\SetGithubActionsPermissionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions());
-        }
-
-        return $this->operator[Operator\Actions\SetGithubActionsPermissionsOrganization::class]->call($org, $params);
+        return $this->operators->actions👷SetGithubActionsPermissionsOrganization()->call($org, $params);
     }
 
-    public function listSelectedRepositoriesEnabledGithubActionsOrganization(string $org, int $perPage, int $page): Schema\Operations\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\ApplicationJson\Ok
+    /** @return */
+    public function listSelectedRepositoriesEnabledGithubActionsOrganization(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization::class] = new Operator\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories());
-        }
-
-        return $this->operator[Operator\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization::class]->call($org, $perPage, $page);
+        return $this->operators->actions👷ListSelectedRepositoriesEnabledGithubActionsOrganization()->call($org, $perPage, $page);
     }
 
-    public function setSelectedRepositoriesEnabledGithubActionsOrganization(string $org, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setSelectedRepositoriesEnabledGithubActionsOrganization(string $org, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization::class] = new Operator\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories());
-        }
-
-        return $this->operator[Operator\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization::class]->call($org, $params);
+        return $this->operators->actions👷SetSelectedRepositoriesEnabledGithubActionsOrganization()->call($org, $params);
     }
 
-    public function enableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): ResponseInterface
+    /** @return array{code:int} */
+    public function enableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): array
     {
-        if (array_key_exists(Operator\Actions\EnableSelectedRepositoryGithubActionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\EnableSelectedRepositoryGithubActionsOrganization::class] = new Operator\Actions\EnableSelectedRepositoryGithubActionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories🌀RepositoryId());
-        }
-
-        return $this->operator[Operator\Actions\EnableSelectedRepositoryGithubActionsOrganization::class]->call($org, $repositoryId);
+        return $this->operators->actions👷EnableSelectedRepositoryGithubActionsOrganization()->call($org, $repositoryId);
     }
 
-    public function disableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): ResponseInterface
+    /** @return array{code:int} */
+    public function disableSelectedRepositoryGithubActionsOrganization(string $org, int $repositoryId): array
     {
-        if (array_key_exists(Operator\Actions\DisableSelectedRepositoryGithubActionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DisableSelectedRepositoryGithubActionsOrganization::class] = new Operator\Actions\DisableSelectedRepositoryGithubActionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Repositories🌀RepositoryId());
-        }
-
-        return $this->operator[Operator\Actions\DisableSelectedRepositoryGithubActionsOrganization::class]->call($org, $repositoryId);
+        return $this->operators->actions👷DisableSelectedRepositoryGithubActionsOrganization()->call($org, $repositoryId);
     }
 
-    public function getAllowedActionsOrganization(string $org): Schema\SelectedActions
+    /** @return */
+    public function getAllowedActionsOrganization(string $org): SelectedActions|array
     {
-        if (array_key_exists(Operator\Actions\GetAllowedActionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetAllowedActionsOrganization::class] = new Operator\Actions\GetAllowedActionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀SelectedActions());
-        }
-
-        return $this->operator[Operator\Actions\GetAllowedActionsOrganization::class]->call($org);
+        return $this->operators->actions👷GetAllowedActionsOrganization()->call($org);
     }
 
-    public function setAllowedActionsOrganization(string $org, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setAllowedActionsOrganization(string $org, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetAllowedActionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetAllowedActionsOrganization::class] = new Operator\Actions\SetAllowedActionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀SelectedActions());
-        }
-
-        return $this->operator[Operator\Actions\SetAllowedActionsOrganization::class]->call($org, $params);
+        return $this->operators->actions👷SetAllowedActionsOrganization()->call($org, $params);
     }
 
-    public function getGithubActionsDefaultWorkflowPermissionsOrganization(string $org): Schema\ActionsGetDefaultWorkflowPermissions
+    /** @return */
+    public function getGithubActionsDefaultWorkflowPermissionsOrganization(string $org): ActionsGetDefaultWorkflowPermissions|array
     {
-        if (array_key_exists(Operator\Actions\GetGithubActionsDefaultWorkflowPermissionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetGithubActionsDefaultWorkflowPermissionsOrganization::class] = new Operator\Actions\GetGithubActionsDefaultWorkflowPermissionsOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Workflow());
-        }
-
-        return $this->operator[Operator\Actions\GetGithubActionsDefaultWorkflowPermissionsOrganization::class]->call($org);
+        return $this->operators->actions👷GetGithubActionsDefaultWorkflowPermissionsOrganization()->call($org);
     }
 
-    public function setGithubActionsDefaultWorkflowPermissionsOrganization(string $org, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setGithubActionsDefaultWorkflowPermissionsOrganization(string $org, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsOrganization::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsOrganization::class] = new Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsOrganization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Permissions🌀Workflow());
-        }
-
-        return $this->operator[Operator\Actions\SetGithubActionsDefaultWorkflowPermissionsOrganization::class]->call($org, $params);
+        return $this->operators->actions👷SetGithubActionsDefaultWorkflowPermissionsOrganization()->call($org, $params);
     }
 
-    public function listSelfHostedRunnerGroupsForOrg(string $org, int $perPage, int $page): Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok
+    /** @return */
+    public function listSelfHostedRunnerGroupsForOrg(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListSelfHostedRunnerGroupsForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListSelfHostedRunnerGroupsForOrg::class] = new Operator\Actions\ListSelfHostedRunnerGroupsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups());
-        }
-
-        return $this->operator[Operator\Actions\ListSelfHostedRunnerGroupsForOrg::class]->call($org, $perPage, $page);
+        return $this->operators->actions👷ListSelfHostedRunnerGroupsForOrg()->call($org, $perPage, $page);
     }
 
-    public function createSelfHostedRunnerGroupForOrg(string $org, array $params): Schema\RunnerGroupsOrg
+    /** @return */
+    public function createSelfHostedRunnerGroupForOrg(string $org, array $params): RunnerGroupsOrg|array
     {
-        if (array_key_exists(Operator\Actions\CreateSelfHostedRunnerGroupForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateSelfHostedRunnerGroupForOrg::class] = new Operator\Actions\CreateSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups());
-        }
-
-        return $this->operator[Operator\Actions\CreateSelfHostedRunnerGroupForOrg::class]->call($org, $params);
+        return $this->operators->actions👷CreateSelfHostedRunnerGroupForOrg()->call($org, $params);
     }
 
-    public function getSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId): Schema\RunnerGroupsOrg
+    /** @return */
+    public function getSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId): RunnerGroupsOrg|array
     {
-        if (array_key_exists(Operator\Actions\GetSelfHostedRunnerGroupForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetSelfHostedRunnerGroupForOrg::class] = new Operator\Actions\GetSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId());
-        }
-
-        return $this->operator[Operator\Actions\GetSelfHostedRunnerGroupForOrg::class]->call($org, $runnerGroupId);
+        return $this->operators->actions👷GetSelfHostedRunnerGroupForOrg()->call($org, $runnerGroupId);
     }
 
-    public function deleteSelfHostedRunnerGroupFromOrg(string $org, int $runnerGroupId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteSelfHostedRunnerGroupFromOrg(string $org, int $runnerGroupId): array
     {
-        if (array_key_exists(Operator\Actions\DeleteSelfHostedRunnerGroupFromOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteSelfHostedRunnerGroupFromOrg::class] = new Operator\Actions\DeleteSelfHostedRunnerGroupFromOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId());
-        }
-
-        return $this->operator[Operator\Actions\DeleteSelfHostedRunnerGroupFromOrg::class]->call($org, $runnerGroupId);
+        return $this->operators->actions👷DeleteSelfHostedRunnerGroupFromOrg()->call($org, $runnerGroupId);
     }
 
-    public function updateSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId, array $params): Schema\RunnerGroupsOrg
+    /** @return */
+    public function updateSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId, array $params): RunnerGroupsOrg|array
     {
-        if (array_key_exists(Operator\Actions\UpdateSelfHostedRunnerGroupForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\UpdateSelfHostedRunnerGroupForOrg::class] = new Operator\Actions\UpdateSelfHostedRunnerGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId());
-        }
-
-        return $this->operator[Operator\Actions\UpdateSelfHostedRunnerGroupForOrg::class]->call($org, $runnerGroupId, $params);
+        return $this->operators->actions👷UpdateSelfHostedRunnerGroupForOrg()->call($org, $runnerGroupId, $params);
     }
 
-    public function listRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, int $page, int $perPage): Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok
+    /** @return */
+    public function listRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, int $page, int $perPage): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg::class] = new Operator\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg::class]->call($org, $runnerGroupId, $page, $perPage);
+        return $this->operators->actions👷ListRepoAccessToSelfHostedRunnerGroupInOrg()->call($org, $runnerGroupId, $page, $perPage);
     }
 
-    public function setRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg::class] = new Operator\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories());
-        }
-
-        return $this->operator[Operator\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg::class]->call($org, $runnerGroupId, $params);
+        return $this->operators->actions👷SetRepoAccessToSelfHostedRunnerGroupInOrg()->call($org, $runnerGroupId, $params);
     }
 
-    public function addRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, int $repositoryId): ResponseInterface
+    /** @return array{code:int} */
+    public function addRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, int $repositoryId): array
     {
-        if (array_key_exists(Operator\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg::class] = new Operator\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories🌀RepositoryId());
-        }
-
-        return $this->operator[Operator\Actions\AddRepoAccessToSelfHostedRunnerGroupInOrg::class]->call($org, $runnerGroupId, $repositoryId);
+        return $this->operators->actions👷AddRepoAccessToSelfHostedRunnerGroupInOrg()->call($org, $runnerGroupId, $repositoryId);
     }
 
-    public function removeRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, int $repositoryId): ResponseInterface
+    /** @return array{code:int} */
+    public function removeRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, int $repositoryId): array
     {
-        if (array_key_exists(Operator\Actions\RemoveRepoAccessToSelfHostedRunnerGroupInOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\RemoveRepoAccessToSelfHostedRunnerGroupInOrg::class] = new Operator\Actions\RemoveRepoAccessToSelfHostedRunnerGroupInOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Repositories🌀RepositoryId());
-        }
-
-        return $this->operator[Operator\Actions\RemoveRepoAccessToSelfHostedRunnerGroupInOrg::class]->call($org, $runnerGroupId, $repositoryId);
+        return $this->operators->actions👷RemoveRepoAccessToSelfHostedRunnerGroupInOrg()->call($org, $runnerGroupId, $repositoryId);
     }
 
-    public function listSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, int $perPage, int $page): Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok
+    /** @return */
+    public function listSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, int $perPage, int $page): Json|array
     {
-        if (array_key_exists(Operator\Actions\ListSelfHostedRunnersInGroupForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListSelfHostedRunnersInGroupForOrg::class] = new Operator\Actions\ListSelfHostedRunnersInGroupForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners());
-        }
-
-        return $this->operator[Operator\Actions\ListSelfHostedRunnersInGroupForOrg::class]->call($org, $runnerGroupId, $perPage, $page);
+        return $this->operators->actions👷ListSelfHostedRunnersInGroupForOrg()->call($org, $runnerGroupId, $perPage, $page);
     }
 
-    public function setSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetSelfHostedRunnersInGroupForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetSelfHostedRunnersInGroupForOrg::class] = new Operator\Actions\SetSelfHostedRunnersInGroupForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners());
-        }
-
-        return $this->operator[Operator\Actions\SetSelfHostedRunnersInGroupForOrg::class]->call($org, $runnerGroupId, $params);
+        return $this->operators->actions👷SetSelfHostedRunnersInGroupForOrg()->call($org, $runnerGroupId, $params);
     }
 
-    public function addSelfHostedRunnerToGroupForOrg(string $org, int $runnerGroupId, int $runnerId): ResponseInterface
+    /** @return array{code:int} */
+    public function addSelfHostedRunnerToGroupForOrg(string $org, int $runnerGroupId, int $runnerId): array
     {
-        if (array_key_exists(Operator\Actions\AddSelfHostedRunnerToGroupForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\AddSelfHostedRunnerToGroupForOrg::class] = new Operator\Actions\AddSelfHostedRunnerToGroupForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\Actions\AddSelfHostedRunnerToGroupForOrg::class]->call($org, $runnerGroupId, $runnerId);
+        return $this->operators->actions👷AddSelfHostedRunnerToGroupForOrg()->call($org, $runnerGroupId, $runnerId);
     }
 
-    public function removeSelfHostedRunnerFromGroupForOrg(string $org, int $runnerGroupId, int $runnerId): ResponseInterface
+    /** @return array{code:int} */
+    public function removeSelfHostedRunnerFromGroupForOrg(string $org, int $runnerGroupId, int $runnerId): array
     {
-        if (array_key_exists(Operator\Actions\RemoveSelfHostedRunnerFromGroupForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\RemoveSelfHostedRunnerFromGroupForOrg::class] = new Operator\Actions\RemoveSelfHostedRunnerFromGroupForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\Actions\RemoveSelfHostedRunnerFromGroupForOrg::class]->call($org, $runnerGroupId, $runnerId);
+        return $this->operators->actions👷RemoveSelfHostedRunnerFromGroupForOrg()->call($org, $runnerGroupId, $runnerId);
     }
 
-    public function listSelfHostedRunnersForOrg(string $org, int $perPage, int $page): Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok
+    /** @return */
+    public function listSelfHostedRunnersForOrg(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListSelfHostedRunnersForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListSelfHostedRunnersForOrg::class] = new Operator\Actions\ListSelfHostedRunnersForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners());
-        }
-
-        return $this->operator[Operator\Actions\ListSelfHostedRunnersForOrg::class]->call($org, $perPage, $page);
+        return $this->operators->actions👷ListSelfHostedRunnersForOrg()->call($org, $perPage, $page);
     }
 
-    public function listRunnerApplicationsForOrg(string $org): Schema\RunnerApplication
+    /** @return iterable<Schema\RunnerApplication> */
+    public function listRunnerApplicationsForOrg(string $org): iterable
     {
-        if (array_key_exists(Operator\Actions\ListRunnerApplicationsForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListRunnerApplicationsForOrg::class] = new Operator\Actions\ListRunnerApplicationsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀Downloads());
-        }
-
-        return $this->operator[Operator\Actions\ListRunnerApplicationsForOrg::class]->call($org);
+        return $this->operators->actions👷ListRunnerApplicationsForOrg()->call($org);
     }
 
-    public function createRegistrationTokenForOrg(string $org): Schema\AuthenticationToken
+    /** @return */
+    public function createRegistrationTokenForOrg(string $org): AuthenticationToken|array
     {
-        if (array_key_exists(Operator\Actions\CreateRegistrationTokenForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateRegistrationTokenForOrg::class] = new Operator\Actions\CreateRegistrationTokenForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RegistrationToken());
-        }
-
-        return $this->operator[Operator\Actions\CreateRegistrationTokenForOrg::class]->call($org);
+        return $this->operators->actions👷CreateRegistrationTokenForOrg()->call($org);
     }
 
-    public function createRemoveTokenForOrg(string $org): Schema\AuthenticationToken
+    /** @return */
+    public function createRemoveTokenForOrg(string $org): AuthenticationToken|array
     {
-        if (array_key_exists(Operator\Actions\CreateRemoveTokenForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateRemoveTokenForOrg::class] = new Operator\Actions\CreateRemoveTokenForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RemoveToken());
-        }
-
-        return $this->operator[Operator\Actions\CreateRemoveTokenForOrg::class]->call($org);
+        return $this->operators->actions👷CreateRemoveTokenForOrg()->call($org);
     }
 
-    public function getSelfHostedRunnerForOrg(string $org, int $runnerId): Schema\Runner
+    /** @return */
+    public function getSelfHostedRunnerForOrg(string $org, int $runnerId): Runner|array
     {
-        if (array_key_exists(Operator\Actions\GetSelfHostedRunnerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetSelfHostedRunnerForOrg::class] = new Operator\Actions\GetSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\Actions\GetSelfHostedRunnerForOrg::class]->call($org, $runnerId);
+        return $this->operators->actions👷GetSelfHostedRunnerForOrg()->call($org, $runnerId);
     }
 
-    public function deleteSelfHostedRunnerFromOrg(string $org, int $runnerId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteSelfHostedRunnerFromOrg(string $org, int $runnerId): array
     {
-        if (array_key_exists(Operator\Actions\DeleteSelfHostedRunnerFromOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteSelfHostedRunnerFromOrg::class] = new Operator\Actions\DeleteSelfHostedRunnerFromOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\Actions\DeleteSelfHostedRunnerFromOrg::class]->call($org, $runnerId);
+        return $this->operators->actions👷DeleteSelfHostedRunnerFromOrg()->call($org, $runnerId);
     }
 
-    public function listLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function listLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListLabelsForSelfHostedRunnerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListLabelsForSelfHostedRunnerForOrg::class] = new Operator\Actions\ListLabelsForSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\ListLabelsForSelfHostedRunnerForOrg::class]->call($org, $runnerId);
+        return $this->operators->actions👷ListLabelsForSelfHostedRunnerForOrg()->call($org, $runnerId);
     }
 
-    public function setCustomLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId, array $params): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function setCustomLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\SetCustomLabelsForSelfHostedRunnerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetCustomLabelsForSelfHostedRunnerForOrg::class] = new Operator\Actions\SetCustomLabelsForSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\SetCustomLabelsForSelfHostedRunnerForOrg::class]->call($org, $runnerId, $params);
+        return $this->operators->actions👷SetCustomLabelsForSelfHostedRunnerForOrg()->call($org, $runnerId, $params);
     }
 
-    public function addCustomLabelsToSelfHostedRunnerForOrg(string $org, int $runnerId, array $params): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function addCustomLabelsToSelfHostedRunnerForOrg(string $org, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\AddCustomLabelsToSelfHostedRunnerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\AddCustomLabelsToSelfHostedRunnerForOrg::class] = new Operator\Actions\AddCustomLabelsToSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\AddCustomLabelsToSelfHostedRunnerForOrg::class]->call($org, $runnerId, $params);
+        return $this->operators->actions👷AddCustomLabelsToSelfHostedRunnerForOrg()->call($org, $runnerId, $params);
     }
 
-    public function removeAllCustomLabelsFromSelfHostedRunnerForOrg(string $org, int $runnerId): Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok
+    /** @return */
+    public function removeAllCustomLabelsFromSelfHostedRunnerForOrg(string $org, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg::class] = new Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg::class]->call($org, $runnerId);
+        return $this->operators->actions👷RemoveAllCustomLabelsFromSelfHostedRunnerForOrg()->call($org, $runnerId);
     }
 
-    public function removeCustomLabelFromSelfHostedRunnerForOrg(string $org, int $runnerId, string $name): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function removeCustomLabelFromSelfHostedRunnerForOrg(string $org, int $runnerId, string $name): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForOrg::class] = new Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name());
-        }
-
-        return $this->operator[Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForOrg::class]->call($org, $runnerId, $name);
+        return $this->operators->actions👷RemoveCustomLabelFromSelfHostedRunnerForOrg()->call($org, $runnerId, $name);
     }
 
-    public function listOrgSecrets(string $org, int $perPage, int $page): Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok
+    /** @return */
+    public function listOrgSecrets(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListOrgSecrets::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListOrgSecrets::class] = new Operator\Actions\ListOrgSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets());
-        }
-
-        return $this->operator[Operator\Actions\ListOrgSecrets::class]->call($org, $perPage, $page);
+        return $this->operators->actions👷ListOrgSecrets()->call($org, $perPage, $page);
     }
 
-    public function getOrgPublicKey(string $org): Schema\ActionsPublicKey
+    /** @return */
+    public function getOrgPublicKey(string $org): ActionsPublicKey|array
     {
-        if (array_key_exists(Operator\Actions\GetOrgPublicKey::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetOrgPublicKey::class] = new Operator\Actions\GetOrgPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀PublicKey());
-        }
-
-        return $this->operator[Operator\Actions\GetOrgPublicKey::class]->call($org);
+        return $this->operators->actions👷GetOrgPublicKey()->call($org);
     }
 
-    public function getOrgSecret(string $org, string $secretName): Schema\OrganizationActionsSecret
+    /** @return */
+    public function getOrgSecret(string $org, string $secretName): OrganizationActionsSecret|array
     {
-        if (array_key_exists(Operator\Actions\GetOrgSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetOrgSecret::class] = new Operator\Actions\GetOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\GetOrgSecret::class]->call($org, $secretName);
+        return $this->operators->actions👷GetOrgSecret()->call($org, $secretName);
     }
 
-    public function createOrUpdateOrgSecret(string $org, string $secretName, array $params): Schema\EmptyObject
+    /** @return Schema\EmptyObject|array{code:int} */
+    public function createOrUpdateOrgSecret(string $org, string $secretName, array $params): EmptyObject|array
     {
-        if (array_key_exists(Operator\Actions\CreateOrUpdateOrgSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateOrUpdateOrgSecret::class] = new Operator\Actions\CreateOrUpdateOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\CreateOrUpdateOrgSecret::class]->call($org, $secretName, $params);
+        return $this->operators->actions👷CreateOrUpdateOrgSecret()->call($org, $secretName, $params);
     }
 
-    public function deleteOrgSecret(string $org, string $secretName): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteOrgSecret(string $org, string $secretName): array
     {
-        if (array_key_exists(Operator\Actions\DeleteOrgSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteOrgSecret::class] = new Operator\Actions\DeleteOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\DeleteOrgSecret::class]->call($org, $secretName);
+        return $this->operators->actions👷DeleteOrgSecret()->call($org, $secretName);
     }
 
-    public function listSelectedReposForOrgSecret(string $org, string $secretName, int $page, int $perPage): Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok
+    /** @return */
+    public function listSelectedReposForOrgSecret(string $org, string $secretName, int $page, int $perPage): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListSelectedReposForOrgSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListSelectedReposForOrgSecret::class] = new Operator\Actions\ListSelectedReposForOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName🌀Repositories());
-        }
-
-        return $this->operator[Operator\Actions\ListSelectedReposForOrgSecret::class]->call($org, $secretName, $page, $perPage);
+        return $this->operators->actions👷ListSelectedReposForOrgSecret()->call($org, $secretName, $page, $perPage);
     }
 
-    public function setSelectedReposForOrgSecret(string $org, string $secretName, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setSelectedReposForOrgSecret(string $org, string $secretName, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetSelectedReposForOrgSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetSelectedReposForOrgSecret::class] = new Operator\Actions\SetSelectedReposForOrgSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName🌀Repositories());
-        }
-
-        return $this->operator[Operator\Actions\SetSelectedReposForOrgSecret::class]->call($org, $secretName, $params);
+        return $this->operators->actions👷SetSelectedReposForOrgSecret()->call($org, $secretName, $params);
     }
 
-    public function addSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): ResponseInterface
+    /** @return array{code:int} */
+    public function addSelectedRepoToOrgSecret(string $org, string $secretName, int $repositoryId): array
     {
-        if (array_key_exists(Operator\Actions\AddSelectedRepoToOrgSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\AddSelectedRepoToOrgSecret::class] = new Operator\Actions\AddSelectedRepoToOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName🌀Repositories🌀RepositoryId());
-        }
-
-        return $this->operator[Operator\Actions\AddSelectedRepoToOrgSecret::class]->call($org, $secretName, $repositoryId);
+        return $this->operators->actions👷AddSelectedRepoToOrgSecret()->call($org, $secretName, $repositoryId);
     }
 
-    public function removeSelectedRepoFromOrgSecret(string $org, string $secretName, int $repositoryId): ResponseInterface
+    /** @return array{code:int} */
+    public function removeSelectedRepoFromOrgSecret(string $org, string $secretName, int $repositoryId): array
     {
-        if (array_key_exists(Operator\Actions\RemoveSelectedRepoFromOrgSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\RemoveSelectedRepoFromOrgSecret::class] = new Operator\Actions\RemoveSelectedRepoFromOrgSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Secrets🌀SecretName🌀Repositories🌀RepositoryId());
-        }
-
-        return $this->operator[Operator\Actions\RemoveSelectedRepoFromOrgSecret::class]->call($org, $secretName, $repositoryId);
+        return $this->operators->actions👷RemoveSelectedRepoFromOrgSecret()->call($org, $secretName, $repositoryId);
     }
 
-    public function listArtifactsForRepo(string $owner, string $repo, int $perPage, int $page): Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok
+    /** @return */
+    public function listArtifactsForRepo(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListArtifactsForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListArtifactsForRepo::class] = new Operator\Actions\ListArtifactsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts());
-        }
-
-        return $this->operator[Operator\Actions\ListArtifactsForRepo::class]->call($owner, $repo, $perPage, $page);
+        return $this->operators->actions👷ListArtifactsForRepo()->call($owner, $repo, $perPage, $page);
     }
 
-    public function getArtifact(string $owner, string $repo, int $artifactId): Schema\Artifact
+    /** @return */
+    public function getArtifact(string $owner, string $repo, int $artifactId): Artifact|array
     {
-        if (array_key_exists(Operator\Actions\GetArtifact::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetArtifact::class] = new Operator\Actions\GetArtifact($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId());
-        }
-
-        return $this->operator[Operator\Actions\GetArtifact::class]->call($owner, $repo, $artifactId);
+        return $this->operators->actions👷GetArtifact()->call($owner, $repo, $artifactId);
     }
 
-    public function deleteArtifact(string $owner, string $repo, int $artifactId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteArtifact(string $owner, string $repo, int $artifactId): array
     {
-        if (array_key_exists(Operator\Actions\DeleteArtifact::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteArtifact::class] = new Operator\Actions\DeleteArtifact($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId());
-        }
-
-        return $this->operator[Operator\Actions\DeleteArtifact::class]->call($owner, $repo, $artifactId);
+        return $this->operators->actions👷DeleteArtifact()->call($owner, $repo, $artifactId);
     }
 
-    public function downloadArtifact(string $owner, string $repo, int $artifactId, string $archiveFormat): ResponseInterface
+    /** @return array{code:int,location:string} */
+    public function downloadArtifact(string $owner, string $repo, int $artifactId, string $archiveFormat): array
     {
-        if (array_key_exists(Operator\Actions\DownloadArtifact::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadArtifact::class] = new Operator\Actions\DownloadArtifact($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId🌀ArchiveFormat());
-        }
-
-        return $this->operator[Operator\Actions\DownloadArtifact::class]->call($owner, $repo, $artifactId, $archiveFormat);
+        return $this->operators->actions👷DownloadArtifact()->call($owner, $repo, $artifactId, $archiveFormat);
     }
 
-    public function downloadArtifactStreaming(string $owner, string $repo, int $artifactId, string $archiveFormat): ResponseInterface
+    /** @return Observable<string> */
+    public function downloadArtifactStreaming(string $owner, string $repo, int $artifactId, string $archiveFormat): iterable
     {
-        if (array_key_exists(Operator\Actions\DownloadArtifactStreaming::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadArtifactStreaming::class] = new Operator\Actions\DownloadArtifactStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Artifacts🌀ArtifactId🌀ArchiveFormat());
-        }
-
-        return $this->operator[Operator\Actions\DownloadArtifactStreaming::class]->call($owner, $repo, $artifactId, $archiveFormat);
+        return $this->operators->actions👷DownloadArtifactStreaming()->call($owner, $repo, $artifactId, $archiveFormat);
     }
 
-    public function getActionsCacheUsage(string $owner, string $repo): Schema\ActionsCacheUsageByRepository
+    /** @return */
+    public function getActionsCacheUsage(string $owner, string $repo): ActionsCacheUsageByRepository|array
     {
-        if (array_key_exists(Operator\Actions\GetActionsCacheUsage::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetActionsCacheUsage::class] = new Operator\Actions\GetActionsCacheUsage($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Cache🌀Usage());
-        }
-
-        return $this->operator[Operator\Actions\GetActionsCacheUsage::class]->call($owner, $repo);
+        return $this->operators->actions👷GetActionsCacheUsage()->call($owner, $repo);
     }
 
-    public function getActionsCacheUsagePolicy(string $owner, string $repo): Schema\ActionsCacheUsagePolicyForRepository
+    /** @return */
+    public function getActionsCacheUsagePolicy(string $owner, string $repo): ActionsCacheUsagePolicyForRepository|array
     {
-        if (array_key_exists(Operator\Actions\GetActionsCacheUsagePolicy::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetActionsCacheUsagePolicy::class] = new Operator\Actions\GetActionsCacheUsagePolicy($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Cache🌀UsagePolicy());
-        }
-
-        return $this->operator[Operator\Actions\GetActionsCacheUsagePolicy::class]->call($owner, $repo);
+        return $this->operators->actions👷GetActionsCacheUsagePolicy()->call($owner, $repo);
     }
 
-    public function setActionsCacheUsagePolicy(string $owner, string $repo, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setActionsCacheUsagePolicy(string $owner, string $repo, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetActionsCacheUsagePolicy::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetActionsCacheUsagePolicy::class] = new Operator\Actions\SetActionsCacheUsagePolicy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Cache🌀UsagePolicy());
-        }
-
-        return $this->operator[Operator\Actions\SetActionsCacheUsagePolicy::class]->call($owner, $repo, $params);
+        return $this->operators->actions👷SetActionsCacheUsagePolicy()->call($owner, $repo, $params);
     }
 
-    public function getJobForWorkflowRun(string $owner, string $repo, int $jobId): Schema\Job
+    /** @return */
+    public function getJobForWorkflowRun(string $owner, string $repo, int $jobId): Job|array
     {
-        if (array_key_exists(Operator\Actions\GetJobForWorkflowRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetJobForWorkflowRun::class] = new Operator\Actions\GetJobForWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Jobs🌀JobId());
-        }
-
-        return $this->operator[Operator\Actions\GetJobForWorkflowRun::class]->call($owner, $repo, $jobId);
+        return $this->operators->actions👷GetJobForWorkflowRun()->call($owner, $repo, $jobId);
     }
 
-    public function downloadJobLogsForWorkflowRun(string $owner, string $repo, int $jobId): ResponseInterface
+    /** @return array{code:int,location:string} */
+    public function downloadJobLogsForWorkflowRun(string $owner, string $repo, int $jobId): array
     {
-        if (array_key_exists(Operator\Actions\DownloadJobLogsForWorkflowRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadJobLogsForWorkflowRun::class] = new Operator\Actions\DownloadJobLogsForWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Jobs🌀JobId🌀Logs());
-        }
-
-        return $this->operator[Operator\Actions\DownloadJobLogsForWorkflowRun::class]->call($owner, $repo, $jobId);
+        return $this->operators->actions👷DownloadJobLogsForWorkflowRun()->call($owner, $repo, $jobId);
     }
 
-    public function downloadJobLogsForWorkflowRunStreaming(string $owner, string $repo, int $jobId): ResponseInterface
+    /** @return Observable<string> */
+    public function downloadJobLogsForWorkflowRunStreaming(string $owner, string $repo, int $jobId): iterable
     {
-        if (array_key_exists(Operator\Actions\DownloadJobLogsForWorkflowRunStreaming::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadJobLogsForWorkflowRunStreaming::class] = new Operator\Actions\DownloadJobLogsForWorkflowRunStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Jobs🌀JobId🌀Logs());
-        }
-
-        return $this->operator[Operator\Actions\DownloadJobLogsForWorkflowRunStreaming::class]->call($owner, $repo, $jobId);
+        return $this->operators->actions👷DownloadJobLogsForWorkflowRunStreaming()->call($owner, $repo, $jobId);
     }
 
-    public function reRunJobForWorkflowRun(string $owner, string $repo, int $jobId, array $params): Schema\EmptyObject
+    /** @return */
+    public function reRunJobForWorkflowRun(string $owner, string $repo, int $jobId, array $params): EmptyObject|array
     {
-        if (array_key_exists(Operator\Actions\ReRunJobForWorkflowRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ReRunJobForWorkflowRun::class] = new Operator\Actions\ReRunJobForWorkflowRun($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Jobs🌀JobId🌀Rerun());
-        }
-
-        return $this->operator[Operator\Actions\ReRunJobForWorkflowRun::class]->call($owner, $repo, $jobId, $params);
+        return $this->operators->actions👷ReRunJobForWorkflowRun()->call($owner, $repo, $jobId, $params);
     }
 
-    public function getGithubActionsPermissionsRepository(string $owner, string $repo): Schema\ActionsRepositoryPermissions
+    /** @return */
+    public function getGithubActionsPermissionsRepository(string $owner, string $repo): ActionsRepositoryPermissions|array
     {
-        if (array_key_exists(Operator\Actions\GetGithubActionsPermissionsRepository::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetGithubActionsPermissionsRepository::class] = new Operator\Actions\GetGithubActionsPermissionsRepository($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions());
-        }
-
-        return $this->operator[Operator\Actions\GetGithubActionsPermissionsRepository::class]->call($owner, $repo);
+        return $this->operators->actions👷GetGithubActionsPermissionsRepository()->call($owner, $repo);
     }
 
-    public function setGithubActionsPermissionsRepository(string $owner, string $repo, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setGithubActionsPermissionsRepository(string $owner, string $repo, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetGithubActionsPermissionsRepository::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetGithubActionsPermissionsRepository::class] = new Operator\Actions\SetGithubActionsPermissionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions());
-        }
-
-        return $this->operator[Operator\Actions\SetGithubActionsPermissionsRepository::class]->call($owner, $repo, $params);
+        return $this->operators->actions👷SetGithubActionsPermissionsRepository()->call($owner, $repo, $params);
     }
 
-    public function getWorkflowAccessToRepository(string $owner, string $repo): Schema\ActionsWorkflowAccessToRepository
+    /** @return */
+    public function getWorkflowAccessToRepository(string $owner, string $repo): ActionsWorkflowAccessToRepository|array
     {
-        if (array_key_exists(Operator\Actions\GetWorkflowAccessToRepository::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetWorkflowAccessToRepository::class] = new Operator\Actions\GetWorkflowAccessToRepository($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀Access());
-        }
-
-        return $this->operator[Operator\Actions\GetWorkflowAccessToRepository::class]->call($owner, $repo);
+        return $this->operators->actions👷GetWorkflowAccessToRepository()->call($owner, $repo);
     }
 
-    public function setWorkflowAccessToRepository(string $owner, string $repo, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setWorkflowAccessToRepository(string $owner, string $repo, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetWorkflowAccessToRepository::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetWorkflowAccessToRepository::class] = new Operator\Actions\SetWorkflowAccessToRepository($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀Access());
-        }
-
-        return $this->operator[Operator\Actions\SetWorkflowAccessToRepository::class]->call($owner, $repo, $params);
+        return $this->operators->actions👷SetWorkflowAccessToRepository()->call($owner, $repo, $params);
     }
 
-    public function getAllowedActionsRepository(string $owner, string $repo): Schema\SelectedActions
+    /** @return */
+    public function getAllowedActionsRepository(string $owner, string $repo): SelectedActions|array
     {
-        if (array_key_exists(Operator\Actions\GetAllowedActionsRepository::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetAllowedActionsRepository::class] = new Operator\Actions\GetAllowedActionsRepository($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀SelectedActions());
-        }
-
-        return $this->operator[Operator\Actions\GetAllowedActionsRepository::class]->call($owner, $repo);
+        return $this->operators->actions👷GetAllowedActionsRepository()->call($owner, $repo);
     }
 
-    public function setAllowedActionsRepository(string $owner, string $repo, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setAllowedActionsRepository(string $owner, string $repo, array $params): array
     {
-        if (array_key_exists(Operator\Actions\SetAllowedActionsRepository::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetAllowedActionsRepository::class] = new Operator\Actions\SetAllowedActionsRepository($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Permissions🌀SelectedActions());
-        }
-
-        return $this->operator[Operator\Actions\SetAllowedActionsRepository::class]->call($owner, $repo, $params);
+        return $this->operators->actions👷SetAllowedActionsRepository()->call($owner, $repo, $params);
     }
 
-    public function listSelfHostedRunnersForRepo(string $owner, string $repo, int $perPage, int $page): Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok
+    /** @return */
+    public function listSelfHostedRunnersForRepo(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Actions\ListSelfHostedRunnersForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListSelfHostedRunnersForRepo::class] = new Operator\Actions\ListSelfHostedRunnersForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners());
-        }
-
-        return $this->operator[Operator\Actions\ListSelfHostedRunnersForRepo::class]->call($owner, $repo, $perPage, $page);
+        return $this->operators->actions👷ListSelfHostedRunnersForRepo()->call($owner, $repo, $perPage, $page);
     }
 
-    public function listRunnerApplicationsForRepo(string $owner, string $repo): Schema\RunnerApplication
+    /** @return iterable<Schema\RunnerApplication> */
+    public function listRunnerApplicationsForRepo(string $owner, string $repo): iterable
     {
-        if (array_key_exists(Operator\Actions\ListRunnerApplicationsForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListRunnerApplicationsForRepo::class] = new Operator\Actions\ListRunnerApplicationsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀Downloads());
-        }
-
-        return $this->operator[Operator\Actions\ListRunnerApplicationsForRepo::class]->call($owner, $repo);
+        return $this->operators->actions👷ListRunnerApplicationsForRepo()->call($owner, $repo);
     }
 
-    public function createRegistrationTokenForRepo(string $owner, string $repo): Schema\AuthenticationToken
+    /** @return */
+    public function createRegistrationTokenForRepo(string $owner, string $repo): AuthenticationToken|array
     {
-        if (array_key_exists(Operator\Actions\CreateRegistrationTokenForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateRegistrationTokenForRepo::class] = new Operator\Actions\CreateRegistrationTokenForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RegistrationToken());
-        }
-
-        return $this->operator[Operator\Actions\CreateRegistrationTokenForRepo::class]->call($owner, $repo);
+        return $this->operators->actions👷CreateRegistrationTokenForRepo()->call($owner, $repo);
     }
 
-    public function createRemoveTokenForRepo(string $owner, string $repo): Schema\AuthenticationToken
+    /** @return */
+    public function createRemoveTokenForRepo(string $owner, string $repo): AuthenticationToken|array
     {
-        if (array_key_exists(Operator\Actions\CreateRemoveTokenForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateRemoveTokenForRepo::class] = new Operator\Actions\CreateRemoveTokenForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RemoveToken());
-        }
-
-        return $this->operator[Operator\Actions\CreateRemoveTokenForRepo::class]->call($owner, $repo);
+        return $this->operators->actions👷CreateRemoveTokenForRepo()->call($owner, $repo);
     }
 
-    public function getSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Schema\Runner
+    /** @return */
+    public function getSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Runner|array
     {
-        if (array_key_exists(Operator\Actions\GetSelfHostedRunnerForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetSelfHostedRunnerForRepo::class] = new Operator\Actions\GetSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\Actions\GetSelfHostedRunnerForRepo::class]->call($owner, $repo, $runnerId);
+        return $this->operators->actions👷GetSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId);
     }
 
-    public function deleteSelfHostedRunnerFromRepo(string $owner, string $repo, int $runnerId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteSelfHostedRunnerFromRepo(string $owner, string $repo, int $runnerId): array
     {
-        if (array_key_exists(Operator\Actions\DeleteSelfHostedRunnerFromRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteSelfHostedRunnerFromRepo::class] = new Operator\Actions\DeleteSelfHostedRunnerFromRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\Actions\DeleteSelfHostedRunnerFromRepo::class]->call($owner, $repo, $runnerId);
+        return $this->operators->actions👷DeleteSelfHostedRunnerFromRepo()->call($owner, $repo, $runnerId);
     }
 
-    public function listLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function listLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListLabelsForSelfHostedRunnerForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListLabelsForSelfHostedRunnerForRepo::class] = new Operator\Actions\ListLabelsForSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\ListLabelsForSelfHostedRunnerForRepo::class]->call($owner, $repo, $runnerId);
+        return $this->operators->actions👷ListLabelsForSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId);
     }
 
-    public function setCustomLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, array $params): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function setCustomLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\SetCustomLabelsForSelfHostedRunnerForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\SetCustomLabelsForSelfHostedRunnerForRepo::class] = new Operator\Actions\SetCustomLabelsForSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\SetCustomLabelsForSelfHostedRunnerForRepo::class]->call($owner, $repo, $runnerId, $params);
+        return $this->operators->actions👷SetCustomLabelsForSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId, $params);
     }
 
-    public function addCustomLabelsToSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, array $params): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function addCustomLabelsToSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\AddCustomLabelsToSelfHostedRunnerForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\AddCustomLabelsToSelfHostedRunnerForRepo::class] = new Operator\Actions\AddCustomLabelsToSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\AddCustomLabelsToSelfHostedRunnerForRepo::class]->call($owner, $repo, $runnerId, $params);
+        return $this->operators->actions👷AddCustomLabelsToSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId, $params);
     }
 
-    public function removeAllCustomLabelsFromSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok
+    /** @return */
+    public function removeAllCustomLabelsFromSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo::class] = new Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo::class]->call($owner, $repo, $runnerId);
+        return $this->operators->actions👷RemoveAllCustomLabelsFromSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId);
     }
 
-    public function removeCustomLabelFromSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, string $name): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return */
+    public function removeCustomLabelFromSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, string $name): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForRepo::class] = new Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name());
-        }
-
-        return $this->operator[Operator\Actions\RemoveCustomLabelFromSelfHostedRunnerForRepo::class]->call($owner, $repo, $runnerId, $name);
+        return $this->operators->actions👷RemoveCustomLabelFromSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId, $name);
     }
 
-    public function listWorkflowRunsForRepo(string $owner, string $repo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, int $perPage, int $page, bool $excludePullRequests): Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok
+    /** @return */
+    public function listWorkflowRunsForRepo(string $owner, string $repo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, int $perPage, int $page, bool $excludePullRequests): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListWorkflowRunsForRepo::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListWorkflowRunsForRepo::class] = new Operator\Actions\ListWorkflowRunsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs());
-        }
-
-        return $this->operator[Operator\Actions\ListWorkflowRunsForRepo::class]->call($owner, $repo, $actor, $branch, $event, $status, $created, $checkSuiteId, $perPage, $page, $excludePullRequests);
+        return $this->operators->actions👷ListWorkflowRunsForRepo()->call($owner, $repo, $actor, $branch, $event, $status, $created, $checkSuiteId, $perPage, $page, $excludePullRequests);
     }
 
-    public function getWorkflowRun(string $owner, string $repo, int $runId, bool $excludePullRequests): Schema\WorkflowRun
+    /** @return */
+    public function getWorkflowRun(string $owner, string $repo, int $runId, bool $excludePullRequests): WorkflowRun|array
     {
-        if (array_key_exists(Operator\Actions\GetWorkflowRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetWorkflowRun::class] = new Operator\Actions\GetWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId());
-        }
-
-        return $this->operator[Operator\Actions\GetWorkflowRun::class]->call($owner, $repo, $runId, $excludePullRequests);
+        return $this->operators->actions👷GetWorkflowRun()->call($owner, $repo, $runId, $excludePullRequests);
     }
 
-    public function deleteWorkflowRun(string $owner, string $repo, int $runId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteWorkflowRun(string $owner, string $repo, int $runId): array
     {
-        if (array_key_exists(Operator\Actions\DeleteWorkflowRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteWorkflowRun::class] = new Operator\Actions\DeleteWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId());
-        }
-
-        return $this->operator[Operator\Actions\DeleteWorkflowRun::class]->call($owner, $repo, $runId);
+        return $this->operators->actions👷DeleteWorkflowRun()->call($owner, $repo, $runId);
     }
 
-    public function getReviewsForRun(string $owner, string $repo, int $runId): Schema\EnvironmentApprovals
+    /** @return iterable<Schema\EnvironmentApprovals> */
+    public function getReviewsForRun(string $owner, string $repo, int $runId): iterable
     {
-        if (array_key_exists(Operator\Actions\GetReviewsForRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetReviewsForRun::class] = new Operator\Actions\GetReviewsForRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Approvals());
-        }
-
-        return $this->operator[Operator\Actions\GetReviewsForRun::class]->call($owner, $repo, $runId);
+        return $this->operators->actions👷GetReviewsForRun()->call($owner, $repo, $runId);
     }
 
-    public function listWorkflowRunArtifacts(string $owner, string $repo, int $runId, int $perPage, int $page): Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok
+    /** @return */
+    public function listWorkflowRunArtifacts(string $owner, string $repo, int $runId, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Actions\ListWorkflowRunArtifacts::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListWorkflowRunArtifacts::class] = new Operator\Actions\ListWorkflowRunArtifacts($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Artifacts());
-        }
-
-        return $this->operator[Operator\Actions\ListWorkflowRunArtifacts::class]->call($owner, $repo, $runId, $perPage, $page);
+        return $this->operators->actions👷ListWorkflowRunArtifacts()->call($owner, $repo, $runId, $perPage, $page);
     }
 
-    public function getWorkflowRunAttempt(string $owner, string $repo, int $runId, int $attemptNumber, bool $excludePullRequests): Schema\WorkflowRun
+    /** @return */
+    public function getWorkflowRunAttempt(string $owner, string $repo, int $runId, int $attemptNumber, bool $excludePullRequests): WorkflowRun|array
     {
-        if (array_key_exists(Operator\Actions\GetWorkflowRunAttempt::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetWorkflowRunAttempt::class] = new Operator\Actions\GetWorkflowRunAttempt($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Attempts🌀AttemptNumber());
-        }
-
-        return $this->operator[Operator\Actions\GetWorkflowRunAttempt::class]->call($owner, $repo, $runId, $attemptNumber, $excludePullRequests);
+        return $this->operators->actions👷GetWorkflowRunAttempt()->call($owner, $repo, $runId, $attemptNumber, $excludePullRequests);
     }
 
-    public function listJobsForWorkflowRunAttempt(string $owner, string $repo, int $runId, int $attemptNumber, int $perPage, int $page): Schema\Operations\Actions\ListJobsForWorkflowRunAttempt\Response\ApplicationJson\Ok
+    /** @return */
+    public function listJobsForWorkflowRunAttempt(string $owner, string $repo, int $runId, int $attemptNumber, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRunAttempt\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListJobsForWorkflowRunAttempt::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListJobsForWorkflowRunAttempt::class] = new Operator\Actions\ListJobsForWorkflowRunAttempt($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Attempts🌀AttemptNumber🌀Jobs());
-        }
-
-        return $this->operator[Operator\Actions\ListJobsForWorkflowRunAttempt::class]->call($owner, $repo, $runId, $attemptNumber, $perPage, $page);
+        return $this->operators->actions👷ListJobsForWorkflowRunAttempt()->call($owner, $repo, $runId, $attemptNumber, $perPage, $page);
     }
 
-    public function downloadWorkflowRunAttemptLogs(string $owner, string $repo, int $runId, int $attemptNumber): ResponseInterface
+    /** @return array{code:int,location:string} */
+    public function downloadWorkflowRunAttemptLogs(string $owner, string $repo, int $runId, int $attemptNumber): array
     {
-        if (array_key_exists(Operator\Actions\DownloadWorkflowRunAttemptLogs::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadWorkflowRunAttemptLogs::class] = new Operator\Actions\DownloadWorkflowRunAttemptLogs($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Attempts🌀AttemptNumber🌀Logs());
-        }
-
-        return $this->operator[Operator\Actions\DownloadWorkflowRunAttemptLogs::class]->call($owner, $repo, $runId, $attemptNumber);
+        return $this->operators->actions👷DownloadWorkflowRunAttemptLogs()->call($owner, $repo, $runId, $attemptNumber);
     }
 
-    public function downloadWorkflowRunAttemptLogsStreaming(string $owner, string $repo, int $runId, int $attemptNumber): ResponseInterface
+    /** @return Observable<string> */
+    public function downloadWorkflowRunAttemptLogsStreaming(string $owner, string $repo, int $runId, int $attemptNumber): iterable
     {
-        if (array_key_exists(Operator\Actions\DownloadWorkflowRunAttemptLogsStreaming::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadWorkflowRunAttemptLogsStreaming::class] = new Operator\Actions\DownloadWorkflowRunAttemptLogsStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Attempts🌀AttemptNumber🌀Logs());
-        }
-
-        return $this->operator[Operator\Actions\DownloadWorkflowRunAttemptLogsStreaming::class]->call($owner, $repo, $runId, $attemptNumber);
+        return $this->operators->actions👷DownloadWorkflowRunAttemptLogsStreaming()->call($owner, $repo, $runId, $attemptNumber);
     }
 
-    public function cancelWorkflowRun(string $owner, string $repo, int $runId): Schema\EmptyObject
+    /** @return */
+    public function cancelWorkflowRun(string $owner, string $repo, int $runId): EmptyObject|array
     {
-        if (array_key_exists(Operator\Actions\CancelWorkflowRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CancelWorkflowRun::class] = new Operator\Actions\CancelWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Cancel());
-        }
-
-        return $this->operator[Operator\Actions\CancelWorkflowRun::class]->call($owner, $repo, $runId);
+        return $this->operators->actions👷CancelWorkflowRun()->call($owner, $repo, $runId);
     }
 
-    public function listJobsForWorkflowRun(string $owner, string $repo, int $runId, string $filter, int $perPage, int $page): Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok
+    /** @return */
+    public function listJobsForWorkflowRun(string $owner, string $repo, int $runId, string $filter, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Actions\ListJobsForWorkflowRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListJobsForWorkflowRun::class] = new Operator\Actions\ListJobsForWorkflowRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Jobs());
-        }
-
-        return $this->operator[Operator\Actions\ListJobsForWorkflowRun::class]->call($owner, $repo, $runId, $filter, $perPage, $page);
+        return $this->operators->actions👷ListJobsForWorkflowRun()->call($owner, $repo, $runId, $filter, $perPage, $page);
     }
 
-    public function downloadWorkflowRunLogs(string $owner, string $repo, int $runId): ResponseInterface
+    /** @return array{code:int,location:string} */
+    public function downloadWorkflowRunLogs(string $owner, string $repo, int $runId): array
     {
-        if (array_key_exists(Operator\Actions\DownloadWorkflowRunLogs::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadWorkflowRunLogs::class] = new Operator\Actions\DownloadWorkflowRunLogs($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Logs());
-        }
-
-        return $this->operator[Operator\Actions\DownloadWorkflowRunLogs::class]->call($owner, $repo, $runId);
+        return $this->operators->actions👷DownloadWorkflowRunLogs()->call($owner, $repo, $runId);
     }
 
-    public function downloadWorkflowRunLogsStreaming(string $owner, string $repo, int $runId): ResponseInterface
+    /** @return Observable<string> */
+    public function downloadWorkflowRunLogsStreaming(string $owner, string $repo, int $runId): iterable
     {
-        if (array_key_exists(Operator\Actions\DownloadWorkflowRunLogsStreaming::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DownloadWorkflowRunLogsStreaming::class] = new Operator\Actions\DownloadWorkflowRunLogsStreaming($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Logs());
-        }
-
-        return $this->operator[Operator\Actions\DownloadWorkflowRunLogsStreaming::class]->call($owner, $repo, $runId);
+        return $this->operators->actions👷DownloadWorkflowRunLogsStreaming()->call($owner, $repo, $runId);
     }
 
-    public function deleteWorkflowRunLogs(string $owner, string $repo, int $runId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteWorkflowRunLogs(string $owner, string $repo, int $runId): array
     {
-        if (array_key_exists(Operator\Actions\DeleteWorkflowRunLogs::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteWorkflowRunLogs::class] = new Operator\Actions\DeleteWorkflowRunLogs($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Logs());
-        }
-
-        return $this->operator[Operator\Actions\DeleteWorkflowRunLogs::class]->call($owner, $repo, $runId);
+        return $this->operators->actions👷DeleteWorkflowRunLogs()->call($owner, $repo, $runId);
     }
 
-    public function getPendingDeploymentsForRun(string $owner, string $repo, int $runId): Schema\PendingDeployment
+    /** @return iterable<Schema\PendingDeployment> */
+    public function getPendingDeploymentsForRun(string $owner, string $repo, int $runId): iterable
     {
-        if (array_key_exists(Operator\Actions\GetPendingDeploymentsForRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetPendingDeploymentsForRun::class] = new Operator\Actions\GetPendingDeploymentsForRun($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀PendingDeployments());
-        }
-
-        return $this->operator[Operator\Actions\GetPendingDeploymentsForRun::class]->call($owner, $repo, $runId);
+        return $this->operators->actions👷GetPendingDeploymentsForRun()->call($owner, $repo, $runId);
     }
 
-    public function reviewPendingDeploymentsForRun(string $owner, string $repo, int $runId, array $params): Schema\Deployment
+    /** @return iterable<Schema\Deployment> */
+    public function reviewPendingDeploymentsForRun(string $owner, string $repo, int $runId, array $params): iterable
     {
-        if (array_key_exists(Operator\Actions\ReviewPendingDeploymentsForRun::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ReviewPendingDeploymentsForRun::class] = new Operator\Actions\ReviewPendingDeploymentsForRun($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀PendingDeployments());
-        }
-
-        return $this->operator[Operator\Actions\ReviewPendingDeploymentsForRun::class]->call($owner, $repo, $runId, $params);
+        return $this->operators->actions👷ReviewPendingDeploymentsForRun()->call($owner, $repo, $runId, $params);
     }
 
-    public function reRunWorkflow(string $owner, string $repo, int $runId, array $params): Schema\EmptyObject
+    /** @return */
+    public function reRunWorkflow(string $owner, string $repo, int $runId, array $params): EmptyObject|array
     {
-        if (array_key_exists(Operator\Actions\ReRunWorkflow::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ReRunWorkflow::class] = new Operator\Actions\ReRunWorkflow($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀Rerun());
-        }
-
-        return $this->operator[Operator\Actions\ReRunWorkflow::class]->call($owner, $repo, $runId, $params);
+        return $this->operators->actions👷ReRunWorkflow()->call($owner, $repo, $runId, $params);
     }
 
-    public function reRunWorkflowFailedJobs(string $owner, string $repo, int $runId, array $params): Schema\EmptyObject
+    /** @return */
+    public function reRunWorkflowFailedJobs(string $owner, string $repo, int $runId, array $params): EmptyObject|array
     {
-        if (array_key_exists(Operator\Actions\ReRunWorkflowFailedJobs::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ReRunWorkflowFailedJobs::class] = new Operator\Actions\ReRunWorkflowFailedJobs($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Runs🌀RunId🌀RerunFailedJobs());
-        }
-
-        return $this->operator[Operator\Actions\ReRunWorkflowFailedJobs::class]->call($owner, $repo, $runId, $params);
+        return $this->operators->actions👷ReRunWorkflowFailedJobs()->call($owner, $repo, $runId, $params);
     }
 
-    public function listRepoSecrets(string $owner, string $repo, int $perPage, int $page): Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok
+    /** @return */
+    public function listRepoSecrets(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListRepoSecrets::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListRepoSecrets::class] = new Operator\Actions\ListRepoSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets());
-        }
-
-        return $this->operator[Operator\Actions\ListRepoSecrets::class]->call($owner, $repo, $perPage, $page);
+        return $this->operators->actions👷ListRepoSecrets()->call($owner, $repo, $perPage, $page);
     }
 
-    public function getRepoPublicKey(string $owner, string $repo): Schema\ActionsPublicKey
+    /** @return */
+    public function getRepoPublicKey(string $owner, string $repo): ActionsPublicKey|array
     {
-        if (array_key_exists(Operator\Actions\GetRepoPublicKey::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetRepoPublicKey::class] = new Operator\Actions\GetRepoPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀PublicKey());
-        }
-
-        return $this->operator[Operator\Actions\GetRepoPublicKey::class]->call($owner, $repo);
+        return $this->operators->actions👷GetRepoPublicKey()->call($owner, $repo);
     }
 
-    public function getRepoSecret(string $owner, string $repo, string $secretName): Schema\ActionsSecret
+    /** @return */
+    public function getRepoSecret(string $owner, string $repo, string $secretName): ActionsSecret|array
     {
-        if (array_key_exists(Operator\Actions\GetRepoSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetRepoSecret::class] = new Operator\Actions\GetRepoSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\GetRepoSecret::class]->call($owner, $repo, $secretName);
+        return $this->operators->actions👷GetRepoSecret()->call($owner, $repo, $secretName);
     }
 
-    public function createOrUpdateRepoSecret(string $owner, string $repo, string $secretName, array $params): Schema\EmptyObject
+    /** @return Schema\EmptyObject|array{code:int} */
+    public function createOrUpdateRepoSecret(string $owner, string $repo, string $secretName, array $params): EmptyObject|array
     {
-        if (array_key_exists(Operator\Actions\CreateOrUpdateRepoSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateOrUpdateRepoSecret::class] = new Operator\Actions\CreateOrUpdateRepoSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\CreateOrUpdateRepoSecret::class]->call($owner, $repo, $secretName, $params);
+        return $this->operators->actions👷CreateOrUpdateRepoSecret()->call($owner, $repo, $secretName, $params);
     }
 
-    public function deleteRepoSecret(string $owner, string $repo, string $secretName): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteRepoSecret(string $owner, string $repo, string $secretName): array
     {
-        if (array_key_exists(Operator\Actions\DeleteRepoSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteRepoSecret::class] = new Operator\Actions\DeleteRepoSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\DeleteRepoSecret::class]->call($owner, $repo, $secretName);
+        return $this->operators->actions👷DeleteRepoSecret()->call($owner, $repo, $secretName);
     }
 
-    public function listRepoWorkflows(string $owner, string $repo, int $perPage, int $page): Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok
+    /** @return */
+    public function listRepoWorkflows(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\Actions\ListRepoWorkflows::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListRepoWorkflows::class] = new Operator\Actions\ListRepoWorkflows($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows());
-        }
-
-        return $this->operator[Operator\Actions\ListRepoWorkflows::class]->call($owner, $repo, $perPage, $page);
+        return $this->operators->actions👷ListRepoWorkflows()->call($owner, $repo, $perPage, $page);
     }
 
-    public function getWorkflow(string $owner, string $repo, mixed $workflowId): Schema\Workflow
+    /** @return */
+    public function getWorkflow(string $owner, string $repo, mixed $workflowId): Workflow|array
     {
-        if (array_key_exists(Operator\Actions\GetWorkflow::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetWorkflow::class] = new Operator\Actions\GetWorkflow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows🌀WorkflowId());
-        }
-
-        return $this->operator[Operator\Actions\GetWorkflow::class]->call($owner, $repo, $workflowId);
+        return $this->operators->actions👷GetWorkflow()->call($owner, $repo, $workflowId);
     }
 
-    public function disableWorkflow(string $owner, string $repo, mixed $workflowId): ResponseInterface
+    /** @return array{code:int} */
+    public function disableWorkflow(string $owner, string $repo, mixed $workflowId): array
     {
-        if (array_key_exists(Operator\Actions\DisableWorkflow::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DisableWorkflow::class] = new Operator\Actions\DisableWorkflow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows🌀WorkflowId🌀Disable());
-        }
-
-        return $this->operator[Operator\Actions\DisableWorkflow::class]->call($owner, $repo, $workflowId);
+        return $this->operators->actions👷DisableWorkflow()->call($owner, $repo, $workflowId);
     }
 
-    public function createWorkflowDispatch(string $owner, string $repo, mixed $workflowId, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function createWorkflowDispatch(string $owner, string $repo, mixed $workflowId, array $params): array
     {
-        if (array_key_exists(Operator\Actions\CreateWorkflowDispatch::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateWorkflowDispatch::class] = new Operator\Actions\CreateWorkflowDispatch($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows🌀WorkflowId🌀Dispatches());
-        }
-
-        return $this->operator[Operator\Actions\CreateWorkflowDispatch::class]->call($owner, $repo, $workflowId, $params);
+        return $this->operators->actions👷CreateWorkflowDispatch()->call($owner, $repo, $workflowId, $params);
     }
 
-    public function enableWorkflow(string $owner, string $repo, mixed $workflowId): ResponseInterface
+    /** @return array{code:int} */
+    public function enableWorkflow(string $owner, string $repo, mixed $workflowId): array
     {
-        if (array_key_exists(Operator\Actions\EnableWorkflow::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\EnableWorkflow::class] = new Operator\Actions\EnableWorkflow($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows🌀WorkflowId🌀Enable());
-        }
-
-        return $this->operator[Operator\Actions\EnableWorkflow::class]->call($owner, $repo, $workflowId);
+        return $this->operators->actions👷EnableWorkflow()->call($owner, $repo, $workflowId);
     }
 
-    public function listWorkflowRuns(string $owner, string $repo, mixed $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, int $perPage, int $page, bool $excludePullRequests): Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok
+    /** @return */
+    public function listWorkflowRuns(string $owner, string $repo, mixed $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, int $perPage, int $page, bool $excludePullRequests): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Actions\ListWorkflowRuns::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListWorkflowRuns::class] = new Operator\Actions\ListWorkflowRuns($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Actions🌀Workflows🌀WorkflowId🌀Runs());
-        }
-
-        return $this->operator[Operator\Actions\ListWorkflowRuns::class]->call($owner, $repo, $workflowId, $actor, $branch, $event, $status, $created, $checkSuiteId, $perPage, $page, $excludePullRequests);
+        return $this->operators->actions👷ListWorkflowRuns()->call($owner, $repo, $workflowId, $actor, $branch, $event, $status, $created, $checkSuiteId, $perPage, $page, $excludePullRequests);
     }
 
-    public function listEnvironmentSecrets(int $repositoryId, string $environmentName, int $perPage, int $page): Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok
+    /** @return */
+    public function listEnvironmentSecrets(int $repositoryId, string $environmentName, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\Actions\ListEnvironmentSecrets::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\ListEnvironmentSecrets::class] = new Operator\Actions\ListEnvironmentSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets());
-        }
-
-        return $this->operator[Operator\Actions\ListEnvironmentSecrets::class]->call($repositoryId, $environmentName, $perPage, $page);
+        return $this->operators->actions👷ListEnvironmentSecrets()->call($repositoryId, $environmentName, $perPage, $page);
     }
 
-    public function getEnvironmentPublicKey(int $repositoryId, string $environmentName): Schema\ActionsPublicKey
+    /** @return */
+    public function getEnvironmentPublicKey(int $repositoryId, string $environmentName): ActionsPublicKey|array
     {
-        if (array_key_exists(Operator\Actions\GetEnvironmentPublicKey::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetEnvironmentPublicKey::class] = new Operator\Actions\GetEnvironmentPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets🌀PublicKey());
-        }
-
-        return $this->operator[Operator\Actions\GetEnvironmentPublicKey::class]->call($repositoryId, $environmentName);
+        return $this->operators->actions👷GetEnvironmentPublicKey()->call($repositoryId, $environmentName);
     }
 
-    public function getEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName): Schema\ActionsSecret
+    /** @return */
+    public function getEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName): ActionsSecret|array
     {
-        if (array_key_exists(Operator\Actions\GetEnvironmentSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\GetEnvironmentSecret::class] = new Operator\Actions\GetEnvironmentSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\GetEnvironmentSecret::class]->call($repositoryId, $environmentName, $secretName);
+        return $this->operators->actions👷GetEnvironmentSecret()->call($repositoryId, $environmentName, $secretName);
     }
 
-    public function createOrUpdateEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName, array $params): Schema\EmptyObject
+    /** @return Schema\EmptyObject|array{code:int} */
+    public function createOrUpdateEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName, array $params): EmptyObject|array
     {
-        if (array_key_exists(Operator\Actions\CreateOrUpdateEnvironmentSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\CreateOrUpdateEnvironmentSecret::class] = new Operator\Actions\CreateOrUpdateEnvironmentSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\CreateOrUpdateEnvironmentSecret::class]->call($repositoryId, $environmentName, $secretName, $params);
+        return $this->operators->actions👷CreateOrUpdateEnvironmentSecret()->call($repositoryId, $environmentName, $secretName, $params);
     }
 
-    public function deleteEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName): array
     {
-        if (array_key_exists(Operator\Actions\DeleteEnvironmentSecret::class, $this->operator) === false) {
-            $this->operator[Operator\Actions\DeleteEnvironmentSecret::class] = new Operator\Actions\DeleteEnvironmentSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
-        }
-
-        return $this->operator[Operator\Actions\DeleteEnvironmentSecret::class]->call($repositoryId, $environmentName, $secretName);
+        return $this->operators->actions👷DeleteEnvironmentSecret()->call($repositoryId, $environmentName, $secretName);
     }
 }

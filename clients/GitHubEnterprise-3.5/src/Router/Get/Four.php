@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Router\Get;
 
-use ApiClients\Client\GitHubEnterprise\Hydrators;
-use ApiClients\Client\GitHubEnterprise\Router;
+use ApiClients\Client\GitHubEnterprise\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
 use ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus;
@@ -39,58 +38,35 @@ use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\StarredRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\Thread;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
 
 final class Four
 {
-    private array $router = [];
-
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private Routers $routers)
     {
     }
 
-    /** @return |Observable<Schema\HookDeliveryItem>|(Schema\ApplicationGrant|array{code: int})|Observable<Schema\AuditLogEvent>|(Observable<Schema\GistComment>|(Observable<Schema\GistCommit>|(Observable<Schema\GistSimple>|array{code: int}|(Schema\GitignoreTemplate|(Schema\Thread|Observable<Schema\Event>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\SimpleUser>|Observable<Schema\Migration>|Observable<Schema\OrgPreReceiveHook>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|(Schema\ProjectColumn|(Observable<Schema\SimpleUser>|(Observable<Schema\ProjectColumn>|(Schema\ConfigurationStatus|(Schema\MaintenanceStatus|(Schema\EnterpriseSettings|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|(Schema\GpgKey|(Schema\Key|(Observable<Schema\OrgMembership>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple> */
+    /** @return |iterable<Schema\HookDeliveryItem>|Schema\ApplicationGrant|array{code:int}|iterable<Schema\AuditLogEvent>|iterable<Schema\GistComment>|iterable<Schema\GistCommit>|iterable<Schema\GistSimple>|Schema\GitignoreTemplate|Schema\Thread|iterable<Schema\Event>|iterable<Schema\OrgHook>|iterable<Schema\Issue>|iterable<Schema\SimpleUser>|iterable<Schema\Migration>|iterable<Schema\OrgPreReceiveHook>|iterable<Schema\Project>|iterable<Schema\MinimalRepository>|iterable<Schema\Team>|Schema\ProjectColumn|iterable<Schema\ProjectColumn>|Schema\ConfigurationStatus|Schema\MaintenanceStatus|Schema\EnterpriseSettings|iterable<Schema\TeamDiscussion>|iterable<Schema\TeamProject>|Schema\GpgKey|Schema\Key|iterable<Schema\OrgMembership>|iterable<Schema\BaseGist>|iterable<Schema\GpgKey>|iterable<Schema\KeySimple>|iterable<Schema\OrganizationSimple>|Schema\StarredRepository|Schema\Repository */
     public function call(string $call, array $params, array $pathChunks): GlobalHook|PreReceiveEnvironment|PreReceiveHook|WebhookConfig|iterable|Installation|ApplicationGrant|LicenseInfo|EnterpriseOverview|EnterpriseCommentOverview|EnterpriseGistOverview|EnterpriseHookOverview|EnterpriseIssueOverview|EnterpriseMilestoneOverview|EnterpriseOrganizationOverview|EnterprisePageOverview|EnterprisePullRequestOverview|EnterpriseRepositoryOverview|EnterpriseUserOverview|GistSimple|GitignoreTemplate|Thread|Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|ProjectColumn|FullRepository|BasicError|ConfigurationStatus|MaintenanceStatus|EnterpriseSettings|GpgKey|Key|Hovercard|StarredRepository|Repository
     {
-        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {
                 if ($pathChunks[2] === 'hooks') {
                     if ($pathChunks[3] === '{hook_id}') {
                         if ($call === 'GET /admin/hooks/{hook_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetGlobalWebhook($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getGlobalWebhook($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-environments') {
                     if ($pathChunks[3] === '{pre_receive_environment_id}') {
                         if ($call === 'GET /admin/pre-receive-environments/{pre_receive_environment_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetPreReceiveEnvironment($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getPreReceiveEnvironment($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'pre-receive-hooks') {
                     if ($pathChunks[3] === '{pre_receive_hook_id}') {
                         if ($call === 'GET /admin/pre-receive-hooks/{pre_receive_hook_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetPreReceiveHook($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getPreReceiveHook($params);
                         }
                     }
                 }
@@ -98,32 +74,17 @@ final class Four
                 if ($pathChunks[2] === 'hook') {
                     if ($pathChunks[3] === 'config') {
                         if ($call === 'GET /app/hook/config') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Apps::class, $this->router) === false) {
-                                $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Apps::class]->GetWebhookConfigForApp($params);
+                            return $this->routers->router🔀Get🔀Apps()->getWebhookConfigForApp($params);
                         }
                     } elseif ($pathChunks[3] === 'deliveries') {
                         if ($call === 'GET /app/hook/deliveries') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Apps::class, $this->router) === false) {
-                                $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Apps::class]->ListWebhookDeliveries($params);
+                            return $this->routers->router🔀Get🔀Apps()->listWebhookDeliveries($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'installations') {
                     if ($pathChunks[3] === '{installation_id}') {
                         if ($call === 'GET /app/installations/{installation_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Apps::class, $this->router) === false) {
-                                $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Apps::class]->GetInstallation($params);
+                            return $this->routers->router🔀Get🔀Apps()->getInstallation($params);
                         }
                     }
                 }
@@ -131,12 +92,7 @@ final class Four
                 if ($pathChunks[2] === 'grants') {
                     if ($pathChunks[3] === '{grant_id}') {
                         if ($call === 'GET /applications/grants/{grant_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\OauthAuthorizations::class, $this->router) === false) {
-                                $this->router[Router\Get\OauthAuthorizations::class] = new Router\Get\OauthAuthorizations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\OauthAuthorizations::class]->GetGrant($params);
+                            return $this->routers->router🔀Get🔀OauthAuthorizations()->getGrant($params);
                         }
                     }
                 }
@@ -144,113 +100,53 @@ final class Four
                 if ($pathChunks[2] === 'settings') {
                     if ($pathChunks[3] === 'license') {
                         if ($call === 'GET /enterprise/settings/license') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetLicenseInformation($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getLicenseInformation($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'stats') {
                     if ($pathChunks[3] === 'all') {
                         if ($call === 'GET /enterprise/stats/all') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetAllStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getAllStats($params);
                         }
                     } elseif ($pathChunks[3] === 'comments') {
                         if ($call === 'GET /enterprise/stats/comments') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetCommentStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getCommentStats($params);
                         }
                     } elseif ($pathChunks[3] === 'gists') {
                         if ($call === 'GET /enterprise/stats/gists') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetGistStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getGistStats($params);
                         }
                     } elseif ($pathChunks[3] === 'hooks') {
                         if ($call === 'GET /enterprise/stats/hooks') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetHooksStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getHooksStats($params);
                         }
                     } elseif ($pathChunks[3] === 'issues') {
                         if ($call === 'GET /enterprise/stats/issues') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetIssueStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getIssueStats($params);
                         }
                     } elseif ($pathChunks[3] === 'milestones') {
                         if ($call === 'GET /enterprise/stats/milestones') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetMilestoneStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getMilestoneStats($params);
                         }
                     } elseif ($pathChunks[3] === 'orgs') {
                         if ($call === 'GET /enterprise/stats/orgs') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetOrgStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getOrgStats($params);
                         }
                     } elseif ($pathChunks[3] === 'pages') {
                         if ($call === 'GET /enterprise/stats/pages') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetPagesStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getPagesStats($params);
                         }
                     } elseif ($pathChunks[3] === 'pulls') {
                         if ($call === 'GET /enterprise/stats/pulls') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetPullRequestStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getPullRequestStats($params);
                         }
                     } elseif ($pathChunks[3] === 'repos') {
                         if ($call === 'GET /enterprise/stats/repos') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetRepoStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getRepoStats($params);
                         }
                     } elseif ($pathChunks[3] === 'users') {
                         if ($call === 'GET /enterprise/stats/users') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetUserStats($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getUserStats($params);
                         }
                     }
                 }
@@ -258,12 +154,7 @@ final class Four
                 if ($pathChunks[2] === '{enterprise}') {
                     if ($pathChunks[3] === 'audit-log') {
                         if ($call === 'GET /enterprises/{enterprise}/audit-log') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetAuditLog($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getAuditLog($params);
                         }
                     }
                 }
@@ -271,48 +162,23 @@ final class Four
                 if ($pathChunks[2] === '{gist_id}') {
                     if ($pathChunks[3] === 'comments') {
                         if ($call === 'GET /gists/{gist_id}/comments') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Gists::class, $this->router) === false) {
-                                $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Gists::class]->ListComments($params);
+                            return $this->routers->router🔀Get🔀Gists()->listComments($params);
                         }
                     } elseif ($pathChunks[3] === 'commits') {
                         if ($call === 'GET /gists/{gist_id}/commits') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Gists::class, $this->router) === false) {
-                                $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Gists::class]->ListCommits($params);
+                            return $this->routers->router🔀Get🔀Gists()->listCommits($params);
                         }
                     } elseif ($pathChunks[3] === 'forks') {
                         if ($call === 'GET /gists/{gist_id}/forks') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Gists::class, $this->router) === false) {
-                                $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Gists::class]->ListForks($params);
+                            return $this->routers->router🔀Get🔀Gists()->listForks($params);
                         }
                     } elseif ($pathChunks[3] === 'star') {
                         if ($call === 'GET /gists/{gist_id}/star') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Gists::class, $this->router) === false) {
-                                $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Gists::class]->CheckIsStarred($params);
+                            return $this->routers->router🔀Get🔀Gists()->checkIsStarred($params);
                         }
                     } elseif ($pathChunks[3] === '{sha}') {
                         if ($call === 'GET /gists/{gist_id}/{sha}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Gists::class, $this->router) === false) {
-                                $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Gists::class]->GetRevision($params);
+                            return $this->routers->router🔀Get🔀Gists()->getRevision($params);
                         }
                     }
                 }
@@ -320,12 +186,7 @@ final class Four
                 if ($pathChunks[2] === 'templates') {
                     if ($pathChunks[3] === '{name}') {
                         if ($call === 'GET /gitignore/templates/{name}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Gitignore::class, $this->router) === false) {
-                                $this->router[Router\Get\Gitignore::class] = new Router\Get\Gitignore($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Gitignore::class]->GetTemplate($params);
+                            return $this->routers->router🔀Get🔀Gitignore()->getTemplate($params);
                         }
                     }
                 }
@@ -333,12 +194,7 @@ final class Four
                 if ($pathChunks[2] === 'threads') {
                     if ($pathChunks[3] === '{thread_id}') {
                         if ($call === 'GET /notifications/threads/{thread_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Activity::class, $this->router) === false) {
-                                $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Activity::class]->GetThread($params);
+                            return $this->routers->router🔀Get🔀Activity()->getThread($params);
                         }
                     }
                 }
@@ -346,12 +202,7 @@ final class Four
                 if ($pathChunks[2] === '{organization_id}') {
                     if ($pathChunks[3] === 'custom_roles') {
                         if ($call === 'GET /organizations/{organization_id}/custom_roles') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListCustomRoles($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listCustomRoles($params);
                         }
                     }
                 }
@@ -359,129 +210,59 @@ final class Four
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'audit-log') {
                         if ($call === 'GET /orgs/{org}/audit-log') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->GetAuditLog($params);
+                            return $this->routers->router🔀Get🔀Orgs()->getAuditLog($params);
                         }
                     } elseif ($pathChunks[3] === 'events') {
                         if ($call === 'GET /orgs/{org}/events') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Activity::class, $this->router) === false) {
-                                $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Activity::class]->ListPublicOrgEvents($params);
+                            return $this->routers->router🔀Get🔀Activity()->listPublicOrgEvents($params);
                         }
                     } elseif ($pathChunks[3] === 'hooks') {
                         if ($call === 'GET /orgs/{org}/hooks') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListWebhooks($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listWebhooks($params);
                         }
                     } elseif ($pathChunks[3] === 'installation') {
                         if ($call === 'GET /orgs/{org}/installation') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Apps::class, $this->router) === false) {
-                                $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Apps::class]->GetOrgInstallation($params);
+                            return $this->routers->router🔀Get🔀Apps()->getOrgInstallation($params);
                         }
                     } elseif ($pathChunks[3] === 'installations') {
                         if ($call === 'GET /orgs/{org}/installations') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListAppInstallations($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listAppInstallations($params);
                         }
                     } elseif ($pathChunks[3] === 'issues') {
                         if ($call === 'GET /orgs/{org}/issues') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Issues::class, $this->router) === false) {
-                                $this->router[Router\Get\Issues::class] = new Router\Get\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Issues::class]->ListForOrg($params);
+                            return $this->routers->router🔀Get🔀Issues()->listForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'members') {
                         if ($call === 'GET /orgs/{org}/members') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListMembers($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listMembers($params);
                         }
                     } elseif ($pathChunks[3] === 'migrations') {
                         if ($call === 'GET /orgs/{org}/migrations') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Migrations::class, $this->router) === false) {
-                                $this->router[Router\Get\Migrations::class] = new Router\Get\Migrations($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Migrations::class]->ListForOrg($params);
+                            return $this->routers->router🔀Get🔀Migrations()->listForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'outside_collaborators') {
                         if ($call === 'GET /orgs/{org}/outside_collaborators') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListOutsideCollaborators($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listOutsideCollaborators($params);
                         }
                     } elseif ($pathChunks[3] === 'pre-receive-hooks') {
                         if ($call === 'GET /orgs/{org}/pre-receive-hooks') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->ListPreReceiveHooksForOrg($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->listPreReceiveHooksForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'projects') {
                         if ($call === 'GET /orgs/{org}/projects') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Projects::class, $this->router) === false) {
-                                $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Projects::class]->ListForOrg($params);
+                            return $this->routers->router🔀Get🔀Projects()->listForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'public_members') {
                         if ($call === 'GET /orgs/{org}/public_members') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListPublicMembers($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listPublicMembers($params);
                         }
                     } elseif ($pathChunks[3] === 'repos') {
                         if ($call === 'GET /orgs/{org}/repos') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Repos::class]->ListForOrg($params);
+                            return $this->routers->router🔀Get🔀Repos()->listForOrg($params);
                         }
                     } elseif ($pathChunks[3] === 'teams') {
                         if ($call === 'GET /orgs/{org}/teams') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Teams::class]->List($params);
+                            return $this->routers->router🔀Get🔀Teams()->list($params);
                         }
                     }
                 }
@@ -489,32 +270,17 @@ final class Four
                 if ($pathChunks[2] === 'columns') {
                     if ($pathChunks[3] === '{column_id}') {
                         if ($call === 'GET /projects/columns/{column_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Projects::class, $this->router) === false) {
-                                $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Projects::class]->GetColumn($params);
+                            return $this->routers->router🔀Get🔀Projects()->getColumn($params);
                         }
                     }
                 } elseif ($pathChunks[2] === '{project_id}') {
                     if ($pathChunks[3] === 'collaborators') {
                         if ($call === 'GET /projects/{project_id}/collaborators') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Projects::class, $this->router) === false) {
-                                $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Projects::class]->ListCollaborators($params);
+                            return $this->routers->router🔀Get🔀Projects()->listCollaborators($params);
                         }
                     } elseif ($pathChunks[3] === 'columns') {
                         if ($call === 'GET /projects/{project_id}/columns') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Projects::class, $this->router) === false) {
-                                $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Projects::class]->ListColumns($params);
+                            return $this->routers->router🔀Get🔀Projects()->listColumns($params);
                         }
                     }
                 }
@@ -522,12 +288,7 @@ final class Four
                 if ($pathChunks[2] === '{owner}') {
                     if ($pathChunks[3] === '{repo}') {
                         if ($call === 'GET /repos/{owner}/{repo}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Repos::class]->Get($params);
+                            return $this->routers->router🔀Get🔀Repos()->get($params);
                         }
                     }
                 }
@@ -535,30 +296,15 @@ final class Four
                 if ($pathChunks[2] === 'api') {
                     if ($pathChunks[3] === 'configcheck') {
                         if ($call === 'GET /setup/api/configcheck') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetConfigurationStatus($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getConfigurationStatus($params);
                         }
                     } elseif ($pathChunks[3] === 'maintenance') {
                         if ($call === 'GET /setup/api/maintenance') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetMaintenanceStatus($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getMaintenanceStatus($params);
                         }
                     } elseif ($pathChunks[3] === 'settings') {
                         if ($call === 'GET /setup/api/settings') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\EnterpriseAdmin::class, $this->router) === false) {
-                                $this->router[Router\Get\EnterpriseAdmin::class] = new Router\Get\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\EnterpriseAdmin::class]->GetSettings($params);
+                            return $this->routers->router🔀Get🔀EnterpriseAdmin()->getSettings($params);
                         }
                     }
                 }
@@ -566,48 +312,23 @@ final class Four
                 if ($pathChunks[2] === '{team_id}') {
                     if ($pathChunks[3] === 'discussions') {
                         if ($call === 'GET /teams/{team_id}/discussions') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Teams::class]->ListDiscussionsLegacy($params);
+                            return $this->routers->router🔀Get🔀Teams()->listDiscussionsLegacy($params);
                         }
                     } elseif ($pathChunks[3] === 'members') {
                         if ($call === 'GET /teams/{team_id}/members') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Teams::class]->ListMembersLegacy($params);
+                            return $this->routers->router🔀Get🔀Teams()->listMembersLegacy($params);
                         }
                     } elseif ($pathChunks[3] === 'projects') {
                         if ($call === 'GET /teams/{team_id}/projects') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Teams::class]->ListProjectsLegacy($params);
+                            return $this->routers->router🔀Get🔀Teams()->listProjectsLegacy($params);
                         }
                     } elseif ($pathChunks[3] === 'repos') {
                         if ($call === 'GET /teams/{team_id}/repos') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Teams::class]->ListReposLegacy($params);
+                            return $this->routers->router🔀Get🔀Teams()->listReposLegacy($params);
                         }
                     } elseif ($pathChunks[3] === 'teams') {
                         if ($call === 'GET /teams/{team_id}/teams') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Teams::class, $this->router) === false) {
-                                $this->router[Router\Get\Teams::class] = new Router\Get\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Teams::class]->ListChildLegacy($params);
+                            return $this->routers->router🔀Get🔀Teams()->listChildLegacy($params);
                         }
                     }
                 }
@@ -615,45 +336,25 @@ final class Four
                 if ($pathChunks[2] === 'following') {
                     if ($pathChunks[3] === '{username}') {
                         if ($call === 'GET /user/following/{username}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->CheckPersonIsFollowedByAuthenticated($params);
+                            return $this->routers->router🔀Get🔀Users()->checkPersonIsFollowedByAuthenticated($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'gpg_keys') {
                     if ($pathChunks[3] === '{gpg_key_id}') {
                         if ($call === 'GET /user/gpg_keys/{gpg_key_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->GetGpgKeyForAuthenticatedUser($params);
+                            return $this->routers->router🔀Get🔀Users()->getGpgKeyForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'keys') {
                     if ($pathChunks[3] === '{key_id}') {
                         if ($call === 'GET /user/keys/{key_id}') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->GetPublicSshKeyForAuthenticatedUser($params);
+                            return $this->routers->router🔀Get🔀Users()->getPublicSshKeyForAuthenticatedUser($params);
                         }
                     }
                 } elseif ($pathChunks[2] === 'memberships') {
                     if ($pathChunks[3] === 'orgs') {
                         if ($call === 'GET /user/memberships/orgs') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListMembershipsForAuthenticatedUser($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listMembershipsForAuthenticatedUser($params);
                         }
                     }
                 }
@@ -661,137 +362,65 @@ final class Four
                 if ($pathChunks[2] === '{username}') {
                     if ($pathChunks[3] === 'events') {
                         if ($call === 'GET /users/{username}/events') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Activity::class, $this->router) === false) {
-                                $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Activity::class]->ListEventsForAuthenticatedUser($params);
+                            return $this->routers->router🔀Get🔀Activity()->listEventsForAuthenticatedUser($params);
                         }
                     } elseif ($pathChunks[3] === 'followers') {
                         if ($call === 'GET /users/{username}/followers') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->ListFollowersForUser($params);
+                            return $this->routers->router🔀Get🔀Users()->listFollowersForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'following') {
                         if ($call === 'GET /users/{username}/following') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->ListFollowingForUser($params);
+                            return $this->routers->router🔀Get🔀Users()->listFollowingForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'gists') {
                         if ($call === 'GET /users/{username}/gists') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Gists::class, $this->router) === false) {
-                                $this->router[Router\Get\Gists::class] = new Router\Get\Gists($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Gists::class]->ListForUser($params);
+                            return $this->routers->router🔀Get🔀Gists()->listForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'gpg_keys') {
                         if ($call === 'GET /users/{username}/gpg_keys') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->ListGpgKeysForUser($params);
+                            return $this->routers->router🔀Get🔀Users()->listGpgKeysForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'hovercard') {
                         if ($call === 'GET /users/{username}/hovercard') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->GetContextForUser($params);
+                            return $this->routers->router🔀Get🔀Users()->getContextForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'installation') {
                         if ($call === 'GET /users/{username}/installation') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Apps::class, $this->router) === false) {
-                                $this->router[Router\Get\Apps::class] = new Router\Get\Apps($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Apps::class]->GetUserInstallation($params);
+                            return $this->routers->router🔀Get🔀Apps()->getUserInstallation($params);
                         }
                     } elseif ($pathChunks[3] === 'keys') {
                         if ($call === 'GET /users/{username}/keys') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Users::class, $this->router) === false) {
-                                $this->router[Router\Get\Users::class] = new Router\Get\Users($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Users::class]->ListPublicKeysForUser($params);
+                            return $this->routers->router🔀Get🔀Users()->listPublicKeysForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'orgs') {
                         if ($call === 'GET /users/{username}/orgs') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Orgs::class, $this->router) === false) {
-                                $this->router[Router\Get\Orgs::class] = new Router\Get\Orgs($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Orgs::class]->ListForUser($params);
+                            return $this->routers->router🔀Get🔀Orgs()->listForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'projects') {
                         if ($call === 'GET /users/{username}/projects') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Projects::class, $this->router) === false) {
-                                $this->router[Router\Get\Projects::class] = new Router\Get\Projects($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Projects::class]->ListForUser($params);
+                            return $this->routers->router🔀Get🔀Projects()->listForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'received_events') {
                         if ($call === 'GET /users/{username}/received_events') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Activity::class, $this->router) === false) {
-                                $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Activity::class]->ListReceivedEventsForUser($params);
+                            return $this->routers->router🔀Get🔀Activity()->listReceivedEventsForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'repos') {
                         if ($call === 'GET /users/{username}/repos') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Repos::class, $this->router) === false) {
-                                $this->router[Router\Get\Repos::class] = new Router\Get\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Repos::class]->ListForUser($params);
+                            return $this->routers->router🔀Get🔀Repos()->listForUser($params);
                         }
                     } elseif ($pathChunks[3] === 'starred') {
                         if ($call === 'GET /users/{username}/starred') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Activity::class, $this->router) === false) {
-                                $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Activity::class]->ListReposStarredByUser($params);
+                            return $this->routers->router🔀Get🔀Activity()->listReposStarredByUser($params);
                         }
                     } elseif ($pathChunks[3] === 'subscriptions') {
                         if ($call === 'GET /users/{username}/subscriptions') {
-                            $matched = true;
-                            if (array_key_exists(Router\Get\Activity::class, $this->router) === false) {
-                                $this->router[Router\Get\Activity::class] = new Router\Get\Activity($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                            }
-
-                            return $this->router[Router\Get\Activity::class]->ListReposWatchedByUser($params);
+                            return $this->routers->router🔀Get🔀Activity()->listReposWatchedByUser($params);
                         }
                     }
                 }
             }
         }
 
-        if ($matched === false) {
-            throw new InvalidArgumentException();
-        }
+        throw new InvalidArgumentException();
     }
 }

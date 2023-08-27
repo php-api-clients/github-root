@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operator\Users;
 
 use ApiClients\Client\GitHubEnterprise\Hydrator;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\PrivateUser;
 use ApiClients\Client\GitHubEnterprise\Schema\PublicUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -20,14 +21,12 @@ final readonly class GetByUsername
 {
     public const OPERATION_ID    = 'users/get-by-username';
     public const OPERATION_MATCH = 'GET /users/{username}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/users/{username}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Users\Username $hydrator)
     {
     }
 
-    /** @return */
+    /** @return Schema\PrivateUser|Schema\PublicUser */
     public function call(string $username): PrivateUser|PublicUser|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Operation\Users\GetByUsername($this->responseSchemaValidator, $this->hydrator, $username);
