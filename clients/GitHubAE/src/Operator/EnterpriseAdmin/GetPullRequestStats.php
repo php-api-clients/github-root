@@ -19,8 +19,6 @@ final readonly class GetPullRequestStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-pull-request-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/pulls';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/pulls';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Pulls $hydrator)
     {

@@ -16,14 +16,12 @@ final readonly class DeletePersonalAccessToken
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-personal-access-token';
     public const OPERATION_MATCH = 'DELETE /admin/tokens/{token_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/tokens/{token_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $tokenId): array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\DeletePersonalAccessToken($tokenId);

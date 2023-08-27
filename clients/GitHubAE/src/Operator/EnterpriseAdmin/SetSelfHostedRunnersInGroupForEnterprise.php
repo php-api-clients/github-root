@@ -17,14 +17,12 @@ final readonly class SetSelfHostedRunnersInGroupForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/set-self-hosted-runners-in-group-for-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, int $runnerGroupId, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise($this->requestSchemaValidator, $enterprise, $runnerGroupId);

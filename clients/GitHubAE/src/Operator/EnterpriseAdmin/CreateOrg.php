@@ -19,8 +19,6 @@ final readonly class CreateOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/create-org';
     public const OPERATION_MATCH = 'POST /admin/organizations';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/organizations';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Organizations $hydrator)
     {

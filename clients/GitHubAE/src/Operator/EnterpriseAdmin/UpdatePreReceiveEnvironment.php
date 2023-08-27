@@ -19,8 +19,6 @@ final readonly class UpdatePreReceiveEnvironment
 {
     public const OPERATION_ID    = 'enterprise-admin/update-pre-receive-environment';
     public const OPERATION_MATCH = 'PATCH /admin/pre-receive-environments/{pre_receive_environment_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId $hydrator)
     {

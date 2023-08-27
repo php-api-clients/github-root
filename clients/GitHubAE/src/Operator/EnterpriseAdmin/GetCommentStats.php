@@ -19,8 +19,6 @@ final readonly class GetCommentStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-comment-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/comments';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/comments';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Comments $hydrator)
     {

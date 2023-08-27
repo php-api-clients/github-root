@@ -19,8 +19,6 @@ final readonly class UpdateSelfHostedRunnerGroupForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/update-self-hosted-runner-group-for-enterprise';
     public const OPERATION_MATCH = 'PATCH /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\RunnerGroups\RunnerGroupId $hydrator)
     {

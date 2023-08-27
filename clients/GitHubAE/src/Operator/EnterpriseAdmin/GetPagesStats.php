@@ -19,8 +19,6 @@ final readonly class GetPagesStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-pages-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/pages';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/pages';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Pages $hydrator)
     {

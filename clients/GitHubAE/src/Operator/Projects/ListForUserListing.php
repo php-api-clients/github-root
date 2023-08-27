@@ -19,14 +19,12 @@ final readonly class ListForUserListing
 {
     public const OPERATION_ID    = 'projects/list-for-user';
     public const OPERATION_MATCH = 'LIST /users/{username}/projects';
-    private const METHOD         = 'GET';
-    private const PATH           = '/users/{username}/projects';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Users\Username\Projects $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Project> */
+    /** @return iterable<Schema\Project> */
     public function call(string $username, string $state = 'open', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Projects\ListForUserListing($this->responseSchemaValidator, $this->hydrator, $username, $state, $perPage, $page);

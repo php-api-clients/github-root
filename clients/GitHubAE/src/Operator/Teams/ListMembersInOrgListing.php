@@ -19,14 +19,12 @@ final readonly class ListMembersInOrgListing
 {
     public const OPERATION_ID    = 'teams/list-members-in-org';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/teams/{team_slug}/members';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/teams/{team_slug}/members';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Teams\TeamSlug\Members $hydrator)
     {
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<Schema\SimpleUser> */
     public function call(string $org, string $teamSlug, string $role = 'all', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Teams\ListMembersInOrgListing($this->responseSchemaValidator, $this->hydrator, $org, $teamSlug, $role, $perPage, $page);

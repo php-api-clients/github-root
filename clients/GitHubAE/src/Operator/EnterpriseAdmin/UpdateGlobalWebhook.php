@@ -19,8 +19,6 @@ final readonly class UpdateGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/update-global-webhook';
     public const OPERATION_MATCH = 'PATCH /admin/hooks/{hook_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/hooks/{hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\Hooks\HookId $hydrator)
     {

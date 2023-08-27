@@ -19,8 +19,6 @@ final readonly class CreateRemoveTokenForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/create-remove-token-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runners/remove-token';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/remove-token';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RemoveToken $hydrator)
     {

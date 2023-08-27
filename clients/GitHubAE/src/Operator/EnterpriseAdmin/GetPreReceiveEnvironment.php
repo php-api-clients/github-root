@@ -19,8 +19,6 @@ final readonly class GetPreReceiveEnvironment
 {
     public const OPERATION_ID    = 'enterprise-admin/get-pre-receive-environment';
     public const OPERATION_MATCH = 'GET /admin/pre-receive-environments/{pre_receive_environment_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId $hydrator)
     {

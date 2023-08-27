@@ -19,8 +19,6 @@ final readonly class SetAnnouncement
 {
     public const OPERATION_ID    = 'enterprise-admin/set-announcement';
     public const OPERATION_MATCH = 'PATCH /enterprise/announcement';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/enterprise/announcement';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Announcement $hydrator)
     {
