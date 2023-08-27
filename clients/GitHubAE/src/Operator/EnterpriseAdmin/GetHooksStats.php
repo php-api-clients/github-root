@@ -19,8 +19,6 @@ final readonly class GetHooksStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-hooks-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/hooks';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Hooks $hydrator)
     {

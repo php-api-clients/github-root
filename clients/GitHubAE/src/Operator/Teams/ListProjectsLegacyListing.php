@@ -19,14 +19,12 @@ final readonly class ListProjectsLegacyListing
 {
     public const OPERATION_ID    = 'teams/list-projects-legacy';
     public const OPERATION_MATCH = 'LIST /teams/{team_id}/projects';
-    private const METHOD         = 'GET';
-    private const PATH           = '/teams/{team_id}/projects';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Teams\TeamId\Projects $hydrator)
     {
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return iterable<Schema\TeamProject> */
     public function call(int $teamId, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Teams\ListProjectsLegacyListing($this->responseSchemaValidator, $this->hydrator, $teamId, $perPage, $page);

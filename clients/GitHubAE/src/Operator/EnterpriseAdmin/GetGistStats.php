@@ -19,8 +19,6 @@ final readonly class GetGistStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-gist-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/gists';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/gists';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprise\Stats\Gists $hydrator)
     {

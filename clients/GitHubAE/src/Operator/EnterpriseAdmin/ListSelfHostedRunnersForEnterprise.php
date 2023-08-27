@@ -19,8 +19,6 @@ final readonly class ListSelfHostedRunnersForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-self-hosted-runners-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runners';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\Actions\Runners $hydrator)
     {

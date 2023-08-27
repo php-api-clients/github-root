@@ -19,14 +19,12 @@ final readonly class ListMembersListing
 {
     public const OPERATION_ID    = 'orgs/list-members';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/members';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/members';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Orgs\Org\Members $hydrator)
     {
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<Schema\SimpleUser> */
     public function call(string $org, string $filter = 'all', string $role = 'all', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Orgs\ListMembersListing($this->responseSchemaValidator, $this->hydrator, $org, $filter, $role, $perPage, $page);

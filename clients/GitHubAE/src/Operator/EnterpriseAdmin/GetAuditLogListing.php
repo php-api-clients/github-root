@@ -19,14 +19,12 @@ final readonly class GetAuditLogListing
 {
     public const OPERATION_ID    = 'enterprise-admin/get-audit-log';
     public const OPERATION_MATCH = 'LIST /enterprises/{enterprise}/audit-log';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/audit-log';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Enterprises\Enterprise\AuditLog $hydrator)
     {
     }
 
-    /** @return Observable<Schema\AuditLogEvent> */
+    /** @return iterable<Schema\AuditLogEvent> */
     public function call(string $enterprise, string $phrase, string $after, string $before, string $order, int $page = 1, int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\GetAuditLogListing($this->responseSchemaValidator, $this->hydrator, $enterprise, $phrase, $after, $before, $order, $page, $perPage);

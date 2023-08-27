@@ -17,14 +17,12 @@ final readonly class SetSelectedOrganizationsEnabledGithubActionsEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/set-selected-organizations-enabled-github-actions-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/organizations';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/organizations';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise($this->requestSchemaValidator, $enterprise);

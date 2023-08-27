@@ -20,14 +20,12 @@ final readonly class EnableLfsForRepo
 {
     public const OPERATION_ID    = 'repos/enable-lfs-for-repo';
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/lfs';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/repos/{owner}/{repo}/lfs';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Lfs $hydrator)
     {
     }
 
-    /** @return (Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json | array{code: int}) */
+    /** @return Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|array{code:int} */
     public function call(string $owner, string $repo): Json|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Repos\EnableLfsForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

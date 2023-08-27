@@ -4,31 +4,22 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Router\Delete;
 
-use ApiClients\Client\GitHubAE\Hydrators;
-use ApiClients\Client\GitHubAE\Router;
+use ApiClients\Client\GitHubAE\Routers;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisDeletion;
 use ApiClients\Client\GitHubAE\Schema\Issue;
 use ApiClients\Client\GitHubAE\Schema\PullRequestSimple;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
 
 final class Seven
 {
-    private array $router = [];
-
-    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    public function __construct(private Routers $routers)
     {
     }
 
-    /** @return array{code: int}||(Schema\BasicError|array{code: int}) */
+    /** @return array{code:int}||Schema\BasicError */
     public function call(string $call, array $params, array $pathChunks): CodeScanningAnalysisDeletion|Issue|BasicError|PullRequestSimple|array
     {
-        $matched = false;
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
                 if ($pathChunks[2] === '{enterprise}') {
@@ -37,12 +28,7 @@ final class Seven
                             if ($pathChunks[5] === 'organizations') {
                                 if ($pathChunks[6] === '{org_id}') {
                                     if ($call === 'DELETE /enterprises/{enterprise}/actions/permissions/organizations/{org_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\EnterpriseAdmin::class, $this->router) === false) {
-                                            $this->router[Router\Delete\EnterpriseAdmin::class] = new Router\Delete\EnterpriseAdmin($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\EnterpriseAdmin::class]->DisableSelectedOrganizationGithubActionsEnterprise($params);
+                                        return $this->routers->router🔀Delete🔀EnterpriseAdmin()->disableSelectedOrganizationGithubActionsEnterprise($params);
                                     }
                                 }
                             }
@@ -56,12 +42,7 @@ final class Seven
                             if ($pathChunks[5] === 'repositories') {
                                 if ($pathChunks[6] === '{repository_id}') {
                                     if ($call === 'DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Actions::class]->DisableSelectedRepositoryGithubActionsOrganization($params);
+                                        return $this->routers->router🔀Delete🔀Actions()->disableSelectedRepositoryGithubActionsOrganization($params);
                                     }
                                 }
                             }
@@ -71,34 +52,19 @@ final class Seven
                             if ($pathChunks[5] === 'discussions') {
                                 if ($pathChunks[6] === '{discussion_number}') {
                                     if ($call === 'DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Teams::class]->DeleteDiscussionInOrg($params);
+                                        return $this->routers->router🔀Delete🔀Teams()->deleteDiscussionInOrg($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'memberships') {
                                 if ($pathChunks[6] === '{username}') {
                                     if ($call === 'DELETE /orgs/{org}/teams/{team_slug}/memberships/{username}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Teams::class]->RemoveMembershipForUserInOrg($params);
+                                        return $this->routers->router🔀Delete🔀Teams()->removeMembershipForUserInOrg($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'projects') {
                                 if ($pathChunks[6] === '{project_id}') {
                                     if ($call === 'DELETE /orgs/{org}/teams/{team_slug}/projects/{project_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Teams::class]->RemoveProjectInOrg($params);
+                                        return $this->routers->router🔀Delete🔀Teams()->removeProjectInOrg($params);
                                     }
                                 }
                             }
@@ -112,45 +78,25 @@ final class Seven
                             if ($pathChunks[5] === 'artifacts') {
                                 if ($pathChunks[6] === '{artifact_id}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/actions/artifacts/{artifact_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Actions::class]->DeleteArtifact($params);
+                                        return $this->routers->router🔀Delete🔀Actions()->deleteArtifact($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'runners') {
                                 if ($pathChunks[6] === '{runner_id}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/actions/runners/{runner_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Actions::class]->DeleteSelfHostedRunnerFromRepo($params);
+                                        return $this->routers->router🔀Delete🔀Actions()->deleteSelfHostedRunnerFromRepo($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'runs') {
                                 if ($pathChunks[6] === '{run_id}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/actions/runs/{run_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Actions::class]->DeleteWorkflowRun($params);
+                                        return $this->routers->router🔀Delete🔀Actions()->deleteWorkflowRun($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === 'secrets') {
                                 if ($pathChunks[6] === '{secret_name}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/actions/secrets/{secret_name}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Actions::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Actions::class] = new Router\Delete\Actions($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Actions::class]->DeleteRepoSecret($params);
+                                        return $this->routers->router🔀Delete🔀Actions()->deleteRepoSecret($params);
                                     }
                                 }
                             }
@@ -158,12 +104,7 @@ final class Seven
                             if ($pathChunks[5] === '{branch}') {
                                 if ($pathChunks[6] === 'protection') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/branches/{branch}/protection') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Repos::class]->DeleteBranchProtection($params);
+                                        return $this->routers->router🔀Delete🔀Repos()->deleteBranchProtection($params);
                                     }
                                 }
                             }
@@ -171,12 +112,7 @@ final class Seven
                             if ($pathChunks[5] === 'analyses') {
                                 if ($pathChunks[6] === '{analysis_id}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\CodeScanning::class, $this->router) === false) {
-                                            $this->router[Router\Delete\CodeScanning::class] = new Router\Delete\CodeScanning($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\CodeScanning::class]->DeleteAnalysis($params);
+                                        return $this->routers->router🔀Delete🔀CodeScanning()->deleteAnalysis($params);
                                     }
                                 }
                             }
@@ -184,12 +120,7 @@ final class Seven
                             if ($pathChunks[5] === 'refs') {
                                 if ($pathChunks[6] === '{ref}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/git/refs/{ref}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Git::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Git::class] = new Router\Delete\Git($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Git::class]->DeleteRef($params);
+                                        return $this->routers->router🔀Delete🔀Git()->deleteRef($params);
                                     }
                                 }
                             }
@@ -197,41 +128,21 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_id}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/issues/comments/{comment_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Issues::class]->DeleteComment($params);
+                                        return $this->routers->router🔀Delete🔀Issues()->deleteComment($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === '{issue_number}') {
                                 if ($pathChunks[6] === 'assignees') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/issues/{issue_number}/assignees') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Issues::class]->RemoveAssignees($params);
+                                        return $this->routers->router🔀Delete🔀Issues()->removeAssignees($params);
                                     }
                                 } elseif ($pathChunks[6] === 'labels') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Issues::class]->RemoveAllLabels($params);
+                                        return $this->routers->router🔀Delete🔀Issues()->removeAllLabels($params);
                                     }
                                 } elseif ($pathChunks[6] === 'lock') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/issues/{issue_number}/lock') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Issues::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Issues::class] = new Router\Delete\Issues($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Issues::class]->Unlock($params);
+                                        return $this->routers->router🔀Delete🔀Issues()->unlock($params);
                                     }
                                 }
                             }
@@ -239,23 +150,13 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_id}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Pulls::class] = new Router\Delete\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Pulls::class]->DeleteReviewComment($params);
+                                        return $this->routers->router🔀Delete🔀Pulls()->deleteReviewComment($params);
                                     }
                                 }
                             } elseif ($pathChunks[5] === '{pull_number}') {
                                 if ($pathChunks[6] === 'requested_reviewers') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Pulls::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Pulls::class] = new Router\Delete\Pulls($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Pulls::class]->RemoveRequestedReviewers($params);
+                                        return $this->routers->router🔀Delete🔀Pulls()->removeRequestedReviewers($params);
                                     }
                                 }
                             }
@@ -263,12 +164,7 @@ final class Seven
                             if ($pathChunks[5] === 'assets') {
                                 if ($pathChunks[6] === '{asset_id}') {
                                     if ($call === 'DELETE /repos/{owner}/{repo}/releases/assets/{asset_id}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Repos::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Repos::class] = new Router\Delete\Repos($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Repos::class]->DeleteReleaseAsset($params);
+                                        return $this->routers->router🔀Delete🔀Repos()->deleteReleaseAsset($params);
                                     }
                                 }
                             }
@@ -282,12 +178,7 @@ final class Seven
                             if ($pathChunks[5] === 'comments') {
                                 if ($pathChunks[6] === '{comment_number}') {
                                     if ($call === 'DELETE /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}') {
-                                        $matched = true;
-                                        if (array_key_exists(Router\Delete\Teams::class, $this->router) === false) {
-                                            $this->router[Router\Delete\Teams::class] = new Router\Delete\Teams($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators, $this->browser, $this->authentication);
-                                        }
-
-                                        return $this->router[Router\Delete\Teams::class]->DeleteDiscussionCommentLegacy($params);
+                                        return $this->routers->router🔀Delete🔀Teams()->deleteDiscussionCommentLegacy($params);
                                     }
                                 }
                             }
@@ -297,8 +188,6 @@ final class Seven
             }
         }
 
-        if ($matched === false) {
-            throw new InvalidArgumentException();
-        }
+        throw new InvalidArgumentException();
     }
 }

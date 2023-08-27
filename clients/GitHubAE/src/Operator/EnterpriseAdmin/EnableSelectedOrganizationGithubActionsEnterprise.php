@@ -16,14 +16,12 @@ final readonly class EnableSelectedOrganizationGithubActionsEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/enable-selected-organization-github-actions-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/organizations/{org_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/organizations/{org_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, int $orgId): array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise($enterprise, $orgId);

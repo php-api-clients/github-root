@@ -19,14 +19,12 @@ final readonly class ListForReleaseListing
 {
     public const OPERATION_ID    = 'reactions/list-for-release';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/releases/{release_id}/reactions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/releases/{release_id}/reactions';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Repos\Owner\Repo\Releases\ReleaseId\Reactions $hydrator)
     {
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<Schema\Reaction> */
     public function call(string $owner, string $repo, int $releaseId, string $content, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\Reactions\ListForReleaseListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $releaseId, $content, $perPage, $page);

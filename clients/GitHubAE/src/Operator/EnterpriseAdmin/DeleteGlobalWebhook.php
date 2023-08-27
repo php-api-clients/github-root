@@ -16,14 +16,12 @@ final readonly class DeleteGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-global-webhook';
     public const OPERATION_MATCH = 'DELETE /admin/hooks/{hook_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/hooks/{hook_id}';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(int $hookId): array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\DeleteGlobalWebhook($hookId);

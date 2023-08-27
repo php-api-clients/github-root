@@ -17,14 +17,12 @@ final readonly class SetAllowedActionsEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/set-allowed-actions-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/selected-actions';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/selected-actions';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator)
     {
     }
 
-    /** @return array{code: int} */
+    /** @return array{code:int} */
     public function call(string $enterprise, array $params): array
     {
         $operation = new \ApiClients\Client\GitHubAE\Operation\EnterpriseAdmin\SetAllowedActionsEnterprise($this->requestSchemaValidator, $enterprise);

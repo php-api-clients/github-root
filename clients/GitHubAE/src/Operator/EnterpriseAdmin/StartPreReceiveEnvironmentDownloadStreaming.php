@@ -19,8 +19,6 @@ final readonly class StartPreReceiveEnvironmentDownloadStreaming
 {
     public const OPERATION_ID    = 'enterprise-admin/start-pre-receive-environment-download';
     public const OPERATION_MATCH = 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads';
 
     public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads $hydrator)
     {
