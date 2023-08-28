@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
 
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Author;
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bugs;
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Directories;
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dist;
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Repository;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Author;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Bugs;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Directories;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Dist;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NpmMetadata\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
