@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
 
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Id;
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Value;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Id;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\NugetMetadata\Value;
 use ApiClients\Client\GitHubEnterprise\Schema;
 
 final readonly class NugetMetadata
