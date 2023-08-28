@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 
 final class OauthAuthorizations
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -63,7 +63,7 @@ final class OauthAuthorizations
         return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForApp()->call($clientId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Authorization */
     public function getOrCreateAuthorizationForAppAndFingerprint(string $clientId, string $fingerprint, array $params): Authorization|array
     {
         return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForAppAndFingerprint()->call($clientId, $fingerprint, $params);
@@ -81,7 +81,7 @@ final class OauthAuthorizations
         return $this->operators->oauthAuthorizations👷DeleteAuthorization()->call($authorizationId);
     }
 
-    /** @return */
+    /** @return Schema\Authorization */
     public function updateAuthorization(int $authorizationId, array $params): Authorization|array
     {
         return $this->operators->oauthAuthorizations👷UpdateAuthorization()->call($authorizationId, $params);

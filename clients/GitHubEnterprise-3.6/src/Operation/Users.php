@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterprise\Schema\Hovercard;
@@ -14,7 +14,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\PublicUser;
 
 final class Users
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -222,7 +222,7 @@ final class Users
         return $this->operators->users👷ListGpgKeysForUserListing()->call($username, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Hovercard */
     public function getContextForUser(string $username, string $subjectType, string $subjectId): Hovercard|array
     {
         return $this->operators->users👷GetContextForUser()->call($username, $subjectType, $subjectId);
