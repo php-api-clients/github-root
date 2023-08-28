@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Migration;
 
 final class Migrations
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -26,13 +26,13 @@ final class Migrations
         return $this->operators->migrations👷ListForOrgListing()->call($org, $exclude, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Migration */
     public function startForOrg(string $org, array $params): Migration|array
     {
         return $this->operators->migrations👷StartForOrg()->call($org, $params);
     }
 
-    /** @return */
+    /** @return Schema\Migration */
     public function getStatusForOrg(string $org, int $migrationId, array $exclude): Migration|array
     {
         return $this->operators->migrations👷GetStatusForOrg()->call($org, $migrationId, $exclude);
@@ -44,7 +44,7 @@ final class Migrations
         return $this->operators->migrations👷DownloadArchiveForOrg()->call($org, $migrationId);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function downloadArchiveForOrgStreaming(string $org, int $migrationId): iterable
     {
         return $this->operators->migrations👷DownloadArchiveForOrgStreaming()->call($org, $migrationId);
