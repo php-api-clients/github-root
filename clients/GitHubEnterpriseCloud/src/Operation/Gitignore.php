@@ -4,38 +4,25 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitignoreTemplate;
 
 final class Gitignore
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    public function getAllTemplates(): Schema\Operations\Gitignore\GetAllTemplates\Response\ApplicationJson\Ok
+    /** @return iterable<string>|array{code:int} */
+    public function getAllTemplates(): iterable
     {
-        if (array_key_exists(Operator\Gitignore\GetAllTemplates::class, $this->operator) === false) {
-            $this->operator[Operator\Gitignore\GetAllTemplates::class] = new Operator\Gitignore\GetAllTemplates($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gitignore🌀Templates());
-        }
-
-        return $this->operator[Operator\Gitignore\GetAllTemplates::class]->call();
+        return $this->operators->gitignore👷GetAllTemplates()->call();
     }
 
-    public function getTemplate(string $name): Schema\GitignoreTemplate
+    /** @return Schema\GitignoreTemplate|array{code:int} */
+    public function getTemplate(string $name): GitignoreTemplate|array
     {
-        if (array_key_exists(Operator\Gitignore\GetTemplate::class, $this->operator) === false) {
-            $this->operator[Operator\Gitignore\GetTemplate::class] = new Operator\Gitignore\GetTemplate($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gitignore🌀Templates🌀Name());
-        }
-
-        return $this->operator[Operator\Gitignore\GetTemplate::class]->call($name);
+        return $this->operators->gitignore👷GetTemplate()->call($name);
     }
 }

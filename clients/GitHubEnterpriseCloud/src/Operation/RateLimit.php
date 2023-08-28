@@ -4,29 +4,19 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\RateLimitOverview;
 
 final class RateLimit
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    public function get(): Schema\RateLimitOverview
+    /** @return Schema\RateLimitOverview|array{code:int} */
+    public function get(): RateLimitOverview|array
     {
-        if (array_key_exists(Operator\RateLimit\Get::class, $this->operator) === false) {
-            $this->operator[Operator\RateLimit\Get::class] = new Operator\RateLimit\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀RateLimit());
-        }
-
-        return $this->operator[Operator\RateLimit\Get::class]->call();
+        return $this->operators->rateLimit👷Get()->call();
     }
 }
