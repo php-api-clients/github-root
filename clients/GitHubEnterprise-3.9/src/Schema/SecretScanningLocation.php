@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Schema;
 
-use ApiClients\Client\GitHubEnterprise\Attribute\CastUnionToType\Schema\SecretScanningLocation\Details;
+use ApiClients\Client\GitHubEnterprise\Internal\Attribute\CastUnionToType\Schema\SecretScanningLocation\Details;
 use ApiClients\Client\GitHubEnterprise\Schema;
 
 final readonly class SecretScanningLocation
