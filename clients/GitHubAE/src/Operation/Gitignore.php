@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Operation;
 
-use ApiClients\Client\GitHubAE\Operators;
+use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GitignoreTemplate;
 
 final class Gitignore
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    /** @return Observable<string>|array{code:int} */
+    /** @return iterable<string>|array{code:int} */
     public function getAllTemplates(): iterable
     {
         return $this->operators->gitignore👷GetAllTemplates()->call();

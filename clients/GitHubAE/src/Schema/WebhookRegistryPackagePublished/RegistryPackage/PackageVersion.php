@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Schema\WebhookRegistryPackagePublished\RegistryPackage;
 
-use ApiClients\Client\GitHubAE\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Body;
+use ApiClients\Client\GitHubAE\Internal\Attribute\CastUnionToType\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Body;
 use ApiClients\Client\GitHubAE\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 

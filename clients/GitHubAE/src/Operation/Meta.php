@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Operation;
 
-use ApiClients\Client\GitHubAE\Operators;
+use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ApiOverview;
 use ApiClients\Client\GitHubAE\Schema\Root;
@@ -12,11 +12,11 @@ use Psr\Http\Message\ResponseInterface;
 
 final class Meta
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    /** @return */
+    /** @return Schema\Root */
     public function root(): Root|array
     {
         return $this->operators->meta👷Root()->call();
@@ -28,13 +28,13 @@ final class Meta
         return $this->operators->meta👷Get()->call();
     }
 
-    /** @return */
+    /** @return ResponseInterface */
     public function getOctocat(string $s): ResponseInterface|array
     {
         return $this->operators->meta👷GetOctocat()->call($s);
     }
 
-    /** @return */
+    /** @return string */
     public function getZen(): array|string
     {
         return $this->operators->meta👷GetZen()->call();

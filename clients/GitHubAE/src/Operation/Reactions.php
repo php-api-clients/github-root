@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Operation;
 
-use ApiClients\Client\GitHubAE\Operators;
+use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Reaction;
 
 final class Reactions
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -26,7 +26,7 @@ final class Reactions
         return $this->operators->reactions👷ListForTeamDiscussionCommentInOrgListing()->call($org, $teamSlug, $discussionNumber, $commentNumber, $content, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Reaction */
     public function createForTeamDiscussionCommentInOrg(string $org, string $teamSlug, int $discussionNumber, int $commentNumber, array $params): Reaction|array
     {
         return $this->operators->reactions👷CreateForTeamDiscussionCommentInOrg()->call($org, $teamSlug, $discussionNumber, $commentNumber, $params);
@@ -50,7 +50,7 @@ final class Reactions
         return $this->operators->reactions👷ListForTeamDiscussionInOrgListing()->call($org, $teamSlug, $discussionNumber, $content, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Reaction */
     public function createForTeamDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber, array $params): Reaction|array
     {
         return $this->operators->reactions👷CreateForTeamDiscussionInOrg()->call($org, $teamSlug, $discussionNumber, $params);
@@ -74,7 +74,7 @@ final class Reactions
         return $this->operators->reactions👷ListForCommitCommentListing()->call($owner, $repo, $commentId, $content, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Reaction */
     public function createForCommitComment(string $owner, string $repo, int $commentId, array $params): Reaction|array
     {
         return $this->operators->reactions👷CreateForCommitComment()->call($owner, $repo, $commentId, $params);
@@ -98,7 +98,7 @@ final class Reactions
         return $this->operators->reactions👷ListForIssueCommentListing()->call($owner, $repo, $commentId, $content, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Reaction */
     public function createForIssueComment(string $owner, string $repo, int $commentId, array $params): Reaction|array
     {
         return $this->operators->reactions👷CreateForIssueComment()->call($owner, $repo, $commentId, $params);
@@ -122,7 +122,7 @@ final class Reactions
         return $this->operators->reactions👷ListForIssueListing()->call($owner, $repo, $issueNumber, $content, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Reaction */
     public function createForIssue(string $owner, string $repo, int $issueNumber, array $params): Reaction|array
     {
         return $this->operators->reactions👷CreateForIssue()->call($owner, $repo, $issueNumber, $params);
@@ -146,7 +146,7 @@ final class Reactions
         return $this->operators->reactions👷ListForPullRequestReviewCommentListing()->call($owner, $repo, $commentId, $content, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Reaction */
     public function createForPullRequestReviewComment(string $owner, string $repo, int $commentId, array $params): Reaction|array
     {
         return $this->operators->reactions👷CreateForPullRequestReviewComment()->call($owner, $repo, $commentId, $params);
@@ -170,7 +170,7 @@ final class Reactions
         return $this->operators->reactions👷ListForReleaseListing()->call($owner, $repo, $releaseId, $content, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Reaction */
     public function createForRelease(string $owner, string $repo, int $releaseId, array $params): Reaction|array
     {
         return $this->operators->reactions👷CreateForRelease()->call($owner, $repo, $releaseId, $params);
