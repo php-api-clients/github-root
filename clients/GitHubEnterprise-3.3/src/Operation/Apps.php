@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
@@ -19,29 +19,29 @@ use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 
 final class Apps
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    /** @return */
+    /** @return Schema\Integration */
     public function getAuthenticated(): Integration|array
     {
         return $this->operators->apps👷GetAuthenticated()->call();
     }
 
-    /** @return */
+    /** @return Schema\Integration */
     public function createFromManifest(string $code): Integration|array
     {
         return $this->operators->apps👷CreateFromManifest()->call($code);
     }
 
-    /** @return */
+    /** @return Schema\WebhookConfig */
     public function getWebhookConfigForApp(): WebhookConfig|array
     {
         return $this->operators->apps👷GetWebhookConfigForApp()->call();
     }
 
-    /** @return */
+    /** @return Schema\WebhookConfig */
     public function updateWebhookConfigForApp(array $params): WebhookConfig|array
     {
         return $this->operators->apps👷UpdateWebhookConfigForApp()->call($params);
@@ -53,13 +53,13 @@ final class Apps
         return $this->operators->apps👷ListWebhookDeliveries()->call($cursor, $redelivery, $perPage);
     }
 
-    /** @return */
+    /** @return Schema\HookDelivery */
     public function getWebhookDelivery(int $deliveryId): HookDelivery|array
     {
         return $this->operators->apps👷GetWebhookDelivery()->call($deliveryId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json */
     public function redeliverWebhookDelivery(int $deliveryId): Json|array
     {
         return $this->operators->apps👷RedeliverWebhookDelivery()->call($deliveryId);
@@ -77,7 +77,7 @@ final class Apps
         return $this->operators->apps👷ListInstallationsListing()->call($since, $outdated, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Installation */
     public function getInstallation(int $installationId): Installation|array
     {
         return $this->operators->apps👷GetInstallation()->call($installationId);
@@ -89,7 +89,7 @@ final class Apps
         return $this->operators->apps👷DeleteInstallation()->call($installationId);
     }
 
-    /** @return */
+    /** @return Schema\InstallationToken */
     public function createInstallationAccessToken(int $installationId, array $params): InstallationToken|array
     {
         return $this->operators->apps👷CreateInstallationAccessToken()->call($installationId, $params);
@@ -119,7 +119,7 @@ final class Apps
         return $this->operators->apps👷RevokeGrantForApplication()->call($clientId, $accessToken);
     }
 
-    /** @return */
+    /** @return Schema\Authorization */
     public function checkToken(string $clientId, array $params): Authorization|array
     {
         return $this->operators->apps👷CheckToken()->call($clientId, $params);
@@ -131,25 +131,25 @@ final class Apps
         return $this->operators->apps👷DeleteToken()->call($clientId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Authorization */
     public function resetToken(string $clientId, array $params): Authorization|array
     {
         return $this->operators->apps👷ResetToken()->call($clientId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Authorization */
     public function scopeToken(string $clientId, array $params): Authorization|array
     {
         return $this->operators->apps👷ScopeToken()->call($clientId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Authorization */
     public function checkAuthorization(string $clientId, string $accessToken): Authorization|array
     {
         return $this->operators->apps👷CheckAuthorization()->call($clientId, $accessToken);
     }
 
-    /** @return */
+    /** @return Schema\Authorization */
     public function resetAuthorization(string $clientId, string $accessToken): Authorization|array
     {
         return $this->operators->apps👷ResetAuthorization()->call($clientId, $accessToken);
@@ -161,7 +161,7 @@ final class Apps
         return $this->operators->apps👷RevokeAuthorizationForApplication()->call($clientId, $accessToken);
     }
 
-    /** @return */
+    /** @return Schema\Integration */
     public function getBySlug(string $appSlug): Integration|array
     {
         return $this->operators->apps👷GetBySlug()->call($appSlug);
@@ -179,7 +179,7 @@ final class Apps
         return $this->operators->apps👷RevokeInstallationAccessToken()->call();
     }
 
-    /** @return */
+    /** @return Schema\Installation */
     public function getOrgInstallation(string $org): Installation|array
     {
         return $this->operators->apps👷GetOrgInstallation()->call($org);
@@ -191,7 +191,7 @@ final class Apps
         return $this->operators->apps👷CreateContentAttachment()->call($owner, $repo, $contentReferenceId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Installation|Schema\BasicError */
     public function getRepoInstallation(string $owner, string $repo): Installation|BasicError|array
     {
         return $this->operators->apps👷GetRepoInstallation()->call($owner, $repo);
@@ -221,7 +221,7 @@ final class Apps
         return $this->operators->apps👷RemoveRepoFromInstallationForAuthenticatedUser()->call($installationId, $repositoryId);
     }
 
-    /** @return */
+    /** @return Schema\Installation */
     public function getUserInstallation(string $username): Installation|array
     {
         return $this->operators->apps👷GetUserInstallation()->call($username);
