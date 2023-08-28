@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise;
 
 final readonly class Operations implements OperationsInterface
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
