@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Schema\Repos\CreateDeployment\Request;
 
-use ApiClients\Client\GitHubAE\Attribute\CastUnionToType\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload;
+use ApiClients\Client\GitHubAE\Internal\Attribute\CastUnionToType\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload;
 use ApiClients\Client\GitHubAE\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 

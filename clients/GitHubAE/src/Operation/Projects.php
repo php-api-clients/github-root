@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Operation;
 
-use ApiClients\Client\GitHubAE\Operators;
+use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Client\GitHubAE\Schema\Project;
@@ -14,7 +14,7 @@ use ApiClients\Client\GitHubAE\Schema\ProjectColumn;
 
 final class Projects
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -30,7 +30,7 @@ final class Projects
         return $this->operators->projects👷ListForOrgListing()->call($org, $state, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Project */
     public function createForOrg(string $org, array $params): Project|array
     {
         return $this->operators->projects👷CreateForOrg()->call($org, $params);
@@ -180,7 +180,7 @@ final class Projects
         return $this->operators->projects👷ListForRepoListing()->call($owner, $repo, $state, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Project */
     public function createForRepo(string $owner, string $repo, array $params): Project|array
     {
         return $this->operators->projects👷CreateForRepo()->call($owner, $repo, $params);

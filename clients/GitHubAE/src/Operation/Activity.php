@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Operation;
 
-use ApiClients\Client\GitHubAE\Operators;
+use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Feed;
 use ApiClients\Client\GitHubAE\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted;
@@ -19,11 +19,11 @@ use ApiClients\Client\GitHubAE\Schema\ThreadSubscription;
 
 final class Activity
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    /** @return */
+    /** @return Schema\Feed */
     public function getFeeds(): Feed|array
     {
         return $this->operators->activity👷GetFeeds()->call();
@@ -131,7 +131,7 @@ final class Activity
         return $this->operators->activity👷GetRepoSubscription()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\RepositorySubscription */
     public function setRepoSubscription(string $owner, string $repo, array $params): RepositorySubscription|array
     {
         return $this->operators->activity👷SetRepoSubscription()->call($owner, $repo, $params);

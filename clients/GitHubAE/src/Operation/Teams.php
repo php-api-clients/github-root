@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Operation;
 
-use ApiClients\Client\GitHubAE\Operators;
+use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ExternalGroup;
 use ApiClients\Client\GitHubAE\Schema\ExternalGroups;
@@ -17,17 +17,17 @@ use ApiClients\Client\GitHubAE\Schema\TeamRepository;
 
 final class Teams
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    /** @return */
+    /** @return Schema\ExternalGroup */
     public function externalIdpGroupInfoForOrg(string $org, int $groupId): ExternalGroup|array
     {
         return $this->operators->teams👷ExternalIdpGroupInfoForOrg()->call($org, $groupId);
     }
 
-    /** @return */
+    /** @return Schema\ExternalGroups */
     public function listExternalIdpGroupsForOrg(string $org, int $page, string $displayName, int $perPage): ExternalGroups|array
     {
         return $this->operators->teams👷ListExternalIdpGroupsForOrg()->call($org, $page, $displayName, $perPage);
@@ -45,13 +45,13 @@ final class Teams
         return $this->operators->teams👷ListListing()->call($org, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\TeamFull */
     public function create(string $org, array $params): TeamFull|array
     {
         return $this->operators->teams👷Create()->call($org, $params);
     }
 
-    /** @return */
+    /** @return Schema\TeamFull */
     public function getByName(string $org, string $teamSlug): TeamFull|array
     {
         return $this->operators->teams👷GetByName()->call($org, $teamSlug);
@@ -63,7 +63,7 @@ final class Teams
         return $this->operators->teams👷DeleteInOrg()->call($org, $teamSlug);
     }
 
-    /** @return */
+    /** @return Schema\TeamFull */
     public function updateInOrg(string $org, string $teamSlug, array $params): TeamFull|array
     {
         return $this->operators->teams👷UpdateInOrg()->call($org, $teamSlug, $params);
@@ -81,13 +81,13 @@ final class Teams
         return $this->operators->teams👷ListDiscussionsInOrgListing()->call($org, $teamSlug, $pinned, $direction, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussion */
     public function createDiscussionInOrg(string $org, string $teamSlug, array $params): TeamDiscussion|array
     {
         return $this->operators->teams👷CreateDiscussionInOrg()->call($org, $teamSlug, $params);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussion */
     public function getDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber): TeamDiscussion|array
     {
         return $this->operators->teams👷GetDiscussionInOrg()->call($org, $teamSlug, $discussionNumber);
@@ -99,7 +99,7 @@ final class Teams
         return $this->operators->teams👷DeleteDiscussionInOrg()->call($org, $teamSlug, $discussionNumber);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussion */
     public function updateDiscussionInOrg(string $org, string $teamSlug, int $discussionNumber, array $params): TeamDiscussion|array
     {
         return $this->operators->teams👷UpdateDiscussionInOrg()->call($org, $teamSlug, $discussionNumber, $params);
@@ -117,13 +117,13 @@ final class Teams
         return $this->operators->teams👷ListDiscussionCommentsInOrgListing()->call($org, $teamSlug, $discussionNumber, $direction, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussionComment */
     public function createDiscussionCommentInOrg(string $org, string $teamSlug, int $discussionNumber, array $params): TeamDiscussionComment|array
     {
         return $this->operators->teams👷CreateDiscussionCommentInOrg()->call($org, $teamSlug, $discussionNumber, $params);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussionComment */
     public function getDiscussionCommentInOrg(string $org, string $teamSlug, int $discussionNumber, int $commentNumber): TeamDiscussionComment|array
     {
         return $this->operators->teams👷GetDiscussionCommentInOrg()->call($org, $teamSlug, $discussionNumber, $commentNumber);
@@ -135,7 +135,7 @@ final class Teams
         return $this->operators->teams👷DeleteDiscussionCommentInOrg()->call($org, $teamSlug, $discussionNumber, $commentNumber);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussionComment */
     public function updateDiscussionCommentInOrg(string $org, string $teamSlug, int $discussionNumber, int $commentNumber, array $params): TeamDiscussionComment|array
     {
         return $this->operators->teams👷UpdateDiscussionCommentInOrg()->call($org, $teamSlug, $discussionNumber, $commentNumber, $params);
@@ -147,7 +147,7 @@ final class Teams
         return $this->operators->teams👷UnlinkExternalIdpGroupFromTeamForOrg()->call($org, $teamSlug);
     }
 
-    /** @return */
+    /** @return Schema\ExternalGroup */
     public function linkExternalIdpGroupToTeamForOrg(string $org, string $teamSlug, array $params): ExternalGroup|array
     {
         return $this->operators->teams👷LinkExternalIdpGroupToTeamForOrg()->call($org, $teamSlug, $params);
@@ -255,7 +255,7 @@ final class Teams
         return $this->operators->teams👷ListChildInOrgListing()->call($org, $teamSlug, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\TeamFull */
     public function getLegacy(int $teamId): TeamFull|array
     {
         return $this->operators->teams👷GetLegacy()->call($teamId);
@@ -267,7 +267,7 @@ final class Teams
         return $this->operators->teams👷DeleteLegacy()->call($teamId);
     }
 
-    /** @return */
+    /** @return Schema\TeamFull */
     public function updateLegacy(int $teamId, array $params): TeamFull|array
     {
         return $this->operators->teams👷UpdateLegacy()->call($teamId, $params);
@@ -285,13 +285,13 @@ final class Teams
         return $this->operators->teams👷ListDiscussionsLegacyListing()->call($teamId, $direction, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussion */
     public function createDiscussionLegacy(int $teamId, array $params): TeamDiscussion|array
     {
         return $this->operators->teams👷CreateDiscussionLegacy()->call($teamId, $params);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussion */
     public function getDiscussionLegacy(int $teamId, int $discussionNumber): TeamDiscussion|array
     {
         return $this->operators->teams👷GetDiscussionLegacy()->call($teamId, $discussionNumber);
@@ -303,7 +303,7 @@ final class Teams
         return $this->operators->teams👷DeleteDiscussionLegacy()->call($teamId, $discussionNumber);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussion */
     public function updateDiscussionLegacy(int $teamId, int $discussionNumber, array $params): TeamDiscussion|array
     {
         return $this->operators->teams👷UpdateDiscussionLegacy()->call($teamId, $discussionNumber, $params);
@@ -321,13 +321,13 @@ final class Teams
         return $this->operators->teams👷ListDiscussionCommentsLegacyListing()->call($teamId, $discussionNumber, $direction, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussionComment */
     public function createDiscussionCommentLegacy(int $teamId, int $discussionNumber, array $params): TeamDiscussionComment|array
     {
         return $this->operators->teams👷CreateDiscussionCommentLegacy()->call($teamId, $discussionNumber, $params);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussionComment */
     public function getDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber): TeamDiscussionComment|array
     {
         return $this->operators->teams👷GetDiscussionCommentLegacy()->call($teamId, $discussionNumber, $commentNumber);
@@ -339,7 +339,7 @@ final class Teams
         return $this->operators->teams👷DeleteDiscussionCommentLegacy()->call($teamId, $discussionNumber, $commentNumber);
     }
 
-    /** @return */
+    /** @return Schema\TeamDiscussionComment */
     public function updateDiscussionCommentLegacy(int $teamId, int $discussionNumber, int $commentNumber, array $params): TeamDiscussionComment|array
     {
         return $this->operators->teams👷UpdateDiscussionCommentLegacy()->call($teamId, $discussionNumber, $commentNumber, $params);
@@ -375,7 +375,7 @@ final class Teams
         return $this->operators->teams👷RemoveMemberLegacy()->call($teamId, $username);
     }
 
-    /** @return */
+    /** @return Schema\TeamMembership */
     public function getMembershipForUserLegacy(int $teamId, string $username): TeamMembership|array
     {
         return $this->operators->teams👷GetMembershipForUserLegacy()->call($teamId, $username);

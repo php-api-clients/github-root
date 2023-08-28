@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Schema\Environment\ProtectionRules\One;
 
-use ApiClients\Client\GitHubAE\Attribute\CastUnionToType\Schema\Environment\ProtectionRules\One\Reviewers\Reviewer;
+use ApiClients\Client\GitHubAE\Internal\Attribute\CastUnionToType\Schema\Environment\ProtectionRules\One\Reviewers\Reviewer;
 use ApiClients\Client\GitHubAE\Schema;
 
 final readonly class Reviewers
