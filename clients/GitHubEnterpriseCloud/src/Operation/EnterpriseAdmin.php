@@ -4,354 +4,241 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuthenticationToken;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SelectedActions;
 
 final class EnterpriseAdmin
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    public function getServerStatistics(string $enterpriseOrOrg, string $dateStart, string $dateEnd): Schema\ServerStatistics
+    /** @return iterable<Schema\ServerStatistics> */
+    public function getServerStatistics(string $enterpriseOrOrg, string $dateStart, string $dateEnd): iterable
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetServerStatistics::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetServerStatistics::class] = new Operator\EnterpriseAdmin\GetServerStatistics($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀EnterpriseInstallation🌀EnterpriseOrOrg🌀ServerStatistics());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetServerStatistics::class]->call($enterpriseOrOrg, $dateStart, $dateEnd);
+        return $this->operators->enterpriseAdmin👷GetServerStatistics()->call($enterpriseOrOrg, $dateStart, $dateEnd);
     }
 
-    public function getGithubActionsPermissionsEnterprise(string $enterprise): Schema\ActionsEnterprisePermissions
+    /** @return Schema\ActionsEnterprisePermissions */
+    public function getGithubActionsPermissionsEnterprise(string $enterprise): ActionsEnterprisePermissions|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise::class] = new Operator\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise::class]->call($enterprise);
+        return $this->operators->enterpriseAdmin👷GetGithubActionsPermissionsEnterprise()->call($enterprise);
     }
 
-    public function setGithubActionsPermissionsEnterprise(string $enterprise, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setGithubActionsPermissionsEnterprise(string $enterprise, array $params): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise::class] = new Operator\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise::class]->call($enterprise, $params);
+        return $this->operators->enterpriseAdmin👷SetGithubActionsPermissionsEnterprise()->call($enterprise, $params);
     }
 
-    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(string $enterprise, int $perPage, int $page): Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok */
+    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(string $enterprise, int $perPage, int $page): Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise::class] = new Operator\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions🌀Organizations());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise::class]->call($enterprise, $perPage, $page);
+        return $this->operators->enterpriseAdmin👷ListSelectedOrganizationsEnabledGithubActionsEnterprise()->call($enterprise, $perPage, $page);
     }
 
-    public function setSelectedOrganizationsEnabledGithubActionsEnterprise(string $enterprise, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setSelectedOrganizationsEnabledGithubActionsEnterprise(string $enterprise, array $params): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise::class] = new Operator\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions🌀Organizations());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\SetSelectedOrganizationsEnabledGithubActionsEnterprise::class]->call($enterprise, $params);
+        return $this->operators->enterpriseAdmin👷SetSelectedOrganizationsEnabledGithubActionsEnterprise()->call($enterprise, $params);
     }
 
-    public function enableSelectedOrganizationGithubActionsEnterprise(string $enterprise, int $orgId): ResponseInterface
+    /** @return array{code:int} */
+    public function enableSelectedOrganizationGithubActionsEnterprise(string $enterprise, int $orgId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise::class] = new Operator\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions🌀Organizations🌀OrgId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise::class]->call($enterprise, $orgId);
+        return $this->operators->enterpriseAdmin👷EnableSelectedOrganizationGithubActionsEnterprise()->call($enterprise, $orgId);
     }
 
-    public function disableSelectedOrganizationGithubActionsEnterprise(string $enterprise, int $orgId): ResponseInterface
+    /** @return array{code:int} */
+    public function disableSelectedOrganizationGithubActionsEnterprise(string $enterprise, int $orgId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\DisableSelectedOrganizationGithubActionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\DisableSelectedOrganizationGithubActionsEnterprise::class] = new Operator\EnterpriseAdmin\DisableSelectedOrganizationGithubActionsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions🌀Organizations🌀OrgId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\DisableSelectedOrganizationGithubActionsEnterprise::class]->call($enterprise, $orgId);
+        return $this->operators->enterpriseAdmin👷DisableSelectedOrganizationGithubActionsEnterprise()->call($enterprise, $orgId);
     }
 
-    public function getAllowedActionsEnterprise(string $enterprise): Schema\SelectedActions
+    /** @return Schema\SelectedActions */
+    public function getAllowedActionsEnterprise(string $enterprise): SelectedActions|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetAllowedActionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetAllowedActionsEnterprise::class] = new Operator\EnterpriseAdmin\GetAllowedActionsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions🌀SelectedActions());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetAllowedActionsEnterprise::class]->call($enterprise);
+        return $this->operators->enterpriseAdmin👷GetAllowedActionsEnterprise()->call($enterprise);
     }
 
-    public function setAllowedActionsEnterprise(string $enterprise, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setAllowedActionsEnterprise(string $enterprise, array $params): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\SetAllowedActionsEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\SetAllowedActionsEnterprise::class] = new Operator\EnterpriseAdmin\SetAllowedActionsEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Permissions🌀SelectedActions());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\SetAllowedActionsEnterprise::class]->call($enterprise, $params);
+        return $this->operators->enterpriseAdmin👷SetAllowedActionsEnterprise()->call($enterprise, $params);
     }
 
-    public function listSelfHostedRunnerGroupsForEnterprise(string $enterprise, string $visibleToOrganization, int $perPage, int $page): Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok */
+    public function listSelfHostedRunnerGroupsForEnterprise(string $enterprise, string $visibleToOrganization, int $perPage, int $page): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise::class] = new Operator\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise::class]->call($enterprise, $visibleToOrganization, $perPage, $page);
+        return $this->operators->enterpriseAdmin👷ListSelfHostedRunnerGroupsForEnterprise()->call($enterprise, $visibleToOrganization, $perPage, $page);
     }
 
-    public function createSelfHostedRunnerGroupForEnterprise(string $enterprise, array $params): Schema\RunnerGroupsEnterprise
+    /** @return Schema\RunnerGroupsEnterprise */
+    public function createSelfHostedRunnerGroupForEnterprise(string $enterprise, array $params): RunnerGroupsEnterprise|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise::class] = new Operator\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise::class]->call($enterprise, $params);
+        return $this->operators->enterpriseAdmin👷CreateSelfHostedRunnerGroupForEnterprise()->call($enterprise, $params);
     }
 
-    public function getSelfHostedRunnerGroupForEnterprise(string $enterprise, int $runnerGroupId): Schema\RunnerGroupsEnterprise
+    /** @return Schema\RunnerGroupsEnterprise */
+    public function getSelfHostedRunnerGroupForEnterprise(string $enterprise, int $runnerGroupId): RunnerGroupsEnterprise|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetSelfHostedRunnerGroupForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetSelfHostedRunnerGroupForEnterprise::class] = new Operator\EnterpriseAdmin\GetSelfHostedRunnerGroupForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetSelfHostedRunnerGroupForEnterprise::class]->call($enterprise, $runnerGroupId);
+        return $this->operators->enterpriseAdmin👷GetSelfHostedRunnerGroupForEnterprise()->call($enterprise, $runnerGroupId);
     }
 
-    public function deleteSelfHostedRunnerGroupFromEnterprise(string $enterprise, int $runnerGroupId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteSelfHostedRunnerGroupFromEnterprise(string $enterprise, int $runnerGroupId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise::class] = new Operator\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise::class]->call($enterprise, $runnerGroupId);
+        return $this->operators->enterpriseAdmin👷DeleteSelfHostedRunnerGroupFromEnterprise()->call($enterprise, $runnerGroupId);
     }
 
-    public function updateSelfHostedRunnerGroupForEnterprise(string $enterprise, int $runnerGroupId, array $params): Schema\RunnerGroupsEnterprise
+    /** @return Schema\RunnerGroupsEnterprise */
+    public function updateSelfHostedRunnerGroupForEnterprise(string $enterprise, int $runnerGroupId, array $params): RunnerGroupsEnterprise|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise::class] = new Operator\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise::class]->call($enterprise, $runnerGroupId, $params);
+        return $this->operators->enterpriseAdmin👷UpdateSelfHostedRunnerGroupForEnterprise()->call($enterprise, $runnerGroupId, $params);
     }
 
-    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, int $perPage, int $page): Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json */
+    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, int $perPage, int $page): Json|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise::class] = new Operator\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Organizations());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise::class]->call($enterprise, $runnerGroupId, $perPage, $page);
+        return $this->operators->enterpriseAdmin👷ListOrgAccessToSelfHostedRunnerGroupInEnterprise()->call($enterprise, $runnerGroupId, $perPage, $page);
     }
 
-    public function setOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, array $params): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\SetOrgAccessToSelfHostedRunnerGroupInEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\SetOrgAccessToSelfHostedRunnerGroupInEnterprise::class] = new Operator\EnterpriseAdmin\SetOrgAccessToSelfHostedRunnerGroupInEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Organizations());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\SetOrgAccessToSelfHostedRunnerGroupInEnterprise::class]->call($enterprise, $runnerGroupId, $params);
+        return $this->operators->enterpriseAdmin👷SetOrgAccessToSelfHostedRunnerGroupInEnterprise()->call($enterprise, $runnerGroupId, $params);
     }
 
-    public function addOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, int $orgId): ResponseInterface
+    /** @return array{code:int} */
+    public function addOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, int $orgId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\AddOrgAccessToSelfHostedRunnerGroupInEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\AddOrgAccessToSelfHostedRunnerGroupInEnterprise::class] = new Operator\EnterpriseAdmin\AddOrgAccessToSelfHostedRunnerGroupInEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Organizations🌀OrgId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\AddOrgAccessToSelfHostedRunnerGroupInEnterprise::class]->call($enterprise, $runnerGroupId, $orgId);
+        return $this->operators->enterpriseAdmin👷AddOrgAccessToSelfHostedRunnerGroupInEnterprise()->call($enterprise, $runnerGroupId, $orgId);
     }
 
-    public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, int $orgId): ResponseInterface
+    /** @return array{code:int} */
+    public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, int $orgId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise::class] = new Operator\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Organizations🌀OrgId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise::class]->call($enterprise, $runnerGroupId, $orgId);
+        return $this->operators->enterpriseAdmin👷RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise()->call($enterprise, $runnerGroupId, $orgId);
     }
 
-    public function listSelfHostedRunnersInGroupForEnterprise(string $enterprise, int $runnerGroupId, int $perPage, int $page): Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok */
+    public function listSelfHostedRunnersInGroupForEnterprise(string $enterprise, int $runnerGroupId, int $perPage, int $page): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise::class] = new Operator\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise::class]->call($enterprise, $runnerGroupId, $perPage, $page);
+        return $this->operators->enterpriseAdmin👷ListSelfHostedRunnersInGroupForEnterprise()->call($enterprise, $runnerGroupId, $perPage, $page);
     }
 
-    public function setSelfHostedRunnersInGroupForEnterprise(string $enterprise, int $runnerGroupId, array $params): ResponseInterface
+    /** @return array{code:int} */
+    public function setSelfHostedRunnersInGroupForEnterprise(string $enterprise, int $runnerGroupId, array $params): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise::class] = new Operator\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\SetSelfHostedRunnersInGroupForEnterprise::class]->call($enterprise, $runnerGroupId, $params);
+        return $this->operators->enterpriseAdmin👷SetSelfHostedRunnersInGroupForEnterprise()->call($enterprise, $runnerGroupId, $params);
     }
 
-    public function addSelfHostedRunnerToGroupForEnterprise(string $enterprise, int $runnerGroupId, int $runnerId): ResponseInterface
+    /** @return array{code:int} */
+    public function addSelfHostedRunnerToGroupForEnterprise(string $enterprise, int $runnerGroupId, int $runnerId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise::class] = new Operator\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\AddSelfHostedRunnerToGroupForEnterprise::class]->call($enterprise, $runnerGroupId, $runnerId);
+        return $this->operators->enterpriseAdmin👷AddSelfHostedRunnerToGroupForEnterprise()->call($enterprise, $runnerGroupId, $runnerId);
     }
 
-    public function removeSelfHostedRunnerFromGroupForEnterprise(string $enterprise, int $runnerGroupId, int $runnerId): ResponseInterface
+    /** @return array{code:int} */
+    public function removeSelfHostedRunnerFromGroupForEnterprise(string $enterprise, int $runnerGroupId, int $runnerId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise::class] = new Operator\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups🌀RunnerGroupId🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise::class]->call($enterprise, $runnerGroupId, $runnerId);
+        return $this->operators->enterpriseAdmin👷RemoveSelfHostedRunnerFromGroupForEnterprise()->call($enterprise, $runnerGroupId, $runnerId);
     }
 
-    public function listSelfHostedRunnersForEnterprise(string $enterprise, int $perPage, int $page): Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok */
+    public function listSelfHostedRunnersForEnterprise(string $enterprise, int $perPage, int $page): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise::class] = new Operator\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise::class]->call($enterprise, $perPage, $page);
+        return $this->operators->enterpriseAdmin👷ListSelfHostedRunnersForEnterprise()->call($enterprise, $perPage, $page);
     }
 
-    public function listRunnerApplicationsForEnterprise(string $enterprise): Schema\RunnerApplication
+    /** @return iterable<Schema\RunnerApplication> */
+    public function listRunnerApplicationsForEnterprise(string $enterprise): iterable
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\ListRunnerApplicationsForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\ListRunnerApplicationsForEnterprise::class] = new Operator\EnterpriseAdmin\ListRunnerApplicationsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀Downloads());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\ListRunnerApplicationsForEnterprise::class]->call($enterprise);
+        return $this->operators->enterpriseAdmin👷ListRunnerApplicationsForEnterprise()->call($enterprise);
     }
 
-    public function createRegistrationTokenForEnterprise(string $enterprise): Schema\AuthenticationToken
+    /** @return Schema\AuthenticationToken */
+    public function createRegistrationTokenForEnterprise(string $enterprise): AuthenticationToken|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\CreateRegistrationTokenForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\CreateRegistrationTokenForEnterprise::class] = new Operator\EnterpriseAdmin\CreateRegistrationTokenForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RegistrationToken());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\CreateRegistrationTokenForEnterprise::class]->call($enterprise);
+        return $this->operators->enterpriseAdmin👷CreateRegistrationTokenForEnterprise()->call($enterprise);
     }
 
-    public function createRemoveTokenForEnterprise(string $enterprise): Schema\AuthenticationToken
+    /** @return Schema\AuthenticationToken */
+    public function createRemoveTokenForEnterprise(string $enterprise): AuthenticationToken|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\CreateRemoveTokenForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\CreateRemoveTokenForEnterprise::class] = new Operator\EnterpriseAdmin\CreateRemoveTokenForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RemoveToken());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\CreateRemoveTokenForEnterprise::class]->call($enterprise);
+        return $this->operators->enterpriseAdmin👷CreateRemoveTokenForEnterprise()->call($enterprise);
     }
 
-    public function getSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId): Schema\Runner
+    /** @return Schema\Runner */
+    public function getSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId): Runner|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise::class] = new Operator\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise::class]->call($enterprise, $runnerId);
+        return $this->operators->enterpriseAdmin👷GetSelfHostedRunnerForEnterprise()->call($enterprise, $runnerId);
     }
 
-    public function deleteSelfHostedRunnerFromEnterprise(string $enterprise, int $runnerId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteSelfHostedRunnerFromEnterprise(string $enterprise, int $runnerId): array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise::class] = new Operator\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\DeleteSelfHostedRunnerFromEnterprise::class]->call($enterprise, $runnerId);
+        return $this->operators->enterpriseAdmin👷DeleteSelfHostedRunnerFromEnterprise()->call($enterprise, $runnerId);
     }
 
-    public function listLabelsForSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    public function listLabelsForSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise::class] = new Operator\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise::class]->call($enterprise, $runnerId);
+        return $this->operators->enterpriseAdmin👷ListLabelsForSelfHostedRunnerForEnterprise()->call($enterprise, $runnerId);
     }
 
-    public function setCustomLabelsForSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId, array $params): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    public function setCustomLabelsForSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId, array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\SetCustomLabelsForSelfHostedRunnerForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\SetCustomLabelsForSelfHostedRunnerForEnterprise::class] = new Operator\EnterpriseAdmin\SetCustomLabelsForSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\SetCustomLabelsForSelfHostedRunnerForEnterprise::class]->call($enterprise, $runnerId, $params);
+        return $this->operators->enterpriseAdmin👷SetCustomLabelsForSelfHostedRunnerForEnterprise()->call($enterprise, $runnerId, $params);
     }
 
-    public function addCustomLabelsToSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId, array $params): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    public function addCustomLabelsToSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId, array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise::class] = new Operator\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise::class]->call($enterprise, $runnerId, $params);
+        return $this->operators->enterpriseAdmin👷AddCustomLabelsToSelfHostedRunnerForEnterprise()->call($enterprise, $runnerId, $params);
     }
 
-    public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId): Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json */
+    public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise::class] = new Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise::class]->call($enterprise, $runnerId);
+        return $this->operators->enterpriseAdmin👷RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise()->call($enterprise, $runnerId);
     }
 
-    public function removeCustomLabelFromSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId, string $name): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    public function removeCustomLabelFromSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId, string $name): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise::class] = new Operator\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise::class]->call($enterprise, $runnerId, $name);
+        return $this->operators->enterpriseAdmin👷RemoveCustomLabelFromSelfHostedRunnerForEnterprise()->call($enterprise, $runnerId, $name);
     }
 
-    public function getAuditLog(string $enterprise, string $phrase, string $include, string $after, string $before, string $order, int $page, int $perPage): Schema\AuditLogEvent
+    /** @return iterable<Schema\AuditLogEvent> */
+    public function getAuditLog(string $enterprise, string $phrase, string $include, string $after, string $before, string $order, int $page, int $perPage): iterable
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetAuditLog::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetAuditLog::class] = new Operator\EnterpriseAdmin\GetAuditLog($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetAuditLog::class]->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
+        return $this->operators->enterpriseAdmin👷GetAuditLog()->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
     }
 
-    public function getAuditLogListing(string $enterprise, string $phrase, string $include, string $after, string $before, string $order, int $page, int $perPage): Schema\AuditLogEvent
+    /** @return iterable<Schema\AuditLogEvent> */
+    public function getAuditLogListing(string $enterprise, string $phrase, string $include, string $after, string $before, string $order, int $page, int $perPage): iterable
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetAuditLogListing::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class] = new Operator\EnterpriseAdmin\GetAuditLogListing($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetAuditLogListing::class]->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
+        return $this->operators->enterpriseAdmin👷GetAuditLogListing()->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
     }
 
-    public function getConsumedLicenses(string $enterprise, int $perPage, int $page): Schema\GetConsumedLicenses
+    /** @return string */
+    public function getConsumedLicenses(string $enterprise, int $perPage, int $page): array|string
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetConsumedLicenses::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetConsumedLicenses::class] = new Operator\EnterpriseAdmin\GetConsumedLicenses($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀ConsumedLicenses());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetConsumedLicenses::class]->call($enterprise, $perPage, $page);
+        return $this->operators->enterpriseAdmin👷GetConsumedLicenses()->call($enterprise, $perPage, $page);
     }
 
-    public function getLicenseSyncStatus(string $enterprise): Schema\GetLicenseSyncStatus
+    /** @return string */
+    public function getLicenseSyncStatus(string $enterprise): array|string
     {
-        if (array_key_exists(Operator\EnterpriseAdmin\GetLicenseSyncStatus::class, $this->operator) === false) {
-            $this->operator[Operator\EnterpriseAdmin\GetLicenseSyncStatus::class] = new Operator\EnterpriseAdmin\GetLicenseSyncStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀LicenseSyncStatus());
-        }
-
-        return $this->operator[Operator\EnterpriseAdmin\GetLicenseSyncStatus::class]->call($enterprise);
+        return $this->operators->enterpriseAdmin👷GetLicenseSyncStatus()->call($enterprise);
     }
 }

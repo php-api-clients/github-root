@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Attribute\CastUnionToType\Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson\Operations\Value;
+use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson\Operations\Value;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
 final readonly class Operations

@@ -4,75 +4,50 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Hydrators;
-use ApiClients\Client\GitHubEnterpriseCloud\Operator;
+use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
-use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
-use League\OpenAPIValidation\Schema\SchemaValidator;
-use Psr\Http\Message\ResponseInterface;
-use React\Http\Browser;
-
-use function array_key_exists;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUserList;
 
 final class Scim
 {
-    private array $operator = [];
-
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Hydrators $hydrators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    public function listProvisionedIdentities(string $org, int $startIndex, int $count, string $filter): Schema\ScimUserList
+    /** @return Schema\ScimUserList|array{code:int} */
+    public function listProvisionedIdentities(string $org, int $startIndex, int $count, string $filter): ScimUserList|array
     {
-        if (array_key_exists(Operator\Scim\ListProvisionedIdentities::class, $this->operator) === false) {
-            $this->operator[Operator\Scim\ListProvisionedIdentities::class] = new Operator\Scim\ListProvisionedIdentities($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users());
-        }
-
-        return $this->operator[Operator\Scim\ListProvisionedIdentities::class]->call($org, $startIndex, $count, $filter);
+        return $this->operators->scim👷ListProvisionedIdentities()->call($org, $startIndex, $count, $filter);
     }
 
-    public function provisionAndInviteUser(string $org, array $params): Schema\ScimUser
+    /** @return Schema\ScimUser|array{code:int} */
+    public function provisionAndInviteUser(string $org, array $params): ScimUser|array
     {
-        if (array_key_exists(Operator\Scim\ProvisionAndInviteUser::class, $this->operator) === false) {
-            $this->operator[Operator\Scim\ProvisionAndInviteUser::class] = new Operator\Scim\ProvisionAndInviteUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users());
-        }
-
-        return $this->operator[Operator\Scim\ProvisionAndInviteUser::class]->call($org, $params);
+        return $this->operators->scim👷ProvisionAndInviteUser()->call($org, $params);
     }
 
-    public function getProvisioningInformationForUser(string $org, string $scimUserId): Schema\ScimUser
+    /** @return Schema\ScimUser|array{code:int} */
+    public function getProvisioningInformationForUser(string $org, string $scimUserId): ScimUser|array
     {
-        if (array_key_exists(Operator\Scim\GetProvisioningInformationForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Scim\GetProvisioningInformationForUser::class] = new Operator\Scim\GetProvisioningInformationForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users🌀ScimUserId());
-        }
-
-        return $this->operator[Operator\Scim\GetProvisioningInformationForUser::class]->call($org, $scimUserId);
+        return $this->operators->scim👷GetProvisioningInformationForUser()->call($org, $scimUserId);
     }
 
-    public function setInformationForProvisionedUser(string $org, string $scimUserId, array $params): Schema\ScimUser
+    /** @return Schema\ScimUser|array{code:int} */
+    public function setInformationForProvisionedUser(string $org, string $scimUserId, array $params): ScimUser|array
     {
-        if (array_key_exists(Operator\Scim\SetInformationForProvisionedUser::class, $this->operator) === false) {
-            $this->operator[Operator\Scim\SetInformationForProvisionedUser::class] = new Operator\Scim\SetInformationForProvisionedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users🌀ScimUserId());
-        }
-
-        return $this->operator[Operator\Scim\SetInformationForProvisionedUser::class]->call($org, $scimUserId, $params);
+        return $this->operators->scim👷SetInformationForProvisionedUser()->call($org, $scimUserId, $params);
     }
 
-    public function deleteUserFromOrg(string $org, string $scimUserId): ResponseInterface
+    /** @return array{code:int} */
+    public function deleteUserFromOrg(string $org, string $scimUserId): array
     {
-        if (array_key_exists(Operator\Scim\DeleteUserFromOrg::class, $this->operator) === false) {
-            $this->operator[Operator\Scim\DeleteUserFromOrg::class] = new Operator\Scim\DeleteUserFromOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users🌀ScimUserId());
-        }
-
-        return $this->operator[Operator\Scim\DeleteUserFromOrg::class]->call($org, $scimUserId);
+        return $this->operators->scim👷DeleteUserFromOrg()->call($org, $scimUserId);
     }
 
-    public function updateAttributeForUser(string $org, string $scimUserId, array $params): Schema\ScimUser
+    /** @return Schema\ScimUser|array{code:int} */
+    public function updateAttributeForUser(string $org, string $scimUserId, array $params): ScimUser|array
     {
-        if (array_key_exists(Operator\Scim\UpdateAttributeForUser::class, $this->operator) === false) {
-            $this->operator[Operator\Scim\UpdateAttributeForUser::class] = new Operator\Scim\UpdateAttributeForUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users🌀ScimUserId());
-        }
-
-        return $this->operator[Operator\Scim\UpdateAttributeForUser::class]->call($org, $scimUserId, $params);
+        return $this->operators->scim👷UpdateAttributeForUser()->call($org, $scimUserId, $params);
     }
 }

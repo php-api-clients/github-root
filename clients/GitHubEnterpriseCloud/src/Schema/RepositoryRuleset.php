@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Attribute\CastUnionToType\Schema\RepositoryRuleset\Conditions;
+use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\RepositoryRuleset\Conditions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
@@ -284,7 +284,7 @@ final readonly class RepositoryRuleset
                             "description": "Conditions to target repositories by id and refs by name"
                         }
                     ],
-                    "description": "Conditions for an organization ruleset"
+                    "description": "Conditions for an organization ruleset. The conditions object should contain both `repository_name` and `ref_name` properties or both `repository_id` and `ref_name` properties."
                 }
             ]
         },

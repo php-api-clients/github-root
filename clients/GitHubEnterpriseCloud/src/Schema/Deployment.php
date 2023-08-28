@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-use ApiClients\Client\GitHubEnterpriseCloud\Attribute\CastUnionToType\Schema\Deployment\Payload;
+use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\Deployment\Payload;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
