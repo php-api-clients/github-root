@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\CheckRun;
 use ApiClients\Client\GitHubEnterprise\Schema\CheckSuite;
@@ -15,23 +15,23 @@ use ApiClients\Client\GitHubEnterprise\Schema\Operations\Checks\ListForSuite\Res
 
 final class Checks
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    /** @return */
+    /** @return Schema\CheckRun */
     public function create(string $owner, string $repo, array $params): CheckRun|array
     {
         return $this->operators->checks👷Create()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\CheckRun */
     public function get(string $owner, string $repo, int $checkRunId): CheckRun|array
     {
         return $this->operators->checks👷Get()->call($owner, $repo, $checkRunId);
     }
 
-    /** @return */
+    /** @return Schema\CheckRun */
     public function update(string $owner, string $repo, int $checkRunId, array $params): CheckRun|array
     {
         return $this->operators->checks👷Update()->call($owner, $repo, $checkRunId, $params);
@@ -49,43 +49,43 @@ final class Checks
         return $this->operators->checks👷ListAnnotationsListing()->call($owner, $repo, $checkRunId, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\CheckSuite */
     public function createSuite(string $owner, string $repo, array $params): CheckSuite|array
     {
         return $this->operators->checks👷CreateSuite()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\CheckSuitePreference */
     public function setSuitesPreferences(string $owner, string $repo, array $params): CheckSuitePreference|array
     {
         return $this->operators->checks👷SetSuitesPreferences()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\CheckSuite */
     public function getSuite(string $owner, string $repo, int $checkSuiteId): CheckSuite|array
     {
         return $this->operators->checks👷GetSuite()->call($owner, $repo, $checkSuiteId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Checks\ListForSuite\Response\ApplicationJson\Ok */
     public function listForSuite(string $owner, string $repo, int $checkSuiteId, string $checkName, string $status, string $filter, int $perPage, int $page): Ok|array
     {
         return $this->operators->checks👷ListForSuite()->call($owner, $repo, $checkSuiteId, $checkName, $status, $filter, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\EmptyObject */
     public function rerequestSuite(string $owner, string $repo, int $checkSuiteId): EmptyObject|array
     {
         return $this->operators->checks👷RerequestSuite()->call($owner, $repo, $checkSuiteId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Checks\ListForRef\Response\ApplicationJson\Ok\Application\Json */
     public function listForRef(string $owner, string $repo, string $ref, string $checkName, string $status, int $appId, string $filter, int $perPage, int $page): Json|array
     {
         return $this->operators->checks👷ListForRef()->call($owner, $repo, $ref, $checkName, $status, $appId, $filter, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Checks\ListSuitesForRef\Response\ApplicationJson\Ok */
     public function listSuitesForRef(string $owner, string $repo, string $ref, int $appId, string $checkName, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Checks\ListSuitesForRef\Response\ApplicationJson\Ok|array
     {
         return $this->operators->checks👷ListSuitesForRef()->call($owner, $repo, $ref, $appId, $checkName, $perPage, $page);
