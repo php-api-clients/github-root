@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
 use ApiClients\Client\GitHubEnterprise\Schema\BranchProtection;
@@ -47,7 +47,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 
 final class Repos
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -63,13 +63,13 @@ final class Repos
         return $this->operators->repos👷ListForOrgListing()->call($org, $type, $direction, $sort, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Repository */
     public function createInOrg(string $org, array $params): Repository|array
     {
         return $this->operators->repos👷CreateInOrg()->call($org, $params);
     }
 
-    /** @return */
+    /** @return Schema\FullRepository|Schema\BasicError */
     public function get(string $owner, string $repo): FullRepository|BasicError|array
     {
         return $this->operators->repos👷Get()->call($owner, $repo);
@@ -81,7 +81,7 @@ final class Repos
         return $this->operators->repos👷Delete()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\FullRepository|Schema\BasicError */
     public function update(string $owner, string $repo, array $params): FullRepository|BasicError|array
     {
         return $this->operators->repos👷Update()->call($owner, $repo, $params);
@@ -99,19 +99,19 @@ final class Repos
         return $this->operators->repos👷ListBranchesListing()->call($owner, $repo, $protected, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\BranchWithProtection|Schema\BasicError */
     public function getBranch(string $owner, string $repo, string $branch): BranchWithProtection|BasicError|array
     {
         return $this->operators->repos👷GetBranch()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\BranchProtection */
     public function getBranchProtection(string $owner, string $repo, string $branch): BranchProtection|array
     {
         return $this->operators->repos👷GetBranchProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\ProtectedBranch */
     public function updateBranchProtection(string $owner, string $repo, string $branch, array $params): ProtectedBranch|array
     {
         return $this->operators->repos👷UpdateBranchProtection()->call($owner, $repo, $branch, $params);
@@ -123,13 +123,13 @@ final class Repos
         return $this->operators->repos👷DeleteBranchProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\ProtectedBranchAdminEnforced */
     public function getAdminBranchProtection(string $owner, string $repo, string $branch): ProtectedBranchAdminEnforced|array
     {
         return $this->operators->repos👷GetAdminBranchProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\ProtectedBranchAdminEnforced */
     public function setAdminBranchProtection(string $owner, string $repo, string $branch): ProtectedBranchAdminEnforced|array
     {
         return $this->operators->repos👷SetAdminBranchProtection()->call($owner, $repo, $branch);
@@ -141,7 +141,7 @@ final class Repos
         return $this->operators->repos👷DeleteAdminBranchProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\ProtectedBranchPullRequestReview */
     public function getPullRequestReviewProtection(string $owner, string $repo, string $branch): ProtectedBranchPullRequestReview|array
     {
         return $this->operators->repos👷GetPullRequestReviewProtection()->call($owner, $repo, $branch);
@@ -153,19 +153,19 @@ final class Repos
         return $this->operators->repos👷DeletePullRequestReviewProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\ProtectedBranchPullRequestReview */
     public function updatePullRequestReviewProtection(string $owner, string $repo, string $branch, array $params): ProtectedBranchPullRequestReview|array
     {
         return $this->operators->repos👷UpdatePullRequestReviewProtection()->call($owner, $repo, $branch, $params);
     }
 
-    /** @return */
+    /** @return Schema\ProtectedBranchAdminEnforced */
     public function getCommitSignatureProtection(string $owner, string $repo, string $branch): ProtectedBranchAdminEnforced|array
     {
         return $this->operators->repos👷GetCommitSignatureProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\ProtectedBranchAdminEnforced */
     public function createCommitSignatureProtection(string $owner, string $repo, string $branch): ProtectedBranchAdminEnforced|array
     {
         return $this->operators->repos👷CreateCommitSignatureProtection()->call($owner, $repo, $branch);
@@ -177,7 +177,7 @@ final class Repos
         return $this->operators->repos👷DeleteCommitSignatureProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\StatusCheckPolicy */
     public function getStatusChecksProtection(string $owner, string $repo, string $branch): StatusCheckPolicy|array
     {
         return $this->operators->repos👷GetStatusChecksProtection()->call($owner, $repo, $branch);
@@ -189,37 +189,37 @@ final class Repos
         return $this->operators->repos👷RemoveStatusCheckProtection()->call($owner, $repo, $branch);
     }
 
-    /** @return */
+    /** @return Schema\StatusCheckPolicy */
     public function updateStatusCheckProtection(string $owner, string $repo, string $branch, array $params): StatusCheckPolicy|array
     {
         return $this->operators->repos👷UpdateStatusCheckProtection()->call($owner, $repo, $branch, $params);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function getAllStatusCheckContexts(string $owner, string $repo, string $branch): iterable
     {
         return $this->operators->repos👷GetAllStatusCheckContexts()->call($owner, $repo, $branch);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function setStatusCheckContexts(string $owner, string $repo, string $branch, array $params): iterable
     {
         return $this->operators->repos👷SetStatusCheckContexts()->call($owner, $repo, $branch, $params);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function addStatusCheckContexts(string $owner, string $repo, string $branch, array $params): iterable
     {
         return $this->operators->repos👷AddStatusCheckContexts()->call($owner, $repo, $branch, $params);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function removeStatusCheckContexts(string $owner, string $repo, string $branch, array $params): iterable
     {
         return $this->operators->repos👷RemoveStatusCheckContexts()->call($owner, $repo, $branch, $params);
     }
 
-    /** @return */
+    /** @return Schema\BranchRestrictionPolicy */
     public function getAccessRestrictions(string $owner, string $repo, string $branch): BranchRestrictionPolicy|array
     {
         return $this->operators->repos👷GetAccessRestrictions()->call($owner, $repo, $branch);
@@ -303,7 +303,7 @@ final class Repos
         return $this->operators->repos👷RemoveUserAccessRestrictions()->call($owner, $repo, $branch, $params);
     }
 
-    /** @return */
+    /** @return Schema\BranchWithProtection */
     public function renameBranch(string $owner, string $repo, string $branch, array $params): BranchWithProtection|array
     {
         return $this->operators->repos👷RenameBranch()->call($owner, $repo, $branch, $params);
@@ -339,7 +339,7 @@ final class Repos
         return $this->operators->repos👷RemoveCollaborator()->call($owner, $repo, $username);
     }
 
-    /** @return */
+    /** @return Schema\RepositoryCollaboratorPermission */
     public function getCollaboratorPermissionLevel(string $owner, string $repo, string $username): RepositoryCollaboratorPermission|array
     {
         return $this->operators->repos👷GetCollaboratorPermissionLevel()->call($owner, $repo, $username);
@@ -357,7 +357,7 @@ final class Repos
         return $this->operators->repos👷ListCommitCommentsForRepoListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\CommitComment */
     public function getCommitComment(string $owner, string $repo, int $commentId): CommitComment|array
     {
         return $this->operators->repos👷GetCommitComment()->call($owner, $repo, $commentId);
@@ -369,7 +369,7 @@ final class Repos
         return $this->operators->repos👷DeleteCommitComment()->call($owner, $repo, $commentId);
     }
 
-    /** @return */
+    /** @return Schema\CommitComment */
     public function updateCommitComment(string $owner, string $repo, int $commentId, array $params): CommitComment|array
     {
         return $this->operators->repos👷UpdateCommitComment()->call($owner, $repo, $commentId, $params);
@@ -405,7 +405,7 @@ final class Repos
         return $this->operators->repos👷ListCommentsForCommitListing()->call($owner, $repo, $commitSha, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\CommitComment */
     public function createCommitComment(string $owner, string $repo, string $commitSha, array $params): CommitComment|array
     {
         return $this->operators->repos👷CreateCommitComment()->call($owner, $repo, $commitSha, $params);
@@ -423,13 +423,13 @@ final class Repos
         return $this->operators->repos👷ListPullRequestsAssociatedWithCommitListing()->call($owner, $repo, $commitSha, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Commit */
     public function getCommit(string $owner, string $repo, string $ref, int $page, int $perPage): Commit|array
     {
         return $this->operators->repos👷GetCommit()->call($owner, $repo, $ref, $page, $perPage);
     }
 
-    /** @return */
+    /** @return Schema\CombinedCommitStatus */
     public function getCombinedStatusForRef(string $owner, string $repo, string $ref, int $perPage, int $page): CombinedCommitStatus|array
     {
         return $this->operators->repos👷GetCombinedStatusForRef()->call($owner, $repo, $ref, $perPage, $page);
@@ -447,7 +447,7 @@ final class Repos
         return $this->operators->repos👷ListCommitStatusesForRefListing()->call($owner, $repo, $ref, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\CommitComparison */
     public function compareCommits(string $owner, string $repo, string $basehead): CommitComparison|array
     {
         return $this->operators->repos👷CompareCommits()->call($owner, $repo, $basehead);
@@ -459,13 +459,13 @@ final class Repos
         return $this->operators->repos👷GetContent()->call($owner, $repo, $path, $ref);
     }
 
-    /** @return */
+    /** @return Schema\FileCommit */
     public function createOrUpdateFileContents(string $owner, string $repo, string $path, array $params): FileCommit|array
     {
         return $this->operators->repos👷CreateOrUpdateFileContents()->call($owner, $repo, $path, $params);
     }
 
-    /** @return */
+    /** @return Schema\FileCommit */
     public function deleteFile(string $owner, string $repo, string $path, array $params): FileCommit|array
     {
         return $this->operators->repos👷DeleteFile()->call($owner, $repo, $path, $params);
@@ -501,7 +501,7 @@ final class Repos
         return $this->operators->repos👷CreateDeployment()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\Deployment */
     public function getDeployment(string $owner, string $repo, int $deploymentId): Deployment|array
     {
         return $this->operators->repos👷GetDeployment()->call($owner, $repo, $deploymentId);
@@ -525,13 +525,13 @@ final class Repos
         return $this->operators->repos👷ListDeploymentStatusesListing()->call($owner, $repo, $deploymentId, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\DeploymentStatus */
     public function createDeploymentStatus(string $owner, string $repo, int $deploymentId, array $params): DeploymentStatus|array
     {
         return $this->operators->repos👷CreateDeploymentStatus()->call($owner, $repo, $deploymentId, $params);
     }
 
-    /** @return */
+    /** @return Schema\DeploymentStatus */
     public function getDeploymentStatus(string $owner, string $repo, int $deploymentId, int $statusId): DeploymentStatus|array
     {
         return $this->operators->repos👷GetDeploymentStatus()->call($owner, $repo, $deploymentId, $statusId);
@@ -555,7 +555,7 @@ final class Repos
         return $this->operators->repos👷ListForksListing()->call($owner, $repo, $sort, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\FullRepository */
     public function createFork(string $owner, string $repo, array $params): FullRepository|array
     {
         return $this->operators->repos👷CreateFork()->call($owner, $repo, $params);
@@ -573,13 +573,13 @@ final class Repos
         return $this->operators->repos👷ListWebhooksListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Hook */
     public function createWebhook(string $owner, string $repo, array $params): Hook|array
     {
         return $this->operators->repos👷CreateWebhook()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\Hook */
     public function getWebhook(string $owner, string $repo, int $hookId): Hook|array
     {
         return $this->operators->repos👷GetWebhook()->call($owner, $repo, $hookId);
@@ -591,19 +591,19 @@ final class Repos
         return $this->operators->repos👷DeleteWebhook()->call($owner, $repo, $hookId);
     }
 
-    /** @return */
+    /** @return Schema\Hook */
     public function updateWebhook(string $owner, string $repo, int $hookId, array $params): Hook|array
     {
         return $this->operators->repos👷UpdateWebhook()->call($owner, $repo, $hookId, $params);
     }
 
-    /** @return */
+    /** @return Schema\WebhookConfig */
     public function getWebhookConfigForRepo(string $owner, string $repo, int $hookId): WebhookConfig|array
     {
         return $this->operators->repos👷GetWebhookConfigForRepo()->call($owner, $repo, $hookId);
     }
 
-    /** @return */
+    /** @return Schema\WebhookConfig */
     public function updateWebhookConfigForRepo(string $owner, string $repo, int $hookId, array $params): WebhookConfig|array
     {
         return $this->operators->repos👷UpdateWebhookConfigForRepo()->call($owner, $repo, $hookId, $params);
@@ -639,7 +639,7 @@ final class Repos
         return $this->operators->repos👷DeleteInvitation()->call($owner, $repo, $invitationId);
     }
 
-    /** @return */
+    /** @return Schema\RepositoryInvitation */
     public function updateInvitation(string $owner, string $repo, int $invitationId, array $params): RepositoryInvitation|array
     {
         return $this->operators->repos👷UpdateInvitation()->call($owner, $repo, $invitationId, $params);
@@ -657,13 +657,13 @@ final class Repos
         return $this->operators->repos👷ListDeployKeysListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\DeployKey */
     public function createDeployKey(string $owner, string $repo, array $params): DeployKey|array
     {
         return $this->operators->repos👷CreateDeployKey()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\DeployKey */
     public function getDeployKey(string $owner, string $repo, int $keyId): DeployKey|array
     {
         return $this->operators->repos👷GetDeployKey()->call($owner, $repo, $keyId);
@@ -675,7 +675,7 @@ final class Repos
         return $this->operators->repos👷DeleteDeployKey()->call($owner, $repo, $keyId);
     }
 
-    /** @return */
+    /** @return Schema\Language */
     public function listLanguages(string $owner, string $repo): Language|array
     {
         return $this->operators->repos👷ListLanguages()->call($owner, $repo);
@@ -687,7 +687,7 @@ final class Repos
         return $this->operators->repos👷Merge()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\Page */
     public function getPages(string $owner, string $repo): Page|array
     {
         return $this->operators->repos👷GetPages()->call($owner, $repo);
@@ -699,7 +699,7 @@ final class Repos
         return $this->operators->repos👷UpdateInformationAboutPagesSite()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\Page */
     public function createPagesSite(string $owner, string $repo, array $params): Page|array
     {
         return $this->operators->repos👷CreatePagesSite()->call($owner, $repo, $params);
@@ -723,31 +723,31 @@ final class Repos
         return $this->operators->repos👷ListPagesBuildsListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\PageBuildStatus */
     public function requestPagesBuild(string $owner, string $repo): PageBuildStatus|array
     {
         return $this->operators->repos👷RequestPagesBuild()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\PageBuild */
     public function getLatestPagesBuild(string $owner, string $repo): PageBuild|array
     {
         return $this->operators->repos👷GetLatestPagesBuild()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\PageBuild */
     public function getPagesBuild(string $owner, string $repo, int $buildId): PageBuild|array
     {
         return $this->operators->repos👷GetPagesBuild()->call($owner, $repo, $buildId);
     }
 
-    /** @return */
+    /** @return Schema\ContentFile */
     public function getReadme(string $owner, string $repo, string $ref): ContentFile|array
     {
         return $this->operators->repos👷GetReadme()->call($owner, $repo, $ref);
     }
 
-    /** @return */
+    /** @return Schema\ContentFile */
     public function getReadmeInDirectory(string $owner, string $repo, string $dir, string $ref): ContentFile|array
     {
         return $this->operators->repos👷GetReadmeInDirectory()->call($owner, $repo, $dir, $ref);
@@ -765,7 +765,7 @@ final class Repos
         return $this->operators->repos👷ListReleasesListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Release */
     public function createRelease(string $owner, string $repo, array $params): Release|array
     {
         return $this->operators->repos👷CreateRelease()->call($owner, $repo, $params);
@@ -783,25 +783,25 @@ final class Repos
         return $this->operators->repos👷DeleteReleaseAsset()->call($owner, $repo, $assetId);
     }
 
-    /** @return */
+    /** @return Schema\ReleaseAsset */
     public function updateReleaseAsset(string $owner, string $repo, int $assetId, array $params): ReleaseAsset|array
     {
         return $this->operators->repos👷UpdateReleaseAsset()->call($owner, $repo, $assetId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Release */
     public function getLatestRelease(string $owner, string $repo): Release|array
     {
         return $this->operators->repos👷GetLatestRelease()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\Release */
     public function getReleaseByTag(string $owner, string $repo, string $tag): Release|array
     {
         return $this->operators->repos👷GetReleaseByTag()->call($owner, $repo, $tag);
     }
 
-    /** @return */
+    /** @return Schema\Release */
     public function getRelease(string $owner, string $repo, int $releaseId): Release|array
     {
         return $this->operators->repos👷GetRelease()->call($owner, $repo, $releaseId);
@@ -813,7 +813,7 @@ final class Repos
         return $this->operators->repos👷DeleteRelease()->call($owner, $repo, $releaseId);
     }
 
-    /** @return */
+    /** @return Schema\Release */
     public function updateRelease(string $owner, string $repo, int $releaseId, array $params): Release|array
     {
         return $this->operators->repos👷UpdateRelease()->call($owner, $repo, $releaseId, $params);
@@ -837,7 +837,7 @@ final class Repos
         return $this->operators->repos👷UploadReleaseAsset()->call($owner, $repo, $releaseId, $name, $label, $params);
     }
 
-    /** @return Observable<int>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code:int} */
+    /** @return iterable<int>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code:int} */
     public function getCodeFrequencyStats(string $owner, string $repo): Traversable|Accepted|array
     {
         return $this->operators->repos👷GetCodeFrequencyStats()->call($owner, $repo);
@@ -855,19 +855,19 @@ final class Repos
         return $this->operators->repos👷GetContributorsStats()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\ParticipationStats */
     public function getParticipationStats(string $owner, string $repo): ParticipationStats|array
     {
         return $this->operators->repos👷GetParticipationStats()->call($owner, $repo);
     }
 
-    /** @return Observable<int>|array{code:int} */
+    /** @return iterable<int>|array{code:int} */
     public function getPunchCardStats(string $owner, string $repo): iterable
     {
         return $this->operators->repos👷GetPunchCardStats()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\Status */
     public function createCommitStatus(string $owner, string $repo, string $sha, array $params): Status|array
     {
         return $this->operators->repos👷CreateCommitStatus()->call($owner, $repo, $sha, $params);
@@ -891,7 +891,7 @@ final class Repos
         return $this->operators->repos👷DownloadTarballArchive()->call($owner, $repo, $ref);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function downloadTarballArchiveStreaming(string $owner, string $repo, string $ref): iterable
     {
         return $this->operators->repos👷DownloadTarballArchiveStreaming()->call($owner, $repo, $ref);
@@ -909,19 +909,19 @@ final class Repos
         return $this->operators->repos👷ListTeamsListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Topic */
     public function getAllTopics(string $owner, string $repo, int $page, int $perPage): Topic|array
     {
         return $this->operators->repos👷GetAllTopics()->call($owner, $repo, $page, $perPage);
     }
 
-    /** @return */
+    /** @return Schema\Topic */
     public function replaceAllTopics(string $owner, string $repo, array $params): Topic|array
     {
         return $this->operators->repos👷ReplaceAllTopics()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\MinimalRepository */
     public function transfer(string $owner, string $repo, array $params): MinimalRepository|array
     {
         return $this->operators->repos👷Transfer()->call($owner, $repo, $params);
@@ -933,13 +933,13 @@ final class Repos
         return $this->operators->repos👷DownloadZipballArchive()->call($owner, $repo, $ref);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function downloadZipballArchiveStreaming(string $owner, string $repo, string $ref): iterable
     {
         return $this->operators->repos👷DownloadZipballArchiveStreaming()->call($owner, $repo, $ref);
     }
 
-    /** @return */
+    /** @return Schema\Repository */
     public function createUsingTemplate(string $templateOwner, string $templateRepo, array $params): Repository|array
     {
         return $this->operators->repos👷CreateUsingTemplate()->call($templateOwner, $templateRepo, $params);
