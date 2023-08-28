@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAlert;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAnalysis;
@@ -14,7 +14,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningSarifsStatus;
 
 final class CodeScanning
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -36,7 +36,7 @@ final class CodeScanning
         return $this->operators->codeScanning👷GetAlert()->call($owner, $repo, $alertNumber);
     }
 
-    /** @return */
+    /** @return Schema\CodeScanningAlert */
     public function updateAlert(string $owner, string $repo, int $alertNumber, array $params): CodeScanningAlert|array
     {
         return $this->operators->codeScanning👷UpdateAlert()->call($owner, $repo, $alertNumber, $params);
@@ -66,13 +66,13 @@ final class CodeScanning
         return $this->operators->codeScanning👷ListRecentAnalysesListing()->call($owner, $repo, $toolName, $toolGuid, $ref, $sarifId, $page, $perPage);
     }
 
-    /** @return */
+    /** @return Schema\CodeScanningAnalysis */
     public function getAnalysis(string $owner, string $repo, int $analysisId): CodeScanningAnalysis|array
     {
         return $this->operators->codeScanning👷GetAnalysis()->call($owner, $repo, $analysisId);
     }
 
-    /** @return */
+    /** @return Schema\CodeScanningAnalysisDeletion */
     public function deleteAnalysis(string $owner, string $repo, int $analysisId, string|null $confirmDelete): CodeScanningAnalysisDeletion|array
     {
         return $this->operators->codeScanning👷DeleteAnalysis()->call($owner, $repo, $analysisId, $confirmDelete);
