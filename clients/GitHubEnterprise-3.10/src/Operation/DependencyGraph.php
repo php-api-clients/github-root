@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\DependencyGraphSpdxSbom;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created;
 
 final class DependencyGraph
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -21,13 +21,13 @@ final class DependencyGraph
         return $this->operators->dependencyGraph👷DiffRange()->call($owner, $repo, $basehead, $name);
     }
 
-    /** @return */
+    /** @return Schema\DependencyGraphSpdxSbom */
     public function exportSbom(string $owner, string $repo): DependencyGraphSpdxSbom|array
     {
         return $this->operators->dependencyGraph👷ExportSbom()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created */
     public function createRepositorySnapshot(string $owner, string $repo, array $params): Created|array
     {
         return $this->operators->dependencyGraph👷CreateRepositorySnapshot()->call($owner, $repo, $params);
