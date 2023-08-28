@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheList;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageByRepository;
@@ -33,17 +33,17 @@ use ApiClients\Client\GitHubEnterprise\Schema\WorkflowRun;
 
 final class Actions
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
-    /** @return */
+    /** @return Schema\ActionsCacheUsageOrgEnterprise */
     public function getActionsCacheUsageForEnterprise(string $enterprise): ActionsCacheUsageOrgEnterprise|array
     {
         return $this->operators->actions👷GetActionsCacheUsageForEnterprise()->call($enterprise);
     }
 
-    /** @return */
+    /** @return Schema\ActionsCacheUsagePolicyEnterprise */
     public function getActionsCacheUsagePolicyForEnterprise(string $enterprise): ActionsCacheUsagePolicyEnterprise|array
     {
         return $this->operators->actions👷GetActionsCacheUsagePolicyForEnterprise()->call($enterprise);
@@ -55,7 +55,7 @@ final class Actions
         return $this->operators->actions👷SetActionsCacheUsagePolicyForEnterprise()->call($enterprise, $params);
     }
 
-    /** @return */
+    /** @return Schema\ActionsGetDefaultWorkflowPermissions */
     public function getGithubActionsDefaultWorkflowPermissionsEnterprise(string $enterprise): ActionsGetDefaultWorkflowPermissions|array
     {
         return $this->operators->actions👷GetGithubActionsDefaultWorkflowPermissionsEnterprise()->call($enterprise);
@@ -67,19 +67,19 @@ final class Actions
         return $this->operators->actions👷SetGithubActionsDefaultWorkflowPermissionsEnterprise()->call($enterprise, $params);
     }
 
-    /** @return */
+    /** @return Schema\ActionsCacheUsageOrgEnterprise */
     public function getActionsCacheUsageForOrg(string $org): ActionsCacheUsageOrgEnterprise|array
     {
         return $this->operators->actions👷GetActionsCacheUsageForOrg()->call($org);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\GetActionsCacheUsageByRepoForOrg\Response\ApplicationJson\Ok */
     public function getActionsCacheUsageByRepoForOrg(string $org, int $perPage, int $page): Ok|array
     {
         return $this->operators->actions👷GetActionsCacheUsageByRepoForOrg()->call($org, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\ActionsOrganizationPermissions */
     public function getGithubActionsPermissionsOrganization(string $org): ActionsOrganizationPermissions|array
     {
         return $this->operators->actions👷GetGithubActionsPermissionsOrganization()->call($org);
@@ -91,7 +91,7 @@ final class Actions
         return $this->operators->actions👷SetGithubActionsPermissionsOrganization()->call($org, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\ApplicationJson\Ok */
     public function listSelectedRepositoriesEnabledGithubActionsOrganization(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListSelectedRepositoriesEnabledGithubActionsOrganization()->call($org, $perPage, $page);
@@ -115,7 +115,7 @@ final class Actions
         return $this->operators->actions👷DisableSelectedRepositoryGithubActionsOrganization()->call($org, $repositoryId);
     }
 
-    /** @return */
+    /** @return Schema\SelectedActions */
     public function getAllowedActionsOrganization(string $org): SelectedActions|array
     {
         return $this->operators->actions👷GetAllowedActionsOrganization()->call($org);
@@ -127,7 +127,7 @@ final class Actions
         return $this->operators->actions👷SetAllowedActionsOrganization()->call($org, $params);
     }
 
-    /** @return */
+    /** @return Schema\ActionsGetDefaultWorkflowPermissions */
     public function getGithubActionsDefaultWorkflowPermissionsOrganization(string $org): ActionsGetDefaultWorkflowPermissions|array
     {
         return $this->operators->actions👷GetGithubActionsDefaultWorkflowPermissionsOrganization()->call($org);
@@ -139,19 +139,19 @@ final class Actions
         return $this->operators->actions👷SetGithubActionsDefaultWorkflowPermissionsOrganization()->call($org, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok */
     public function listSelfHostedRunnerGroupsForOrg(string $org, string $visibleToRepository, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListSelfHostedRunnerGroupsForOrg()->call($org, $visibleToRepository, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\RunnerGroupsOrg */
     public function createSelfHostedRunnerGroupForOrg(string $org, array $params): RunnerGroupsOrg|array
     {
         return $this->operators->actions👷CreateSelfHostedRunnerGroupForOrg()->call($org, $params);
     }
 
-    /** @return */
+    /** @return Schema\RunnerGroupsOrg */
     public function getSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId): RunnerGroupsOrg|array
     {
         return $this->operators->actions👷GetSelfHostedRunnerGroupForOrg()->call($org, $runnerGroupId);
@@ -163,13 +163,13 @@ final class Actions
         return $this->operators->actions👷DeleteSelfHostedRunnerGroupFromOrg()->call($org, $runnerGroupId);
     }
 
-    /** @return */
+    /** @return Schema\RunnerGroupsOrg */
     public function updateSelfHostedRunnerGroupForOrg(string $org, int $runnerGroupId, array $params): RunnerGroupsOrg|array
     {
         return $this->operators->actions👷UpdateSelfHostedRunnerGroupForOrg()->call($org, $runnerGroupId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok */
     public function listRepoAccessToSelfHostedRunnerGroupInOrg(string $org, int $runnerGroupId, int $page, int $perPage): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListRepoAccessToSelfHostedRunnerGroupInOrg()->call($org, $runnerGroupId, $page, $perPage);
@@ -193,7 +193,7 @@ final class Actions
         return $this->operators->actions👷RemoveRepoAccessToSelfHostedRunnerGroupInOrg()->call($org, $runnerGroupId, $repositoryId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json */
     public function listSelfHostedRunnersInGroupForOrg(string $org, int $runnerGroupId, int $perPage, int $page): Json|array
     {
         return $this->operators->actions👷ListSelfHostedRunnersInGroupForOrg()->call($org, $runnerGroupId, $perPage, $page);
@@ -217,7 +217,7 @@ final class Actions
         return $this->operators->actions👷RemoveSelfHostedRunnerFromGroupForOrg()->call($org, $runnerGroupId, $runnerId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok */
     public function listSelfHostedRunnersForOrg(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListSelfHostedRunnersForOrg()->call($org, $perPage, $page);
@@ -229,19 +229,19 @@ final class Actions
         return $this->operators->actions👷ListRunnerApplicationsForOrg()->call($org);
     }
 
-    /** @return */
+    /** @return Schema\AuthenticationToken */
     public function createRegistrationTokenForOrg(string $org): AuthenticationToken|array
     {
         return $this->operators->actions👷CreateRegistrationTokenForOrg()->call($org);
     }
 
-    /** @return */
+    /** @return Schema\AuthenticationToken */
     public function createRemoveTokenForOrg(string $org): AuthenticationToken|array
     {
         return $this->operators->actions👷CreateRemoveTokenForOrg()->call($org);
     }
 
-    /** @return */
+    /** @return Schema\Runner */
     public function getSelfHostedRunnerForOrg(string $org, int $runnerId): Runner|array
     {
         return $this->operators->actions👷GetSelfHostedRunnerForOrg()->call($org, $runnerId);
@@ -253,49 +253,49 @@ final class Actions
         return $this->operators->actions👷DeleteSelfHostedRunnerFromOrg()->call($org, $runnerId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function listLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListLabelsForSelfHostedRunnerForOrg()->call($org, $runnerId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function setCustomLabelsForSelfHostedRunnerForOrg(string $org, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷SetCustomLabelsForSelfHostedRunnerForOrg()->call($org, $runnerId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function addCustomLabelsToSelfHostedRunnerForOrg(string $org, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷AddCustomLabelsToSelfHostedRunnerForOrg()->call($org, $runnerId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json */
     public function removeAllCustomLabelsFromSelfHostedRunnerForOrg(string $org, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->actions👷RemoveAllCustomLabelsFromSelfHostedRunnerForOrg()->call($org, $runnerId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function removeCustomLabelFromSelfHostedRunnerForOrg(string $org, int $runnerId, string $name): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷RemoveCustomLabelFromSelfHostedRunnerForOrg()->call($org, $runnerId, $name);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok */
     public function listOrgSecrets(string $org, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListOrgSecrets()->call($org, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\ActionsPublicKey */
     public function getOrgPublicKey(string $org): ActionsPublicKey|array
     {
         return $this->operators->actions👷GetOrgPublicKey()->call($org);
     }
 
-    /** @return */
+    /** @return Schema\OrganizationActionsSecret */
     public function getOrgSecret(string $org, string $secretName): OrganizationActionsSecret|array
     {
         return $this->operators->actions👷GetOrgSecret()->call($org, $secretName);
@@ -313,7 +313,7 @@ final class Actions
         return $this->operators->actions👷DeleteOrgSecret()->call($org, $secretName);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok */
     public function listSelectedReposForOrgSecret(string $org, string $secretName, int $page, int $perPage): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListSelectedReposForOrgSecret()->call($org, $secretName, $page, $perPage);
@@ -337,13 +337,13 @@ final class Actions
         return $this->operators->actions👷RemoveSelectedRepoFromOrgSecret()->call($org, $secretName, $repositoryId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok */
     public function listArtifactsForRepo(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListArtifactsForRepo()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Artifact */
     public function getArtifact(string $owner, string $repo, int $artifactId): Artifact|array
     {
         return $this->operators->actions👷GetArtifact()->call($owner, $repo, $artifactId);
@@ -361,19 +361,19 @@ final class Actions
         return $this->operators->actions👷DownloadArtifact()->call($owner, $repo, $artifactId, $archiveFormat);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function downloadArtifactStreaming(string $owner, string $repo, int $artifactId, string $archiveFormat): iterable
     {
         return $this->operators->actions👷DownloadArtifactStreaming()->call($owner, $repo, $artifactId, $archiveFormat);
     }
 
-    /** @return */
+    /** @return Schema\ActionsCacheUsageByRepository */
     public function getActionsCacheUsage(string $owner, string $repo): ActionsCacheUsageByRepository|array
     {
         return $this->operators->actions👷GetActionsCacheUsage()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\ActionsCacheUsagePolicyForRepository */
     public function getActionsCacheUsagePolicy(string $owner, string $repo): ActionsCacheUsagePolicyForRepository|array
     {
         return $this->operators->actions👷GetActionsCacheUsagePolicy()->call($owner, $repo);
@@ -385,13 +385,13 @@ final class Actions
         return $this->operators->actions👷SetActionsCacheUsagePolicy()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\ActionsCacheList */
     public function getActionsCacheList(string $owner, string $repo, string $ref, string $key, int $perPage, int $page, string $sort, string $direction): ActionsCacheList|array
     {
         return $this->operators->actions👷GetActionsCacheList()->call($owner, $repo, $ref, $key, $perPage, $page, $sort, $direction);
     }
 
-    /** @return */
+    /** @return Schema\ActionsCacheList */
     public function deleteActionsCacheByKey(string $owner, string $repo, string $key, string $ref): ActionsCacheList|array
     {
         return $this->operators->actions👷DeleteActionsCacheByKey()->call($owner, $repo, $key, $ref);
@@ -403,7 +403,7 @@ final class Actions
         return $this->operators->actions👷DeleteActionsCacheById()->call($owner, $repo, $cacheId);
     }
 
-    /** @return */
+    /** @return Schema\Job */
     public function getJobForWorkflowRun(string $owner, string $repo, int $jobId): Job|array
     {
         return $this->operators->actions👷GetJobForWorkflowRun()->call($owner, $repo, $jobId);
@@ -415,31 +415,31 @@ final class Actions
         return $this->operators->actions👷DownloadJobLogsForWorkflowRun()->call($owner, $repo, $jobId);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function downloadJobLogsForWorkflowRunStreaming(string $owner, string $repo, int $jobId): iterable
     {
         return $this->operators->actions👷DownloadJobLogsForWorkflowRunStreaming()->call($owner, $repo, $jobId);
     }
 
-    /** @return */
+    /** @return Schema\EmptyObject */
     public function reRunJobForWorkflowRun(string $owner, string $repo, int $jobId, array $params): EmptyObject|array
     {
         return $this->operators->actions👷ReRunJobForWorkflowRun()->call($owner, $repo, $jobId, $params);
     }
 
-    /** @return */
+    /** @return Schema\OidcCustomSubRepo */
     public function getCustomOidcSubClaimForRepo(string $owner, string $repo): OidcCustomSubRepo|array
     {
         return $this->operators->actions👷GetCustomOidcSubClaimForRepo()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\EmptyObject */
     public function setCustomOidcSubClaimForRepo(string $owner, string $repo, array $params): EmptyObject|array
     {
         return $this->operators->actions👷SetCustomOidcSubClaimForRepo()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\ActionsRepositoryPermissions */
     public function getGithubActionsPermissionsRepository(string $owner, string $repo): ActionsRepositoryPermissions|array
     {
         return $this->operators->actions👷GetGithubActionsPermissionsRepository()->call($owner, $repo);
@@ -451,7 +451,7 @@ final class Actions
         return $this->operators->actions👷SetGithubActionsPermissionsRepository()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\ActionsWorkflowAccessToRepository */
     public function getWorkflowAccessToRepository(string $owner, string $repo): ActionsWorkflowAccessToRepository|array
     {
         return $this->operators->actions👷GetWorkflowAccessToRepository()->call($owner, $repo);
@@ -463,7 +463,7 @@ final class Actions
         return $this->operators->actions👷SetWorkflowAccessToRepository()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\SelectedActions */
     public function getAllowedActionsRepository(string $owner, string $repo): SelectedActions|array
     {
         return $this->operators->actions👷GetAllowedActionsRepository()->call($owner, $repo);
@@ -475,7 +475,7 @@ final class Actions
         return $this->operators->actions👷SetAllowedActionsRepository()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\ActionsGetDefaultWorkflowPermissions */
     public function getGithubActionsDefaultWorkflowPermissionsRepository(string $owner, string $repo): ActionsGetDefaultWorkflowPermissions|array
     {
         return $this->operators->actions👷GetGithubActionsDefaultWorkflowPermissionsRepository()->call($owner, $repo);
@@ -487,7 +487,7 @@ final class Actions
         return $this->operators->actions👷SetGithubActionsDefaultWorkflowPermissionsRepository()->call($owner, $repo, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json */
     public function listSelfHostedRunnersForRepo(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->actions👷ListSelfHostedRunnersForRepo()->call($owner, $repo, $perPage, $page);
@@ -499,19 +499,19 @@ final class Actions
         return $this->operators->actions👷ListRunnerApplicationsForRepo()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\AuthenticationToken */
     public function createRegistrationTokenForRepo(string $owner, string $repo): AuthenticationToken|array
     {
         return $this->operators->actions👷CreateRegistrationTokenForRepo()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\AuthenticationToken */
     public function createRemoveTokenForRepo(string $owner, string $repo): AuthenticationToken|array
     {
         return $this->operators->actions👷CreateRemoveTokenForRepo()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\Runner */
     public function getSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): Runner|array
     {
         return $this->operators->actions👷GetSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId);
@@ -523,43 +523,43 @@ final class Actions
         return $this->operators->actions👷DeleteSelfHostedRunnerFromRepo()->call($owner, $repo, $runnerId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function listLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListLabelsForSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function setCustomLabelsForSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷SetCustomLabelsForSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function addCustomLabelsToSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷AddCustomLabelsToSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok\Application\Json */
     public function removeAllCustomLabelsFromSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->actions👷RemoveAllCustomLabelsFromSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
     public function removeCustomLabelFromSelfHostedRunnerForRepo(string $owner, string $repo, int $runnerId, string $name): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷RemoveCustomLabelFromSelfHostedRunnerForRepo()->call($owner, $repo, $runnerId, $name);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok */
     public function listWorkflowRunsForRepo(string $owner, string $repo, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage, int $page, bool $excludePullRequests): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListWorkflowRunsForRepo()->call($owner, $repo, $actor, $branch, $event, $status, $created, $checkSuiteId, $headSha, $perPage, $page, $excludePullRequests);
     }
 
-    /** @return */
+    /** @return Schema\WorkflowRun */
     public function getWorkflowRun(string $owner, string $repo, int $runId, bool $excludePullRequests): WorkflowRun|array
     {
         return $this->operators->actions👷GetWorkflowRun()->call($owner, $repo, $runId, $excludePullRequests);
@@ -577,19 +577,19 @@ final class Actions
         return $this->operators->actions👷GetReviewsForRun()->call($owner, $repo, $runId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json */
     public function listWorkflowRunArtifacts(string $owner, string $repo, int $runId, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->actions👷ListWorkflowRunArtifacts()->call($owner, $repo, $runId, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\WorkflowRun */
     public function getWorkflowRunAttempt(string $owner, string $repo, int $runId, int $attemptNumber, bool $excludePullRequests): WorkflowRun|array
     {
         return $this->operators->actions👷GetWorkflowRunAttempt()->call($owner, $repo, $runId, $attemptNumber, $excludePullRequests);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListJobsForWorkflowRunAttempt\Response\ApplicationJson\Ok */
     public function listJobsForWorkflowRunAttempt(string $owner, string $repo, int $runId, int $attemptNumber, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRunAttempt\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListJobsForWorkflowRunAttempt()->call($owner, $repo, $runId, $attemptNumber, $perPage, $page);
@@ -601,19 +601,19 @@ final class Actions
         return $this->operators->actions👷DownloadWorkflowRunAttemptLogs()->call($owner, $repo, $runId, $attemptNumber);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function downloadWorkflowRunAttemptLogsStreaming(string $owner, string $repo, int $runId, int $attemptNumber): iterable
     {
         return $this->operators->actions👷DownloadWorkflowRunAttemptLogsStreaming()->call($owner, $repo, $runId, $attemptNumber);
     }
 
-    /** @return */
+    /** @return Schema\EmptyObject */
     public function cancelWorkflowRun(string $owner, string $repo, int $runId): EmptyObject|array
     {
         return $this->operators->actions👷CancelWorkflowRun()->call($owner, $repo, $runId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json */
     public function listJobsForWorkflowRun(string $owner, string $repo, int $runId, string $filter, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->actions👷ListJobsForWorkflowRun()->call($owner, $repo, $runId, $filter, $perPage, $page);
@@ -625,7 +625,7 @@ final class Actions
         return $this->operators->actions👷DownloadWorkflowRunLogs()->call($owner, $repo, $runId);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<string> */
     public function downloadWorkflowRunLogsStreaming(string $owner, string $repo, int $runId): iterable
     {
         return $this->operators->actions👷DownloadWorkflowRunLogsStreaming()->call($owner, $repo, $runId);
@@ -649,31 +649,31 @@ final class Actions
         return $this->operators->actions👷ReviewPendingDeploymentsForRun()->call($owner, $repo, $runId, $params);
     }
 
-    /** @return */
+    /** @return Schema\EmptyObject */
     public function reRunWorkflow(string $owner, string $repo, int $runId, array $params): EmptyObject|array
     {
         return $this->operators->actions👷ReRunWorkflow()->call($owner, $repo, $runId, $params);
     }
 
-    /** @return */
+    /** @return Schema\EmptyObject */
     public function reRunWorkflowFailedJobs(string $owner, string $repo, int $runId, array $params): EmptyObject|array
     {
         return $this->operators->actions👷ReRunWorkflowFailedJobs()->call($owner, $repo, $runId, $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok */
     public function listRepoSecrets(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListRepoSecrets()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\ActionsPublicKey */
     public function getRepoPublicKey(string $owner, string $repo): ActionsPublicKey|array
     {
         return $this->operators->actions👷GetRepoPublicKey()->call($owner, $repo);
     }
 
-    /** @return */
+    /** @return Schema\ActionsSecret */
     public function getRepoSecret(string $owner, string $repo, string $secretName): ActionsSecret|array
     {
         return $this->operators->actions👷GetRepoSecret()->call($owner, $repo, $secretName);
@@ -691,13 +691,13 @@ final class Actions
         return $this->operators->actions👷DeleteRepoSecret()->call($owner, $repo, $secretName);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok */
     public function listRepoWorkflows(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok|array
     {
         return $this->operators->actions👷ListRepoWorkflows()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\Workflow */
     public function getWorkflow(string $owner, string $repo, mixed $workflowId): Workflow|array
     {
         return $this->operators->actions👷GetWorkflow()->call($owner, $repo, $workflowId);
@@ -721,25 +721,25 @@ final class Actions
         return $this->operators->actions👷EnableWorkflow()->call($owner, $repo, $workflowId);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json */
     public function listWorkflowRuns(string $owner, string $repo, mixed $workflowId, string $actor, string $branch, string $event, string $status, string $created, int $checkSuiteId, string $headSha, int $perPage, int $page, bool $excludePullRequests): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->actions👷ListWorkflowRuns()->call($owner, $repo, $workflowId, $actor, $branch, $event, $status, $created, $checkSuiteId, $headSha, $perPage, $page, $excludePullRequests);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok\Application\Json */
     public function listEnvironmentSecrets(int $repositoryId, string $environmentName, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->actions👷ListEnvironmentSecrets()->call($repositoryId, $environmentName, $perPage, $page);
     }
 
-    /** @return */
+    /** @return Schema\ActionsPublicKey */
     public function getEnvironmentPublicKey(int $repositoryId, string $environmentName): ActionsPublicKey|array
     {
         return $this->operators->actions👷GetEnvironmentPublicKey()->call($repositoryId, $environmentName);
     }
 
-    /** @return */
+    /** @return Schema\ActionsSecret */
     public function getEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName): ActionsSecret|array
     {
         return $this->operators->actions👷GetEnvironmentSecret()->call($repositoryId, $environmentName, $secretName);
