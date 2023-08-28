@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok;
 
 final class Emojis
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
-use ApiClients\Client\GitHubEnterprise\Operators;
+use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\BaseGist;
 use ApiClients\Client\GitHubEnterprise\Schema\GistComment;
@@ -12,7 +12,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\GistSimple;
 
 final class Gists
 {
-    public function __construct(private Operators $operators)
+    public function __construct(private Internal\Operators $operators)
     {
     }
 
@@ -70,7 +70,7 @@ final class Gists
         return $this->operators->gists👷Delete()->call($gistId);
     }
 
-    /** @return */
+    /** @return Schema\GistSimple */
     public function update(string $gistId, array $params): GistSimple|array
     {
         return $this->operators->gists👷Update()->call($gistId, $params);
@@ -106,7 +106,7 @@ final class Gists
         return $this->operators->gists👷DeleteComment()->call($gistId, $commentId);
     }
 
-    /** @return */
+    /** @return Schema\GistComment */
     public function updateComment(string $gistId, int $commentId, array $params): GistComment|array
     {
         return $this->operators->gists👷UpdateComment()->call($gistId, $commentId, $params);
@@ -160,7 +160,7 @@ final class Gists
         return $this->operators->gists👷Unstar()->call($gistId);
     }
 
-    /** @return */
+    /** @return Schema\GistSimple */
     public function getRevision(string $gistId, string $sha): GistSimple|array
     {
         return $this->operators->gists👷GetRevision()->call($gistId, $sha);
