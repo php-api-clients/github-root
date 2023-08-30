@@ -9816,6 +9816,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts', [
         'owner' => 'generated',
         'repo' => 'generated',
         'run_id' => 6,
+        'name' => 'generated',
         'per_page' => 8,
         'page' => 1,
 ]);
@@ -9826,6 +9827,7 @@ Operations method:
 $client->operations()->actions()->listWorkflowRunArtifacts(        owner: 'generated',
         repo: 'generated',
         run_id: 6,
+        name: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -19593,7 +19595,6 @@ Using the `call` method:
 ```php
 $client->call('GET /scim/v2/Users', [
         'filter' => 'generated',
-        'excludedAttributes' => 'generated',
         'startIndex' => 10,
         'count' => 5,
 ]);
@@ -19602,7 +19603,6 @@ $client->call('GET /scim/v2/Users', [
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listProvisionedIdentitiesEnterprise(        filter: 'generated',
-        excludedAttributes: 'generated',
         startIndex: 10,
         count: 5,
 );
