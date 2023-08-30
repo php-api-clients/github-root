@@ -198,7 +198,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function setCustomLabelsForSelfHostedRunnerForEnterprise(array $params): Ok|array
     {
         $arguments = [];

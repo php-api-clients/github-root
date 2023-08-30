@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheUsageOrgEnterprise;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetActionsCacheUsageForOrg
     {
     }
 
-    /** @return Schema\ActionsCacheUsageOrgEnterprise */
+    /** @return */
     public function call(string $org): ActionsCacheUsageOrgEnterprise|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\GetActionsCacheUsageForOrg($this->responseSchemaValidator, $this->hydrator, $org);
