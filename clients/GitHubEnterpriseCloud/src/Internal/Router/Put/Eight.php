@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicy;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
@@ -18,7 +17,7 @@ final class Eight
     {
     }
 
-    /** @return array{code:int}|Schema\EmptyObject|Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|Schema\DeploymentBranchPolicy|Schema\PullRequestReview */
+    /** @return array{code:int}| */
     public function call(string $call, array $params, array $pathChunks): EmptyObject|Ok|DeploymentBranchPolicy|PullRequestReview|array
     {
         if ($pathChunks[0] === '') {

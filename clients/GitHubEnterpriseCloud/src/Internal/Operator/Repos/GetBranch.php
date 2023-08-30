@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BranchWithProtection;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -26,7 +25,7 @@ final readonly class GetBranch
     {
     }
 
-    /** @return Schema\BranchWithProtection|Schema\BasicError */
+    /** @return */
     public function call(string $owner, string $repo, string $branch): BranchWithProtection|BasicError|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\GetBranch($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $branch);

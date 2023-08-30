@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AnnouncementBanner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace;
@@ -26,6 +25,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRep
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectColumn;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseGroupList;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseUserList;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SshSigningKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\StarredRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Thread;
@@ -38,8 +39,8 @@ final class Four
     {
     }
 
-    /** @return Schema\WebhookConfig|iterable<Schema\HookDeliveryItem>|Schema\Installation|iterable<Schema\ServerStatistics>|Schema\AnnouncementBanner|iterable<Schema\AuditLogEvent>|Schema\EnterpriseSecurityAnalysisSettings|string|iterable<Schema\GistComment>|array{code:int}|iterable<Schema\GistCommit>|iterable<Schema\GistSimple>|Schema\GistSimple|Schema\GitignoreTemplate|Schema\MarketplacePurchase|iterable<Schema\MarketplaceListingPlan>|Schema\Thread|Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok|iterable<Schema\SimpleUser>|Schema\Operations\Codespaces\ListInOrganization\Response\ApplicationJson\Ok|iterable<Schema\CredentialAuthorization>|Schema\Operations\Orgs\ListCustomRepoRoles\Response\ApplicationJson\Ok\Application\Json|iterable<Schema\Event>|Schema\ExternalGroups|iterable<Schema\OrganizationInvitation>|iterable<Schema\RepositoryFineGrainedPermission>|iterable<Schema\OrgHook>|Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|Schema\InteractionLimitResponse|Schema\Operations\Interactions\GetRestrictionsForOrg\Response\ApplicationJson\Ok\Application\Json\One|iterable<Schema\Issue>|iterable<Schema\Migration>|iterable<Schema\Package>|iterable<Schema\OrganizationProgrammaticAccessGrantRequest>|iterable<Schema\OrganizationProgrammaticAccessGrant>|iterable<Schema\Project>|iterable<Schema\MinimalRepository>|iterable<Schema\RepositoryRuleset>|iterable<Schema\RepositoryAdvisory>|iterable<Schema\TeamSimple>|iterable<Schema\Team>|Schema\ProjectColumn|iterable<Schema\ProjectColumn>|Schema\FullRepository|Schema\BasicError|iterable<Schema\TeamDiscussion>|iterable<Schema\TeamProject>|Schema\Operations\Codespaces\ListSecretsForAuthenticatedUser\Response\ApplicationJson\Ok|Schema\Codespace|Schema\GpgKey|Schema\Key|iterable<Schema\UserMarketplacePurchase>|iterable<Schema\OrgMembership>|Schema\Migration|Schema\SshSigningKey|iterable<Schema\BaseGist>|iterable<Schema\GpgKey>|Schema\Hovercard|iterable<Schema\KeySimple>|iterable<Schema\OrganizationSimple>|iterable<Schema\SocialAccount>|iterable<Schema\SshSigningKey>|Schema\StarredRepository|Schema\Repository */
-    public function call(string $call, array $params, array $pathChunks): WebhookConfig|iterable|Installation|AnnouncementBanner|EnterpriseSecurityAnalysisSettings|string|GistSimple|GitignoreTemplate|MarketplacePurchase|Thread|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListInOrganization\Response\ApplicationJson\Ok|Json|ExternalGroups|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|InteractionLimitResponse|One|ProjectColumn|FullRepository|BasicError|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListSecretsForAuthenticatedUser\Response\ApplicationJson\Ok|Codespace|GpgKey|Key|Migration|SshSigningKey|Hovercard|StarredRepository|Repository
+    /** @return |Observable<Schema\HookDeliveryItem>|Observable<Schema\ServerStatistics>|Observable<Schema\AuditLogEvent>|Observable<Schema\GistComment>|array{code:int}|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Schema\GitignoreTemplate|Observable<Schema\MarketplaceListingPlan>|Schema\Thread|Observable<Schema\SimpleUser>|Schema\Operations\Codespaces\ListInOrganization\Response\ApplicationJson\Ok|Observable<Schema\CredentialAuthorization>|Observable<Schema\Event>|Observable<Schema\OrganizationInvitation>|Observable<Schema\RepositoryFineGrainedPermission>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\Migration>|Observable<Schema\Package>|Observable<Schema\OrganizationProgrammaticAccessGrantRequest>|Observable<Schema\OrganizationProgrammaticAccessGrant>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\RepositoryRuleset>|Observable<Schema\RepositoryAdvisory>|Observable<Schema\TeamSimple>|Observable<Schema\Team>|Schema\ProjectColumn|Observable<Schema\ProjectColumn>|Schema\ScimEnterpriseGroupList|Schema\ScimEnterpriseUserList|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Schema\Codespace|Schema\GpgKey|Schema\Key|Observable<Schema\UserMarketplacePurchase>|Observable<Schema\OrgMembership>|Schema\Migration|Schema\SshSigningKey|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple>|Observable<Schema\SocialAccount>|Observable<Schema\SshSigningKey> */
+    public function call(string $call, array $params, array $pathChunks): WebhookConfig|iterable|Installation|AnnouncementBanner|EnterpriseSecurityAnalysisSettings|string|GistSimple|GitignoreTemplate|MarketplacePurchase|Thread|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListInOrganization\Response\ApplicationJson\Ok|Json|ExternalGroups|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|InteractionLimitResponse|One|ProjectColumn|FullRepository|BasicError|ScimEnterpriseGroupList|ScimEnterpriseUserList|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListSecretsForAuthenticatedUser\Response\ApplicationJson\Ok|Codespace|GpgKey|Key|Migration|SshSigningKey|Hovercard|StarredRepository|Repository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -301,6 +302,18 @@ final class Four
                     if ($pathChunks[3] === '{repo}') {
                         if ($call === 'GET /repos/{owner}/{repo}') {
                             return $this->routers->internal🔀Router🔀Get🔀Repos()->get($params);
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'scim') {
+                if ($pathChunks[2] === 'v2') {
+                    if ($pathChunks[3] === 'Groups') {
+                        if ($call === 'GET /scim/v2/Groups') {
+                            return $this->routers->internal🔀Router🔀Get🔀EnterpriseAdmin()->listProvisionedGroupsEnterprise($params);
+                        }
+                    } elseif ($pathChunks[3] === 'Users') {
+                        if ($call === 'GET /scim/v2/Users') {
+                            return $this->routers->internal🔀Router🔀Get🔀EnterpriseAdmin()->listProvisionedIdentitiesEnterprise($params);
                         }
                     }
                 }

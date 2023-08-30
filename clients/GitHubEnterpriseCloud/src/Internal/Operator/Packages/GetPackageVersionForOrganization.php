@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Packages;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PackageVersion;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetPackageVersionForOrganization
     {
     }
 
-    /** @return Schema\PackageVersion */
+    /** @return */
     public function call(string $packageType, string $packageName, string $org, int $packageVersionId): PackageVersion|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Packages\GetPackageVersionForOrganization($this->responseSchemaValidator, $this->hydrator, $packageType, $packageName, $org, $packageVersionId);

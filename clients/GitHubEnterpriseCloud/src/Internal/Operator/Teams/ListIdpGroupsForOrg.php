@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Teams;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class ListIdpGroupsForOrg
     {
     }
 
-    /** @return Schema\GroupMapping */
+    /** @return */
     public function call(string $org, string $page, string $q, int $perPage = 30): GroupMapping|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ListIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $page, $q, $perPage);

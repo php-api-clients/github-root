@@ -944,6 +944,18 @@ final class Operators
     private Internal\Operator\Actions\GetEnvironmentVariable|null $actions👷GetEnvironmentVariable                                                                                   = null;
     private Internal\Operator\Actions\DeleteEnvironmentVariable|null $actions👷DeleteEnvironmentVariable                                                                             = null;
     private Internal\Operator\Actions\UpdateEnvironmentVariable|null $actions👷UpdateEnvironmentVariable                                                                             = null;
+    private Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise|null $enterpriseAdmin👷ListProvisionedGroupsEnterprise                                                 = null;
+    private Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup|null $enterpriseAdmin👷ProvisionEnterpriseGroup                                                               = null;
+    private Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup|null $enterpriseAdmin👷GetProvisioningInformationForEnterpriseGroup                       = null;
+    private Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup|null $enterpriseAdmin👷SetInformationForProvisionedEnterpriseGroup                         = null;
+    private Internal\Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise|null $enterpriseAdmin👷DeleteScimGroupFromEnterprise                                                     = null;
+    private Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup|null $enterpriseAdmin👷UpdateAttributeForEnterpriseGroup                                             = null;
+    private Internal\Operator\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise|null $enterpriseAdmin👷ListProvisionedIdentitiesEnterprise                                         = null;
+    private Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser|null $enterpriseAdmin👷ProvisionEnterpriseUser                                                                 = null;
+    private Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser|null $enterpriseAdmin👷GetProvisioningInformationForEnterpriseUser                         = null;
+    private Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser|null $enterpriseAdmin👷SetInformationForProvisionedEnterpriseUser                           = null;
+    private Internal\Operator\EnterpriseAdmin\DeleteUserFromEnterprise|null $enterpriseAdmin👷DeleteUserFromEnterprise                                                               = null;
+    private Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseUser|null $enterpriseAdmin👷UpdateAttributeForEnterpriseUser                                               = null;
     private Internal\Operator\Scim\ListProvisionedIdentities|null $scim👷ListProvisionedIdentities                                                                                   = null;
     private Internal\Operator\Scim\ProvisionAndInviteUser|null $scim👷ProvisionAndInviteUser                                                                                         = null;
     private Internal\Operator\Scim\GetProvisioningInformationForUser|null $scim👷GetProvisioningInformationForUser                                                                   = null;
@@ -9571,6 +9583,114 @@ final class Operators
         }
 
         return $this->actions👷UpdateEnvironmentVariable;
+    }
+
+    public function enterpriseAdmin👷ListProvisionedGroupsEnterprise(): Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise
+    {
+        if ($this->enterpriseAdmin👷ListProvisionedGroupsEnterprise instanceof Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise === false) {
+            $this->enterpriseAdmin👷ListProvisionedGroupsEnterprise = new Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups());
+        }
+
+        return $this->enterpriseAdmin👷ListProvisionedGroupsEnterprise;
+    }
+
+    public function enterpriseAdmin👷ProvisionEnterpriseGroup(): Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup
+    {
+        if ($this->enterpriseAdmin👷ProvisionEnterpriseGroup instanceof Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup === false) {
+            $this->enterpriseAdmin👷ProvisionEnterpriseGroup = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups());
+        }
+
+        return $this->enterpriseAdmin👷ProvisionEnterpriseGroup;
+    }
+
+    public function enterpriseAdmin👷GetProvisioningInformationForEnterpriseGroup(): Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup
+    {
+        if ($this->enterpriseAdmin👷GetProvisioningInformationForEnterpriseGroup instanceof Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup === false) {
+            $this->enterpriseAdmin👷GetProvisioningInformationForEnterpriseGroup = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
+        }
+
+        return $this->enterpriseAdmin👷GetProvisioningInformationForEnterpriseGroup;
+    }
+
+    public function enterpriseAdmin👷SetInformationForProvisionedEnterpriseGroup(): Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup
+    {
+        if ($this->enterpriseAdmin👷SetInformationForProvisionedEnterpriseGroup instanceof Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup === false) {
+            $this->enterpriseAdmin👷SetInformationForProvisionedEnterpriseGroup = new Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
+        }
+
+        return $this->enterpriseAdmin👷SetInformationForProvisionedEnterpriseGroup;
+    }
+
+    public function enterpriseAdmin👷DeleteScimGroupFromEnterprise(): Internal\Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise
+    {
+        if ($this->enterpriseAdmin👷DeleteScimGroupFromEnterprise instanceof Internal\Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise === false) {
+            $this->enterpriseAdmin👷DeleteScimGroupFromEnterprise = new Internal\Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
+        }
+
+        return $this->enterpriseAdmin👷DeleteScimGroupFromEnterprise;
+    }
+
+    public function enterpriseAdmin👷UpdateAttributeForEnterpriseGroup(): Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup
+    {
+        if ($this->enterpriseAdmin👷UpdateAttributeForEnterpriseGroup instanceof Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup === false) {
+            $this->enterpriseAdmin👷UpdateAttributeForEnterpriseGroup = new Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
+        }
+
+        return $this->enterpriseAdmin👷UpdateAttributeForEnterpriseGroup;
+    }
+
+    public function enterpriseAdmin👷ListProvisionedIdentitiesEnterprise(): Internal\Operator\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise
+    {
+        if ($this->enterpriseAdmin👷ListProvisionedIdentitiesEnterprise instanceof Internal\Operator\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise === false) {
+            $this->enterpriseAdmin👷ListProvisionedIdentitiesEnterprise = new Internal\Operator\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users());
+        }
+
+        return $this->enterpriseAdmin👷ListProvisionedIdentitiesEnterprise;
+    }
+
+    public function enterpriseAdmin👷ProvisionEnterpriseUser(): Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser
+    {
+        if ($this->enterpriseAdmin👷ProvisionEnterpriseUser instanceof Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser === false) {
+            $this->enterpriseAdmin👷ProvisionEnterpriseUser = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users());
+        }
+
+        return $this->enterpriseAdmin👷ProvisionEnterpriseUser;
+    }
+
+    public function enterpriseAdmin👷GetProvisioningInformationForEnterpriseUser(): Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser
+    {
+        if ($this->enterpriseAdmin👷GetProvisioningInformationForEnterpriseUser instanceof Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser === false) {
+            $this->enterpriseAdmin👷GetProvisioningInformationForEnterpriseUser = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
+        }
+
+        return $this->enterpriseAdmin👷GetProvisioningInformationForEnterpriseUser;
+    }
+
+    public function enterpriseAdmin👷SetInformationForProvisionedEnterpriseUser(): Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser
+    {
+        if ($this->enterpriseAdmin👷SetInformationForProvisionedEnterpriseUser instanceof Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser === false) {
+            $this->enterpriseAdmin👷SetInformationForProvisionedEnterpriseUser = new Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
+        }
+
+        return $this->enterpriseAdmin👷SetInformationForProvisionedEnterpriseUser;
+    }
+
+    public function enterpriseAdmin👷DeleteUserFromEnterprise(): Internal\Operator\EnterpriseAdmin\DeleteUserFromEnterprise
+    {
+        if ($this->enterpriseAdmin👷DeleteUserFromEnterprise instanceof Internal\Operator\EnterpriseAdmin\DeleteUserFromEnterprise === false) {
+            $this->enterpriseAdmin👷DeleteUserFromEnterprise = new Internal\Operator\EnterpriseAdmin\DeleteUserFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
+        }
+
+        return $this->enterpriseAdmin👷DeleteUserFromEnterprise;
+    }
+
+    public function enterpriseAdmin👷UpdateAttributeForEnterpriseUser(): Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseUser
+    {
+        if ($this->enterpriseAdmin👷UpdateAttributeForEnterpriseUser instanceof Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseUser === false) {
+            $this->enterpriseAdmin👷UpdateAttributeForEnterpriseUser = new Internal\Operator\EnterpriseAdmin\UpdateAttributeForEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
+        }
+
+        return $this->enterpriseAdmin👷UpdateAttributeForEnterpriseUser;
     }
 
     public function scim👷ListProvisionedIdentities(): Internal\Operator\Scim\ListProvisionedIdentities

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryAdvisory;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -20,7 +19,7 @@ final class SecurityAdvisories
     {
     }
 
-    /** @return Schema\RepositoryAdvisory */
+    /** @return */
     public function updateRepositoryAdvisory(array $params): RepositoryAdvisory|array
     {
         $arguments = [];

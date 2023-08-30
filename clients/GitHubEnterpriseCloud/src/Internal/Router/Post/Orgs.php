@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationInvitation;
@@ -23,7 +22,7 @@ final class Orgs
     {
     }
 
-    /** @return Schema\OrganizationCustomRepositoryRole */
+    /** @return */
     public function createCustomRepoRole(array $params): OrganizationCustomRepositoryRole|array
     {
         $arguments = [];
@@ -38,7 +37,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\OrganizationCustomRepositoryRole */
+    /** @return */
     public function createCustomRole(array $params): OrganizationCustomRepositoryRole|array
     {
         $arguments = [];
@@ -53,7 +52,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\OrgHook */
+    /** @return */
     public function createWebhook(array $params): OrgHook|array
     {
         $arguments = [];
@@ -68,7 +67,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\OrganizationInvitation */
+    /** @return */
     public function createInvitation(array $params): OrganizationInvitation|array
     {
         $arguments = [];
@@ -83,7 +82,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function reviewPatGrantRequestsInBulk(array $params): Json|array
     {
         $arguments = [];
@@ -98,7 +97,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function updatePatAccesses(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|array
     {
         $arguments = [];
@@ -203,7 +202,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['security_product'], $arguments['enablement'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function redeliverWebhookDelivery(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|array
     {
         $arguments = [];

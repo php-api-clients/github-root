@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CheckRun;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CheckSuitePreference;
@@ -33,7 +32,7 @@ final class Six
     {
     }
 
-    /** @return Schema\RunnerGroupsEnterprise|Schema\RunnerGroupsOrg|array{code:int}|Schema\WebhookConfig|Schema\ExternalGroup|Schema\CheckRun|Schema\CheckSuitePreference|Schema\EmptyObject|Schema\CodeScanningDefaultSetupUpdateResponse|Schema\CommitComment|Schema\Hook|Schema\Import|Schema\RepositoryInvitation|Schema\Issue|Schema\BasicError|Schema\Label|Schema\Milestone|Schema\PullRequest|Schema\Release|Schema\RepositoryAdvisory */
+    /** @return |array{code:int} */
     public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory|array
     {
         if ($pathChunks[0] === '') {

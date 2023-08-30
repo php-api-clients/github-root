@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Users;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PrivateUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -26,7 +25,7 @@ final readonly class GetByUsername
     {
     }
 
-    /** @return Schema\PrivateUser|Schema\PublicUser */
+    /** @return */
     public function call(string $username): PrivateUser|PublicUser|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Users\GetByUsername($this->responseSchemaValidator, $this->hydrator, $username);

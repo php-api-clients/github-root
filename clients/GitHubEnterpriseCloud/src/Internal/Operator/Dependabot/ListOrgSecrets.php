@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Dependabot;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class ListOrgSecrets
     {
     }
 
-    /** @return Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function call(string $org, int $perPage = 30, int $page = 1): Ok|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Dependabot\ListOrgSecrets($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page);

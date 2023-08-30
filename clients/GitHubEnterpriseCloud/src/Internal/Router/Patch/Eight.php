@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranchPullRequestReview;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\StatusCheckPolicy;
 use InvalidArgumentException;
@@ -16,7 +15,6 @@ final class Eight
     {
     }
 
-    /** @return Schema\ProtectedBranchPullRequestReview|Schema\StatusCheckPolicy */
     public function call(string $call, array $params, array $pathChunks): ProtectedBranchPullRequestReview|StatusCheckPolicy|array
     {
         if ($pathChunks[0] === '') {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentProtectionRule;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetCustomDeploymentProtectionRule
     {
     }
 
-    /** @return Schema\DeploymentProtectionRule */
+    /** @return */
     public function call(string $owner, string $repo, string $environmentName, int $protectionRuleId): DeploymentProtectionRule|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\GetCustomDeploymentProtectionRule($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $environmentName, $protectionRuleId);

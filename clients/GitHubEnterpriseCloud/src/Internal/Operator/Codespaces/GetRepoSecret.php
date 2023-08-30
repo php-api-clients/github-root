@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Codespaces;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepoCodespacesSecret;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetRepoSecret
     {
     }
 
-    /** @return Schema\RepoCodespacesSecret */
+    /** @return */
     public function call(string $owner, string $repo, string $secretName): RepoCodespacesSecret|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Codespaces\GetRepoSecret($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $secretName);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Authorization;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -21,7 +20,7 @@ final class Apps
     {
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function updateWebhookConfigForApp(array $params): WebhookConfig|array
     {
         $operator = new Internal\Operator\Apps\UpdateWebhookConfigForApp($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config());
@@ -29,7 +28,7 @@ final class Apps
         return $operator->call($params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function resetToken(array $params): Authorization|array
     {
         $arguments = [];

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListJobsForWorkflowRunAttempt\Response\ApplicationJson\Ok;
 use InvalidArgumentException;
 
@@ -15,7 +14,7 @@ final class Ten
     {
     }
 
-    /** @return iterable<Schema\Reaction>|Schema\Operations\Actions\ListJobsForWorkflowRunAttempt\Response\ApplicationJson\Ok|array{code:int,location:string} */
+    /** @return Observable<Schema\Reaction>||array{code:int,location:string} */
     public function call(string $call, array $params, array $pathChunks): iterable|Ok
     {
         if ($pathChunks[0] === '') {

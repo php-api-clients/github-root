@@ -28,7 +28,7 @@ final class Teams
     {
     }
 
-    /** @return Schema\TeamFull */
+    /** @return */
     public function getLegacy(array $params): TeamFull|array
     {
         $arguments = [];
@@ -43,7 +43,7 @@ final class Teams
         return $operator->call($arguments['team_id']);
     }
 
-    /** @return iterable<Schema\TeamFull>|array{code:int} */
+    /** @return Observable<Schema\TeamFull>|array{code:int} */
     public function listForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -64,7 +64,7 @@ final class Teams
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\ExternalGroups */
+    /** @return */
     public function listExternalIdpGroupsForOrg(array $params): ExternalGroups|array
     {
         $arguments = [];
@@ -97,7 +97,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['page'], $arguments['display_name'], $arguments['per_page']);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function list(array $params): iterable
     {
         $arguments = [];
@@ -124,7 +124,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\TeamDiscussion> */
+    /** @return Observable<Schema\TeamDiscussion> */
     public function listDiscussionsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -157,7 +157,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\OrganizationInvitation> */
+    /** @return Observable<Schema\OrganizationInvitation> */
     public function listPendingInvitationsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -184,7 +184,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersLegacy(array $params): iterable
     {
         $arguments = [];
@@ -217,7 +217,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\TeamProject> */
+    /** @return Observable<Schema\TeamProject> */
     public function listProjectsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -244,7 +244,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposLegacy(array $params): iterable
     {
         $arguments = [];
@@ -271,7 +271,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listChildLegacy(array $params): iterable
     {
         $arguments = [];
@@ -298,7 +298,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\ExternalGroup */
+    /** @return */
     public function externalIdpGroupInfoForOrg(array $params): ExternalGroup|array
     {
         $arguments = [];
@@ -319,7 +319,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['group_id']);
     }
 
-    /** @return Schema\GroupMapping */
+    /** @return */
     public function listIdpGroupsForOrg(array $params): GroupMapping|array
     {
         $arguments = [];
@@ -352,7 +352,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['page'], $arguments['q'], $arguments['per_page']);
     }
 
-    /** @return Schema\TeamFull */
+    /** @return */
     public function getByName(array $params): TeamFull|array
     {
         $arguments = [];
@@ -373,7 +373,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
-    /** @return Schema\TeamDiscussion */
+    /** @return */
     public function getDiscussionLegacy(array $params): TeamDiscussion|array
     {
         $arguments = [];
@@ -415,7 +415,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['username']);
     }
 
-    /** @return Schema\TeamMembership */
+    /** @return */
     public function getMembershipForUserLegacy(array $params): TeamMembership|array
     {
         $arguments = [];
@@ -457,7 +457,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['project_id']);
     }
 
-    /** @return Schema\GroupMapping */
+    /** @return */
     public function listIdpGroupsForLegacy(array $params): GroupMapping|array
     {
         $arguments = [];
@@ -472,7 +472,7 @@ final class Teams
         return $operator->call($arguments['team_id']);
     }
 
-    /** @return iterable<Schema\TeamDiscussion> */
+    /** @return Observable<Schema\TeamDiscussion> */
     public function listDiscussionsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -517,7 +517,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['pinned'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\ExternalGroups */
+    /** @return */
     public function listLinkedExternalIdpGroupsToTeamForOrg(array $params): ExternalGroups|array
     {
         $arguments = [];
@@ -538,7 +538,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
-    /** @return iterable<Schema\OrganizationInvitation> */
+    /** @return Observable<Schema\OrganizationInvitation> */
     public function listPendingInvitationsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -571,7 +571,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersInOrg(array $params): iterable
     {
         $arguments = [];
@@ -610,7 +610,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\TeamProject> */
+    /** @return Observable<Schema\TeamProject> */
     public function listProjectsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -643,7 +643,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposInOrg(array $params): iterable
     {
         $arguments = [];
@@ -676,7 +676,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listChildInOrg(array $params): iterable
     {
         $arguments = [];
@@ -709,7 +709,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\TeamDiscussionComment> */
+    /** @return Observable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -775,7 +775,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\TeamDiscussion */
+    /** @return */
     public function getDiscussionInOrg(array $params): TeamDiscussion|array
     {
         $arguments = [];
@@ -856,7 +856,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['project_id']);
     }
 
-    /** @return Schema\GroupMapping */
+    /** @return */
     public function listIdpGroupsInOrg(array $params): GroupMapping|array
     {
         $arguments = [];
@@ -877,7 +877,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
-    /** @return Schema\TeamDiscussionComment */
+    /** @return */
     public function getDiscussionCommentLegacy(array $params): TeamDiscussionComment|array
     {
         $arguments = [];
@@ -904,7 +904,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 
-    /** @return iterable<Schema\TeamDiscussionComment> */
+    /** @return Observable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -982,7 +982,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\TeamDiscussionComment */
+    /** @return */
     public function getDiscussionCommentInOrg(array $params): TeamDiscussionComment|array
     {
         $arguments = [];

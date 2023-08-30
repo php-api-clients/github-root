@@ -20,7 +20,7 @@ final class Orgs
     {
     }
 
-    /** @return iterable<Schema\OrganizationSimple>|array{code:int} */
+    /** @return Observable<Schema\OrganizationSimple>|array{code:int} */
     public function listForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -47,7 +47,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listBlockedUsersListing(array $params): iterable
     {
         $arguments = [];
@@ -80,7 +80,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\CredentialAuthorization> */
+    /** @return Observable<Schema\CredentialAuthorization> */
     public function listSamlSsoAuthorizationsListing(array $params): iterable
     {
         $arguments = [];
@@ -119,7 +119,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrganizationInvitation> */
+    /** @return Observable<Schema\OrganizationInvitation> */
     public function listFailedInvitationsListing(array $params): iterable
     {
         $arguments = [];
@@ -152,7 +152,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrgHook> */
+    /** @return Observable<Schema\OrgHook> */
     public function listWebhooksListing(array $params): iterable
     {
         $arguments = [];
@@ -185,7 +185,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrganizationInvitation> */
+    /** @return Observable<Schema\OrganizationInvitation> */
     public function listPendingInvitationsListing(array $params): iterable
     {
         $arguments = [];
@@ -230,7 +230,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersListing(array $params): iterable
     {
         $arguments = [];
@@ -275,7 +275,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listOutsideCollaboratorsListing(array $params): iterable
     {
         $arguments = [];
@@ -314,7 +314,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrganizationProgrammaticAccessGrantRequest> */
+    /** @return Observable<Schema\OrganizationProgrammaticAccessGrantRequest> */
     public function listPatGrantRequestsListing(array $params): iterable
     {
         $arguments = [];
@@ -389,7 +389,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrganizationProgrammaticAccessGrant> */
+    /** @return Observable<Schema\OrganizationProgrammaticAccessGrant> */
     public function listPatGrantsListing(array $params): iterable
     {
         $arguments = [];
@@ -464,7 +464,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listPublicMembersListing(array $params): iterable
     {
         $arguments = [];
@@ -497,7 +497,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrgMembership>|array{code:int} */
+    /** @return Observable<Schema\OrgMembership>|array{code:int} */
     public function listMembershipsForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -530,7 +530,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrganizationSimple> */
+    /** @return Observable<Schema\OrganizationSimple> */
     public function listForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -563,7 +563,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listInvitationTeamsListing(array $params): iterable
     {
         $arguments = [];
@@ -602,7 +602,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listPatGrantRequestRepositoriesListing(array $params): iterable
     {
         $arguments = [];
@@ -641,7 +641,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listPatGrantRepositoriesListing(array $params): iterable
     {
         $arguments = [];

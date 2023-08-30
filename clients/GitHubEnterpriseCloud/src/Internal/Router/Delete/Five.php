@@ -179,6 +179,22 @@ final class Five
                         }
                     }
                 }
+            } elseif ($pathChunks[1] === 'scim') {
+                if ($pathChunks[2] === 'v2') {
+                    if ($pathChunks[3] === 'Groups') {
+                        if ($pathChunks[4] === '{scim_group_id}') {
+                            if ($call === 'DELETE /scim/v2/Groups/{scim_group_id}') {
+                                return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->deleteScimGroupFromEnterprise($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'Users') {
+                        if ($pathChunks[4] === '{scim_user_id}') {
+                            if ($call === 'DELETE /scim/v2/Users/{scim_user_id}') {
+                                return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->deleteUserFromEnterprise($params);
+                            }
+                        }
+                    }
+                }
             } elseif ($pathChunks[1] === 'teams') {
                 if ($pathChunks[2] === '{team_id}') {
                     if ($pathChunks[3] === 'discussions') {

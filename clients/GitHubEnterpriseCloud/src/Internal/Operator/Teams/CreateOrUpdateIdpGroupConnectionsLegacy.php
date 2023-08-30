@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Teams;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateOrUpdateIdpGroupConnectionsLegacy
     {
     }
 
-    /** @return Schema\GroupMapping */
+    /** @return */
     public function call(int $teamId, array $params): GroupMapping|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\CreateOrUpdateIdpGroupConnectionsLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId);

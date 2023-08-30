@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Authorization;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Migration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
@@ -21,6 +21,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamFull;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use InvalidArgumentException;
 
 final class Four
@@ -29,8 +30,8 @@ final class Four
     {
     }
 
-    /** @return Schema\Integration|Schema\Authorization|Schema\GistComment|array{code:int}|Schema\BaseGist|Schema\OrganizationCustomRepositoryRole|Schema\OrgHook|Schema\OrganizationInvitation|Schema\Migration|Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Schema\Project|Schema\Repository|Schema\RepositoryRuleset|Schema\TeamFull|Schema\ProjectColumn|Schema\TeamDiscussion */
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|Repository|RepositoryRuleset|TeamFull|ProjectColumn|TeamDiscussion|array
+    /** @return |Schema\GistComment|array{code:int}|Schema\BaseGist|Schema\ProjectColumn|Schema\GroupResponse|Schema\UserResponse */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|Repository|RepositoryRuleset|TeamFull|ProjectColumn|GroupResponse|UserResponse|TeamDiscussion|array
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
@@ -114,6 +115,18 @@ final class Four
                     if ($pathChunks[3] === 'columns') {
                         if ($call === 'POST /projects/{project_id}/columns') {
                             return $this->routers->internal🔀Router🔀Post🔀Projects()->createColumn($params);
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'scim') {
+                if ($pathChunks[2] === 'v2') {
+                    if ($pathChunks[3] === 'Groups') {
+                        if ($call === 'POST /scim/v2/Groups') {
+                            return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->provisionEnterpriseGroup($params);
+                        }
+                    } elseif ($pathChunks[3] === 'Users') {
+                        if ($call === 'POST /scim/v2/Users') {
+                            return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->provisionEnterpriseUser($params);
                         }
                     }
                 }

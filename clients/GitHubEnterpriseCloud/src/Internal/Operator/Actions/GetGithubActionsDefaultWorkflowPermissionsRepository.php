@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsGetDefaultWorkflowPermissions;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetGithubActionsDefaultWorkflowPermissionsRepository
     {
     }
 
-    /** @return Schema\ActionsGetDefaultWorkflowPermissions */
+    /** @return */
     public function call(string $owner, string $repo): ActionsGetDefaultWorkflowPermissions|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\GetGithubActionsDefaultWorkflowPermissionsRepository($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

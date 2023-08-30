@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsOrganizationPermissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
@@ -17,6 +16,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationDetails;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\HookDelivery;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Import;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Installation;
@@ -44,6 +44,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamProject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ThreadSubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Topic;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use InvalidArgumentException;
 
 final class Five
@@ -52,8 +53,8 @@ final class Five
     {
     }
 
-    /** @return Schema\HookDelivery|Schema\ActionsEnterprisePermissions|Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok|Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|iterable<Schema\CodeScanningOrganizationAlertItems>|iterable<Schema\DependabotAlertWithRepository>|array{code:int}|iterable<Schema\OrganizationSecretScanningAlert>|Schema\GistComment|iterable<Schema\MarketplacePurchase>|Schema\MarketplacePurchase|iterable<Schema\Event>|Schema\BasicError|Schema\ThreadSubscription|Schema\ActionsOrganizationPermissions|Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|Schema\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok|Schema\Operations\Codespaces\ListOrgSecrets\Response\ApplicationJson\Ok|Schema\CopilotOrganizationDetails|Schema\OrganizationCustomRepositoryRole|Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|iterable<Schema\Package>|Schema\ExternalGroup|Schema\OrgHook|array{code:int,location:string}|Schema\OrgMembership|Schema\Migration|Schema\RepositoryRuleset|Schema\GroupMapping|Schema\TeamFull|Schema\ProjectCard|iterable<Schema\ProjectCard>|iterable<Schema\Activity>|iterable<Schema\SimpleUser>|iterable<Schema\Autolink>|Schema\CheckAutomatedSecurityFixes|iterable<Schema\ShortBranch>|Schema\Operations\Codespaces\ListInRepositoryForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|iterable<Schema\Collaborator>|iterable<Schema\CommitComment>|iterable<Schema\Commit>|iterable<Schema\Contributor>|iterable<Schema\Deployment>|Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok|iterable<Schema\MinimalRepository>|iterable<Schema\Hook>|Schema\Import|Schema\Installation|Schema\InteractionLimitResponse|Schema\Operations\Interactions\GetRestrictionsForRepo\Response\ApplicationJson\Ok\Application\Json\One|iterable<Schema\RepositoryInvitation>|iterable<Schema\Issue>|iterable<Schema\DeployKey>|iterable<Schema\Label>|Schema\Language|Schema\LicenseContent|iterable<Schema\Milestone>|iterable<Schema\Thread>|Schema\Page|iterable<Schema\Project>|iterable<Schema\PullRequestSimple>|Schema\ContentFile|iterable<Schema\Release>|iterable<Schema\RepositoryRuleset>|iterable<Schema\RepositoryAdvisory>|Schema\SimpleUser|Schema\Stargazer|Schema\RepositorySubscription|iterable<Schema\Tag>|iterable<Schema\Team>|Schema\Topic|Schema\TeamDiscussion|Schema\TeamMembership|Schema\TeamProject|Schema\CodespacesUserPublicKey|Schema\CodespacesSecret|Schema\Operations\Codespaces\CodespaceMachinesForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|Schema\Package */
-    public function call(string $call, array $params, array $pathChunks): HookDelivery|ActionsEnterprisePermissions|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|iterable|GistComment|MarketplacePurchase|BasicError|ThreadSubscription|ActionsOrganizationPermissions|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListOrgSecrets\Response\ApplicationJson\Ok|CopilotOrganizationDetails|OrganizationCustomRepositoryRole|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|ExternalGroup|OrgHook|OrgMembership|Migration|RepositoryRuleset|GroupMapping|TeamFull|ProjectCard|CheckAutomatedSecurityFixes|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok|Import|Installation|InteractionLimitResponse|One|Language|LicenseContent|Page|ContentFile|SimpleUser|Stargazer|RepositorySubscription|Topic|TeamDiscussion|TeamMembership|TeamProject|CodespacesUserPublicKey|CodespacesSecret|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\CodespaceMachinesForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|Package
+    /** @return |Observable<Schema\CodeScanningOrganizationAlertItems>|Observable<Schema\DependabotAlertWithRepository>|array{code:int}|Observable<Schema\OrganizationSecretScanningAlert>|Schema\GistComment|Observable<Schema\MarketplacePurchase>|Schema\MarketplacePurchase|Observable<Schema\Event>|Schema\BasicError|Schema\ThreadSubscription|Observable<Schema\Package>|array{code:int,location:string}|Schema\ProjectCard|Observable<Schema\ProjectCard>|Observable<Schema\Activity>|Observable<Schema\SimpleUser>|Observable<Schema\Autolink>|Schema\CheckAutomatedSecurityFixes|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|iterable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\RepositoryAdvisory>|Schema\RepositorySubscription|Observable<Schema\Tag>|Observable<Schema\Team>|Schema\GroupResponse|Schema\UserResponse|Schema\TeamProject|Schema\Operations\Codespaces\CodespaceMachinesForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok */
+    public function call(string $call, array $params, array $pathChunks): HookDelivery|ActionsEnterprisePermissions|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|iterable|GistComment|MarketplacePurchase|BasicError|ThreadSubscription|ActionsOrganizationPermissions|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListOrgSecrets\Response\ApplicationJson\Ok|CopilotOrganizationDetails|OrganizationCustomRepositoryRole|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|ExternalGroup|OrgHook|OrgMembership|Migration|RepositoryRuleset|GroupMapping|TeamFull|ProjectCard|CheckAutomatedSecurityFixes|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok|Import|Installation|InteractionLimitResponse|One|Language|LicenseContent|Page|ContentFile|SimpleUser|Stargazer|RepositorySubscription|Topic|GroupResponse|UserResponse|TeamDiscussion|TeamMembership|TeamProject|CodespacesUserPublicKey|CodespacesSecret|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\CodespaceMachinesForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|Package
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -466,6 +467,22 @@ final class Five
                         } elseif ($pathChunks[4] === 'vulnerability-alerts') {
                             if ($call === 'GET /repos/{owner}/{repo}/vulnerability-alerts') {
                                 return $this->routers->internal🔀Router🔀Get🔀Repos()->checkVulnerabilityAlerts($params);
+                            }
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'scim') {
+                if ($pathChunks[2] === 'v2') {
+                    if ($pathChunks[3] === 'Groups') {
+                        if ($pathChunks[4] === '{scim_group_id}') {
+                            if ($call === 'GET /scim/v2/Groups/{scim_group_id}') {
+                                return $this->routers->internal🔀Router🔀Get🔀EnterpriseAdmin()->getProvisioningInformationForEnterpriseGroup($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'Users') {
+                        if ($pathChunks[4] === '{scim_user_id}') {
+                            if ($call === 'GET /scim/v2/Users/{scim_user_id}') {
+                                return $this->routers->internal🔀Router🔀Get🔀EnterpriseAdmin()->getProvisioningInformationForEnterpriseUser($params);
                             }
                         }
                     }
