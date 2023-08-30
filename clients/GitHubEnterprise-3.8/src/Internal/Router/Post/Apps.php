@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\InstallationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\Integration;
@@ -23,7 +22,7 @@ final class Apps
     {
     }
 
-    /** @return Schema\InstallationToken */
+    /** @return */
     public function createInstallationAccessToken(array $params): InstallationToken|array
     {
         $arguments = [];
@@ -38,7 +37,7 @@ final class Apps
         return $operator->call($arguments['installation_id'], $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function scopeToken(array $params): Authorization|array
     {
         $arguments = [];
@@ -53,7 +52,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $params);
     }
 
-    /** @return Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function redeliverWebhookDelivery(array $params): Json|array
     {
         $arguments = [];
@@ -68,7 +67,7 @@ final class Apps
         return $operator->call($arguments['delivery_id']);
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function createFromManifest(array $params): Integration|array
     {
         $arguments = [];
@@ -83,7 +82,7 @@ final class Apps
         return $operator->call($arguments['code']);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function checkToken(array $params): Authorization|array
     {
         $arguments = [];
