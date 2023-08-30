@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Dependabot;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\DependabotSecret;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetRepoSecret
     {
     }
 
-    /** @return Schema\DependabotSecret */
+    /** @return */
     public function call(string $owner, string $repo, string $secretName): DependabotSecret|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Dependabot\GetRepoSecret($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $secretName);

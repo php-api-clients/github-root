@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GistComment;
 use ApiClients\Client\GitHubEnterprise\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
@@ -24,7 +23,7 @@ final class Five
     {
     }
 
-    /** @return Schema\GistComment|Schema\OrganizationCustomRepositoryRole|Schema\OrgHook|Schema\OrgPreReceiveHook|Schema\TeamFull|Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse|Schema\TeamDiscussion|Schema\OrgMembership */
+    /** @return |Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse */
     public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrgPreReceiveHook|TeamFull|ProjectCard|GroupResponse|UserResponse|TeamDiscussion|OrgMembership|array
     {
         if ($pathChunks[0] === '') {

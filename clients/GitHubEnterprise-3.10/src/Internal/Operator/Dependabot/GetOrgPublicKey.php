@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Dependabot;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\DependabotPublicKey;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetOrgPublicKey
     {
     }
 
-    /** @return Schema\DependabotPublicKey */
+    /** @return */
     public function call(string $org): DependabotPublicKey|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Dependabot\GetOrgPublicKey($this->responseSchemaValidator, $this->hydrator, $org);
