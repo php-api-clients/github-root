@@ -26,24 +26,21 @@ final class ListProvisionedIdentitiesEnterprise
     private const PATH           = '/scim/v2/Users';
     /**If specified, only results that match the specified filter will be returned. Multiple filters are not supported. Possible filters are `userName`, `externalId`, `id`, and `displayName`. For example, `?filter="externalId eq '9138790-10932-109120392-12321'"`. **/
     private string $filter;
-    /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time. **/
-    private string $excludedAttributes;
     /**Used for pagination: the starting index of the first result to return when paginating through values. **/
     private int $startIndex;
     /**Used for pagination: the number of results to return per page. **/
     private int $count;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Users $hydrator, string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Users $hydrator, string $filter, int $startIndex = 1, int $count = 30)
     {
-        $this->filter             = $filter;
-        $this->excludedAttributes = $excludedAttributes;
-        $this->startIndex         = $startIndex;
-        $this->count              = $count;
+        $this->filter     = $filter;
+        $this->startIndex = $startIndex;
+        $this->count      = $count;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{filter}', '{excludedAttributes}', '{startIndex}', '{count}'], [$this->filter, $this->excludedAttributes, $this->startIndex, $this->count], self::PATH . '?filter={filter}&excludedAttributes={excludedAttributes}&startIndex={startIndex}&count={count}'));
+        return new Request(self::METHOD, str_replace(['{filter}', '{startIndex}', '{count}'], [$this->filter, $this->startIndex, $this->count], self::PATH . '?filter={filter}&startIndex={startIndex}&count={count}'));
     }
 
     /** @return Schema\ScimEnterpriseUserList|array{code: int} */

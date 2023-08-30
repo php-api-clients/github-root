@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\DependabotPublicKey;
 use ApiClients\Client\GitHubEnterprise\Schema\DependabotSecret;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListRepoSecrets\Response\ApplicationJson\Ok;
@@ -24,7 +23,7 @@ final class Dependabot
     {
     }
 
-    /** @return Schema\DependabotPublicKey */
+    /** @return */
     public function getOrgPublicKey(array $params): DependabotPublicKey|array
     {
         $arguments = [];
@@ -39,7 +38,7 @@ final class Dependabot
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\OrganizationDependabotSecret */
+    /** @return */
     public function getOrgSecret(array $params): OrganizationDependabotSecret|array
     {
         $arguments = [];
@@ -60,7 +59,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    /** @return Schema\Operations\Dependabot\ListRepoSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function listRepoSecrets(array $params): Ok|array
     {
         $arguments = [];
@@ -93,7 +92,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -120,7 +119,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Dependabot\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listSelectedReposForOrgSecret(array $params): Json|array
     {
         $arguments = [];
@@ -153,7 +152,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Schema\DependabotPublicKey */
+    /** @return */
     public function getRepoPublicKey(array $params): DependabotPublicKey|array
     {
         $arguments = [];
@@ -174,7 +173,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\DependabotSecret */
+    /** @return */
     public function getRepoSecret(array $params): DependabotSecret|array
     {
         $arguments = [];
