@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DeployKey;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetDeployKey
     {
     }
 
-    /** @return Schema\DeployKey */
+    /** @return */
     public function call(string $owner, string $repo, int $keyId): DeployKey|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\GetDeployKey($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $keyId);

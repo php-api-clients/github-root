@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Oidc;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OidcCustomSub;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetOidcCustomSubTemplateForOrg
     {
     }
 
-    /** @return Schema\OidcCustomSub */
+    /** @return */
     public function call(string $org): OidcCustomSub|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Oidc\GetOidcCustomSubTemplateForOrg($this->responseSchemaValidator, $this->hydrator, $org);

@@ -11495,6 +11495,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts', [
         'owner' => 'generated',
         'repo' => 'generated',
         'run_id' => 6,
+        'name' => 'generated',
         'per_page' => 8,
         'page' => 1,
 ]);
@@ -11505,6 +11506,7 @@ Operations method:
 $client->operations()->actions()->listWorkflowRunArtifacts(        owner: 'generated',
         repo: 'generated',
         run_id: 6,
+        name: 'generated',
         per_page: 8,
         page: 1,
 );
@@ -14328,6 +14330,7 @@ $client->call('GET /repos/{owner}/{repo}/codespaces/machines', [
         'repo' => 'generated',
         'location' => 'generated',
         'client_ip' => 'generated',
+        'ref' => 'generated',
 ]);
 ```
 
@@ -14337,6 +14340,7 @@ $client->operations()->codespaces()->repoMachinesForAuthenticatedUser(        ow
         repo: 'generated',
         location: 'generated',
         client_ip: 'generated',
+        ref: 'generated',
 );
 ```
 
@@ -22883,6 +22887,252 @@ $client->operations()->actions()->updateEnvironmentVariable(        repository_i
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/actions/variables#update-an-environment-variable).
+
+
+### enterprise-admin/list-provisioned-groups-enterprise
+
+List provisioned SCIM groups for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /scim/v2/Groups', [
+        'filter' => 'generated',
+        'excludedAttributes' => 'generated',
+        'startIndex' => 10,
+        'count' => 5,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise(        filter: 'generated',
+        excludedAttributes: 'generated',
+        startIndex: 10,
+        count: 5,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#list-provisioned-scim-groups-for-an-enterprise).
+
+
+### enterprise-admin/provision-enterprise-group
+
+Provision a SCIM enterprise group
+
+Using the `call` method:
+```php
+$client->call('POST /scim/v2/Groups');
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->provisionEnterpriseGroup();
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#provision-a-scim-enterprise-group).
+
+
+### enterprise-admin/get-provisioning-information-for-enterprise-group
+
+Get SCIM provisioning information for an enterprise group
+
+Using the `call` method:
+```php
+$client->call('GET /scim/v2/Groups/{scim_group_id}', [
+        'scim_group_id' => 'generated',
+        'excludedAttributes' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup(        scim_group_id: 'generated',
+        excludedAttributes: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#get-scim-provisioning-information-for-an-enterprise-group).
+
+
+### enterprise-admin/set-information-for-provisioned-enterprise-group
+
+Set SCIM information for a provisioned enterprise group
+
+Using the `call` method:
+```php
+$client->call('PUT /scim/v2/Groups/{scim_group_id}', [
+        'scim_group_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup(        scim_group_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#set-scim-information-for-a-provisioned-enterprise-group).
+
+
+### enterprise-admin/delete-scim-group-from-enterprise
+
+Delete a SCIM group from an enterprise
+
+Using the `call` method:
+```php
+$client->call('DELETE /scim/v2/Groups/{scim_group_id}', [
+        'scim_group_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise(        scim_group_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#delete-a-scim-group-from-an-enterprise).
+
+
+### enterprise-admin/update-attribute-for-enterprise-group
+
+Update an attribute for a SCIM enterprise group
+
+Using the `call` method:
+```php
+$client->call('PATCH /scim/v2/Groups/{scim_group_id}', [
+        'scim_group_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->updateAttributeForEnterpriseGroup(        scim_group_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#update-an-attribute-for-a-scim-enterprise-group).
+
+
+### enterprise-admin/list-provisioned-identities-enterprise
+
+List SCIM provisioned identities for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /scim/v2/Users', [
+        'filter' => 'generated',
+        'startIndex' => 10,
+        'count' => 5,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->listProvisionedIdentitiesEnterprise(        filter: 'generated',
+        startIndex: 10,
+        count: 5,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#list-scim-provisioned-identities-for-an-enterprise).
+
+
+### enterprise-admin/provision-enterprise-user
+
+Provision a SCIM enterprise user
+
+Using the `call` method:
+```php
+$client->call('POST /scim/v2/Users');
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->provisionEnterpriseUser();
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#provision-a-scim-enterprise-user).
+
+
+### enterprise-admin/get-provisioning-information-for-enterprise-user
+
+Get SCIM provisioning information for an enterprise user
+
+Using the `call` method:
+```php
+$client->call('GET /scim/v2/Users/{scim_user_id}', [
+        'scim_user_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser(        scim_user_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#get-scim-provisioning-information-for-an-enterprise-user).
+
+
+### enterprise-admin/set-information-for-provisioned-enterprise-user
+
+Set SCIM information for a provisioned enterprise user
+
+Using the `call` method:
+```php
+$client->call('PUT /scim/v2/Users/{scim_user_id}', [
+        'scim_user_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseUser(        scim_user_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#set-scim-information-for-a-provisioned-enterprise-user).
+
+
+### enterprise-admin/delete-user-from-enterprise
+
+Delete a SCIM user from an enterprise
+
+Using the `call` method:
+```php
+$client->call('DELETE /scim/v2/Users/{scim_user_id}', [
+        'scim_user_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->deleteUserFromEnterprise(        scim_user_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#delete-a-scim-user-from-an-enterprise).
+
+
+### enterprise-admin/update-attribute-for-enterprise-user
+
+Update an attribute for a SCIM enterprise user
+
+Using the `call` method:
+```php
+$client->call('PATCH /scim/v2/Users/{scim_user_id}', [
+        'scim_user_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->updateAttributeForEnterpriseUser(        scim_user_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#update-an-attribute-for-a-scim-enterprise-user).
 
 
 ### scim/list-provisioned-identities

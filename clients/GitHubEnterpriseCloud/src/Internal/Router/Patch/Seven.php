@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitRef;
@@ -27,7 +26,7 @@ final class Seven
     {
     }
 
-    /** @return Schema\TeamDiscussion|Schema\GroupMapping|array{code:int}|Schema\CodeScanningAlert|Schema\DependabotAlert|Schema\GitRef|Schema\WebhookConfig|Schema\PorterAuthor|Schema\IssueComment|Schema\PullRequestReviewComment|Schema\ReleaseAsset|Schema\SecretScanningAlert|Schema\ScimUser|Schema\TeamDiscussionComment */
+    /** @return |array{code:int}|Schema\SecretScanningAlert|Schema\ScimUser */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment|array
     {
         if ($pathChunks[0] === '') {

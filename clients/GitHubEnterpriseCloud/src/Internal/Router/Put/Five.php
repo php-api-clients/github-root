@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Import;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\InteractionLimitResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted;
@@ -17,6 +17,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositorySubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ThreadSubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Topic;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use InvalidArgumentException;
 
 final class Five
@@ -25,8 +26,8 @@ final class Five
     {
     }
 
-    /** @return array{code:int}|Schema\ThreadSubscription|Schema\OrgMembership|Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\RepositoryRuleset|Schema\Import|Schema\InteractionLimitResponse|Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted|Schema\RepositorySubscription|Schema\Topic|Schema\TeamMembership|Schema\EmptyObject */
-    public function call(string $call, array $params, array $pathChunks): ThreadSubscription|OrgMembership|Json|RepositoryRuleset|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|TeamMembership|EmptyObject|array
+    /** @return array{code:int}|Schema\ThreadSubscription||Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\InteractionLimitResponse|Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted|Schema\GroupResponse|Schema\UserResponse|Schema\TeamMembership|Schema\EmptyObject */
+    public function call(string $call, array $params, array $pathChunks): ThreadSubscription|OrgMembership|Json|RepositoryRuleset|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|GroupResponse|UserResponse|TeamMembership|EmptyObject|array
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -157,6 +158,22 @@ final class Five
                         } elseif ($pathChunks[4] === 'vulnerability-alerts') {
                             if ($call === 'PUT /repos/{owner}/{repo}/vulnerability-alerts') {
                                 return $this->routers->internal🔀Router🔀Put🔀Repos()->enableVulnerabilityAlerts($params);
+                            }
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'scim') {
+                if ($pathChunks[2] === 'v2') {
+                    if ($pathChunks[3] === 'Groups') {
+                        if ($pathChunks[4] === '{scim_group_id}') {
+                            if ($call === 'PUT /scim/v2/Groups/{scim_group_id}') {
+                                return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setInformationForProvisionedEnterpriseGroup($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'Users') {
+                        if ($pathChunks[4] === '{scim_user_id}') {
+                            if ($call === 'PUT /scim/v2/Users/{scim_user_id}') {
+                                return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setInformationForProvisionedEnterpriseUser($params);
                             }
                         }
                     }

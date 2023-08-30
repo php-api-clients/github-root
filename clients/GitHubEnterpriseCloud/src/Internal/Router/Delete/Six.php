@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsCacheList;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForTeams\Response\ApplicationJson\Ok;
@@ -18,7 +17,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}|Schema\Operations\Copilot\CancelCopilotSeatAssignmentForTeams\Response\ApplicationJson\Ok|Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok\Application\Json|Schema\ActionsCacheList|Schema\FileCommit */
+    /** @return array{code:int}|Schema\Operations\Copilot\CancelCopilotSeatAssignmentForTeams\Response\ApplicationJson\Ok|Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok\Application\Json| */
     public function call(string $call, array $params, array $pathChunks): Ok|Json|ActionsCacheList|FileCommit|array
     {
         if ($pathChunks[0] === '') {

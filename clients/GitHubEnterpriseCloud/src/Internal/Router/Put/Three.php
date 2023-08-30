@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\InteractionLimitResponse;
 use InvalidArgumentException;
 
@@ -15,7 +14,6 @@ final class Three
     {
     }
 
-    /** @return Schema\InteractionLimitResponse */
     public function call(string $call, array $params, array $pathChunks): InteractionLimitResponse|array
     {
         if ($pathChunks[0] === '') {

@@ -7,11 +7,15 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Runner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseGroupList;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseUserList;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SelectedActions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +29,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<Schema\ServerStatistics> */
+    /** @return Observable<Schema\ServerStatistics> */
     public function getServerStatistics(array $params): iterable
     {
         $arguments = [];
@@ -52,7 +56,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise_or_org'], $arguments['date_start'], $arguments['date_end']);
     }
 
-    /** @return iterable<Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLog(array $params): iterable
     {
         $arguments = [];
@@ -109,7 +113,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['phrase'], $arguments['include'], $arguments['after'], $arguments['before'], $arguments['order'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return string */
+    /** @return */
     public function getConsumedLicenses(array $params): string|array
     {
         $arguments = [];
@@ -136,7 +140,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return string */
+    /** @return */
     public function getLicenseSyncStatus(array $params): string|array
     {
         $arguments = [];
@@ -151,7 +155,67 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\ActionsEnterprisePermissions */
+    /** @return Schema\ScimEnterpriseGroupList|array{code:int} */
+    public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|array
+    {
+        $arguments = [];
+        if (array_key_exists('filter', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: filter');
+        }
+
+        $arguments['filter'] = $params['filter'];
+        unset($params['filter']);
+        if (array_key_exists('excludedAttributes', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: excludedAttributes');
+        }
+
+        $arguments['excludedAttributes'] = $params['excludedAttributes'];
+        unset($params['excludedAttributes']);
+        if (array_key_exists('startIndex', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: startIndex');
+        }
+
+        $arguments['startIndex'] = $params['startIndex'];
+        unset($params['startIndex']);
+        if (array_key_exists('count', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: count');
+        }
+
+        $arguments['count'] = $params['count'];
+        unset($params['count']);
+        $operator = new Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups());
+
+        return $operator->call($arguments['filter'], $arguments['excludedAttributes'], $arguments['startIndex'], $arguments['count']);
+    }
+
+    /** @return Schema\ScimEnterpriseUserList|array{code:int} */
+    public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|array
+    {
+        $arguments = [];
+        if (array_key_exists('filter', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: filter');
+        }
+
+        $arguments['filter'] = $params['filter'];
+        unset($params['filter']);
+        if (array_key_exists('startIndex', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: startIndex');
+        }
+
+        $arguments['startIndex'] = $params['startIndex'];
+        unset($params['startIndex']);
+        if (array_key_exists('count', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: count');
+        }
+
+        $arguments['count'] = $params['count'];
+        unset($params['count']);
+        $operator = new Internal\Operator\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users());
+
+        return $operator->call($arguments['filter'], $arguments['startIndex'], $arguments['count']);
+    }
+
+    /** @return */
     public function getGithubActionsPermissionsEnterprise(array $params): ActionsEnterprisePermissions|array
     {
         $arguments = [];
@@ -166,7 +230,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnerGroupsForEnterprise(array $params): Ok|array
     {
         $arguments = [];
@@ -199,7 +263,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['visible_to_organization'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -226,7 +290,43 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok */
+    /** @return Schema\GroupResponse|array{code:int} */
+    public function getProvisioningInformationForEnterpriseGroup(array $params): GroupResponse|array
+    {
+        $arguments = [];
+        if (array_key_exists('scim_group_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
+        }
+
+        $arguments['scim_group_id'] = $params['scim_group_id'];
+        unset($params['scim_group_id']);
+        if (array_key_exists('excludedAttributes', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: excludedAttributes');
+        }
+
+        $arguments['excludedAttributes'] = $params['excludedAttributes'];
+        unset($params['excludedAttributes']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
+
+        return $operator->call($arguments['scim_group_id'], $arguments['excludedAttributes']);
+    }
+
+    /** @return Schema\UserResponse|array{code:int} */
+    public function getProvisioningInformationForEnterpriseUser(array $params): UserResponse|array
+    {
+        $arguments = [];
+        if (array_key_exists('scim_user_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
+        }
+
+        $arguments['scim_user_id'] = $params['scim_user_id'];
+        unset($params['scim_user_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
+
+        return $operator->call($arguments['scim_user_id']);
+    }
+
+    /** @return */
     public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -253,7 +353,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\SelectedActions */
+    /** @return */
     public function getAllowedActionsEnterprise(array $params): SelectedActions|array
     {
         $arguments = [];
@@ -268,7 +368,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function getSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
         $arguments = [];
@@ -289,7 +389,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    /** @return iterable<Schema\RunnerApplication> */
+    /** @return Observable<Schema\RunnerApplication> */
     public function listRunnerApplicationsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -304,7 +404,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\Runner */
+    /** @return */
     public function getSelfHostedRunnerForEnterprise(array $params): Runner|array
     {
         $arguments = [];
@@ -325,7 +425,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json|array
     {
         $arguments = [];
@@ -358,7 +458,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -391,7 +491,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listLabelsForSelfHostedRunnerForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
     {
         $arguments = [];

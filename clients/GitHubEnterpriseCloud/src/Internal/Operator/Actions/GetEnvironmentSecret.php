@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsSecret;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetEnvironmentSecret
     {
     }
 
-    /** @return Schema\ActionsSecret */
+    /** @return */
     public function call(int $repositoryId, string $environmentName, string $secretName): ActionsSecret|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\GetEnvironmentSecret($this->responseSchemaValidator, $this->hydrator, $repositoryId, $environmentName, $secretName);

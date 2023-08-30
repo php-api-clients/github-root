@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CommitComparison;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CompareCommits
     {
     }
 
-    /** @return Schema\CommitComparison */
+    /** @return */
     public function call(string $owner, string $repo, string $basehead, int $page = 1, int $perPage = 30): CommitComparison|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\CompareCommits($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $basehead, $page, $perPage);

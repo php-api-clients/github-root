@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit;
@@ -19,7 +18,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}|Schema\EmptyObject|Schema\RepositoryInvitation|Schema\FileCommit|Schema\Environment|Schema\RepositoryRuleset */
+    /** @return array{code:int}|Schema\EmptyObject|Schema\RepositoryInvitation| */
     public function call(string $call, array $params, array $pathChunks): EmptyObject|RepositoryInvitation|FileCommit|Environment|RepositoryRuleset|array
     {
         if ($pathChunks[0] === '') {

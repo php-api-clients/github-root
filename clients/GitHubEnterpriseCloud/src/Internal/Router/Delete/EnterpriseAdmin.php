@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -19,6 +18,36 @@ final class EnterpriseAdmin
 {
     public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
     {
+    }
+
+    /** @return array{code:int} */
+    public function deleteScimGroupFromEnterprise(array $params): array
+    {
+        $arguments = [];
+        if (array_key_exists('scim_group_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
+        }
+
+        $arguments['scim_group_id'] = $params['scim_group_id'];
+        unset($params['scim_group_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
+
+        return $operator->call($arguments['scim_group_id']);
+    }
+
+    /** @return array{code:int} */
+    public function deleteUserFromEnterprise(array $params): array
+    {
+        $arguments = [];
+        if (array_key_exists('scim_user_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
+        }
+
+        $arguments['scim_user_id'] = $params['scim_user_id'];
+        unset($params['scim_user_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\DeleteUserFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
+
+        return $operator->call($arguments['scim_user_id']);
     }
 
     /** @return array{code:int} */
@@ -42,7 +71,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params): Json|array
     {
         $arguments = [];
@@ -159,7 +188,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params): Ok|array
     {
         $arguments = [];

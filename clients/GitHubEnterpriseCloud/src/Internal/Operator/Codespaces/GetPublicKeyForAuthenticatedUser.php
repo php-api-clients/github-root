@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Codespaces;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespacesUserPublicKey;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetPublicKeyForAuthenticatedUser
     {
     }
 
-    /** @return Schema\CodespacesUserPublicKey */
+    /** @return */
     public function call(): CodespacesUserPublicKey|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Codespaces\GetPublicKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator);

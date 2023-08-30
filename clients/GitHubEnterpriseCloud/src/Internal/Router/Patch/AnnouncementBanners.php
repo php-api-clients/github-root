@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AnnouncementBanner;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -20,7 +19,7 @@ final class AnnouncementBanners
     {
     }
 
-    /** @return Schema\AnnouncementBanner */
+    /** @return */
     public function setAnnouncementBannerForEnterprise(array $params): AnnouncementBanner|array
     {
         $arguments = [];
@@ -35,7 +34,7 @@ final class AnnouncementBanners
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return Schema\AnnouncementBanner */
+    /** @return */
     public function setAnnouncementBannerForOrg(array $params): AnnouncementBanner|array
     {
         $arguments = [];

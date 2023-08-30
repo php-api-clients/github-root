@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\SecretScanning;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetSecurityAnalysisSettingsForEnterprise
     {
     }
 
-    /** @return Schema\EnterpriseSecurityAnalysisSettings */
+    /** @return */
     public function call(string $enterprise): EnterpriseSecurityAnalysisSettings|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\GetSecurityAnalysisSettingsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

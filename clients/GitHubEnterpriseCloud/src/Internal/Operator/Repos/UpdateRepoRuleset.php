@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class UpdateRepoRuleset
     {
     }
 
-    /** @return Schema\RepositoryRuleset */
+    /** @return */
     public function call(string $owner, string $repo, int $rulesetId, array $params): RepositoryRuleset|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\UpdateRepoRuleset($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $rulesetId);

@@ -24,7 +24,7 @@ final readonly class ListSamlSsoAuthorizationsListing
     {
     }
 
-    /** @return iterable<Schema\CredentialAuthorization> */
+    /** @return Observable<Schema\CredentialAuthorization> */
     public function call(string $org, int $page, string $login, int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\ListSamlSsoAuthorizationsListing($this->responseSchemaValidator, $this->hydrator, $org, $page, $login, $perPage);

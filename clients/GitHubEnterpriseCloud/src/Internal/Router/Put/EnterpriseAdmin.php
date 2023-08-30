@@ -6,7 +6,9 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -33,6 +35,36 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($arguments['enterprise'], $params);
+    }
+
+    /** @return Schema\GroupResponse|array{code:int} */
+    public function setInformationForProvisionedEnterpriseGroup(array $params): GroupResponse|array
+    {
+        $arguments = [];
+        if (array_key_exists('scim_group_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
+        }
+
+        $arguments['scim_group_id'] = $params['scim_group_id'];
+        unset($params['scim_group_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
+
+        return $operator->call($arguments['scim_group_id'], $params);
+    }
+
+    /** @return Schema\UserResponse|array{code:int} */
+    public function setInformationForProvisionedEnterpriseUser(array $params): UserResponse|array
+    {
+        $arguments = [];
+        if (array_key_exists('scim_user_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
+        }
+
+        $arguments['scim_user_id'] = $params['scim_user_id'];
+        unset($params['scim_user_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
+
+        return $operator->call($arguments['scim_user_id'], $params);
     }
 
     /** @return array{code:int} */
@@ -98,7 +130,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function setCustomLabelsForSelfHostedRunnerForEnterprise(array $params): Ok|array
     {
         $arguments = [];

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Dependabot;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotPublicKey;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetRepoPublicKey
     {
     }
 
-    /** @return Schema\DependabotPublicKey */
+    /** @return */
     public function call(string $owner, string $repo): DependabotPublicKey|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Dependabot\GetRepoPublicKey($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

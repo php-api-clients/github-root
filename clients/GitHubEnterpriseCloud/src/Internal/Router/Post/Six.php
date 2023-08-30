@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningSarifsReceipt;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
@@ -34,7 +33,7 @@ final class Six
     {
     }
 
-    /** @return Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created|Schema\AuthenticationToken|array{code:int}|Schema\Operations\Copilot\AddCopilotForBusinessSeatsForTeams\Response\ApplicationJson\Created|Schema\Operations\Copilot\AddCopilotForBusinessSeatsForUsers\Response\ApplicationJson\Created\Application\Json|Schema\TeamDiscussion|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\EmptyObject|Schema\CodeScanningSarifsReceipt|Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|Schema\ShortBlob|Schema\GitCommit|Schema\GitRef|Schema\GitTag|Schema\GitTree|Schema\PageBuildStatus|Schema\PageDeployment|Schema\ReleaseNotesContent|Schema\RepositoryAdvisory|Schema\Status|Schema\TagProtection|Schema\ScimUser|Schema\TeamDiscussionComment|Schema\Reaction */
+    /** @return |array{code:int}|Schema\Operations\Copilot\AddCopilotForBusinessSeatsForTeams\Response\ApplicationJson\Created|Schema\Operations\Copilot\AddCopilotForBusinessSeatsForUsers\Response\ApplicationJson\Created\Application\Json|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt|Schema\ScimUser */
     public function call(string $call, array $params, array $pathChunks): Json|Created|AuthenticationToken|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotForBusinessSeatsForTeams\Response\ApplicationJson\Created|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotForBusinessSeatsForUsers\Response\ApplicationJson\Created\Application\Json|TeamDiscussion|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|RepositoryAdvisory|Status|TagProtection|ScimUser|TeamDiscussionComment|Reaction|array
     {
         if ($pathChunks[0] === '') {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuthenticationToken;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateRegistrationTokenForRepo
     {
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function call(string $owner, string $repo): AuthenticationToken|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\CreateRegistrationTokenForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistSimple;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationFull;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Project;
@@ -18,7 +17,7 @@ final class Three
     {
     }
 
-    /** @return Schema\GistSimple|Schema\OrganizationFull|Schema\Project|array{code:int}|Schema\TeamFull */
+    /** @return |Schema\Project|array{code:int} */
     public function call(string $call, array $params, array $pathChunks): GistSimple|OrganizationFull|Project|TeamFull|array
     {
         if ($pathChunks[0] === '') {

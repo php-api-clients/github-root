@@ -24,7 +24,7 @@ final readonly class GetServerStatistics
     {
     }
 
-    /** @return iterable<Schema\ServerStatistics> */
+    /** @return Observable<Schema\ServerStatistics> */
     public function call(string $enterpriseOrOrg, string $dateStart, string $dateEnd): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetServerStatistics($this->responseSchemaValidator, $this->hydrator, $enterpriseOrOrg, $dateStart, $dateEnd);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AnnouncementBanner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Authorization;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
@@ -21,7 +20,7 @@ final class Four
     {
     }
 
-    /** @return Schema\WebhookConfig|Schema\Authorization|Schema\AnnouncementBanner|array{code:int}|Schema\ProjectColumn|Schema\FullRepository|Schema\BasicError|Schema\Codespace|iterable<Schema\Email> */
+    /** @return |array{code:int}|Schema\ProjectColumn|Observable<Schema\Email> */
     public function call(string $call, array $params, array $pathChunks): WebhookConfig|Authorization|AnnouncementBanner|ProjectColumn|FullRepository|BasicError|Codespace|iterable
     {
         if ($pathChunks[0] === '') {

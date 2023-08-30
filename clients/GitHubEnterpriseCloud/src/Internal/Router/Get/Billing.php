@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CombinedBillingUsage;
@@ -23,7 +22,7 @@ final class Billing
     {
     }
 
-    /** @return Schema\ActionsBillingUsage */
+    /** @return */
     public function getGithubActionsBillingGhe(array $params): ActionsBillingUsage|array
     {
         $arguments = [];
@@ -38,7 +37,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\AdvancedSecurityActiveCommitters */
+    /** @return */
     public function getGithubAdvancedSecurityBillingGhe(array $params): AdvancedSecurityActiveCommitters|array
     {
         $arguments = [];
@@ -65,7 +64,7 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\PackagesBillingUsage */
+    /** @return */
     public function getGithubPackagesBillingGhe(array $params): PackagesBillingUsage|array
     {
         $arguments = [];
@@ -80,7 +79,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\CombinedBillingUsage */
+    /** @return */
     public function getSharedStorageBillingGhe(array $params): CombinedBillingUsage|array
     {
         $arguments = [];
@@ -95,7 +94,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\ActionsBillingUsage */
+    /** @return */
     public function getGithubActionsBillingOrg(array $params): ActionsBillingUsage|array
     {
         $arguments = [];
@@ -110,7 +109,7 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\AdvancedSecurityActiveCommitters */
+    /** @return */
     public function getGithubAdvancedSecurityBillingOrg(array $params): AdvancedSecurityActiveCommitters|array
     {
         $arguments = [];
@@ -137,7 +136,7 @@ final class Billing
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\PackagesBillingUsage */
+    /** @return */
     public function getGithubPackagesBillingOrg(array $params): PackagesBillingUsage|array
     {
         $arguments = [];
@@ -152,7 +151,7 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\CombinedBillingUsage */
+    /** @return */
     public function getSharedStorageBillingOrg(array $params): CombinedBillingUsage|array
     {
         $arguments = [];
@@ -167,7 +166,7 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\ActionsBillingUsage */
+    /** @return */
     public function getGithubActionsBillingUser(array $params): ActionsBillingUsage|array
     {
         $arguments = [];
@@ -182,7 +181,7 @@ final class Billing
         return $operator->call($arguments['username']);
     }
 
-    /** @return Schema\PackagesBillingUsage */
+    /** @return */
     public function getGithubPackagesBillingUser(array $params): PackagesBillingUsage|array
     {
         $arguments = [];
@@ -197,7 +196,7 @@ final class Billing
         return $operator->call($arguments['username']);
     }
 
-    /** @return Schema\CombinedBillingUsage */
+    /** @return */
     public function getSharedStorageBillingUser(array $params): CombinedBillingUsage|array
     {
         $arguments = [];

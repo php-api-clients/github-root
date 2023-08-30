@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Key;
@@ -21,7 +20,7 @@ final class Three
     {
     }
 
-    /** @return string|array{code:int}|Schema\Codespace|iterable<Schema\Email>|Schema\GpgKey|Schema\Key|Schema\Migration|Schema\Project|Schema\Repository|iterable<Schema\SocialAccount>|Schema\SshSigningKey */
+    /** @return string|array{code:int}||Observable<Schema\Email>|Schema\GpgKey|Schema\Key|Schema\Migration|Schema\Project|Schema\Repository|Observable<Schema\SocialAccount>|Schema\SshSigningKey */
     public function call(string $call, array $params, array $pathChunks): string|Codespace|iterable|GpgKey|Key|Migration|Project|Repository|SshSigningKey
     {
         if ($pathChunks[0] === '') {

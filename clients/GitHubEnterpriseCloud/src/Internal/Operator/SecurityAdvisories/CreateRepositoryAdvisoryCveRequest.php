@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\SecurityAdvisories;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateRepositoryAdvisoryCveRequest
     {
     }
 
-    /** @return Schema\Operations\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function call(string $owner, string $repo, string $ghsaId): Json|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecurityAdvisories\CreateRepositoryAdvisoryCveRequest($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ghsaId);

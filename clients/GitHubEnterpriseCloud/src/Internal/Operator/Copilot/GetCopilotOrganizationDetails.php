@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Copilot;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationDetails;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetCopilotOrganizationDetails
     {
     }
 
-    /** @return Schema\CopilotOrganizationDetails */
+    /** @return */
     public function call(string $org): CopilotOrganizationDetails|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Copilot\GetCopilotOrganizationDetails($this->responseSchemaValidator, $this->hydrator, $org);

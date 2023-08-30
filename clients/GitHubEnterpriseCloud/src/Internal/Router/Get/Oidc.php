@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OidcCustomSub;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -20,7 +19,7 @@ final class Oidc
     {
     }
 
-    /** @return Schema\OidcCustomSub */
+    /** @return */
     public function getOidcCustomSubTemplateForOrg(array $params): OidcCustomSub|array
     {
         $arguments = [];
