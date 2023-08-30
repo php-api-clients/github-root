@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\AnnouncementBanners;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AnnouncementBanner;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class SetAnnouncementBannerForOrg
     {
     }
 
-    /** @return Schema\AnnouncementBanner */
+    /** @return */
     public function call(string $org, array $params): AnnouncementBanner|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\AnnouncementBanners\SetAnnouncementBannerForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

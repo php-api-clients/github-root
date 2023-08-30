@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsVariable;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetEnvironmentVariable
     {
     }
 
-    /** @return Schema\ActionsVariable */
+    /** @return */
     public function call(int $repositoryId, string $environmentName, string $name): ActionsVariable|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\GetEnvironmentVariable($this->responseSchemaValidator, $this->hydrator, $repositoryId, $environmentName, $name);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Teams;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateDiscussionLegacy
     {
     }
 
-    /** @return Schema\TeamDiscussion */
+    /** @return */
     public function call(int $teamId, array $params): TeamDiscussion|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Teams\CreateDiscussionLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId);

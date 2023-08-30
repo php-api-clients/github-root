@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\CheckRun;
 use ApiClients\Client\GitHubEnterprise\Schema\CheckSuite;
 use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
@@ -22,7 +21,7 @@ final class Checks
     {
     }
 
-    /** @return Schema\CheckRun */
+    /** @return */
     public function create(array $params): CheckRun|array
     {
         $arguments = [];
@@ -43,7 +42,7 @@ final class Checks
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\CheckSuite */
+    /** @return */
     public function createSuite(array $params): CheckSuite|array
     {
         $arguments = [];
@@ -64,7 +63,7 @@ final class Checks
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\EmptyObject */
+    /** @return */
     public function rerequestRun(array $params): EmptyObject|array
     {
         $arguments = [];
@@ -91,7 +90,7 @@ final class Checks
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['check_run_id']);
     }
 
-    /** @return Schema\EmptyObject */
+    /** @return */
     public function rerequestSuite(array $params): EmptyObject|array
     {
         $arguments = [];

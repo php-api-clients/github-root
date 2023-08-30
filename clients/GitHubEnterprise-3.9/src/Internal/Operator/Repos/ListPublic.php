@@ -24,7 +24,7 @@ final readonly class ListPublic
     {
     }
 
-    /** @return iterable<Schema\MinimalRepository>|array{code:int} */
+    /** @return Observable<Schema\MinimalRepository>|array{code:int} */
     public function call(int $since, string $visibility = 'public'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\ListPublic($this->responseSchemaValidator, $this->hydrator, $since, $visibility);

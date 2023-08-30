@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\Delete\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -146,7 +145,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return Schema\Operations\Orgs\Delete\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function delete(array $params): Json|array
     {
         $arguments = [];
