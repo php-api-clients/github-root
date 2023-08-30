@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class ListJobsForWorkflowRun
     {
     }
 
-    /** @return Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function call(string $owner, string $repo, int $runId, string $filter = 'latest', int $perPage = 30, int $page = 1): Json|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\ListJobsForWorkflowRun($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $runId, $filter, $perPage, $page);

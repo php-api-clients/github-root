@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Authorization;
 use ApiClients\Client\GitHubAE\Schema\BaseGist;
 use ApiClients\Client\GitHubAE\Schema\GistComment;
@@ -25,7 +24,7 @@ final class Four
     {
     }
 
-    /** @return Schema\Integration|Schema\Authorization|Schema\GistComment|array{code:int}|Schema\BaseGist|Schema\OrgHook|Schema\Migration|Schema\Project|Schema\Repository|Schema\TeamFull|Schema\ProjectColumn|Schema\TeamDiscussion */
+    /** @return |Schema\GistComment|array{code:int}|Schema\BaseGist|Schema\ProjectColumn */
     public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|BaseGist|OrgHook|Migration|Project|Repository|TeamFull|ProjectColumn|TeamDiscussion|array
     {
         if ($pathChunks[0] === '') {

@@ -14,7 +14,7 @@ final class Nine
     {
     }
 
-    /** @return array{code:int}|iterable<string>|iterable<Schema\Integration>|iterable<Schema\Team>|iterable<Schema\SimpleUser> */
+    /** @return array{code:int}|Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
         if ($pathChunks[0] === '') {

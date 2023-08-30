@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Git;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GitCommit;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetCommit
     {
     }
 
-    /** @return Schema\GitCommit */
+    /** @return */
     public function call(string $owner, string $repo, string $commitSha): GitCommit|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Git\GetCommit($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $commitSha);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\CodeScanning;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningAlert;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class UpdateAlert
     {
     }
 
-    /** @return Schema\CodeScanningAlert */
+    /** @return */
     public function call(string $owner, string $repo, int $alertNumber, array $params): CodeScanningAlert|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\CodeScanning\UpdateAlert($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $alertNumber);

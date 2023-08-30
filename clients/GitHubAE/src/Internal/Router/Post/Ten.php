@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Reaction;
 use InvalidArgumentException;
 
@@ -15,7 +14,6 @@ final class Ten
     {
     }
 
-    /** @return Schema\Reaction */
     public function call(string $call, array $params, array $pathChunks): Reaction|array
     {
         if ($pathChunks[0] === '') {

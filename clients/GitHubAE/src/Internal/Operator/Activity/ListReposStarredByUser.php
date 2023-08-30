@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Activity;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Repository;
 use ApiClients\Client\GitHubAE\Schema\StarredRepository;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -26,7 +25,7 @@ final readonly class ListReposStarredByUser
     {
     }
 
-    /** @return Schema\StarredRepository|Schema\Repository */
+    /** @return */
     public function call(string $username, string $sort = 'created', string $direction = 'desc', int $perPage = 30, int $page = 1): StarredRepository|Repository|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Activity\ListReposStarredByUser($this->responseSchemaValidator, $this->hydrator, $username, $sort, $direction, $perPage, $page);

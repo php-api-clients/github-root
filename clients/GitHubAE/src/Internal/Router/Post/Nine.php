@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Operations\Repos\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubAE\Schema\PullRequestReview;
 use ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment;
@@ -17,7 +16,7 @@ final class Nine
     {
     }
 
-    /** @return iterable<string>|iterable<Schema\Integration>|iterable<Schema\Team>|iterable<Schema\SimpleUser>|Schema\Operations\Repos\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|Schema\PullRequestReviewComment|Schema\PullRequestReview */
+    /** @return Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>| */
     public function call(string $call, array $params, array $pathChunks): iterable|Json|PullRequestReviewComment|PullRequestReview
     {
         if ($pathChunks[0] === '') {

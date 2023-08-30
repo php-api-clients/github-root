@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisDeletion;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -20,7 +19,7 @@ final class CodeScanning
     {
     }
 
-    /** @return Schema\CodeScanningAnalysisDeletion */
+    /** @return */
     public function deleteAnalysis(array $params): CodeScanningAnalysisDeletion|array
     {
         $arguments = [];

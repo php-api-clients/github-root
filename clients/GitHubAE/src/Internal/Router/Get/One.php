@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Root;
 use InvalidArgumentException;
 
@@ -15,7 +14,6 @@ final class One
     {
     }
 
-    /** @return Schema\Root */
     public function call(string $call, array $params, array $pathChunks): Root|array
     {
         if ($pathChunks[0] === '') {

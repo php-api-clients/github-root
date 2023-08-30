@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Git;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GitTree;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetTree
     {
     }
 
-    /** @return Schema\GitTree */
+    /** @return */
     public function call(string $owner, string $repo, string $treeSha, string $recursive): GitTree|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Git\GetTree($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $treeSha, $recursive);

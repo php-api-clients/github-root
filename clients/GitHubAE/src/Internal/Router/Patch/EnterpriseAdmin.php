@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Announcement;
 use ApiClients\Client\GitHubAE\Schema\GlobalHook2;
 use ApiClients\Client\GitHubAE\Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted;
@@ -24,7 +23,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Schema\GlobalHook2 */
+    /** @return */
     public function updateGlobalWebhook(array $params): GlobalHook2|array
     {
         $arguments = [];
@@ -39,7 +38,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id'], $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted */
+    /** @return */
     public function updateOrgName(array $params): Accepted|array
     {
         $arguments = [];
@@ -54,7 +53,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\PreReceiveEnvironment */
+    /** @return */
     public function updatePreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
         $arguments = [];
@@ -69,7 +68,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id'], $params);
     }
 
-    /** @return Schema\Announcement */
+    /** @return */
     public function setAnnouncement(array $params): Announcement|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\SetAnnouncement($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement());
@@ -77,7 +76,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
         $arguments = [];

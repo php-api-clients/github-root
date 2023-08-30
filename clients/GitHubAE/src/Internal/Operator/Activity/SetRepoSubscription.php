@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Activity;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\RepositorySubscription;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class SetRepoSubscription
     {
     }
 
-    /** @return Schema\RepositorySubscription */
+    /** @return */
     public function call(string $owner, string $repo, array $params): RepositorySubscription|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Activity\SetRepoSubscription($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

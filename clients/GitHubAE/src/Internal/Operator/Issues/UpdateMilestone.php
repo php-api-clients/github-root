@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Issues;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Milestone;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class UpdateMilestone
     {
     }
 
-    /** @return Schema\Milestone */
+    /** @return */
     public function call(string $owner, string $repo, int $milestoneNumber, array $params): Milestone|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Issues\UpdateMilestone($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $milestoneNumber);

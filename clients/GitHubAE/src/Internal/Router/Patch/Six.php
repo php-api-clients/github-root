@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\CheckRun;
 use ApiClients\Client\GitHubAE\Schema\CheckSuitePreference;
@@ -29,7 +28,6 @@ final class Six
     {
     }
 
-    /** @return Schema\RunnerGroupsEnterprise|Schema\RunnerGroupsOrg|Schema\WebhookConfig|Schema\ExternalGroup|Schema\CheckRun|Schema\CheckSuitePreference|Schema\CommitComment|Schema\Hook|Schema\RepositoryInvitation|Schema\Issue|Schema\BasicError|Schema\Label|Schema\Milestone|Schema\PullRequest|Schema\Release */
     public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|CommitComment|Hook|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|array
     {
         if ($pathChunks[0] === '') {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Issues;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\IssueEvent;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetEvent
     {
     }
 
-    /** @return Schema\IssueEvent */
+    /** @return */
     public function call(string $owner, string $repo, int $eventId): IssueEvent|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Issues\GetEvent($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $eventId);

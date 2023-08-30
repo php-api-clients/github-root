@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\SelectedActions;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetAllowedActionsOrganization
     {
     }
 
-    /** @return Schema\SelectedActions */
+    /** @return */
     public function call(string $org): SelectedActions|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\GetAllowedActionsOrganization($this->responseSchemaValidator, $this->hydrator, $org);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\PullRequestReview;
 use ApiClients\Client\GitHubAE\Schema\PullRequestSimple;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -48,7 +47,7 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
-    /** @return Schema\PullRequestSimple */
+    /** @return */
     public function removeRequestedReviewers(array $params): PullRequestSimple|array
     {
         $arguments = [];
@@ -75,7 +74,7 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $params);
     }
 
-    /** @return Schema\PullRequestReview */
+    /** @return */
     public function deletePendingReview(array $params): PullRequestReview|array
     {
         $arguments = [];

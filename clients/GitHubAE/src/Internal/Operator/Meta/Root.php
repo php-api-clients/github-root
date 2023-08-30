@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Meta;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
@@ -24,7 +23,7 @@ final readonly class Root
     {
     }
 
-    /** @return Schema\Root */
+    /** @return */
     public function call(): \ApiClients\Client\GitHubAE\Schema\Root|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Meta\Root($this->responseSchemaValidator, $this->hydrator);

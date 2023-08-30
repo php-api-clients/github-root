@@ -68,7 +68,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\Topic */
+    /** @return */
     public function replaceAllTopics(array $params): Topic|array
     {
         $arguments = [];
@@ -116,7 +116,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username'], $params);
     }
 
-    /** @return Schema\FileCommit */
+    /** @return */
     public function createOrUpdateFileContents(array $params): FileCommit|array
     {
         $arguments = [];
@@ -143,7 +143,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
 
-    /** @return Schema\Environment */
+    /** @return */
     public function createOrUpdateEnvironment(array $params): Environment|array
     {
         $arguments = [];
@@ -170,7 +170,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $params);
     }
 
-    /** @return Schema\ProtectedBranch */
+    /** @return */
     public function updateBranchProtection(array $params): ProtectedBranch|array
     {
         $arguments = [];
@@ -197,7 +197,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Schema\DeploymentBranchPolicy */
+    /** @return */
     public function updateDeploymentBranchPolicy(array $params): DeploymentBranchPolicy|array
     {
         $arguments = [];
@@ -230,7 +230,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id'], $params);
     }
 
-    /** @return iterable<string> */
+    /** @return Observable<string> */
     public function setStatusCheckContexts(array $params): iterable
     {
         $arguments = [];
@@ -257,7 +257,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\Integration> */
+    /** @return Observable<Schema\Integration> */
     public function setAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -284,7 +284,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function setTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -311,7 +311,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function setUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];

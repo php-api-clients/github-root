@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysisDeletion;
 use ApiClients\Client\GitHubAE\Schema\Issue;
@@ -18,7 +17,7 @@ final class Seven
     {
     }
 
-    /** @return array{code:int}|Schema\CodeScanningAnalysisDeletion|Schema\Issue|Schema\BasicError|Schema\PullRequestSimple */
+    /** @return array{code:int}||Schema\BasicError */
     public function call(string $call, array $params, array $pathChunks): CodeScanningAnalysisDeletion|Issue|BasicError|PullRequestSimple|array
     {
         if ($pathChunks[0] === '') {

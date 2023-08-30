@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Migrations;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Migration;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetStatusForOrg
     {
     }
 
-    /** @return Schema\Migration */
+    /** @return */
     public function call(string $org, int $migrationId, array $exclude): Migration|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Migrations\GetStatusForOrg($this->responseSchemaValidator, $this->hydrator, $org, $migrationId, $exclude);

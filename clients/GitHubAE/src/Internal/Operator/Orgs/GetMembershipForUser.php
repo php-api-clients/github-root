@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Orgs;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\OrgMembership;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetMembershipForUser
     {
     }
 
-    /** @return Schema\OrgMembership */
+    /** @return */
     public function call(string $org, string $username): OrgMembership|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Orgs\GetMembershipForUser($this->responseSchemaValidator, $this->hydrator, $org, $username);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Teams;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ExternalGroup;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class LinkExternalIdpGroupToTeamForOrg
     {
     }
 
-    /** @return Schema\ExternalGroup */
+    /** @return */
     public function call(string $org, string $teamSlug, array $params): ExternalGroup|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Teams\LinkExternalIdpGroupToTeamForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

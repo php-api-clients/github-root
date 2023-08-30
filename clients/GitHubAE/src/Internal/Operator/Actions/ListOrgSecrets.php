@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Actions;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class ListOrgSecrets
     {
     }
 
-    /** @return Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function call(string $org, int $perPage = 30, int $page = 1): Ok|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\ListOrgSecrets($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page);

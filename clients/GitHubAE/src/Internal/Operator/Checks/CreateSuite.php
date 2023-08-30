@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Checks;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CheckSuite;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateSuite
     {
     }
 
-    /** @return Schema\CheckSuite */
+    /** @return */
     public function call(string $owner, string $repo, array $params): CheckSuite|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Checks\CreateSuite($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Client\GitHubAE\Schema\RunnerGroupsOrg;
@@ -22,7 +21,7 @@ final class Actions
     {
     }
 
-    /** @return Schema\RunnerGroupsOrg */
+    /** @return */
     public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
     {
         $arguments = [];
@@ -37,7 +36,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRegistrationTokenForOrg(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -52,7 +51,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRemoveTokenForOrg(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -67,7 +66,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\EmptyObject */
+    /** @return */
     public function cancelWorkflowRun(array $params): EmptyObject|array
     {
         $arguments = [];
@@ -94,7 +93,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return Schema\EmptyObject */
+    /** @return */
     public function reRunWorkflow(array $params): EmptyObject|array
     {
         $arguments = [];
@@ -148,7 +147,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $params);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRegistrationTokenForRepo(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -169,7 +168,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRemoveTokenForRepo(array $params): AuthenticationToken|array
     {
         $arguments = [];

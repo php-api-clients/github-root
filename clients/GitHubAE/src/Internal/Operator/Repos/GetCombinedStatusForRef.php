@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CombinedCommitStatus;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetCombinedStatusForRef
     {
     }
 
-    /** @return Schema\CombinedCommitStatus */
+    /** @return */
     public function call(string $owner, string $repo, string $ref, int $perPage = 30, int $page = 1): CombinedCommitStatus|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\GetCombinedStatusForRef($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref, $perPage, $page);

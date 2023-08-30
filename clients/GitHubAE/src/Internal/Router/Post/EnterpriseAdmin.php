@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubAE\Schema\Authorization;
 use ApiClients\Client\GitHubAE\Schema\GlobalHook;
@@ -26,7 +25,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Schema\GlobalHook */
+    /** @return */
     public function createGlobalWebhook(array $params): GlobalHook|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateGlobalWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks());
@@ -34,7 +33,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\OrganizationSimple */
+    /** @return */
     public function createOrg(array $params): OrganizationSimple|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations());
@@ -42,7 +41,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\PreReceiveEnvironment */
+    /** @return */
     public function createPreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreatePreReceiveEnvironment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments());
@@ -65,7 +64,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
-    /** @return Schema\PreReceiveEnvironmentDownloadStatus */
+    /** @return */
     public function startPreReceiveEnvironmentDownload(array $params): PreReceiveEnvironmentDownloadStatus|array
     {
         $arguments = [];
@@ -80,7 +79,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function createImpersonationOAuthToken(array $params): Authorization|array
     {
         $arguments = [];
@@ -95,7 +94,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
         $arguments = [];
@@ -110,7 +109,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -125,7 +124,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRemoveTokenForEnterprise(array $params): AuthenticationToken|array
     {
         $arguments = [];

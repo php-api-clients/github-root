@@ -7297,6 +7297,7 @@ $client->call('GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts', [
         'owner' => 'generated',
         'repo' => 'generated',
         'run_id' => 6,
+        'name' => 'generated',
         'per_page' => 8,
         'page' => 1,
 ]);
@@ -7307,6 +7308,7 @@ Operations method:
 $client->operations()->actions()->listWorkflowRunArtifacts(        owner: 'generated',
         repo: 'generated',
         run_id: 6,
+        name: 'generated',
         per_page: 8,
         page: 1,
 );

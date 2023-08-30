@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\FileCommit;
 use InvalidArgumentException;
 
@@ -15,7 +14,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}|Schema\FileCommit */
+    /** @return array{code:int}| */
     public function call(string $call, array $params, array $pathChunks): FileCommit|array
     {
         if ($pathChunks[0] === '') {

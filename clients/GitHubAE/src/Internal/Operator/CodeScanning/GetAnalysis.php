@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\CodeScanning;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningAnalysis;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetAnalysis
     {
     }
 
-    /** @return Schema\CodeScanningAnalysis */
+    /** @return */
     public function call(string $owner, string $repo, int $analysisId): CodeScanningAnalysis|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\CodeScanning\GetAnalysis($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $analysisId);

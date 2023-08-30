@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ProtectedBranchPullRequestReview;
 use ApiClients\Client\GitHubAE\Schema\StatusCheckPolicy;
 use InvalidArgumentException;
@@ -16,7 +15,6 @@ final class Eight
     {
     }
 
-    /** @return Schema\ProtectedBranchPullRequestReview|Schema\StatusCheckPolicy */
     public function call(string $call, array $params, array $pathChunks): ProtectedBranchPullRequestReview|StatusCheckPolicy|array
     {
         if ($pathChunks[0] === '') {

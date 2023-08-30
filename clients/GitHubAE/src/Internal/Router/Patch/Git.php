@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GitRef;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -20,7 +19,7 @@ final class Git
     {
     }
 
-    /** @return Schema\GitRef */
+    /** @return */
     public function updateRef(array $params): GitRef|array
     {
         $arguments = [];

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Client\GitHubAE\Schema\Environment;
 use ApiClients\Client\GitHubAE\Schema\FileCommit;
@@ -18,7 +17,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}|Schema\EmptyObject|Schema\RepositoryInvitation|Schema\FileCommit|Schema\Environment */
+    /** @return array{code:int}|Schema\EmptyObject|Schema\RepositoryInvitation| */
     public function call(string $call, array $params, array $pathChunks): EmptyObject|RepositoryInvitation|FileCommit|Environment|array
     {
         if ($pathChunks[0] === '') {

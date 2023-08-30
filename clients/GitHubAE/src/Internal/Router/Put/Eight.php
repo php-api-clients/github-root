@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\DeploymentBranchPolicy;
 use ApiClients\Client\GitHubAE\Schema\PullRequestReview;
 use InvalidArgumentException;
@@ -16,7 +15,7 @@ final class Eight
     {
     }
 
-    /** @return array{code:int}|Schema\DeploymentBranchPolicy|Schema\PullRequestReview */
+    /** @return array{code:int}| */
     public function call(string $call, array $params, array $pathChunks): DeploymentBranchPolicy|PullRequestReview|array
     {
         if ($pathChunks[0] === '') {

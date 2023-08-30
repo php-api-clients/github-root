@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Apps;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Integration;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetBySlug
     {
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function call(string $appSlug): Integration|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Apps\GetBySlug($this->responseSchemaValidator, $this->hydrator, $appSlug);
