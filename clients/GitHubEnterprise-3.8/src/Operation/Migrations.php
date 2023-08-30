@@ -14,25 +14,25 @@ final class Migrations
     {
     }
 
-    /** @return iterable<Schema\Migration> */
+    /** @return Observable<Schema\Migration> */
     public function listForOrg(string $org, array $exclude, int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListForOrg()->call($org, $exclude, $perPage, $page);
     }
 
-    /** @return iterable<Schema\Migration> */
+    /** @return Observable<Schema\Migration> */
     public function listForOrgListing(string $org, array $exclude, int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListForOrgListing()->call($org, $exclude, $perPage, $page);
     }
 
-    /** @return Schema\Migration */
+    /** @return */
     public function startForOrg(string $org, array $params): Migration|array
     {
         return $this->operators->migrations👷StartForOrg()->call($org, $params);
     }
 
-    /** @return Schema\Migration */
+    /** @return */
     public function getStatusForOrg(string $org, int $migrationId, array $exclude): Migration|array
     {
         return $this->operators->migrations👷GetStatusForOrg()->call($org, $migrationId, $exclude);
@@ -44,7 +44,7 @@ final class Migrations
         return $this->operators->migrations👷DownloadArchiveForOrg()->call($org, $migrationId);
     }
 
-    /** @return iterable<string> */
+    /** @return Observable<string> */
     public function downloadArchiveForOrgStreaming(string $org, int $migrationId): iterable
     {
         return $this->operators->migrations👷DownloadArchiveForOrgStreaming()->call($org, $migrationId);
@@ -62,25 +62,25 @@ final class Migrations
         return $this->operators->migrations👷UnlockRepoForOrg()->call($org, $migrationId, $repoName);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForOrg(string $org, int $migrationId, int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListReposForOrg()->call($org, $migrationId, $perPage, $page);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForOrgListing(string $org, int $migrationId, int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListReposForOrgListing()->call($org, $migrationId, $perPage, $page);
     }
 
-    /** @return iterable<Schema\Migration>|array{code:int} */
+    /** @return Observable<Schema\Migration>|array{code:int} */
     public function listForAuthenticatedUser(int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListForAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return iterable<Schema\Migration>|array{code:int} */
+    /** @return Observable<Schema\Migration>|array{code:int} */
     public function listForAuthenticatedUserListing(int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListForAuthenticatedUserListing()->call($perPage, $page);
@@ -98,13 +98,13 @@ final class Migrations
         return $this->operators->migrations👷GetArchiveForAuthenticatedUser()->call($migrationId);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForAuthenticatedUser(int $migrationId, int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListReposForAuthenticatedUser()->call($migrationId, $perPage, $page);
     }
 
-    /** @return iterable<Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposForAuthenticatedUserListing(int $migrationId, int $perPage, int $page): iterable
     {
         return $this->operators->migrations👷ListReposForAuthenticatedUserListing()->call($migrationId, $perPage, $page);

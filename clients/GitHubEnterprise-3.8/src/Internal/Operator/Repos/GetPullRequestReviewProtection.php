@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchPullRequestReview;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetPullRequestReviewProtection
     {
     }
 
-    /** @return Schema\ProtectedBranchPullRequestReview */
+    /** @return */
     public function call(string $owner, string $repo, string $branch): ProtectedBranchPullRequestReview|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\GetPullRequestReviewProtection($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $branch);

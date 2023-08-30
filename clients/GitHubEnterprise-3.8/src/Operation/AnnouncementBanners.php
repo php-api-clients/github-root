@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AnnouncementBanner;
 
 final class AnnouncementBanners
@@ -14,7 +13,7 @@ final class AnnouncementBanners
     {
     }
 
-    /** @return Schema\AnnouncementBanner */
+    /** @return */
     public function getAnnouncementBannerForOrg(string $org): AnnouncementBanner|array
     {
         return $this->operators->announcementBanners👷GetAnnouncementBannerForOrg()->call($org);
@@ -26,7 +25,7 @@ final class AnnouncementBanners
         return $this->operators->announcementBanners👷RemoveAnnouncementBannerForOrg()->call($org);
     }
 
-    /** @return Schema\AnnouncementBanner */
+    /** @return */
     public function setAnnouncementBannerForOrg(string $org, array $params): AnnouncementBanner|array
     {
         return $this->operators->announcementBanners👷SetAnnouncementBannerForOrg()->call($org, $params);

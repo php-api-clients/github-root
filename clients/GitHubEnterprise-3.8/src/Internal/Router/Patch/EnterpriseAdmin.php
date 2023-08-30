@@ -32,7 +32,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Schema\GlobalHook2 */
+    /** @return */
     public function updateGlobalWebhook(array $params): GlobalHook2|array
     {
         $arguments = [];
@@ -47,7 +47,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id'], $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted */
+    /** @return */
     public function updateOrgName(array $params): Accepted|array
     {
         $arguments = [];
@@ -62,7 +62,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\PreReceiveEnvironment */
+    /** @return */
     public function updatePreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
         $arguments = [];
@@ -77,7 +77,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id'], $params);
     }
 
-    /** @return Schema\PreReceiveHook */
+    /** @return */
     public function updatePreReceiveHook(array $params): PreReceiveHook|array
     {
         $arguments = [];
@@ -92,7 +92,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_hook_id'], $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\UpdateUsernameForUser\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function updateUsernameForUser(array $params): Json|array
     {
         $arguments = [];
@@ -107,7 +107,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return Schema\LdapMappingTeam */
+    /** @return */
     public function updateLdapMappingForTeam(array $params): LdapMappingTeam|array
     {
         $arguments = [];
@@ -122,7 +122,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['team_id'], $params);
     }
 
-    /** @return Schema\LdapMappingUser */
+    /** @return */
     public function updateLdapMappingForUser(array $params): LdapMappingUser|array
     {
         $arguments = [];
@@ -137,7 +137,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
         $arguments = [];
@@ -158,7 +158,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return Schema\RepositoryPreReceiveHook */
+    /** @return */
     public function updatePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook|array
     {
         $arguments = [];
@@ -185,7 +185,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id'], $params);
     }
 
-    /** @return Schema\Announcement */
+    /** @return */
     public function setAnnouncement(array $params): Announcement|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\SetAnnouncement($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement());
@@ -193,7 +193,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\OrgPreReceiveHook */
+    /** @return */
     public function updatePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook|array
     {
         $arguments = [];
