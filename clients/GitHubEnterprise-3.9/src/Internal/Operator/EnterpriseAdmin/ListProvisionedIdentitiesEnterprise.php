@@ -26,9 +26,9 @@ final readonly class ListProvisionedIdentitiesEnterprise
     }
 
     /** @return Schema\ScimEnterpriseUserList|array{code:int} */
-    public function call(string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30): ScimEnterpriseUserList|array
+    public function call(string $filter, int $startIndex = 1, int $count = 30): ScimEnterpriseUserList|array
     {
-        $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->responseSchemaValidator, $this->hydrator, $filter, $excludedAttributes, $startIndex, $count);
+        $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->responseSchemaValidator, $this->hydrator, $filter, $startIndex, $count);
         $request   = $operation->createRequest();
         $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ScimEnterpriseUserList|array {
             return $operation->createResponse($response);

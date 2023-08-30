@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequest;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -21,7 +20,7 @@ final class Pulls
     {
     }
 
-    /** @return Schema\PullRequest */
+    /** @return */
     public function update(array $params): PullRequest|array
     {
         $arguments = [];
@@ -48,7 +47,7 @@ final class Pulls
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pull_number'], $params);
     }
 
-    /** @return Schema\PullRequestReviewComment */
+    /** @return */
     public function updateReviewComment(array $params): PullRequestReviewComment|array
     {
         $arguments = [];

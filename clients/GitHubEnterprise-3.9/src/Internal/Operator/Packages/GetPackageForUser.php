@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Packages;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Package;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetPackageForUser
     {
     }
 
-    /** @return Schema\Package */
+    /** @return */
     public function call(string $packageType, string $packageName, string $username): Package|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Packages\GetPackageForUser($this->responseSchemaValidator, $this->hydrator, $packageType, $packageName, $username);

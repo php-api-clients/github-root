@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull;
 use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
@@ -24,7 +23,7 @@ final class Orgs
     {
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function updateWebhookConfigForOrg(array $params): WebhookConfig|array
     {
         $arguments = [];
@@ -45,7 +44,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
-    /** @return Schema\OrganizationFull */
+    /** @return */
     public function update(array $params): OrganizationFull|array
     {
         $arguments = [];
@@ -60,7 +59,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\OrganizationCustomRepositoryRole */
+    /** @return */
     public function updateCustomRepoRole(array $params): OrganizationCustomRepositoryRole|array
     {
         $arguments = [];
@@ -81,7 +80,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id'], $params);
     }
 
-    /** @return Schema\OrgHook */
+    /** @return */
     public function updateWebhook(array $params): OrgHook|array
     {
         $arguments = [];
@@ -102,7 +101,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
-    /** @return Schema\OrgMembership */
+    /** @return */
     public function updateMembershipForAuthenticatedUser(array $params): OrgMembership|array
     {
         $arguments = [];

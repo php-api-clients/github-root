@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ExternalGroup;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment;
@@ -23,7 +22,7 @@ final class Teams
     {
     }
 
-    /** @return Schema\ExternalGroup */
+    /** @return */
     public function linkExternalIdpGroupToTeamForOrg(array $params): ExternalGroup|array
     {
         $arguments = [];
@@ -44,7 +43,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $params);
     }
 
-    /** @return Schema\TeamFull */
+    /** @return */
     public function updateLegacy(array $params): TeamFull|array
     {
         $arguments = [];
@@ -59,7 +58,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $params);
     }
 
-    /** @return Schema\TeamFull */
+    /** @return */
     public function updateInOrg(array $params): TeamFull|array
     {
         $arguments = [];
@@ -80,7 +79,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $params);
     }
 
-    /** @return Schema\TeamDiscussion */
+    /** @return */
     public function updateDiscussionLegacy(array $params): TeamDiscussion|array
     {
         $arguments = [];
@@ -101,7 +100,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $params);
     }
 
-    /** @return Schema\TeamDiscussion */
+    /** @return */
     public function updateDiscussionInOrg(array $params): TeamDiscussion|array
     {
         $arguments = [];
@@ -128,7 +127,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $params);
     }
 
-    /** @return Schema\TeamDiscussionComment */
+    /** @return */
     public function updateDiscussionCommentLegacy(array $params): TeamDiscussionComment|array
     {
         $arguments = [];
@@ -155,7 +154,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number'], $params);
     }
 
-    /** @return Schema\TeamDiscussionComment */
+    /** @return */
     public function updateDiscussionCommentInOrg(array $params): TeamDiscussionComment|array
     {
         $arguments = [];

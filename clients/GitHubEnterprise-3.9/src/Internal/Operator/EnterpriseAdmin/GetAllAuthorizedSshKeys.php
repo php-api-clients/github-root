@@ -24,7 +24,7 @@ final readonly class GetAllAuthorizedSshKeys
     {
     }
 
-    /** @return iterable<Schema\SshKey>|array{code:int} */
+    /** @return Observable<Schema\SshKey>|array{code:int} */
     public function call(): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetAllAuthorizedSshKeys($this->responseSchemaValidator, $this->hydrator);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\CodeScanning;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningDefaultSetup;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetDefaultSetup
     {
     }
 
-    /** @return Schema\CodeScanningDefaultSetup */
+    /** @return */
     public function call(string $owner, string $repo): CodeScanningDefaultSetup|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\CodeScanning\GetDefaultSetup($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

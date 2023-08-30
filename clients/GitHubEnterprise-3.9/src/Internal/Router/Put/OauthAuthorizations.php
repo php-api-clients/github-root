@@ -20,7 +20,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function getOrCreateAuthorizationForAppAndFingerprint(array $params): Authorization|array
     {
         $arguments = [];
