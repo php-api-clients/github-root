@@ -23,7 +23,7 @@ final readonly class DownloadArchiveForOrgStreaming
     {
     }
 
-    /** @return iterable<string> */
+    /** @return Observable<string> */
     public function call(string $org, int $migrationId): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Migrations\DownloadArchiveForOrgStreaming($this->responseSchemaValidator, $this->hydrator, $this->browser, $org, $migrationId);

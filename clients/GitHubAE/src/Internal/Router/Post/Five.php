@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Authorization;
 use ApiClients\Client\GitHubAE\Schema\Autolink;
 use ApiClients\Client\GitHubAE\Schema\CheckRun;
@@ -39,7 +38,7 @@ final class Five
     {
     }
 
-    /** @return array{code:int}|Schema\PreReceiveEnvironmentDownloadStatus|Schema\Authorization|Schema\InstallationToken|Schema\RunnerGroupsEnterprise|Schema\RunnerGroupsOrg|Schema\ProjectCard|Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json|Schema\Autolink|Schema\CheckRun|Schema\CheckSuite|Schema\Deployment|Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|Schema\FullRepository|Schema\Hook|Schema\Issue|Schema\DeployKey|Schema\Label|Schema\MergedUpstream|Schema\Commit|Schema\Milestone|Schema\Page|Schema\Project|Schema\PullRequest|Schema\Release|Schema\MinimalRepository|Schema\Repository */
+    /** @return array{code:int}||Schema\ProjectCard|Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json|Schema\Deployment|Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|Schema\MergedUpstream|Schema\Commit|Schema\Repository */
     public function call(string $call, array $params, array $pathChunks): PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|RunnerGroupsOrg|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubAE\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|MinimalRepository|Repository|array
     {
         if ($pathChunks[0] === '') {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Git;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GitTag;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetTag
     {
     }
 
-    /** @return Schema\GitTag */
+    /** @return */
     public function call(string $owner, string $repo, string $tagSha): GitTag|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Git\GetTag($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $tagSha);

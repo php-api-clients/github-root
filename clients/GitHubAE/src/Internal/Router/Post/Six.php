@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningSarifsReceipt;
 use ApiClients\Client\GitHubAE\Schema\GitCommit;
@@ -26,7 +25,7 @@ final class Six
     {
     }
 
-    /** @return Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|Schema\AuthenticationToken|array{code:int}|Schema\TeamDiscussion|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt|Schema\ShortBlob|Schema\GitCommit|Schema\GitRef|Schema\GitTag|Schema\GitTree|Schema\PageBuildStatus|Schema\Status|Schema\TeamDiscussionComment */
+    /** @return |array{code:int}|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt */
     public function call(string $call, array $params, array $pathChunks): Json|AuthenticationToken|TeamDiscussion|\ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|CodeScanningSarifsReceipt|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|Status|TeamDiscussionComment|array
     {
         if ($pathChunks[0] === '') {

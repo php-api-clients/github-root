@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningAlert;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -20,7 +19,7 @@ final class CodeScanning
     {
     }
 
-    /** @return Schema\CodeScanningAlert */
+    /** @return */
     public function updateAlert(array $params): CodeScanningAlert|array
     {
         $arguments = [];

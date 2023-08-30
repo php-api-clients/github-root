@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubAE\Schema\OrgMembership;
 use ApiClients\Client\GitHubAE\Schema\RepositorySubscription;
@@ -20,7 +19,7 @@ final class Five
     {
     }
 
-    /** @return array{code:int}|Schema\ThreadSubscription|Schema\OrgMembership|Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|Schema\RepositorySubscription|Schema\Topic|Schema\TeamMembership */
+    /** @return array{code:int}|Schema\ThreadSubscription||Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|Schema\TeamMembership */
     public function call(string $call, array $params, array $pathChunks): ThreadSubscription|OrgMembership|Json|\ApiClients\Client\GitHubAE\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|\ApiClients\Client\GitHubAE\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|RepositorySubscription|Topic|TeamMembership|array
     {
         if ($pathChunks[0] === '') {

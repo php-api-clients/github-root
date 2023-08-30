@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubAE\Schema\OrgHook;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -21,7 +20,7 @@ final class Orgs
     {
     }
 
-    /** @return Schema\OrgHook */
+    /** @return */
     public function createWebhook(array $params): OrgHook|array
     {
         $arguments = [];
@@ -57,7 +56,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    /** @return Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function redeliverWebhookDelivery(array $params): Json|array
     {
         $arguments = [];

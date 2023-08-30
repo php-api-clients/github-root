@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CommitComment;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class UpdateCommitComment
     {
     }
 
-    /** @return Schema\CommitComment */
+    /** @return */
     public function call(string $owner, string $repo, int $commentId, array $params): CommitComment|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\UpdateCommitComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $commentId);

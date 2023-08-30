@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GitCommit;
 use ApiClients\Client\GitHubAE\Schema\GitRef;
 use ApiClients\Client\GitHubAE\Schema\GitTag;
@@ -24,7 +23,7 @@ final class Git
     {
     }
 
-    /** @return Schema\ShortBlob */
+    /** @return */
     public function createBlob(array $params): ShortBlob|array
     {
         $arguments = [];
@@ -45,7 +44,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\GitCommit */
+    /** @return */
     public function createCommit(array $params): GitCommit|array
     {
         $arguments = [];
@@ -66,7 +65,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\GitRef */
+    /** @return */
     public function createRef(array $params): GitRef|array
     {
         $arguments = [];
@@ -87,7 +86,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\GitTag */
+    /** @return */
     public function createTag(array $params): GitTag|array
     {
         $arguments = [];
@@ -108,7 +107,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\GitTree */
+    /** @return */
     public function createTree(array $params): GitTree|array
     {
         $arguments = [];

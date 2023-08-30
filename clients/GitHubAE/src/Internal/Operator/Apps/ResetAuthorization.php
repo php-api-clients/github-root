@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Apps;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Authorization;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class ResetAuthorization
     {
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function call(string $clientId, string $accessToken): Authorization|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Apps\ResetAuthorization($this->responseSchemaValidator, $this->hydrator, $clientId, $accessToken);

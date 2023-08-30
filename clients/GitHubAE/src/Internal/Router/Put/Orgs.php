@@ -21,7 +21,7 @@ final class Orgs
     {
     }
 
-    /** @return Schema\OrgMembership */
+    /** @return */
     public function setMembershipForUser(array $params): OrgMembership|array
     {
         $arguments = [];

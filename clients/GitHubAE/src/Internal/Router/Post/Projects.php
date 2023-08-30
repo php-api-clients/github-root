@@ -61,7 +61,7 @@ final class Projects
         return $operator->call($arguments['column_id'], $params);
     }
 
-    /** @return Schema\Project */
+    /** @return */
     public function createForRepo(array $params): Project|array
     {
         $arguments = [];
@@ -82,7 +82,7 @@ final class Projects
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\Project */
+    /** @return */
     public function createForOrg(array $params): Project|array
     {
         $arguments = [];

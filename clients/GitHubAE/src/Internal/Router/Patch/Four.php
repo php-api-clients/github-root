@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Authorization;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\FullRepository;
@@ -22,7 +21,7 @@ final class Four
     {
     }
 
-    /** @return Schema\GlobalHook2|Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted|Schema\PreReceiveEnvironment|Schema\WebhookConfig|Schema\Authorization|array{code:int}|Schema\ProjectColumn|Schema\FullRepository|Schema\BasicError */
+    /** @return |array{code:int}|Schema\ProjectColumn */
     public function call(string $call, array $params, array $pathChunks): GlobalHook2|Accepted|PreReceiveEnvironment|WebhookConfig|Authorization|ProjectColumn|FullRepository|BasicError|array
     {
         if ($pathChunks[0] === '') {

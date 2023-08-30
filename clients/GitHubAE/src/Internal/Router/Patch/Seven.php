@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningAlert;
 use ApiClients\Client\GitHubAE\Schema\GitRef;
 use ApiClients\Client\GitHubAE\Schema\IssueComment;
@@ -23,7 +22,7 @@ final class Seven
     {
     }
 
-    /** @return Schema\TeamDiscussion|Schema\CodeScanningAlert|Schema\GitRef|Schema\WebhookConfig|Schema\IssueComment|Schema\PullRequestReviewComment|Schema\ReleaseAsset|Schema\SecretScanningAlert|array{code:int}|Schema\TeamDiscussionComment */
+    /** @return |Schema\SecretScanningAlert|array{code:int} */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|CodeScanningAlert|GitRef|WebhookConfig|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|TeamDiscussionComment|array
     {
         if ($pathChunks[0] === '') {

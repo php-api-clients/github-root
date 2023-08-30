@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Git;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GitRef;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetRef
     {
     }
 
-    /** @return Schema\GitRef */
+    /** @return */
     public function call(string $owner, string $repo, string $ref): GitRef|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Git\GetRef($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref);

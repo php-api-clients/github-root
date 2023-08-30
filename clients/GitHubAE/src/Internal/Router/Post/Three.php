@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GlobalHook;
 use ApiClients\Client\GitHubAE\Schema\GpgKey;
 use ApiClients\Client\GitHubAE\Schema\Key;
@@ -22,7 +21,7 @@ final class Three
     {
     }
 
-    /** @return Schema\GlobalHook|Schema\OrganizationSimple|Schema\PreReceiveEnvironment|string|array{code:int}|Schema\GpgKey|Schema\Key|Schema\Migration|Schema\Project|Schema\Repository */
+    /** @return |string|array{code:int}|Schema\GpgKey|Schema\Key|Schema\Migration|Schema\Project|Schema\Repository */
     public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|string|GpgKey|Key|Migration|Project|Repository|array
     {
         if ($pathChunks[0] === '') {

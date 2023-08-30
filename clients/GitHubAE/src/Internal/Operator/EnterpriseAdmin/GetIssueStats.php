@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\EnterpriseIssueOverview;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetIssueStats
     {
     }
 
-    /** @return Schema\EnterpriseIssueOverview */
+    /** @return */
     public function call(): EnterpriseIssueOverview|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetIssueStats($this->responseSchemaValidator, $this->hydrator);

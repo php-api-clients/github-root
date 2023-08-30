@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ApiOverview;
 use ApiClients\Client\GitHubAE\Schema\Feed;
 use ApiClients\Client\GitHubAE\Schema\Integration;
@@ -22,7 +21,7 @@ final class Two
     {
     }
 
-    /** @return Schema\Integration|iterable<Schema\CodeOfConduct>|array{code:int}|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok\Application\Json|Schema\Feed|iterable<Schema\BaseGist>|iterable<Schema\Issue>|iterable<Schema\LicenseSimple>|Schema\ApiOverview|iterable<Schema\Thread>|ResponseInterface|iterable<Schema\OrganizationSimple>|Schema\RateLimitOverview|Schema\PrivateUser|Schema\PublicUser|iterable<Schema\SimpleUser>|string */
+    /** @return |Observable<Schema\CodeOfConduct>|array{code:int}|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok\Application\Json|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Schema\ApiOverview|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Schema\RateLimitOverview|Schema\PrivateUser|Schema\PublicUser|Observable<Schema\SimpleUser> */
     public function call(string $call, array $params, array $pathChunks): Integration|iterable|Json|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
     {
         if ($pathChunks[0] === '') {

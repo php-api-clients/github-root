@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\PullRequestReview;
 use InvalidArgumentException;
@@ -16,7 +15,7 @@ final class Eight
     {
     }
 
-    /** @return array{code:int}|iterable<Schema\Label>|Schema\BasicError|Schema\PullRequestReview */
+    /** @return array{code:int}|Observable<Schema\Label>|Schema\BasicError| */
     public function call(string $call, array $params, array $pathChunks): iterable|BasicError|PullRequestReview
     {
         if ($pathChunks[0] === '') {

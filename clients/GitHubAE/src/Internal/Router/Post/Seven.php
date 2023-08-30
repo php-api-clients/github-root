@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\CommitComment;
@@ -27,7 +26,7 @@ final class Seven
     {
     }
 
-    /** @return Schema\AuthenticationToken|Schema\EmptyObject|Schema\Reaction|Schema\CommitComment|Schema\DeploymentStatus|Schema\DeploymentBranchPolicy|array{code:int}|Schema\Issue|Schema\IssueComment|iterable<Schema\Label>|Schema\BasicError|Schema\PullRequestReviewComment|Schema\PullRequestSimple|Schema\PullRequestReview|Schema\ReleaseAsset */
+    /** @return |Schema\DeploymentBranchPolicy|array{code:int}|Observable<Schema\Label>|Schema\BasicError|Schema\PullRequestSimple|Schema\ReleaseAsset */
     public function call(string $call, array $params, array $pathChunks): AuthenticationToken|EmptyObject|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|Issue|IssueComment|iterable|BasicError|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
     {
         if ($pathChunks[0] === '') {

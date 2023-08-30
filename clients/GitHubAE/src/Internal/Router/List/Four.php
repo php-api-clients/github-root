@@ -14,7 +14,7 @@ final class Four
     {
     }
 
-    /** @return iterable<Schema\AuditLogEvent>|iterable<Schema\GistComment>|array{code:int}|iterable<Schema\GistCommit>|iterable<Schema\GistSimple>|iterable<Schema\OrgHook>|iterable<Schema\Issue>|iterable<Schema\SimpleUser>|iterable<Schema\Migration>|iterable<Schema\Project>|iterable<Schema\MinimalRepository>|iterable<Schema\Team>|iterable<Schema\ProjectColumn>|iterable<Schema\TeamDiscussion>|iterable<Schema\TeamProject>|iterable<Schema\OrgMembership>|iterable<Schema\Event>|iterable<Schema\BaseGist>|iterable<Schema\GpgKey>|iterable<Schema\KeySimple>|iterable<Schema\OrganizationSimple> */
+    /** @return Observable<Schema\AuditLogEvent>|Observable<Schema\GistComment>|array{code:int}|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\SimpleUser>|Observable<Schema\Migration>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|Observable<Schema\ProjectColumn>|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Observable<Schema\OrgMembership>|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
         if ($pathChunks[0] === '') {

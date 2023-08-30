@@ -24,7 +24,7 @@ final readonly class ListRunnerApplicationsForEnterprise
     {
     }
 
-    /** @return iterable<Schema\RunnerApplication> */
+    /** @return Observable<Schema\RunnerApplication> */
     public function call(string $enterprise): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\ListRunnerApplicationsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

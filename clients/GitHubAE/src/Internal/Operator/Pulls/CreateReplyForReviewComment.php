@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Pulls;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateReplyForReviewComment
     {
     }
 
-    /** @return Schema\PullRequestReviewComment */
+    /** @return */
     public function call(string $owner, string $repo, int $pullNumber, int $commentId, array $params): PullRequestReviewComment|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Pulls\CreateReplyForReviewComment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $pullNumber, $commentId);

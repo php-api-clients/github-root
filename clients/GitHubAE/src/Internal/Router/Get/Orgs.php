@@ -25,7 +25,7 @@ final class Orgs
     {
     }
 
-    /** @return Schema\OrganizationFull */
+    /** @return */
     public function get(array $params): OrganizationFull|array
     {
         $arguments = [];
@@ -40,7 +40,7 @@ final class Orgs
         return $operator->call($arguments['org']);
     }
 
-    /** @return iterable<Schema\OrganizationSimple>|array{code:int} */
+    /** @return Observable<Schema\OrganizationSimple>|array{code:int} */
     public function listForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -61,7 +61,7 @@ final class Orgs
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLog(array $params): iterable
     {
         $arguments = [];
@@ -112,7 +112,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['phrase'], $arguments['after'], $arguments['before'], $arguments['order'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\OrgHook> */
+    /** @return Observable<Schema\OrgHook> */
     public function listWebhooks(array $params): iterable
     {
         $arguments = [];
@@ -139,7 +139,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok */
+    /** @return */
     public function listAppInstallations(array $params): Ok|array
     {
         $arguments = [];
@@ -166,7 +166,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembers(array $params): iterable
     {
         $arguments = [];
@@ -205,7 +205,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listOutsideCollaborators(array $params): iterable
     {
         $arguments = [];
@@ -238,7 +238,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\OrgMembership>|array{code:int} */
+    /** @return Observable<Schema\OrgMembership>|array{code:int} */
     public function listMembershipsForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -265,7 +265,7 @@ final class Orgs
         return $operator->call($arguments['state'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\OrganizationSimple> */
+    /** @return Observable<Schema\OrganizationSimple> */
     public function listForUser(array $params): iterable
     {
         $arguments = [];
@@ -292,7 +292,7 @@ final class Orgs
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function getWebhookConfigForOrg(array $params): WebhookConfig|array
     {
         $arguments = [];
@@ -313,7 +313,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    /** @return iterable<Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -352,7 +352,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $arguments['cursor'], $arguments['redelivery'], $arguments['per_page']);
     }
 
-    /** @return iterable<Schema\OrganizationSimple>|array{code:int} */
+    /** @return Observable<Schema\OrganizationSimple>|array{code:int} */
     public function list(array $params): iterable
     {
         $arguments = [];
@@ -373,7 +373,7 @@ final class Orgs
         return $operator->call($arguments['since'], $arguments['per_page']);
     }
 
-    /** @return Schema\OrgHook */
+    /** @return */
     public function getWebhook(array $params): OrgHook|array
     {
         $arguments = [];
@@ -415,7 +415,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return Schema\OrgMembership */
+    /** @return */
     public function getMembershipForUser(array $params): OrgMembership|array
     {
         $arguments = [];
@@ -436,7 +436,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return Schema\OrgMembership */
+    /** @return */
     public function getMembershipForAuthenticatedUser(array $params): OrgMembership|array
     {
         $arguments = [];
@@ -451,7 +451,7 @@ final class Orgs
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\HookDelivery */
+    /** @return */
     public function getWebhookDelivery(array $params): HookDelivery|array
     {
         $arguments = [];

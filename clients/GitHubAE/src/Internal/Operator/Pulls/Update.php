@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Pulls;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\PullRequest;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class Update
     {
     }
 
-    /** @return Schema\PullRequest */
+    /** @return */
     public function call(string $owner, string $repo, int $pullNumber, array $params): PullRequest|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Pulls\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $pullNumber);

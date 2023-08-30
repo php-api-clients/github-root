@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Gists;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\GistSimple;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class Update
     {
     }
 
-    /** @return Schema\GistSimple */
+    /** @return */
     public function call(string $gistId, array $params): GistSimple|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Gists\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $gistId);

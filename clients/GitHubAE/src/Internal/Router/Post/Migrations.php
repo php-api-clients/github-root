@@ -28,7 +28,7 @@ final class Migrations
         return $operator->call($params);
     }
 
-    /** @return Schema\Migration */
+    /** @return */
     public function startForOrg(array $params): Migration|array
     {
         $arguments = [];

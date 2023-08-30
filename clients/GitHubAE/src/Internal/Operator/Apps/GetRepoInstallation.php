@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Apps;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\Installation;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -26,7 +25,7 @@ final readonly class GetRepoInstallation
     {
     }
 
-    /** @return Schema\Installation|Schema\BasicError */
+    /** @return */
     public function call(string $owner, string $repo): Installation|BasicError|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Apps\GetRepoInstallation($this->responseSchemaValidator, $this->hydrator, $owner, $repo);
