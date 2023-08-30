@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterprise\Schema\OidcCustomSub;
 
@@ -15,13 +14,13 @@ final class Oidc
     {
     }
 
-    /** @return Schema\OidcCustomSub */
+    /** @return */
     public function getOidcCustomSubTemplateForOrg(string $org): OidcCustomSub|array
     {
         return $this->operators->oidc👷GetOidcCustomSubTemplateForOrg()->call($org);
     }
 
-    /** @return Schema\EmptyObject */
+    /** @return */
     public function updateOidcCustomSubTemplateForOrg(string $org, array $params): EmptyObject|array
     {
         return $this->operators->oidc👷UpdateOidcCustomSubTemplateForOrg()->call($org, $params);
