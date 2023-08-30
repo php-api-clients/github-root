@@ -25,7 +25,7 @@ final class Users
     {
     }
 
-    /** @return iterable<Schema\Email>|array{code:int} */
+    /** @return Observable<Schema\Email>|array{code:int} */
     public function listEmailsForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -46,7 +46,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser>|array{code:int} */
+    /** @return Observable<Schema\SimpleUser>|array{code:int} */
     public function listFollowersForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -67,7 +67,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser>|array{code:int} */
+    /** @return Observable<Schema\SimpleUser>|array{code:int} */
     public function listFollowedByAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -88,7 +88,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\GpgKey>|array{code:int} */
+    /** @return Observable<Schema\GpgKey>|array{code:int} */
     public function listGpgKeysForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -109,7 +109,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Key>|array{code:int} */
+    /** @return Observable<Schema\Key>|array{code:int} */
     public function listPublicSshKeysForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -130,7 +130,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Email>|array{code:int} */
+    /** @return Observable<Schema\Email>|array{code:int} */
     public function listPublicEmailsForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -151,7 +151,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SocialAccount>|array{code:int} */
+    /** @return Observable<Schema\SocialAccount>|array{code:int} */
     public function listSocialAccountsForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -172,7 +172,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SshSigningKey>|array{code:int} */
+    /** @return Observable<Schema\SshSigningKey>|array{code:int} */
     public function listSshSigningKeysForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -193,7 +193,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\PrivateUser|Schema\PublicUser */
+    /** @return */
     public function getByUsername(array $params): PrivateUser|PublicUser|array
     {
         $arguments = [];
@@ -268,7 +268,7 @@ final class Users
         return $operator->call($arguments['ssh_signing_key_id']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowersForUser(array $params): iterable
     {
         $arguments = [];
@@ -295,7 +295,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowingForUser(array $params): iterable
     {
         $arguments = [];
@@ -322,7 +322,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\GpgKey> */
+    /** @return Observable<Schema\GpgKey> */
     public function listGpgKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -349,7 +349,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Hovercard */
+    /** @return */
     public function getContextForUser(array $params): Hovercard|array
     {
         $arguments = [];
@@ -376,7 +376,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
     }
 
-    /** @return iterable<Schema\KeySimple> */
+    /** @return Observable<Schema\KeySimple> */
     public function listPublicKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -403,7 +403,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SocialAccount> */
+    /** @return Observable<Schema\SocialAccount> */
     public function listSocialAccountsForUser(array $params): iterable
     {
         $arguments = [];
@@ -430,7 +430,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SshSigningKey> */
+    /** @return Observable<Schema\SshSigningKey> */
     public function listSshSigningKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -465,7 +465,7 @@ final class Users
         return $operator->call();
     }
 
-    /** @return iterable<Schema\SimpleUser>|array{code:int} */
+    /** @return Observable<Schema\SimpleUser>|array{code:int} */
     public function list(array $params): iterable
     {
         $arguments = [];

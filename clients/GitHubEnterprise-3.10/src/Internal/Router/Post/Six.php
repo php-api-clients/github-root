@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningSarifsReceipt;
 use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
@@ -32,7 +31,7 @@ final class Six
     {
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created|Schema\Operations\EnterpriseAdmin\SyncLdapMappingForUser\Response\ApplicationJson\Created\Application\Json|Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created|Schema\AuthenticationToken|array{code:int}|Schema\TeamDiscussion|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\EmptyObject|Schema\CodeScanningSarifsReceipt|Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|Schema\ShortBlob|Schema\GitCommit|Schema\GitRef|Schema\GitTag|Schema\GitTree|Schema\PageBuildStatus|Schema\PageDeployment|Schema\ReleaseNotesContent|Schema\Status|Schema\TagProtection|Schema\TeamDiscussionComment|Schema\Reaction */
+    /** @return |array{code:int}|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt */
     public function call(string $call, array $params, array $pathChunks): Created|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created|AuthenticationToken|TeamDiscussion|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterprise\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|Status|TagProtection|TeamDiscussionComment|Reaction|array
     {
         if ($pathChunks[0] === '') {

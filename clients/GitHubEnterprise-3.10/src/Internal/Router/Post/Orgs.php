@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
@@ -112,7 +111,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    /** @return Schema\OrganizationCustomRepositoryRole */
+    /** @return */
     public function createCustomRepoRole(array $params): OrganizationCustomRepositoryRole|array
     {
         $arguments = [];
@@ -127,7 +126,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\OrgHook */
+    /** @return */
     public function createWebhook(array $params): OrgHook|array
     {
         $arguments = [];
@@ -142,7 +141,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function reviewPatGrantRequestsInBulk(array $params): Json|array
     {
         $arguments = [];
@@ -157,7 +156,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function updatePatAccesses(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|array
     {
         $arguments = [];
@@ -172,7 +171,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function redeliverWebhookDelivery(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|array
     {
         $arguments = [];

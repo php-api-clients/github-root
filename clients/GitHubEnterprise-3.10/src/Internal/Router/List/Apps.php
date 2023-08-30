@@ -20,7 +20,7 @@ final class Apps
     {
     }
 
-    /** @return iterable<Schema\IntegrationInstallationRequest>|array{code:int} */
+    /** @return Observable<Schema\IntegrationInstallationRequest>|array{code:int} */
     public function listInstallationRequestsForAuthenticatedAppListing(array $params): iterable
     {
         $arguments = [];
@@ -47,7 +47,7 @@ final class Apps
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallationsListing(array $params): iterable
     {
         $arguments = [];

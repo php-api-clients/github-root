@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Orgs;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetCustomRepoRole
     {
     }
 
-    /** @return Schema\OrganizationCustomRepositoryRole */
+    /** @return */
     public function call(string $org, int $roleId): OrganizationCustomRepositoryRole|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\GetCustomRepoRole($this->responseSchemaValidator, $this->hydrator, $org, $roleId);
