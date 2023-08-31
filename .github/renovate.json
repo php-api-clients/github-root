@@ -219,6 +219,21 @@
             ]
         },
         {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                "automerge.yml",
+                "setup-clients.yaml",
+                "subsplit.yaml"
+            ],
+            "branchPrefix": "renovate/root/github-actions/",
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ]
+        },
+        {
             "matchFileNames": [
                 "clients/GitHubEnterprise-3.0/composer.json"
             ],
