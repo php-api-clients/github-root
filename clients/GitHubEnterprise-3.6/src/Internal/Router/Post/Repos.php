@@ -280,7 +280,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\Repository */
+    /** @return */
     public function createUsingTemplate(array $params): Repository|array
     {
         $arguments = [];
