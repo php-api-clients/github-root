@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateUsingTemplate
     {
     }
 
-    /** @return Schema\Repository */
+    /** @return */
     public function call(string $templateOwner, string $templateRepo, array $params): Repository|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\CreateUsingTemplate($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $templateOwner, $templateRepo);
