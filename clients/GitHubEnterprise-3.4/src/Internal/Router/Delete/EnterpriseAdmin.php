@@ -158,7 +158,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    /** @return Schema\OrgPreReceiveHook */
+    /** @return */
     public function removePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook|array
     {
         $arguments = [];
@@ -179,7 +179,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return iterable<Schema\SshKey>|array{code:int} */
+    /** @return Observable<Schema\SshKey>|array{code:int} */
     public function removeAuthorizedSshKey(array $params): iterable
     {
         $operator = new Internal\Operator\EnterpriseAdmin\RemoveAuthorizedSshKey($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys());
@@ -216,7 +216,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params): Json|array
     {
         $arguments = [];
@@ -279,7 +279,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return Schema\RepositoryPreReceiveHook */
+    /** @return */
     public function removePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook|array
     {
         $arguments = [];
@@ -360,7 +360,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params): Ok|array
     {
         $arguments = [];
