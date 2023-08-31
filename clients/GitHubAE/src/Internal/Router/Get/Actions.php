@@ -873,7 +873,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    /** @return Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listWorkflowRunArtifacts(array $params): \ApiClients\Client\GitHubAE\Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|array
     {
         $arguments = [];
