@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
 use ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus;
@@ -47,7 +46,7 @@ final class Four
     {
     }
 
-    /** @return Schema\GlobalHook|Schema\PreReceiveEnvironment|Schema\PreReceiveHook|Schema\WebhookConfig|iterable<Schema\HookDeliveryItem>|Schema\Installation|Schema\ApplicationGrant|array{code:int}|Schema\LicenseInfo|Schema\EnterpriseOverview|Schema\EnterpriseCommentOverview|Schema\EnterpriseGistOverview|Schema\EnterpriseHookOverview|Schema\EnterpriseIssueOverview|Schema\EnterpriseMilestoneOverview|Schema\EnterpriseOrganizationOverview|Schema\EnterprisePageOverview|Schema\EnterprisePullRequestOverview|Schema\EnterpriseRepositoryOverview|Schema\EnterpriseUserOverview|iterable<Schema\GistComment>|iterable<Schema\GistCommit>|iterable<Schema\GistSimple>|Schema\GistSimple|Schema\GitignoreTemplate|Schema\Thread|iterable<Schema\Event>|iterable<Schema\OrgHook>|Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|iterable<Schema\Issue>|iterable<Schema\SimpleUser>|iterable<Schema\OrgPreReceiveHook>|iterable<Schema\Project>|iterable<Schema\MinimalRepository>|iterable<Schema\Team>|Schema\ProjectColumn|iterable<Schema\ProjectColumn>|Schema\FullRepository|Schema\BasicError|Schema\ConfigurationStatus|Schema\MaintenanceStatus|Schema\EnterpriseSettings|iterable<Schema\TeamDiscussion>|iterable<Schema\TeamProject>|Schema\GpgKey|Schema\Key|iterable<Schema\OrgMembership>|iterable<Schema\BaseGist>|iterable<Schema\GpgKey>|Schema\Hovercard|iterable<Schema\KeySimple>|iterable<Schema\OrganizationSimple>|Schema\StarredRepository|Schema\Repository */
+    /** @return |Observable<Schema\HookDeliveryItem>|Schema\ApplicationGrant|array{code:int}|Observable<Schema\GistComment>|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Schema\GitignoreTemplate|Schema\Thread|Observable<Schema\Event>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\SimpleUser>|Observable<Schema\OrgPreReceiveHook>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|Schema\ProjectColumn|Observable<Schema\ProjectColumn>|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Schema\GpgKey|Schema\Key|Observable<Schema\OrgMembership>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple> */
     public function call(string $call, array $params, array $pathChunks): GlobalHook|PreReceiveEnvironment|PreReceiveHook|WebhookConfig|iterable|Installation|ApplicationGrant|LicenseInfo|EnterpriseOverview|EnterpriseCommentOverview|EnterpriseGistOverview|EnterpriseHookOverview|EnterpriseIssueOverview|EnterpriseMilestoneOverview|EnterpriseOrganizationOverview|EnterprisePageOverview|EnterprisePullRequestOverview|EnterpriseRepositoryOverview|EnterpriseUserOverview|GistSimple|GitignoreTemplate|Thread|Ok|ProjectColumn|FullRepository|BasicError|ConfigurationStatus|MaintenanceStatus|EnterpriseSettings|GpgKey|Key|Hovercard|StarredRepository|Repository
     {
         if ($pathChunks[0] === '') {

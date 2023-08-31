@@ -25,7 +25,7 @@ final class Issues
     {
     }
 
-    /** @return iterable<Schema\Issue>|array{code:int} */
+    /** @return Observable<Schema\Issue>|array{code:int} */
     public function listForAuthenticatedUser(array $params): iterable
     {
         $arguments = [];
@@ -82,7 +82,7 @@ final class Issues
         return $operator->call($arguments['labels'], $arguments['since'], $arguments['filter'], $arguments['state'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Issue> */
+    /** @return Observable<Schema\Issue> */
     public function listForOrg(array $params): iterable
     {
         $arguments = [];
@@ -172,7 +172,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['assignee']);
     }
 
-    /** @return iterable<Schema\IssueComment> */
+    /** @return Observable<Schema\IssueComment> */
     public function listCommentsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -223,7 +223,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['direction'], $arguments['since'], $arguments['sort'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\IssueEvent> */
+    /** @return Observable<Schema\IssueEvent> */
     public function listEventsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -283,7 +283,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number']);
     }
 
-    /** @return Schema\Label */
+    /** @return */
     public function getLabel(array $params): Label|array
     {
         $arguments = [];
@@ -310,7 +310,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name']);
     }
 
-    /** @return Schema\Milestone */
+    /** @return */
     public function getMilestone(array $params): Milestone|array
     {
         $arguments = [];
@@ -337,7 +337,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['milestone_number']);
     }
 
-    /** @return iterable<Schema\Issue>|array{code:int} */
+    /** @return Observable<Schema\Issue>|array{code:int} */
     public function list(array $params): iterable
     {
         $arguments = [];
@@ -418,7 +418,7 @@ final class Issues
         return $operator->call($arguments['labels'], $arguments['since'], $arguments['collab'], $arguments['orgs'], $arguments['owned'], $arguments['pulls'], $arguments['filter'], $arguments['state'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listAssignees(array $params): iterable
     {
         $arguments = [];
@@ -451,7 +451,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Issue>|Schema\BasicError */
+    /** @return Observable<Schema\Issue>|Schema\BasicError */
     public function listForRepo(array $params): iterable|BasicError
     {
         $arguments = [];
@@ -538,7 +538,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['milestone'], $arguments['assignee'], $arguments['creator'], $arguments['mentioned'], $arguments['labels'], $arguments['since'], $arguments['state'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function listLabelsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -571,7 +571,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Milestone> */
+    /** @return Observable<Schema\Milestone> */
     public function listMilestones(array $params): iterable
     {
         $arguments = [];
@@ -622,7 +622,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['sort'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\IssueComment */
+    /** @return */
     public function getComment(array $params): IssueComment|array
     {
         $arguments = [];
@@ -649,7 +649,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
-    /** @return Schema\IssueEvent */
+    /** @return */
     public function getEvent(array $params): IssueEvent|array
     {
         $arguments = [];
@@ -676,7 +676,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['event_id']);
     }
 
-    /** @return iterable<Schema\IssueComment> */
+    /** @return Observable<Schema\IssueComment> */
     public function listComments(array $params): iterable
     {
         $arguments = [];
@@ -721,7 +721,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['since'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\LabeledIssueEvent|Schema\UnlabeledIssueEvent|Schema\AssignedIssueEvent|Schema\UnassignedIssueEvent|Schema\MilestonedIssueEvent|Schema\DemilestonedIssueEvent|Schema\RenamedIssueEvent|Schema\ReviewRequestedIssueEvent|Schema\ReviewRequestRemovedIssueEvent|Schema\ReviewDismissedIssueEvent|Schema\LockedIssueEvent|Schema\AddedToProjectIssueEvent|Schema\MovedColumnInProjectIssueEvent|Schema\RemovedFromProjectIssueEvent|Schema\ConvertedNoteToIssueIssueEvent> */
+    /** @return Observable<Schema\LabeledIssueEvent|Schema\UnlabeledIssueEvent|Schema\AssignedIssueEvent|Schema\UnassignedIssueEvent|Schema\MilestonedIssueEvent|Schema\DemilestonedIssueEvent|Schema\RenamedIssueEvent|Schema\ReviewRequestedIssueEvent|Schema\ReviewRequestRemovedIssueEvent|Schema\ReviewDismissedIssueEvent|Schema\LockedIssueEvent|Schema\AddedToProjectIssueEvent|Schema\MovedColumnInProjectIssueEvent|Schema\RemovedFromProjectIssueEvent|Schema\ConvertedNoteToIssueIssueEvent> */
     public function listEvents(array $params): iterable
     {
         $arguments = [];
@@ -760,7 +760,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Label>|Schema\BasicError */
+    /** @return Observable<Schema\Label>|Schema\BasicError */
     public function listLabelsOnIssue(array $params): iterable|BasicError
     {
         $arguments = [];
@@ -799,7 +799,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\LabeledIssueEvent|Schema\UnlabeledIssueEvent|Schema\MilestonedIssueEvent|Schema\DemilestonedIssueEvent|Schema\RenamedIssueEvent|Schema\ReviewRequestedIssueEvent|Schema\ReviewRequestRemovedIssueEvent|Schema\ReviewDismissedIssueEvent|Schema\LockedIssueEvent|Schema\AddedToProjectIssueEvent|Schema\MovedColumnInProjectIssueEvent|Schema\RemovedFromProjectIssueEvent|Schema\ConvertedNoteToIssueIssueEvent|Schema\TimelineCommentEvent|Schema\TimelineCrossReferencedEvent|Schema\TimelineCommittedEvent|Schema\TimelineReviewedEvent|Schema\TimelineLineCommentedEvent|Schema\TimelineCommitCommentedEvent|Schema\TimelineAssignedIssueEvent|Schema\TimelineUnassignedIssueEvent|Schema\StateChangeIssueEvent> */
+    /** @return Observable<Schema\LabeledIssueEvent|Schema\UnlabeledIssueEvent|Schema\MilestonedIssueEvent|Schema\DemilestonedIssueEvent|Schema\RenamedIssueEvent|Schema\ReviewRequestedIssueEvent|Schema\ReviewRequestRemovedIssueEvent|Schema\ReviewDismissedIssueEvent|Schema\LockedIssueEvent|Schema\AddedToProjectIssueEvent|Schema\MovedColumnInProjectIssueEvent|Schema\RemovedFromProjectIssueEvent|Schema\ConvertedNoteToIssueIssueEvent|Schema\TimelineCommentEvent|Schema\TimelineCrossReferencedEvent|Schema\TimelineCommittedEvent|Schema\TimelineReviewedEvent|Schema\TimelineLineCommentedEvent|Schema\TimelineCommitCommentedEvent|Schema\TimelineAssignedIssueEvent|Schema\TimelineUnassignedIssueEvent|Schema\StateChangeIssueEvent> */
     public function listEventsForTimeline(array $params): iterable
     {
         $arguments = [];
@@ -838,7 +838,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function listLabelsForMilestone(array $params): iterable
     {
         $arguments = [];

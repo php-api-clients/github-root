@@ -20,7 +20,7 @@ final class Orgs
     {
     }
 
-    /** @return iterable<Schema\OrganizationSimple>|array{code:int} */
+    /** @return Observable<Schema\OrganizationSimple>|array{code:int} */
     public function listForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -47,7 +47,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrgHook> */
+    /** @return Observable<Schema\OrgHook> */
     public function listWebhooksListing(array $params): iterable
     {
         $arguments = [];
@@ -80,7 +80,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersListing(array $params): iterable
     {
         $arguments = [];
@@ -125,7 +125,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listOutsideCollaboratorsListing(array $params): iterable
     {
         $arguments = [];
@@ -164,7 +164,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listPublicMembersListing(array $params): iterable
     {
         $arguments = [];
@@ -197,7 +197,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrgMembership>|array{code:int} */
+    /** @return Observable<Schema\OrgMembership>|array{code:int} */
     public function listMembershipsForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -230,7 +230,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\OrganizationSimple> */
+    /** @return Observable<Schema\OrganizationSimple> */
     public function listForUserListing(array $params): iterable
     {
         $arguments = [];

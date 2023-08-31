@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted;
 use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced;
@@ -19,7 +18,7 @@ final class Eight
     {
     }
 
-    /** @return Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted|Schema\TeamDiscussionComment|Schema\Reaction|Schema\EmptyObject|iterable<Schema\Deployment>|array{code:int}|Schema\ProtectedBranchAdminEnforced */
+    /** @return |Observable<Schema\Deployment>|array{code:int} */
     public function call(string $call, array $params, array $pathChunks): Accepted|TeamDiscussionComment|Reaction|EmptyObject|iterable|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {

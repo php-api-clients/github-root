@@ -20,7 +20,7 @@ final class Apps
     {
     }
 
-    /** @return iterable<Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallationsListing(array $params): iterable
     {
         $arguments = [];

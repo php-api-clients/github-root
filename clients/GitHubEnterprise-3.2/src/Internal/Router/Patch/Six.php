@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
 use ApiClients\Client\GitHubEnterprise\Schema\CheckRun;
 use ApiClients\Client\GitHubEnterprise\Schema\CheckSuitePreference;
@@ -31,7 +30,6 @@ final class Six
     {
     }
 
-    /** @return Schema\LdapMappingTeam|Schema\LdapMappingUser|Schema\RunnerGroupsEnterprise|Schema\RunnerGroupsOrg|Schema\WebhookConfig|Schema\CheckRun|Schema\CheckSuitePreference|Schema\CommitComment|Schema\Hook|Schema\RepositoryInvitation|Schema\Issue|Schema\BasicError|Schema\Label|Schema\Milestone|Schema\RepositoryPreReceiveHook|Schema\PullRequest|Schema\Release */
     public function call(string $call, array $params, array $pathChunks): LdapMappingTeam|LdapMappingUser|RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|CheckRun|CheckSuitePreference|CommitComment|Hook|RepositoryInvitation|Issue|BasicError|Label|Milestone|RepositoryPreReceiveHook|PullRequest|Release|array
     {
         if ($pathChunks[0] === '') {

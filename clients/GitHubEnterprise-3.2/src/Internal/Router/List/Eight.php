@@ -14,7 +14,7 @@ final class Eight
     {
     }
 
-    /** @return iterable<Schema\TeamDiscussionComment>|iterable<Schema\Reaction>|iterable<Schema\CodeScanningAlertInstance> */
+    /** @return Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\CodeScanningAlertInstance> */
     public function call(string $call, array $params, array $pathChunks): iterable
     {
         if ($pathChunks[0] === '') {
