@@ -175,9 +175,9 @@ $renovatePackageRules[] = [
 $renovatePackageRules[] = [
     'matchManagers' => ['github-actions'],
     'matchFileNames' => [
-        'automerge.yml',
-        'setup-clients.yaml',
-        'subsplit.yaml',
+        '.github/workflows/automerge.yml',
+        '.github/workflows/setup-clients.yaml',
+        '.github/workflows/subsplit.yaml',
     ],
     'branchPrefix' => 'renovate/root/github-actions/',
     'commitMessagePrefix' => '[🪵]',
