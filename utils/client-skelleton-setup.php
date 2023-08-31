@@ -172,6 +172,20 @@ $renovatePackageRules[] = [
     ],
 ];
 
+$renovatePackageRules[] = [
+    'matchManagers' => ['github-actions'],
+    'matchFileNames' => [
+        'automerge.yml',
+        'setup-clients.yaml',
+        'subsplit.yaml',
+    ],
+    'branchPrefix' => 'renovate/root/github-actions/',
+    'commitMessagePrefix' => '[🪵]',
+    'labels' => [
+        '🪵',
+    ],
+];
+
 foreach ($clients as $hour => $client) {
     $client['hour'] = $hour + 3;
     $client['specPath'] = SPECS_RELATIVE . $client['path'] . '/current.spec.yaml';
