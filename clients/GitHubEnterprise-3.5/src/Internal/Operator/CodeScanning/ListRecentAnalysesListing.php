@@ -24,7 +24,7 @@ final readonly class ListRecentAnalysesListing
     {
     }
 
-    /** @return iterable<Schema\CodeScanningAnalysis> */
+    /** @return Observable<Schema\CodeScanningAnalysis> */
     public function call(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $sarifId, int $page = 1, int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\CodeScanning\ListRecentAnalysesListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $toolName, $toolGuid, $ref, $sarifId, $page, $perPage);

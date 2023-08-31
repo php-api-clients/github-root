@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetPreReceiveHookForRepo
     {
     }
 
-    /** @return Schema\RepositoryPreReceiveHook */
+    /** @return */
     public function call(string $owner, string $repo, int $preReceiveHookId): RepositoryPreReceiveHook|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetPreReceiveHookForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $preReceiveHookId);

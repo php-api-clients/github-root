@@ -21,7 +21,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return iterable<Schema\ApplicationGrant>|array{code:int} */
+    /** @return Observable<Schema\ApplicationGrant>|array{code:int} */
     public function listGrants(array $params): iterable
     {
         $arguments = [];
@@ -78,7 +78,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['grant_id']);
     }
 
-    /** @return iterable<Schema\Authorization>|array{code:int} */
+    /** @return Observable<Schema\Authorization>|array{code:int} */
     public function listAuthorizations(array $params): iterable
     {
         $arguments = [];

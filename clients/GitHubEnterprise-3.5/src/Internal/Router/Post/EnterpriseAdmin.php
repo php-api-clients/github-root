@@ -32,7 +32,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Schema\GlobalHook */
+    /** @return */
     public function createGlobalWebhook(array $params): GlobalHook|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateGlobalWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks());
@@ -40,7 +40,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\OrganizationSimple */
+    /** @return */
     public function createOrg(array $params): OrganizationSimple|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations());
@@ -48,7 +48,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\PreReceiveEnvironment */
+    /** @return */
     public function createPreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreatePreReceiveEnvironment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments());
@@ -56,7 +56,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\PreReceiveHook */
+    /** @return */
     public function createPreReceiveHook(array $params): PreReceiveHook|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreatePreReceiveHook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveHooks());
@@ -64,7 +64,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\SimpleUser */
+    /** @return */
     public function createUser(array $params): SimpleUser|array
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Users());
@@ -87,7 +87,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
-    /** @return Schema\PreReceiveEnvironmentDownloadStatus */
+    /** @return */
     public function startPreReceiveEnvironmentDownload(array $params): PreReceiveEnvironmentDownloadStatus|array
     {
         $arguments = [];
@@ -102,7 +102,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function createImpersonationOAuthToken(array $params): Authorization|array
     {
         $arguments = [];
@@ -117,7 +117,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
     {
         $arguments = [];
@@ -132,7 +132,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return iterable<Schema\SshKey>|array{code:int} */
+    /** @return Observable<Schema\SshKey>|array{code:int} */
     public function addAuthorizedSshKey(array $params): iterable
     {
         $operator = new Internal\Operator\EnterpriseAdmin\AddAuthorizedSshKey($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys());
@@ -140,7 +140,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created */
+    /** @return */
     public function syncLdapMappingForTeam(array $params): Created|array
     {
         $arguments = [];
@@ -155,7 +155,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['team_id']);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\SyncLdapMappingForUser\Response\ApplicationJson\Created\Application\Json */
+    /** @return */
     public function syncLdapMappingForUser(array $params): Json|array
     {
         $arguments = [];
@@ -170,7 +170,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -185,7 +185,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRemoveTokenForEnterprise(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -232,7 +232,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function addCustomLabelsToSelfHostedRunnerForEnterprise(array $params): Ok|array
     {
         $arguments = [];

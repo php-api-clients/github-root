@@ -24,7 +24,7 @@ final readonly class ListAlertsForRepoListing
     {
     }
 
-    /** @return iterable<Schema\CodeScanningAlertItems>|array{code:int} */
+    /** @return Observable<Schema\CodeScanningAlertItems>|array{code:int} */
     public function call(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page = 1, int $perPage = 30, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\CodeScanning\ListAlertsForRepoListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $toolName, $toolGuid, $ref, $state, $page, $perPage, $direction, $sort);

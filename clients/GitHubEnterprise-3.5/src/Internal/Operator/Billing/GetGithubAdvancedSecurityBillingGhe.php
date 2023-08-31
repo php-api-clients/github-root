@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Billing;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AdvancedSecurityActiveCommitters;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetGithubAdvancedSecurityBillingGhe
     {
     }
 
-    /** @return Schema\AdvancedSecurityActiveCommitters */
+    /** @return */
     public function call(string $enterprise, int $perPage = 30, int $page = 1): AdvancedSecurityActiveCommitters|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Billing\GetGithubAdvancedSecurityBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise, $perPage, $page);
