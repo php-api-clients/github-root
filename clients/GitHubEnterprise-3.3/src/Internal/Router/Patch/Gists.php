@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GistComment;
 use ApiClients\Client\GitHubEnterprise\Schema\GistSimple;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
@@ -21,7 +20,7 @@ final class Gists
     {
     }
 
-    /** @return Schema\GistSimple */
+    /** @return */
     public function update(array $params): GistSimple|array
     {
         $arguments = [];
@@ -36,7 +35,7 @@ final class Gists
         return $operator->call($arguments['gist_id'], $params);
     }
 
-    /** @return Schema\GistComment */
+    /** @return */
     public function updateComment(array $params): GistComment|array
     {
         $arguments = [];

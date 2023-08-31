@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ContentFile;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetReadmeInDirectory
     {
     }
 
-    /** @return Schema\ContentFile */
+    /** @return */
     public function call(string $owner, string $repo, string $dir, string $ref): ContentFile|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\GetReadmeInDirectory($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $dir, $ref);
