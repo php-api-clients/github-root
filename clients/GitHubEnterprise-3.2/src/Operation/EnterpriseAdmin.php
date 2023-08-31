@@ -50,25 +50,25 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function listGlobalWebhooks(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListGlobalWebhooks()->call($perPage, $page);
     }
 
-    /** @return iterable<Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function listGlobalWebhooksListing(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListGlobalWebhooksListing()->call($perPage, $page);
     }
 
-    /** @return Schema\GlobalHook */
+    /** @return */
     public function createGlobalWebhook(string $accept, array $params): GlobalHook|array
     {
         return $this->operators->enterpriseAdmin👷CreateGlobalWebhook()->call($accept, $params);
     }
 
-    /** @return Schema\GlobalHook */
+    /** @return */
     public function getGlobalWebhook(int $hookId, string $accept): GlobalHook|array
     {
         return $this->operators->enterpriseAdmin👷GetGlobalWebhook()->call($hookId, $accept);
@@ -80,7 +80,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteGlobalWebhook()->call($hookId);
     }
 
-    /** @return Schema\GlobalHook2 */
+    /** @return */
     public function updateGlobalWebhook(int $hookId, string $accept, array $params): GlobalHook2|array
     {
         return $this->operators->enterpriseAdmin👷UpdateGlobalWebhook()->call($hookId, $accept, $params);
@@ -92,13 +92,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷PingGlobalWebhook()->call($hookId);
     }
 
-    /** @return iterable<Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function listPublicKeys(string $since, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPublicKeys()->call($since, $perPage, $page, $direction, $sort);
     }
 
-    /** @return iterable<Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function listPublicKeysListing(string $since, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPublicKeysListing()->call($since, $perPage, $page, $direction, $sort);
@@ -110,61 +110,61 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeletePublicKey()->call($keyIds);
     }
 
-    /** @return Schema\LdapMappingTeam */
+    /** @return */
     public function updateLdapMappingForTeam(int $teamId, array $params): LdapMappingTeam|array
     {
         return $this->operators->enterpriseAdmin👷UpdateLdapMappingForTeam()->call($teamId, $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created */
+    /** @return */
     public function syncLdapMappingForTeam(int $teamId): Created|array
     {
         return $this->operators->enterpriseAdmin👷SyncLdapMappingForTeam()->call($teamId);
     }
 
-    /** @return Schema\LdapMappingUser */
+    /** @return */
     public function updateLdapMappingForUser(string $username, array $params): LdapMappingUser|array
     {
         return $this->operators->enterpriseAdmin👷UpdateLdapMappingForUser()->call($username, $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\SyncLdapMappingForUser\Response\ApplicationJson\Created\Application\Json */
+    /** @return */
     public function syncLdapMappingForUser(string $username): Json|array
     {
         return $this->operators->enterpriseAdmin👷SyncLdapMappingForUser()->call($username);
     }
 
-    /** @return Schema\OrganizationSimple */
+    /** @return */
     public function createOrg(array $params): OrganizationSimple|array
     {
         return $this->operators->enterpriseAdmin👷CreateOrg()->call($params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted */
+    /** @return */
     public function updateOrgName(string $org, array $params): Accepted|array
     {
         return $this->operators->enterpriseAdmin👷UpdateOrgName()->call($org, $params);
     }
 
-    /** @return iterable<Schema\PreReceiveEnvironment> */
+    /** @return Observable<Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironments(int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveEnvironments()->call($perPage, $page, $direction, $sort);
     }
 
-    /** @return iterable<Schema\PreReceiveEnvironment> */
+    /** @return Observable<Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironmentsListing(int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveEnvironmentsListing()->call($perPage, $page, $direction, $sort);
     }
 
-    /** @return Schema\PreReceiveEnvironment */
+    /** @return */
     public function createPreReceiveEnvironment(array $params): PreReceiveEnvironment|array
     {
         return $this->operators->enterpriseAdmin👷CreatePreReceiveEnvironment()->call($params);
     }
 
-    /** @return Schema\PreReceiveEnvironment */
+    /** @return */
     public function getPreReceiveEnvironment(int $preReceiveEnvironmentId): PreReceiveEnvironment|array
     {
         return $this->operators->enterpriseAdmin👷GetPreReceiveEnvironment()->call($preReceiveEnvironmentId);
@@ -176,55 +176,55 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeletePreReceiveEnvironment()->call($preReceiveEnvironmentId);
     }
 
-    /** @return Schema\PreReceiveEnvironment */
+    /** @return */
     public function updatePreReceiveEnvironment(int $preReceiveEnvironmentId, array $params): PreReceiveEnvironment|array
     {
         return $this->operators->enterpriseAdmin👷UpdatePreReceiveEnvironment()->call($preReceiveEnvironmentId, $params);
     }
 
-    /** @return Schema\PreReceiveEnvironmentDownloadStatus */
+    /** @return */
     public function startPreReceiveEnvironmentDownload(int $preReceiveEnvironmentId): PreReceiveEnvironmentDownloadStatus|array
     {
         return $this->operators->enterpriseAdmin👷StartPreReceiveEnvironmentDownload()->call($preReceiveEnvironmentId);
     }
 
-    /** @return Schema\PreReceiveEnvironmentDownloadStatus */
+    /** @return */
     public function startPreReceiveEnvironmentDownloadStreaming(int $preReceiveEnvironmentId): PreReceiveEnvironmentDownloadStatus|array
     {
         return $this->operators->enterpriseAdmin👷StartPreReceiveEnvironmentDownloadStreaming()->call($preReceiveEnvironmentId);
     }
 
-    /** @return Schema\PreReceiveEnvironmentDownloadStatus */
+    /** @return */
     public function getDownloadStatusForPreReceiveEnvironment(int $preReceiveEnvironmentId): PreReceiveEnvironmentDownloadStatus|array
     {
         return $this->operators->enterpriseAdmin👷GetDownloadStatusForPreReceiveEnvironment()->call($preReceiveEnvironmentId);
     }
 
-    /** @return Schema\PreReceiveEnvironmentDownloadStatus */
+    /** @return */
     public function getDownloadStatusForPreReceiveEnvironmentStreaming(int $preReceiveEnvironmentId): PreReceiveEnvironmentDownloadStatus|array
     {
         return $this->operators->enterpriseAdmin👷GetDownloadStatusForPreReceiveEnvironmentStreaming()->call($preReceiveEnvironmentId);
     }
 
-    /** @return iterable<Schema\PreReceiveHook> */
+    /** @return Observable<Schema\PreReceiveHook> */
     public function listPreReceiveHooks(int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveHooks()->call($perPage, $page, $direction, $sort);
     }
 
-    /** @return iterable<Schema\PreReceiveHook> */
+    /** @return Observable<Schema\PreReceiveHook> */
     public function listPreReceiveHooksListing(int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveHooksListing()->call($perPage, $page, $direction, $sort);
     }
 
-    /** @return Schema\PreReceiveHook */
+    /** @return */
     public function createPreReceiveHook(array $params): PreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷CreatePreReceiveHook()->call($params);
     }
 
-    /** @return Schema\PreReceiveHook */
+    /** @return */
     public function getPreReceiveHook(int $preReceiveHookId): PreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷GetPreReceiveHook()->call($preReceiveHookId);
@@ -236,19 +236,19 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeletePreReceiveHook()->call($preReceiveHookId);
     }
 
-    /** @return Schema\PreReceiveHook */
+    /** @return */
     public function updatePreReceiveHook(int $preReceiveHookId, array $params): PreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷UpdatePreReceiveHook()->call($preReceiveHookId, $params);
     }
 
-    /** @return iterable<Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function listPersonalAccessTokens(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPersonalAccessTokens()->call($perPage, $page);
     }
 
-    /** @return iterable<Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function listPersonalAccessTokensListing(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPersonalAccessTokensListing()->call($perPage, $page);
@@ -260,7 +260,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeletePersonalAccessToken()->call($tokenId);
     }
 
-    /** @return Schema\SimpleUser */
+    /** @return */
     public function createUser(array $params): SimpleUser|array
     {
         return $this->operators->enterpriseAdmin👷CreateUser()->call($params);
@@ -272,13 +272,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteUser()->call($username);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\UpdateUsernameForUser\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function updateUsernameForUser(string $username, array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\UpdateUsernameForUser\Response\ApplicationJson\Accepted\Application\Json|array
     {
         return $this->operators->enterpriseAdmin👷UpdateUsernameForUser()->call($username, $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function createImpersonationOAuthToken(string $username, array $params): Authorization|array
     {
         return $this->operators->enterpriseAdmin👷CreateImpersonationOAuthToken()->call($username, $params);
@@ -290,7 +290,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteImpersonationOAuthToken()->call($username);
     }
 
-    /** @return Schema\Announcement */
+    /** @return */
     public function getAnnouncement(): Announcement|array
     {
         return $this->operators->enterpriseAdmin👷GetAnnouncement()->call();
@@ -302,85 +302,85 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷RemoveAnnouncement()->call();
     }
 
-    /** @return Schema\Announcement */
+    /** @return */
     public function setAnnouncement(array $params): Announcement|array
     {
         return $this->operators->enterpriseAdmin👷SetAnnouncement()->call($params);
     }
 
-    /** @return Schema\LicenseInfo */
+    /** @return */
     public function getLicenseInformation(): LicenseInfo|array
     {
         return $this->operators->enterpriseAdmin👷GetLicenseInformation()->call();
     }
 
-    /** @return Schema\EnterpriseOverview */
+    /** @return */
     public function getAllStats(): EnterpriseOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetAllStats()->call();
     }
 
-    /** @return Schema\EnterpriseCommentOverview */
+    /** @return */
     public function getCommentStats(): EnterpriseCommentOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetCommentStats()->call();
     }
 
-    /** @return Schema\EnterpriseGistOverview */
+    /** @return */
     public function getGistStats(): EnterpriseGistOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetGistStats()->call();
     }
 
-    /** @return Schema\EnterpriseHookOverview */
+    /** @return */
     public function getHooksStats(): EnterpriseHookOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetHooksStats()->call();
     }
 
-    /** @return Schema\EnterpriseIssueOverview */
+    /** @return */
     public function getIssueStats(): EnterpriseIssueOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetIssueStats()->call();
     }
 
-    /** @return Schema\EnterpriseMilestoneOverview */
+    /** @return */
     public function getMilestoneStats(): EnterpriseMilestoneOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetMilestoneStats()->call();
     }
 
-    /** @return Schema\EnterpriseOrganizationOverview */
+    /** @return */
     public function getOrgStats(): EnterpriseOrganizationOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetOrgStats()->call();
     }
 
-    /** @return Schema\EnterprisePageOverview */
+    /** @return */
     public function getPagesStats(): EnterprisePageOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetPagesStats()->call();
     }
 
-    /** @return Schema\EnterprisePullRequestOverview */
+    /** @return */
     public function getPullRequestStats(): EnterprisePullRequestOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetPullRequestStats()->call();
     }
 
-    /** @return Schema\EnterpriseRepositoryOverview */
+    /** @return */
     public function getRepoStats(): EnterpriseRepositoryOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetRepoStats()->call();
     }
 
-    /** @return Schema\EnterpriseUserOverview */
+    /** @return */
     public function getUserStats(): EnterpriseUserOverview|array
     {
         return $this->operators->enterpriseAdmin👷GetUserStats()->call();
     }
 
-    /** @return Schema\ActionsEnterprisePermissions */
+    /** @return */
     public function getGithubActionsPermissionsEnterprise(string $enterprise): ActionsEnterprisePermissions|array
     {
         return $this->operators->enterpriseAdmin👷GetGithubActionsPermissionsEnterprise()->call($enterprise);
@@ -392,7 +392,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷SetGithubActionsPermissionsEnterprise()->call($enterprise, $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelectedOrganizationsEnabledGithubActionsEnterprise(string $enterprise, int $perPage, int $page): Ok|array
     {
         return $this->operators->enterpriseAdmin👷ListSelectedOrganizationsEnabledGithubActionsEnterprise()->call($enterprise, $perPage, $page);
@@ -416,7 +416,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DisableSelectedOrganizationGithubActionsEnterprise()->call($enterprise, $orgId);
     }
 
-    /** @return Schema\SelectedActions */
+    /** @return */
     public function getAllowedActionsEnterprise(string $enterprise): SelectedActions|array
     {
         return $this->operators->enterpriseAdmin👷GetAllowedActionsEnterprise()->call($enterprise);
@@ -428,19 +428,19 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷SetAllowedActionsEnterprise()->call($enterprise, $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnerGroupsForEnterprise(string $enterprise, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->enterpriseAdmin👷ListSelfHostedRunnerGroupsForEnterprise()->call($enterprise, $perPage, $page);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function createSelfHostedRunnerGroupForEnterprise(string $enterprise, array $params): RunnerGroupsEnterprise|array
     {
         return $this->operators->enterpriseAdmin👷CreateSelfHostedRunnerGroupForEnterprise()->call($enterprise, $params);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function getSelfHostedRunnerGroupForEnterprise(string $enterprise, int $runnerGroupId): RunnerGroupsEnterprise|array
     {
         return $this->operators->enterpriseAdmin👷GetSelfHostedRunnerGroupForEnterprise()->call($enterprise, $runnerGroupId);
@@ -452,13 +452,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteSelfHostedRunnerGroupFromEnterprise()->call($enterprise, $runnerGroupId);
     }
 
-    /** @return Schema\RunnerGroupsEnterprise */
+    /** @return */
     public function updateSelfHostedRunnerGroupForEnterprise(string $enterprise, int $runnerGroupId, array $params): RunnerGroupsEnterprise|array
     {
         return $this->operators->enterpriseAdmin👷UpdateSelfHostedRunnerGroupForEnterprise()->call($enterprise, $runnerGroupId, $params);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(string $enterprise, int $runnerGroupId, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json|array
     {
         return $this->operators->enterpriseAdmin👷ListOrgAccessToSelfHostedRunnerGroupInEnterprise()->call($enterprise, $runnerGroupId, $perPage, $page);
@@ -482,7 +482,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise()->call($enterprise, $runnerGroupId, $orgId);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnersInGroupForEnterprise(string $enterprise, int $runnerGroupId, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->enterpriseAdmin👷ListSelfHostedRunnersInGroupForEnterprise()->call($enterprise, $runnerGroupId, $perPage, $page);
@@ -506,31 +506,31 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷RemoveSelfHostedRunnerFromGroupForEnterprise()->call($enterprise, $runnerGroupId, $runnerId);
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnersForEnterprise(string $enterprise, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|array
     {
         return $this->operators->enterpriseAdmin👷ListSelfHostedRunnersForEnterprise()->call($enterprise, $perPage, $page);
     }
 
-    /** @return iterable<Schema\RunnerApplication> */
+    /** @return Observable<Schema\RunnerApplication> */
     public function listRunnerApplicationsForEnterprise(string $enterprise): iterable
     {
         return $this->operators->enterpriseAdmin👷ListRunnerApplicationsForEnterprise()->call($enterprise);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRegistrationTokenForEnterprise(string $enterprise): AuthenticationToken|array
     {
         return $this->operators->enterpriseAdmin👷CreateRegistrationTokenForEnterprise()->call($enterprise);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRemoveTokenForEnterprise(string $enterprise): AuthenticationToken|array
     {
         return $this->operators->enterpriseAdmin👷CreateRemoveTokenForEnterprise()->call($enterprise);
     }
 
-    /** @return Schema\Runner */
+    /** @return */
     public function getSelfHostedRunnerForEnterprise(string $enterprise, int $runnerId): Runner|array
     {
         return $this->operators->enterpriseAdmin👷GetSelfHostedRunnerForEnterprise()->call($enterprise, $runnerId);
@@ -542,67 +542,67 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteSelfHostedRunnerFromEnterprise()->call($enterprise, $runnerId);
     }
 
-    /** @return iterable<Schema\OrgPreReceiveHook> */
+    /** @return Observable<Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrg(string $org, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveHooksForOrg()->call($org, $perPage, $page, $direction, $sort);
     }
 
-    /** @return iterable<Schema\OrgPreReceiveHook> */
+    /** @return Observable<Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrgListing(string $org, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveHooksForOrgListing()->call($org, $perPage, $page, $direction, $sort);
     }
 
-    /** @return Schema\OrgPreReceiveHook */
+    /** @return */
     public function getPreReceiveHookForOrg(string $org, int $preReceiveHookId): OrgPreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷GetPreReceiveHookForOrg()->call($org, $preReceiveHookId);
     }
 
-    /** @return Schema\OrgPreReceiveHook */
+    /** @return */
     public function removePreReceiveHookEnforcementForOrg(string $org, int $preReceiveHookId): OrgPreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷RemovePreReceiveHookEnforcementForOrg()->call($org, $preReceiveHookId);
     }
 
-    /** @return Schema\OrgPreReceiveHook */
+    /** @return */
     public function updatePreReceiveHookEnforcementForOrg(string $org, int $preReceiveHookId, array $params): OrgPreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷UpdatePreReceiveHookEnforcementForOrg()->call($org, $preReceiveHookId, $params);
     }
 
-    /** @return iterable<Schema\RepositoryPreReceiveHook> */
+    /** @return Observable<Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepo(string $owner, string $repo, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveHooksForRepo()->call($owner, $repo, $perPage, $page, $direction, $sort);
     }
 
-    /** @return iterable<Schema\RepositoryPreReceiveHook> */
+    /** @return Observable<Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepoListing(string $owner, string $repo, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveHooksForRepoListing()->call($owner, $repo, $perPage, $page, $direction, $sort);
     }
 
-    /** @return Schema\RepositoryPreReceiveHook */
+    /** @return */
     public function getPreReceiveHookForRepo(string $owner, string $repo, int $preReceiveHookId): RepositoryPreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷GetPreReceiveHookForRepo()->call($owner, $repo, $preReceiveHookId);
     }
 
-    /** @return Schema\RepositoryPreReceiveHook */
+    /** @return */
     public function removePreReceiveHookEnforcementForRepo(string $owner, string $repo, int $preReceiveHookId): RepositoryPreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷RemovePreReceiveHookEnforcementForRepo()->call($owner, $repo, $preReceiveHookId);
     }
 
-    /** @return Schema\RepositoryPreReceiveHook */
+    /** @return */
     public function updatePreReceiveHookEnforcementForRepo(string $owner, string $repo, int $preReceiveHookId, array $params): RepositoryPreReceiveHook|array
     {
         return $this->operators->enterpriseAdmin👷UpdatePreReceiveHookEnforcementForRepo()->call($owner, $repo, $preReceiveHookId, $params);
     }
 
-    /** @return Schema\ConfigurationStatus */
+    /** @return */
     public function getConfigurationStatus(): ConfigurationStatus|array
     {
         return $this->operators->enterpriseAdmin👷GetConfigurationStatus()->call();
@@ -614,19 +614,19 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷StartConfigurationProcess()->call();
     }
 
-    /** @return Schema\MaintenanceStatus */
+    /** @return */
     public function getMaintenanceStatus(): MaintenanceStatus|array
     {
         return $this->operators->enterpriseAdmin👷GetMaintenanceStatus()->call();
     }
 
-    /** @return Schema\MaintenanceStatus */
+    /** @return */
     public function enableOrDisableMaintenanceMode(array $params): MaintenanceStatus|array
     {
         return $this->operators->enterpriseAdmin👷EnableOrDisableMaintenanceMode()->call($params);
     }
 
-    /** @return Schema\EnterpriseSettings */
+    /** @return */
     public function getSettings(): EnterpriseSettings|array
     {
         return $this->operators->enterpriseAdmin👷GetSettings()->call();
@@ -638,19 +638,19 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷SetSettings()->call($params);
     }
 
-    /** @return iterable<Schema\SshKey> */
+    /** @return Observable<Schema\SshKey> */
     public function getAllAuthorizedSshKeys(): iterable
     {
         return $this->operators->enterpriseAdmin👷GetAllAuthorizedSshKeys()->call();
     }
 
-    /** @return iterable<Schema\SshKey> */
+    /** @return Observable<Schema\SshKey> */
     public function addAuthorizedSshKey(array $params): iterable
     {
         return $this->operators->enterpriseAdmin👷AddAuthorizedSshKey()->call($params);
     }
 
-    /** @return iterable<Schema\SshKey> */
+    /** @return Observable<Schema\SshKey> */
     public function removeAuthorizedSshKey(array $params): iterable
     {
         return $this->operators->enterpriseAdmin👷RemoveAuthorizedSshKey()->call($params);

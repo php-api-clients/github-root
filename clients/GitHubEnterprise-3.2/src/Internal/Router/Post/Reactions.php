@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Reaction;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -20,7 +19,7 @@ final class Reactions
     {
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForTeamDiscussionLegacy(array $params): Reaction|array
     {
         $arguments = [];
@@ -41,7 +40,7 @@ final class Reactions
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForTeamDiscussionInOrg(array $params): Reaction|array
     {
         $arguments = [];
@@ -68,7 +67,7 @@ final class Reactions
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForIssueComment(array $params): Reaction|array
     {
         $arguments = [];
@@ -95,7 +94,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForPullRequestReviewComment(array $params): Reaction|array
     {
         $arguments = [];
@@ -122,7 +121,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForTeamDiscussionCommentLegacy(array $params): Reaction|array
     {
         $arguments = [];
@@ -149,7 +148,7 @@ final class Reactions
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForTeamDiscussionCommentInOrg(array $params): Reaction|array
     {
         $arguments = [];
@@ -182,7 +181,7 @@ final class Reactions
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForCommitComment(array $params): Reaction|array
     {
         $arguments = [];
@@ -209,7 +208,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForIssue(array $params): Reaction|array
     {
         $arguments = [];
@@ -236,7 +235,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
-    /** @return Schema\Reaction */
+    /** @return */
     public function createForRelease(array $params): Reaction|array
     {
         $arguments = [];

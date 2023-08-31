@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningSarifsReceipt;
 use ApiClients\Client\GitHubEnterprise\Schema\GitCommit;
@@ -29,7 +28,7 @@ final class Six
     {
     }
 
-    /** @return Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created|Schema\Operations\EnterpriseAdmin\SyncLdapMappingForUser\Response\ApplicationJson\Created\Application\Json|Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted|Schema\AuthenticationToken|array{code:int}|Schema\TeamDiscussion|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt|Schema\ShortBlob|Schema\GitCommit|Schema\GitRef|Schema\GitTag|Schema\GitTree|Schema\PageBuildStatus|Schema\Status|Schema\TeamDiscussionComment|Schema\Reaction */
+    /** @return |array{code:int}|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt */
     public function call(string $call, array $params, array $pathChunks): Created|Json|Accepted|AuthenticationToken|TeamDiscussion|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|CodeScanningSarifsReceipt|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|Status|TeamDiscussionComment|Reaction|array
     {
         if ($pathChunks[0] === '') {

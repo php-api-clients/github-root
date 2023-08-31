@@ -24,7 +24,7 @@ final class Apps
     {
     }
 
-    /** @return Schema\InstallationToken */
+    /** @return */
     public function createInstallationAccessToken(array $params): InstallationToken|array
     {
         $arguments = [];
@@ -39,7 +39,7 @@ final class Apps
         return $operator->call($arguments['installation_id'], $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function scopeToken(array $params): Authorization|array
     {
         $arguments = [];
@@ -54,7 +54,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function resetAuthorization(array $params): Authorization|array
     {
         $arguments = [];
@@ -75,7 +75,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
-    /** @return Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted */
+    /** @return */
     public function redeliverWebhookDelivery(array $params): Accepted|array
     {
         $arguments = [];
@@ -90,7 +90,7 @@ final class Apps
         return $operator->call($arguments['delivery_id']);
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function createFromManifest(array $params): Integration|array
     {
         $arguments = [];
@@ -105,7 +105,7 @@ final class Apps
         return $operator->call($arguments['code']);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function checkToken(array $params): Authorization|array
     {
         $arguments = [];

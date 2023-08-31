@@ -14,13 +14,13 @@ final class SecretScanning
     {
     }
 
-    /** @return iterable<Schema\SecretScanningAlert>|array{code:int} */
+    /** @return Observable<Schema\SecretScanningAlert>|array{code:int} */
     public function listAlertsForRepo(string $owner, string $repo, string $state, string $secretType, string $resolution, int $page, int $perPage): iterable
     {
         return $this->operators->secretScanning👷ListAlertsForRepo()->call($owner, $repo, $state, $secretType, $resolution, $page, $perPage);
     }
 
-    /** @return iterable<Schema\SecretScanningAlert>|array{code:int} */
+    /** @return Observable<Schema\SecretScanningAlert>|array{code:int} */
     public function listAlertsForRepoListing(string $owner, string $repo, string $state, string $secretType, string $resolution, int $page, int $perPage): iterable
     {
         return $this->operators->secretScanning👷ListAlertsForRepoListing()->call($owner, $repo, $state, $secretType, $resolution, $page, $perPage);

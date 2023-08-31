@@ -25,7 +25,7 @@ final readonly class GetContributorsStats
     {
     }
 
-    /** @return iterable<Schema\ContributorActivity>|Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted|array{code:int} */
+    /** @return Observable<Schema\ContributorActivity>|Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted|array{code:int} */
     public function call(string $owner, string $repo): iterable|Accepted
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\GetContributorsStats($this->responseSchemaValidator, $this->hydrator, $owner, $repo);
