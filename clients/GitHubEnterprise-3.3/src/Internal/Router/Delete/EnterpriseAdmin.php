@@ -156,7 +156,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    /** @return Schema\OrgPreReceiveHook */
+    /** @return */
     public function removePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook|array
     {
         $arguments = [];
@@ -177,7 +177,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return iterable<Schema\SshKey> */
+    /** @return Observable<Schema\SshKey> */
     public function removeAuthorizedSshKey(array $params): iterable
     {
         $operator = new Internal\Operator\EnterpriseAdmin\RemoveAuthorizedSshKey($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys());
@@ -256,7 +256,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return Schema\RepositoryPreReceiveHook */
+    /** @return */
     public function removePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook|array
     {
         $arguments = [];
