@@ -19,19 +19,19 @@ final class Dependabot
     {
     }
 
-    /** @return Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function listOrgSecrets(string $org, int $perPage, int $page): Ok|array
     {
         return $this->operators->dependabot👷ListOrgSecrets()->call($org, $perPage, $page);
     }
 
-    /** @return Schema\DependabotPublicKey */
+    /** @return */
     public function getOrgPublicKey(string $org): DependabotPublicKey|array
     {
         return $this->operators->dependabot👷GetOrgPublicKey()->call($org);
     }
 
-    /** @return Schema\OrganizationDependabotSecret */
+    /** @return */
     public function getOrgSecret(string $org, string $secretName): OrganizationDependabotSecret|array
     {
         return $this->operators->dependabot👷GetOrgSecret()->call($org, $secretName);
@@ -49,7 +49,7 @@ final class Dependabot
         return $this->operators->dependabot👷DeleteOrgSecret()->call($org, $secretName);
     }
 
-    /** @return Schema\Operations\Dependabot\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listSelectedReposForOrgSecret(string $org, string $secretName, int $page, int $perPage): Json|array
     {
         return $this->operators->dependabot👷ListSelectedReposForOrgSecret()->call($org, $secretName, $page, $perPage);
@@ -73,19 +73,19 @@ final class Dependabot
         return $this->operators->dependabot👷RemoveSelectedRepoFromOrgSecret()->call($org, $secretName, $repositoryId);
     }
 
-    /** @return Schema\Operations\Dependabot\ListRepoSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function listRepoSecrets(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListRepoSecrets\Response\ApplicationJson\Ok|array
     {
         return $this->operators->dependabot👷ListRepoSecrets()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return Schema\DependabotPublicKey */
+    /** @return */
     public function getRepoPublicKey(string $owner, string $repo): DependabotPublicKey|array
     {
         return $this->operators->dependabot👷GetRepoPublicKey()->call($owner, $repo);
     }
 
-    /** @return Schema\DependabotSecret */
+    /** @return */
     public function getRepoSecret(string $owner, string $repo, string $secretName): DependabotSecret|array
     {
         return $this->operators->dependabot👷GetRepoSecret()->call($owner, $repo, $secretName);

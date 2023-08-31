@@ -20,7 +20,7 @@ final class Users
     {
     }
 
-    /** @return iterable<Schema\Email>|array{code:int} */
+    /** @return Observable<Schema\Email>|array{code:int} */
     public function listEmailsForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -47,7 +47,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser>|array{code:int} */
+    /** @return Observable<Schema\SimpleUser>|array{code:int} */
     public function listFollowersForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -74,7 +74,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser>|array{code:int} */
+    /** @return Observable<Schema\SimpleUser>|array{code:int} */
     public function listFollowedByAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -101,7 +101,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\GpgKey>|array{code:int} */
+    /** @return Observable<Schema\GpgKey>|array{code:int} */
     public function listGpgKeysForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -128,7 +128,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Key>|array{code:int} */
+    /** @return Observable<Schema\Key>|array{code:int} */
     public function listPublicSshKeysForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -155,7 +155,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\Email>|array{code:int} */
+    /** @return Observable<Schema\Email>|array{code:int} */
     public function listPublicEmailsForAuthenticatedUserListing(array $params): iterable
     {
         $arguments = [];
@@ -182,7 +182,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowersForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -215,7 +215,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowingForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -248,7 +248,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\GpgKey> */
+    /** @return Observable<Schema\GpgKey> */
     public function listGpgKeysForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -281,7 +281,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return iterable<Schema\KeySimple> */
+    /** @return Observable<Schema\KeySimple> */
     public function listPublicKeysForUserListing(array $params): iterable
     {
         $arguments = [];
