@@ -5,7 +5,7 @@ on:
     - cron:  '13 0 * * *'
 jobs:
   supported-versions-matrix:
-    name: Supported Versions Matrix {{ path }}
+    name: Supported Versions Matrix
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.supported-versions-matrix.outputs.lowest }}
