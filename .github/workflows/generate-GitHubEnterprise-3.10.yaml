@@ -7,7 +7,7 @@ jobs:
   generate-githubenterprise-3_10:
     runs-on: ubuntu-latest
     container:
-      image: wyrihaximusnet/php:8.2-nts-alpine-slim-dev-root
+      image: wyrihaximusnet/php:8.3-nts-alpine-slim-dev-root
     steps:
       - uses: actions/checkout@v3
       - uses: ramsey/composer-install@v2
