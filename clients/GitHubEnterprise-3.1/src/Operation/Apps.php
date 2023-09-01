@@ -22,43 +22,43 @@ final class Apps
     {
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function getAuthenticated(): Integration|array
     {
         return $this->operators->apps👷GetAuthenticated()->call();
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function createFromManifest(string $code): Integration|array
     {
         return $this->operators->apps👷CreateFromManifest()->call($code);
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function getWebhookConfigForApp(): WebhookConfig|array
     {
         return $this->operators->apps👷GetWebhookConfigForApp()->call();
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function updateWebhookConfigForApp(array $params): WebhookConfig|array
     {
         return $this->operators->apps👷UpdateWebhookConfigForApp()->call($params);
     }
 
-    /** @return iterable<Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallations(string $since, string $outdated, int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListInstallations()->call($since, $outdated, $perPage, $page);
     }
 
-    /** @return iterable<Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallationsListing(string $since, string $outdated, int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListInstallationsListing()->call($since, $outdated, $perPage, $page);
     }
 
-    /** @return Schema\Installation */
+    /** @return */
     public function getInstallation(int $installationId): Installation|array
     {
         return $this->operators->apps👷GetInstallation()->call($installationId);
@@ -70,7 +70,7 @@ final class Apps
         return $this->operators->apps👷DeleteInstallation()->call($installationId);
     }
 
-    /** @return Schema\InstallationToken */
+    /** @return */
     public function createInstallationAccessToken(int $installationId, array $params): InstallationToken|array
     {
         return $this->operators->apps👷CreateInstallationAccessToken()->call($installationId, $params);
@@ -100,7 +100,7 @@ final class Apps
         return $this->operators->apps👷RevokeGrantForApplication()->call($clientId, $accessToken);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function checkToken(string $clientId, array $params): Authorization|array
     {
         return $this->operators->apps👷CheckToken()->call($clientId, $params);
@@ -112,25 +112,25 @@ final class Apps
         return $this->operators->apps👷DeleteToken()->call($clientId, $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function resetToken(string $clientId, array $params): Authorization|array
     {
         return $this->operators->apps👷ResetToken()->call($clientId, $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function scopeToken(string $clientId, array $params): Authorization|array
     {
         return $this->operators->apps👷ScopeToken()->call($clientId, $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function checkAuthorization(string $clientId, string $accessToken): Authorization|array
     {
         return $this->operators->apps👷CheckAuthorization()->call($clientId, $accessToken);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function resetAuthorization(string $clientId, string $accessToken): Authorization|array
     {
         return $this->operators->apps👷ResetAuthorization()->call($clientId, $accessToken);
@@ -142,7 +142,7 @@ final class Apps
         return $this->operators->apps👷RevokeAuthorizationForApplication()->call($clientId, $accessToken);
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function getBySlug(string $appSlug): Integration|array
     {
         return $this->operators->apps👷GetBySlug()->call($appSlug);
@@ -160,7 +160,7 @@ final class Apps
         return $this->operators->apps👷RevokeInstallationAccessToken()->call();
     }
 
-    /** @return Schema\Installation */
+    /** @return */
     public function getOrgInstallation(string $org): Installation|array
     {
         return $this->operators->apps👷GetOrgInstallation()->call($org);
@@ -172,7 +172,7 @@ final class Apps
         return $this->operators->apps👷CreateContentAttachment()->call($owner, $repo, $contentReferenceId, $params);
     }
 
-    /** @return Schema\Installation|Schema\BasicError */
+    /** @return */
     public function getRepoInstallation(string $owner, string $repo): Installation|BasicError|array
     {
         return $this->operators->apps👷GetRepoInstallation()->call($owner, $repo);
@@ -202,7 +202,7 @@ final class Apps
         return $this->operators->apps👷RemoveRepoFromInstallationForAuthenticatedUser()->call($installationId, $repositoryId);
     }
 
-    /** @return Schema\Installation */
+    /** @return */
     public function getUserInstallation(string $username): Installation|array
     {
         return $this->operators->apps👷GetUserInstallation()->call($username);

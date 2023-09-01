@@ -25,7 +25,7 @@ final readonly class GetCommitActivityStats
     {
     }
 
-    /** @return iterable<Schema\CommitActivity>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code:int} */
+    /** @return Observable<Schema\CommitActivity>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code:int} */
     public function call(string $owner, string $repo): iterable|Accepted
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\GetCommitActivityStats($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

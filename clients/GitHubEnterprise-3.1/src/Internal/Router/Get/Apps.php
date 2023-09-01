@@ -26,7 +26,7 @@ final class Apps
     {
     }
 
-    /** @return iterable<Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallations(array $params): iterable
     {
         $arguments = [];
@@ -59,7 +59,7 @@ final class Apps
         return $operator->call($arguments['since'], $arguments['outdated'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function getBySlug(array $params): Integration|array
     {
         $arguments = [];
@@ -116,7 +116,7 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function getWebhookConfigForApp(array $params): WebhookConfig|array
     {
         $operator = new Internal\Operator\Apps\GetWebhookConfigForApp($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config());
@@ -124,7 +124,7 @@ final class Apps
         return $operator->call();
     }
 
-    /** @return Schema\Installation */
+    /** @return */
     public function getInstallation(array $params): Installation|array
     {
         $arguments = [];
@@ -139,7 +139,7 @@ final class Apps
         return $operator->call($arguments['installation_id']);
     }
 
-    /** @return Schema\Installation */
+    /** @return */
     public function getOrgInstallation(array $params): Installation|array
     {
         $arguments = [];
@@ -154,7 +154,7 @@ final class Apps
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\Installation */
+    /** @return */
     public function getUserInstallation(array $params): Installation|array
     {
         $arguments = [];
@@ -169,7 +169,7 @@ final class Apps
         return $operator->call($arguments['username']);
     }
 
-    /** @return Schema\Integration */
+    /** @return */
     public function getAuthenticated(array $params): Integration|array
     {
         $operator = new Internal\Operator\Apps\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App());
@@ -177,7 +177,7 @@ final class Apps
         return $operator->call();
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function checkAuthorization(array $params): Authorization|array
     {
         $arguments = [];
@@ -198,7 +198,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
-    /** @return Schema\Installation|Schema\BasicError */
+    /** @return */
     public function getRepoInstallation(array $params): Installation|BasicError|array
     {
         $arguments = [];

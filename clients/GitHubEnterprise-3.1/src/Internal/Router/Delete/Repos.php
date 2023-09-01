@@ -186,7 +186,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
-    /** @return Schema\FileCommit */
+    /** @return */
     public function deleteFile(array $params): FileCommit|array
     {
         $arguments = [];
@@ -483,7 +483,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return iterable<string> */
+    /** @return Observable<string> */
     public function removeStatusCheckContexts(array $params): iterable
     {
         $arguments = [];
@@ -510,7 +510,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\Integration> */
+    /** @return Observable<Schema\Integration> */
     public function removeAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -537,7 +537,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function removeTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -564,7 +564,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function removeUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];
