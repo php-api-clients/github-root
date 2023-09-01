@@ -4,11 +4,22 @@ on:
   schedule:
     - cron:  '13 0 * * *'
 jobs:
+  supported-versions-matrix:
+    name: Supported Versions Matrix {{ path }}
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.supported-versions-matrix.outputs.lowest }}
+    steps:
+      - uses: actions/checkout@v3
+      - id: supported-versions-matrix
+        uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
   set-up-clients:
     name: Set up Clients
     runs-on: ubuntu-latest
+    needs:
+      - supported-versions-matrix
     container:
-      image: wyrihaximusnet/php:8.3-nts-alpine-slim-dev-root
+      image: wyrihaximusnet/php:${{ needs.supported-versions-matrix.outputs.version }}-nts-alpine-slim-dev-root
     steps:
       - name: Get current time
         uses: josStorer/get-current-time@v2
