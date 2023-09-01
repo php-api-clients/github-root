@@ -20,7 +20,7 @@ final class CodeScanning
     {
     }
 
-    /** @return iterable<Schema\CodeScanningAlertItems> */
+    /** @return Observable<Schema\CodeScanningAlertItems> */
     public function listAlertsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -77,7 +77,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return iterable<Schema\CodeScanningAnalysis> */
+    /** @return Observable<Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(array $params): iterable
     {
         $arguments = [];
@@ -134,7 +134,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Schema\CodeScanningAlert */
+    /** @return */
     public function getAlert(array $params): CodeScanningAlert|array
     {
         $arguments = [];

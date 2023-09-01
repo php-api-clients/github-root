@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\CancelWorkflowRun\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterprise\Schema\Reaction;
@@ -18,7 +17,7 @@ final class Eight
     {
     }
 
-    /** @return Schema\TeamDiscussionComment|Schema\Reaction|Schema\Operations\Actions\CancelWorkflowRun\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json|array{code:int}|Schema\ProtectedBranchAdminEnforced */
+    /** @return |array{code:int} */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussionComment|Reaction|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json|ProtectedBranchAdminEnforced|array
     {
         if ($pathChunks[0] === '') {

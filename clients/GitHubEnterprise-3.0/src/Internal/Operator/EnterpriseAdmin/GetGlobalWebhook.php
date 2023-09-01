@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetGlobalWebhook
     {
     }
 
-    /** @return Schema\GlobalHook */
+    /** @return */
     public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json'): GlobalHook|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetGlobalWebhook($this->responseSchemaValidator, $this->hydrator, $hookId, $accept);

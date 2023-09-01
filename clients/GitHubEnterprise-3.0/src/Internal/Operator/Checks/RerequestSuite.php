@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Checks;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Checks\RerequestSuite\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class RerequestSuite
     {
     }
 
-    /** @return Schema\Operations\Checks\RerequestSuite\Response\ApplicationJson\Created\Application\Json */
+    /** @return */
     public function call(string $owner, string $repo, int $checkSuiteId): Json|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Checks\RerequestSuite($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $checkSuiteId);

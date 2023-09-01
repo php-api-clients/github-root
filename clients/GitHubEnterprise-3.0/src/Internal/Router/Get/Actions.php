@@ -33,7 +33,7 @@ final class Actions
     {
     }
 
-    /** @return Schema\Operations\Actions\ListSelectedRepositoriesEnabledGithubActionsOrganization\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelectedRepositoriesEnabledGithubActionsOrganization(array $params): Ok|array
     {
         $arguments = [];
@@ -60,7 +60,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\SelectedActions */
+    /** @return */
     public function getAllowedActionsOrganization(array $params): SelectedActions|array
     {
         $arguments = [];
@@ -75,7 +75,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\RunnerGroupsOrg */
+    /** @return */
     public function getSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
     {
         $arguments = [];
@@ -96,7 +96,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id']);
     }
 
-    /** @return iterable<Schema\RunnerApplication> */
+    /** @return Observable<Schema\RunnerApplication> */
     public function listRunnerApplicationsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -111,7 +111,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\Runner */
+    /** @return */
     public function getSelfHostedRunnerForOrg(array $params): Runner|array
     {
         $arguments = [];
@@ -132,7 +132,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
-    /** @return Schema\ActionsPublicKey */
+    /** @return */
     public function getOrgPublicKey(array $params): ActionsPublicKey|array
     {
         $arguments = [];
@@ -147,7 +147,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\OrganizationActionsSecret */
+    /** @return */
     public function getOrgSecret(array $params): OrganizationActionsSecret|array
     {
         $arguments = [];
@@ -168,7 +168,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    /** @return Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok */
+    /** @return */
     public function listArtifactsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -201,7 +201,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\ActionsRepositoryPermissions */
+    /** @return */
     public function getGithubActionsPermissionsRepository(array $params): ActionsRepositoryPermissions|array
     {
         $arguments = [];
@@ -222,7 +222,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listSelfHostedRunnersForRepo(array $params): Json|array
     {
         $arguments = [];
@@ -255,7 +255,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok */
+    /** @return */
     public function listWorkflowRunsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -324,7 +324,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
-    /** @return Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function listRepoSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -357,7 +357,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok */
+    /** @return */
     public function listRepoWorkflows(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -390,7 +390,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\ActionsOrganizationPermissions */
+    /** @return */
     public function getGithubActionsPermissionsOrganization(array $params): ActionsOrganizationPermissions|array
     {
         $arguments = [];
@@ -405,7 +405,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnerGroupsForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -432,7 +432,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnersForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -459,7 +459,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok */
+    /** @return */
     public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -486,7 +486,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok */
+    /** @return */
     public function listRepoAccessToSelfHostedRunnerGroupInOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -519,7 +519,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listSelfHostedRunnersInGroupForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json|array
     {
         $arguments = [];
@@ -552,7 +552,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelectedReposForOrgSecret(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -585,7 +585,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Schema\Artifact */
+    /** @return */
     public function getArtifact(array $params): Artifact|array
     {
         $arguments = [];
@@ -612,7 +612,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
     }
 
-    /** @return Schema\Job */
+    /** @return */
     public function getJobForWorkflowRun(array $params): Job|array
     {
         $arguments = [];
@@ -639,7 +639,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    /** @return Schema\SelectedActions */
+    /** @return */
     public function getAllowedActionsRepository(array $params): SelectedActions|array
     {
         $arguments = [];
@@ -660,7 +660,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return iterable<Schema\RunnerApplication> */
+    /** @return Observable<Schema\RunnerApplication> */
     public function listRunnerApplicationsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -681,7 +681,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\Runner */
+    /** @return */
     public function getSelfHostedRunnerForRepo(array $params): Runner|array
     {
         $arguments = [];
@@ -708,7 +708,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
-    /** @return Schema\WorkflowRun */
+    /** @return */
     public function getWorkflowRun(array $params): WorkflowRun|array
     {
         $arguments = [];
@@ -741,7 +741,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['exclude_pull_requests']);
     }
 
-    /** @return Schema\ActionsPublicKey */
+    /** @return */
     public function getRepoPublicKey(array $params): ActionsPublicKey|array
     {
         $arguments = [];
@@ -762,7 +762,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\ActionsSecret */
+    /** @return */
     public function getRepoSecret(array $params): ActionsSecret|array
     {
         $arguments = [];
@@ -789,7 +789,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
 
-    /** @return Schema\Workflow */
+    /** @return */
     public function getWorkflow(array $params): Workflow|array
     {
         $arguments = [];
@@ -876,7 +876,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    /** @return Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listWorkflowRunArtifacts(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|array
     {
         $arguments = [];
@@ -915,7 +915,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok */
+    /** @return */
     public function listJobsForWorkflowRun(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -987,7 +987,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listWorkflowRuns(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|array
     {
         $arguments = [];

@@ -15,13 +15,13 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return iterable<Schema\ApplicationGrant>|array{code:int} */
+    /** @return Observable<Schema\ApplicationGrant>|array{code:int} */
     public function listGrants(string $clientId, int $perPage, int $page): iterable
     {
         return $this->operators->oauthAuthorizations👷ListGrants()->call($clientId, $perPage, $page);
     }
 
-    /** @return iterable<Schema\ApplicationGrant>|array{code:int} */
+    /** @return Observable<Schema\ApplicationGrant>|array{code:int} */
     public function listGrantsListing(string $clientId, int $perPage, int $page): iterable
     {
         return $this->operators->oauthAuthorizations👷ListGrantsListing()->call($clientId, $perPage, $page);
@@ -39,13 +39,13 @@ final class OauthAuthorizations
         return $this->operators->oauthAuthorizations👷DeleteGrant()->call($grantId);
     }
 
-    /** @return iterable<Schema\Authorization>|array{code:int} */
+    /** @return Observable<Schema\Authorization>|array{code:int} */
     public function listAuthorizations(string $clientId, int $perPage, int $page): iterable
     {
         return $this->operators->oauthAuthorizations👷ListAuthorizations()->call($clientId, $perPage, $page);
     }
 
-    /** @return iterable<Schema\Authorization>|array{code:int} */
+    /** @return Observable<Schema\Authorization>|array{code:int} */
     public function listAuthorizationsListing(string $clientId, int $perPage, int $page): iterable
     {
         return $this->operators->oauthAuthorizations👷ListAuthorizationsListing()->call($clientId, $perPage, $page);
@@ -63,7 +63,7 @@ final class OauthAuthorizations
         return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForApp()->call($clientId, $params);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function getOrCreateAuthorizationForAppAndFingerprint(string $clientId, string $fingerprint, array $params): Authorization|array
     {
         return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForAppAndFingerprint()->call($clientId, $fingerprint, $params);
@@ -81,7 +81,7 @@ final class OauthAuthorizations
         return $this->operators->oauthAuthorizations👷DeleteAuthorization()->call($authorizationId);
     }
 
-    /** @return Schema\Authorization */
+    /** @return */
     public function updateAuthorization(int $authorizationId, array $params): Authorization|array
     {
         return $this->operators->oauthAuthorizations👷UpdateAuthorization()->call($authorizationId, $params);

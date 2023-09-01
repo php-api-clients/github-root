@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview;
 use InvalidArgumentException;
 
@@ -15,7 +14,7 @@ final class Nine
     {
     }
 
-    /** @return iterable<string>|iterable<Schema\Integration>|iterable<Schema\Team>|iterable<Schema\SimpleUser>|Schema\PullRequestReview */
+    /** @return Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>| */
     public function call(string $call, array $params, array $pathChunks): iterable|PullRequestReview
     {
         if ($pathChunks[0] === '') {

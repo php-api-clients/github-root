@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Licenses;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\LicenseContent;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class GetForRepo
     {
     }
 
-    /** @return Schema\LicenseContent */
+    /** @return */
     public function call(string $owner, string $repo): LicenseContent|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Licenses\GetForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

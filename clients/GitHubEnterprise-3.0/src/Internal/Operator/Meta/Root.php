@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Meta;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Meta\Root\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class Root
     {
     }
 
-    /** @return Schema\Operations\Meta\Root\Response\ApplicationJson\Ok */
+    /** @return */
     public function call(): Ok|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Meta\Root($this->responseSchemaValidator, $this->hydrator);
