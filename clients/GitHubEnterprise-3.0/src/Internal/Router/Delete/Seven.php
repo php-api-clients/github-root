@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Issue;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple;
 use InvalidArgumentException;
@@ -16,7 +15,7 @@ final class Seven
     {
     }
 
-    /** @return array{code:int}|Schema\Issue|Schema\PullRequestSimple */
+    /** @return array{code:int}| */
     public function call(string $call, array $params, array $pathChunks): Issue|PullRequestSimple|array
     {
         if ($pathChunks[0] === '') {

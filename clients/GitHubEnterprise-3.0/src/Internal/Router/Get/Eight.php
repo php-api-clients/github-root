@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy;
 use ApiClients\Client\GitHubEnterprise\Schema\DeploymentStatus;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok;
@@ -23,7 +22,7 @@ final class Eight
     {
     }
 
-    /** @return iterable<Schema\TeamDiscussionComment>|iterable<Schema\Reaction>|Schema\TeamRepository|array{code:int}|array{code:int,location:string}|Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok|Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|Schema\ProtectedBranchAdminEnforced|Schema\ProtectedBranchPullRequestReview|Schema\StatusCheckPolicy|Schema\BranchRestrictionPolicy|Schema\DeploymentStatus|Schema\PullRequestReview */
+    /** @return Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Schema\TeamRepository|array{code:int}|array{code:int,location:string}| */
     public function call(string $call, array $params, array $pathChunks): iterable|TeamRepository|Json|Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|ProtectedBranchAdminEnforced|ProtectedBranchPullRequestReview|StatusCheckPolicy|BranchRestrictionPolicy|DeploymentStatus|PullRequestReview
     {
         if ($pathChunks[0] === '') {

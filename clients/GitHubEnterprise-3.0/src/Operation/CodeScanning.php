@@ -15,37 +15,37 @@ final class CodeScanning
     {
     }
 
-    /** @return iterable<Schema\CodeScanningAlertItems> */
+    /** @return Observable<Schema\CodeScanningAlertItems> */
     public function listAlertsForRepo(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page, int $perPage): iterable
     {
         return $this->operators->codeScanning👷ListAlertsForRepo()->call($owner, $repo, $toolName, $toolGuid, $ref, $state, $page, $perPage);
     }
 
-    /** @return iterable<Schema\CodeScanningAlertItems> */
+    /** @return Observable<Schema\CodeScanningAlertItems> */
     public function listAlertsForRepoListing(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $state, int $page, int $perPage): iterable
     {
         return $this->operators->codeScanning👷ListAlertsForRepoListing()->call($owner, $repo, $toolName, $toolGuid, $ref, $state, $page, $perPage);
     }
 
-    /** @return Schema\CodeScanningAlert */
+    /** @return */
     public function getAlert(string $owner, string $repo, int $alertNumber): CodeScanningAlert|array
     {
         return $this->operators->codeScanning👷GetAlert()->call($owner, $repo, $alertNumber);
     }
 
-    /** @return Schema\CodeScanningAlert */
+    /** @return */
     public function updateAlert(string $owner, string $repo, int $alertNumber, array $params): CodeScanningAlert|array
     {
         return $this->operators->codeScanning👷UpdateAlert()->call($owner, $repo, $alertNumber, $params);
     }
 
-    /** @return iterable<Schema\CodeScanningAnalysis> */
+    /** @return Observable<Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $sarifId, int $page, int $perPage): iterable
     {
         return $this->operators->codeScanning👷ListRecentAnalyses()->call($owner, $repo, $toolName, $toolGuid, $ref, $sarifId, $page, $perPage);
     }
 
-    /** @return iterable<Schema\CodeScanningAnalysis> */
+    /** @return Observable<Schema\CodeScanningAnalysis> */
     public function listRecentAnalysesListing(string $owner, string $repo, string $toolName, string|null $toolGuid, string $ref, string $sarifId, int $page, int $perPage): iterable
     {
         return $this->operators->codeScanning👷ListRecentAnalysesListing()->call($owner, $repo, $toolName, $toolGuid, $ref, $sarifId, $page, $perPage);

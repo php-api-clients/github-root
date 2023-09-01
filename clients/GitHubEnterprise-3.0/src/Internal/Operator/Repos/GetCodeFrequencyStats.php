@@ -25,7 +25,7 @@ final readonly class GetCodeFrequencyStats
     {
     }
 
-    /** @return iterable<int>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code:int} */
+    /** @return Observable<int>|Schema\Operations\Repos\GetCodeFrequencyStats\Response\ApplicationJson\Accepted|array{code:int} */
     public function call(string $owner, string $repo): iterable|Accepted
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\GetCodeFrequencyStats($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

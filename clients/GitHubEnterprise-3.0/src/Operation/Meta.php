@@ -16,7 +16,7 @@ final class Meta
     {
     }
 
-    /** @return Schema\Operations\Meta\Root\Response\ApplicationJson\Ok */
+    /** @return */
     public function root(): Ok|array
     {
         return $this->operators->meta👷Root()->call();
@@ -28,13 +28,13 @@ final class Meta
         return $this->operators->meta👷Get()->call();
     }
 
-    /** @return ResponseInterface */
+    /** @return */
     public function getOctocat(string $s): ResponseInterface|array
     {
         return $this->operators->meta👷GetOctocat()->call($s);
     }
 
-    /** @return string */
+    /** @return */
     public function getZen(): array|string
     {
         return $this->operators->meta👷GetZen()->call();
