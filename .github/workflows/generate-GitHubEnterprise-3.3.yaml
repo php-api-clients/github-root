@@ -4,10 +4,22 @@ on:
   schedule:
     - cron:  '13 7 * * *'
 jobs:
-  generate-githubenterprise-3_3:
+  supported-versions-matrix:
+    name: Supported Versions Matrix GitHubEnterprise-3.3
     runs-on: ubuntu-latest
+    outputs:
+      version: $0
+    steps:
+      - uses: actions/checkout@v3
+      - id: supported-versions-matrix
+        uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
+  generate-githubenterprise-3_3:
+    name: Generate GitHubEnterprise-3.3
+    runs-on: ubuntu-latest
+    needs:
+      - supported-versions-matrix
     container:
-      image: wyrihaximusnet/php:8.2-nts-alpine-slim-dev-root
+      image: wyrihaximusnet/php:$0-nts-alpine-slim-dev-root
     steps:
       - uses: actions/checkout@v3
       - uses: ramsey/composer-install@v2
