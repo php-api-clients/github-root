@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\CancelWorkflowRun\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg;
@@ -22,7 +21,7 @@ final class Actions
     {
     }
 
-    /** @return Schema\RunnerGroupsOrg */
+    /** @return */
     public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
     {
         $arguments = [];
@@ -37,7 +36,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRegistrationTokenForOrg(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -52,7 +51,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRemoveTokenForOrg(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -67,7 +66,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return Schema\Operations\Actions\CancelWorkflowRun\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function cancelWorkflowRun(array $params): Json|array
     {
         $arguments = [];
@@ -94,7 +93,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json */
+    /** @return */
     public function reRunWorkflow(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json|array
     {
         $arguments = [];
@@ -148,7 +147,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $params);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRegistrationTokenForRepo(array $params): AuthenticationToken|array
     {
         $arguments = [];
@@ -169,7 +168,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\AuthenticationToken */
+    /** @return */
     public function createRemoveTokenForRepo(array $params): AuthenticationToken|array
     {
         $arguments = [];

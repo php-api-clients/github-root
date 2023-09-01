@@ -20,7 +20,7 @@ final class SecretScanning
     {
     }
 
-    /** @return iterable<Schema\SecretScanningAlert>|array{code:int} */
+    /** @return Observable<Schema\SecretScanningAlert>|array{code:int} */
     public function listAlertsForRepo(array $params): iterable
     {
         $arguments = [];
