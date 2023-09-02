@@ -13,6 +13,8 @@ jobs:
       - uses: actions/checkout@v3
       - id: supported-versions-matrix
         uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
+        with:
+          workingDirectory: GitHub
   generate-github:
     name: Generate GitHub
     runs-on: ubuntu-latest
