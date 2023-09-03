@@ -14,7 +14,7 @@ jobs:
       - id: supported-versions-matrix
         uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
         with:
-          workingDirectory: {{ path }}
+          workingDirectory: clients/{{ path }}
   generate-{{ path|replace({".": "_"})|lower }}:
     name: Generate {{ path }}
     runs-on: ubuntu-latest
