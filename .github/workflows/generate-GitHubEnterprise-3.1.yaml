@@ -14,7 +14,7 @@ jobs:
       - id: supported-versions-matrix
         uses: WyriHaximus/github-action-composer-php-versions-in-range@v1
         with:
-          workingDirectory: GitHubEnterprise-3.1
+          workingDirectory: clients/GitHubEnterprise-3.1
   generate-githubenterprise-3_1:
     name: Generate GitHubEnterprise-3.1
     runs-on: ubuntu-latest
