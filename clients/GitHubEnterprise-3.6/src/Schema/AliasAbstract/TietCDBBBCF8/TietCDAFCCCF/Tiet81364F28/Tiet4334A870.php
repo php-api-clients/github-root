@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietD9682448\TietE3C93E46\TietB9C9540E;
+namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietCDBBBCF8\TietCDAFCCCF\Tiet81364F28;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet9D114A69
+abstract readonly class Tiet4334A870
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -321,7 +321,7 @@ abstract readonly class Tiet9D114A69
                         "type": "string",
                         "format": "uri",
                         "examples": [
-                            "https:\\/\\/api.github.com\\/installations\\/1\\/access_tokens"
+                            "https:\\/\\/api.github.com\\/app\\/installations\\/1\\/access_tokens"
                         ]
                     },
                     "repositories_url": {
@@ -867,7 +867,7 @@ abstract readonly class Tiet9D114A69
             "id": 1,
             "account": null,
             "repository_selection": "selected",
-            "access_tokens_url": "https:\\/\\/api.github.com\\/installations\\/1\\/access_tokens",
+            "access_tokens_url": "https:\\/\\/api.github.com\\/app\\/installations\\/1\\/access_tokens",
             "repositories_url": "https:\\/\\/api.github.com\\/installation\\/repositories",
             "html_url": "https:\\/\\/github.com\\/organizations\\/github\\/settings\\/installations\\/1",
             "app_id": 1,
@@ -950,7 +950,7 @@ abstract readonly class Tiet9D114A69
             "id": 1,
             "account": null,
             "repository_selection": "selected",
-            "access_tokens_url": "https:\\/\\/api.github.com\\/installations\\/1\\/access_tokens",
+            "access_tokens_url": "https:\\/\\/api.github.com\\/app\\/installations\\/1\\/access_tokens",
             "repositories_url": "https:\\/\\/api.github.com\\/installation\\/repositories",
             "html_url": "https:\\/\\/github.com\\/organizations\\/github\\/settings\\/installations\\/1",
             "app_id": 1,

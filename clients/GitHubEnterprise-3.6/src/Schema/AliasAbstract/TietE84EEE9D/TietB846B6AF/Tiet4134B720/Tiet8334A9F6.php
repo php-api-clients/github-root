@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\Tiet13338DCC\TietA034809C\Tiet09A31A19;
+namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietE84EEE9D\TietB846B6AF\Tiet4134B720;
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-abstract readonly class TietD96CD66E
+abstract readonly class Tiet8334A9F6
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -942,6 +942,7 @@ abstract readonly class TietD96CD66E
                     "type": "boolean",
                     "description": "Whether downloads are enabled.",
                     "default": true,
+                    "deprecated": true,
                     "examples": [
                         true
                     ]

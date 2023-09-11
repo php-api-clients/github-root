@@ -1656,6 +1656,7 @@ final readonly class FullRepository
                             "type": "boolean",
                             "description": "Whether downloads are enabled.",
                             "default": true,
+                            "deprecated": true,
                             "examples": [
                                 true
                             ]
@@ -3461,6 +3462,7 @@ final readonly class FullRepository
                     "type": "boolean",
                     "description": "Whether downloads are enabled.",
                     "default": true,
+                    "deprecated": true,
                     "examples": [
                         true
                     ]
@@ -4922,6 +4924,7 @@ final readonly class FullRepository
                     "type": "boolean",
                     "description": "Whether downloads are enabled.",
                     "default": true,
+                    "deprecated": true,
                     "examples": [
                         true
                     ]
