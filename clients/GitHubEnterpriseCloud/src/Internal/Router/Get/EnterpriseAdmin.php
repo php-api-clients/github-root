@@ -263,10 +263,16 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['visible_to_organization'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
+    /** @return Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok */
     public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
+        if (array_key_exists('name', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: name');
+        }
+
+        $arguments['name'] = $params['name'];
+        unset($params['name']);
         if (array_key_exists('enterprise', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: enterprise');
         }
@@ -287,7 +293,7 @@ final class EnterpriseAdmin
         unset($params['page']);
         $operator = new Internal\Operator\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners());
 
-        return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
+        return $operator->call($arguments['name'], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
     /** @return Schema\GroupResponse|array{code:int} */
