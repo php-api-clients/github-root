@@ -139,7 +139,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             ]
                         }
                     },
-                    "description": "The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App."
+                    "description": "The GitHub App installation. Webhook payloads contain the `installation` property when the event is configured\\nfor and sent to a GitHub App. For more information,\\nsee \\"[Using webhooks with GitHub Apps](https:\\/\\/docs.github.com\\/github-ae@latest\\/apps\\/creating-github-apps\\/registering-a-github-app\\/using-webhooks-with-github-apps).\\""
                 },
                 "number": {
                     "type": "integer",
@@ -242,7 +242,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             ]
                         }
                     },
-                    "description": "A GitHub organization."
+                    "description": "A GitHub organization. Webhook payloads contain the `organization` property when the webhook is configured for an\\norganization, or when the event occurs from activity in a repository owned by an organization."
                 },
                 "pull_request": {
                     "title": "Pull Request",
@@ -4669,7 +4669,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             "description": "Whether anonymous git access is enabled for this repository"
                         }
                     },
-                    "description": "A repository on GitHub."
+                    "description": "The repository on GitHub where the event occurred. Webhook payloads contain the `repository` property\\nwhen the event occurs from activity in a repository."
                 },
                 "requested_reviewer": {
                     "title": "User",
@@ -4926,7 +4926,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             ]
                         }
                     },
-                    "description": "A GitHub user."
+                    "description": "The GitHub user that triggered the event. This property is included in every webhook payload."
                 }
             }
         },
@@ -5060,7 +5060,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             ]
                         }
                     },
-                    "description": "The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App."
+                    "description": "The GitHub App installation. Webhook payloads contain the `installation` property when the event is configured\\nfor and sent to a GitHub App. For more information,\\nsee \\"[Using webhooks with GitHub Apps](https:\\/\\/docs.github.com\\/github-ae@latest\\/apps\\/creating-github-apps\\/registering-a-github-app\\/using-webhooks-with-github-apps).\\""
                 },
                 "number": {
                     "type": "integer",
@@ -5163,7 +5163,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             ]
                         }
                     },
-                    "description": "A GitHub organization."
+                    "description": "A GitHub organization. Webhook payloads contain the `organization` property when the webhook is configured for an\\norganization, or when the event occurs from activity in a repository owned by an organization."
                 },
                 "pull_request": {
                     "title": "Pull Request",
@@ -9590,7 +9590,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             "description": "Whether anonymous git access is enabled for this repository"
                         }
                     },
-                    "description": "A repository on GitHub."
+                    "description": "The repository on GitHub where the event occurred. Webhook payloads contain the `repository` property\\nwhen the event occurs from activity in a repository."
                 },
                 "requested_team": {
                     "title": "Team",
@@ -9895,7 +9895,7 @@ final readonly class WebhookPullRequestReviewRequestRemoved
                             ]
                         }
                     },
-                    "description": "A GitHub user."
+                    "description": "The GitHub user that triggered the event. This property is included in every webhook payload."
                 }
             }
         }
