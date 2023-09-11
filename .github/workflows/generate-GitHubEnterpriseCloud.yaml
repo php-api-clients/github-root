@@ -8,7 +8,7 @@ jobs:
     name: Supported Versions Matrix GitHubEnterpriseCloud
     runs-on: ubuntu-latest
     outputs:
-      version: $0
+      version: ${{ steps.supported-versions-matrix.outputs.lowest }}
     steps:
       - uses: actions/checkout@v4
       - id: supported-versions-matrix
@@ -21,7 +21,7 @@ jobs:
     needs:
       - supported-versions-matrix
     container:
-      image: wyrihaximusnet/php:$0-nts-alpine-slim-dev-root
+      image: wyrihaximusnet/php:${{ needs.supported-versions-matrix.outputs.version }}-nts-alpine-slim-dev-root
     steps:
       - uses: actions/checkout@v4
       - uses: ramsey/composer-install@v2
