@@ -179,7 +179,7 @@ final readonly class WebhookEnterpriseAnonymousAccessDisabled
                     ]
                 }
             },
-            "description": "A GitHub user."
+            "description": "The GitHub user that triggered the event. This property is included in every webhook payload."
         }
     }
 }';
@@ -213,9 +213,9 @@ final readonly class WebhookEnterpriseAnonymousAccessDisabled
 }';
 
     /**
-     * sender: A GitHub user.
+     * sender: The GitHub user that triggered the event. This property is included in every webhook payload.
      */
-    public function __construct(public string $action, public Schema\SimpleUser|null $sender)
+    public function __construct(public string $action, public Schema\SimpleUserWebhooks|null $sender)
     {
     }
 }
