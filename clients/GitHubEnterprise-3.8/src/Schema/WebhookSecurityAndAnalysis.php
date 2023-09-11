@@ -183,7 +183,7 @@ final readonly class WebhookSecurityAndAnalysis
                     ]
                 }
             },
-            "description": "The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App."
+            "description": "The GitHub App installation. Webhook payloads contain the `installation` property when the event is configured\\nfor and sent to a GitHub App. For more information,\\nsee \\"[Using webhooks with GitHub Apps](https:\\/\\/docs.github.com\\/enterprise-server@3.8\\/apps\\/creating-github-apps\\/registering-a-github-app\\/using-webhooks-with-github-apps).\\""
         },
         "organization": {
             "title": "Organization Simple",
@@ -282,7 +282,7 @@ final readonly class WebhookSecurityAndAnalysis
                     ]
                 }
             },
-            "description": "A GitHub organization."
+            "description": "A GitHub organization. Webhook payloads contain the `organization` property when the webhook is configured for an\\norganization, or when the event occurs from activity in a repository owned by an organization."
         },
         "repository": {
             "title": "Full Repository",
@@ -1937,6 +1937,7 @@ final readonly class WebhookSecurityAndAnalysis
                                     "type": "boolean",
                                     "description": "Whether downloads are enabled.",
                                     "default": true,
+                                    "deprecated": true,
                                     "examples": [
                                         true
                                     ]
@@ -3750,6 +3751,7 @@ final readonly class WebhookSecurityAndAnalysis
                             "type": "boolean",
                             "description": "Whether downloads are enabled.",
                             "default": true,
+                            "deprecated": true,
                             "examples": [
                                 true
                             ]
@@ -5219,6 +5221,7 @@ final readonly class WebhookSecurityAndAnalysis
                             "type": "boolean",
                             "description": "Whether downloads are enabled.",
                             "default": true,
+                            "deprecated": true,
                             "examples": [
                                 true
                             ]
@@ -6035,7 +6038,7 @@ final readonly class WebhookSecurityAndAnalysis
                     ]
                 }
             },
-            "description": "A GitHub user."
+            "description": "The GitHub user that triggered the event. This property is included in every webhook payload."
         }
     }
 }';
@@ -7121,12 +7124,15 @@ final readonly class WebhookSecurityAndAnalysis
 
     /**
      * enterprise: An enterprise on GitHub.
-     * installation: The GitHub App installation. This property is included when the event is configured for and sent to a GitHub App.
-     * organization: A GitHub organization.
+     * installation: The GitHub App installation. Webhook payloads contain the `installation` property when the event is configured
+    for and sent to a GitHub App. For more information,
+    see "[Using webhooks with GitHub Apps](https://docs.github.com/enterprise-server@3.8/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps)."
+     * organization: A GitHub organization. Webhook payloads contain the `organization` property when the webhook is configured for an
+    organization, or when the event occurs from activity in a repository owned by an organization.
      * repository: Full Repository
-     * sender: A GitHub user.
+     * sender: The GitHub user that triggered the event. This property is included in every webhook payload.
      */
-    public function __construct(public Schema\WebhookSecurityAndAnalysis\Changes $changes, public Schema\Enterprise|null $enterprise, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimple|null $organization, public Schema\FullRepository $repository, public Schema\SimpleUser|null $sender)
+    public function __construct(public Schema\WebhookSecurityAndAnalysis\Changes $changes, public Schema\Enterprise|null $enterprise, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks|null $organization, public Schema\FullRepository $repository, public Schema\SimpleUserWebhooks|null $sender)
     {
     }
 }
