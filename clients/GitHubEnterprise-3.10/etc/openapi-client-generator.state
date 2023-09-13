@@ -1,5 +1,5 @@
 {
-    "specHash": "825d98d53e9f08bf042128b00ba289c8",
+    "specHash": "69f4fab2d16f574efb8bfafbfe769ce7",
     "generatedFiles": {
         "files": [
             {
@@ -13312,11 +13312,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "dd9292048281d6da6aa155d0928d760c"
+                "hash": "9b3b388ff5c81530faee643f79804296"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Client.php",
-                "hash": "fcd61b98c8ab4fe5204f2c6ed565cc15"
+                "hash": "ce98fca8fab3f040911e4ad5bfd62cf4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -13420,7 +13420,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "432e6076307a4c7df9cbeb99999429d4"
+                "hash": "5c69be5377f5d56f62b257a8ef6bc903"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -20204,15 +20204,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/AddCollaborator.php",
-                "hash": "36fc6b66d577e7a33d07a3eee4fa9c85"
+                "hash": "80a9e4250a3fc8087a7bc1327b7132c4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/AddCollaborator.php",
-                "hash": "7a4ea0e173170c4480c7677105b54984"
+                "hash": "e82d78f9a3eb0088cd92b532020af66c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/AddCollaboratorTest.php",
-                "hash": "647d9165e9d7b7024aa9c6c6b8072d65"
+                "hash": "3df157b426dac523709e9d72a805ec72"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/RemoveCollaborator.php",
@@ -26616,7 +26616,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Repos.php",
-                "hash": "0250dbeef1b604f3e563c200a863c8a3"
+                "hash": "190f38e6a3f852bfb208ef32d988dcac"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Teams.php",
@@ -26848,7 +26848,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Six.php",
-                "hash": "06d6a0528118c8192609e8da89c69586"
+                "hash": "d6095ddb461b0d060052418726718567"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Seven.php",
@@ -27980,7 +27980,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username.php",
-                "hash": "59ca9657f3bbc98369214fae96539bee"
+                "hash": "e484d623dd9286462569ad271dadecb9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username\/Permission.php",
@@ -28848,7 +28848,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "616b234165682d765666fd1bf29b9907"
+                "hash": "566a28397e85c5283d53e8e850687669"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/OrganizationSimpleWebhooks.php",
