@@ -11,7 +11,6 @@ use ApiClients\Client\GitHubAE\Schema\Environment;
 use ApiClients\Client\GitHubAE\Schema\FileCommit;
 use ApiClients\Client\GitHubAE\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubAE\Schema\ProtectedBranch;
-use ApiClients\Client\GitHubAE\Schema\RepositoryInvitation;
 use ApiClients\Client\GitHubAE\Schema\Topic;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -89,8 +88,8 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\RepositoryInvitation|array{code:int} */
-    public function addCollaborator(array $params): RepositoryInvitation|array
+    /** @return array{code:int} */
+    public function addCollaborator(array $params): array
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

@@ -357,8 +357,8 @@ final class Repos
         return $this->operators->repos👷CheckCollaborator()->call($owner, $repo, $username);
     }
 
-    /** @return Schema\RepositoryInvitation|array{code:int} */
-    public function addCollaborator(string $owner, string $repo, string $username, array $params): RepositoryInvitation|array
+    /** @return array{code:int} */
+    public function addCollaborator(string $owner, string $repo, string $username, array $params): array
     {
         return $this->operators->repos👷AddCollaborator()->call($owner, $repo, $username, $params);
     }

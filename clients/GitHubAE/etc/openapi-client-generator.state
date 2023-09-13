@@ -1,5 +1,5 @@
 {
-    "specHash": "7aaae843b0c96850d3604ff0a1b908bc",
+    "specHash": "ba9b06e2402caa6ff5d006dda464659f",
     "generatedFiles": {
         "files": [
             {
@@ -4108,7 +4108,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/CreateInOrg\/Request\/ApplicationJson.php",
-                "hash": "7bc431d4fd7618b77df39bd886595606"
+                "hash": "5bc4e260bb6157c81cf27d7610b88f04"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Teams\/Create\/Request\/ApplicationJson.php",
@@ -4216,7 +4216,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/Update\/Request\/ApplicationJson.php",
-                "hash": "056ce12f5ed55f871e730a2a8e0f98c5"
+                "hash": "613e09a4f830ad1ef097e5e04b027b38"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/Update\/Request\/ApplicationJson\/SecurityAndAnalysis.php",
@@ -4832,11 +4832,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "6b03d1fc15f95fe957a534513fdfb4a4"
+                "hash": "481f3457789e8ed4b0a3efff66ea7333"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Client.php",
-                "hash": "ae05d43fe93fd38256bff1e993d65e0d"
+                "hash": "84435ca0154446bdadbadb790582bbf0"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -4916,7 +4916,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "6a2898fe9c1a313f4abf491a65f504ec"
+                "hash": "b7c9fd5fa334e08471c8e77c0c551a86"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -16708,15 +16708,15 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/AddCollaborator.php",
-                "hash": "4b246562fe2444c3a27fd9b0b102d7c2"
+                "hash": "15d98b691074017aa79d5e59c6ebae27"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/AddCollaborator.php",
-                "hash": "dd317f3c5c751034c5692ce5d8d6e8cb"
+                "hash": "142e56a2547dcdbece40a1fdf93cd7a1"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/AddCollaboratorTest.php",
-                "hash": "73f8d109364e09be91a1ec49744b4bee"
+                "hash": "bfc160627ca8560e18a8e31dafcd8682"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/RemoveCollaborator.php",
@@ -21644,7 +21644,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Repos.php",
-                "hash": "7533c4c6b999b2e1f381f5007aede12d"
+                "hash": "a652d08a74c56c6528375fe6aa399d86"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Teams.php",
@@ -21864,7 +21864,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Six.php",
-                "hash": "e6b529cf796e4153b083e6ab75c35659"
+                "hash": "22a62326f6472b854b290a212178fde8"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Seven.php",
@@ -22668,7 +22668,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username.php",
-                "hash": "a4cd65871f174679af6dd6818467829b"
+                "hash": "0434bac239e368ad6aa9688a73c350a1"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username\/Permission.php",
@@ -23340,7 +23340,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "51f43642050c0d1fd7415830506bebb0"
+                "hash": "ea863e2db01520696a001cb24415dee0"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/OrganizationSimpleWebhooks.php",

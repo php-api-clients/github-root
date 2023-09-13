@@ -8,7 +8,6 @@ use ApiClients\Client\GitHubAE\Internal\Routers;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Client\GitHubAE\Schema\Environment;
 use ApiClients\Client\GitHubAE\Schema\FileCommit;
-use ApiClients\Client\GitHubAE\Schema\RepositoryInvitation;
 use InvalidArgumentException;
 
 final class Six
@@ -17,8 +16,8 @@ final class Six
     {
     }
 
-    /** @return array{code:int}|Schema\EmptyObject|Schema\RepositoryInvitation| */
-    public function call(string $call, array $params, array $pathChunks): EmptyObject|RepositoryInvitation|FileCommit|Environment|array
+    /** @return array{code:int}|Schema\EmptyObject| */
+    public function call(string $call, array $params, array $pathChunks): EmptyObject|FileCommit|Environment|array
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
