@@ -46,8 +46,8 @@ final class AddCollaborator
         return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{username}'], [$this->owner, $this->repo, $this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\RepositoryInvitation|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\RepositoryInvitation|array
+    /** @return array{code: int} */
+    public function createResponse(ResponseInterface $response): array
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -56,16 +56,8 @@ final class AddCollaborator
                 $body = json_decode($response->getBody()->getContents(), true);
                 switch ($code) {
                     /**
-                     * Response when a new invitation is created
-                     **/
-                    case 201:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RepositoryInvitation::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
-
-                        return $this->hydrator->hydrateObject(Schema\RepositoryInvitation::class, $body);
-                    /**
                      * Validation failed, or the endpoint has been spammed.
                      **/
-
                     case 422:
                         $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
