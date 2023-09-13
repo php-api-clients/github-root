@@ -126,20 +126,6 @@ final readonly class ApplicationJson
             "description": "Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise.",
             "default": false
         },
-        "use_squash_pr_title_as_default": {
-            "type": "boolean",
-            "description": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.",
-            "default": false,
-            "deprecated": true
-        },
-        "squash_merge_commit_title": {
-            "enum": [
-                "PR_TITLE",
-                "COMMIT_OR_PR_TITLE"
-            ],
-            "type": "string",
-            "description": "The default value for a squash merge commit title:\\n\\n- `PR_TITLE` - default to the pull request\'s title.\\n- `COMMIT_OR_PR_TITLE` - default to the commit\'s title (if only one commit) or the pull request\'s title (when more than one commit)."
-        },
         "squash_merge_commit_message": {
             "enum": [
                 "PR_BODY",
@@ -212,8 +198,6 @@ final readonly class ApplicationJson
     "allow_rebase_merge": false,
     "delete_branch_on_merge": false,
     "allow_update_branch": false,
-    "use_squash_pr_title_as_default": false,
-    "squash_merge_commit_title": "PR_TITLE",
     "squash_merge_commit_message": "PR_BODY",
     "merge_commit_title": "MERGE_MESSAGE",
     "merge_commit_message": "BLANK",
@@ -247,11 +231,6 @@ final readonly class ApplicationJson
      * allowRebaseMerge: Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.
      * deleteBranchOnMerge: Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion.
      * allowUpdateBranch: Either `true` to always allow a pull request head branch that is behind its base branch to be updated even if it is not required to be up to date before merging, or false otherwise.
-     * useSquashPrTitleAsDefault: Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.
-     * squashMergeCommitTitle: The default value for a squash merge commit title:
-
-    - `PR_TITLE` - default to the pull request's title.
-    - `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
      * squashMergeCommitMessage: The default value for a squash merge commit message:
 
     - `PR_BODY` - default to the pull request's body.
@@ -281,9 +260,7 @@ final readonly class ApplicationJson
     public bool|null $allowMergeCommit, #[MapFrom('allow_rebase_merge')]
     public bool|null $allowRebaseMerge, #[MapFrom('delete_branch_on_merge')]
     public bool|null $deleteBranchOnMerge, #[MapFrom('allow_update_branch')]
-    public bool|null $allowUpdateBranch, #[MapFrom('use_squash_pr_title_as_default')]
-    public bool|null $useSquashPrTitleAsDefault, #[MapFrom('squash_merge_commit_title')]
-    public string|null $squashMergeCommitTitle, #[MapFrom('squash_merge_commit_message')]
+    public bool|null $allowUpdateBranch, #[MapFrom('squash_merge_commit_message')]
     public string|null $squashMergeCommitMessage, #[MapFrom('merge_commit_title')]
     public string|null $mergeCommitTitle, #[MapFrom('merge_commit_message')]
     public string|null $mergeCommitMessage, public bool|null $archived, #[MapFrom('allow_forking')]
