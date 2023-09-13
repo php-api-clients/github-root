@@ -91,7 +91,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['visible_to_repository'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok */
+    /** @return */
     public function listSelfHostedRunnersForOrg(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|array
     {
         $arguments = [];
@@ -604,7 +604,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\Operations\Actions\ListSelfHostedRunnersForRepo\Response\ApplicationJson\Ok\Application\Json */
+    /** @return */
     public function listSelfHostedRunnersForRepo(array $params): Json|array
     {
         $arguments = [];
