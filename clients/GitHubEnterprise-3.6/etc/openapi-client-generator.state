@@ -1,5 +1,5 @@
 {
-    "specHash": "730d6bf58ee03a0fdb48542e849f4a2b",
+    "specHash": "d96fe70af0fb11878cf98437786c3d00",
     "generatedFiles": {
         "files": [
             {
@@ -2396,7 +2396,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Repos\/CreateInOrg\/Request\/ApplicationJson.php",
-                "hash": "8424124ec257083b685b74e069290a02"
+                "hash": "e3c4ee5b6be7983183a3849dce94e10b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Teams\/Create\/Request\/ApplicationJson.php",
@@ -2504,7 +2504,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Repos\/Update\/Request\/ApplicationJson.php",
-                "hash": "d2aee76ee479b6987ce4e3b9890a10c1"
+                "hash": "7c5eeb04439dc2ac6d8f5a1a85085396"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Repos\/Update\/Request\/ApplicationJson\/SecurityAndAnalysis.php",
@@ -3172,11 +3172,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "e90a95afd969f276151f2587accaadbc"
+                "hash": "31d2932ba2da571bc0dfd17ba32ec278"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Client.php",
-                "hash": "e37dd2be9174dd6ae80079f41508c89a"
+                "hash": "788809ca0a947628b55c27077b5363d4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -3268,7 +3268,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "f7f7957543429744a78e281b56b57eb6"
+                "hash": "103f1e8df0cc2265838d3aaec35ce588"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -10320,15 +10320,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/AddCollaborator.php",
-                "hash": "36fc6b66d577e7a33d07a3eee4fa9c85"
+                "hash": "80a9e4250a3fc8087a7bc1327b7132c4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/AddCollaborator.php",
-                "hash": "7a4ea0e173170c4480c7677105b54984"
+                "hash": "e82d78f9a3eb0088cd92b532020af66c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/AddCollaboratorTest.php",
-                "hash": "647d9165e9d7b7024aa9c6c6b8072d65"
+                "hash": "3df157b426dac523709e9d72a805ec72"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/RemoveCollaborator.php",
@@ -16008,7 +16008,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Repos.php",
-                "hash": "108b8a0243a1562f2cd9ebe4172a3bb2"
+                "hash": "e78b6707ede239b9dc2b3784b78291a0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Teams.php",
@@ -16236,7 +16236,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Six.php",
-                "hash": "9e2fa2f4badd633f571b53344da4b86f"
+                "hash": "bb6613bc1823588142d36f23f6517743"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Seven.php",
@@ -17212,7 +17212,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username.php",
-                "hash": "c01d62996e293615c069290f7055b808"
+                "hash": "e484d623dd9286462569ad271dadecb9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username\/Permission.php",
@@ -17980,7 +17980,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "ba86ff3ede17571966d47874f3ffae60"
+                "hash": "abdb087b7cf49000a1adcaf70eb2745e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietE84EEE9D\/TietB846B6AF\/Tiet4134B720\/Tiet8334A9F6.php",

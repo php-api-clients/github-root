@@ -110,20 +110,6 @@ final readonly class ApplicationJson
             "description": "Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion. **The authenticated user must be an organization owner to set this property to `true`.**",
             "default": false
         },
-        "use_squash_pr_title_as_default": {
-            "type": "boolean",
-            "description": "Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.",
-            "default": false,
-            "deprecated": true
-        },
-        "squash_merge_commit_title": {
-            "enum": [
-                "PR_TITLE",
-                "COMMIT_OR_PR_TITLE"
-            ],
-            "type": "string",
-            "description": "The default value for a squash merge commit title:\\n\\n- `PR_TITLE` - default to the pull request\'s title.\\n- `COMMIT_OR_PR_TITLE` - default to the commit\'s title (if only one commit) or the pull request\'s title (when more than one commit)."
-        },
         "squash_merge_commit_message": {
             "enum": [
                 "PR_BODY",
@@ -174,8 +160,6 @@ final readonly class ApplicationJson
     "allow_rebase_merge": false,
     "allow_auto_merge": false,
     "delete_branch_on_merge": false,
-    "use_squash_pr_title_as_default": false,
-    "squash_merge_commit_title": "PR_TITLE",
     "squash_merge_commit_message": "PR_BODY",
     "merge_commit_title": "MERGE_MESSAGE",
     "merge_commit_message": "BLANK"
@@ -202,11 +186,6 @@ final readonly class ApplicationJson
      * allowRebaseMerge: Either `true` to allow rebase-merging pull requests, or `false` to prevent rebase-merging.
      * allowAutoMerge: Either `true` to allow auto-merge on pull requests, or `false` to disallow auto-merge.
      * deleteBranchOnMerge: Either `true` to allow automatically deleting head branches when pull requests are merged, or `false` to prevent automatic deletion. **The authenticated user must be an organization owner to set this property to `true`.**
-     * useSquashPrTitleAsDefault: Either `true` to allow squash-merge commits to use pull request title, or `false` to use commit message. **This property has been deprecated. Please use `squash_merge_commit_title` instead.
-     * squashMergeCommitTitle: The default value for a squash merge commit title:
-
-    - `PR_TITLE` - default to the pull request's title.
-    - `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
      * squashMergeCommitMessage: The default value for a squash merge commit message:
 
     - `PR_BODY` - default to the pull request's body.
@@ -236,9 +215,7 @@ final readonly class ApplicationJson
     public bool|null $allowMergeCommit, #[MapFrom('allow_rebase_merge')]
     public bool|null $allowRebaseMerge, #[MapFrom('allow_auto_merge')]
     public bool|null $allowAutoMerge, #[MapFrom('delete_branch_on_merge')]
-    public bool|null $deleteBranchOnMerge, #[MapFrom('use_squash_pr_title_as_default')]
-    public bool|null $useSquashPrTitleAsDefault, #[MapFrom('squash_merge_commit_title')]
-    public string|null $squashMergeCommitTitle, #[MapFrom('squash_merge_commit_message')]
+    public bool|null $deleteBranchOnMerge, #[MapFrom('squash_merge_commit_message')]
     public string|null $squashMergeCommitMessage, #[MapFrom('merge_commit_title')]
     public string|null $mergeCommitTitle, #[MapFrom('merge_commit_message')]
     public string|null $mergeCommitMessage,)
