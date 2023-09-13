@@ -1,5 +1,5 @@
 {
-    "specHash": "d9c0bc58a141972d6b60e4fdcb860cb1",
+    "specHash": "ff2bb41304788084eb425a6d63a1f633",
     "generatedFiles": {
         "files": [
             {
@@ -5624,11 +5624,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "6d1d24758529dc7fdeed6e8c633ce277"
+                "hash": "6281ace745568e47e22ae3d5adec8bff"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Client.php",
-                "hash": "8a3e1c33b5b9af167979e1e2fdf99c21"
+                "hash": "a7e69df27869cfd798a6294ee8e3261c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -5732,7 +5732,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "b789b7de9ff0b9377b3483edf260a295"
+                "hash": "e9b2180e73bbb10e82235704f987b484"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -19720,15 +19720,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/AddCollaborator.php",
-                "hash": "36fc6b66d577e7a33d07a3eee4fa9c85"
+                "hash": "80a9e4250a3fc8087a7bc1327b7132c4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/AddCollaborator.php",
-                "hash": "7a4ea0e173170c4480c7677105b54984"
+                "hash": "e82d78f9a3eb0088cd92b532020af66c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/AddCollaboratorTest.php",
-                "hash": "647d9165e9d7b7024aa9c6c6b8072d65"
+                "hash": "3df157b426dac523709e9d72a805ec72"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/RemoveCollaborator.php",
@@ -26076,7 +26076,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Repos.php",
-                "hash": "0250dbeef1b604f3e563c200a863c8a3"
+                "hash": "190f38e6a3f852bfb208ef32d988dcac"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Teams.php",
@@ -26308,7 +26308,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Six.php",
-                "hash": "06d6a0528118c8192609e8da89c69586"
+                "hash": "d6095ddb461b0d060052418726718567"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Seven.php",
@@ -27396,7 +27396,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username.php",
-                "hash": "3fae7ffc2e51be817b373aa90dbd8b4f"
+                "hash": "e484d623dd9286462569ad271dadecb9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Collaborators\/Username\/Permission.php",
@@ -28252,7 +28252,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "044cdcf32f1b3154db2c1b6b7d8faf60"
+                "hash": "144401fcb31b742b67f04b01099b0d8b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/OrganizationSimpleWebhooks.php",
