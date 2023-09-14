@@ -1,5 +1,5 @@
 {
-    "specHash": "ff2bb41304788084eb425a6d63a1f633",
+    "specHash": "5437145826b53b11f64781d14464bf57",
     "generatedFiles": {
         "files": [
             {
@@ -5732,7 +5732,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "e9b2180e73bbb10e82235704f987b484"
+                "hash": "9361edd9bffd0b1daa2d868b7e7646df"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Operation\/Reactions.php",
