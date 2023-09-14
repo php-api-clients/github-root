@@ -1,5 +1,5 @@
 {
-    "specHash": "5b5d2dfb0c53d647bd4e9dd38b133ce5",
+    "specHash": "82345c77cb5488207ef5eef6763bf7ec",
     "generatedFiles": {
         "files": [
             {
@@ -6076,11 +6076,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "fdd4f22d049858c7c5d0ad2decb48c27"
+                "hash": "af2964f3836cd50adc9d5eb98c777fc4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Client.php",
-                "hash": "842c57fc5797d7b1e6f1b20656013a39"
+                "hash": "b8afafc278b4073c3694e3799e27135b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -6104,11 +6104,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "859cd8e173db5c01267cc617bb54d019"
+                "hash": "dd086b084404eb5e76728e6b6c646144"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Actions.php",
-                "hash": "7ca21afacf381ae62a9b1d9b58c4a8a6"
+                "hash": "15674a124564b04fbbf42610d7f5a97f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/AnnouncementBanners.php",
@@ -28632,15 +28632,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
-                "hash": "972f33ae6ede164e8cb662cf55e552fc"
+                "hash": "44f4119d841c98a8edea628f355f9200"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Three.php",
-                "hash": "fbd5b922f98d874536335b10441de80e"
+                "hash": "0f5f1d1b18c227c48b7b109cafa24ce0"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Four.php",
-                "hash": "2b4e87aafc2420a3aef0556ab6dae81c"
+                "hash": "bb861fef43df3550dece0c788d782c97"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
@@ -28740,7 +28740,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Four.php",
-                "hash": "bc9e419325c1703bdae18751456d1c4d"
+                "hash": "b607e010e5b5d2867b3de07df62498e4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Five.php",
@@ -28748,7 +28748,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Two.php",
-                "hash": "0d97a2bf19bef83f86957b54b91739ad"
+                "hash": "416e64d161ad3fac3b719aa7140648b5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Six.php",
@@ -31328,7 +31328,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/GetAnAssignment.php",
-                "hash": "b84784a91e82cc3fc8e89b78aba0437a"
+                "hash": "a2c849af5f8256419e93bbb81c6bab5d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/GetAnAssignmentTest.php",
@@ -31340,7 +31340,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/ListAcceptedAssigmentsForAnAssignment.php",
-                "hash": "fc4c0b02e78ce377ebea1e9f599ad7dc"
+                "hash": "8ae6691acea7878af3acb14e54c1de59"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/ListAcceptedAssigmentsForAnAssignmentTest.php",
@@ -31352,7 +31352,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/ListAcceptedAssigmentsForAnAssignmentListing.php",
-                "hash": "321bd9aec5fcb347fc8778cc83c11254"
+                "hash": "da56902fa5cce49b3e909dd3512f937d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/ListAcceptedAssigmentsForAnAssignmentListingTest.php",
@@ -31364,7 +31364,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/GetAssignmentGrades.php",
-                "hash": "8efd116d1b995715ee083c4243674b01"
+                "hash": "d2bddb989223cd8cf63dfb3d26607786"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/GetAssignmentGradesTest.php",
@@ -31376,7 +31376,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/ListClassrooms.php",
-                "hash": "674bae841eca8be7a13e60773c6b72a5"
+                "hash": "2b3fd07c34bb8653ab4f4b4f92973053"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/ListClassroomsTest.php",
@@ -31388,7 +31388,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/ListClassroomsListing.php",
-                "hash": "aaffff792174b996c2a7ee6f42e8fdb3"
+                "hash": "8edc30a627db339bb8c993084b4f55d7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/ListClassroomsListingTest.php",
@@ -31400,7 +31400,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/GetAClassroom.php",
-                "hash": "388d2e04e9cc59edbb5c2948fa07cae6"
+                "hash": "0cb05f4ee8d95b970e9847435bc8e470"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/GetAClassroomTest.php",
@@ -31412,7 +31412,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/ListAssignmentsForAClassroom.php",
-                "hash": "6af3ddd3e1b48160394b479240f88718"
+                "hash": "179c343dfdf61668f317f68826b3ea3f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/ListAssignmentsForAClassroomTest.php",
@@ -31424,7 +31424,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Classroom\/ListAssignmentsForAClassroomListing.php",
-                "hash": "c0a2064b1d289871c151f21bb75db22e"
+                "hash": "4c283ca5a1b1625d6e74870aa6184ec9"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Classroom\/ListAssignmentsForAClassroomListingTest.php",
@@ -31468,15 +31468,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Classroom.php",
-                "hash": "3ef8b8a95aebe54058ac6d50f7062f6d"
+                "hash": "c44ff9d0f6aa9e75642a225090497659"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Classroom.php",
-                "hash": "df70495b34f5f2ef1960cfacd28a92d7"
+                "hash": "0ac237cc383cb966dc9cce4b88d3baf3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Classroom.php",
-                "hash": "fe3a5c032a53777986721d6b18428757"
+                "hash": "ff75a1cb6edef22838fa27a0e00bf00a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Assignments\/AssignmentId.php",
