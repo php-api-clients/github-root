@@ -1,5 +1,5 @@
 {
-    "specHash": "69f4fab2d16f574efb8bfafbfe769ce7",
+    "specHash": "edc5a920205a0622f4f8ac3cb0ec3572",
     "generatedFiles": {
         "files": [
             {
@@ -13420,7 +13420,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "5c69be5377f5d56f62b257a8ef6bc903"
+                "hash": "8a62e5ed957d36f20e00c6a3b9912419"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Reactions.php",
