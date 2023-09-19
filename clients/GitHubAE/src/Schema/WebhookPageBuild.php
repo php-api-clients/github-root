@@ -254,7 +254,7 @@ final readonly class WebhookPageBuild
                     "format": "uri"
                 }
             },
-            "description": "An enterprise on GitHub."
+            "description": "An enterprise on GitHub. Webhook payloads contain the `enterprise` property when the webhook is configured\\non an enterprise account or an organization that\'s part of an enterprise account. For more information,\\nsee \\"[About enterprise accounts](https:\\/\\/docs.github.com\\/github-ae@latest\\/admin\\/overview\\/about-enterprise-accounts).\\"\\n"
         },
         "id": {
             "type": "integer"
@@ -2291,7 +2291,10 @@ final readonly class WebhookPageBuild
 
     /**
      * build: The [List GitHub Pages builds](https://docs.github.com/github-ae@latest/rest/pages/pages#list-github-pages-builds) itself.
-     * enterprise: An enterprise on GitHub.
+     * enterprise: An enterprise on GitHub. Webhook payloads contain the `enterprise` property when the webhook is configured
+    on an enterprise account or an organization that's part of an enterprise account. For more information,
+    see "[About enterprise accounts](https://docs.github.com/github-ae@latest/admin/overview/about-enterprise-accounts)."
+
      * installation: The GitHub App installation. Webhook payloads contain the `installation` property when the event is configured
     for and sent to a GitHub App. For more information,
     see "[Using webhooks with GitHub Apps](https://docs.github.com/github-ae@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps)."
@@ -2301,7 +2304,7 @@ final readonly class WebhookPageBuild
     when the event occurs from activity in a repository.
      * sender: The GitHub user that triggered the event. This property is included in every webhook payload.
      */
-    public function __construct(public Schema\WebhookPageBuild\Build $build, public Schema\Enterprise|null $enterprise, public int $id, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks|null $organization, public Schema\RepositoryWebhooks $repository, public Schema\SimpleUserWebhooks $sender)
+    public function __construct(public Schema\WebhookPageBuild\Build $build, public Schema\EnterpriseWebhooks|null $enterprise, public int $id, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks|null $organization, public Schema\RepositoryWebhooks $repository, public Schema\SimpleUserWebhooks $sender)
     {
     }
 }
