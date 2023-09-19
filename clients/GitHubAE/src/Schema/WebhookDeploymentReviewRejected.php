@@ -176,7 +176,7 @@ final readonly class WebhookDeploymentReviewRejected
                     "format": "uri"
                 }
             },
-            "description": "An enterprise on GitHub."
+            "description": "An enterprise on GitHub. Webhook payloads contain the `enterprise` property when the webhook is configured\\non an enterprise account or an organization that\'s part of an enterprise account. For more information,\\nsee \\"[About enterprise accounts](https:\\/\\/docs.github.com\\/github-ae@latest\\/admin\\/overview\\/about-enterprise-accounts).\\"\\n"
         },
         "installation": {
             "title": "Simple Installation",
@@ -3609,7 +3609,10 @@ final readonly class WebhookDeploymentReviewRejected
 }';
 
     /**
-     * enterprise: An enterprise on GitHub.
+     * enterprise: An enterprise on GitHub. Webhook payloads contain the `enterprise` property when the webhook is configured
+    on an enterprise account or an organization that's part of an enterprise account. For more information,
+    see "[About enterprise accounts](https://docs.github.com/github-ae@latest/admin/overview/about-enterprise-accounts)."
+
      * installation: The GitHub App installation. Webhook payloads contain the `installation` property when the event is configured
     for and sent to a GitHub App. For more information,
     see "[Using webhooks with GitHub Apps](https://docs.github.com/github-ae@latest/apps/creating-github-apps/registering-a-github-app/using-webhooks-with-github-apps)."
@@ -3619,7 +3622,7 @@ final readonly class WebhookDeploymentReviewRejected
     when the event occurs from activity in a repository.
      * sender: The GitHub user that triggered the event. This property is included in every webhook payload.
      */
-    public function __construct(public string $action, public Schema\WebhookDeploymentReviewRejected\Approver|null $approver, public string|null $comment, public Schema\Enterprise|null $enterprise, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks $organization, public Schema\RepositoryWebhooks $repository, public array|null $reviewers, public Schema\SimpleUserWebhooks $sender, public string $since, #[MapFrom('workflow_job_run')]
+    public function __construct(public string $action, public Schema\WebhookDeploymentReviewRejected\Approver|null $approver, public string|null $comment, public Schema\EnterpriseWebhooks|null $enterprise, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks $organization, public Schema\RepositoryWebhooks $repository, public array|null $reviewers, public Schema\SimpleUserWebhooks $sender, public string $since, #[MapFrom('workflow_job_run')]
     public Schema\WebhookDeploymentReviewRejected\WorkflowJobRun|null $workflowJobRun, #[MapFrom('workflow_job_runs')]
     public array|null $workflowJobRuns, #[MapFrom('workflow_run')]
     public Schema\WebhookDeploymentReviewRejected\WorkflowRun|null $workflowRun,)
