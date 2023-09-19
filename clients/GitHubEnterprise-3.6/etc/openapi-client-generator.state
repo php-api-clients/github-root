@@ -1,5 +1,5 @@
 {
-    "specHash": "d96fe70af0fb11878cf98437786c3d00",
+    "specHash": "d29d4c055307506244ad6b0e78dbedd9",
     "generatedFiles": {
         "files": [
             {
@@ -1264,19 +1264,19 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/UserRole.php",
-                "hash": "cb5ea50d8fbe5d76b8bc76f567a442ed"
+                "hash": "5872474fc722a9c52d878e6071ee8896"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/UserResponse.php",
-                "hash": "2f3c0a9a26daf87efe880a3fdce2c8ed"
+                "hash": "1d5640c4c4e9fc6adb4bd9c115d2718e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/ScimEnterpriseUserResponse.php",
-                "hash": "5218da0ded728b8dfe9aec42e85a306a"
+                "hash": "127d53122e230c2100a02ce3ee8c1424"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/ScimEnterpriseUserList.php",
-                "hash": "172715b1eea588829fc2c55ddd9ccbe4"
+                "hash": "5fac4f878e7c5c95eb764e1cd371f3ad"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/UserName.php",
@@ -1288,7 +1288,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/User.php",
-                "hash": "110e58cffe5d2ff30f0d54cd45d460e3"
+                "hash": "e08e456193e5ee5aff3b364804da75d6"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/SearchResultTextMatches.php",
@@ -3268,7 +3268,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "103f1e8df0cc2265838d3aaec35ce588"
+                "hash": "44ffd82bfe6632cdf70b72f2ebfad449"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Reactions.php",
