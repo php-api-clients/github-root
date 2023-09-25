@@ -18,7 +18,7 @@ final class Eight
     {
     }
 
-    /** @return |array{code:int} */
+    /** @return Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json||Schema\EmptyObject|array{code:int} */
     public function call(string $call, array $params, array $pathChunks): Json|TeamDiscussionComment|Reaction|EmptyObject|ProtectedBranchAdminEnforced|array
     {
         if ($pathChunks[0] === '') {
@@ -63,6 +63,10 @@ final class Eight
                                     if ($pathChunks[7] === 'cancel') {
                                         if ($call === 'POST /repos/{owner}/{repo}/actions/runs/{run_id}/cancel') {
                                             return $this->routers->internal🔀Router🔀Post🔀Actions()->cancelWorkflowRun($params);
+                                        }
+                                    } elseif ($pathChunks[7] === 'force-cancel') {
+                                        if ($call === 'POST /repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel') {
+                                            return $this->routers->internal🔀Router🔀Post🔀Actions()->forceCancelWorkflowRun($params);
                                         }
                                     } elseif ($pathChunks[7] === 'rerun') {
                                         if ($call === 'POST /repos/{owner}/{repo}/actions/runs/{run_id}/rerun') {
