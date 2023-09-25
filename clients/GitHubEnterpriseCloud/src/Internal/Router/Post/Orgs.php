@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationInvitation;
@@ -202,7 +203,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['security_product'], $arguments['enablement'], $params);
     }
 
-    /** @return */
+    /** @return Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json */
     public function redeliverWebhookDelivery(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|array
     {
         $arguments = [];
