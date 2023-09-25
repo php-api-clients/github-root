@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubAE\Internal;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\HookDelivery;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -24,7 +25,7 @@ final readonly class GetWebhookDelivery
     {
     }
 
-    /** @return */
+    /** @return Schema\HookDelivery */
     public function call(string $owner, string $repo, int $hookId, int $deliveryId): HookDelivery|array
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\GetWebhookDelivery($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $hookId, $deliveryId);

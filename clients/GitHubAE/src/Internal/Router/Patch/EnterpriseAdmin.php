@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Announcement;
 use ApiClients\Client\GitHubAE\Schema\GlobalHook2;
 use ApiClients\Client\GitHubAE\Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted;
@@ -23,7 +24,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return */
+    /** @return Schema\GlobalHook2 */
     public function updateGlobalWebhook(array $params): GlobalHook2|array
     {
         $arguments = [];

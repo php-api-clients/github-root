@@ -7451,6 +7451,30 @@ $client->operations()->actions()->cancelWorkflowRun(        owner: 'generated',
 You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#cancel-a-workflow-run).
 
 
+### actions/force-cancel-workflow-run
+
+Force cancel a workflow run
+
+Using the `call` method:
+```php
+$client->call('POST /repos/{owner}/{repo}/actions/runs/{run_id}/force-cancel', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'run_id' => 6,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->actions()->forceCancelWorkflowRun(        owner: 'generated',
+        repo: 'generated',
+        run_id: 6,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/github-ae@latest/rest/actions/workflow-runs#force-cancel-a-workflow-run).
+
+
 ### actions/list-jobs-for-workflow-run
 
 List jobs for a workflow run
