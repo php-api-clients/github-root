@@ -26,7 +26,7 @@ final class Seven
     {
     }
 
-    /** @return |array{code:int}|Schema\SecretScanningAlert|Schema\ScimUser */
+    /** @return |array{code:int}|Schema\WebhookConfig|Schema\SecretScanningAlert|Schema\ScimUser */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment|array
     {
         if ($pathChunks[0] === '') {
