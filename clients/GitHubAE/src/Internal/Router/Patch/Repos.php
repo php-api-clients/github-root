@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\CommitComment;
 use ApiClients\Client\GitHubAE\Schema\FullRepository;
@@ -92,7 +91,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
-    /** @return Schema\Hook */
+    /** @return */
     public function updateWebhook(array $params): Hook|array
     {
         $arguments = [];
@@ -173,7 +172,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $params);
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function updateWebhookConfigForRepo(array $params): WebhookConfig|array
     {
         $arguments = [];

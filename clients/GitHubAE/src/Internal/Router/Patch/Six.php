@@ -28,7 +28,6 @@ final class Six
     {
     }
 
-    /** @return |Schema\WebhookConfig|Schema\Hook */
     public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|CommitComment|Hook|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|array
     {
         if ($pathChunks[0] === '') {
