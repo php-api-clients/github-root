@@ -24,7 +24,7 @@ final class Five
     {
     }
 
-    /** @return |Schema\OrgHook|Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse */
+    /** @return |Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse */
     public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership|array
     {
         if ($pathChunks[0] === '') {
