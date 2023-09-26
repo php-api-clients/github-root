@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationFull;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
@@ -24,7 +23,7 @@ final class Orgs
     {
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function updateWebhookConfigForOrg(array $params): WebhookConfig|array
     {
         $arguments = [];
@@ -102,7 +101,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id'], $params);
     }
 
-    /** @return Schema\OrgHook */
+    /** @return */
     public function updateWebhook(array $params): OrgHook|array
     {
         $arguments = [];
