@@ -162,7 +162,7 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    /** @return Schema\GlobalHook */
+    /** @return */
     public function getGlobalWebhook(array $params): GlobalHook|array
     {
         $arguments = [];

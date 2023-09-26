@@ -386,7 +386,7 @@ final class Actions
         return $this->operators->actions👷CancelWorkflowRun()->call($owner, $repo, $runId);
     }
 
-    /** @return Schema\EmptyObject */
+    /** @return */
     public function forceCancelWorkflowRun(string $owner, string $repo, int $runId): EmptyObject|array
     {
         return $this->operators->actions👷ForceCancelWorkflowRun()->call($owner, $repo, $runId);
