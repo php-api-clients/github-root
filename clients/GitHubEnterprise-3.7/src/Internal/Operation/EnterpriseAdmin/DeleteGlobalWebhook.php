@@ -17,7 +17,7 @@ final class DeleteGlobalWebhook
     public const OPERATION_MATCH = 'DELETE /admin/hooks/{hook_id}';
     private const METHOD         = 'DELETE';
     private const PATH           = '/admin/hooks/{hook_id}';
-    /**The unique identifier of the hook. **/
+    /**The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery. **/
     private int $hookId;
 
     public function __construct(int $hookId)

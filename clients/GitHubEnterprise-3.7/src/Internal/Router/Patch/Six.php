@@ -31,7 +31,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int} */
+    /** @return |array{code:int}|Schema\WebhookConfig|Schema\Hook */
     public function call(string $call, array $params, array $pathChunks): LdapMappingTeam|LdapMappingUser|RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|CommitComment|Hook|RepositoryInvitation|Issue|BasicError|Label|Milestone|RepositoryPreReceiveHook|PullRequest|Release|array
     {
         if ($pathChunks[0] === '') {
