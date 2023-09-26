@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook2;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -24,7 +25,7 @@ final readonly class UpdateGlobalWebhook
     {
     }
 
-    /** @return */
+    /** @return Schema\GlobalHook2 */
     public function call(int $hookId, array $params): GlobalHook2|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $hookId);
