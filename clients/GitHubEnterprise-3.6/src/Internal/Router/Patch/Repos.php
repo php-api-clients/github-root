@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
 use ApiClients\Client\GitHubEnterprise\Schema\CommitComment;
 use ApiClients\Client\GitHubEnterprise\Schema\FullRepository;
@@ -91,7 +92,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
-    /** @return */
+    /** @return Schema\Hook */
     public function updateWebhook(array $params): Hook|array
     {
         $arguments = [];
@@ -172,7 +173,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $params);
     }
 
-    /** @return */
+    /** @return Schema\WebhookConfig */
     public function updateWebhookConfigForRepo(array $params): WebhookConfig|array
     {
         $arguments = [];
