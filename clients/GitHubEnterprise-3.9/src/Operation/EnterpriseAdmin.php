@@ -74,7 +74,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷CreateGlobalWebhook()->call($params);
     }
 
-    /** @return */
+    /** @return Schema\GlobalHook */
     public function getGlobalWebhook(int $hookId): GlobalHook|array
     {
         return $this->operators->enterpriseAdmin👷GetGlobalWebhook()->call($hookId);
@@ -86,7 +86,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteGlobalWebhook()->call($hookId);
     }
 
-    /** @return */
+    /** @return Schema\GlobalHook2 */
     public function updateGlobalWebhook(int $hookId, array $params): GlobalHook2|array
     {
         return $this->operators->enterpriseAdmin👷UpdateGlobalWebhook()->call($hookId, $params);

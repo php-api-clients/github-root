@@ -32,7 +32,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return */
+    /** @return Schema\GlobalHook2 */
     public function updateGlobalWebhook(array $params): GlobalHook2|array
     {
         $arguments = [];
