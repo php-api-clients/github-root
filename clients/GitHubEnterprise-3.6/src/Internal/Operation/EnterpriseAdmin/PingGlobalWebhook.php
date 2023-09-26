@@ -17,7 +17,7 @@ final class PingGlobalWebhook
     public const OPERATION_MATCH = 'POST /admin/hooks/{hook_id}/pings';
     private const METHOD         = 'POST';
     private const PATH           = '/admin/hooks/{hook_id}/pings';
-    /**The unique identifier of the hook. **/
+    /**The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery. **/
     private int $hookId;
 
     public function __construct(int $hookId)

@@ -23,7 +23,7 @@ final class Four
     {
     }
 
-    /** @return |array{code:int}|Schema\ProjectColumn */
+    /** @return Schema\GlobalHook2||array{code:int}|Schema\ProjectColumn */
     public function call(string $call, array $params, array $pathChunks): GlobalHook2|Accepted|PreReceiveEnvironment|PreReceiveHook|Json|WebhookConfig|Authorization|ProjectColumn|FullRepository|BasicError|array
     {
         if ($pathChunks[0] === '') {

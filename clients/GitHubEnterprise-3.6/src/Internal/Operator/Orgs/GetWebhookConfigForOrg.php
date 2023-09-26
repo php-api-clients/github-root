@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operator\Orgs;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -24,7 +25,7 @@ final readonly class GetWebhookConfigForOrg
     {
     }
 
-    /** @return */
+    /** @return Schema\WebhookConfig */
     public function call(string $org, int $hookId): WebhookConfig|array
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\GetWebhookConfigForOrg($this->responseSchemaValidator, $this->hydrator, $org, $hookId);
