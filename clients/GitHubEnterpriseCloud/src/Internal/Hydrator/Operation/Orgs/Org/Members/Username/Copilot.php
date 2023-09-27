@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\Operation\Orgs\Org\Members\Username;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\CopilotSeatDetails\Assignee;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Attribute\CastUnionToType\Schema\CopilotSeatDetails\AssigningTeam;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatDetails;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatDetails\Assignee;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Team;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Team\Permissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamSimple;
@@ -48,7 +48,6 @@ class Copilot implements ObjectMapper
         return match ($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatDetails' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatDetails($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatDetails\Assignee' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatDetails⚡️Assignee($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Team($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Team\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Team⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️TeamSimple($payload),
@@ -68,13 +67,17 @@ class Copilot implements ObjectMapper
                 goto after_assignee;
             }
 
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'assignee';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatDetails⚡️Assignee($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
+            static $assigneeCaster1;
+
+            if ($assigneeCaster1 === null) {
+                $assigneeCaster1 = new Assignee(...[]);
+            }
+
+            $value = $assigneeCaster1->cast($value, $this);
+
+            if ($value === null) {
+                                $missingFields[] = 'assignee';
+                goto after_assignee;
             }
 
             $properties['assignee'] = $value;
@@ -243,26 +246,6 @@ class Copilot implements ObjectMapper
             return new BasicError(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatDetails⚡️Assignee(array $payload): Assignee
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatDetails\Assignee', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Assignee::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new Assignee(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatDetails\Assignee', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -793,8 +776,12 @@ class Copilot implements ObjectMapper
         assert($object instanceof CopilotSeatDetails);
         $result = [];
 
-        $assignee                                  = $object->assignee;
-        $assignee                                  = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CopilotSeatDetails⚡️Assignee($assignee);
+        $assignee = $object->assignee;
+        $assignee = match ($assignee::class) {
+                        'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUser($assignee),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Team($assignee),
+            'ApiClients\Client\GitHubEnterpriseCloud\Schema\Organization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Organization($assignee),
+        };
         after_assignee:        $result['assignee'] = $assignee;
 
         $assigningTeam = $object->assigningTeam;
