@@ -1,5 +1,5 @@
 {
-    "specHash": "b091080a69743dee86f2fe208c7f1f91",
+    "specHash": "64807339d76b70126531bad7791aa05d",
     "generatedFiles": {
         "files": [
             {
@@ -6108,7 +6108,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Actions.php",
-                "hash": "c65e85a2b6dcbd28bd791f4fe592a225"
+                "hash": "c1d419c64b6f133d64141d359067907f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/AnnouncementBanners.php",
@@ -6156,7 +6156,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "a4381768ac529d75c4560fb1a13309b1"
+                "hash": "0be8a48857c6ebc56dde6b136d0a42bd"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -6188,7 +6188,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "f1e7b7824b97c730c9552a1138f33019"
+                "hash": "19f82f6d3644bb2d40e239b4320f5a9f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -14004,19 +14004,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotSeatDetails.php",
-                "hash": "4280606f5f22c09da75eb683a662ee80"
+                "hash": "fce07c4b35302f45fa5885cf9994c7b2"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Organization\/Plan.php",
                 "hash": "b144158b8c6c23d002714b602059581c"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotSeatDetails\/Assignee.php",
-                "hash": "0f11e0f87cfe34ebdaa4c0b92f506e6a"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/ListCopilotSeats\/Response\/ApplicationJson\/Ok.php",
-                "hash": "0fd9e2bb65915a6b09ddb53fb3e732c4"
+                "hash": "ba2dc87545d15504c7354c94c9e43780"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/AddCopilotForBusinessSeatsForTeams\/Request\/ApplicationJson.php",
@@ -29444,7 +29440,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Members\/Username\/Copilot.php",
-                "hash": "8e07375bab60fbb07c8340851bc9484f"
+                "hash": "05fa33a84cb20743b3fe7de59b7b0ddf"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Memberships\/Username.php",
@@ -31048,7 +31044,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "3251a2b1b63af971494636ae41f881bf"
+                "hash": "de8d1ca133b9c7aa79f8aa7776a1cccb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/ListProvisionedGroupsEnterprise.php",
@@ -31509,6 +31505,10 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Actions\/Runs\/RunId\/ForceCancel.php",
                 "hash": "56f3feab7e2688ad0dab07b5f7de468a"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Attribute\/CastUnionToType\/Schema\/CopilotSeatDetails\/Assignee.php",
+                "hash": "23a28307668db2b48df10922e4d7d665"
             }
         ]
     },
