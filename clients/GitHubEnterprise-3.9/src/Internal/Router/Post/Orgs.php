@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
@@ -100,7 +99,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return */
     public function redeliverWebhookDelivery(array $params): Json|array
     {
         $arguments = [];

@@ -550,7 +550,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name']);
     }
 
-    /** @return Schema\Hook */
+    /** @return */
     public function getWebhook(array $params): Hook|array
     {
         $arguments = [];
@@ -1969,7 +1969,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\WebhookConfig */
+    /** @return */
     public function getWebhookConfigForRepo(array $params): WebhookConfig|array
     {
         $arguments = [];
@@ -1996,7 +1996,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
-    /** @return iterable<Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -2383,7 +2383,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id']);
     }
 
-    /** @return Schema\HookDelivery */
+    /** @return */
     public function getWebhookDelivery(array $params): HookDelivery|array
     {
         $arguments = [];
