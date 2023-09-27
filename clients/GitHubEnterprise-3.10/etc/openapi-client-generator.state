@@ -1,5 +1,5 @@
 {
-    "specHash": "8a044bab1bdccc55d8fbe8ab39c44fc0",
+    "specHash": "dfb2d23c854f88418b9c92d345ba3730",
     "generatedFiles": {
         "files": [
             {
@@ -13312,11 +13312,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "b0e943191e736877ad52c014915e708e"
+                "hash": "9b3b388ff5c81530faee643f79804296"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Client.php",
-                "hash": "688f6fd74cf21928a7e7ade126a38f48"
+                "hash": "ce98fca8fab3f040911e4ad5bfd62cf4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -13328,7 +13328,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "e6c910136d917d80b7f3aed65872f1ec"
+                "hash": "9d97129d145c5be95903417b9bfb0549"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Apps.php",
@@ -13392,7 +13392,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "9f9260b868863a68bda5c8e3fe565e2b"
+                "hash": "3c334da5335a1a97f40030b76dae847a"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -13420,7 +13420,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "c24403bd8d8233b45e5581b98a35c8c4"
+                "hash": "35fa14ff478ddc9f1ba8a1eb1f1ffdcd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -13552,7 +13552,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/EnterpriseAdmin\/GetGlobalWebhook.php",
-                "hash": "1816d69de3ff42ade5d0aa7e94622ecd"
+                "hash": "133fc23307d6e30f0a59b44927ce15da"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/EnterpriseAdmin\/GetGlobalWebhookTest.php",
@@ -13572,7 +13572,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/EnterpriseAdmin\/UpdateGlobalWebhook.php",
-                "hash": "7879840a4cde9fe1ee2ada3a13831d5e"
+                "hash": "08af319c677d3fa671d31c203fc12413"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/EnterpriseAdmin\/UpdateGlobalWebhookTest.php",
@@ -16772,7 +16772,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/GetWebhook.php",
-                "hash": "829fc08847fb4427f94900e5eaae609f"
+                "hash": "2d00ddb51cca810d0113f0dac70476ee"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/GetWebhookTest.php",
@@ -16796,7 +16796,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/UpdateWebhook.php",
-                "hash": "90152d98452874ce1c751eb64719834f"
+                "hash": "ad6531e4db23140f7a8ea28825fe0f33"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/UpdateWebhookTest.php",
@@ -16808,7 +16808,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/GetWebhookConfigForOrg.php",
-                "hash": "b6a3a62cec9a10c70934d37737739606"
+                "hash": "a5f9a522077351af2adae1b3800c0890"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/GetWebhookConfigForOrgTest.php",
@@ -16820,7 +16820,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/UpdateWebhookConfigForOrg.php",
-                "hash": "28cf707a21808d03cefa92185bbb0d5f"
+                "hash": "4c9177380bdd9dd988cd012e660a6f93"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/UpdateWebhookConfigForOrgTest.php",
@@ -16832,7 +16832,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/ListWebhookDeliveries.php",
-                "hash": "e3333bfc26ec194c5f22cf05846a8854"
+                "hash": "883a8d026884dc97d9a122d6ab0b6413"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/ListWebhookDeliveriesTest.php",
@@ -16844,7 +16844,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/GetWebhookDelivery.php",
-                "hash": "cdd91581e9d51c98637521d1e8028c01"
+                "hash": "e944ebbd6b955dde049ff43068d5f2bc"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/GetWebhookDeliveryTest.php",
@@ -16856,7 +16856,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/RedeliverWebhookDelivery.php",
-                "hash": "6e3646fb0672c9f7f564ba0bbef4abee"
+                "hash": "59797b2361cb6d458438b7c543086deb"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/RedeliverWebhookDeliveryTest.php",
@@ -21256,7 +21256,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetWebhook.php",
-                "hash": "730a7a49e088ab59e8c504bd20a305dd"
+                "hash": "82a72e7e8486ad185c015a6237f1c482"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetWebhookTest.php",
@@ -21280,7 +21280,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/UpdateWebhook.php",
-                "hash": "5fe67136ba3a4d281bf35d24b980c6f3"
+                "hash": "f9ffd2ab9687911361c3db9819c61af5"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/UpdateWebhookTest.php",
@@ -21292,7 +21292,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetWebhookConfigForRepo.php",
-                "hash": "82f8daeb7d32557d285da690b1be1108"
+                "hash": "4b5b35881b0fe79ebe382c865d976cc2"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetWebhookConfigForRepoTest.php",
@@ -21304,7 +21304,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/UpdateWebhookConfigForRepo.php",
-                "hash": "7b15151ab44aeaceae9a0bc3d0cbb4b0"
+                "hash": "8460fcd7ebbb6921af66c7b632b8673e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/UpdateWebhookConfigForRepoTest.php",
@@ -21316,7 +21316,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/ListWebhookDeliveries.php",
-                "hash": "0e478bd01007de10b00fecc59b0368ac"
+                "hash": "3e096c80b06c0519b12b7466a27701c0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/ListWebhookDeliveriesTest.php",
@@ -21328,7 +21328,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetWebhookDelivery.php",
-                "hash": "68e79f1c5f03d940b971413004918f02"
+                "hash": "58d812563a22b6739ace8510f8a69f86"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetWebhookDeliveryTest.php",
@@ -21340,7 +21340,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/RedeliverWebhookDelivery.php",
-                "hash": "151c7edcca47c3ed1e90ef99cc8bcf33"
+                "hash": "4bc7f1752ceadb7e9af107c3c167b83e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/RedeliverWebhookDeliveryTest.php",
@@ -26128,7 +26128,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/EnterpriseAdmin.php",
-                "hash": "e1a09a782fde44bd3f12f4305d0bf2c8"
+                "hash": "ce5784523139031b016a7ff523698215"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Apps.php",
@@ -26156,7 +26156,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Orgs.php",
-                "hash": "0958299b96d5d29dd3763b8d4d1963d9"
+                "hash": "6ed1278b49a8e2dd3c1215c389f50298"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Projects.php",
@@ -26188,7 +26188,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "40f29e78576dcff3af0ac6d388994c92"
+                "hash": "51216de130dbf9733f6c553b7a6d53ba"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Activity.php",
@@ -26352,7 +26352,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Repos.php",
-                "hash": "f62fee103ddd6a327941bbc5b3943b21"
+                "hash": "1c168e149a08626aef155b656c6307d0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Apps.php",
@@ -26368,7 +26368,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Orgs.php",
-                "hash": "165963c00ff0fe5e71d18a1abd0ddb45"
+                "hash": "3cfb524554b71d93820baa357b46cddb"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Checks.php",
@@ -26496,7 +26496,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/EnterpriseAdmin.php",
-                "hash": "ba41797becda6168f2e19bc0005994c1"
+                "hash": "1ea568f7e6acd57ec04030f6a9edafc7"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Apps.php",
@@ -26520,7 +26520,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Repos.php",
-                "hash": "d0b446d8a9f0fdff8b40d59686fe34c9"
+                "hash": "2ae0901381b3b6b288d779a40ffc3549"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Actions.php",
@@ -26528,7 +26528,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Orgs.php",
-                "hash": "3afb48bf5ac3b98da21343309ea5c613"
+                "hash": "1d47d45ce4ebace5f45388dea1793720"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Teams.php",
@@ -26656,11 +26656,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Four.php",
-                "hash": "1f9aee7597685a799d59090d3494ce2b"
+                "hash": "a3eed66db64ea7408b1f8378a02ccdb6"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "d8fd9d45acd4587af741f8b2bf491dee"
+                "hash": "a701d74dccca39db845284b161555127"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
@@ -26668,15 +26668,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "65bdb7bb40dcec574a2171c4c409504a"
+                "hash": "6a260b9bc33e5d52f78d6fe1b014e0de"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
-                "hash": "f6da5a9767b97283d33ce82010ab45bc"
+                "hash": "159573f63d868eda89a3680d99d25ae6"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Eight.php",
-                "hash": "5802e1085fece137314fe1ce254bca4f"
+                "hash": "da51fff7761ec967e841c8dbb13fd4ee"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Nine.php",
@@ -26748,11 +26748,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Eight.php",
-                "hash": "7a4a1b624fdcec019502e2683fd247a9"
+                "hash": "b3ae2bbcf350e4474684bf1371606392"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Nine.php",
-                "hash": "1e48184ba73544ee5848e2f5f95d26ea"
+                "hash": "9a1131f96f5f64356f8e4549d70c5d7d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Ten.php",
@@ -26792,11 +26792,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Four.php",
-                "hash": "9bdbe3bd8dde647d94b83bf34f4a69e6"
+                "hash": "7eb71ee9db8396f701db817f3d2b533b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Six.php",
-                "hash": "640256f810abf8a8d7774132831a674c"
+                "hash": "3be5b3c693b4eb5d6bb14a958bf70b2f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Three.php",
@@ -26804,11 +26804,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Five.php",
-                "hash": "ffec58119ecd2c5b6b6adf0239e5c55f"
+                "hash": "a0c3dd77c3d70cf8845e38249835821e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Seven.php",
-                "hash": "66256d22dc3c82989abe26fa6d98f5c1"
+                "hash": "f4b3f8e6fa1ecad48c5a6ac856081d16"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Nine.php",
