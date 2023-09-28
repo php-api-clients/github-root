@@ -186,6 +186,7 @@ $renovatePackageRules[] = [
     ],
 ];
 
+$firstClient = true;
 foreach ($clients as $hour => $client) {
     $client['hour'] = $hour + 3;
     $client['specPath'] = SPECS_RELATIVE . $client['path'] . '/current.spec.yaml';
@@ -218,6 +219,7 @@ foreach ($clients as $hour => $client) {
         'labels' => [
             $client['path'],
         ],
+        'enabled' => $firstClient,
     ];
 
     Files::setUp(
@@ -244,6 +246,7 @@ foreach ($clients as $hour => $client) {
         WORKFLOW_PATH,
         $client,
     );
+    $firstClient = false;
 }
 
 file_put_contents(
