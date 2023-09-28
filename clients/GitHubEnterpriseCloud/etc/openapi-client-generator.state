@@ -1,5 +1,5 @@
 {
-    "specHash": "64807339d76b70126531bad7791aa05d",
+    "specHash": "10c30043555d174ea360e7142e9a5627",
     "generatedFiles": {
         "files": [
             {
@@ -6076,11 +6076,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "36be722499a74ca9cd04df0fc9514e61"
+                "hash": "d2a7a749af8d372cf4ac38d1b6206b9d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Client.php",
-                "hash": "1b73563cfcd3f1c48d955e5e49a95577"
+                "hash": "e881c0b056b70bf720a22aa948a05af6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -6116,7 +6116,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
-                "hash": "305591156d5d3f3d88031dc87c7e9e99"
+                "hash": "d8fdea90d9da2fd5720703a1b7fbf489"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
@@ -13996,7 +13996,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotOrganizationDetails.php",
-                "hash": "06e51c6ddc99e79e88d1dfb516448661"
+                "hash": "19e3b8d111d00c96b9aa1953f1a00128"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Organization.php",
@@ -21272,11 +21272,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/CodeScanning\/UpdateDefaultSetup.php",
-                "hash": "65e7393d6357a719cf07ce366554ff4d"
+                "hash": "625deb85c2da450282f219e270f01baf"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/CodeScanning\/UpdateDefaultSetup.php",
-                "hash": "5709f8a2bcf41a43bab2bcee132bb5ab"
+                "hash": "68d923c79479963415461f9b8058db09"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/CodeScanning\/UpdateDefaultSetupTest.php",
@@ -22176,7 +22176,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/CreateDeploymentBranchPolicy.php",
-                "hash": "cc5b983b6210061b5c35aef09a3d8215"
+                "hash": "01339bef37c0ef1a1d9bdc6207b8c2ab"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/CreateDeploymentBranchPolicy.php",
@@ -22184,7 +22184,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/CreateDeploymentBranchPolicyTest.php",
-                "hash": "bdd32a76aeb0489c2da66c1cf7ad0002"
+                "hash": "452353b4054f6f43b156b2c7249dea93"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetDeploymentBranchPolicy.php",
@@ -28336,7 +28336,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/CodeScanning.php",
-                "hash": "e07eb18669609b03e28f515007352bf6"
+                "hash": "901e662d7aab17d5f10b0d540a3e77db"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Migrations.php",
@@ -28704,7 +28704,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Six.php",
-                "hash": "cee2fd96e7a13b67c17845dbb7eb2fdb"
+                "hash": "a2133606285c3a6e5e986478c90b8f97"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Three.php",
@@ -29292,7 +29292,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Copilot\/Billing.php",
-                "hash": "3c95313ebb63cf8df524c5936aaf4b75"
+                "hash": "3f81d4f0f3097b7e281f2727c3441103"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Copilot\/Billing\/Seats.php",
@@ -31509,6 +31509,26 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Attribute\/CastUnionToType\/Schema\/CopilotSeatDetails\/Assignee.php",
                 "hash": "23a28307668db2b48df10922e4d7d665"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePatternWithType.php",
+                "hash": "7f6e1dfbf34028264ba9f0cc753775e7"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserCreated.php",
+                "hash": "08a86587c6bfc9341a494b61f39c04c2"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserDeleted.php",
+                "hash": "9d48d77f3e387bb8a31fea8dc759bfbc"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserCreated\/User.php",
+                "hash": "3515106ed9f57a53619b2896e5e39ba8"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserDeleted\/User.php",
+                "hash": "5bfeb22e76ad14e92ba63249ab068651"
             }
         ]
     },

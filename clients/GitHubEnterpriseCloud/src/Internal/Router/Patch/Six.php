@@ -32,7 +32,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int} */
+    /** @return |array{code:int}|Schema\EmptyObject|Schema\CodeScanningDefaultSetupUpdateResponse */
     public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory|array
     {
         if ($pathChunks[0] === '') {
