@@ -1,5 +1,5 @@
 {
-    "specHash": "a2da0f53e6e409f85678904ce5808926",
+    "specHash": "4c4e1701d928399d4897fc32d297d17b",
     "generatedFiles": {
         "files": [
             {
@@ -4848,7 +4848,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "969ab4e55d891ff1ee9a9a69939a14b8"
+                "hash": "3763297449aa164a5bc3781df0bc393c"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Apps.php",
@@ -4892,11 +4892,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "9c8bfc530e90d40ea31d8d330a8b0cc6"
+                "hash": "060f8e5408cf25e4f8ed5553efe32ae7"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Actions.php",
-                "hash": "80d30cf4f4e29714fc71a81c030c14be"
+                "hash": "30727655dc7e384b9c978060c8dec978"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
@@ -4916,7 +4916,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "2d4beedd21db7d61f1c5f34103c98bee"
+                "hash": "0fe31eb63fd9a5c5e3398cd2f14483e2"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -17264,7 +17264,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/CreateDeploymentBranchPolicy.php",
-                "hash": "adce63e41c5e7b33375bf14fa18aed9b"
+                "hash": "5cb40f8defd983846180d294db459b81"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/CreateDeploymentBranchPolicy.php",
@@ -17272,7 +17272,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/CreateDeploymentBranchPolicyTest.php",
-                "hash": "e5351388ec5cb32b623ea4e16fd6da6f"
+                "hash": "4957e6de4cc85f30b081e49ae5fe4a05"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetDeploymentBranchPolicy.php",
@@ -23401,6 +23401,10 @@
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Actions\/Runs\/RunId\/ForceCancel.php",
                 "hash": "214bd6b16c7504cf76529ed48693ccd3"
+            },
+            {
+                "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePatternWithType.php",
+                "hash": "0b3d0945d7c97e2f516829d303f42e99"
             }
         ]
     },
