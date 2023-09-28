@@ -41,12 +41,12 @@ jobs:
           php -r 'file_put_contents(getenv("GITHUB_OUTPUT"), "previous=" . md5(file_get_contents("etc/specs/GitHub/previous.spec.yaml")) . "\n", FILE_APPEND);'
       - name: Look current up spec version
         id: look-current-up-spec-version
-        uses: mikefarah/yq@v4.35.1
+        uses: mikefarah/yq@v4.35.2
         with:
           cmd: yq '.info.version' 'etc/specs/GitHub/current.spec.yaml'
       - name: Look previous up spec version
         id: look-previous-up-spec-version
-        uses: mikefarah/yq@v4.35.1
+        uses: mikefarah/yq@v4.35.2
         with:
           cmd: yq '.info.version' 'etc/specs/GitHub/previous.spec.yaml'
       - name: Generate spec diff
