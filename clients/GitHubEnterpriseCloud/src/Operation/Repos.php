@@ -55,6 +55,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryCollaboratorPermission;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryInvitation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\RuleSuite;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Status;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\StatusCheckPolicy;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TagProtection;
@@ -102,6 +103,24 @@ final class Repos
     public function createOrgRuleset(string $org, array $params): RepositoryRuleset|array
     {
         return $this->operators->repos👷CreateOrgRuleset()->call($org, $params);
+    }
+
+    /** @return iterable<Schema\RuleSuites> */
+    public function getOrgRuleSuites(string $org, int $repositoryName, string $actorName, string $timePeriod, string $ruleSuiteResult, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷GetOrgRuleSuites()->call($org, $repositoryName, $actorName, $timePeriod, $ruleSuiteResult, $perPage, $page);
+    }
+
+    /** @return iterable<Schema\RuleSuites> */
+    public function getOrgRuleSuitesListing(string $org, int $repositoryName, string $actorName, string $timePeriod, string $ruleSuiteResult, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷GetOrgRuleSuitesListing()->call($org, $repositoryName, $actorName, $timePeriod, $ruleSuiteResult, $perPage, $page);
+    }
+
+    /** @return Schema\RuleSuite */
+    public function getOrgRuleSuite(string $org, int $ruleSuiteId): RuleSuite|array
+    {
+        return $this->operators->repos👷GetOrgRuleSuite()->call($org, $ruleSuiteId);
     }
 
     /** @return */
@@ -1128,6 +1147,24 @@ final class Repos
     public function createRepoRuleset(string $owner, string $repo, array $params): RepositoryRuleset|array
     {
         return $this->operators->repos👷CreateRepoRuleset()->call($owner, $repo, $params);
+    }
+
+    /** @return iterable<Schema\RuleSuites> */
+    public function getRepoRuleSuites(string $owner, string $repo, string $ref, string $actorName, string $timePeriod, string $ruleSuiteResult, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷GetRepoRuleSuites()->call($owner, $repo, $ref, $actorName, $timePeriod, $ruleSuiteResult, $perPage, $page);
+    }
+
+    /** @return iterable<Schema\RuleSuites> */
+    public function getRepoRuleSuitesListing(string $owner, string $repo, string $ref, string $actorName, string $timePeriod, string $ruleSuiteResult, int $perPage, int $page): iterable
+    {
+        return $this->operators->repos👷GetRepoRuleSuitesListing()->call($owner, $repo, $ref, $actorName, $timePeriod, $ruleSuiteResult, $perPage, $page);
+    }
+
+    /** @return Schema\RuleSuite */
+    public function getRepoRuleSuite(string $owner, string $repo, int $ruleSuiteId): RuleSuite|array
+    {
+        return $this->operators->repos👷GetRepoRuleSuite()->call($owner, $repo, $ruleSuiteId);
     }
 
     /** @return */
