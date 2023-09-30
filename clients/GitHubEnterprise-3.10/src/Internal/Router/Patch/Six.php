@@ -33,7 +33,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int}|Schema\EmptyObject|Schema\CodeScanningDefaultSetupUpdateResponse */
+    /** @return |array{code:int} */
     public function call(string $call, array $params, array $pathChunks): LdapMappingTeam|LdapMappingUser|RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|RepositoryInvitation|Issue|BasicError|Label|Milestone|RepositoryPreReceiveHook|PullRequest|Release|array
     {
         if ($pathChunks[0] === '') {
