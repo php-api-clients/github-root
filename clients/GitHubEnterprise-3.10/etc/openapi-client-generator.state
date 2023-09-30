@@ -1,5 +1,5 @@
 {
-    "specHash": "a5443b5869cf2e49bb71770363fd1191",
+    "specHash": "4870bf04578a98f63b340584e8c69792",
     "generatedFiles": {
         "files": [
             {
@@ -13312,11 +13312,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "daab42ec0849db06b8f957add261875a"
+                "hash": "9b3b388ff5c81530faee643f79804296"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Client.php",
-                "hash": "0d6b59a4fbea63fec6860755f525160e"
+                "hash": "ce98fca8fab3f040911e4ad5bfd62cf4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -13352,7 +13352,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
-                "hash": "b8cc0d6a5dd658182ce06c19431bc21b"
+                "hash": "8258501b7faeaf3d03192d68bce5aec9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
@@ -20128,7 +20128,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Operator\/CodeScanning\/UpdateDefaultSetup.php",
-                "hash": "6c365eb583cf6112b9464b8d544d49eb"
+                "hash": "20c63b2e447f8ef5cedd5823792d2615"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/tests\/\/Internal\/Operation\/CodeScanning\/UpdateDefaultSetupTest.php",
@@ -26540,7 +26540,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/CodeScanning.php",
-                "hash": "734975cd563ed1388d3eeef6587bc30e"
+                "hash": "9dbc1175f59c011acd804ee3660fa88f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Issues.php",
@@ -26796,7 +26796,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Six.php",
-                "hash": "a252ddf422be6be257cb3a8852a07b9a"
+                "hash": "3be5b3c693b4eb5d6bb14a958bf70b2f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Three.php",
