@@ -1,5 +1,5 @@
 {
-    "specHash": "c825f39066ae2bb949dea996cb2e4b4b",
+    "specHash": "36c4d728215d3ca0692d176c31bf3a4d",
     "generatedFiles": {
         "files": [
             {
@@ -3188,7 +3188,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "4cef97fa75fc8b9ea307c081f9300902"
+                "hash": "3d8a813b8790ad54d2bffd0c66739c8f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Apps.php",
@@ -3244,7 +3244,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "5c6ed511574a9b87d1fabaf621a0a6f4"
+                "hash": "d74431dc84f9bb75d786c3d0c5a6a601"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
@@ -3268,7 +3268,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "cfc6103fa8463a2f5f23239412dbf0e3"
+                "hash": "44ffd82bfe6632cdf70b72f2ebfad449"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -10944,7 +10944,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/CreateDeploymentBranchPolicy.php",
-                "hash": "50b4a56b5a93f60a65abc6c066b36405"
+                "hash": "389af34b5f29f04340176076089f89dd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/CreateDeploymentBranchPolicy.php",
@@ -10952,7 +10952,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/CreateDeploymentBranchPolicyTest.php",
-                "hash": "cbb4fb7f880b2cbf85c13dcc33bd6810"
+                "hash": "cda0e8cce279d3840bd6eff06f327ecf"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetDeploymentBranchPolicy.php",
@@ -17989,6 +17989,10 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietCDBBBCF8\/TietCDAFCCCF\/Tiet81364F28\/Tiet4334A870.php",
                 "hash": "77d4f1d051525e066a578ff6ac785000"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePatternWithType.php",
+                "hash": "3a11a7271619d6891e96054c5595a690"
             }
         ]
     },
