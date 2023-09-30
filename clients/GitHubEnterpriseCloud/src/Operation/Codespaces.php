@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceExportDetails;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespacesOrgSecret;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespacesPermissionsCheckForDevcontainer;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespacesPublicKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespacesSecret;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespacesUserPublicKey;
@@ -148,6 +149,12 @@ final class Codespaces
     public function preFlightWithRepoForAuthenticatedUser(string $owner, string $repo, string $ref, string $clientIp): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\PreFlightWithRepoForAuthenticatedUser\Response\ApplicationJson\Ok|array
     {
         return $this->operators->codespaces👷PreFlightWithRepoForAuthenticatedUser()->call($owner, $repo, $ref, $clientIp);
+    }
+
+    /** @return Schema\CodespacesPermissionsCheckForDevcontainer */
+    public function checkPermissionsForDevcontainer(string $owner, string $repo, string $ref, string $devcontainerPath): CodespacesPermissionsCheckForDevcontainer|array
+    {
+        return $this->operators->codespaces👷CheckPermissionsForDevcontainer()->call($owner, $repo, $ref, $devcontainerPath);
     }
 
     /** @return */
