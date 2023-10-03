@@ -1,5 +1,5 @@
 {
-    "specHash": "4e2a153d0943ec4d0ecafde3422b4940",
+    "specHash": "8988d0a7b927e800801f548243c5f392",
     "generatedFiles": {
         "files": [
             {
@@ -1740,7 +1740,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened.php",
-                "hash": "be784562f760e1ae94afbe70c273bb17"
+                "hash": "4257f96615849c18cb16f75e1df7afa0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/WebhookIssuesPinned.php",
@@ -3412,7 +3412,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes.php",
-                "hash": "6b17b2ed79adfdf55473ab412d57f9bd"
+                "hash": "21a2c18d826d96d79f08f95872a25fa9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes\/OldIssue.php",
@@ -3420,7 +3420,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes\/OldRepository.php",
-                "hash": "4c18bed407dccadef3e3af92e229d147"
+                "hash": "1c91a520dc5bdf023094f733bf88f2dd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Issue.php",
@@ -9792,7 +9792,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet82D1D590\/Tiet5CF04E1D\/Tiet3B3E57B4\/TietBECF942D.php",
-                "hash": "cf4b033b1449765a4e03b360c6480ac5"
+                "hash": "4904c4562871f973f830e2cdc1d68ad0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Schema\/WebhookPullRequestReviewEdited\/PullRequest\/Base\/Repo.php",
