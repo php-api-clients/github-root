@@ -1,5 +1,5 @@
 {
-    "specHash": "4ccf8822447f63e51189ec6bc939a5f5",
+    "specHash": "e3ae2eae2c90874f12f8f08e4712f7e3",
     "generatedFiles": {
         "files": [
             {
@@ -1840,7 +1840,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened.php",
-                "hash": "d6b7d6e621af1aaa36063bfe19d4069c"
+                "hash": "974d19131181c0e8976beb5da0bcbb3f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/WebhookIssuesPinned.php",
@@ -3584,7 +3584,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes.php",
-                "hash": "f58202c6669064791e9219793b4144b7"
+                "hash": "6862fe76c1c2a2b49b4582cabd316c0e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes\/OldIssue.php",
@@ -3592,7 +3592,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes\/OldRepository.php",
-                "hash": "4c18bed407dccadef3e3af92e229d147"
+                "hash": "1c91a520dc5bdf023094f733bf88f2dd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Issue.php",
@@ -5664,7 +5664,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
-                "hash": "8258501b7faeaf3d03192d68bce5aec9"
+                "hash": "803cd95caf029958a80f429b624982be"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
@@ -10068,7 +10068,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet82D1D590\/Tiet5CF04E1D\/Tiet3B3E57B4\/TietBECF942D.php",
-                "hash": "cf4b033b1449765a4e03b360c6480ac5"
+                "hash": "4904c4562871f973f830e2cdc1d68ad0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/WebhookPullRequestReviewEdited\/PullRequest\/Base\/Repo.php",
