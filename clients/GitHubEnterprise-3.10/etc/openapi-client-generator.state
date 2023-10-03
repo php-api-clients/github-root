@@ -1,5 +1,5 @@
 {
-    "specHash": "4870bf04578a98f63b340584e8c69792",
+    "specHash": "555826d732f1ad540de82cdc172b80ec",
     "generatedFiles": {
         "files": [
             {
@@ -1964,7 +1964,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened.php",
-                "hash": "4dafdd7bdad5966fa97e272b06c4b7d5"
+                "hash": "5b61081323b188b0b811a5a0e747953c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/WebhookIssuesPinned.php",
@@ -8372,7 +8372,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes.php",
-                "hash": "1c36f1a81a8a32133b524fcf8a8b045a"
+                "hash": "cc8b801e112a4f729c599481cd73c784"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes\/OldIssue.php",
@@ -8380,7 +8380,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet82D1D590\/Tiet5CF04E1D\/Tiet3B3E57B4\/TietBECF942D.php",
-                "hash": "cf4b033b1449765a4e03b360c6480ac5"
+                "hash": "4904c4562871f973f830e2cdc1d68ad0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/WebhookPullRequestReviewEdited\/PullRequest\/Base\/Repo.php",
@@ -8408,7 +8408,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes\/OldRepository.php",
-                "hash": "4c18bed407dccadef3e3af92e229d147"
+                "hash": "1c91a520dc5bdf023094f733bf88f2dd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Issue.php",
@@ -13352,7 +13352,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
-                "hash": "8258501b7faeaf3d03192d68bce5aec9"
+                "hash": "803cd95caf029958a80f429b624982be"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.10\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
