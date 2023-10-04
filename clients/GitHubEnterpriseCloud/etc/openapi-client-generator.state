@@ -1,5 +1,5 @@
 {
-    "specHash": "7db4088da848d639855f12c193b9b4b7",
+    "specHash": "bc4e36d5b31f0f944205ad929c290f0e",
     "generatedFiles": {
         "files": [
             {
@@ -6164,7 +6164,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Codespaces.php",
-                "hash": "eaee03d3778ab08a02421f1dec932d12"
+                "hash": "e9618a09dbd548de21fdcd32adfe8a2c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Packages.php",
