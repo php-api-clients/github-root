@@ -1,5 +1,5 @@
 {
-    "specHash": "a3c692ddcb92a94d187be5255e12cd25",
+    "specHash": "62923369a0400f70e7b31c853e54e80c",
     "generatedFiles": {
         "files": [
             {
@@ -632,7 +632,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/FullRepository.php",
-                "hash": "744c8d96f27a1139e516aaf00075c3f7"
+                "hash": "bd9a3961dd4431444296cf105b87deec"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Artifact.php",
@@ -932,7 +932,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Environment.php",
-                "hash": "83e65261e3dc7aa0815895a3e94af678"
+                "hash": "abaea8728aa448226771c1b70a77be1e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicy.php",
@@ -1760,7 +1760,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Environment\/ProtectionRules\/One.php",
-                "hash": "6c89152153ee6d8cdecb61c644aecce5"
+                "hash": "b9eb5ff87c2e5ed1f97a429d3af24b48"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Environment\/ProtectionRules\/Two.php",
@@ -2372,7 +2372,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Migrations\/StartForOrg\/Request\/ApplicationJson.php",
-                "hash": "d10afa3ef73f5914def152eb5c9f582f"
+                "hash": "d74296a917d1900131c2a96d94eda83c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Orgs\/ConvertMemberToOutsideCollaborator\/Request\/ApplicationJson.php",
@@ -2744,7 +2744,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Operations\/Repos\/GetAllEnvironments\/Response\/ApplicationJson\/Ok.php",
-                "hash": "ff249cab570ae021a872bbc7fc7bc6b1"
+                "hash": "83049ec50cd973b2cbf1c765399406dd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Schema\/Repos\/CreateOrUpdateEnvironment\/Request\/ApplicationJson.php",
@@ -16940,7 +16940,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo.php",
-                "hash": "02ce8e2adac95c869c674facc1d11757"
+                "hash": "62720551cc79e35605fb6f3818d37b50"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Actions\/Artifacts.php",
@@ -17324,7 +17324,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Forks.php",
-                "hash": "2fede5b5c7174fab50922d77012adec8"
+                "hash": "4890c692decbad8d483ddf27bccf3f8b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Git\/Blobs.php",
