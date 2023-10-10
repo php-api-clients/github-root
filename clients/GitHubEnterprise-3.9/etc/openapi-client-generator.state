@@ -1,5 +1,5 @@
 {
-    "specHash": "35babd8413ac6b56b52c70e6dfaeae09",
+    "specHash": "f7c72d7d1d16fa6b021137427ccc1622",
     "generatedFiles": {
         "files": [
             {
@@ -28300,7 +28300,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePatternWithType.php",
-                "hash": "3a11a7271619d6891e96054c5595a690"
+                "hash": "2b0afaa41ad0248d1f9637cc809276d3"
             }
         ]
     },
