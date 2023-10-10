@@ -1,5 +1,5 @@
 {
-    "specHash": "3f4c3c9fd63eb631505ac6fba7a948c3",
+    "specHash": "a0193cc447e66879f2e294bf7f90f620",
     "generatedFiles": {
         "files": [
             {
@@ -848,7 +848,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicy.php",
-                "hash": "99ed63138b4d0708fbda73a259889607"
+                "hash": "e2c93b319583be6ed9b199c069e28e9f"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePattern.php",
@@ -4468,7 +4468,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Operations\/Repos\/ListDeploymentBranchPolicies\/Response\/ApplicationJson\/Ok.php",
-                "hash": "35dc6cc57ecf18257ef3b9cb90b9cb30"
+                "hash": "79f2f0aa80319b152f2dba47b7bf2cf0"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/CreateFork\/Request\/ApplicationJson.php",
@@ -22756,11 +22756,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Environments\/EnvironmentName\/DeploymentBranchPolicies.php",
-                "hash": "29ecc73b4529bc40b6cfa8e6858fbaa1"
+                "hash": "83df34dc4c595543848e399c75af1797"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Environments\/EnvironmentName\/DeploymentBranchPolicies\/BranchPolicyId.php",
-                "hash": "06a2179e23e00796718dc254c595295d"
+                "hash": "d24597f8812c926d0a6553a8339bb360"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Forks.php",
@@ -23404,7 +23404,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePatternWithType.php",
-                "hash": "0b3d0945d7c97e2f516829d303f42e99"
+                "hash": "f77d04f1cd7fc9c197a13182f4d68ad5"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/PreventSelfReview.php",
