@@ -1,5 +1,5 @@
 {
-    "specHash": "6ceaf78da716bf4646323c82ace95d60",
+    "specHash": "1f7c44311545c63d8e394ecba08135b4",
     "generatedFiles": {
         "files": [
             {
@@ -636,7 +636,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRulesetBypassActor.php",
-                "hash": "bd1097f0a8ba04462f9f09e04ee74eab"
+                "hash": "07038644600ab6711e90bb203a59c0a4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRulesetConditions.php",
@@ -716,7 +716,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRuleset.php",
-                "hash": "2ac31d482a325038d999acfea7dda14b"
+                "hash": "cee095bafd88e44abfd1c31b8538f502"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GroupMapping.php",
@@ -992,7 +992,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CodeScanningCodeqlDatabase.php",
-                "hash": "faabf374f96e11f030cf15898942a40e"
+                "hash": "00e3c4d9c9ebde435c00363de441a7e8"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CodeScanningDefaultSetup.php",
@@ -1160,7 +1160,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicy.php",
-                "hash": "928bb49c122c81bf052890aab6f88f62"
+                "hash": "eb9d8a11c1645464d3e5e5b9a51c14bb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePattern.php",
@@ -5132,11 +5132,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/CreateOrgRuleset\/Request\/ApplicationJson.php",
-                "hash": "1fb247c258f67bd189ea947ad8e1d287"
+                "hash": "74c50673a8ffd8f702d173f9d439ec1a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/UpdateOrgRuleset\/Request\/ApplicationJson.php",
-                "hash": "fbf4c709bf54e6af2805d213a818f8d7"
+                "hash": "8c760aa50ee4aedc8312e58bb9dd22bb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Teams\/Create\/Request\/ApplicationJson.php",
@@ -5568,7 +5568,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Repos\/ListDeploymentBranchPolicies\/Response\/ApplicationJson\/Ok.php",
-                "hash": "3ec2a2046c8f4ac9ab0bc15dc197fc3c"
+                "hash": "d4655e0b6fc7c3ecdee4cb524848064b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Repos\/GetAllDeploymentProtectionRules\/Response\/ApplicationJson\/Ok.php",
@@ -5856,11 +5856,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/CreateRepoRuleset\/Request\/ApplicationJson.php",
-                "hash": "0ebc62e36ac91981afe333e20c2f8ceb"
+                "hash": "1b29268ee9613000559b734637688436"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/UpdateRepoRuleset\/Request\/ApplicationJson.php",
-                "hash": "9b7e2d2e72886420090561912b965cf6"
+                "hash": "eb1ede278a526534ee5c6e50ae001209"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/SecretScanning\/UpdateAlert\/Request\/ApplicationJson.php",
@@ -14156,15 +14156,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetCreated.php",
-                "hash": "6f1de03245a6ed2ca6438d9e65d334ae"
+                "hash": "bc73420a231649627778d938db1e55a1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetDeleted.php",
-                "hash": "1796878ec5b5b516125f0489b0da9c5e"
+                "hash": "205bacfea8eaf93a2dc65f3f8c180537"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetEdited.php",
-                "hash": "5a387bbfca99f03dd3b1b5c649fd944b"
+                "hash": "02314078fd5d1daec637d14671e31449"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/SecurityAdvisories\/CreateRepositoryAdvisoryCveRequest\/Response\/ApplicationJson\/Accepted.php",
@@ -30144,11 +30144,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Environments\/EnvironmentName\/DeploymentBranchPolicies.php",
-                "hash": "a13ebe3fc1406d6de6935e61f52eaef7"
+                "hash": "0e4c4e4caa05aaccec6019987f24ad66"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Environments\/EnvironmentName\/DeploymentBranchPolicies\/BranchPolicyId.php",
-                "hash": "4a9c4f0b9ef1b7b57e9c980dade8cef0"
+                "hash": "fbd9edb0228b896acfba9c57f164741a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Environments\/EnvironmentName\/DeploymentProtectionRules.php",
@@ -31512,7 +31512,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/DeploymentBranchPolicyNamePatternWithType.php",
-                "hash": "7f6e1dfbf34028264ba9f0cc753775e7"
+                "hash": "fba134c1aacaf9c8be23fd6d360140da"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserCreated.php",
