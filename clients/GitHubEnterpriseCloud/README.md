@@ -7072,7 +7072,7 @@ $client->operations()->codespaces()->stopInOrganization(        org: 'generated'
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/codespaces/organizations#stop-a-codespace-for-an-organization-user).
 
 
-### copilot/get-copilot-seat-assignment-details-for-user
+### copilot/get-copilot-seat-details-for-user
 
 Get Copilot for Business seat assignment details for a user
 
@@ -7086,7 +7086,7 @@ $client->call('GET /orgs/{org}/members/{username}/copilot', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->getCopilotSeatAssignmentDetailsForUser(        org: 'generated',
+$client->operations()->copilot()->getCopilotSeatDetailsForUser(        org: 'generated',
         username: 'generated',
 );
 ```
