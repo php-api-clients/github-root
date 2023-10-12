@@ -1,5 +1,5 @@
 {
-    "specHash": "9265d69e51d451eacbec6579c3e8849e",
+    "specHash": "c87cc56b9cb13568aee41ebf298d04c5",
     "generatedFiles": {
         "files": [
             {
@@ -712,11 +712,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRule.php",
-                "hash": "b5aa3f3aaa09173247b3fbea6e67ef8f"
+                "hash": "0ca47f84942c13d6d5a9e896d429ad0a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRuleset.php",
-                "hash": "cee095bafd88e44abfd1c31b8538f502"
+                "hash": "eb917c93c820f2a0bb302bc1d4998cfa"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GroupMapping.php",
@@ -5132,11 +5132,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/CreateOrgRuleset\/Request\/ApplicationJson.php",
-                "hash": "74c50673a8ffd8f702d173f9d439ec1a"
+                "hash": "87ceb1e8092eddc89781f32579007984"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/UpdateOrgRuleset\/Request\/ApplicationJson.php",
-                "hash": "8c760aa50ee4aedc8312e58bb9dd22bb"
+                "hash": "44340c3ffaefce5920d405fa53891e89"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Teams\/Create\/Request\/ApplicationJson.php",
@@ -5856,11 +5856,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/CreateRepoRuleset\/Request\/ApplicationJson.php",
-                "hash": "1b29268ee9613000559b734637688436"
+                "hash": "a0eb50c8ff54481be2714c1d69be4c83"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Repos\/UpdateRepoRuleset\/Request\/ApplicationJson.php",
-                "hash": "eb1ede278a526534ee5c6e50ae001209"
+                "hash": "e9c12b86c6cdaf5f499f538a957682e6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/SecretScanning\/UpdateAlert\/Request\/ApplicationJson.php",
@@ -6076,11 +6076,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "d82c847dbf0acc4eab22e1cc43a0b074"
+                "hash": "4519dfe59d7af714ff082e51d7cc3e47"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Client.php",
-                "hash": "20c77ab7f6bb1255978c8b127f9bd391"
+                "hash": "9a2726f2217040d610862ee2f7a33066"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -6188,7 +6188,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "ef728277f17df11dbfd7c6df03469987"
+                "hash": "ab37d9aa9dbfb2dd0ecfb0bbfca0c6fb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -13988,7 +13988,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRuleDetailed.php",
-                "hash": "e7a8998f80dfdc6b94f04648e2dd0e81"
+                "hash": "726ff7b604bed8f6176c799550f5c78a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotSeatBreakdown.php",
@@ -14064,7 +14064,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Copilot.php",
-                "hash": "851d586399849540a82c3487e2004c54"
+                "hash": "b30a4b83bbe1c7f779933f2ba2f349b3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CheckAutomatedSecurityFixes.php",
@@ -14156,15 +14156,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetCreated.php",
-                "hash": "bc73420a231649627778d938db1e55a1"
+                "hash": "a554221a5118683d47cee2def44f2728"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetDeleted.php",
-                "hash": "205bacfea8eaf93a2dc65f3f8c180537"
+                "hash": "c4a0a0854ec78426201e92105f47100c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetEdited.php",
-                "hash": "02314078fd5d1daec637d14671e31449"
+                "hash": "4a038222d0d66f1b6f490109b7b14f25"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/SecurityAdvisories\/CreateRepositoryAdvisoryCveRequest\/Response\/ApplicationJson\/Accepted.php",
@@ -14444,7 +14444,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetEdited\/Changes.php",
-                "hash": "09d10fd7ba91ab643ca421f5aa356736"
+                "hash": "20572a02c69324686d8048a1dbbeb03c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetEdited\/Changes\/Conditions.php",
@@ -14472,11 +14472,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetEdited\/Changes\/Rules.php",
-                "hash": "14aba96734ea97addc85d62de61602a0"
+                "hash": "1f2a7c972f675caae9b323e9d82bb56f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetEdited\/Changes\/Rules\/Updated.php",
-                "hash": "63dfa5e391167c70ad902f5387593e76"
+                "hash": "196a6fbc8175a42a7959117192a08580"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRepositoryRulesetEdited\/Changes\/Rules\/Updated\/Changes.php",
@@ -24492,11 +24492,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetBranchRules.php",
-                "hash": "0197e13053e411ca27d24d15b0640542"
+                "hash": "452d485eaa60114a001cbd9b7e8ec657"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetBranchRules.php",
-                "hash": "4fd0f954c959746f575a634a541d03fc"
+                "hash": "8c271d71b1579fbeb133d611943e4259"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetBranchRulesTest.php",
@@ -24504,11 +24504,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetBranchRulesListing.php",
-                "hash": "7e0e6a8ce4cf2edc44b46268fbe4dca0"
+                "hash": "4d0b92a3e5b9098a1cdb61bb0240e966"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetBranchRulesListing.php",
-                "hash": "531cd51232eecf7650133e582a5b20e1"
+                "hash": "6bf395f4d133db935f6fe78bbe9110c1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetBranchRulesListingTest.php",
@@ -28008,7 +28008,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Attribute\/CastUnionToType\/Schema\/WebhookRepositoryRulesetEdited\/Changes\/Rules\/Updated\/Rule.php",
-                "hash": "483cd523722381850a4f47a4ea7df245"
+                "hash": "5d2698c2399b1cddf623be28eaf09cb4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Attribute\/CastUnionToType\/Schema\/Repos\/CreateOrgRuleset\/Request\/ApplicationJson\/Conditions.php",
@@ -28076,7 +28076,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "f09aebc1bd705b0e536b15394d9ec8d4"
+                "hash": "8fafc8a49953a1a56902b7fcb0090ae3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Users.php",
@@ -28388,7 +28388,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Repos.php",
-                "hash": "263e1084749bd64fae07f2036f3e607b"
+                "hash": "ad6a7fcdaaf1da034836af123d1e1b29"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Activity.php",
@@ -28636,7 +28636,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
-                "hash": "4652224e0888da171ffb491126557d74"
+                "hash": "f7af73ce576b5171db8615e29c61f078"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Eight.php",
@@ -28740,7 +28740,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Seven.php",
-                "hash": "2a396aabb3f909b715222453a988a738"
+                "hash": "ce3a1117c21aef20f04fa9b0da84b52d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Eight.php",
@@ -31657,6 +31657,18 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/GetCopilotSeatDetailsForUserTest.php",
                 "hash": "1b9e6407ec713304f67ee0b73f4077c5"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRuleParamsWorkflowFileReference.php",
+                "hash": "2adbdcbdd6394168c8b85d759d89941c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRuleWorkflows.php",
+                "hash": "9f89eac9e6e23ca2369e111ce2475455"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RepositoryRuleWorkflows\/Parameters.php",
+                "hash": "88a8c3a813740b473f1296525f2afb4c"
             }
         ]
     },
