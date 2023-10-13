@@ -11,6 +11,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRep
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationFull;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
@@ -807,6 +808,48 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    /** @return iterable<Schema\OrgCustomProperty> */
+    public function getAllCustomProperties(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Orgs\GetAllCustomProperties($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema());
+
+        return $operator->call($arguments['org']);
+    }
+
+    /** @return iterable<Schema\OrgRepoCustomPropertyValues> */
+    public function listCustomPropertiesValuesForRepos(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\Orgs\ListCustomPropertiesValuesForRepos($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Values());
+
+        return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
+    }
+
     /** @return array{code:int} */
     public function checkPublicMembershipForUser(array $params): array
     {
@@ -1000,6 +1043,27 @@ final class Orgs
         $operator = new Internal\Operator\Orgs\ListPatGrantRepositories($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId🌀Repositories());
 
         return $operator->call($arguments['org'], $arguments['pat_id'], $arguments['per_page'], $arguments['page']);
+    }
+
+    /** @return Schema\OrgCustomProperty */
+    public function getCustomProperty(array $params): OrgCustomProperty|array
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('custom_property_name', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: custom_property_name');
+        }
+
+        $arguments['custom_property_name'] = $params['custom_property_name'];
+        unset($params['custom_property_name']);
+        $operator = new Internal\Operator\Orgs\GetCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName());
+
+        return $operator->call($arguments['org'], $arguments['custom_property_name']);
     }
 
     /** @return */
