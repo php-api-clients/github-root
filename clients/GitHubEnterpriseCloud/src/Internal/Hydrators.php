@@ -216,6 +216,9 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Orgs\Org\PersonalAccessTokens\PatId|null $operation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId                                                                                                                           = null;
     private Internal\Hydrator\Operation\Orgs\Org\PersonalAccessTokens\PatId\Repositories|null $operation🌀Orgs🌀Org🌀PersonalAccessTokens🌀PatId🌀Repositories                                                                                                 = null;
     private Internal\Hydrator\Operation\Orgs\Org\Projects|null $operation🌀Orgs🌀Org🌀Projects                                                                                                                                                               = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Properties\Schema|null $operation🌀Orgs🌀Org🌀Properties🌀Schema                                                                                                                                             = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Properties\Schema\CustomPropertyName|null $operation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName                                                                                                       = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Properties\Values|null $operation🌀Orgs🌀Org🌀Properties🌀Values                                                                                                                                             = null;
     private Internal\Hydrator\Operation\Orgs\Org\PublicMembers|null $operation🌀Orgs🌀Org🌀PublicMembers                                                                                                                                                     = null;
     private Internal\Hydrator\Operation\Orgs\Org\PublicMembers\Username|null $operation🌀Orgs🌀Org🌀PublicMembers🌀Username                                                                                                                                   = null;
     private Internal\Hydrator\Operation\Orgs\Org\Repos|null $operation🌀Orgs🌀Org🌀Repos                                                                                                                                                                     = null;
@@ -476,6 +479,7 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Repos\Owner\Repo\Pages\Health|null $operation🌀Repos🌀Owner🌀Repo🌀Pages🌀Health                                                                                                                                       = null;
     private Internal\Hydrator\Operation\Repos\Owner\Repo\PrivateVulnerabilityReporting|null $operation🌀Repos🌀Owner🌀Repo🌀PrivateVulnerabilityReporting                                                                                                     = null;
     private Internal\Hydrator\Operation\Repos\Owner\Repo\Projects|null $operation🌀Repos🌀Owner🌀Repo🌀Projects                                                                                                                                               = null;
+    private Internal\Hydrator\Operation\Repos\Owner\Repo\Properties\Values|null $operation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values                                                                                                                             = null;
     private Internal\Hydrator\Operation\Repos\Owner\Repo\Pulls|null $operation🌀Repos🌀Owner🌀Repo🌀Pulls                                                                                                                                                     = null;
     private Internal\Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments|null $operation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments                                                                                                                                   = null;
     private Internal\Hydrator\Operation\Repos\Owner\Repo\Pulls\Comments\CommentId|null $operation🌀Repos🌀Owner🌀Repo🌀Pulls🌀Comments🌀CommentId                                                                                                               = null;
@@ -772,6 +776,7 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\ReviewPatGrantRequestsInBulk\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\UpdatePatAccesses\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Projects()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrgCustomProperty' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\LicenseSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\Permissions', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\TemplateRepository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\TemplateRepository\\Owner', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\TemplateRepository\\Permissions' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Repos()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Html' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RuleSuite' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites🌀RuleSuiteId()->hydrateObject($className, $payload),
@@ -1059,6 +1064,7 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\ReviewPatGrantRequestsInBulk\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokenRequests()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\UpdatePatAccesses\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀PersonalAccessTokens()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Project' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Projects()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrgCustomProperty' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\LicenseSimple', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\Permissions', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\TemplateRepository', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\TemplateRepository\\Owner', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Repository\\TemplateRepository\\Permissions' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Repos()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Self_', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RepositoryRuleset\\Links\\Html' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\RuleSuite' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Rulesets🌀RuleSuites🌀RuleSuiteId()->serializeObject($object),
@@ -3083,6 +3089,33 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Orgs🌀Org🌀Projects;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema(): Internal\Hydrator\Operation\Orgs\Org\Properties\Schema
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Properties🌀Schema instanceof Internal\Hydrator\Operation\Orgs\Org\Properties\Schema === false) {
+            $this->operation🌀Orgs🌀Org🌀Properties🌀Schema = new Internal\Hydrator\Operation\Orgs\Org\Properties\Schema();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Properties🌀Schema;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName(): Internal\Hydrator\Operation\Orgs\Org\Properties\Schema\CustomPropertyName
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName instanceof Internal\Hydrator\Operation\Orgs\Org\Properties\Schema\CustomPropertyName === false) {
+            $this->operation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName = new Internal\Hydrator\Operation\Orgs\Org\Properties\Schema\CustomPropertyName();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Properties🌀Schema🌀CustomPropertyName;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Properties🌀Values(): Internal\Hydrator\Operation\Orgs\Org\Properties\Values
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Properties🌀Values instanceof Internal\Hydrator\Operation\Orgs\Org\Properties\Values === false) {
+            $this->operation🌀Orgs🌀Org🌀Properties🌀Values = new Internal\Hydrator\Operation\Orgs\Org\Properties\Values();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Properties🌀Values;
     }
 
     public function getObjectMapperOperation🌀Orgs🌀Org🌀PublicMembers(): Internal\Hydrator\Operation\Orgs\Org\PublicMembers
@@ -5423,6 +5456,15 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Repos🌀Owner🌀Repo🌀Projects;
+    }
+
+    public function getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values(): Internal\Hydrator\Operation\Repos\Owner\Repo\Properties\Values
+    {
+        if ($this->operation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values instanceof Internal\Hydrator\Operation\Repos\Owner\Repo\Properties\Values === false) {
+            $this->operation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values = new Internal\Hydrator\Operation\Repos\Owner\Repo\Properties\Values();
+        }
+
+        return $this->operation🌀Repos🌀Owner🌀Repo🌀Properties🌀Values;
     }
 
     public function getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pulls(): Internal\Hydrator\Operation\Repos\Owner\Repo\Pulls
