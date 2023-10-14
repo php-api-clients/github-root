@@ -24,7 +24,7 @@ final class Five
     {
     }
 
-    /** @return |iterable<Schema\OrgCustomProperty>|iterable<Schema\OrgRepoCustomPropertyValues>|Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse */
+    /** @return |Observable<Schema\OrgCustomProperty>|Observable<Schema\OrgRepoCustomPropertyValues>|Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse */
     public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|iterable|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {

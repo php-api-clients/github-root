@@ -24,7 +24,7 @@ final readonly class GetAllCustomProperties
     {
     }
 
-    /** @return iterable<Schema\OrgCustomProperty> */
+    /** @return Observable<Schema\OrgCustomProperty> */
     public function call(string $org): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\GetAllCustomProperties($this->responseSchemaValidator, $this->hydrator, $org);

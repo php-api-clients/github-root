@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Orgs;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,7 +24,7 @@ final readonly class CreateOrUpdateCustomProperty
     {
     }
 
-    /** @return Schema\OrgCustomProperty */
+    /** @return */
     public function call(string $org, string $customPropertyName, array $params): OrgCustomProperty|array
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\CreateOrUpdateCustomProperty($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $customPropertyName);
