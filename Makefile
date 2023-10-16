@@ -45,6 +45,9 @@ setup-clients:
 generate-clients: setup-clients
 	ls ./clients | xargs -I % $(MAKE) generate-client %
 
+composer-update-clients:
+	ls ./clients | xargs -I % $(DOCKER_RUN) bash -c 'composer update -W -d clients/%'
+
 generate-client:
 	$(DOCKER_RUN) php ./vendor/bin/openapi-client-generator ./clients/$(RUN_ARGS)/etc/openapi-generator-config.yaml
 	$(DOCKER_RUN) bash -c 'cd clients/$(RUN_ARGS) && composer install -o --no-progress --no-ansi && (make cs-fix || true)'

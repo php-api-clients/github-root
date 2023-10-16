@@ -12,11 +12,12 @@
     "php": "^8.2",
     "api-clients/contracts": "^0.1",
     "api-clients/github": "^0.2@dev",
+    "api-clients/openapi-client-generator": "dev-master",
+    "api-clients/openapi-client-utils": "dev-main",
     "devizzent/cebe-php-openapi": "^1",
     "eventsauce/object-hydrator": "^1.3.1",
     "react/async": "^4.1.0",
-    "wyrihaximus/subsplit-tools": "dev-main",
-    "api-clients/openapi-client-generator": "dev-master"
+    "wyrihaximus/subsplit-tools": "dev-main"
   },
   "autoload": {
     "psr-4": {
