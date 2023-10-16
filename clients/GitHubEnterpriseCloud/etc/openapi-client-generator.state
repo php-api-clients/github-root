@@ -1,5 +1,5 @@
 {
-    "specHash": "ced9fc143a93e386ebd99299d1a8adb6",
+    "specHash": "2b4a22122e4ba3692de6d0a999e3c9e6",
     "generatedFiles": {
         "files": [
             {
@@ -6156,7 +6156,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "b80d0808321326e495a44a7ac2e568f1"
+                "hash": "0869714130fb5656360fb06b5f735c91"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -6188,7 +6188,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "8f3ab9b231d22f710056c7cd60117ca6"
+                "hash": "eb24ad73b5edd37aaba7cc892b148893"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
