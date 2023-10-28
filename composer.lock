@@ -1654,16 +1654,16 @@
         },
         {
             "name": "devizzent/cebe-php-openapi",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DEVizzent/cebe-php-openapi.git",
-                "reference": "72b48264eaeb7afb01fae80e26e99243ab6d33f1"
+                "reference": "de3a406a1fa5daa275da3f6aed6765c170de7954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DEVizzent/cebe-php-openapi/zipball/72b48264eaeb7afb01fae80e26e99243ab6d33f1",
-                "reference": "72b48264eaeb7afb01fae80e26e99243ab6d33f1",
+                "url": "https://api.github.com/repos/DEVizzent/cebe-php-openapi/zipball/de3a406a1fa5daa275da3f6aed6765c170de7954",
+                "reference": "de3a406a1fa5daa275da3f6aed6765c170de7954",
                 "shasum": ""
             },
             "require": {
@@ -1724,7 +1724,7 @@
                 "issues": "https://github.com/DEVizzent/cebe-php-openapi/issues",
                 "source": "https://github.com/DEVizzent/cebe-php-openapi"
             },
-            "time": "2023-07-12T09:00:33+00:00"
+            "time": "2023-10-26T20:41:58+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
