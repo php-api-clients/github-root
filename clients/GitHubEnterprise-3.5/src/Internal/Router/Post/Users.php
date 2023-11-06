@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterprise\Schema\Key;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
 
@@ -18,24 +19,22 @@ final class Users
     {
     }
 
-    /** @return Observable<Schema\Email>|array{code:int} */
-    public function addEmailForAuthenticatedUser(array $params): iterable
+    /** @return iterable<int,Schema\Email>|WithoutBody */
+    public function addEmailForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $operator = new Internal\Operator\Users\AddEmailForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Emails());
 
         return $operator->call($params);
     }
 
-    /** @return Schema\GpgKey|array{code:int} */
-    public function createGpgKeyForAuthenticatedUser(array $params): GpgKey|array
+    public function createGpgKeyForAuthenticatedUser(array $params): GpgKey|WithoutBody
     {
         $operator = new Internal\Operator\Users\CreateGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
 
         return $operator->call($params);
     }
 
-    /** @return Schema\Key|array{code:int} */
-    public function createPublicSshKeyForAuthenticatedUser(array $params): Key|array
+    public function createPublicSshKeyForAuthenticatedUser(array $params): Key|WithoutBody
     {
         $operator = new Internal\Operator\Users\CreatePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ApiOverview;
 use ApiClients\Client\GitHubEnterprise\Schema\Feed;
 use ApiClients\Client\GitHubEnterprise\Schema\Integration;
@@ -12,6 +13,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\Operations\Emojis\Get\Response\App
 use ApiClients\Client\GitHubEnterprise\Schema\PrivateUser;
 use ApiClients\Client\GitHubEnterprise\Schema\PublicUser;
 use ApiClients\Client\GitHubEnterprise\Schema\RateLimitOverview;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 
@@ -21,8 +23,8 @@ final class Two
     {
     }
 
-    /** @return |Observable<Schema\Authorization>|array{code:int}|Observable<Schema\CodeOfConduct>|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Schema\ApiOverview|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Schema\RateLimitOverview|Observable<Schema\MinimalRepository>|Schema\PrivateUser|Schema\PublicUser|Observable<Schema\SimpleUser> */
-    public function call(string $call, array $params, array $pathChunks): Integration|iterable|Ok|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
+    /** @return Schema\Integration|iterable<int,Schema\Authorization>|WithoutBody|iterable<int,Schema\CodeOfConduct>|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok|iterable<int,Schema\Event>|Schema\Feed|iterable<int,Schema\BaseGist>|iterable<int,Schema\Issue>|iterable<int,Schema\LicenseSimple>|Schema\ApiOverview|iterable<int,Schema\Thread>|ResponseInterface|iterable<int,Schema\OrganizationSimple>|Schema\RateLimitOverview|iterable<int,Schema\MinimalRepository>|Schema\PrivateUser|Schema\PublicUser|iterable<int,Schema\SimpleUser>|string */
+    public function call(string $call, array $params, array $pathChunks): Integration|iterable|WithoutBody|Ok|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {

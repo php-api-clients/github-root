@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\OrgPreReceiveHook;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Five
@@ -14,8 +16,8 @@ final class Five
     {
     }
 
-    /** @return array{code:int}||Observable<Schema\SshKey> */
-    public function call(string $call, array $params, array $pathChunks): OrgPreReceiveHook|iterable
+    /** @return WithoutBody|Schema\OrgPreReceiveHook|iterable<int,Schema\SshKey> */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|OrgPreReceiveHook|iterable
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

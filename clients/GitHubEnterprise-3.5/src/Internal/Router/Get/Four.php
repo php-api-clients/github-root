@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
 use ApiClients\Client\GitHubEnterprise\Schema\ConfigurationStatus;
@@ -38,6 +39,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\StarredRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\Thread;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -46,8 +48,8 @@ final class Four
     {
     }
 
-    /** @return |Observable<Schema\HookDeliveryItem>|Schema\ApplicationGrant|array{code:int}|Observable<Schema\AuditLogEvent>|Observable<Schema\GistComment>|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Schema\GitignoreTemplate|Schema\Thread|Observable<Schema\Event>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\SimpleUser>|Observable<Schema\Migration>|Observable<Schema\OrgPreReceiveHook>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|Schema\ProjectColumn|Observable<Schema\ProjectColumn>|Schema\ConfigurationStatus|Schema\MaintenanceStatus|Schema\EnterpriseSettings|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Schema\GpgKey|Schema\Key|Observable<Schema\OrgMembership>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple> */
-    public function call(string $call, array $params, array $pathChunks): GlobalHook|PreReceiveEnvironment|PreReceiveHook|WebhookConfig|iterable|Installation|ApplicationGrant|LicenseInfo|EnterpriseOverview|EnterpriseCommentOverview|EnterpriseGistOverview|EnterpriseHookOverview|EnterpriseIssueOverview|EnterpriseMilestoneOverview|EnterpriseOrganizationOverview|EnterprisePageOverview|EnterprisePullRequestOverview|EnterpriseRepositoryOverview|EnterpriseUserOverview|GistSimple|GitignoreTemplate|Thread|Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|ProjectColumn|FullRepository|BasicError|ConfigurationStatus|MaintenanceStatus|EnterpriseSettings|GpgKey|Key|Hovercard|StarredRepository|Repository
+    /** @return Schema\GlobalHook|Schema\PreReceiveEnvironment|Schema\PreReceiveHook|Schema\WebhookConfig|iterable<int,Schema\HookDeliveryItem>|Schema\Installation|Schema\ApplicationGrant|WithoutBody|Schema\LicenseInfo|Schema\EnterpriseOverview|Schema\EnterpriseCommentOverview|Schema\EnterpriseGistOverview|Schema\EnterpriseHookOverview|Schema\EnterpriseIssueOverview|Schema\EnterpriseMilestoneOverview|Schema\EnterpriseOrganizationOverview|Schema\EnterprisePageOverview|Schema\EnterprisePullRequestOverview|Schema\EnterpriseRepositoryOverview|Schema\EnterpriseUserOverview|iterable<int,Schema\AuditLogEvent>|iterable<int,Schema\GistComment>|iterable<int,Schema\GistCommit>|iterable<int,Schema\GistSimple>|Schema\GistSimple|Schema\GitignoreTemplate|Schema\Thread|Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok|iterable<int,Schema\Event>|iterable<int,Schema\OrgHook>|Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|iterable<int,Schema\Issue>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\Migration>|iterable<int,Schema\OrgPreReceiveHook>|iterable<int,Schema\Project>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\Team>|Schema\ProjectColumn|iterable<int,Schema\ProjectColumn>|Schema\FullRepository|Schema\BasicError|Schema\ConfigurationStatus|Schema\MaintenanceStatus|Schema\EnterpriseSettings|iterable<int,Schema\TeamDiscussion>|iterable<int,Schema\TeamProject>|Schema\GpgKey|Schema\Key|iterable<int,Schema\OrgMembership>|iterable<int,Schema\BaseGist>|iterable<int,Schema\GpgKey>|Schema\Hovercard|iterable<int,Schema\KeySimple>|iterable<int,Schema\OrganizationSimple>|Schema\StarredRepository|Schema\Repository */
+    public function call(string $call, array $params, array $pathChunks): GlobalHook|PreReceiveEnvironment|PreReceiveHook|WebhookConfig|iterable|Installation|ApplicationGrant|WithoutBody|LicenseInfo|EnterpriseOverview|EnterpriseCommentOverview|EnterpriseGistOverview|EnterpriseHookOverview|EnterpriseIssueOverview|EnterpriseMilestoneOverview|EnterpriseOrganizationOverview|EnterprisePageOverview|EnterprisePullRequestOverview|EnterpriseRepositoryOverview|EnterpriseUserOverview|GistSimple|GitignoreTemplate|Thread|Ok|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|ProjectColumn|FullRepository|BasicError|ConfigurationStatus|MaintenanceStatus|EnterpriseSettings|GpgKey|Key|Hovercard|StarredRepository|Repository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

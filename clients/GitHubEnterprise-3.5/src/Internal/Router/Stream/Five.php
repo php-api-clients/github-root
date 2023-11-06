@@ -14,7 +14,7 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): PreReceiveEnvironmentDownloadStatus|array
+    public function call(string $call, array $params, array $pathChunks): PreReceiveEnvironmentDownloadStatus
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

@@ -35,6 +35,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\Runner;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterprise\Schema\SelectedActions;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -47,7 +48,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Observable<Schema\GlobalHook> */
+    /** @return iterable<int,Schema\GlobalHook> */
     public function listGlobalWebhooks(array $params): iterable
     {
         $arguments = [];
@@ -68,7 +69,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\PublicKeyFull> */
+    /** @return iterable<int,Schema\PublicKeyFull> */
     public function listPublicKeys(array $params): iterable
     {
         $arguments = [];
@@ -107,7 +108,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['since'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\PreReceiveEnvironment> */
+    /** @return iterable<int,Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironments(array $params): iterable
     {
         $arguments = [];
@@ -140,7 +141,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\PreReceiveHook> */
+    /** @return iterable<int,Schema\PreReceiveHook> */
     public function listPreReceiveHooks(array $params): iterable
     {
         $arguments = [];
@@ -173,7 +174,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\Authorization> */
+    /** @return iterable<int,Schema\Authorization> */
     public function listPersonalAccessTokens(array $params): iterable
     {
         $arguments = [];
@@ -194,16 +195,14 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getAnnouncement(array $params): Announcement|array
+    public function getAnnouncement(array $params): Announcement
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetAnnouncement($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getGlobalWebhook(array $params): GlobalHook|array
+    public function getGlobalWebhook(array $params): GlobalHook
     {
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
@@ -217,8 +216,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
-    /** @return */
-    public function getPreReceiveEnvironment(array $params): PreReceiveEnvironment|array
+    public function getPreReceiveEnvironment(array $params): PreReceiveEnvironment
     {
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
@@ -232,8 +230,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return */
-    public function getPreReceiveHook(array $params): PreReceiveHook|array
+    public function getPreReceiveHook(array $params): PreReceiveHook
     {
         $arguments = [];
         if (array_key_exists('pre_receive_hook_id', $params) === false) {
@@ -247,103 +244,91 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_hook_id']);
     }
 
-    /** @return */
-    public function getLicenseInformation(array $params): LicenseInfo|array
+    public function getLicenseInformation(array $params): LicenseInfo
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetLicenseInformation($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Settings🌀License());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getAllStats(array $params): EnterpriseOverview|array
+    public function getAllStats(array $params): EnterpriseOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetAllStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀All());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getCommentStats(array $params): EnterpriseCommentOverview|array
+    public function getCommentStats(array $params): EnterpriseCommentOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetCommentStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Comments());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getGistStats(array $params): EnterpriseGistOverview|array
+    public function getGistStats(array $params): EnterpriseGistOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetGistStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Gists());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getHooksStats(array $params): EnterpriseHookOverview|array
+    public function getHooksStats(array $params): EnterpriseHookOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetHooksStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Hooks());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getIssueStats(array $params): EnterpriseIssueOverview|array
+    public function getIssueStats(array $params): EnterpriseIssueOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetIssueStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Issues());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getMilestoneStats(array $params): EnterpriseMilestoneOverview|array
+    public function getMilestoneStats(array $params): EnterpriseMilestoneOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetMilestoneStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Milestones());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getOrgStats(array $params): EnterpriseOrganizationOverview|array
+    public function getOrgStats(array $params): EnterpriseOrganizationOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetOrgStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Orgs());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getPagesStats(array $params): EnterprisePageOverview|array
+    public function getPagesStats(array $params): EnterprisePageOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetPagesStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pages());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getPullRequestStats(array $params): EnterprisePullRequestOverview|array
+    public function getPullRequestStats(array $params): EnterprisePullRequestOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetPullRequestStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Pulls());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getRepoStats(array $params): EnterpriseRepositoryOverview|array
+    public function getRepoStats(array $params): EnterpriseRepositoryOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetRepoStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Repos());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getUserStats(array $params): EnterpriseUserOverview|array
+    public function getUserStats(array $params): EnterpriseUserOverview
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetUserStats($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Stats🌀Users());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\AuditLogEvent> */
+    /** @return iterable<int,Schema\AuditLogEvent> */
     public function getAuditLog(array $params): iterable
     {
         $arguments = [];
@@ -400,7 +385,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['phrase'], $arguments['include'], $arguments['after'], $arguments['before'], $arguments['order'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\OrgPreReceiveHook> */
+    /** @return iterable<int,Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrg(array $params): iterable
     {
         $arguments = [];
@@ -439,32 +424,28 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Schema\ConfigurationStatus|array{code:int} */
-    public function getConfigurationStatus(array $params): ConfigurationStatus|array
+    public function getConfigurationStatus(array $params): ConfigurationStatus|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetConfigurationStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Configcheck());
 
         return $operator->call();
     }
 
-    /** @return Schema\MaintenanceStatus|array{code:int} */
-    public function getMaintenanceStatus(array $params): MaintenanceStatus|array
+    public function getMaintenanceStatus(array $params): MaintenanceStatus|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetMaintenanceStatus($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance());
 
         return $operator->call();
     }
 
-    /** @return Schema\EnterpriseSettings|array{code:int} */
-    public function getSettings(array $params): EnterpriseSettings|array
+    public function getSettings(array $params): EnterpriseSettings|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetSettings($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getDownloadStatusForPreReceiveEnvironment(array $params): PreReceiveEnvironmentDownloadStatus|array
+    public function getDownloadStatusForPreReceiveEnvironment(array $params): PreReceiveEnvironmentDownloadStatus
     {
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
@@ -478,8 +459,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return */
-    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): Ok|array
+    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -505,8 +485,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getAllowedActionsEnterprise(array $params): SelectedActions|array
+    public function getAllowedActionsEnterprise(array $params): SelectedActions
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -520,8 +499,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function getSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
+    public function getSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -541,7 +519,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return iterable<int,Schema\RunnerApplication> */
     public function listRunnerApplicationsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -556,8 +534,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function getSelfHostedRunnerForEnterprise(array $params): Runner|array
+    public function getSelfHostedRunnerForEnterprise(array $params): Runner
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -577,8 +554,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return */
-    public function getPreReceiveHookForRepo(array $params): RepositoryPreReceiveHook|array
+    public function getPreReceiveHookForRepo(array $params): RepositoryPreReceiveHook
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -604,8 +580,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return */
-    public function getGithubActionsPermissionsEnterprise(array $params): ActionsEnterprisePermissions|array
+    public function getGithubActionsPermissionsEnterprise(array $params): ActionsEnterprisePermissions
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -619,8 +594,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnerGroupsForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok|array
+    public function listSelfHostedRunnerGroupsForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -646,8 +620,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|array
+    public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -673,8 +646,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getPreReceiveHookForOrg(array $params): OrgPreReceiveHook|array
+    public function getPreReceiveHookForOrg(array $params): OrgPreReceiveHook
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -694,7 +666,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return Observable<Schema\RepositoryPreReceiveHook> */
+    /** @return iterable<int,Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepo(array $params): iterable
     {
         $arguments = [];
@@ -739,16 +711,15 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\SshKey>|array{code:int} */
-    public function getAllAuthorizedSshKeys(array $params): iterable
+    /** @return iterable<int,Schema\SshKey>|WithoutBody */
+    public function getAllAuthorizedSshKeys(array $params): iterable|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\GetAllAuthorizedSshKeys($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json|array
+    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -780,8 +751,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok|array
+    public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -813,8 +783,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listLabelsForSelfHostedRunnerForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
+    public function listLabelsForSelfHostedRunnerForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {

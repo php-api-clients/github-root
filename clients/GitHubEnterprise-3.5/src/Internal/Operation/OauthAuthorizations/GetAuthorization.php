@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizati
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetAuthorization
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-authorization';
     public const OPERATION_MATCH = 'GET /authorizations/{authorization_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/authorizations/{authorization_id}';
     /**The unique identifier of the authorization. **/
     private int $authorizationId;
 
@@ -34,11 +33,10 @@ final class GetAuthorization
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{authorization_id}'], [$this->authorizationId], self::PATH));
+        return new Request('GET', str_replace(['{authorization_id}'], [$this->authorizationId], '/authorizations/{authorization_id}'));
     }
 
-    /** @return Schema\Authorization|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\Authorization|array
+    public function createResponse(ResponseInterface $response): Schema\Authorization|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -79,7 +77,7 @@ final class GetAuthorization
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

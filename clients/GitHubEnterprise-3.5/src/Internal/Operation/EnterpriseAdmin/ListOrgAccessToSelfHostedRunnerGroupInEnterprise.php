@@ -21,8 +21,6 @@ final class ListOrgAccessToSelfHostedRunnerGroupInEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-org-access-to-self-hosted-runner-group-in-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner group. **/
@@ -42,7 +40,7 @@ final class ListOrgAccessToSelfHostedRunnerGroupInEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_group_id}', '{per_page}', '{page}'], [$this->enterprise, $this->runnerGroupId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{enterprise}', '{runner_group_id}', '{per_page}', '{page}'], [$this->enterprise, $this->runnerGroupId, $this->perPage, $this->page], '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations' . '?per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json

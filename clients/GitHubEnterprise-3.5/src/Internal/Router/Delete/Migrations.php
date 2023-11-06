@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class Migrations
     {
     }
 
-    /** @return array{code:int} */
-    public function deleteArchiveForOrg(array $params): array
+    public function deleteArchiveForOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -39,8 +39,7 @@ final class Migrations
         return $operator->call($arguments['org'], $arguments['migration_id']);
     }
 
-    /** @return array{code:int} */
-    public function unlockRepoForOrg(array $params): array
+    public function unlockRepoForOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
