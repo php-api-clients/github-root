@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
@@ -15,8 +16,6 @@ final class PingGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/ping-global-webhook';
     public const OPERATION_MATCH = 'POST /admin/hooks/{hook_id}/pings';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/hooks/{hook_id}/pings';
     /**The unique identifier of the hook. You can find this value in the `X-GitHub-Hook-ID` header of a webhook delivery. **/
     private int $hookId;
 
@@ -27,11 +26,10 @@ final class PingGlobalWebhook
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH));
+        return new Request('POST', str_replace(['{hook_id}'], [$this->hookId], '/admin/hooks/{hook_id}/pings'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -39,7 +37,7 @@ final class PingGlobalWebhook
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

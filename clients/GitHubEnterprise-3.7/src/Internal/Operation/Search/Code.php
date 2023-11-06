@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Search;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class Code
 {
     public const OPERATION_ID    = 'search/code';
     public const OPERATION_MATCH = 'GET /search/code';
-    private const METHOD         = 'GET';
-    private const PATH           = '/search/code';
     /**The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub Enterprise Server. The REST API supports the same qualifiers as the web interface for GitHub Enterprise Server. To learn more about the format of the query, see [Constructing a search query](https://docs.github.com/enterprise-server@3.7/rest/search/search#constructing-a-search-query). See "[Searching code](https://docs.github.com/enterprise-server@3.7/search-github/searching-on-github/searching-code)" for a detailed list of qualifiers. **/
     private string $q;
     /**Sorts the results of your query. Can only be `indexed`, which indicates how recently a file has been indexed by the GitHub Enterprise Server search infrastructure. Default: [best match](https://docs.github.com/enterprise-server@3.7/rest/search/search#ranking-search-results) **/
@@ -46,11 +45,10 @@ final class Code
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{q}', '{sort}', '{order}', '{per_page}', '{page}'], [$this->q, $this->sort, $this->order, $this->perPage, $this->page], self::PATH . '?q={q}&sort={sort}&order={order}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{q}', '{sort}', '{order}', '{per_page}', '{page}'], [$this->q, $this->sort, $this->order, $this->perPage, $this->page], '/search/code' . '?q={q}&sort={sort}&order={order}&per_page={per_page}&page={page}'));
     }
 
-    /** @return Schema\Operations\Search\Code\Response\ApplicationJson\Ok|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\Operations\Search\Code\Response\ApplicationJson\Ok|array
+    public function createResponse(ResponseInterface $response): Schema\Operations\Search\Code\Response\ApplicationJson\Ok|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -99,7 +97,7 @@ final class Code
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

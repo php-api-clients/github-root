@@ -23,8 +23,7 @@ final class Dependabot
     {
     }
 
-    /** @return */
-    public function getOrgPublicKey(array $params): DependabotPublicKey|array
+    public function getOrgPublicKey(array $params): DependabotPublicKey
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -38,8 +37,7 @@ final class Dependabot
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function getOrgSecret(array $params): OrganizationDependabotSecret|array
+    public function getOrgSecret(array $params): OrganizationDependabotSecret
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -59,8 +57,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    /** @return */
-    public function listRepoSecrets(array $params): Ok|array
+    public function listRepoSecrets(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -92,8 +89,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|array
+    public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -119,8 +115,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listSelectedReposForOrgSecret(array $params): Json|array
+    public function listSelectedReposForOrgSecret(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -152,8 +147,7 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return */
-    public function getRepoPublicKey(array $params): DependabotPublicKey|array
+    public function getRepoPublicKey(array $params): DependabotPublicKey
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -173,8 +167,7 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function getRepoSecret(array $params): DependabotSecret|array
+    public function getRepoSecret(array $params): DependabotSecret
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

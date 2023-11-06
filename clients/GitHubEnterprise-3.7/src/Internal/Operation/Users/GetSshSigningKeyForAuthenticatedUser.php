@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Users;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetSshSigningKeyForAuthenticatedUser
 {
     public const OPERATION_ID    = 'users/get-ssh-signing-key-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/ssh_signing_keys/{ssh_signing_key_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/user/ssh_signing_keys/{ssh_signing_key_id}';
     /**The unique identifier of the SSH signing key. **/
     private int $sshSigningKeyId;
 
@@ -34,11 +33,10 @@ final class GetSshSigningKeyForAuthenticatedUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{ssh_signing_key_id}'], [$this->sshSigningKeyId], self::PATH));
+        return new Request('GET', str_replace(['{ssh_signing_key_id}'], [$this->sshSigningKeyId], '/user/ssh_signing_keys/{ssh_signing_key_id}'));
     }
 
-    /** @return Schema\SshSigningKey|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\SshSigningKey|array
+    public function createResponse(ResponseInterface $response): Schema\SshSigningKey|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -87,7 +85,7 @@ final class GetSshSigningKeyForAuthenticatedUser
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

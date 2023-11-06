@@ -22,8 +22,6 @@ final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/remove-all-custom-labels-from-self-hosted-runner-for-enterprise';
     public const OPERATION_MATCH = 'DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}/labels';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner. **/
@@ -37,7 +35,7 @@ final class RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], self::PATH));
+        return new Request('DELETE', str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], '/enterprises/{enterprise}/actions/runners/{runner_id}/labels'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json

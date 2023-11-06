@@ -24,12 +24,11 @@ final readonly class RemovePreReceiveHookEnforcementForRepo
     {
     }
 
-    /** @return */
-    public function call(string $owner, string $repo, int $preReceiveHookId): RepositoryPreReceiveHook|array
+    public function call(string $owner, string $repo, int $preReceiveHookId): RepositoryPreReceiveHook
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $preReceiveHookId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RepositoryPreReceiveHook|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RepositoryPreReceiveHook {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -22,8 +22,6 @@ final class UpdateSelfHostedRunnerGroupForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/update-self-hosted-runner-group-for-enterprise';
     public const OPERATION_MATCH = 'PATCH /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner group. **/
@@ -39,7 +37,7 @@ final class UpdateSelfHostedRunnerGroupForEnterprise
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateSelfHostedRunnerGroupForEnterprise\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_group_id}'], [$this->enterprise, $this->runnerGroupId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{enterprise}', '{runner_group_id}'], [$this->enterprise, $this->runnerGroupId], '/enterprises/{enterprise}/actions/runner-groups/{runner_group_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\RunnerGroupsEnterprise

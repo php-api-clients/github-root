@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetProvisioningInformationForEnterpriseUser
 {
     public const OPERATION_ID    = 'enterprise-admin/get-provisioning-information-for-enterprise-user';
     public const OPERATION_MATCH = 'GET /scim/v2/Users/{scim_user_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/Users/{scim_user_id}';
     /**The unique identifier of the SCIM user. **/
     private string $scimUserId;
 
@@ -34,11 +33,10 @@ final class GetProvisioningInformationForEnterpriseUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{scim_user_id}'], [$this->scimUserId], self::PATH));
+        return new Request('GET', str_replace(['{scim_user_id}'], [$this->scimUserId], '/scim/v2/Users/{scim_user_id}'));
     }
 
-    /** @return Schema\UserResponse|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\UserResponse|array
+    public function createResponse(ResponseInterface $response): Schema\UserResponse|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -124,13 +122,13 @@ final class GetProvisioningInformationForEnterpriseUser
              * Authorization failure
              **/
             case 401:
-                return ['code' => 401];
+                return new WithoutBody(401, []);
             /**
              * Permission denied
              **/
 
             case 403:
-                return ['code' => 403];
+                return new WithoutBody(403, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

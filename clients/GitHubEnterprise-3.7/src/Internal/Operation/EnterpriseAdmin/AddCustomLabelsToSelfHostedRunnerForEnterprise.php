@@ -23,8 +23,6 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/add-custom-labels-to-self-hosted-runner-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runners/{runner_id}/labels';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}/labels';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner. **/
@@ -40,7 +38,7 @@ final class AddCustomLabelsToSelfHostedRunnerForEnterprise
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\AddCustomLabelsToSelfHostedRunnerForEnterprise\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], '/enterprises/{enterprise}/actions/runners/{runner_id}/labels'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
