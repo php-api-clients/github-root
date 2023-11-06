@@ -24,12 +24,11 @@ final readonly class GetGithubActionsDefaultWorkflowPermissionsEnterprise
     {
     }
 
-    /** @return */
-    public function call(string $enterprise): ActionsGetDefaultWorkflowPermissions|array
+    public function call(string $enterprise): ActionsGetDefaultWorkflowPermissions
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\GetGithubActionsDefaultWorkflowPermissionsEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsGetDefaultWorkflowPermissions|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsGetDefaultWorkflowPermissions {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

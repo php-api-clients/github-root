@@ -21,8 +21,6 @@ final class SyncLdapMappingForUser
 {
     public const OPERATION_ID    = 'enterprise-admin/sync-ldap-mapping-for-user';
     public const OPERATION_MATCH = 'POST /admin/ldap/users/{username}/sync';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/ldap/users/{username}/sync';
     /**The handle for the GitHub user account. **/
     private string $username;
 
@@ -33,7 +31,7 @@ final class SyncLdapMappingForUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH));
+        return new Request('POST', str_replace(['{username}'], [$this->username], '/admin/ldap/users/{username}/sync'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\SyncLdapMappingForUser\Response\ApplicationJson\Created\Application\Json

@@ -22,8 +22,6 @@ final class UpdateUsernameForUser
 {
     public const OPERATION_ID    = 'enterprise-admin/update-username-for-user';
     public const OPERATION_MATCH = 'PATCH /admin/users/{username}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/users/{username}';
     /**The handle for the GitHub user account. **/
     private string $username;
 
@@ -36,7 +34,7 @@ final class UpdateUsernameForUser
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateUsernameForUser\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{username}'], [$this->username], '/admin/users/{username}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\UpdateUsernameForUser\Response\ApplicationJson\Accepted\Application\Json

@@ -19,8 +19,7 @@ final class Billing
     {
     }
 
-    /** @return */
-    public function getGithubAdvancedSecurityBillingGhe(array $params): AdvancedSecurityActiveCommitters|array
+    public function getGithubAdvancedSecurityBillingGhe(array $params): AdvancedSecurityActiveCommitters
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -46,8 +45,7 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getGithubAdvancedSecurityBillingOrg(array $params): AdvancedSecurityActiveCommitters|array
+    public function getGithubAdvancedSecurityBillingOrg(array $params): AdvancedSecurityActiveCommitters
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

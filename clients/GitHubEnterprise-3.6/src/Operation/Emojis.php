@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Operation;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Emojis
 {
@@ -14,8 +14,7 @@ final class Emojis
     {
     }
 
-    /** @return Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok|array{code:int} */
-    public function get(): Ok|array
+    public function get(): Ok|WithoutBody
     {
         return $this->operators->emojis👷Get()->call();
     }

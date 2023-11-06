@@ -24,12 +24,12 @@ final readonly class ListAlertsForOrg
     {
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
     public function call(string $org, string $state, string $secretType, string $resolution, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\SecretScanning\ListAlertsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $state, $secretType, $resolution, $sort, $direction, $page, $perPage);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

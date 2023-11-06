@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeOfConduct;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,7 @@ final class CodesOfConduct
     {
     }
 
-    /** @return Schema\CodeOfConduct|array{code:int} */
-    public function getConductCode(array $params): CodeOfConduct|array
+    public function getConductCode(array $params): CodeOfConduct|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('key', $params) === false) {
@@ -35,8 +35,8 @@ final class CodesOfConduct
         return $operator->call($arguments['key']);
     }
 
-    /** @return Observable<Schema\CodeOfConduct>|array{code:int} */
-    public function getAllCodesOfConduct(array $params): iterable
+    /** @return iterable<int,Schema\CodeOfConduct>|WithoutBody */
+    public function getAllCodesOfConduct(array $params): iterable|WithoutBody
     {
         $operator = new Internal\Operator\CodesOfConduct\GetAllCodesOfConduct($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀CodesOfConduct());
 
