@@ -21,8 +21,6 @@ final class GetPreReceiveHookForRepo
 {
     public const OPERATION_ID    = 'enterprise-admin/get-pre-receive-hook-for-repo';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
@@ -39,7 +37,7 @@ final class GetPreReceiveHookForRepo
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pre_receive_hook_id}'], [$this->owner, $this->repo, $this->preReceiveHookId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{pre_receive_hook_id}'], [$this->owner, $this->repo, $this->preReceiveHookId], '/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\RepositoryPreReceiveHook

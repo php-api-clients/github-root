@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -21,8 +22,8 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return Observable<Schema\ApplicationGrant>|array{code:int} */
-    public function listGrants(array $params): iterable
+    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
+    public function listGrants(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
@@ -48,8 +49,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['client_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Authorization|array{code:int} */
-    public function getAuthorization(array $params): Authorization|array
+    public function getAuthorization(array $params): Authorization|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('authorization_id', $params) === false) {
@@ -63,8 +63,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['authorization_id']);
     }
 
-    /** @return Schema\ApplicationGrant|array{code:int} */
-    public function getGrant(array $params): ApplicationGrant|array
+    public function getGrant(array $params): ApplicationGrant|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('grant_id', $params) === false) {
@@ -78,8 +77,8 @@ final class OauthAuthorizations
         return $operator->call($arguments['grant_id']);
     }
 
-    /** @return Observable<Schema\Authorization>|array{code:int} */
-    public function listAuthorizations(array $params): iterable
+    /** @return iterable<int,Schema\Authorization>|WithoutBody */
+    public function listAuthorizations(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {

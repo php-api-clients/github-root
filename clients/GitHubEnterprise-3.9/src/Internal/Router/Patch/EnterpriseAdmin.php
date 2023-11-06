@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Announcement;
 use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook2;
 use ApiClients\Client\GitHubEnterprise\Schema\GroupResponse;
@@ -20,6 +19,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterprise\Schema\UserResponse;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -32,8 +32,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return */
-    public function updateGlobalWebhook(array $params): GlobalHook2|array
+    public function updateGlobalWebhook(array $params): GlobalHook2
     {
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
@@ -47,8 +46,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id'], $params);
     }
 
-    /** @return */
-    public function updateOrgName(array $params): Accepted|array
+    public function updateOrgName(array $params): Accepted
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -62,8 +60,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return */
-    public function updatePreReceiveEnvironment(array $params): PreReceiveEnvironment|array
+    public function updatePreReceiveEnvironment(array $params): PreReceiveEnvironment
     {
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
@@ -77,8 +74,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id'], $params);
     }
 
-    /** @return */
-    public function updatePreReceiveHook(array $params): PreReceiveHook|array
+    public function updatePreReceiveHook(array $params): PreReceiveHook
     {
         $arguments = [];
         if (array_key_exists('pre_receive_hook_id', $params) === false) {
@@ -92,8 +88,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_hook_id'], $params);
     }
 
-    /** @return */
-    public function updateUsernameForUser(array $params): Json|array
+    public function updateUsernameForUser(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -107,8 +102,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return */
-    public function updateLdapMappingForTeam(array $params): LdapMappingTeam|array
+    public function updateLdapMappingForTeam(array $params): LdapMappingTeam
     {
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
@@ -122,8 +116,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['team_id'], $params);
     }
 
-    /** @return */
-    public function updateLdapMappingForUser(array $params): LdapMappingUser|array
+    public function updateLdapMappingForUser(array $params): LdapMappingUser
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -137,8 +130,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return */
-    public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
+    public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -158,8 +150,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return */
-    public function updatePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook|array
+    public function updatePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -185,16 +176,14 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id'], $params);
     }
 
-    /** @return */
-    public function setAnnouncement(array $params): Announcement|array
+    public function setAnnouncement(array $params): Announcement
     {
         $operator = new Internal\Operator\EnterpriseAdmin\SetAnnouncement($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprise🌀Announcement());
 
         return $operator->call($params);
     }
 
-    /** @return */
-    public function updatePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook|array
+    public function updatePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -214,8 +203,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id'], $params);
     }
 
-    /** @return Schema\GroupResponse|array{code:int} */
-    public function updateAttributeForEnterpriseGroup(array $params): GroupResponse|array
+    public function updateAttributeForEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_group_id', $params) === false) {
@@ -229,8 +217,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id'], $params);
     }
 
-    /** @return Schema\UserResponse|array{code:int} */
-    public function updateAttributeForEnterpriseUser(array $params): UserResponse|array
+    public function updateAttributeForEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_user_id', $params) === false) {

@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\List;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Three
@@ -14,8 +15,8 @@ final class Three
     {
     }
 
-    /** @return Observable<Schema\GlobalHook>|Observable<Schema\PublicKeyFull>|Observable<Schema\PreReceiveEnvironment>|Observable<Schema\PreReceiveHook>|Observable<Schema\Authorization>|Observable<Schema\IntegrationInstallationRequest>|array{code:int}|Observable<Schema\Installation>|Observable<Schema\ApplicationGrant>|Observable<Schema\BaseGist>|Observable<Schema\Email>|Observable<Schema\SimpleUser>|Observable<Schema\GpgKey>|Observable<Schema\Issue>|Observable<Schema\Key>|Observable<Schema\Migration>|Observable<Schema\OrganizationSimple>|Observable<Schema\Package>|Observable<Schema\Repository>|Observable<Schema\RepositoryInvitation>|Observable<Schema\SocialAccount>|Observable<Schema\SshSigningKey>|Observable<Schema\MinimalRepository>|Observable<Schema\TeamFull> */
-    public function call(string $call, array $params, array $pathChunks): iterable
+    /** @return iterable<int,Schema\GlobalHook>|iterable<int,Schema\PublicKeyFull>|iterable<int,Schema\PreReceiveEnvironment>|iterable<int,Schema\PreReceiveHook>|iterable<int,Schema\Authorization>|iterable<int,Schema\IntegrationInstallationRequest>|WithoutBody|iterable<int,Schema\Installation>|iterable<int,Schema\ApplicationGrant>|iterable<int,Schema\BaseGist>|iterable<int,Schema\Email>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\GpgKey>|iterable<int,Schema\Issue>|iterable<int,Schema\Key>|iterable<int,Schema\Migration>|iterable<int,Schema\OrganizationSimple>|iterable<int,Schema\Package>|iterable<int,Schema\Repository>|iterable<int,Schema\RepositoryInvitation>|iterable<int,Schema\SocialAccount>|iterable<int,Schema\SshSigningKey>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\TeamFull> */
+    public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {
