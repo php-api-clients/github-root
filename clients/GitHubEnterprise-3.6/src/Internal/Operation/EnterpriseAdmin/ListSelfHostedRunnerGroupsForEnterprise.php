@@ -21,8 +21,6 @@ final class ListSelfHostedRunnerGroupsForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-self-hosted-runner-groups-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runner-groups';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Only return runner groups that are allowed to be used by this organization. **/
@@ -42,7 +40,7 @@ final class ListSelfHostedRunnerGroupsForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{visible_to_organization}', '{per_page}', '{page}'], [$this->enterprise, $this->visibleToOrganization, $this->perPage, $this->page], self::PATH . '?visible_to_organization={visible_to_organization}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{enterprise}', '{visible_to_organization}', '{per_page}', '{page}'], [$this->enterprise, $this->visibleToOrganization, $this->perPage, $this->page], '/enterprises/{enterprise}/actions/runner-groups' . '?visible_to_organization={visible_to_organization}&per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok

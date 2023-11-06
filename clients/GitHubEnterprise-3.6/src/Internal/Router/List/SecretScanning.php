@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\List;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,7 +21,7 @@ final class SecretScanning
     {
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -83,8 +84,8 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SecretScanningAlert>|array{code:int} */
-    public function listAlertsForRepoListing(array $params): iterable
+    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    public function listAlertsForRepoListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -152,8 +153,8 @@ final class SecretScanning
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SecretScanningLocation>|array{code:int} */
-    public function listLocationsForAlertListing(array $params): iterable
+    /** @return iterable<int,Schema\SecretScanningLocation>|WithoutBody */
+    public function listLocationsForAlertListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

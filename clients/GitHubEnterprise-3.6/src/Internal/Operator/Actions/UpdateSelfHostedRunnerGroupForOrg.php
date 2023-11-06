@@ -24,12 +24,11 @@ final readonly class UpdateSelfHostedRunnerGroupForOrg
     {
     }
 
-    /** @return */
-    public function call(string $org, int $runnerGroupId, array $params): RunnerGroupsOrg|array
+    public function call(string $org, int $runnerGroupId, array $params): RunnerGroupsOrg
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\UpdateSelfHostedRunnerGroupForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $runnerGroupId);
         $request   = $operation->createRequest($params);
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RunnerGroupsOrg|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RunnerGroupsOrg {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

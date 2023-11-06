@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class SetInformationForProvisionedEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/set-information-for-provisioned-enterprise-group';
     public const OPERATION_MATCH = 'PUT /scim/v2/Groups/{scim_group_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/scim/v2/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
 
@@ -37,11 +36,10 @@ final class SetInformationForProvisionedEnterpriseGroup
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Group::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{scim_group_id}'], [$this->scimGroupId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{scim_group_id}'], [$this->scimGroupId], '/scim/v2/Groups/{scim_group_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\GroupResponse|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\GroupResponse|array
+    public function createResponse(ResponseInterface $response): Schema\GroupResponse|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -127,19 +125,19 @@ final class SetInformationForProvisionedEnterpriseGroup
              * Authorization failure
              **/
             case 401:
-                return ['code' => 401];
+                return new WithoutBody(401, []);
             /**
              * Permission denied
              **/
 
             case 403:
-                return ['code' => 403];
+                return new WithoutBody(403, []);
             /**
              * Duplicate record detected
              **/
 
             case 409:
-                return ['code' => 409];
+                return new WithoutBody(409, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

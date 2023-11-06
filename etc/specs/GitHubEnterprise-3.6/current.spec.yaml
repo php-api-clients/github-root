@@ -24287,7 +24287,7 @@ paths:
       operationId: repos/list-webhooks
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#list-repository-webhooks
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#list-repository-webhooks
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24313,8 +24313,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repos
+        category: repos
+        subcategory: webhooks
     post:
       summary: Create a repository webhook
       description: |-
@@ -24325,7 +24325,7 @@ paths:
       operationId: repos/create-webhook
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#create-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#create-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24412,8 +24412,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repos
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/hooks/{hook_id}":
     get:
       summary: Get a repository webhook
@@ -24424,7 +24424,7 @@ paths:
       operationId: repos/get-webhook
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#get-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#get-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24444,8 +24444,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repos
+        category: repos
+        subcategory: webhooks
     patch:
       summary: Update a repository webhook
       description: Updates a webhook configured in a repository. If you previously
@@ -24457,7 +24457,7 @@ paths:
       operationId: repos/update-webhook
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#update-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#update-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24539,8 +24539,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repos
+        category: repos
+        subcategory: webhooks
     delete:
       summary: Delete a repository webhook
       description: ''
@@ -24549,7 +24549,7 @@ paths:
       operationId: repos/delete-webhook
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#delete-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#delete-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24562,8 +24562,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repos
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/hooks/{hook_id}/config":
     get:
       summary: Get a webhook configuration for a repository
@@ -24576,7 +24576,7 @@ paths:
       operationId: repos/get-webhook-config-for-repo
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-config#get-a-webhook-configuration-for-a-repository
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#get-a-webhook-configuration-for-a-repository
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24594,8 +24594,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repo-config
+        category: repos
+        subcategory: webhooks
     patch:
       summary: Update a webhook configuration for a repository
       description: |-
@@ -24607,7 +24607,7 @@ paths:
       operationId: repos/update-webhook-config-for-repo
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-config#update-a-webhook-configuration-for-a-repository
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#update-a-webhook-configuration-for-a-repository
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24647,8 +24647,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repo-config
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries":
     get:
       summary: List deliveries for a repository webhook
@@ -24659,7 +24659,7 @@ paths:
       operationId: repos/list-webhook-deliveries
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-deliveries#list-deliveries-for-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#list-deliveries-for-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24690,8 +24690,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repo-deliveries
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}":
     get:
       summary: Get a delivery for a repository webhook
@@ -24701,7 +24701,7 @@ paths:
       operationId: repos/get-webhook-delivery
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-deliveries#get-a-delivery-for-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#get-a-delivery-for-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24724,8 +24724,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repo-deliveries
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}/attempts":
     post:
       summary: Redeliver a delivery for a repository webhook
@@ -24735,7 +24735,7 @@ paths:
       operationId: repos/redeliver-webhook-delivery
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-deliveries#redeliver-a-delivery-for-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#redeliver-a-delivery-for-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24751,8 +24751,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repo-deliveries
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/hooks/{hook_id}/pings":
     post:
       summary: Ping a repository webhook
@@ -24763,7 +24763,7 @@ paths:
       operationId: repos/ping-webhook
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#ping-a-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#ping-a-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24776,8 +24776,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repos
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/hooks/{hook_id}/tests":
     post:
       summary: Test the push repository webhook
@@ -24790,7 +24790,7 @@ paths:
       operationId: repos/test-push-webhook
       externalDocs:
         description: API method documentation
-        url: https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#test-the-push-repository-webhook
+        url: https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#test-the-push-repository-webhook
       parameters:
       - "$ref": "#/components/parameters/owner"
       - "$ref": "#/components/parameters/repo"
@@ -24803,8 +24803,8 @@ paths:
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
-        category: webhooks
-        subcategory: repos
+        category: repos
+        subcategory: webhooks
   "/repos/{owner}/{repo}/installation":
     get:
       summary: Get a repository installation for the authenticated app
@@ -27067,6 +27067,8 @@ paths:
               examples:
                 default:
                   "$ref": "#/components/examples/license-content"
+        '404':
+          "$ref": "#/components/responses/not_found"
       x-github:
         githubCloudOnly: false
         enabledForGitHubApps: true
@@ -47038,10 +47040,6 @@ components:
           type: boolean
           examples:
           - true
-        template_repository:
-          anyOf:
-          - type: 'null'
-          - "$ref": "#/components/schemas/repository"
         temp_clone_token:
           type: string
         allow_squash_merge:
@@ -48104,6 +48102,7 @@ components:
           - queued
           - in_progress
           - completed
+          - waiting
           examples:
           - queued
         conclusion:
@@ -66737,125 +66736,6 @@ components:
           pull: true
         role_name: read
         allow_rebase_merge: true
-        template_repository:
-          id: 1296269
-          node_id: MDEwOlJlcG9zaXRvcnkxMjk2MjY5
-          name: Hello-World-Template
-          full_name: octocat/Hello-World-Template
-          owner:
-            login: octocat
-            id: 1
-            node_id: MDQ6VXNlcjE=
-            avatar_url: https://github.com/images/error/octocat_happy.gif
-            gravatar_id: ''
-            url: https://api.github.com/users/octocat
-            html_url: https://github.com/octocat
-            followers_url: https://api.github.com/users/octocat/followers
-            following_url: https://api.github.com/users/octocat/following{/other_user}
-            gists_url: https://api.github.com/users/octocat/gists{/gist_id}
-            starred_url: https://api.github.com/users/octocat/starred{/owner}{/repo}
-            subscriptions_url: https://api.github.com/users/octocat/subscriptions
-            organizations_url: https://api.github.com/users/octocat/orgs
-            repos_url: https://api.github.com/users/octocat/repos
-            events_url: https://api.github.com/users/octocat/events{/privacy}
-            received_events_url: https://api.github.com/users/octocat/received_events
-            type: User
-            site_admin: false
-          private: false
-          html_url: https://github.com/octocat/Hello-World-Template
-          description: This your first repo!
-          fork: false
-          url: https://api.github.com/repos/octocat/Hello-World-Template
-          archive_url: https://api.github.com/repos/octocat/Hello-World-Template/{archive_format}{/ref}
-          assignees_url: https://api.github.com/repos/octocat/Hello-World-Template/assignees{/user}
-          blobs_url: https://api.github.com/repos/octocat/Hello-World-Template/git/blobs{/sha}
-          branches_url: https://api.github.com/repos/octocat/Hello-World-Template/branches{/branch}
-          collaborators_url: https://api.github.com/repos/octocat/Hello-World-Template/collaborators{/collaborator}
-          comments_url: https://api.github.com/repos/octocat/Hello-World-Template/comments{/number}
-          commits_url: https://api.github.com/repos/octocat/Hello-World-Template/commits{/sha}
-          compare_url: https://api.github.com/repos/octocat/Hello-World-Template/compare/{base}...{head}
-          contents_url: https://api.github.com/repos/octocat/Hello-World-Template/contents/{+path}
-          contributors_url: https://api.github.com/repos/octocat/Hello-World-Template/contributors
-          deployments_url: https://api.github.com/repos/octocat/Hello-World-Template/deployments
-          downloads_url: https://api.github.com/repos/octocat/Hello-World-Template/downloads
-          events_url: https://api.github.com/repos/octocat/Hello-World-Template/events
-          forks_url: https://api.github.com/repos/octocat/Hello-World-Template/forks
-          git_commits_url: https://api.github.com/repos/octocat/Hello-World-Template/git/commits{/sha}
-          git_refs_url: https://api.github.com/repos/octocat/Hello-World-Template/git/refs{/sha}
-          git_tags_url: https://api.github.com/repos/octocat/Hello-World-Template/git/tags{/sha}
-          git_url: git:github.com/octocat/Hello-World-Template.git
-          issue_comment_url: https://api.github.com/repos/octocat/Hello-World-Template/issues/comments{/number}
-          issue_events_url: https://api.github.com/repos/octocat/Hello-World-Template/issues/events{/number}
-          issues_url: https://api.github.com/repos/octocat/Hello-World-Template/issues{/number}
-          keys_url: https://api.github.com/repos/octocat/Hello-World-Template/keys{/key_id}
-          labels_url: https://api.github.com/repos/octocat/Hello-World-Template/labels{/name}
-          languages_url: https://api.github.com/repos/octocat/Hello-World-Template/languages
-          merges_url: https://api.github.com/repos/octocat/Hello-World-Template/merges
-          milestones_url: https://api.github.com/repos/octocat/Hello-World-Template/milestones{/number}
-          notifications_url: https://api.github.com/repos/octocat/Hello-World-Template/notifications{?since,all,participating}
-          pulls_url: https://api.github.com/repos/octocat/Hello-World-Template/pulls{/number}
-          releases_url: https://api.github.com/repos/octocat/Hello-World-Template/releases{/id}
-          ssh_url: git@github.com:octocat/Hello-World-Template.git
-          stargazers_url: https://api.github.com/repos/octocat/Hello-World-Template/stargazers
-          statuses_url: https://api.github.com/repos/octocat/Hello-World-Template/statuses/{sha}
-          subscribers_url: https://api.github.com/repos/octocat/Hello-World-Template/subscribers
-          subscription_url: https://api.github.com/repos/octocat/Hello-World-Template/subscription
-          tags_url: https://api.github.com/repos/octocat/Hello-World-Template/tags
-          teams_url: https://api.github.com/repos/octocat/Hello-World-Template/teams
-          trees_url: https://api.github.com/repos/octocat/Hello-World-Template/git/trees{/sha}
-          clone_url: https://github.com/octocat/Hello-World-Template.git
-          mirror_url: git:git.example.com/octocat/Hello-World-Template
-          hooks_url: https://api.github.com/repos/octocat/Hello-World-Template/hooks
-          svn_url: https://svn.github.com/octocat/Hello-World-Template
-          homepage: https://github.com
-          language: 
-          forks: 9
-          forks_count: 9
-          stargazers_count: 80
-          watchers_count: 80
-          watchers: 80
-          size: 108
-          default_branch: master
-          open_issues: 0
-          open_issues_count: 0
-          is_template: true
-          license:
-            key: mit
-            name: MIT License
-            url: https://api.github.com/licenses/mit
-            spdx_id: MIT
-            node_id: MDc6TGljZW5zZW1pdA==
-            html_url: https://api.github.com/licenses/mit
-          topics:
-          - octocat
-          - atom
-          - electron
-          - api
-          has_issues: true
-          has_projects: true
-          has_wiki: true
-          has_pages: false
-          has_downloads: true
-          archived: false
-          disabled: false
-          visibility: public
-          pushed_at: '2011-01-26T19:06:43Z'
-          created_at: '2011-01-26T19:01:12Z'
-          updated_at: '2011-01-26T19:14:43Z'
-          permissions:
-            pull: true
-            triage: false
-            push: false
-            maintain: false
-            admin: false
-          allow_rebase_merge: true
-          temp_clone_token: ABTLWHOULUVAXGTRYU7OC2876QJ2O
-          allow_squash_merge: true
-          allow_auto_merge: false
-          delete_branch_on_merge: true
-          allow_merge_commit: true
-          subscribers_count: 42
-          network_count: 0
         temp_clone_token: ABTLWHOULUVAXGTRYU7OC2876QJ2O
         allow_squash_merge: true
         allow_auto_merge: false
@@ -67166,7 +67046,6 @@ components:
         hooks_url: https://api.github.com/repos/octocat/Hello-World/hooks
         svn_url: https://svn.github.com/octocat/Hello-World
         homepage: https://github.com
-        language: 
         forks_count: 9
         forks: 9
         stargazers_count: 80
@@ -67536,7 +67415,6 @@ components:
           hooks_url: https://api.github.com/repos/octocat/Hello-World/hooks
           svn_url: https://svn.github.com/octocat/Hello-World
           homepage: https://github.com
-          language: 
           forks_count: 9
           stargazers_count: 80
           watchers_count: 80
@@ -78399,125 +78277,6 @@ components:
           pull: true
         role_name: read
         allow_rebase_merge: true
-        template_repository:
-          id: 1296269
-          node_id: MDEwOlJlcG9zaXRvcnkxMjk2MjY5
-          name: Hello-World-Template
-          full_name: octocat/Hello-World-Template
-          owner:
-            login: octocat
-            id: 1
-            node_id: MDQ6VXNlcjE=
-            avatar_url: https://github.com/images/error/octocat_happy.gif
-            gravatar_id: ''
-            url: https://api.github.com/users/octocat
-            html_url: https://github.com/octocat
-            followers_url: https://api.github.com/users/octocat/followers
-            following_url: https://api.github.com/users/octocat/following{/other_user}
-            gists_url: https://api.github.com/users/octocat/gists{/gist_id}
-            starred_url: https://api.github.com/users/octocat/starred{/owner}{/repo}
-            subscriptions_url: https://api.github.com/users/octocat/subscriptions
-            organizations_url: https://api.github.com/users/octocat/orgs
-            repos_url: https://api.github.com/users/octocat/repos
-            events_url: https://api.github.com/users/octocat/events{/privacy}
-            received_events_url: https://api.github.com/users/octocat/received_events
-            type: User
-            site_admin: false
-          private: false
-          html_url: https://github.com/octocat/Hello-World-Template
-          description: This your first repo!
-          fork: false
-          url: https://api.github.com/repos/octocat/Hello-World-Template
-          archive_url: https://api.github.com/repos/octocat/Hello-World-Template/{archive_format}{/ref}
-          assignees_url: https://api.github.com/repos/octocat/Hello-World-Template/assignees{/user}
-          blobs_url: https://api.github.com/repos/octocat/Hello-World-Template/git/blobs{/sha}
-          branches_url: https://api.github.com/repos/octocat/Hello-World-Template/branches{/branch}
-          collaborators_url: https://api.github.com/repos/octocat/Hello-World-Template/collaborators{/collaborator}
-          comments_url: https://api.github.com/repos/octocat/Hello-World-Template/comments{/number}
-          commits_url: https://api.github.com/repos/octocat/Hello-World-Template/commits{/sha}
-          compare_url: https://api.github.com/repos/octocat/Hello-World-Template/compare/{base}...{head}
-          contents_url: https://api.github.com/repos/octocat/Hello-World-Template/contents/{+path}
-          contributors_url: https://api.github.com/repos/octocat/Hello-World-Template/contributors
-          deployments_url: https://api.github.com/repos/octocat/Hello-World-Template/deployments
-          downloads_url: https://api.github.com/repos/octocat/Hello-World-Template/downloads
-          events_url: https://api.github.com/repos/octocat/Hello-World-Template/events
-          forks_url: https://api.github.com/repos/octocat/Hello-World-Template/forks
-          git_commits_url: https://api.github.com/repos/octocat/Hello-World-Template/git/commits{/sha}
-          git_refs_url: https://api.github.com/repos/octocat/Hello-World-Template/git/refs{/sha}
-          git_tags_url: https://api.github.com/repos/octocat/Hello-World-Template/git/tags{/sha}
-          git_url: git:github.com/octocat/Hello-World-Template.git
-          issue_comment_url: https://api.github.com/repos/octocat/Hello-World-Template/issues/comments{/number}
-          issue_events_url: https://api.github.com/repos/octocat/Hello-World-Template/issues/events{/number}
-          issues_url: https://api.github.com/repos/octocat/Hello-World-Template/issues{/number}
-          keys_url: https://api.github.com/repos/octocat/Hello-World-Template/keys{/key_id}
-          labels_url: https://api.github.com/repos/octocat/Hello-World-Template/labels{/name}
-          languages_url: https://api.github.com/repos/octocat/Hello-World-Template/languages
-          merges_url: https://api.github.com/repos/octocat/Hello-World-Template/merges
-          milestones_url: https://api.github.com/repos/octocat/Hello-World-Template/milestones{/number}
-          notifications_url: https://api.github.com/repos/octocat/Hello-World-Template/notifications{?since,all,participating}
-          pulls_url: https://api.github.com/repos/octocat/Hello-World-Template/pulls{/number}
-          releases_url: https://api.github.com/repos/octocat/Hello-World-Template/releases{/id}
-          ssh_url: git@github.com:octocat/Hello-World-Template.git
-          stargazers_url: https://api.github.com/repos/octocat/Hello-World-Template/stargazers
-          statuses_url: https://api.github.com/repos/octocat/Hello-World-Template/statuses/{sha}
-          subscribers_url: https://api.github.com/repos/octocat/Hello-World-Template/subscribers
-          subscription_url: https://api.github.com/repos/octocat/Hello-World-Template/subscription
-          tags_url: https://api.github.com/repos/octocat/Hello-World-Template/tags
-          teams_url: https://api.github.com/repos/octocat/Hello-World-Template/teams
-          trees_url: https://api.github.com/repos/octocat/Hello-World-Template/git/trees{/sha}
-          clone_url: https://github.com/octocat/Hello-World-Template.git
-          mirror_url: git:git.example.com/octocat/Hello-World-Template
-          hooks_url: https://api.github.com/repos/octocat/Hello-World-Template/hooks
-          svn_url: https://svn.github.com/octocat/Hello-World-Template
-          homepage: https://github.com
-          language: 
-          forks: 9
-          forks_count: 9
-          stargazers_count: 80
-          watchers_count: 80
-          watchers: 80
-          size: 108
-          default_branch: master
-          open_issues: 0
-          open_issues_count: 0
-          is_template: true
-          license:
-            key: mit
-            name: MIT License
-            url: https://api.github.com/licenses/mit
-            spdx_id: MIT
-            node_id: MDc6TGljZW5zZW1pdA==
-            html_url: https://api.github.com/licenses/mit
-          topics:
-          - octocat
-          - atom
-          - electron
-          - api
-          has_issues: true
-          has_projects: true
-          has_wiki: true
-          has_pages: false
-          has_downloads: true
-          archived: false
-          disabled: false
-          visibility: public
-          pushed_at: '2011-01-26T19:06:43Z'
-          created_at: '2011-01-26T19:01:12Z'
-          updated_at: '2011-01-26T19:14:43Z'
-          permissions:
-            pull: true
-            triage: false
-            push: false
-            maintain: false
-            admin: false
-          allow_rebase_merge: true
-          temp_clone_token: ABTLWHOULUVAXGTRYU7OC2876QJ2O
-          allow_squash_merge: true
-          allow_auto_merge: false
-          delete_branch_on_merge: true
-          allow_merge_commit: true
-          subscribers_count: 42
-          network_count: 0
         temp_clone_token: ABTLWHOULUVAXGTRYU7OC2876QJ2O
         allow_squash_merge: true
         allow_auto_merge: false

@@ -13881,7 +13881,7 @@ $client->operations()->repos()->listWebhooks(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#list-repository-webhooks).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#list-repository-webhooks).
 
 
 ### repos/list-webhooks
@@ -13907,7 +13907,7 @@ $client->operations()->repos()->listWebhooksListing(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#list-repository-webhooks).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#list-repository-webhooks).
 
 
 ### repos/create-webhook
@@ -13929,7 +13929,7 @@ $client->operations()->repos()->createWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#create-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#create-a-repository-webhook).
 
 
 ### repos/get-webhook
@@ -13953,7 +13953,7 @@ $client->operations()->repos()->getWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#get-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#get-a-repository-webhook).
 
 
 ### repos/delete-webhook
@@ -13977,7 +13977,7 @@ $client->operations()->repos()->deleteWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#delete-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#delete-a-repository-webhook).
 
 
 ### repos/update-webhook
@@ -14001,7 +14001,7 @@ $client->operations()->repos()->updateWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#update-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#update-a-repository-webhook).
 
 
 ### repos/get-webhook-config-for-repo
@@ -14025,7 +14025,7 @@ $client->operations()->repos()->getWebhookConfigForRepo(        owner: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-config#get-a-webhook-configuration-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#get-a-webhook-configuration-for-a-repository).
 
 
 ### repos/update-webhook-config-for-repo
@@ -14049,7 +14049,7 @@ $client->operations()->repos()->updateWebhookConfigForRepo(        owner: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-config#update-a-webhook-configuration-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#update-a-webhook-configuration-for-a-repository).
 
 
 ### repos/list-webhook-deliveries
@@ -14079,7 +14079,7 @@ $client->operations()->repos()->listWebhookDeliveries(        owner: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-deliveries#list-deliveries-for-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#list-deliveries-for-a-repository-webhook).
 
 
 ### repos/get-webhook-delivery
@@ -14105,7 +14105,7 @@ $client->operations()->repos()->getWebhookDelivery(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-deliveries#get-a-delivery-for-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#get-a-delivery-for-a-repository-webhook).
 
 
 ### repos/redeliver-webhook-delivery
@@ -14131,7 +14131,7 @@ $client->operations()->repos()->redeliverWebhookDelivery(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repo-deliveries#redeliver-a-delivery-for-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#redeliver-a-delivery-for-a-repository-webhook).
 
 
 ### repos/ping-webhook
@@ -14155,7 +14155,7 @@ $client->operations()->repos()->pingWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#ping-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#ping-a-repository-webhook).
 
 
 ### repos/test-push-webhook
@@ -14179,7 +14179,7 @@ $client->operations()->repos()->testPushWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/webhooks/repos#test-the-push-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-server@3.6/rest/repos/webhooks#test-the-push-repository-webhook).
 
 
 ### apps/get-repo-installation

@@ -21,8 +21,6 @@ final class RemovePreReceiveHookEnforcementForOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/remove-pre-receive-hook-enforcement-for-org';
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the pre-receive hook. **/
@@ -36,7 +34,7 @@ final class RemovePreReceiveHookEnforcementForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], self::PATH));
+        return new Request('DELETE', str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrgPreReceiveHook

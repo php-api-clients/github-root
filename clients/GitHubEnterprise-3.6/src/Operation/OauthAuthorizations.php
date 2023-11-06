@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ApplicationGrant;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class OauthAuthorizations
 {
@@ -15,74 +16,66 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return Observable<Schema\ApplicationGrant>|array{code:int} */
-    public function listGrants(string $clientId, int $perPage, int $page): iterable
+    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
+    public function listGrants(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListGrants()->call($clientId, $perPage, $page);
     }
 
-    /** @return Observable<Schema\ApplicationGrant>|array{code:int} */
-    public function listGrantsListing(string $clientId, int $perPage, int $page): iterable
+    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
+    public function listGrantsListing(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListGrantsListing()->call($clientId, $perPage, $page);
     }
 
-    /** @return Schema\ApplicationGrant|array{code:int} */
-    public function getGrant(int $grantId): ApplicationGrant|array
+    public function getGrant(int $grantId): ApplicationGrant|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷GetGrant()->call($grantId);
     }
 
-    /** @return array{code:int} */
-    public function deleteGrant(int $grantId): array
+    public function deleteGrant(int $grantId): WithoutBody
     {
         return $this->operators->oauthAuthorizations👷DeleteGrant()->call($grantId);
     }
 
-    /** @return Observable<Schema\Authorization>|array{code:int} */
-    public function listAuthorizations(string $clientId, int $perPage, int $page): iterable
+    /** @return iterable<int,Schema\Authorization>|WithoutBody */
+    public function listAuthorizations(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListAuthorizations()->call($clientId, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Authorization>|array{code:int} */
-    public function listAuthorizationsListing(string $clientId, int $perPage, int $page): iterable
+    /** @return iterable<int,Schema\Authorization>|WithoutBody */
+    public function listAuthorizationsListing(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListAuthorizationsListing()->call($clientId, $perPage, $page);
     }
 
-    /** @return Schema\Authorization|array{code:int} */
-    public function createAuthorization(array $params): Authorization|array
+    public function createAuthorization(array $params): Authorization|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷CreateAuthorization()->call($params);
     }
 
-    /** @return Schema\Authorization|array{code:int} */
-    public function getOrCreateAuthorizationForApp(string $clientId, array $params): Authorization|array
+    public function getOrCreateAuthorizationForApp(string $clientId, array $params): Authorization|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForApp()->call($clientId, $params);
     }
 
-    /** @return */
-    public function getOrCreateAuthorizationForAppAndFingerprint(string $clientId, string $fingerprint, array $params): Authorization|array
+    public function getOrCreateAuthorizationForAppAndFingerprint(string $clientId, string $fingerprint, array $params): Authorization
     {
         return $this->operators->oauthAuthorizations👷GetOrCreateAuthorizationForAppAndFingerprint()->call($clientId, $fingerprint, $params);
     }
 
-    /** @return Schema\Authorization|array{code:int} */
-    public function getAuthorization(int $authorizationId): Authorization|array
+    public function getAuthorization(int $authorizationId): Authorization|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷GetAuthorization()->call($authorizationId);
     }
 
-    /** @return array{code:int} */
-    public function deleteAuthorization(int $authorizationId): array
+    public function deleteAuthorization(int $authorizationId): WithoutBody
     {
         return $this->operators->oauthAuthorizations👷DeleteAuthorization()->call($authorizationId);
     }
 
-    /** @return */
-    public function updateAuthorization(int $authorizationId, array $params): Authorization|array
+    public function updateAuthorization(int $authorizationId, array $params): Authorization
     {
         return $this->operators->oauthAuthorizations👷UpdateAuthorization()->call($authorizationId, $params);
     }

@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizati
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class DeleteGrant
 {
     public const OPERATION_ID    = 'oauth-authorizations/delete-grant';
     public const OPERATION_MATCH = 'DELETE /applications/grants/{grant_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/applications/grants/{grant_id}';
     /**The unique identifier of the grant. **/
     private int $grantId;
 
@@ -34,11 +33,10 @@ final class DeleteGrant
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{grant_id}'], [$this->grantId], self::PATH));
+        return new Request('DELETE', str_replace(['{grant_id}'], [$this->grantId], '/applications/grants/{grant_id}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -71,13 +69,13 @@ final class DeleteGrant
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
             /**
              * Not modified
              **/
 
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
