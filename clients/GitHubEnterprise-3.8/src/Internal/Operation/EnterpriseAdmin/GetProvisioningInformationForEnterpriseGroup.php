@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetProvisioningInformationForEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/get-provisioning-information-for-enterprise-group';
     public const OPERATION_MATCH = 'GET /scim/v2/Groups/{scim_group_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
     /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time. **/
@@ -37,11 +36,10 @@ final class GetProvisioningInformationForEnterpriseGroup
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{scim_group_id}', '{excludedAttributes}'], [$this->scimGroupId, $this->excludedAttributes], self::PATH . '?excludedAttributes={excludedAttributes}'));
+        return new Request('GET', str_replace(['{scim_group_id}', '{excludedAttributes}'], [$this->scimGroupId, $this->excludedAttributes], '/scim/v2/Groups/{scim_group_id}' . '?excludedAttributes={excludedAttributes}'));
     }
 
-    /** @return Schema\GroupResponse|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\GroupResponse|array
+    public function createResponse(ResponseInterface $response): Schema\GroupResponse|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -127,13 +125,13 @@ final class GetProvisioningInformationForEnterpriseGroup
              * Authorization failure
              **/
             case 401:
-                return ['code' => 401];
+                return new WithoutBody(401, []);
             /**
              * Permission denied
              **/
 
             case 403:
-                return ['code' => 403];
+                return new WithoutBody(403, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class ListProvisionedGroupsEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-provisioned-groups-enterprise';
     public const OPERATION_MATCH = 'GET /scim/v2/Groups';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/Groups';
     /**If specified, only results that match the specified filter will be returned. Multiple filters are not supported. Possible filters are `externalId`, `id`, and `displayName`. For example, `?filter="externalId eq '9138790-10932-109120392-12321'"`. **/
     private string $filter;
     /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time. **/
@@ -43,11 +42,10 @@ final class ListProvisionedGroupsEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{filter}', '{excludedAttributes}', '{startIndex}', '{count}'], [$this->filter, $this->excludedAttributes, $this->startIndex, $this->count], self::PATH . '?filter={filter}&excludedAttributes={excludedAttributes}&startIndex={startIndex}&count={count}'));
+        return new Request('GET', str_replace(['{filter}', '{excludedAttributes}', '{startIndex}', '{count}'], [$this->filter, $this->excludedAttributes, $this->startIndex, $this->count], '/scim/v2/Groups' . '?filter={filter}&excludedAttributes={excludedAttributes}&startIndex={startIndex}&count={count}'));
     }
 
-    /** @return Schema\ScimEnterpriseGroupList|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ScimEnterpriseGroupList|array
+    public function createResponse(ResponseInterface $response): Schema\ScimEnterpriseGroupList|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -125,13 +123,13 @@ final class ListProvisionedGroupsEnterprise
              * Authorization failure
              **/
             case 401:
-                return ['code' => 401];
+                return new WithoutBody(401, []);
             /**
              * Permission denied
              **/
 
             case 403:
-                return ['code' => 403];
+                return new WithoutBody(403, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

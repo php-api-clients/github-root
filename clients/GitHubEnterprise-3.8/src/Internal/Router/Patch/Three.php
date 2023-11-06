@@ -11,6 +11,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\GistSimple;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationFull;
 use ApiClients\Client\GitHubEnterprise\Schema\Project;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamFull;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Three
@@ -19,8 +20,7 @@ final class Three
     {
     }
 
-    /** @return |Schema\Project|array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): Authorization|Announcement|GistSimple|OrganizationFull|Project|TeamFull|array
+    public function call(string $call, array $params, array $pathChunks): Authorization|Announcement|GistSimple|OrganizationFull|Project|WithoutBody|TeamFull
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'authorizations') {

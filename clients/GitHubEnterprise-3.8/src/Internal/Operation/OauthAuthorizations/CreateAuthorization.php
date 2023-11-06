@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizati
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class CreateAuthorization
 {
     public const OPERATION_ID    = 'oauth-authorizations/create-authorization';
     public const OPERATION_MATCH = 'POST /authorizations';
-    private const METHOD         = 'POST';
-    private const PATH           = '/authorizations';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Authorizations $hydrator)
     {
@@ -34,11 +33,10 @@ final class CreateAuthorization
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\CreateAuthorization\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace([], [], '/authorizations'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\Authorization|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\Authorization|array
+    public function createResponse(ResponseInterface $response): Schema\Authorization|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -95,7 +93,7 @@ final class CreateAuthorization
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

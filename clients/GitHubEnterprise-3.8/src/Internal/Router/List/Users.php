@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\List;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,8 @@ final class Users
     {
     }
 
-    /** @return Observable<Schema\Email>|array{code:int} */
-    public function listEmailsForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\Email>|WithoutBody */
+    public function listEmailsForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -47,8 +48,8 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser>|array{code:int} */
-    public function listFollowersForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function listFollowersForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -74,8 +75,8 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser>|array{code:int} */
-    public function listFollowedByAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function listFollowedByAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -101,8 +102,8 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\GpgKey>|array{code:int} */
-    public function listGpgKeysForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\GpgKey>|WithoutBody */
+    public function listGpgKeysForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -128,8 +129,8 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Key>|array{code:int} */
-    public function listPublicSshKeysForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\Key>|WithoutBody */
+    public function listPublicSshKeysForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -155,8 +156,8 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Email>|array{code:int} */
-    public function listPublicEmailsForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\Email>|WithoutBody */
+    public function listPublicEmailsForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -182,8 +183,8 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SshSigningKey>|array{code:int} */
-    public function listSshSigningKeysForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\SshSigningKey>|WithoutBody */
+    public function listSshSigningKeysForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -209,7 +210,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listFollowersForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -242,7 +243,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listFollowingForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -275,7 +276,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\GpgKey> */
+    /** @return iterable<int,Schema\GpgKey> */
     public function listGpgKeysForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -308,7 +309,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\KeySimple> */
+    /** @return iterable<int,Schema\KeySimple> */
     public function listPublicKeysForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -341,7 +342,7 @@ final class Users
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SshSigningKey> */
+    /** @return iterable<int,Schema\SshSigningKey> */
     public function listSshSigningKeysForUserListing(array $params): iterable
     {
         $arguments = [];

@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\List;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,8 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return Observable<Schema\ApplicationGrant>|array{code:int} */
-    public function listGrantsListing(array $params): iterable
+    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
+    public function listGrantsListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
@@ -53,8 +54,8 @@ final class OauthAuthorizations
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Authorization>|array{code:int} */
-    public function listAuthorizationsListing(array $params): iterable
+    /** @return iterable<int,Schema\Authorization>|WithoutBody */
+    public function listAuthorizationsListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {

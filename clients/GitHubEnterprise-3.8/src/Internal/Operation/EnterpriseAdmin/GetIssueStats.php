@@ -21,8 +21,6 @@ final class GetIssueStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-issue-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/issues';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/issues';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Enterprise\Stats\Issues $hydrator)
     {
@@ -30,7 +28,7 @@ final class GetIssueStats
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace([], [], self::PATH));
+        return new Request('GET', str_replace([], [], '/enterprise/stats/issues'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\EnterpriseIssueOverview
