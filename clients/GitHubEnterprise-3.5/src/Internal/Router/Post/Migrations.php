@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Migration;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,16 +20,14 @@ final class Migrations
     {
     }
 
-    /** @return Schema\Migration|array{code:int} */
-    public function startForAuthenticatedUser(array $params): Migration|array
+    public function startForAuthenticatedUser(array $params): Migration|WithoutBody
     {
         $operator = new Internal\Operator\Migrations\StartForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Migrations());
 
         return $operator->call($params);
     }
 
-    /** @return */
-    public function startForOrg(array $params): Migration|array
+    public function startForOrg(array $params): Migration
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

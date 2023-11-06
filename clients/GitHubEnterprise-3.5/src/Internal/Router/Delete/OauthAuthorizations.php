@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return array{code:int} */
-    public function deleteGrant(array $params): array
+    public function deleteGrant(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('grant_id', $params) === false) {
@@ -33,8 +33,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['grant_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteAuthorization(array $params): array
+    public function deleteAuthorization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('authorization_id', $params) === false) {

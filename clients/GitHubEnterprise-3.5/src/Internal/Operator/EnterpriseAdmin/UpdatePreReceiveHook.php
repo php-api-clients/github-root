@@ -24,12 +24,11 @@ final readonly class UpdatePreReceiveHook
     {
     }
 
-    /** @return */
-    public function call(int $preReceiveHookId, array $params): PreReceiveHook|array
+    public function call(int $preReceiveHookId, array $params): PreReceiveHook
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdatePreReceiveHook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $preReceiveHookId);
         $request   = $operation->createRequest($params);
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PreReceiveHook|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PreReceiveHook {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

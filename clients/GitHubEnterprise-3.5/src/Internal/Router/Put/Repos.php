@@ -14,6 +14,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranch;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryInvitation;
 use ApiClients\Client\GitHubEnterprise\Schema\Topic;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -26,8 +27,7 @@ final class Repos
     {
     }
 
-    /** @return Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|array{code:int} */
-    public function enableLfsForRepo(array $params): Json|array
+    public function enableLfsForRepo(array $params): Json|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -47,8 +47,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return array{code:int} */
-    public function updateInformationAboutPagesSite(array $params): array
+    public function updateInformationAboutPagesSite(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -68,8 +67,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function replaceAllTopics(array $params): Topic|array
+    public function replaceAllTopics(array $params): Topic
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -89,8 +87,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\RepositoryInvitation|array{code:int} */
-    public function addCollaborator(array $params): RepositoryInvitation|array
+    public function addCollaborator(array $params): RepositoryInvitation|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -116,8 +113,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username'], $params);
     }
 
-    /** @return */
-    public function createOrUpdateFileContents(array $params): FileCommit|array
+    public function createOrUpdateFileContents(array $params): FileCommit
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -143,8 +139,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
 
-    /** @return */
-    public function createOrUpdateEnvironment(array $params): Environment|array
+    public function createOrUpdateEnvironment(array $params): Environment
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -170,8 +165,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $params);
     }
 
-    /** @return */
-    public function updateBranchProtection(array $params): ProtectedBranch|array
+    public function updateBranchProtection(array $params): ProtectedBranch
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -197,8 +191,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return */
-    public function updateDeploymentBranchPolicy(array $params): DeploymentBranchPolicy|array
+    public function updateDeploymentBranchPolicy(array $params): DeploymentBranchPolicy
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -230,7 +223,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id'], $params);
     }
 
-    /** @return Observable<string> */
+    /** @return iterable<int,string> */
     public function setStatusCheckContexts(array $params): iterable
     {
         $arguments = [];
@@ -257,7 +250,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\Integration> */
+    /** @return iterable<int,Schema\Integration> */
     public function setAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -284,7 +277,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<int,Schema\Team> */
     public function setTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -311,7 +304,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function setUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];

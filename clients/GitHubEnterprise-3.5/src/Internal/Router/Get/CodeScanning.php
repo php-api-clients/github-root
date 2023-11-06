@@ -10,6 +10,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAlert;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAnalysis;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningSarifsStatus;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -22,8 +23,8 @@ final class CodeScanning
     {
     }
 
-    /** @return Observable<Schema\CodeScanningAlertItems>|array{code:int} */
-    public function listAlertsForRepo(array $params): iterable
+    /** @return iterable<int,Schema\CodeScanningAlertItems>|WithoutBody */
+    public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -91,7 +92,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\CodeScanningAnalysis> */
+    /** @return iterable<int,Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(array $params): iterable
     {
         $arguments = [];
@@ -148,7 +149,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\CodeScanningOrganizationAlertItems> */
+    /** @return iterable<int,Schema\CodeScanningOrganizationAlertItems> */
     public function listAlertsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -217,8 +218,7 @@ final class CodeScanning
         return $operator->call($arguments['org'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Schema\CodeScanningAlert|array{code:int} */
-    public function getAlert(array $params): CodeScanningAlert|array
+    public function getAlert(array $params): CodeScanningAlert|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -244,8 +244,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
-    /** @return */
-    public function getAnalysis(array $params): CodeScanningAnalysis|array
+    public function getAnalysis(array $params): CodeScanningAnalysis
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -271,8 +270,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['analysis_id']);
     }
 
-    /** @return Schema\CodeScanningSarifsStatus|array{code:int} */
-    public function getSarif(array $params): CodeScanningSarifsStatus|array
+    public function getSarif(array $params): CodeScanningSarifsStatus|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -298,7 +296,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sarif_id']);
     }
 
-    /** @return Observable<Schema\CodeScanningAlertInstance> */
+    /** @return iterable<int,Schema\CodeScanningAlertInstance> */
     public function listAlertInstances(array $params): iterable
     {
         $arguments = [];

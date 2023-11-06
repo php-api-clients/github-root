@@ -24,12 +24,12 @@ final readonly class ListCacheInfoListing
     {
     }
 
-    /** @return Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
+    /** @return iterable<int,Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
     public function call(string $owner, string $repo, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\ListCacheInfoListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $perPage, $page);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

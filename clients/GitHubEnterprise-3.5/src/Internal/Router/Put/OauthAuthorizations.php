@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +20,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return */
-    public function getOrCreateAuthorizationForAppAndFingerprint(array $params): Authorization|array
+    public function getOrCreateAuthorizationForAppAndFingerprint(array $params): Authorization
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
@@ -41,8 +40,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['client_id'], $arguments['fingerprint'], $params);
     }
 
-    /** @return Schema\Authorization|array{code:int} */
-    public function getOrCreateAuthorizationForApp(array $params): Authorization|array
+    public function getOrCreateAuthorizationForApp(array $params): Authorization|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {

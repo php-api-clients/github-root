@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -15,8 +15,7 @@ final class Four
     {
     }
 
-    /** @return Schema\Authorization|array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): Authorization|array
+    public function call(string $call, array $params, array $pathChunks): Authorization|WithoutBody
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'authorizations') {
