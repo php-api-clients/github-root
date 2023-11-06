@@ -23,8 +23,7 @@ final class Orgs
     {
     }
 
-    /** @return */
-    public function updateWebhookConfigForOrg(array $params): WebhookConfig|array
+    public function updateWebhookConfigForOrg(array $params): WebhookConfig
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -44,8 +43,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
-    /** @return */
-    public function update(array $params): OrganizationFull|array
+    public function update(array $params): OrganizationFull
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -59,8 +57,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return */
-    public function updateCustomRepoRole(array $params): OrganizationCustomRepositoryRole|array
+    public function updateCustomRepoRole(array $params): OrganizationCustomRepositoryRole
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -80,8 +77,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id'], $params);
     }
 
-    /** @return */
-    public function updateWebhook(array $params): OrgHook|array
+    public function updateWebhook(array $params): OrgHook
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -101,8 +97,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
-    /** @return */
-    public function updateMembershipForAuthenticatedUser(array $params): OrgMembership|array
+    public function updateMembershipForAuthenticatedUser(array $params): OrgMembership
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

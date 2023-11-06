@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class ListProvisionedIdentitiesEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-provisioned-identities-enterprise';
     public const OPERATION_MATCH = 'GET /scim/v2/Users';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/Users';
     /**If specified, only results that match the specified filter will be returned. Multiple filters are not supported. Possible filters are `userName`, `externalId`, `id`, and `displayName`. For example, `?filter="externalId eq '9138790-10932-109120392-12321'"`. **/
     private string $filter;
     /**Used for pagination: the starting index of the first result to return when paginating through values. **/
@@ -40,11 +39,10 @@ final class ListProvisionedIdentitiesEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{filter}', '{startIndex}', '{count}'], [$this->filter, $this->startIndex, $this->count], self::PATH . '?filter={filter}&startIndex={startIndex}&count={count}'));
+        return new Request('GET', str_replace(['{filter}', '{startIndex}', '{count}'], [$this->filter, $this->startIndex, $this->count], '/scim/v2/Users' . '?filter={filter}&startIndex={startIndex}&count={count}'));
     }
 
-    /** @return Schema\ScimEnterpriseUserList|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ScimEnterpriseUserList|array
+    public function createResponse(ResponseInterface $response): Schema\ScimEnterpriseUserList|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -122,13 +120,13 @@ final class ListProvisionedIdentitiesEnterprise
              * Authorization failure
              **/
             case 401:
-                return ['code' => 401];
+                return new WithoutBody(401, []);
             /**
              * Permission denied
              **/
 
             case 403:
-                return ['code' => 403];
+                return new WithoutBody(403, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
