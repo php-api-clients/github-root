@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
@@ -15,8 +16,6 @@ final class DeletePersonalAccessToken
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-personal-access-token';
     public const OPERATION_MATCH = 'DELETE /admin/tokens/{token_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/tokens/{token_id}';
     /**The unique identifier of the token. **/
     private int $tokenId;
 
@@ -27,11 +26,10 @@ final class DeletePersonalAccessToken
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{token_id}'], [$this->tokenId], self::PATH));
+        return new Request('DELETE', str_replace(['{token_id}'], [$this->tokenId], '/admin/tokens/{token_id}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -39,7 +37,7 @@ final class DeletePersonalAccessToken
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

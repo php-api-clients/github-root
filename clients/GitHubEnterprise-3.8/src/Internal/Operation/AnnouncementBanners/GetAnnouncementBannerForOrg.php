@@ -21,8 +21,6 @@ final class GetAnnouncementBannerForOrg
 {
     public const OPERATION_ID    = 'announcement-banners/get-announcement-banner-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/announcement';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/announcement';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -33,7 +31,7 @@ final class GetAnnouncementBannerForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
+        return new Request('GET', str_replace(['{org}'], [$this->org], '/orgs/{org}/announcement'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\AnnouncementBanner

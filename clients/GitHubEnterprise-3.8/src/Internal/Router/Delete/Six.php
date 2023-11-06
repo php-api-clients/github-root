@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\ActionsCacheList;
 use ApiClients\Client\GitHubEnterprise\Schema\FileCommit;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -16,8 +17,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}| */
-    public function call(string $call, array $params, array $pathChunks): ActionsCacheList|FileCommit|RepositoryPreReceiveHook|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|ActionsCacheList|FileCommit|RepositoryPreReceiveHook
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

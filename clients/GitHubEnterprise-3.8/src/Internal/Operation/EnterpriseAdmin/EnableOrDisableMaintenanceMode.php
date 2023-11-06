@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class EnableOrDisableMaintenanceMode
 {
     public const OPERATION_ID    = 'enterprise-admin/enable-or-disable-maintenance-mode';
     public const OPERATION_MATCH = 'POST /setup/api/maintenance';
-    private const METHOD         = 'POST';
-    private const PATH           = '/setup/api/maintenance';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
@@ -33,11 +32,10 @@ final class EnableOrDisableMaintenanceMode
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\EnableOrDisableMaintenanceMode\Request\ApplicationXWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
+        return new Request('POST', str_replace([], [], '/setup/api/maintenance'), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
-    /** @return Schema\MaintenanceStatus|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus|array
+    public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -62,7 +60,7 @@ final class EnableOrDisableMaintenanceMode
              * Unauthorized
              **/
             case 401:
-                return ['code' => 401];
+                return new WithoutBody(401, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -19,8 +19,7 @@ final class AnnouncementBanners
     {
     }
 
-    /** @return */
-    public function setAnnouncementBannerForOrg(array $params): AnnouncementBanner|array
+    public function setAnnouncementBannerForOrg(array $params): AnnouncementBanner
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
