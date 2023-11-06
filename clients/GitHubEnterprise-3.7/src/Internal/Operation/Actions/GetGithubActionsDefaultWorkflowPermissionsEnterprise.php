@@ -21,8 +21,6 @@ final class GetGithubActionsDefaultWorkflowPermissionsEnterprise
 {
     public const OPERATION_ID    = 'actions/get-github-actions-default-workflow-permissions-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/permissions/workflow';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/workflow';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -33,7 +31,7 @@ final class GetGithubActionsDefaultWorkflowPermissionsEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/permissions/workflow'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ActionsGetDefaultWorkflowPermissions

@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\List;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -14,8 +15,8 @@ final class Four
     {
     }
 
-    /** @return Observable<Schema\AuditLogEvent>|Observable<Schema\GistComment>|array{code:int}|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Observable<Schema\Event>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\SimpleUser>|Observable<Schema\Migration>|Observable<Schema\OrgPreReceiveHook>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|Observable<Schema\ProjectColumn>|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Observable<Schema\OrgMembership>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple>|Observable<Schema\SshSigningKey> */
-    public function call(string $call, array $params, array $pathChunks): iterable
+    /** @return iterable<int,Schema\AuditLogEvent>|iterable<int,Schema\GistComment>|WithoutBody|iterable<int,Schema\GistCommit>|iterable<int,Schema\GistSimple>|iterable<int,Schema\Event>|iterable<int,Schema\OrgHook>|iterable<int,Schema\Issue>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\Migration>|iterable<int,Schema\OrgPreReceiveHook>|iterable<int,Schema\Project>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\Team>|iterable<int,Schema\ProjectColumn>|iterable<int,Schema\TeamDiscussion>|iterable<int,Schema\TeamProject>|iterable<int,Schema\OrgMembership>|iterable<int,Schema\BaseGist>|iterable<int,Schema\GpgKey>|iterable<int,Schema\KeySimple>|iterable<int,Schema\OrganizationSimple>|iterable<int,Schema\SshSigningKey> */
+    public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

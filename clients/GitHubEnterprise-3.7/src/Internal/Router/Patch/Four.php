@@ -15,6 +15,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment;
 use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook;
 use ApiClients\Client\GitHubEnterprise\Schema\ProjectColumn;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -23,8 +24,7 @@ final class Four
     {
     }
 
-    /** @return |array{code:int}|Schema\ProjectColumn */
-    public function call(string $call, array $params, array $pathChunks): GlobalHook2|Accepted|PreReceiveEnvironment|PreReceiveHook|Json|WebhookConfig|Authorization|ProjectColumn|FullRepository|BasicError|array
+    public function call(string $call, array $params, array $pathChunks): GlobalHook2|Accepted|PreReceiveEnvironment|PreReceiveHook|Json|WebhookConfig|Authorization|WithoutBody|ProjectColumn|FullRepository|BasicError
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

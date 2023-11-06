@@ -21,8 +21,6 @@ final class ListLinkedExternalIdpGroupsToTeamForOrg
 {
     public const OPERATION_ID    = 'teams/list-linked-external-idp-groups-to-team-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/external-groups';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/teams/{team_slug}/external-groups';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The slug of the team name. **/
@@ -36,7 +34,7 @@ final class ListLinkedExternalIdpGroupsToTeamForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], '/orgs/{org}/teams/{team_slug}/external-groups'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ExternalGroups

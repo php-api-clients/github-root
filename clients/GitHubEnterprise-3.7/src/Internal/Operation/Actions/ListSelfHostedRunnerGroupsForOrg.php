@@ -21,8 +21,6 @@ final class ListSelfHostedRunnerGroupsForOrg
 {
     public const OPERATION_ID    = 'actions/list-self-hosted-runner-groups-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/runner-groups';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/runner-groups';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Only return runner groups that are allowed to be used by this repository. **/
@@ -42,7 +40,7 @@ final class ListSelfHostedRunnerGroupsForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{visible_to_repository}', '{per_page}', '{page}'], [$this->org, $this->visibleToRepository, $this->perPage, $this->page], self::PATH . '?visible_to_repository={visible_to_repository}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{org}', '{visible_to_repository}', '{per_page}', '{page}'], [$this->org, $this->visibleToRepository, $this->perPage, $this->page], '/orgs/{org}/actions/runner-groups' . '?visible_to_repository={visible_to_repository}&per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -19,8 +20,6 @@ final class SetActionsCacheUsagePolicy
 {
     public const OPERATION_ID    = 'actions/set-actions-cache-usage-policy';
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/actions/cache/usage-policy';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/repos/{owner}/{repo}/actions/cache/usage-policy';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
@@ -36,11 +35,10 @@ final class SetActionsCacheUsagePolicy
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\ActionsCacheUsagePolicyForRepository::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/actions/cache/usage-policy'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -48,7 +46,7 @@ final class SetActionsCacheUsagePolicy
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
