@@ -24,12 +24,11 @@ final readonly class UpdateLdapMappingForTeam
     {
     }
 
-    /** @return */
-    public function call(int $teamId, array $params): LdapMappingTeam|array
+    public function call(int $teamId, array $params): LdapMappingTeam
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdateLdapMappingForTeam($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId);
         $request   = $operation->createRequest($params);
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): LdapMappingTeam|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): LdapMappingTeam {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

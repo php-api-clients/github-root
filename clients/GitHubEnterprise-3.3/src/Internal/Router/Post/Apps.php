@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\ContentReferenceAttachment;
 use ApiClients\Client\GitHubEnterprise\Schema\InstallationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\Integration;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -24,8 +24,7 @@ final class Apps
     {
     }
 
-    /** @return */
-    public function createInstallationAccessToken(array $params): InstallationToken|array
+    public function createInstallationAccessToken(array $params): InstallationToken
     {
         $arguments = [];
         if (array_key_exists('installation_id', $params) === false) {
@@ -39,8 +38,7 @@ final class Apps
         return $operator->call($arguments['installation_id'], $params);
     }
 
-    /** @return */
-    public function scopeToken(array $params): Authorization|array
+    public function scopeToken(array $params): Authorization
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
@@ -54,8 +52,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $params);
     }
 
-    /** @return */
-    public function resetAuthorization(array $params): Authorization|array
+    public function resetAuthorization(array $params): Authorization
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
@@ -75,8 +72,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
-    /** @return */
-    public function redeliverWebhookDelivery(array $params): Json|array
+    public function redeliverWebhookDelivery(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('delivery_id', $params) === false) {
@@ -90,8 +86,7 @@ final class Apps
         return $operator->call($arguments['delivery_id']);
     }
 
-    /** @return */
-    public function createFromManifest(array $params): Integration|array
+    public function createFromManifest(array $params): Integration
     {
         $arguments = [];
         if (array_key_exists('code', $params) === false) {
@@ -105,8 +100,7 @@ final class Apps
         return $operator->call($arguments['code']);
     }
 
-    /** @return */
-    public function checkToken(array $params): Authorization|array
+    public function checkToken(array $params): Authorization
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
@@ -120,8 +114,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $params);
     }
 
-    /** @return Schema\ContentReferenceAttachment|array{code:int} */
-    public function createContentAttachment(array $params): ContentReferenceAttachment|array
+    public function createContentAttachment(array $params): ContentReferenceAttachment|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
