@@ -24,12 +24,11 @@ final readonly class GetSecurityProducts
     {
     }
 
-    /** @return */
-    public function call(): EnterpriseSecurityProductsOverview|array
+    public function call(): EnterpriseSecurityProductsOverview
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetSecurityProducts($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseSecurityProductsOverview|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseSecurityProductsOverview {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

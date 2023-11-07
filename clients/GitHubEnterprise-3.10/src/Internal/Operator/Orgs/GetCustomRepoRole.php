@@ -24,12 +24,11 @@ final readonly class GetCustomRepoRole
     {
     }
 
-    /** @return */
-    public function call(string $org, int $roleId): OrganizationCustomRepositoryRole|array
+    public function call(string $org, int $roleId): OrganizationCustomRepositoryRole
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\GetCustomRepoRole($this->responseSchemaValidator, $this->hydrator, $org, $roleId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): OrganizationCustomRepositoryRole|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): OrganizationCustomRepositoryRole {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

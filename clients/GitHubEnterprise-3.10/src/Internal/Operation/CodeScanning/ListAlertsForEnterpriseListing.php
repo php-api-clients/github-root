@@ -25,8 +25,6 @@ final class ListAlertsForEnterpriseListing
 {
     public const OPERATION_ID    = 'code-scanning/list-alerts-for-enterprise';
     public const OPERATION_MATCH = 'LIST /enterprises/{enterprise}/code-scanning/alerts';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/code-scanning/alerts';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**The name of a code scanning tool. Only results by this tool will be listed. You can specify the tool by using either `tool_name` or `tool_guid`, but not both. **/
@@ -64,7 +62,7 @@ final class ListAlertsForEnterpriseListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{tool_name}', '{tool_guid}', '{before}', '{after}', '{state}', '{page}', '{per_page}', '{direction}', '{sort}'], [$this->enterprise, $this->toolName, $this->toolGuid, $this->before, $this->after, $this->state, $this->page, $this->perPage, $this->direction, $this->sort], self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&before={before}&after={after}&state={state}&page={page}&per_page={per_page}&direction={direction}&sort={sort}'));
+        return new Request('GET', str_replace(['{enterprise}', '{tool_name}', '{tool_guid}', '{before}', '{after}', '{state}', '{page}', '{per_page}', '{direction}', '{sort}'], [$this->enterprise, $this->toolName, $this->toolGuid, $this->before, $this->after, $this->state, $this->page, $this->perPage, $this->direction, $this->sort], '/enterprises/{enterprise}/code-scanning/alerts' . '?tool_name={tool_name}&tool_guid={tool_guid}&before={before}&after={after}&state={state}&page={page}&per_page={per_page}&direction={direction}&sort={sort}'));
     }
 
     /** @return Observable<Schema\CodeScanningOrganizationAlertItems> */
@@ -85,7 +83,7 @@ final class ListAlertsForEnterpriseListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CodeScanningOrganizationAlertItems::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\CodeScanningOrganizationAlertItems::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\CodeScanningOrganizationAlertItems::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

@@ -25,6 +25,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\RepositoryPreReceiveHook;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -33,8 +34,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): LdapMappingTeam|LdapMappingUser|RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|RepositoryInvitation|Issue|BasicError|Label|Milestone|RepositoryPreReceiveHook|PullRequest|Release|array
+    public function call(string $call, array $params, array $pathChunks): LdapMappingTeam|LdapMappingUser|WithoutBody|RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|RepositoryInvitation|Issue|BasicError|Label|Milestone|RepositoryPreReceiveHook|PullRequest|Release
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

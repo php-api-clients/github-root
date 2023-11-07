@@ -21,8 +21,6 @@ final class ListRepoAccessToSelfHostedRunnerGroupInOrg
 {
     public const OPERATION_ID    = 'actions/list-repo-access-to-self-hosted-runner-group-in-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Unique identifier of the self-hosted runner group. **/
@@ -42,7 +40,7 @@ final class ListRepoAccessToSelfHostedRunnerGroupInOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}', '{page}', '{per_page}'], [$this->org, $this->runnerGroupId, $this->page, $this->perPage], self::PATH . '?page={page}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{org}', '{runner_group_id}', '{page}', '{per_page}'], [$this->org, $this->runnerGroupId, $this->page, $this->perPage], '/orgs/{org}/actions/runner-groups/{runner_group_id}/repositories' . '?page={page}&per_page={per_page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\BaseGist;
 use ApiClients\Client\GitHubEnterprise\Schema\GistComment;
@@ -21,6 +22,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamFull;
 use ApiClients\Client\GitHubEnterprise\Schema\UserResponse;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -29,8 +31,8 @@ final class Four
     {
     }
 
-    /** @return |Schema\GistComment|array{code:int}|Schema\BaseGist|Observable<Schema\GhesSetMaintenanceResponse>|Schema\ProjectColumn|Schema\GroupResponse|Schema\UserResponse|Schema\MaintenanceStatus */
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|BaseGist|iterable|OrganizationCustomRepositoryRole|OrgHook|Migration|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|Repository|TeamFull|ProjectColumn|GroupResponse|UserResponse|MaintenanceStatus|TeamDiscussion
+    /** @return Schema\Integration|Schema\Authorization|Schema\GistComment|WithoutBody|Schema\BaseGist|iterable<int,Schema\GhesSetMaintenanceResponse>|Schema\OrganizationCustomRepositoryRole|Schema\OrgHook|Schema\Migration|Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Schema\Project|Schema\Repository|Schema\TeamFull|Schema\ProjectColumn|Schema\GroupResponse|Schema\UserResponse|Schema\MaintenanceStatus|Schema\TeamDiscussion */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|iterable|OrganizationCustomRepositoryRole|OrgHook|Migration|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|Repository|TeamFull|ProjectColumn|GroupResponse|UserResponse|MaintenanceStatus|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {

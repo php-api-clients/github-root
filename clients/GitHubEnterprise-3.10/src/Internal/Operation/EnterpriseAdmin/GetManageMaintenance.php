@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -24,8 +25,6 @@ final class GetManageMaintenance
 {
     public const OPERATION_ID    = 'enterprise-admin/get-manage-maintenance';
     public const OPERATION_MATCH = 'GET /manage/v1/maintenance';
-    private const METHOD         = 'GET';
-    private const PATH           = '/manage/v1/maintenance';
     /**The UUID which identifies a node. **/
     private string $uuid;
     /**The cluster roles from the cluster configuration file. **/
@@ -39,11 +38,11 @@ final class GetManageMaintenance
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{uuid}', '{cluster_roles}'], [$this->uuid, $this->clusterRoles], self::PATH . '?uuid={uuid}&cluster_roles={cluster_roles}'));
+        return new Request('GET', str_replace(['{uuid}', '{cluster_roles}'], [$this->uuid, $this->clusterRoles], '/manage/v1/maintenance' . '?uuid={uuid}&cluster_roles={cluster_roles}'));
     }
 
-    /** @return Observable<Schema\GhesGetMaintenance>|array{code: int} */
-    public function createResponse(ResponseInterface $response): Observable|array
+    /** @return Observable<Schema\GhesGetMaintenance>|WithoutBody */
+    public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -60,7 +59,7 @@ final class GetManageMaintenance
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GhesGetMaintenance::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\GhesGetMaintenance::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\GhesGetMaintenance::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -78,19 +77,19 @@ final class GetManageMaintenance
              * Bad request
              **/
             case 400:
-                return ['code' => 400];
+                return new WithoutBody(400, []);
             /**
              * Unauthorized
              **/
 
             case 401:
-                return ['code' => 401];
+                return new WithoutBody(401, []);
             /**
              * Internal error
              **/
 
             case 500:
-                return ['code' => 500];
+                return new WithoutBody(500, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

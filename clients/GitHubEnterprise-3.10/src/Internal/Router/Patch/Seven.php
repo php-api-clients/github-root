@@ -15,6 +15,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\SecretScanningAlert;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -23,8 +24,7 @@ final class Seven
     {
     }
 
-    /** @return |array{code:int}|Schema\SecretScanningAlert */
-    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|TeamDiscussionComment|array
+    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {

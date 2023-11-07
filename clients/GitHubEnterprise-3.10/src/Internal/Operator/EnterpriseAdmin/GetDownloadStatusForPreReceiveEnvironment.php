@@ -24,12 +24,11 @@ final readonly class GetDownloadStatusForPreReceiveEnvironment
     {
     }
 
-    /** @return */
-    public function call(int $preReceiveEnvironmentId): PreReceiveEnvironmentDownloadStatus|array
+    public function call(int $preReceiveEnvironmentId): PreReceiveEnvironmentDownloadStatus
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator, $preReceiveEnvironmentId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PreReceiveEnvironmentDownloadStatus|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PreReceiveEnvironmentDownloadStatus {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

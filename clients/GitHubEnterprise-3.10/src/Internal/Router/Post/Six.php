@@ -23,6 +23,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\Status;
 use ApiClients\Client\GitHubEnterprise\Schema\TagProtection;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -31,8 +32,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int}|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt */
-    public function call(string $call, array $params, array $pathChunks): Created|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created|AuthenticationToken|TeamDiscussion|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterprise\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|Status|TagProtection|TeamDiscussionComment|Reaction|array
+    public function call(string $call, array $params, array $pathChunks): Created|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created|AuthenticationToken|WithoutBody|TeamDiscussion|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterprise\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|Status|TagProtection|TeamDiscussionComment|Reaction
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

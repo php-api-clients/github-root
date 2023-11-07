@@ -22,8 +22,6 @@ final class SetAnnouncementBannerForOrg
 {
     public const OPERATION_ID    = 'announcement-banners/set-announcement-banner-for-org';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/announcement';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/announcement';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -36,7 +34,7 @@ final class SetAnnouncementBannerForOrg
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Announcement::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}'], [$this->org], '/orgs/{org}/announcement'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\AnnouncementBanner

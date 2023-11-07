@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Operation;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema\AnnouncementBanner;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class AnnouncementBanners
 {
@@ -13,20 +14,17 @@ final class AnnouncementBanners
     {
     }
 
-    /** @return */
-    public function getAnnouncementBannerForOrg(string $org): AnnouncementBanner|array
+    public function getAnnouncementBannerForOrg(string $org): AnnouncementBanner
     {
         return $this->operators->announcementBanners👷GetAnnouncementBannerForOrg()->call($org);
     }
 
-    /** @return array{code:int} */
-    public function removeAnnouncementBannerForOrg(string $org): array
+    public function removeAnnouncementBannerForOrg(string $org): WithoutBody
     {
         return $this->operators->announcementBanners👷RemoveAnnouncementBannerForOrg()->call($org);
     }
 
-    /** @return */
-    public function setAnnouncementBannerForOrg(string $org, array $params): AnnouncementBanner|array
+    public function setAnnouncementBannerForOrg(string $org, array $params): AnnouncementBanner
     {
         return $this->operators->announcementBanners👷SetAnnouncementBannerForOrg()->call($org, $params);
     }

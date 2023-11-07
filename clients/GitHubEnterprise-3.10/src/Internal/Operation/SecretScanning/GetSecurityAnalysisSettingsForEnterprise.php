@@ -22,8 +22,6 @@ final class GetSecurityAnalysisSettingsForEnterprise
 {
     public const OPERATION_ID    = 'secret-scanning/get-security-analysis-settings-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/code_security_and_analysis';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/code_security_and_analysis';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -34,7 +32,7 @@ final class GetSecurityAnalysisSettingsForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/code_security_and_analysis'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\EnterpriseSecurityAnalysisSettings

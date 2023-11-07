@@ -25,8 +25,6 @@ final class ListCacheInfo
 {
     public const OPERATION_ID    = 'repos/list-cache-info';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/replicas/caches';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/replicas/caches';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository without the `.git` extension. The name is not case sensitive. **/
@@ -46,7 +44,7 @@ final class ListCacheInfo
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], '/repos/{owner}/{repo}/replicas/caches' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
@@ -67,7 +65,7 @@ final class ListCacheInfo
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
