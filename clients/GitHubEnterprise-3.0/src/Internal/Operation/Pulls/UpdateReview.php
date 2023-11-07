@@ -23,8 +23,6 @@ final class UpdateReview
 {
     public const OPERATION_ID    = 'pulls/update-review';
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}';
     /**review_id parameter **/
     private int $reviewId;
 
@@ -37,7 +35,7 @@ final class UpdateReview
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Pulls\UpdateReview\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}', '{review_id}'], [$this->owner, $this->repo, $this->pullNumber, $this->reviewId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{owner}', '{repo}', '{pull_number}', '{review_id}'], [$this->owner, $this->repo, $this->pullNumber, $this->reviewId], '/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\PullRequestReview

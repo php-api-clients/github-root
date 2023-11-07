@@ -22,8 +22,6 @@ final class GetComment
 {
     public const OPERATION_ID    = 'issues/get-comment';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/comments/{comment_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/issues/comments/{comment_id}';
     /**comment_id parameter **/
     private int $commentId;
 
@@ -34,7 +32,7 @@ final class GetComment
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], '/repos/{owner}/{repo}/issues/comments/{comment_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\IssueComment

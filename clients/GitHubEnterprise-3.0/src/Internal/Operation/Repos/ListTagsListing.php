@@ -24,8 +24,6 @@ final class ListTagsListing
 {
     public const OPERATION_ID    = 'repos/list-tags';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/tags';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/tags';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -39,7 +37,7 @@ final class ListTagsListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], '/repos/{owner}/{repo}/tags' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Tag> */
@@ -60,7 +58,7 @@ final class ListTagsListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Tag::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Tag::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Tag::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

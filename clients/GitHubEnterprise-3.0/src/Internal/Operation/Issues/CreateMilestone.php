@@ -23,8 +23,6 @@ final class CreateMilestone
 {
     public const OPERATION_ID    = 'issues/create-milestone';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/milestones';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/milestones';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Milestones $hydrator, private string $owner, private string $repo)
     {
@@ -34,7 +32,7 @@ final class CreateMilestone
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\CreateMilestone\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/milestones'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Milestone

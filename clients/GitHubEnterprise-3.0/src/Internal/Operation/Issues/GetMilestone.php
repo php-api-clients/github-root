@@ -22,8 +22,6 @@ final class GetMilestone
 {
     public const OPERATION_ID    = 'issues/get-milestone';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/milestones/{milestone_number}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/milestones/{milestone_number}';
     /**milestone_number parameter **/
     private int $milestoneNumber;
 
@@ -34,7 +32,7 @@ final class GetMilestone
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{milestone_number}'], [$this->owner, $this->repo, $this->milestoneNumber], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{milestone_number}'], [$this->owner, $this->repo, $this->milestoneNumber], '/repos/{owner}/{repo}/milestones/{milestone_number}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Milestone

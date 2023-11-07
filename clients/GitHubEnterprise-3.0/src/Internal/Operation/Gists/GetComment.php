@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Gists;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetComment
 {
     public const OPERATION_ID    = 'gists/get-comment';
     public const OPERATION_MATCH = 'GET /gists/{gist_id}/comments/{comment_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/gists/{gist_id}/comments/{comment_id}';
     /**gist_id parameter **/
     private string $gistId;
     /**comment_id parameter **/
@@ -37,11 +36,10 @@ final class GetComment
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{gist_id}', '{comment_id}'], [$this->gistId, $this->commentId], self::PATH));
+        return new Request('GET', str_replace(['{gist_id}', '{comment_id}'], [$this->gistId, $this->commentId], '/gists/{gist_id}/comments/{comment_id}'));
     }
 
-    /** @return Schema\GistComment|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\GistComment|array
+    public function createResponse(ResponseInterface $response): Schema\GistComment|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -82,7 +80,7 @@ final class GetComment
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

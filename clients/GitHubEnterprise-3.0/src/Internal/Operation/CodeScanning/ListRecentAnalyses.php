@@ -25,8 +25,6 @@ final class ListRecentAnalyses
 {
     public const OPERATION_ID    = 'code-scanning/list-recent-analyses';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/code-scanning/analyses';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/code-scanning/analyses';
     /**The name of a code scanning tool. Only results by this tool will be listed. You can specify the tool by using either `tool_name` or `tool_guid`, but not both. **/
     private string $toolName;
     /**The GUID of a code scanning tool. Only results by this tool will be listed. Note that some code scanning tools may not include a GUID in their analysis data. You can specify the tool by using either `tool_guid` or `tool_name`, but not both. **/
@@ -52,7 +50,7 @@ final class ListRecentAnalyses
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{sarif_id}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->toolName, $this->toolGuid, $this->ref, $this->sarifId, $this->page, $this->perPage], self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&ref={ref}&sarif_id={sarif_id}&page={page}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{sarif_id}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->toolName, $this->toolGuid, $this->ref, $this->sarifId, $this->page, $this->perPage], '/repos/{owner}/{repo}/code-scanning/analyses' . '?tool_name={tool_name}&tool_guid={tool_guid}&ref={ref}&sarif_id={sarif_id}&page={page}&per_page={per_page}'));
     }
 
     /** @return Observable<Schema\CodeScanningAnalysis> */
@@ -73,7 +71,7 @@ final class ListRecentAnalyses
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CodeScanningAnalysis::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\CodeScanningAnalysis::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\CodeScanningAnalysis::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

@@ -21,8 +21,6 @@ final class GetDiscussionLegacy
 {
     public const OPERATION_ID    = 'teams/get-discussion-legacy';
     public const OPERATION_MATCH = 'GET /teams/{team_id}/discussions/{discussion_number}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/teams/{team_id}/discussions/{discussion_number}';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Teams\TeamId\Discussions\DiscussionNumber $hydrator, private int $teamId, private int $discussionNumber)
     {
@@ -30,7 +28,7 @@ final class GetDiscussionLegacy
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{team_id}', '{discussion_number}'], [$this->teamId, $this->discussionNumber], self::PATH));
+        return new Request('GET', str_replace(['{team_id}', '{discussion_number}'], [$this->teamId, $this->discussionNumber], '/teams/{team_id}/discussions/{discussion_number}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\TeamDiscussion

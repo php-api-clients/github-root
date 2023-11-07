@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Activity;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -25,8 +26,6 @@ final class ListReposStarredByAuthenticatedUser
 {
     public const OPERATION_ID    = 'activity/list-repos-starred-by-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/starred';
-    private const METHOD         = 'GET';
-    private const PATH           = '/user/starred';
     /**One of `created` (when the repository was starred) or `updated` (when it was last pushed to). **/
     private string $sort;
     /**One of `asc` (ascending) or `desc` (descending). **/
@@ -46,11 +45,11 @@ final class ListReposStarredByAuthenticatedUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{sort}', '{direction}', '{per_page}', '{page}'], [$this->sort, $this->direction, $this->perPage, $this->page], self::PATH . '?sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{sort}', '{direction}', '{per_page}', '{page}'], [$this->sort, $this->direction, $this->perPage, $this->page], '/user/starred' . '?sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
     }
 
-    /** @return Observable<Schema\Repository>|array{code: int} */
-    public function createResponse(ResponseInterface $response): Observable|array
+    /** @return Observable<Schema\Repository>|WithoutBody */
+    public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -67,7 +66,7 @@ final class ListReposStarredByAuthenticatedUser
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Repository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Repository::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Repository::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -101,7 +100,7 @@ final class ListReposStarredByAuthenticatedUser
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

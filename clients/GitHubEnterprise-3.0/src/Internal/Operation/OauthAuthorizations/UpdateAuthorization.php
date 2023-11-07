@@ -23,8 +23,6 @@ final class UpdateAuthorization
 {
     public const OPERATION_ID    = 'oauth-authorizations/update-authorization';
     public const OPERATION_MATCH = 'PATCH /authorizations/{authorization_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/authorizations/{authorization_id}';
     /**authorization_id parameter **/
     private int $authorizationId;
 
@@ -37,7 +35,7 @@ final class UpdateAuthorization
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\UpdateAuthorization\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{authorization_id}'], [$this->authorizationId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{authorization_id}'], [$this->authorizationId], '/authorizations/{authorization_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Authorization

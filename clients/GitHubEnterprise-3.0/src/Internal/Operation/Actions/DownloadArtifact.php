@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions;
 
+use ApiClients\Tools\OpenApiClient\Utils\Response\Header;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
@@ -15,8 +17,6 @@ final class DownloadArtifact
 {
     public const OPERATION_ID    = 'actions/download-artifact';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}';
     /**artifact_id parameter **/
     private int $artifactId;
 
@@ -27,11 +27,10 @@ final class DownloadArtifact
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{artifact_id}', '{archive_format}'], [$this->owner, $this->repo, $this->artifactId, $this->archiveFormat], '/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}'));
     }
 
-    /** @return array{code: int,location: string} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -39,7 +38,7 @@ final class DownloadArtifact
              * Response
              **/
             case 302:
-                return ['code' => 302, 'location' => $response->getHeaderLine('Location')];
+                return new WithoutBody(302, [new Header('location', $response->getHeaderLine('Location'))]);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

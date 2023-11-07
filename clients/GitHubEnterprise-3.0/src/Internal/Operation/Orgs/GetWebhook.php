@@ -22,8 +22,6 @@ final class GetWebhook
 {
     public const OPERATION_ID    = 'orgs/get-webhook';
     public const OPERATION_MATCH = 'GET /orgs/{org}/hooks/{hook_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/hooks/{hook_id}';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Hooks\HookId $hydrator, private string $org, private int $hookId)
     {
@@ -31,7 +29,7 @@ final class GetWebhook
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{hook_id}'], [$this->org, $this->hookId], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{hook_id}'], [$this->org, $this->hookId], '/orgs/{org}/hooks/{hook_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrgHook

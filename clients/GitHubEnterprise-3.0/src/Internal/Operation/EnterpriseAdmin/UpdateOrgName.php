@@ -22,8 +22,6 @@ final class UpdateOrgName
 {
     public const OPERATION_ID    = 'enterprise-admin/update-org-name';
     public const OPERATION_MATCH = 'PATCH /admin/organizations/{org}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/organizations/{org}';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Admin\Organizations\Org $hydrator, private string $org)
     {
@@ -33,7 +31,7 @@ final class UpdateOrgName
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateOrgName\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}'], [$this->org], '/admin/organizations/{org}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\UpdateOrgName\Response\ApplicationJson\Accepted

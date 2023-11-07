@@ -23,8 +23,6 @@ final class CreateWebhook
 {
     public const OPERATION_ID    = 'repos/create-webhook';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/hooks';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/hooks';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Hooks $hydrator, private string $owner, private string $repo)
     {
@@ -34,7 +32,7 @@ final class CreateWebhook
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\CreateWebhook\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/hooks'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Hook

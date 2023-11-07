@@ -23,8 +23,6 @@ final class CreateForCommitComment
 {
     public const OPERATION_ID    = 'reactions/create-for-commit-comment';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/comments/{comment_id}/reactions';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/comments/{comment_id}/reactions';
     /**comment_id parameter **/
     private int $commentId;
 
@@ -37,7 +35,7 @@ final class CreateForCommitComment
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Reactions\CreateForCommitComment\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], '/repos/{owner}/{repo}/comments/{comment_id}/reactions'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Reaction

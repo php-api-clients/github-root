@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions;
 
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -19,8 +20,6 @@ final class SetSelectedRepositoriesEnabledGithubActionsOrganization
 {
     public const OPERATION_ID    = 'actions/set-selected-repositories-enabled-github-actions-organization';
     public const OPERATION_MATCH = 'PUT /orgs/{org}/actions/permissions/repositories';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/orgs/{org}/actions/permissions/repositories';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private string $org)
     {
@@ -30,11 +29,10 @@ final class SetSelectedRepositoriesEnabledGithubActionsOrganization
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\SetSelectedRepositoriesEnabledGithubActionsOrganization\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{org}'], [$this->org], '/orgs/{org}/actions/permissions/repositories'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -42,7 +40,7 @@ final class SetSelectedRepositoriesEnabledGithubActionsOrganization
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

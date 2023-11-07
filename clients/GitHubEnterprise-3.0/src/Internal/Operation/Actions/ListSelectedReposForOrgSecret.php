@@ -21,8 +21,6 @@ final class ListSelectedReposForOrgSecret
 {
     public const OPERATION_ID    = 'actions/list-selected-repos-for-org-secret';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/secrets/{secret_name}/repositories';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}/repositories';
     /**secret_name parameter **/
     private string $secretName;
     /**Page number of the results to fetch. **/
@@ -39,7 +37,7 @@ final class ListSelectedReposForOrgSecret
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{secret_name}', '{page}', '{per_page}'], [$this->org, $this->secretName, $this->page, $this->perPage], self::PATH . '?page={page}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{org}', '{secret_name}', '{page}', '{per_page}'], [$this->org, $this->secretName, $this->page, $this->perPage], '/orgs/{org}/actions/secrets/{secret_name}/repositories' . '?page={page}&per_page={per_page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok

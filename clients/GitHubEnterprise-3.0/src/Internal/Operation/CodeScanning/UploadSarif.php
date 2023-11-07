@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\CodeScanning;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class UploadSarif
 {
     public const OPERATION_ID    = 'code-scanning/upload-sarif';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/code-scanning/sarifs';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/code-scanning/sarifs';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\CodeScanning\Sarifs $hydrator, private string $owner, private string $repo)
     {
@@ -34,11 +33,10 @@ final class UploadSarif
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\CodeScanning\UploadSarif\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/code-scanning/sarifs'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\CodeScanningSarifsReceipt|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\CodeScanningSarifsReceipt|array
+    public function createResponse(ResponseInterface $response): Schema\CodeScanningSarifsReceipt|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -87,13 +85,13 @@ final class UploadSarif
              * Bad Request if the sarif field is invalid
              **/
             case 400:
-                return ['code' => 400];
+                return new WithoutBody(400, []);
             /**
              * Payload Too Large if the sarif field is too large
              **/
 
             case 413:
-                return ['code' => 413];
+                return new WithoutBody(413, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

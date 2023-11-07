@@ -21,8 +21,6 @@ final class GetJobForWorkflowRun
 {
     public const OPERATION_ID    = 'actions/get-job-for-workflow-run';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/jobs/{job_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/jobs/{job_id}';
     /**job_id parameter **/
     private int $jobId;
 
@@ -33,7 +31,7 @@ final class GetJobForWorkflowRun
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], '/repos/{owner}/{repo}/actions/jobs/{job_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Job

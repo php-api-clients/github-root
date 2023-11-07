@@ -22,8 +22,6 @@ final class UpdatePreReceiveHook
 {
     public const OPERATION_ID    = 'enterprise-admin/update-pre-receive-hook';
     public const OPERATION_MATCH = 'PATCH /admin/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/pre-receive-hooks/{pre_receive_hook_id}';
     /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
 
@@ -36,7 +34,7 @@ final class UpdatePreReceiveHook
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdatePreReceiveHook\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{pre_receive_hook_id}'], [$this->preReceiveHookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{pre_receive_hook_id}'], [$this->preReceiveHookId], '/admin/pre-receive-hooks/{pre_receive_hook_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\PreReceiveHook

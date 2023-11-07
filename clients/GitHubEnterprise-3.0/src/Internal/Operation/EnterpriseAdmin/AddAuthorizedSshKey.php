@@ -25,8 +25,6 @@ final class AddAuthorizedSshKey
 {
     public const OPERATION_ID    = 'enterprise-admin/add-authorized-ssh-key';
     public const OPERATION_MATCH = 'POST /setup/api/settings/authorized-keys';
-    private const METHOD         = 'POST';
-    private const PATH           = '/setup/api/settings/authorized-keys';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys $hydrator)
     {
@@ -36,7 +34,7 @@ final class AddAuthorizedSshKey
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\AddAuthorizedSshKey\Request\ApplicationXWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
+        return new Request('POST', str_replace([], [], '/setup/api/settings/authorized-keys'), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
     /** @return Observable<Schema\SshKey> */
@@ -57,7 +55,7 @@ final class AddAuthorizedSshKey
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\SshKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\SshKey::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\SshKey::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_one_aaaaa;
                             }

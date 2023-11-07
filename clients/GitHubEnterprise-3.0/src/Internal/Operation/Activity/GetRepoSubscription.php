@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Activity;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetRepoSubscription
 {
     public const OPERATION_ID    = 'activity/get-repo-subscription';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/subscription';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/subscription';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Subscription $hydrator, private string $owner, private string $repo)
     {
@@ -31,11 +30,10 @@ final class GetRepoSubscription
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/subscription'));
     }
 
-    /** @return Schema\RepositorySubscription|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\RepositorySubscription|array
+    public function createResponse(ResponseInterface $response): Schema\RepositorySubscription|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -68,7 +66,7 @@ final class GetRepoSubscription
              * Not Found if you don't subscribe to the repository
              **/
             case 404:
-                return ['code' => 404];
+                return new WithoutBody(404, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

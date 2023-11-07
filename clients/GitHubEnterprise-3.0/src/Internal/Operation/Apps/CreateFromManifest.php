@@ -23,8 +23,6 @@ final class CreateFromManifest
 {
     public const OPERATION_ID    = 'apps/create-from-manifest';
     public const OPERATION_MATCH = 'POST /app-manifests/{code}/conversions';
-    private const METHOD         = 'POST';
-    private const PATH           = '/app-manifests/{code}/conversions';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\AppManifests\Code\Conversions $hydrator, private string $code)
     {
@@ -34,7 +32,7 @@ final class CreateFromManifest
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Apps\CreateFromManifest\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{code}'], [$this->code], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{code}'], [$this->code], '/app-manifests/{code}/conversions'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Integration

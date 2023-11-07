@@ -23,8 +23,6 @@ final class UpdateComment
 {
     public const OPERATION_ID    = 'issues/update-comment';
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/issues/comments/{comment_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/repos/{owner}/{repo}/issues/comments/{comment_id}';
     /**comment_id parameter **/
     private int $commentId;
 
@@ -37,7 +35,7 @@ final class UpdateComment
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\UpdateComment\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{owner}', '{repo}', '{comment_id}'], [$this->owner, $this->repo, $this->commentId], '/repos/{owner}/{repo}/issues/comments/{comment_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\IssueComment

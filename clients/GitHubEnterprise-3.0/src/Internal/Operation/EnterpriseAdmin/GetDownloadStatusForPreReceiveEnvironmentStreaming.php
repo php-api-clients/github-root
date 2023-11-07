@@ -22,8 +22,6 @@ final class GetDownloadStatusForPreReceiveEnvironmentStreaming
 {
     public const OPERATION_ID    = 'enterprise-admin/get-download-status-for-pre-receive-environment';
     public const OPERATION_MATCH = 'STREAM /admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Admin\PreReceiveEnvironments\PreReceiveEnvironmentId\Downloads\Latest $hydrator, private readonly Browser $browser, private int $preReceiveEnvironmentId)
     {
@@ -31,7 +29,7 @@ final class GetDownloadStatusForPreReceiveEnvironmentStreaming
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{pre_receive_environment_id}'], [$this->preReceiveEnvironmentId], self::PATH));
+        return new Request('GET', str_replace(['{pre_receive_environment_id}'], [$this->preReceiveEnvironmentId], '/admin/pre-receive-environments/{pre_receive_environment_id}/downloads/latest'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\PreReceiveEnvironmentDownloadStatus

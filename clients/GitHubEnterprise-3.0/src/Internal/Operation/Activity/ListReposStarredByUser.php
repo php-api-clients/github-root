@@ -22,8 +22,6 @@ final class ListReposStarredByUser
 {
     public const OPERATION_ID    = 'activity/list-repos-starred-by-user';
     public const OPERATION_MATCH = 'GET /users/{username}/starred';
-    private const METHOD         = 'GET';
-    private const PATH           = '/users/{username}/starred';
     /**One of `created` (when the repository was starred) or `updated` (when it was last pushed to). **/
     private string $sort;
     /**One of `asc` (ascending) or `desc` (descending). **/
@@ -43,7 +41,7 @@ final class ListReposStarredByUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{username}', '{sort}', '{direction}', '{per_page}', '{page}'], [$this->username, $this->sort, $this->direction, $this->perPage, $this->page], self::PATH . '?sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{username}', '{sort}', '{direction}', '{per_page}', '{page}'], [$this->username, $this->sort, $this->direction, $this->perPage, $this->page], '/users/{username}/starred' . '?sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\StarredRepository|Schema\Repository
@@ -62,7 +60,7 @@ final class ListReposStarredByUser
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\StarredRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\StarredRepository::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\StarredRepository::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaaa;
                         }
@@ -71,7 +69,7 @@ final class ListReposStarredByUser
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Repository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\Repository::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\Repository::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaab;
                         }

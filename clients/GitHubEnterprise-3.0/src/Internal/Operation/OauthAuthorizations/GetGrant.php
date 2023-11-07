@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizati
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetGrant
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-grant';
     public const OPERATION_MATCH = 'GET /applications/grants/{grant_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/applications/grants/{grant_id}';
     /**grant_id parameter **/
     private int $grantId;
 
@@ -34,11 +33,10 @@ final class GetGrant
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{grant_id}'], [$this->grantId], self::PATH));
+        return new Request('GET', str_replace(['{grant_id}'], [$this->grantId], '/applications/grants/{grant_id}'));
     }
 
-    /** @return Schema\ApplicationGrant|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ApplicationGrant|array
+    public function createResponse(ResponseInterface $response): Schema\ApplicationGrant|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -79,7 +77,7 @@ final class GetGrant
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

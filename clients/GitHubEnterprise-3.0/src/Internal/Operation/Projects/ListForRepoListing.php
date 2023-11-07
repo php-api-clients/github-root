@@ -25,8 +25,6 @@ final class ListForRepoListing
 {
     public const OPERATION_ID    = 'projects/list-for-repo';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/projects';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/projects';
     /**Indicates the state of the projects to return. Can be either `open`, `closed`, or `all`. **/
     private string $state;
     /**Results per page (max 100) **/
@@ -43,7 +41,7 @@ final class ListForRepoListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{state}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->state, $this->perPage, $this->page], self::PATH . '?state={state}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{state}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->state, $this->perPage, $this->page], '/repos/{owner}/{repo}/projects' . '?state={state}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Project> */
@@ -64,7 +62,7 @@ final class ListForRepoListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Project::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Project::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Project::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

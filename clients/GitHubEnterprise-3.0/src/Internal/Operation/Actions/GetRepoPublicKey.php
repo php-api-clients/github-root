@@ -21,8 +21,6 @@ final class GetRepoPublicKey
 {
     public const OPERATION_ID    = 'actions/get-repo-public-key';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/secrets/public-key';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/secrets/public-key';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Actions\Secrets\PublicKey $hydrator, private string $owner, private string $repo)
     {
@@ -30,7 +28,7 @@ final class GetRepoPublicKey
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/actions/secrets/public-key'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ActionsPublicKey

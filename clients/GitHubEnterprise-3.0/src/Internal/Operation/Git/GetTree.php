@@ -22,8 +22,6 @@ final class GetTree
 {
     public const OPERATION_ID    = 'git/get-tree';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/git/trees/{tree_sha}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/git/trees/{tree_sha}';
     /**Setting this parameter to any value returns the objects or subtrees referenced by the tree specified in `:tree_sha`. For example, setting `recursive` to any of the following will enable returning objects or subtrees: `0`, `1`, `"true"`, and `"false"`. Omit this parameter to prevent recursively returning objects or subtrees. **/
     private string $recursive;
 
@@ -34,7 +32,7 @@ final class GetTree
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{tree_sha}', '{recursive}'], [$this->owner, $this->repo, $this->treeSha, $this->recursive], self::PATH . '?recursive={recursive}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{tree_sha}', '{recursive}'], [$this->owner, $this->repo, $this->treeSha, $this->recursive], '/repos/{owner}/{repo}/git/trees/{tree_sha}' . '?recursive={recursive}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GitTree

@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterprise\Schema\FileCommit;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryInvitation;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -16,8 +17,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}|Schema\EmptyObject|Schema\RepositoryInvitation| */
-    public function call(string $call, array $params, array $pathChunks): EmptyObject|RepositoryInvitation|FileCommit|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|EmptyObject|RepositoryInvitation|FileCommit
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

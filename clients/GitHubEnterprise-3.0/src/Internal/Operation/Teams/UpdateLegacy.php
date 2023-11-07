@@ -23,8 +23,6 @@ final class UpdateLegacy
 {
     public const OPERATION_ID    = 'teams/update-legacy';
     public const OPERATION_MATCH = 'PATCH /teams/{team_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/teams/{team_id}';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Teams\TeamId $hydrator, private int $teamId)
     {
@@ -34,7 +32,7 @@ final class UpdateLegacy
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\UpdateLegacy\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{team_id}'], [$this->teamId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{team_id}'], [$this->teamId], '/teams/{team_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\TeamFull

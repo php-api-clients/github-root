@@ -21,8 +21,6 @@ final class GetPreReceiveHookForOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/get-pre-receive-hook-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
 
@@ -33,7 +31,7 @@ final class GetPreReceiveHookForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrgPreReceiveHook

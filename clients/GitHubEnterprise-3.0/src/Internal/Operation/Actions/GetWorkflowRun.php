@@ -21,8 +21,6 @@ final class GetWorkflowRun
 {
     public const OPERATION_ID    = 'actions/get-workflow-run';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runs/{run_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}';
     /**The id of the workflow run. **/
     private int $runId;
     /**If `true` pull requests are omitted from the response (empty array). **/
@@ -36,7 +34,7 @@ final class GetWorkflowRun
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}', '{exclude_pull_requests}'], [$this->owner, $this->repo, $this->runId, $this->excludePullRequests], self::PATH . '?exclude_pull_requests={exclude_pull_requests}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{run_id}', '{exclude_pull_requests}'], [$this->owner, $this->repo, $this->runId, $this->excludePullRequests], '/repos/{owner}/{repo}/actions/runs/{run_id}' . '?exclude_pull_requests={exclude_pull_requests}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\WorkflowRun

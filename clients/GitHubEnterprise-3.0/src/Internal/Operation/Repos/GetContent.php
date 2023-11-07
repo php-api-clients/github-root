@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class GetContent
 {
     public const OPERATION_ID    = 'repos/get-content';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/contents/{path}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/contents/{path}';
     /**path parameter **/
     private string $path;
     /**The name of the commit/branch/tag. Default: the repository’s default branch (usually `master`) **/
@@ -38,11 +37,10 @@ final class GetContent
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{path}', '{ref}'], [$this->owner, $this->repo, $this->path, $this->ref], self::PATH . '?ref={ref}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{path}', '{ref}'], [$this->owner, $this->repo, $this->path, $this->ref], '/repos/{owner}/{repo}/contents/{path}' . '?ref={ref}'));
     }
 
-    /** @return Schema\ContentDirectory|Schema\ContentFile|Schema\ContentSymlink|Schema\ContentSubmodule|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ContentDirectory|Schema\ContentFile|Schema\ContentSymlink|Schema\ContentSubmodule|array
+    public function createResponse(ResponseInterface $response): Schema\ContentDirectory|Schema\ContentFile|Schema\ContentSymlink|Schema\ContentSubmodule|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -58,7 +56,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentDirectory::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\ContentDirectory::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\ContentDirectory::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaaa;
                         }
@@ -67,7 +65,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentFile::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\ContentFile::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\ContentFile::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaab;
                         }
@@ -76,7 +74,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentSymlink::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\ContentSymlink::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\ContentSymlink::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaac;
                         }
@@ -85,7 +83,7 @@ final class GetContent
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ContentSubmodule::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\ContentSubmodule::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\ContentSubmodule::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_two_hundred_aaaad;
                         }
@@ -117,7 +115,7 @@ final class GetContent
              * Found
              **/
             case 302:
-                return ['code' => 302];
+                return new WithoutBody(302, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

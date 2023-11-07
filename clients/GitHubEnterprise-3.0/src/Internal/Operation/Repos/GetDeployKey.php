@@ -22,8 +22,6 @@ final class GetDeployKey
 {
     public const OPERATION_ID    = 'repos/get-deploy-key';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/keys/{key_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/keys/{key_id}';
     /**key_id parameter **/
     private int $keyId;
 
@@ -34,7 +32,7 @@ final class GetDeployKey
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{key_id}'], [$this->owner, $this->repo, $this->keyId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{key_id}'], [$this->owner, $this->repo, $this->keyId], '/repos/{owner}/{repo}/keys/{key_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\DeployKey

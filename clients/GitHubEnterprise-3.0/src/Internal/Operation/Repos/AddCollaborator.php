@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class AddCollaborator
 {
     public const OPERATION_ID    = 'repos/add-collaborator';
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/collaborators/{username}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/repos/{owner}/{repo}/collaborators/{username}';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Collaborators\Username $hydrator, private string $owner, private string $repo, private string $username)
     {
@@ -34,11 +33,10 @@ final class AddCollaborator
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\AddCollaborator\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{username}'], [$this->owner, $this->repo, $this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{owner}', '{repo}', '{username}'], [$this->owner, $this->repo, $this->username], '/repos/{owner}/{repo}/collaborators/{username}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\RepositoryInvitation|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\RepositoryInvitation|array
+    public function createResponse(ResponseInterface $response): Schema\RepositoryInvitation|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -79,7 +77,7 @@ final class AddCollaborator
              * Response when person is already a collaborator
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

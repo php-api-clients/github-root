@@ -23,8 +23,6 @@ final class ReplaceAllTopics
 {
     public const OPERATION_ID    = 'repos/replace-all-topics';
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/topics';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/repos/{owner}/{repo}/topics';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Topics $hydrator, private string $owner, private string $repo)
     {
@@ -34,7 +32,7 @@ final class ReplaceAllTopics
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\ReplaceAllTopics\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/topics'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Topic

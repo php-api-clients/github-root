@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Projects;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class Delete
 {
     public const OPERATION_ID    = 'projects/delete';
     public const OPERATION_MATCH = 'DELETE /projects/{project_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/projects/{project_id}';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Projects\ProjectId $hydrator, private int $projectId)
     {
@@ -31,11 +30,10 @@ final class Delete
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{project_id}'], [$this->projectId], self::PATH));
+        return new Request('DELETE', str_replace(['{project_id}'], [$this->projectId], '/projects/{project_id}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -84,13 +82,13 @@ final class Delete
              * Delete Success
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
             /**
              * Not modified
              **/
 
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

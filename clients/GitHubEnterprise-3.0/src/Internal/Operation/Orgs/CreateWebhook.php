@@ -23,8 +23,6 @@ final class CreateWebhook
 {
     public const OPERATION_ID    = 'orgs/create-webhook';
     public const OPERATION_MATCH = 'POST /orgs/{org}/hooks';
-    private const METHOD         = 'POST';
-    private const PATH           = '/orgs/{org}/hooks';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Hooks $hydrator, private string $org)
     {
@@ -34,7 +32,7 @@ final class CreateWebhook
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\CreateWebhook\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{org}'], [$this->org], '/orgs/{org}/hooks'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrgHook

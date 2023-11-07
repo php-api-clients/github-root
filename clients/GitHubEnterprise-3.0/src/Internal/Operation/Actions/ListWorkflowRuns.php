@@ -21,8 +21,6 @@ final class ListWorkflowRuns
 {
     public const OPERATION_ID    = 'actions/list-workflow-runs';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs';
     /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
     /**Returns someone's workflow runs. Use the login for the user who created the `push` associated with the check suite or workflow run. **/
@@ -57,7 +55,7 @@ final class ListWorkflowRuns
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{workflow_id}', '{actor}', '{branch}', '{event}', '{status}', '{created}', '{per_page}', '{page}', '{exclude_pull_requests}'], [$this->owner, $this->repo, $this->workflowId, $this->actor, $this->branch, $this->event, $this->status, $this->created, $this->perPage, $this->page, $this->excludePullRequests], self::PATH . '?actor={actor}&branch={branch}&event={event}&status={status}&created={created}&per_page={per_page}&page={page}&exclude_pull_requests={exclude_pull_requests}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{workflow_id}', '{actor}', '{branch}', '{event}', '{status}', '{created}', '{per_page}', '{page}', '{exclude_pull_requests}'], [$this->owner, $this->repo, $this->workflowId, $this->actor, $this->branch, $this->event, $this->status, $this->created, $this->perPage, $this->page, $this->excludePullRequests], '/repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs' . '?actor={actor}&branch={branch}&event={event}&status={status}&created={created}&per_page={per_page}&page={page}&exclude_pull_requests={exclude_pull_requests}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json

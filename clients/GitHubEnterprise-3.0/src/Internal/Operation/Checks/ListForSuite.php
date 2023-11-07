@@ -21,8 +21,6 @@ final class ListForSuite
 {
     public const OPERATION_ID    = 'checks/list-for-suite';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs';
     /**check_suite_id parameter **/
     private int $checkSuiteId;
     /**Returns check runs with the specified `name`. **/
@@ -48,7 +46,7 @@ final class ListForSuite
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{check_suite_id}', '{check_name}', '{status}', '{filter}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->checkSuiteId, $this->checkName, $this->status, $this->filter, $this->perPage, $this->page], self::PATH . '?check_name={check_name}&status={status}&filter={filter}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{check_suite_id}', '{check_name}', '{status}', '{filter}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->checkSuiteId, $this->checkName, $this->status, $this->filter, $this->perPage, $this->page], '/repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs' . '?check_name={check_name}&status={status}&filter={filter}&per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Checks\ListForSuite\Response\ApplicationJson\Ok

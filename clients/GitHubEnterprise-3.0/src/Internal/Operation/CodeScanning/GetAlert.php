@@ -22,8 +22,6 @@ final class GetAlert
 {
     public const OPERATION_ID    = 'code-scanning/get-alert';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}';
     /**The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation. **/
     private int $alertNumber;
 
@@ -34,7 +32,7 @@ final class GetAlert
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{alert_number}'], [$this->owner, $this->repo, $this->alertNumber], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{alert_number}'], [$this->owner, $this->repo, $this->alertNumber], '/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\CodeScanningAlert

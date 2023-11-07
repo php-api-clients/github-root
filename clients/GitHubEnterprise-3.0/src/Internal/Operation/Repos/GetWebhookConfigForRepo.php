@@ -21,8 +21,6 @@ final class GetWebhookConfigForRepo
 {
     public const OPERATION_ID    = 'repos/get-webhook-config-for-repo';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/hooks/{hook_id}/config';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/hooks/{hook_id}/config';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Config $hydrator, private string $owner, private string $repo, private int $hookId)
     {
@@ -30,7 +28,7 @@ final class GetWebhookConfigForRepo
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{hook_id}'], [$this->owner, $this->repo, $this->hookId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{hook_id}'], [$this->owner, $this->repo, $this->hookId], '/repos/{owner}/{repo}/hooks/{hook_id}/config'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\WebhookConfig

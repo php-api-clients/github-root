@@ -25,8 +25,6 @@ final class ListAlertsForRepoListing
 {
     public const OPERATION_ID    = 'code-scanning/list-alerts-for-repo';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/code-scanning/alerts';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/code-scanning/alerts';
     /**The name of a code scanning tool. Only results by this tool will be listed. You can specify the tool by using either `tool_name` or `tool_guid`, but not both. **/
     private string $toolName;
     /**The GUID of a code scanning tool. Only results by this tool will be listed. Note that some code scanning tools may not include a GUID in their analysis data. You can specify the tool by using either `tool_guid` or `tool_name`, but not both. **/
@@ -52,7 +50,7 @@ final class ListAlertsForRepoListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{state}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->toolName, $this->toolGuid, $this->ref, $this->state, $this->page, $this->perPage], self::PATH . '?tool_name={tool_name}&tool_guid={tool_guid}&ref={ref}&state={state}&page={page}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{tool_name}', '{tool_guid}', '{ref}', '{state}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->toolName, $this->toolGuid, $this->ref, $this->state, $this->page, $this->perPage], '/repos/{owner}/{repo}/code-scanning/alerts' . '?tool_name={tool_name}&tool_guid={tool_guid}&ref={ref}&state={state}&page={page}&per_page={per_page}'));
     }
 
     /** @return Observable<Schema\CodeScanningAlertItems> */
@@ -73,7 +71,7 @@ final class ListAlertsForRepoListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CodeScanningAlertItems::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\CodeScanningAlertItems::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\CodeScanningAlertItems::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

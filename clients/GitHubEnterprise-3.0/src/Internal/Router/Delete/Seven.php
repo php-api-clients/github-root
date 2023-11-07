@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\Issue;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -15,8 +16,7 @@ final class Seven
     {
     }
 
-    /** @return array{code:int}| */
-    public function call(string $call, array $params, array $pathChunks): Issue|PullRequestSimple|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Issue|PullRequestSimple
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

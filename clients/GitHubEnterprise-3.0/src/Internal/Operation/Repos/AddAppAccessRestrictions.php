@@ -26,8 +26,6 @@ final class AddAppAccessRestrictions
 {
     public const OPERATION_ID    = 'repos/add-app-access-restrictions';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps';
     /**The name of the branch. **/
     private string $branch;
 
@@ -40,7 +38,7 @@ final class AddAppAccessRestrictions
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\AddAppAccessRestrictions\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], '/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/apps'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     /** @return Observable<Schema\Integration> */
@@ -61,7 +59,7 @@ final class AddAppAccessRestrictions
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Integration::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Integration::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Integration::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

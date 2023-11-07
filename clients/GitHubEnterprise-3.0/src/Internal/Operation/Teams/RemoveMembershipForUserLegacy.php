@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Teams;
 
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
@@ -15,8 +16,6 @@ final class RemoveMembershipForUserLegacy
 {
     public const OPERATION_ID    = 'teams/remove-membership-for-user-legacy';
     public const OPERATION_MATCH = 'DELETE /teams/{team_id}/memberships/{username}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/teams/{team_id}/memberships/{username}';
 
     public function __construct(private int $teamId, private string $username)
     {
@@ -24,11 +23,10 @@ final class RemoveMembershipForUserLegacy
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{team_id}', '{username}'], [$this->teamId, $this->username], self::PATH));
+        return new Request('DELETE', str_replace(['{team_id}', '{username}'], [$this->teamId, $this->username], '/teams/{team_id}/memberships/{username}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -36,13 +34,13 @@ final class RemoveMembershipForUserLegacy
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
             /**
              * if team synchronization is set up
              **/
 
             case 403:
-                return ['code' => 403];
+                return new WithoutBody(403, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

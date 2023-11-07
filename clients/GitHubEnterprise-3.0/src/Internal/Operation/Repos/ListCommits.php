@@ -25,8 +25,6 @@ final class ListCommits
 {
     public const OPERATION_ID    = 'repos/list-commits';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/commits';
     /**SHA or branch to start listing commits from. Default: the repository’s default branch (usually `master`). **/
     private string $sha;
     /**Only commits containing this file path will be returned. **/
@@ -55,7 +53,7 @@ final class ListCommits
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{sha}', '{path}', '{author}', '{since}', '{until}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->sha, $this->path, $this->author, $this->since, $this->until, $this->perPage, $this->page], self::PATH . '?sha={sha}&path={path}&author={author}&since={since}&until={until}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{sha}', '{path}', '{author}', '{since}', '{until}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->sha, $this->path, $this->author, $this->since, $this->until, $this->perPage, $this->page], '/repos/{owner}/{repo}/commits' . '?sha={sha}&path={path}&author={author}&since={since}&until={until}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Commit> */
@@ -76,7 +74,7 @@ final class ListCommits
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Commit::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Commit::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Commit::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

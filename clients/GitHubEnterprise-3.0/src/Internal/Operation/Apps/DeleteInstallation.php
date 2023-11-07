@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class DeleteInstallation
 {
     public const OPERATION_ID    = 'apps/delete-installation';
     public const OPERATION_MATCH = 'DELETE /app/installations/{installation_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/app/installations/{installation_id}';
     /**installation_id parameter **/
     private int $installationId;
 
@@ -34,11 +33,10 @@ final class DeleteInstallation
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{installation_id}'], [$this->installationId], self::PATH));
+        return new Request('DELETE', str_replace(['{installation_id}'], [$this->installationId], '/app/installations/{installation_id}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -63,7 +61,7 @@ final class DeleteInstallation
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

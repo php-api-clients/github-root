@@ -25,8 +25,6 @@ final class ListFiles
 {
     public const OPERATION_ID    = 'pulls/list-files';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pulls/{pull_number}/files';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/files';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -40,7 +38,7 @@ final class ListFiles
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->pullNumber, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{pull_number}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->pullNumber, $this->perPage, $this->page], '/repos/{owner}/{repo}/pulls/{pull_number}/files' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\DiffEntry> */
@@ -61,7 +59,7 @@ final class ListFiles
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\DiffEntry::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\DiffEntry::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\DiffEntry::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

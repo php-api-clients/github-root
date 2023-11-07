@@ -25,8 +25,6 @@ final class RemoveLabel
 {
     public const OPERATION_ID    = 'issues/remove-label';
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/issues/{issue_number}/labels/{name}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/labels/{name}';
     /**issue_number parameter **/
     private int $issueNumber;
 
@@ -37,7 +35,7 @@ final class RemoveLabel
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}', '{name}'], [$this->owner, $this->repo, $this->issueNumber, $this->name], self::PATH));
+        return new Request('DELETE', str_replace(['{owner}', '{repo}', '{issue_number}', '{name}'], [$this->owner, $this->repo, $this->issueNumber, $this->name], '/repos/{owner}/{repo}/issues/{issue_number}/labels/{name}'));
     }
 
     /** @return Observable<Schema\Label> */
@@ -58,7 +56,7 @@ final class RemoveLabel
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Label::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Label::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Label::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

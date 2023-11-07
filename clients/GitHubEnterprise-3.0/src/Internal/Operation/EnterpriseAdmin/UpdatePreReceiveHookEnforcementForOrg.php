@@ -22,8 +22,6 @@ final class UpdatePreReceiveHookEnforcementForOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/update-pre-receive-hook-enforcement-for-org';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}';
     /**pre_receive_hook_id parameter **/
     private int $preReceiveHookId;
 
@@ -36,7 +34,7 @@ final class UpdatePreReceiveHookEnforcementForOrg
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdatePreReceiveHookEnforcementForOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}', '{pre_receive_hook_id}'], [$this->org, $this->preReceiveHookId], '/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrgPreReceiveHook

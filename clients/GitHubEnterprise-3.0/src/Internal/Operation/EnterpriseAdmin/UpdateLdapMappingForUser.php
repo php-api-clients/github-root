@@ -22,8 +22,6 @@ final class UpdateLdapMappingForUser
 {
     public const OPERATION_ID    = 'enterprise-admin/update-ldap-mapping-for-user';
     public const OPERATION_MATCH = 'PATCH /admin/ldap/users/{username}/mapping';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/ldap/users/{username}/mapping';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Admin\Ldap\Users\Username\Mapping $hydrator, private string $username)
     {
@@ -33,7 +31,7 @@ final class UpdateLdapMappingForUser
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{username}'], [$this->username], '/admin/ldap/users/{username}/mapping'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\LdapMappingUser

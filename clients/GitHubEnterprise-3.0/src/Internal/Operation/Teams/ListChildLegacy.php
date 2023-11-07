@@ -25,8 +25,6 @@ final class ListChildLegacy
 {
     public const OPERATION_ID    = 'teams/list-child-legacy';
     public const OPERATION_MATCH = 'GET /teams/{team_id}/teams';
-    private const METHOD         = 'GET';
-    private const PATH           = '/teams/{team_id}/teams';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -40,7 +38,7 @@ final class ListChildLegacy
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{team_id}', '{per_page}', '{page}'], [$this->teamId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{team_id}', '{per_page}', '{page}'], [$this->teamId, $this->perPage, $this->page], '/teams/{team_id}/teams' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Team> */
@@ -61,7 +59,7 @@ final class ListChildLegacy
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Team::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Team::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Team::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

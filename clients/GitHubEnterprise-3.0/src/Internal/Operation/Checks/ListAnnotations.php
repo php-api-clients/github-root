@@ -24,8 +24,6 @@ final class ListAnnotations
 {
     public const OPERATION_ID    = 'checks/list-annotations';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/check-runs/{check_run_id}/annotations';
     /**check_run_id parameter **/
     private int $checkRunId;
     /**Results per page (max 100) **/
@@ -42,7 +40,7 @@ final class ListAnnotations
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{check_run_id}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->checkRunId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{check_run_id}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->checkRunId, $this->perPage, $this->page], '/repos/{owner}/{repo}/check-runs/{check_run_id}/annotations' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\CheckAnnotation> */
@@ -63,7 +61,7 @@ final class ListAnnotations
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CheckAnnotation::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\CheckAnnotation::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\CheckAnnotation::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

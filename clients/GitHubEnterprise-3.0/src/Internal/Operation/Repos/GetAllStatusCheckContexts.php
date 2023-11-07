@@ -25,8 +25,6 @@ final class GetAllStatusCheckContexts
 {
     public const OPERATION_ID    = 'repos/get-all-status-check-contexts';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts';
     /**The name of the branch. **/
     private string $branch;
 
@@ -37,7 +35,7 @@ final class GetAllStatusCheckContexts
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], '/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts'));
     }
 
     /** @return Observable<string> */

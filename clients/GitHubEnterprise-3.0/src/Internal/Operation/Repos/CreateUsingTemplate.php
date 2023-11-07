@@ -22,8 +22,6 @@ final class CreateUsingTemplate
 {
     public const OPERATION_ID    = 'repos/create-using-template';
     public const OPERATION_MATCH = 'POST /repos/{template_owner}/{template_repo}/generate';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{template_owner}/{template_repo}/generate';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\TemplateOwner\TemplateRepo\Generate $hydrator, private string $templateOwner, private string $templateRepo)
     {
@@ -33,7 +31,7 @@ final class CreateUsingTemplate
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\CreateUsingTemplate\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{template_owner}', '{template_repo}'], [$this->templateOwner, $this->templateRepo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{template_owner}', '{template_repo}'], [$this->templateOwner, $this->templateRepo], '/repos/{template_owner}/{template_repo}/generate'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Repository

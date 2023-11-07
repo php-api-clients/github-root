@@ -21,8 +21,6 @@ final class GetLatestPagesBuild
 {
     public const OPERATION_ID    = 'repos/get-latest-pages-build';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pages/builds/latest';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/pages/builds/latest';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Pages\Builds\Latest $hydrator, private string $owner, private string $repo)
     {
@@ -30,7 +28,7 @@ final class GetLatestPagesBuild
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/pages/builds/latest'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\PageBuild

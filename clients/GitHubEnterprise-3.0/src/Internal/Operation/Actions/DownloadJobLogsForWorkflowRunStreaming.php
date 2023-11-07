@@ -21,8 +21,6 @@ final class DownloadJobLogsForWorkflowRunStreaming
 {
     public const OPERATION_ID    = 'actions/download-job-logs-for-workflow-run';
     public const OPERATION_MATCH = 'STREAM /repos/{owner}/{repo}/actions/jobs/{job_id}/logs';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/jobs/{job_id}/logs';
     /**job_id parameter **/
     private int $jobId;
 
@@ -33,7 +31,7 @@ final class DownloadJobLogsForWorkflowRunStreaming
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{job_id}'], [$this->owner, $this->repo, $this->jobId], '/repos/{owner}/{repo}/actions/jobs/{job_id}/logs'));
     }
 
     /** @return Observable<string> */

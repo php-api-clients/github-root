@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\CancelWorkflowR
 use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterprise\Schema\Reaction;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Eight
@@ -17,8 +18,7 @@ final class Eight
     {
     }
 
-    /** @return |array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): TeamDiscussionComment|Reaction|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json|ProtectedBranchAdminEnforced|array
+    public function call(string $call, array $params, array $pathChunks): TeamDiscussionComment|Reaction|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ReRunWorkflow\Response\ApplicationJson\Created\Application\Json|WithoutBody|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {

@@ -25,8 +25,6 @@ final class ListEventsForTimeline
 {
     public const OPERATION_ID    = 'issues/list-events-for-timeline';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/issues/{issue_number}/timeline';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/timeline';
     /**issue_number parameter **/
     private int $issueNumber;
     /**Results per page (max 100) **/
@@ -43,7 +41,7 @@ final class ListEventsForTimeline
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->issueNumber, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{issue_number}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->issueNumber, $this->perPage, $this->page], '/repos/{owner}/{repo}/issues/{issue_number}/timeline' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\LabeledIssueEvent|Schema\UnlabeledIssueEvent|Schema\MilestonedIssueEvent|Schema\DemilestonedIssueEvent|Schema\RenamedIssueEvent|Schema\ReviewRequestedIssueEvent|Schema\ReviewRequestRemovedIssueEvent|Schema\ReviewDismissedIssueEvent|Schema\LockedIssueEvent|Schema\AddedToProjectIssueEvent|Schema\MovedColumnInProjectIssueEvent|Schema\RemovedFromProjectIssueEvent|Schema\ConvertedNoteToIssueIssueEvent|Schema\TimelineCommentEvent|Schema\TimelineCrossReferencedEvent|Schema\TimelineCommittedEvent|Schema\TimelineReviewedEvent|Schema\TimelineLineCommentedEvent|Schema\TimelineCommitCommentedEvent|Schema\TimelineAssignedIssueEvent|Schema\TimelineUnassignedIssueEvent|Schema\StateChangeIssueEvent> */
@@ -64,7 +62,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\LabeledIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\LabeledIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\LabeledIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -73,7 +71,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\UnlabeledIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\UnlabeledIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\UnlabeledIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaab;
                             }
@@ -82,7 +80,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\MilestonedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\MilestonedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\MilestonedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaac;
                             }
@@ -91,7 +89,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\DemilestonedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\DemilestonedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\DemilestonedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaad;
                             }
@@ -100,7 +98,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RenamedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\RenamedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\RenamedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaae;
                             }
@@ -109,7 +107,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ReviewRequestedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\ReviewRequestedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\ReviewRequestedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaf;
                             }
@@ -118,7 +116,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ReviewRequestRemovedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\ReviewRequestRemovedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\ReviewRequestRemovedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaag;
                             }
@@ -127,7 +125,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ReviewDismissedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\ReviewDismissedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\ReviewDismissedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaah;
                             }
@@ -136,7 +134,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\LockedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\LockedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\LockedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaai;
                             }
@@ -145,7 +143,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AddedToProjectIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\AddedToProjectIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\AddedToProjectIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaj;
                             }
@@ -154,7 +152,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\MovedColumnInProjectIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\MovedColumnInProjectIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\MovedColumnInProjectIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaak;
                             }
@@ -163,7 +161,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RemovedFromProjectIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\RemovedFromProjectIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\RemovedFromProjectIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaal;
                             }
@@ -172,7 +170,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ConvertedNoteToIssueIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\ConvertedNoteToIssueIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\ConvertedNoteToIssueIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaam;
                             }
@@ -181,7 +179,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineCommentEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineCommentEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineCommentEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaan;
                             }
@@ -190,7 +188,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineCrossReferencedEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineCrossReferencedEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineCrossReferencedEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaao;
                             }
@@ -199,7 +197,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineCommittedEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineCommittedEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineCommittedEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaap;
                             }
@@ -208,7 +206,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineReviewedEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineReviewedEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineReviewedEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaq;
                             }
@@ -217,7 +215,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineLineCommentedEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineLineCommentedEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineLineCommentedEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaar;
                             }
@@ -226,7 +224,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineCommitCommentedEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineCommitCommentedEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineCommitCommentedEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaas;
                             }
@@ -235,7 +233,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineAssignedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineAssignedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineAssignedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaat;
                             }
@@ -244,7 +242,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TimelineUnassignedIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TimelineUnassignedIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TimelineUnassignedIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaau;
                             }
@@ -253,7 +251,7 @@ final class ListEventsForTimeline
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\StateChangeIssueEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\StateChangeIssueEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\StateChangeIssueEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaav;
                             }

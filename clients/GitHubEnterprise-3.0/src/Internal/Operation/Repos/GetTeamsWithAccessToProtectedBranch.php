@@ -25,8 +25,6 @@ final class GetTeamsWithAccessToProtectedBranch
 {
     public const OPERATION_ID    = 'repos/get-teams-with-access-to-protected-branch';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams';
     /**The name of the branch. **/
     private string $branch;
 
@@ -37,7 +35,7 @@ final class GetTeamsWithAccessToProtectedBranch
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], '/repos/{owner}/{repo}/branches/{branch}/protection/restrictions/teams'));
     }
 
     /** @return Observable<Schema\Team> */
@@ -58,7 +56,7 @@ final class GetTeamsWithAccessToProtectedBranch
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Team::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Team::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Team::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

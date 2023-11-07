@@ -25,8 +25,6 @@ final class ListMilestonesListing
 {
     public const OPERATION_ID    = 'issues/list-milestones';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/milestones';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/milestones';
     /**The state of the milestone. Either `open`, `closed`, or `all`. **/
     private string $state;
     /**What to sort results by. Either `due_on` or `completeness`. **/
@@ -49,7 +47,7 @@ final class ListMilestonesListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{state}', '{sort}', '{direction}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->state, $this->sort, $this->direction, $this->perPage, $this->page], self::PATH . '?state={state}&sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{state}', '{sort}', '{direction}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->state, $this->sort, $this->direction, $this->perPage, $this->page], '/repos/{owner}/{repo}/milestones' . '?state={state}&sort={sort}&direction={direction}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Milestone> */
@@ -70,7 +68,7 @@ final class ListMilestonesListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Milestone::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Milestone::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Milestone::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
