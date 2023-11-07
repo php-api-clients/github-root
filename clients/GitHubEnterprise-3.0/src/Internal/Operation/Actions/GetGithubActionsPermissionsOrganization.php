@@ -21,8 +21,6 @@ final class GetGithubActionsPermissionsOrganization
 {
     public const OPERATION_ID    = 'actions/get-github-actions-permissions-organization';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/permissions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/permissions';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\Permissions $hydrator, private string $org)
     {
@@ -30,7 +28,7 @@ final class GetGithubActionsPermissionsOrganization
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
+        return new Request('GET', str_replace(['{org}'], [$this->org], '/orgs/{org}/actions/permissions'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ActionsOrganizationPermissions

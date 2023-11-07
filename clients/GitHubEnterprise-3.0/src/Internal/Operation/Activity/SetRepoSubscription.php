@@ -22,8 +22,6 @@ final class SetRepoSubscription
 {
     public const OPERATION_ID    = 'activity/set-repo-subscription';
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/subscription';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/repos/{owner}/{repo}/subscription';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Subscription $hydrator, private string $owner, private string $repo)
     {
@@ -33,7 +31,7 @@ final class SetRepoSubscription
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Activity\SetRepoSubscription\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/subscription'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\RepositorySubscription

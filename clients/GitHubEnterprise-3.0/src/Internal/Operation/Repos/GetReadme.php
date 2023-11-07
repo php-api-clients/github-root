@@ -22,8 +22,6 @@ final class GetReadme
 {
     public const OPERATION_ID    = 'repos/get-readme';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/readme';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/readme';
     /**The name of the commit/branch/tag. Default: the repository’s default branch (usually `master`) **/
     private string $ref;
 
@@ -34,7 +32,7 @@ final class GetReadme
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], self::PATH . '?ref={ref}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], '/repos/{owner}/{repo}/readme' . '?ref={ref}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ContentFile

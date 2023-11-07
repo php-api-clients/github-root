@@ -22,8 +22,6 @@ final class GetPages
 {
     public const OPERATION_ID    = 'repos/get-pages';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pages';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/pages';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Pages $hydrator, private string $owner, private string $repo)
     {
@@ -31,7 +29,7 @@ final class GetPages
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/pages'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Page

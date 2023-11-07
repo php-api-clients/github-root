@@ -24,8 +24,6 @@ final class ListPreReceiveHooksForOrgListing
 {
     public const OPERATION_ID    = 'enterprise-admin/list-pre-receive-hooks-for-org';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/pre-receive-hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/pre-receive-hooks';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -45,7 +43,7 @@ final class ListPreReceiveHooksForOrgListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{per_page}', '{page}', '{direction}', '{sort}'], [$this->org, $this->perPage, $this->page, $this->direction, $this->sort], self::PATH . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
+        return new Request('GET', str_replace(['{org}', '{per_page}', '{page}', '{direction}', '{sort}'], [$this->org, $this->perPage, $this->page, $this->direction, $this->sort], '/orgs/{org}/pre-receive-hooks' . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
     }
 
     /** @return Observable<Schema\OrgPreReceiveHook> */
@@ -66,7 +64,7 @@ final class ListPreReceiveHooksForOrgListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\OrgPreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\OrgPreReceiveHook::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\OrgPreReceiveHook::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

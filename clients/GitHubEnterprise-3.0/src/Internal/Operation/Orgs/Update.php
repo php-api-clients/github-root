@@ -24,8 +24,6 @@ final class Update
 {
     public const OPERATION_ID    = 'orgs/update';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org $hydrator, private string $org)
     {
@@ -35,7 +33,7 @@ final class Update
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\Update\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}'], [$this->org], '/orgs/{org}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrganizationFull
@@ -62,7 +60,7 @@ final class Update
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationError::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\ValidationError::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\ValidationError::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_four_hundred_twenty_two_aaaaa;
                         }
@@ -71,7 +69,7 @@ final class Update
                         try {
                             $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ValidationErrorSimple::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                            return $this->hydrators->hydrateObject(Schema\ValidationErrorSimple::class, $body);
+                            return $this->hydrator->hydrateObject(Schema\ValidationErrorSimple::class, $body);
                         } catch (Throwable) {
                             goto items_application_json_four_hundred_twenty_two_aaaab;
                         }

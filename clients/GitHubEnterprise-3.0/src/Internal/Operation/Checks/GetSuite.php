@@ -21,8 +21,6 @@ final class GetSuite
 {
     public const OPERATION_ID    = 'checks/get-suite';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/check-suites/{check_suite_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/check-suites/{check_suite_id}';
     /**check_suite_id parameter **/
     private int $checkSuiteId;
 
@@ -33,7 +31,7 @@ final class GetSuite
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{check_suite_id}'], [$this->owner, $this->repo, $this->checkSuiteId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{check_suite_id}'], [$this->owner, $this->repo, $this->checkSuiteId], '/repos/{owner}/{repo}/check-suites/{check_suite_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\CheckSuite

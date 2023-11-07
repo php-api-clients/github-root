@@ -23,8 +23,7 @@ final class Issues
     {
     }
 
-    /** @return */
-    public function create(array $params): Issue|array
+    public function create(array $params): Issue
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -44,8 +43,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function createLabel(array $params): Label|array
+    public function createLabel(array $params): Label
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -65,8 +63,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function createMilestone(array $params): Milestone|array
+    public function createMilestone(array $params): Milestone
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -86,8 +83,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function addAssignees(array $params): Issue|array
+    public function addAssignees(array $params): Issue
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -113,8 +109,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
-    /** @return */
-    public function createComment(array $params): IssueComment|array
+    public function createComment(array $params): IssueComment
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -140,7 +135,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
-    /** @return Observable<Schema\Label> */
+    /** @return iterable<int,Schema\Label> */
     public function addLabels(array $params): iterable
     {
         $arguments = [];

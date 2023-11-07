@@ -24,8 +24,6 @@ final class ListRepoNotificationsForAuthenticatedUser
 {
     public const OPERATION_ID    = 'activity/list-repo-notifications-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/notifications';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/notifications';
     /**Only show notifications updated after the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
     private string $since;
     /**Only show notifications updated before the given time. This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. **/
@@ -51,7 +49,7 @@ final class ListRepoNotificationsForAuthenticatedUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{since}', '{before}', '{all}', '{participating}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->since, $this->before, $this->all, $this->participating, $this->perPage, $this->page], self::PATH . '?since={since}&before={before}&all={all}&participating={participating}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{since}', '{before}', '{all}', '{participating}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->since, $this->before, $this->all, $this->participating, $this->perPage, $this->page], '/repos/{owner}/{repo}/notifications' . '?since={since}&before={before}&all={all}&participating={participating}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Thread> */
@@ -72,7 +70,7 @@ final class ListRepoNotificationsForAuthenticatedUser
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Thread::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Thread::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Thread::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

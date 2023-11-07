@@ -26,8 +26,6 @@ final class AddLabels
 {
     public const OPERATION_ID    = 'issues/add-labels';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/issues/{issue_number}/labels';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/labels';
     /**issue_number parameter **/
     private int $issueNumber;
 
@@ -40,7 +38,7 @@ final class AddLabels
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\AddLabels\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}'], [$this->owner, $this->repo, $this->issueNumber], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}', '{issue_number}'], [$this->owner, $this->repo, $this->issueNumber], '/repos/{owner}/{repo}/issues/{issue_number}/labels'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     /** @return Observable<Schema\Label> */
@@ -61,7 +59,7 @@ final class AddLabels
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Label::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Label::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Label::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

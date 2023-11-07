@@ -21,8 +21,6 @@ final class ListSelfHostedRunnersInGroupForOrg
 {
     public const OPERATION_ID    = 'actions/list-self-hosted-runners-in-group-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners';
     /**Unique identifier of the self-hosted runner group. **/
     private int $runnerGroupId;
     /**Results per page (max 100) **/
@@ -39,7 +37,7 @@ final class ListSelfHostedRunnersInGroupForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}', '{per_page}', '{page}'], [$this->org, $this->runnerGroupId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{org}', '{runner_group_id}', '{per_page}', '{page}'], [$this->org, $this->runnerGroupId, $this->perPage, $this->page], '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners' . '?per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json

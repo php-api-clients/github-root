@@ -21,8 +21,6 @@ final class GetOrgSecret
 {
     public const OPERATION_ID    = 'actions/get-org-secret';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/secrets/{secret_name}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/secrets/{secret_name}';
     /**secret_name parameter **/
     private string $secretName;
 
@@ -33,7 +31,7 @@ final class GetOrgSecret
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{secret_name}'], [$this->org, $this->secretName], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{secret_name}'], [$this->org, $this->secretName], '/orgs/{org}/actions/secrets/{secret_name}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrganizationActionsSecret

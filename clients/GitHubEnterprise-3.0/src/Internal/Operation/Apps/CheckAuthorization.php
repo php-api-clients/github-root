@@ -22,8 +22,6 @@ final class CheckAuthorization
 {
     public const OPERATION_ID    = 'apps/check-authorization';
     public const OPERATION_MATCH = 'GET /applications/{client_id}/tokens/{access_token}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/applications/{client_id}/tokens/{access_token}';
     /**The client ID of your GitHub app. **/
     private string $clientId;
 
@@ -34,7 +32,7 @@ final class CheckAuthorization
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{client_id}', '{access_token}'], [$this->clientId, $this->accessToken], self::PATH));
+        return new Request('GET', str_replace(['{client_id}', '{access_token}'], [$this->clientId, $this->accessToken], '/applications/{client_id}/tokens/{access_token}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Authorization

@@ -22,8 +22,6 @@ final class EnableOrDisableMaintenanceMode
 {
     public const OPERATION_ID    = 'enterprise-admin/enable-or-disable-maintenance-mode';
     public const OPERATION_MATCH = 'POST /setup/api/maintenance';
-    private const METHOD         = 'POST';
-    private const PATH           = '/setup/api/maintenance';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
@@ -33,7 +31,7 @@ final class EnableOrDisableMaintenanceMode
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\EnableOrDisableMaintenanceMode\Request\ApplicationXWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
+        return new Request('POST', str_replace([], [], '/setup/api/maintenance'), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus

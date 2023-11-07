@@ -24,8 +24,6 @@ final class ListPublicOrgEvents
 {
     public const OPERATION_ID    = 'activity/list-public-org-events';
     public const OPERATION_MATCH = 'GET /orgs/{org}/events';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/events';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -39,7 +37,7 @@ final class ListPublicOrgEvents
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{per_page}', '{page}'], [$this->org, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{org}', '{per_page}', '{page}'], [$this->org, $this->perPage, $this->page], '/orgs/{org}/events' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Event> */
@@ -60,7 +58,7 @@ final class ListPublicOrgEvents
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Event::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Event::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Event::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

@@ -21,8 +21,6 @@ final class ListRepoWorkflows
 {
     public const OPERATION_ID    = 'actions/list-repo-workflows';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/workflows';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/workflows';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -36,7 +34,7 @@ final class ListRepoWorkflows
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->perPage, $this->page], '/repos/{owner}/{repo}/actions/workflows' . '?per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok

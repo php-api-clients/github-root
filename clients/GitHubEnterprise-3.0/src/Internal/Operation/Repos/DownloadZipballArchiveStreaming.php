@@ -21,8 +21,6 @@ final class DownloadZipballArchiveStreaming
 {
     public const OPERATION_ID    = 'repos/download-zipball-archive';
     public const OPERATION_MATCH = 'STREAM /repos/{owner}/{repo}/zipball/{ref}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/zipball/{ref}';
 
     public function __construct(private readonly Browser $browser, private string $owner, private string $repo, private string $ref)
     {
@@ -30,7 +28,7 @@ final class DownloadZipballArchiveStreaming
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], '/repos/{owner}/{repo}/zipball/{ref}'));
     }
 
     /** @return Observable<string> */

@@ -21,8 +21,6 @@ final class CreateRegistrationTokenForOrg
 {
     public const OPERATION_ID    = 'actions/create-registration-token-for-org';
     public const OPERATION_MATCH = 'POST /orgs/{org}/actions/runners/registration-token';
-    private const METHOD         = 'POST';
-    private const PATH           = '/orgs/{org}/actions/runners/registration-token';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\Runners\RegistrationToken $hydrator, private string $org)
     {
@@ -30,7 +28,7 @@ final class CreateRegistrationTokenForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
+        return new Request('POST', str_replace(['{org}'], [$this->org], '/orgs/{org}/actions/runners/registration-token'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\AuthenticationToken

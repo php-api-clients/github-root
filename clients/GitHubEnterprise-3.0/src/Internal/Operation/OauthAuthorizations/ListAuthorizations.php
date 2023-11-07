@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizati
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -25,8 +26,6 @@ final class ListAuthorizations
 {
     public const OPERATION_ID    = 'oauth-authorizations/list-authorizations';
     public const OPERATION_MATCH = 'GET /authorizations';
-    private const METHOD         = 'GET';
-    private const PATH           = '/authorizations';
     /**The client ID of your GitHub app. **/
     private string $clientId;
     /**Results per page (max 100) **/
@@ -43,11 +42,11 @@ final class ListAuthorizations
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{client_id}', '{per_page}', '{page}'], [$this->clientId, $this->perPage, $this->page], self::PATH . '?client_id={client_id}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{client_id}', '{per_page}', '{page}'], [$this->clientId, $this->perPage, $this->page], '/authorizations' . '?client_id={client_id}&per_page={per_page}&page={page}'));
     }
 
-    /** @return Observable<Schema\Authorization>|array{code: int} */
-    public function createResponse(ResponseInterface $response): Observable|array
+    /** @return Observable<Schema\Authorization>|WithoutBody */
+    public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -64,7 +63,7 @@ final class ListAuthorizations
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Authorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Authorization::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Authorization::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -106,7 +105,7 @@ final class ListAuthorizations
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

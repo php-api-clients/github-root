@@ -24,12 +24,11 @@ final readonly class ListRequestedReviewers
     {
     }
 
-    /** @return */
-    public function call(string $owner, string $repo, int $pullNumber, int $perPage = 30, int $page = 1): PullRequestReviewRequest|array
+    public function call(string $owner, string $repo, int $pullNumber, int $perPage = 30, int $page = 1): PullRequestReviewRequest
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Pulls\ListRequestedReviewers($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $pullNumber, $perPage, $page);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PullRequestReviewRequest|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PullRequestReviewRequest {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

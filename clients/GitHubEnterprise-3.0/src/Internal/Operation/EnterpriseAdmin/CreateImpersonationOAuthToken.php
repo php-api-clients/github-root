@@ -22,8 +22,6 @@ final class CreateImpersonationOAuthToken
 {
     public const OPERATION_ID    = 'enterprise-admin/create-impersonation-o-auth-token';
     public const OPERATION_MATCH = 'POST /admin/users/{username}/authorizations';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/users/{username}/authorizations';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Admin\Users\Username\Authorizations $hydrator, private string $username)
     {
@@ -33,7 +31,7 @@ final class CreateImpersonationOAuthToken
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\CreateImpersonationOAuthToken\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{username}'], [$this->username], '/admin/users/{username}/authorizations'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Authorization

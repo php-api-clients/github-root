@@ -21,8 +21,6 @@ final class GetDiscussionCommentInOrg
 {
     public const OPERATION_ID    = 'teams/get-discussion-comment-in-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}';
     /**team_slug parameter **/
     private string $teamSlug;
 
@@ -33,7 +31,7 @@ final class GetDiscussionCommentInOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{discussion_number}', '{comment_number}'], [$this->org, $this->teamSlug, $this->discussionNumber, $this->commentNumber], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{team_slug}', '{discussion_number}', '{comment_number}'], [$this->org, $this->teamSlug, $this->discussionNumber, $this->commentNumber], '/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\TeamDiscussionComment

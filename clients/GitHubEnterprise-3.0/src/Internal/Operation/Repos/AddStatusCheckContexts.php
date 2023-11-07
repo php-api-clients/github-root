@@ -26,8 +26,6 @@ final class AddStatusCheckContexts
 {
     public const OPERATION_ID    = 'repos/add-status-check-contexts';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts';
     /**The name of the branch. **/
     private string $branch;
 
@@ -40,7 +38,7 @@ final class AddStatusCheckContexts
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\AddStatusCheckContexts\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], '/repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     /** @return Observable<string> */

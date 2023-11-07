@@ -22,8 +22,6 @@ final class GetRelease
 {
     public const OPERATION_ID    = 'repos/get-release';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/releases/{release_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/releases/{release_id}';
     /**release_id parameter **/
     private int $releaseId;
 
@@ -34,7 +32,7 @@ final class GetRelease
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{release_id}'], [$this->owner, $this->repo, $this->releaseId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{release_id}'], [$this->owner, $this->repo, $this->releaseId], '/repos/{owner}/{repo}/releases/{release_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Release

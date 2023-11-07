@@ -22,8 +22,6 @@ final class UpdateWebhookConfigForRepo
 {
     public const OPERATION_ID    = 'repos/update-webhook-config-for-repo';
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/hooks/{hook_id}/config';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/repos/{owner}/{repo}/hooks/{hook_id}/config';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Hooks\HookId\Config $hydrator, private string $owner, private string $repo, private int $hookId)
     {
@@ -33,7 +31,7 @@ final class UpdateWebhookConfigForRepo
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Repos\UpdateWebhookConfigForRepo\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{hook_id}'], [$this->owner, $this->repo, $this->hookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{owner}', '{repo}', '{hook_id}'], [$this->owner, $this->repo, $this->hookId], '/repos/{owner}/{repo}/hooks/{hook_id}/config'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\WebhookConfig

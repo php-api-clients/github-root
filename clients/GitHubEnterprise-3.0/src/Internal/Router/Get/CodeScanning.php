@@ -20,7 +20,7 @@ final class CodeScanning
     {
     }
 
-    /** @return Observable<Schema\CodeScanningAlertItems> */
+    /** @return iterable<int,Schema\CodeScanningAlertItems> */
     public function listAlertsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -77,7 +77,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\CodeScanningAnalysis> */
+    /** @return iterable<int,Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(array $params): iterable
     {
         $arguments = [];
@@ -134,8 +134,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return */
-    public function getAlert(array $params): CodeScanningAlert|array
+    public function getAlert(array $params): CodeScanningAlert
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

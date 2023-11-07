@@ -14,7 +14,7 @@ final class One
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Ok|array
+    public function call(string $call, array $params, array $pathChunks): Ok
     {
         if ($pathChunks[0] === '') {
             if ($call === 'GET /') {

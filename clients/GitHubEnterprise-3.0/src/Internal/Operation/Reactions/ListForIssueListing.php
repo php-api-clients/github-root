@@ -25,8 +25,6 @@ final class ListForIssueListing
 {
     public const OPERATION_ID    = 'reactions/list-for-issue';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/issues/{issue_number}/reactions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/issues/{issue_number}/reactions';
     /**issue_number parameter **/
     private int $issueNumber;
     /**Returns a single [reaction type](https://docs.github.com/enterprise-server@3.0/rest/reference/reactions#reaction-types). Omit this parameter to list all reactions to an issue. **/
@@ -46,7 +44,7 @@ final class ListForIssueListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{issue_number}', '{content}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->issueNumber, $this->content, $this->perPage, $this->page], self::PATH . '?content={content}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{issue_number}', '{content}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->issueNumber, $this->content, $this->perPage, $this->page], '/repos/{owner}/{repo}/issues/{issue_number}/reactions' . '?content={content}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Reaction> */
@@ -67,7 +65,7 @@ final class ListForIssueListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Reaction::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

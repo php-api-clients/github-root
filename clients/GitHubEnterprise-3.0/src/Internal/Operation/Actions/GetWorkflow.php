@@ -21,8 +21,6 @@ final class GetWorkflow
 {
     public const OPERATION_ID    = 'actions/get-workflow';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/workflows/{workflow_id}';
     /**The ID of the workflow. You can also pass the workflow file name as a string. **/
     private $workflowId;
 
@@ -33,7 +31,7 @@ final class GetWorkflow
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{workflow_id}'], [$this->owner, $this->repo, $this->workflowId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{workflow_id}'], [$this->owner, $this->repo, $this->workflowId], '/repos/{owner}/{repo}/actions/workflows/{workflow_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Workflow

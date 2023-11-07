@@ -21,8 +21,6 @@ final class ListWorkflowRunArtifacts
 {
     public const OPERATION_ID    = 'actions/list-workflow-run-artifacts';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/artifacts';
     /**The id of the workflow run. **/
     private int $runId;
     /**Results per page (max 100) **/
@@ -39,7 +37,7 @@ final class ListWorkflowRunArtifacts
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->runId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{run_id}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->runId, $this->perPage, $this->page], '/repos/{owner}/{repo}/actions/runs/{run_id}/artifacts' . '?per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json

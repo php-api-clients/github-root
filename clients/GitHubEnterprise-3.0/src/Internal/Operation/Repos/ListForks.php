@@ -25,8 +25,6 @@ final class ListForks
 {
     public const OPERATION_ID    = 'repos/list-forks';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/forks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/forks';
     /**The sort order. Can be either `newest`, `oldest`, or `stargazers`. **/
     private string $sort;
     /**Results per page (max 100) **/
@@ -43,7 +41,7 @@ final class ListForks
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{sort}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->sort, $this->perPage, $this->page], self::PATH . '?sort={sort}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{sort}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->sort, $this->perPage, $this->page], '/repos/{owner}/{repo}/forks' . '?sort={sort}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\MinimalRepository> */
@@ -64,7 +62,7 @@ final class ListForks
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\MinimalRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\MinimalRepository::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\MinimalRepository::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

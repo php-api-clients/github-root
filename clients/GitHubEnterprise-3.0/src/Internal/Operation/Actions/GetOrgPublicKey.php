@@ -21,8 +21,6 @@ final class GetOrgPublicKey
 {
     public const OPERATION_ID    = 'actions/get-org-public-key';
     public const OPERATION_MATCH = 'GET /orgs/{org}/actions/secrets/public-key';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/actions/secrets/public-key';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\Actions\Secrets\PublicKey $hydrator, private string $org)
     {
@@ -30,7 +28,7 @@ final class GetOrgPublicKey
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
+        return new Request('GET', str_replace(['{org}'], [$this->org], '/orgs/{org}/actions/secrets/public-key'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ActionsPublicKey

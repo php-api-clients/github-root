@@ -24,8 +24,6 @@ final class ListCommentsForCommitListing
 {
     public const OPERATION_ID    = 'repos/list-comments-for-commit';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/commits/{commit_sha}/comments';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/commits/{commit_sha}/comments';
     /**commit_sha parameter **/
     private string $commitSha;
     /**Results per page (max 100) **/
@@ -42,7 +40,7 @@ final class ListCommentsForCommitListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{commit_sha}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->commitSha, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{commit_sha}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->commitSha, $this->perPage, $this->page], '/repos/{owner}/{repo}/commits/{commit_sha}/comments' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\CommitComment> */
@@ -63,7 +61,7 @@ final class ListCommentsForCommitListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CommitComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\CommitComment::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\CommitComment::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

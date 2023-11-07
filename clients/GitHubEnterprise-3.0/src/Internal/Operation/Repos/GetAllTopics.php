@@ -22,8 +22,6 @@ final class GetAllTopics
 {
     public const OPERATION_ID    = 'repos/get-all-topics';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/topics';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/topics';
     /**Page number of the results to fetch. **/
     private int $page;
     /**Results per page (max 100) **/
@@ -37,7 +35,7 @@ final class GetAllTopics
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->page, $this->perPage], self::PATH . '?page={page}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->page, $this->perPage], '/repos/{owner}/{repo}/topics' . '?page={page}&per_page={per_page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Topic

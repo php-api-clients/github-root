@@ -23,8 +23,6 @@ final class RemoveRequestedReviewers
 {
     public const OPERATION_ID    = 'pulls/remove-requested-reviewers';
     public const OPERATION_MATCH = 'DELETE /repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Pulls\PullNumber\RequestedReviewers $hydrator, private string $owner, private string $repo, private int $pullNumber)
     {
@@ -34,7 +32,7 @@ final class RemoveRequestedReviewers
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Pulls\RemoveRequestedReviewers\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}'], [$this->owner, $this->repo, $this->pullNumber], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('DELETE', str_replace(['{owner}', '{repo}', '{pull_number}'], [$this->owner, $this->repo, $this->pullNumber], '/repos/{owner}/{repo}/pulls/{pull_number}/requested_reviewers'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\PullRequestSimple

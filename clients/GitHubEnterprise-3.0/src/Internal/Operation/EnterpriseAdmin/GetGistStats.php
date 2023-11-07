@@ -21,8 +21,6 @@ final class GetGistStats
 {
     public const OPERATION_ID    = 'enterprise-admin/get-gist-stats';
     public const OPERATION_MATCH = 'GET /enterprise/stats/gists';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise/stats/gists';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Enterprise\Stats\Gists $hydrator)
     {
@@ -30,7 +28,7 @@ final class GetGistStats
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace([], [], self::PATH));
+        return new Request('GET', str_replace([], [], '/enterprise/stats/gists'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\EnterpriseGistOverview

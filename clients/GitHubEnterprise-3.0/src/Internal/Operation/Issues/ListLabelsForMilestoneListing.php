@@ -24,8 +24,6 @@ final class ListLabelsForMilestoneListing
 {
     public const OPERATION_ID    = 'issues/list-labels-for-milestone';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/milestones/{milestone_number}/labels';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/milestones/{milestone_number}/labels';
     /**milestone_number parameter **/
     private int $milestoneNumber;
     /**Results per page (max 100) **/
@@ -42,7 +40,7 @@ final class ListLabelsForMilestoneListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{milestone_number}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->milestoneNumber, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{milestone_number}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->milestoneNumber, $this->perPage, $this->page], '/repos/{owner}/{repo}/milestones/{milestone_number}/labels' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Label> */
@@ -63,7 +61,7 @@ final class ListLabelsForMilestoneListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Label::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Label::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Label::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

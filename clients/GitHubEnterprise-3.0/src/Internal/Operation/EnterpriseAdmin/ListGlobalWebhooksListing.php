@@ -24,8 +24,6 @@ final class ListGlobalWebhooksListing
 {
     public const OPERATION_ID    = 'enterprise-admin/list-global-webhooks';
     public const OPERATION_MATCH = 'LIST /admin/hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/hooks';
     /**This API is under preview and subject to change. **/
     private string $accept;
     /**Results per page (max 100) **/
@@ -42,7 +40,7 @@ final class ListGlobalWebhooksListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{per_page}', '{page}'], [$this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{per_page}', '{page}'], [$this->perPage, $this->page], '/admin/hooks' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\GlobalHook> */
@@ -63,7 +61,7 @@ final class ListGlobalWebhooksListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\GlobalHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\GlobalHook::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\GlobalHook::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

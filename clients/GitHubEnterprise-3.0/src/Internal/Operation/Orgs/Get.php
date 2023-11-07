@@ -22,8 +22,6 @@ final class Get
 {
     public const OPERATION_ID    = 'orgs/get';
     public const OPERATION_MATCH = 'GET /orgs/{org}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org $hydrator, private string $org)
     {
@@ -31,7 +29,7 @@ final class Get
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
+        return new Request('GET', str_replace(['{org}'], [$this->org], '/orgs/{org}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrganizationFull

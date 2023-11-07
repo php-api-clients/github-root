@@ -23,8 +23,6 @@ final class UpdateMembershipForAuthenticatedUser
 {
     public const OPERATION_ID    = 'orgs/update-membership-for-authenticated-user';
     public const OPERATION_MATCH = 'PATCH /user/memberships/orgs/{org}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/user/memberships/orgs/{org}';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\User\Memberships\Orgs\Org $hydrator, private string $org)
     {
@@ -34,7 +32,7 @@ final class UpdateMembershipForAuthenticatedUser
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\UpdateMembershipForAuthenticatedUser\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}'], [$this->org], '/user/memberships/orgs/{org}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrgMembership

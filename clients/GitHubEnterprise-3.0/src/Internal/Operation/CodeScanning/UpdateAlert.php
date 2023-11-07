@@ -23,8 +23,6 @@ final class UpdateAlert
 {
     public const OPERATION_ID    = 'code-scanning/update-alert';
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}';
     /**The number that identifies an alert. You can find this at the end of the URL for a code scanning alert within GitHub, and in the `number` field in the response from the `GET /repos/{owner}/{repo}/code-scanning/alerts` operation. **/
     private int $alertNumber;
 
@@ -37,7 +35,7 @@ final class UpdateAlert
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\CodeScanning\UpdateAlert\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{alert_number}'], [$this->owner, $this->repo, $this->alertNumber], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{owner}', '{repo}', '{alert_number}'], [$this->owner, $this->repo, $this->alertNumber], '/repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\CodeScanningAlert

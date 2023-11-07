@@ -20,7 +20,7 @@ final class Git
     {
     }
 
-    /** @return Observable<Schema\GitRef> */
+    /** @return iterable<int,Schema\GitRef> */
     public function listMatchingRefsListing(array $params): iterable
     {
         $arguments = [];

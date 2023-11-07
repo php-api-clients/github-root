@@ -21,8 +21,6 @@ final class ListJobsForWorkflowRun
 {
     public const OPERATION_ID    = 'actions/list-jobs-for-workflow-run';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/actions/runs/{run_id}/jobs';
     /**The id of the workflow run. **/
     private int $runId;
     /**Filters jobs by their `completed_at` timestamp. Can be one of:
@@ -44,7 +42,7 @@ final class ListJobsForWorkflowRun
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{run_id}', '{filter}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->runId, $this->filter, $this->perPage, $this->page], self::PATH . '?filter={filter}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{run_id}', '{filter}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->runId, $this->filter, $this->perPage, $this->page], '/repos/{owner}/{repo}/actions/runs/{run_id}/jobs' . '?filter={filter}&per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok

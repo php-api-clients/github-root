@@ -24,8 +24,6 @@ final class ListCommitStatusesForRef
 {
     public const OPERATION_ID    = 'repos/list-commit-statuses-for-ref';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/commits/{ref}/statuses';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/commits/{ref}/statuses';
     /**ref parameter **/
     private string $ref;
     /**Results per page (max 100) **/
@@ -42,7 +40,7 @@ final class ListCommitStatusesForRef
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{ref}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->ref, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{ref}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->ref, $this->perPage, $this->page], '/repos/{owner}/{repo}/commits/{ref}/statuses' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Status>|Schema\BasicError */
@@ -63,7 +61,7 @@ final class ListCommitStatusesForRef
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Status::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Status::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Status::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

@@ -22,8 +22,6 @@ final class UpdateGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/update-global-webhook';
     public const OPERATION_MATCH = 'PATCH /admin/hooks/{hook_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/hooks/{hook_id}';
     /**This API is under preview and subject to change. **/
     private string $accept;
 
@@ -36,7 +34,7 @@ final class UpdateGlobalWebhook
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateGlobalWebhook\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{hook_id}'], [$this->hookId], '/admin/hooks/{hook_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GlobalHook2

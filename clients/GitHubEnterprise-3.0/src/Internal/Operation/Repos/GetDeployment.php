@@ -22,8 +22,6 @@ final class GetDeployment
 {
     public const OPERATION_ID    = 'repos/get-deployment';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/deployments/{deployment_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/deployments/{deployment_id}';
     /**deployment_id parameter **/
     private int $deploymentId;
 
@@ -34,7 +32,7 @@ final class GetDeployment
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{deployment_id}'], [$this->owner, $this->repo, $this->deploymentId], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{deployment_id}'], [$this->owner, $this->repo, $this->deploymentId], '/repos/{owner}/{repo}/deployments/{deployment_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Deployment

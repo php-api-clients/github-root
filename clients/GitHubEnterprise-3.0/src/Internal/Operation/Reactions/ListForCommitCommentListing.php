@@ -25,8 +25,6 @@ final class ListForCommitCommentListing
 {
     public const OPERATION_ID    = 'reactions/list-for-commit-comment';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/comments/{comment_id}/reactions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/comments/{comment_id}/reactions';
     /**comment_id parameter **/
     private int $commentId;
     /**Returns a single [reaction type](https://docs.github.com/enterprise-server@3.0/rest/reference/reactions#reaction-types). Omit this parameter to list all reactions to a commit comment. **/
@@ -46,7 +44,7 @@ final class ListForCommitCommentListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{comment_id}', '{content}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->commentId, $this->content, $this->perPage, $this->page], self::PATH . '?content={content}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{comment_id}', '{content}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->commentId, $this->content, $this->perPage, $this->page], '/repos/{owner}/{repo}/comments/{comment_id}/reactions' . '?content={content}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\Reaction> */
@@ -67,7 +65,7 @@ final class ListForCommitCommentListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Reaction::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\Reaction::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\Reaction::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

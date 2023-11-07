@@ -22,8 +22,6 @@ final class GetReadmeInDirectory
 {
     public const OPERATION_ID    = 'repos/get-readme-in-directory';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/readme/{dir}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/readme/{dir}';
     /**The alternate path to look for a README file **/
     private string $dir;
     /**The name of the commit/branch/tag. Default: the repository’s default branch (usually `master`) **/
@@ -37,7 +35,7 @@ final class GetReadmeInDirectory
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{dir}', '{ref}'], [$this->owner, $this->repo, $this->dir, $this->ref], self::PATH . '?ref={ref}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{dir}', '{ref}'], [$this->owner, $this->repo, $this->dir, $this->ref], '/repos/{owner}/{repo}/readme/{dir}' . '?ref={ref}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ContentFile

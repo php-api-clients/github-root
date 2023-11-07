@@ -20,7 +20,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Observable<Schema\GlobalHook> */
+    /** @return iterable<int,Schema\GlobalHook> */
     public function listGlobalWebhooksListing(array $params): iterable
     {
         $arguments = [];
@@ -53,7 +53,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\PublicKeyFull> */
+    /** @return iterable<int,Schema\PublicKeyFull> */
     public function listPublicKeysListing(array $params): iterable
     {
         $arguments = [];
@@ -98,7 +98,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\PreReceiveEnvironment> */
+    /** @return iterable<int,Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironmentsListing(array $params): iterable
     {
         $arguments = [];
@@ -137,7 +137,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\PreReceiveHook> */
+    /** @return iterable<int,Schema\PreReceiveHook> */
     public function listPreReceiveHooksListing(array $params): iterable
     {
         $arguments = [];
@@ -176,7 +176,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Authorization> */
+    /** @return iterable<int,Schema\Authorization> */
     public function listPersonalAccessTokensListing(array $params): iterable
     {
         $arguments = [];
@@ -203,7 +203,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\OrgPreReceiveHook> */
+    /** @return iterable<int,Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -248,7 +248,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\RepositoryPreReceiveHook> */
+    /** @return iterable<int,Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepoListing(array $params): iterable
     {
         $arguments = [];

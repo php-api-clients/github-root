@@ -24,8 +24,6 @@ final class ListPreReceiveEnvironments
 {
     public const OPERATION_ID    = 'enterprise-admin/list-pre-receive-environments';
     public const OPERATION_MATCH = 'GET /admin/pre-receive-environments';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/pre-receive-environments';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -42,7 +40,7 @@ final class ListPreReceiveEnvironments
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{per_page}', '{page}', '{direction}', '{sort}'], [$this->perPage, $this->page, $this->direction, $this->sort], self::PATH . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
+        return new Request('GET', str_replace(['{per_page}', '{page}', '{direction}', '{sort}'], [$this->perPage, $this->page, $this->direction, $this->sort], '/admin/pre-receive-environments' . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
     }
 
     /** @return Observable<Schema\PreReceiveEnvironment> */
@@ -63,7 +61,7 @@ final class ListPreReceiveEnvironments
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PreReceiveEnvironment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\PreReceiveEnvironment::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\PreReceiveEnvironment::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

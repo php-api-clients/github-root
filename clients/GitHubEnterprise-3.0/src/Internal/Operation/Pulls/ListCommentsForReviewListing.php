@@ -25,8 +25,6 @@ final class ListCommentsForReviewListing
 {
     public const OPERATION_ID    = 'pulls/list-comments-for-review';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments';
     /**review_id parameter **/
     private int $reviewId;
     /**Results per page (max 100) **/
@@ -43,7 +41,7 @@ final class ListCommentsForReviewListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{pull_number}', '{review_id}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->pullNumber, $this->reviewId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{pull_number}', '{review_id}', '{per_page}', '{page}'], [$this->owner, $this->repo, $this->pullNumber, $this->reviewId, $this->perPage, $this->page], '/repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\ReviewComment> */
@@ -64,7 +62,7 @@ final class ListCommentsForReviewListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ReviewComment::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\ReviewComment::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\ReviewComment::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

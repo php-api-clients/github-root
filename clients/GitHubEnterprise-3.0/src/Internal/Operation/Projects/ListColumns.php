@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Projects;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -25,8 +26,6 @@ final class ListColumns
 {
     public const OPERATION_ID    = 'projects/list-columns';
     public const OPERATION_MATCH = 'GET /projects/{project_id}/columns';
-    private const METHOD         = 'GET';
-    private const PATH           = '/projects/{project_id}/columns';
     /**Results per page (max 100) **/
     private int $perPage;
     /**Page number of the results to fetch. **/
@@ -40,11 +39,11 @@ final class ListColumns
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{project_id}', '{per_page}', '{page}'], [$this->projectId, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{project_id}', '{per_page}', '{page}'], [$this->projectId, $this->perPage, $this->page], '/projects/{project_id}/columns' . '?per_page={per_page}&page={page}'));
     }
 
-    /** @return Observable<Schema\ProjectColumn>|array{code: int} */
-    public function createResponse(ResponseInterface $response): Observable|array
+    /** @return Observable<Schema\ProjectColumn>|WithoutBody */
+    public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -61,7 +60,7 @@ final class ListColumns
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ProjectColumn::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\ProjectColumn::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\ProjectColumn::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -95,7 +94,7 @@ final class ListColumns
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

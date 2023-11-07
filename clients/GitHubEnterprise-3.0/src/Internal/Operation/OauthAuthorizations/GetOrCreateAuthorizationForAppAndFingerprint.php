@@ -23,8 +23,6 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-or-create-authorization-for-app-and-fingerprint';
     public const OPERATION_MATCH = 'PUT /authorizations/clients/{client_id}/{fingerprint}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/authorizations/clients/{client_id}/{fingerprint}';
     /**The client ID of your GitHub app. **/
     private string $clientId;
 
@@ -37,7 +35,7 @@ final class GetOrCreateAuthorizationForAppAndFingerprint
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{client_id}', '{fingerprint}'], [$this->clientId, $this->fingerprint], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{client_id}', '{fingerprint}'], [$this->clientId, $this->fingerprint], '/authorizations/clients/{client_id}/{fingerprint}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Authorization

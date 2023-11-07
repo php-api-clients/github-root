@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Users;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetPublicSshKeyForAuthenticatedUser
 {
     public const OPERATION_ID    = 'users/get-public-ssh-key-for-authenticated-user';
     public const OPERATION_MATCH = 'GET /user/keys/{key_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/user/keys/{key_id}';
     /**key_id parameter **/
     private int $keyId;
 
@@ -34,11 +33,10 @@ final class GetPublicSshKeyForAuthenticatedUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{key_id}'], [$this->keyId], self::PATH));
+        return new Request('GET', str_replace(['{key_id}'], [$this->keyId], '/user/keys/{key_id}'));
     }
 
-    /** @return Schema\Key|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\Key|array
+    public function createResponse(ResponseInterface $response): Schema\Key|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -87,7 +85,7 @@ final class GetPublicSshKeyForAuthenticatedUser
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

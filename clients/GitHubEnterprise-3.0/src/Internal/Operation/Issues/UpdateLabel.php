@@ -22,8 +22,6 @@ final class UpdateLabel
 {
     public const OPERATION_ID    = 'issues/update-label';
     public const OPERATION_MATCH = 'PATCH /repos/{owner}/{repo}/labels/{name}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/repos/{owner}/{repo}/labels/{name}';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Repos\Owner\Repo\Labels\Name $hydrator, private string $owner, private string $repo, private string $name)
     {
@@ -33,7 +31,7 @@ final class UpdateLabel
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Issues\UpdateLabel\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{name}'], [$this->owner, $this->repo, $this->name], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{owner}', '{repo}', '{name}'], [$this->owner, $this->repo, $this->name], '/repos/{owner}/{repo}/labels/{name}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Label

@@ -24,8 +24,6 @@ final class ListProjectsInOrgListing
 {
     public const OPERATION_ID    = 'teams/list-projects-in-org';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/teams/{team_slug}/projects';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/teams/{team_slug}/projects';
     /**team_slug parameter **/
     private string $teamSlug;
     /**Results per page (max 100) **/
@@ -42,7 +40,7 @@ final class ListProjectsInOrgListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{team_slug}', '{per_page}', '{page}'], [$this->org, $this->teamSlug, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{org}', '{team_slug}', '{per_page}', '{page}'], [$this->org, $this->teamSlug, $this->perPage, $this->page], '/orgs/{org}/teams/{team_slug}/projects' . '?per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\TeamProject> */
@@ -63,7 +61,7 @@ final class ListProjectsInOrgListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\TeamProject::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\TeamProject::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\TeamProject::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

@@ -20,7 +20,7 @@ final class CodeScanning
     {
     }
 
-    /** @return Observable<Schema\CodeScanningAlertItems> */
+    /** @return iterable<int,Schema\CodeScanningAlertItems> */
     public function listAlertsForRepoListing(array $params): iterable
     {
         $arguments = [];
@@ -83,7 +83,7 @@ final class CodeScanning
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\CodeScanningAnalysis> */
+    /** @return iterable<int,Schema\CodeScanningAnalysis> */
     public function listRecentAnalysesListing(array $params): iterable
     {
         $arguments = [];

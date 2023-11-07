@@ -22,8 +22,6 @@ final class GetBranch
 {
     public const OPERATION_ID    = 'repos/get-branch';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/branches/{branch}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/branches/{branch}';
     /**The name of the branch. **/
     private string $branch;
 
@@ -34,7 +32,7 @@ final class GetBranch
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{branch}'], [$this->owner, $this->repo, $this->branch], '/repos/{owner}/{repo}/branches/{branch}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\BranchWithProtection|Schema\BasicError

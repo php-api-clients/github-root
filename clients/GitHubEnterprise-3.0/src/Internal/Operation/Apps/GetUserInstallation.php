@@ -21,8 +21,6 @@ final class GetUserInstallation
 {
     public const OPERATION_ID    = 'apps/get-user-installation';
     public const OPERATION_MATCH = 'GET /users/{username}/installation';
-    private const METHOD         = 'GET';
-    private const PATH           = '/users/{username}/installation';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Users\Username\Installation $hydrator, private string $username)
     {
@@ -30,7 +28,7 @@ final class GetUserInstallation
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH));
+        return new Request('GET', str_replace(['{username}'], [$this->username], '/users/{username}/installation'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Installation
