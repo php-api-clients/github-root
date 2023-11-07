@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\EnterpriseAd
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
@@ -23,12 +24,11 @@ final readonly class DeleteScimGroupFromEnterprise
     {
     }
 
-    /** @return array{code:int} */
-    public function call(string $scimGroupId): array
+    public function call(string $scimGroupId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->responseSchemaValidator, $this->hydrator, $scimGroupId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): WithoutBody {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

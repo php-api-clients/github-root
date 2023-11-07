@@ -24,6 +24,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryInvitation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsOrg;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -32,8 +33,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory|array
+    public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WithoutBody|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

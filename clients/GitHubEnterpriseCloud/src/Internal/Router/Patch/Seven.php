@@ -18,6 +18,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussionComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -26,8 +27,7 @@ final class Seven
     {
     }
 
-    /** @return |array{code:int}|Schema\SecretScanningAlert|Schema\ScimUser */
-    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment|array
+    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {

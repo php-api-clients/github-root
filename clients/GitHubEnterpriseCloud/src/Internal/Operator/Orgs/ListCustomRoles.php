@@ -24,12 +24,11 @@ final readonly class ListCustomRoles
     {
     }
 
-    /** @return */
-    public function call(string $organizationId): Ok|array
+    public function call(string $organizationId): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\ListCustomRoles($this->responseSchemaValidator, $this->hydrator, $organizationId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Ok|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Ok {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

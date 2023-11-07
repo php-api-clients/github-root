@@ -21,8 +21,6 @@ final class GetActionsCacheUsageForEnterprise
 {
     public const OPERATION_ID    = 'actions/get-actions-cache-usage-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/cache/usage';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/cache/usage';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -33,7 +31,7 @@ final class GetActionsCacheUsageForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/cache/usage'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ActionsCacheUsageOrgEnterprise

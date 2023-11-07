@@ -23,12 +23,11 @@ final readonly class GetConsumedLicenses
     {
     }
 
-    /** @return */
-    public function call(string $enterprise, int $perPage = 30, int $page = 1): string|array
+    public function call(string $enterprise, int $perPage = 30, int $page = 1): string
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetConsumedLicenses($this->responseSchemaValidator, $this->hydrator, $enterprise, $perPage, $page);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): string|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): string {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

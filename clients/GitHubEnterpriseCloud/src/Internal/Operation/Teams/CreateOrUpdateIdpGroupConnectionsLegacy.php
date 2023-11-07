@@ -23,8 +23,6 @@ final class CreateOrUpdateIdpGroupConnectionsLegacy
 {
     public const OPERATION_ID    = 'teams/create-or-update-idp-group-connections-legacy';
     public const OPERATION_MATCH = 'PATCH /teams/{team_id}/team-sync/group-mappings';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/teams/{team_id}/team-sync/group-mappings';
     /**The unique identifier of the team. **/
     private int $teamId;
 
@@ -37,7 +35,7 @@ final class CreateOrUpdateIdpGroupConnectionsLegacy
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\CreateOrUpdateIdpGroupConnectionsLegacy\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{team_id}'], [$this->teamId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{team_id}'], [$this->teamId], '/teams/{team_id}/team-sync/group-mappings'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupMapping

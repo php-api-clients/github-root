@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScann
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class PatchSecurityAnalysisSettingsForEnterprise
 {
     public const OPERATION_ID    = 'secret-scanning/patch-security-analysis-settings-for-enterprise';
     public const OPERATION_MATCH = 'PATCH /enterprises/{enterprise}/code_security_and_analysis';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/enterprises/{enterprise}/code_security_and_analysis';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -37,11 +36,10 @@ final class PatchSecurityAnalysisSettingsForEnterprise
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\SecretScanning\PatchSecurityAnalysisSettingsForEnterprise\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/code_security_and_analysis'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -66,13 +64,13 @@ final class PatchSecurityAnalysisSettingsForEnterprise
              * Action started
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
             /**
              * The action could not be taken due to an in progress enablement, or a policy is preventing enablement
              **/
 
             case 422:
-                return ['code' => 422];
+                return new WithoutBody(422, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -24,12 +24,11 @@ final readonly class ListIdpGroupsForLegacy
     {
     }
 
-    /** @return */
-    public function call(int $teamId): GroupMapping|array
+    public function call(int $teamId): GroupMapping
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ListIdpGroupsForLegacy($this->responseSchemaValidator, $this->hydrator, $teamId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

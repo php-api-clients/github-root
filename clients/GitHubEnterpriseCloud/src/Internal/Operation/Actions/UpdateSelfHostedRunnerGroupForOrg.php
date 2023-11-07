@@ -22,8 +22,6 @@ final class UpdateSelfHostedRunnerGroupForOrg
 {
     public const OPERATION_ID    = 'actions/update-self-hosted-runner-group-for-org';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/actions/runner-groups/{runner_group_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Unique identifier of the self-hosted runner group. **/
@@ -39,7 +37,7 @@ final class UpdateSelfHostedRunnerGroupForOrg
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\UpdateSelfHostedRunnerGroupForOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}'], [$this->org, $this->runnerGroupId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}', '{runner_group_id}'], [$this->org, $this->runnerGroupId], '/orgs/{org}/actions/runner-groups/{runner_group_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\RunnerGroupsOrg

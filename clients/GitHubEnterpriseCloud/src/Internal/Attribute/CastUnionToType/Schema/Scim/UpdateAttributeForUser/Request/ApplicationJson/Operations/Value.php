@@ -25,7 +25,7 @@ final class Value implements PropertyCaster
             $signatureChunks = array_unique(array_keys($value));
             sort($signatureChunks);
             $signature = implode('|', $signatureChunks);
-            if ($signature === 'active|userName|externalId|givenName|familyName') {
+            if ($signature === 'active|externalId|familyName|givenName|userName') {
                 try {
                     return $hydrator->hydrateObject(Schema\Scim\UpdateAttributeForUser\Request\ApplicationJson\Operations\Value\Zero::class, $value);
                 } catch (Throwable) {

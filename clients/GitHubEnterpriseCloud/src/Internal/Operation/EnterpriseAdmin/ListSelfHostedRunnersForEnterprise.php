@@ -21,8 +21,6 @@ final class ListSelfHostedRunnersForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-self-hosted-runners-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runners';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners';
     /**The name of a self-hosted runner. **/
     private string $name;
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
@@ -42,7 +40,7 @@ final class ListSelfHostedRunnersForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{name}', '{enterprise}', '{per_page}', '{page}'], [$this->name, $this->enterprise, $this->perPage, $this->page], self::PATH . '?name={name}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{name}', '{enterprise}', '{per_page}', '{page}'], [$this->name, $this->enterprise, $this->perPage, $this->page], '/enterprises/{enterprise}/actions/runners' . '?name={name}&per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok

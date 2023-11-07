@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs;
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class RemoveSamlSsoAuthorization
 {
     public const OPERATION_ID    = 'orgs/remove-saml-sso-authorization';
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/credential-authorizations/{credential_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/orgs/{org}/credential-authorizations/{credential_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -34,11 +33,10 @@ final class RemoveSamlSsoAuthorization
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{credential_id}'], [$this->org, $this->credentialId], self::PATH));
+        return new Request('DELETE', str_replace(['{org}', '{credential_id}'], [$this->org, $this->credentialId], '/orgs/{org}/credential-authorizations/{credential_id}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -63,7 +61,7 @@ final class RemoveSamlSsoAuthorization
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

@@ -24,12 +24,11 @@ final readonly class ListLinkedExternalIdpGroupsToTeamForOrg
     {
     }
 
-    /** @return */
-    public function call(string $org, string $teamSlug): ExternalGroups|array
+    public function call(string $org, string $teamSlug): ExternalGroups
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ListLinkedExternalIdpGroupsToTeamForOrg($this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ExternalGroups|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ExternalGroups {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

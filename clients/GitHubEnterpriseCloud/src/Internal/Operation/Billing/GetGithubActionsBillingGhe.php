@@ -21,8 +21,6 @@ final class GetGithubActionsBillingGhe
 {
     public const OPERATION_ID    = 'billing/get-github-actions-billing-ghe';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/settings/billing/actions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/settings/billing/actions';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -33,7 +31,7 @@ final class GetGithubActionsBillingGhe
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/settings/billing/actions'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ActionsBillingUsage

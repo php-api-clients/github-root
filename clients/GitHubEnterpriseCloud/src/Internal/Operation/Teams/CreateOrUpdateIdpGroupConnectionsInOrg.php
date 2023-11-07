@@ -22,8 +22,6 @@ final class CreateOrUpdateIdpGroupConnectionsInOrg
 {
     public const OPERATION_ID    = 'teams/create-or-update-idp-group-connections-in-org';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/teams/{team_slug}/team-sync/group-mappings';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/teams/{team_slug}/team-sync/group-mappings';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The slug of the team name. **/
@@ -39,7 +37,7 @@ final class CreateOrUpdateIdpGroupConnectionsInOrg
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Teams\CreateOrUpdateIdpGroupConnectionsInOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], '/orgs/{org}/teams/{team_slug}/team-sync/group-mappings'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupMapping

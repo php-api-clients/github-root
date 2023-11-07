@@ -23,8 +23,6 @@ final class CreateCustomRole
 {
     public const OPERATION_ID    = 'orgs/create-custom-role';
     public const OPERATION_MATCH = 'POST /orgs/{org}/custom_roles';
-    private const METHOD         = 'POST';
-    private const PATH           = '/orgs/{org}/custom_roles';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -37,7 +35,7 @@ final class CreateCustomRole
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OrganizationCustomRepositoryRoleCreateSchema::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{org}'], [$this->org], '/orgs/{org}/custom_roles'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrganizationCustomRepositoryRole

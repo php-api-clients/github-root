@@ -21,8 +21,6 @@ final class GetAllowedActionsEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/get-allowed-actions-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/permissions/selected-actions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/selected-actions';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -33,7 +31,7 @@ final class GetAllowedActionsEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/permissions/selected-actions'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\SelectedActions

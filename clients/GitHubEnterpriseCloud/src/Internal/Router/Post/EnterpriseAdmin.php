@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -24,24 +24,21 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Schema\GroupResponse|array{code:int} */
-    public function provisionEnterpriseGroup(array $params): GroupResponse|array
+    public function provisionEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups());
 
         return $operator->call($params);
     }
 
-    /** @return Schema\UserResponse|array{code:int} */
-    public function provisionEnterpriseUser(array $params): UserResponse|array
+    public function provisionEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users());
 
         return $operator->call($params);
     }
 
-    /** @return */
-    public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken|array
+    public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -55,8 +52,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function createRemoveTokenForEnterprise(array $params): AuthenticationToken|array
+    public function createRemoveTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -70,8 +66,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
+    public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -85,8 +80,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return */
-    public function addCustomLabelsToSelfHostedRunnerForEnterprise(array $params): Ok|array
+    public function addCustomLabelsToSelfHostedRunnerForEnterprise(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {

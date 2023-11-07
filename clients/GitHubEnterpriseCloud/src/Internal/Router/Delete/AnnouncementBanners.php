@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class AnnouncementBanners
     {
     }
 
-    /** @return array{code:int} */
-    public function removeAnnouncementBannerForEnterprise(array $params): array
+    public function removeAnnouncementBannerForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -33,8 +33,7 @@ final class AnnouncementBanners
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return array{code:int} */
-    public function removeAnnouncementBannerForOrg(array $params): array
+    public function removeAnnouncementBannerForOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

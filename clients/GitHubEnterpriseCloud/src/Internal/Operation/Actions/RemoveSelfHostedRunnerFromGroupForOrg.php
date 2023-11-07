@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions;
 
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
@@ -15,8 +16,6 @@ final class RemoveSelfHostedRunnerFromGroupForOrg
 {
     public const OPERATION_ID    = 'actions/remove-self-hosted-runner-from-group-for-org';
     public const OPERATION_MATCH = 'DELETE /orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Unique identifier of the self-hosted runner group. **/
@@ -33,11 +32,10 @@ final class RemoveSelfHostedRunnerFromGroupForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{runner_group_id}', '{runner_id}'], [$this->org, $this->runnerGroupId, $this->runnerId], self::PATH));
+        return new Request('DELETE', str_replace(['{org}', '{runner_group_id}', '{runner_id}'], [$this->org, $this->runnerGroupId, $this->runnerId], '/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -45,7 +43,7 @@ final class RemoveSelfHostedRunnerFromGroupForOrg
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

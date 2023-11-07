@@ -23,8 +23,6 @@ final class GenerateRunnerJitconfigForEnterprise
 {
     public const OPERATION_ID    = 'actions/generate-runner-jitconfig-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runners/generate-jitconfig';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/generate-jitconfig';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -37,7 +35,7 @@ final class GenerateRunnerJitconfigForEnterprise
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\GenerateRunnerJitconfigForEnterprise\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/runners/generate-jitconfig'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created

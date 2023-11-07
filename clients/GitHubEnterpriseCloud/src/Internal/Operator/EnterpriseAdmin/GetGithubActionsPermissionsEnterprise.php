@@ -24,12 +24,11 @@ final readonly class GetGithubActionsPermissionsEnterprise
     {
     }
 
-    /** @return */
-    public function call(string $enterprise): ActionsEnterprisePermissions|array
+    public function call(string $enterprise): ActionsEnterprisePermissions
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetGithubActionsPermissionsEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsEnterprisePermissions|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsEnterprisePermissions {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -21,8 +21,7 @@ final class Actions
     {
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsPermissionsOrganization(array $params): array
+    public function setGithubActionsPermissionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -36,8 +35,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setActionsOidcCustomIssuerPolicyForEnterprise(array $params): array
+    public function setActionsOidcCustomIssuerPolicyForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -51,8 +49,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return array{code:int} */
-    public function enableSelectedRepositoryGithubActionsOrganization(array $params): array
+    public function enableSelectedRepositoryGithubActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -72,8 +69,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['repository_id']);
     }
 
-    /** @return array{code:int} */
-    public function setRepoAccessToSelfHostedRunnerGroupInOrg(array $params): array
+    public function setRepoAccessToSelfHostedRunnerGroupInOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -93,8 +89,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setSelfHostedRunnersInGroupForOrg(array $params): array
+    public function setSelfHostedRunnersInGroupForOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -114,8 +109,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return */
-    public function setCustomLabelsForSelfHostedRunnerForOrg(array $params): Ok|array
+    public function setCustomLabelsForSelfHostedRunnerForOrg(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -135,8 +129,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setSelectedReposForOrgSecret(array $params): array
+    public function setSelectedReposForOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -156,8 +149,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setSelectedReposForOrgVariable(array $params): array
+    public function setSelectedReposForOrgVariable(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -177,8 +169,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['name'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setWorkflowAccessToRepository(array $params): array
+    public function setWorkflowAccessToRepository(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -198,8 +189,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setAllowedActionsRepository(array $params): array
+    public function setAllowedActionsRepository(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -219,8 +209,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsDefaultWorkflowPermissionsRepository(array $params): array
+    public function setGithubActionsDefaultWorkflowPermissionsRepository(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -240,8 +229,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\EmptyObject|array{code:int} */
-    public function createOrUpdateRepoSecret(array $params): EmptyObject|array
+    public function createOrUpdateRepoSecret(array $params): EmptyObject|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -267,8 +255,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name'], $params);
     }
 
-    /** @return Schema\EmptyObject|array{code:int} */
-    public function createOrUpdateEnvironmentSecret(array $params): EmptyObject|array
+    public function createOrUpdateEnvironmentSecret(array $params): EmptyObject|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('repository_id', $params) === false) {
@@ -294,8 +281,7 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['secret_name'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsDefaultWorkflowPermissionsEnterprise(array $params): array
+    public function setGithubActionsDefaultWorkflowPermissionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -309,8 +295,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setSelectedRepositoriesEnabledGithubActionsOrganization(array $params): array
+    public function setSelectedRepositoriesEnabledGithubActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -324,8 +309,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setAllowedActionsOrganization(array $params): array
+    public function setAllowedActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -339,8 +323,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsDefaultWorkflowPermissionsOrganization(array $params): array
+    public function setGithubActionsDefaultWorkflowPermissionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -354,8 +337,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\EmptyObject|array{code:int} */
-    public function createOrUpdateOrgSecret(array $params): EmptyObject|array
+    public function createOrUpdateOrgSecret(array $params): EmptyObject|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -375,8 +357,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsPermissionsRepository(array $params): array
+    public function setGithubActionsPermissionsRepository(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -396,8 +377,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return array{code:int} */
-    public function addRepoAccessToSelfHostedRunnerGroupInOrg(array $params): array
+    public function addRepoAccessToSelfHostedRunnerGroupInOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -423,8 +403,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
     }
 
-    /** @return array{code:int} */
-    public function addSelfHostedRunnerToGroupForOrg(array $params): array
+    public function addSelfHostedRunnerToGroupForOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -450,8 +429,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
-    /** @return array{code:int} */
-    public function addSelectedRepoToOrgSecret(array $params): array
+    public function addSelectedRepoToOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -477,8 +455,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }
 
-    /** @return array{code:int} */
-    public function addSelectedRepoToOrgVariable(array $params): array
+    public function addSelectedRepoToOrgVariable(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -504,8 +481,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['name'], $arguments['repository_id']);
     }
 
-    /** @return */
-    public function setCustomOidcSubClaimForRepo(array $params): EmptyObject|array
+    public function setCustomOidcSubClaimForRepo(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -525,8 +501,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function setCustomLabelsForSelfHostedRunnerForRepo(array $params): Ok|array
+    public function setCustomLabelsForSelfHostedRunnerForRepo(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -552,8 +527,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id'], $params);
     }
 
-    /** @return array{code:int} */
-    public function disableWorkflow(array $params): array
+    public function disableWorkflow(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -579,8 +553,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
-    /** @return array{code:int} */
-    public function enableWorkflow(array $params): array
+    public function enableWorkflow(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

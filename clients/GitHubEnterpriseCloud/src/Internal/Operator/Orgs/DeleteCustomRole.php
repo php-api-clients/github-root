@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Orgs;
 
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 use Rx\Observable;
@@ -21,12 +22,11 @@ final readonly class DeleteCustomRole
     {
     }
 
-    /** @return array{code:int} */
-    public function call(string $org, int $roleId): array
+    public function call(string $org, int $roleId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\DeleteCustomRole($org, $roleId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): WithoutBody {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -18,6 +18,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ThreadSubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Topic;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Five
@@ -26,8 +27,7 @@ final class Five
     {
     }
 
-    /** @return array{code:int}|Schema\ThreadSubscription||Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\InteractionLimitResponse|Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted|Schema\GroupResponse|Schema\UserResponse|Schema\TeamMembership|Schema\EmptyObject */
-    public function call(string $call, array $params, array $pathChunks): ThreadSubscription|OrgMembership|Json|RepositoryRuleset|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|GroupResponse|UserResponse|TeamMembership|EmptyObject|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|ThreadSubscription|OrgMembership|Json|RepositoryRuleset|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|GroupResponse|UserResponse|TeamMembership|EmptyObject
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {

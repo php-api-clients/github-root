@@ -23,8 +23,7 @@ final class Teams
     {
     }
 
-    /** @return */
-    public function linkExternalIdpGroupToTeamForOrg(array $params): ExternalGroup|array
+    public function linkExternalIdpGroupToTeamForOrg(array $params): ExternalGroup
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -44,8 +43,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $params);
     }
 
-    /** @return */
-    public function updateLegacy(array $params): TeamFull|array
+    public function updateLegacy(array $params): TeamFull
     {
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
@@ -59,8 +57,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $params);
     }
 
-    /** @return */
-    public function updateInOrg(array $params): TeamFull|array
+    public function updateInOrg(array $params): TeamFull
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -80,8 +77,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $params);
     }
 
-    /** @return */
-    public function updateDiscussionLegacy(array $params): TeamDiscussion|array
+    public function updateDiscussionLegacy(array $params): TeamDiscussion
     {
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
@@ -101,8 +97,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $params);
     }
 
-    /** @return */
-    public function createOrUpdateIdpGroupConnectionsLegacy(array $params): GroupMapping|array
+    public function createOrUpdateIdpGroupConnectionsLegacy(array $params): GroupMapping
     {
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
@@ -116,8 +111,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $params);
     }
 
-    /** @return */
-    public function updateDiscussionInOrg(array $params): TeamDiscussion|array
+    public function updateDiscussionInOrg(array $params): TeamDiscussion
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -143,8 +137,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $params);
     }
 
-    /** @return */
-    public function createOrUpdateIdpGroupConnectionsInOrg(array $params): GroupMapping|array
+    public function createOrUpdateIdpGroupConnectionsInOrg(array $params): GroupMapping
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -164,8 +157,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $params);
     }
 
-    /** @return */
-    public function updateDiscussionCommentLegacy(array $params): TeamDiscussionComment|array
+    public function updateDiscussionCommentLegacy(array $params): TeamDiscussionComment
     {
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
@@ -191,8 +183,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number'], $params);
     }
 
-    /** @return */
-    public function updateDiscussionCommentInOrg(array $params): TeamDiscussionComment|array
+    public function updateDiscussionCommentInOrg(array $params): TeamDiscussionComment
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

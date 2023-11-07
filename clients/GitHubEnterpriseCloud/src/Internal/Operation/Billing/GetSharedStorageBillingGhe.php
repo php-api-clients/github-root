@@ -21,8 +21,6 @@ final class GetSharedStorageBillingGhe
 {
     public const OPERATION_ID    = 'billing/get-shared-storage-billing-ghe';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/settings/billing/shared-storage';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/settings/billing/shared-storage';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -33,7 +31,7 @@ final class GetSharedStorageBillingGhe
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/settings/billing/shared-storage'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\CombinedBillingUsage

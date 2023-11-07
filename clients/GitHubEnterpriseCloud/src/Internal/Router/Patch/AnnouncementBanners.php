@@ -19,8 +19,7 @@ final class AnnouncementBanners
     {
     }
 
-    /** @return */
-    public function setAnnouncementBannerForEnterprise(array $params): AnnouncementBanner|array
+    public function setAnnouncementBannerForEnterprise(array $params): AnnouncementBanner
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -34,8 +33,7 @@ final class AnnouncementBanners
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return */
-    public function setAnnouncementBannerForOrg(array $params): AnnouncementBanner|array
+    public function setAnnouncementBannerForOrg(array $params): AnnouncementBanner
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

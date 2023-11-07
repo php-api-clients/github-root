@@ -24,12 +24,11 @@ final readonly class GetAnnouncementBannerForOrg
     {
     }
 
-    /** @return */
-    public function call(string $org): AnnouncementBanner|array
+    public function call(string $org): AnnouncementBanner
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\AnnouncementBanners\GetAnnouncementBannerForOrg($this->responseSchemaValidator, $this->hydrator, $org);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): AnnouncementBanner|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): AnnouncementBanner {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

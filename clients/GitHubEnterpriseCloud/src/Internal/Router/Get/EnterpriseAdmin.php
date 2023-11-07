@@ -17,6 +17,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseUserList;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SelectedActions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -29,7 +30,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Observable<Schema\ServerStatistics> */
+    /** @return iterable<int,Schema\ServerStatistics> */
     public function getServerStatistics(array $params): iterable
     {
         $arguments = [];
@@ -56,7 +57,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise_or_org'], $arguments['date_start'], $arguments['date_end']);
     }
 
-    /** @return Observable<Schema\AuditLogEvent> */
+    /** @return iterable<int,Schema\AuditLogEvent> */
     public function getAuditLog(array $params): iterable
     {
         $arguments = [];
@@ -113,8 +114,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['phrase'], $arguments['include'], $arguments['after'], $arguments['before'], $arguments['order'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return */
-    public function getConsumedLicenses(array $params): string|array
+    public function getConsumedLicenses(array $params): string
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -140,8 +140,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getLicenseSyncStatus(array $params): string|array
+    public function getLicenseSyncStatus(array $params): string
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -155,8 +154,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Schema\ScimEnterpriseGroupList|array{code:int} */
-    public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|array
+    public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('filter', $params) === false) {
@@ -188,8 +186,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['filter'], $arguments['excludedAttributes'], $arguments['startIndex'], $arguments['count']);
     }
 
-    /** @return Schema\ScimEnterpriseUserList|array{code:int} */
-    public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|array
+    public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('filter', $params) === false) {
@@ -215,8 +212,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['filter'], $arguments['startIndex'], $arguments['count']);
     }
 
-    /** @return */
-    public function getGithubActionsPermissionsEnterprise(array $params): ActionsEnterprisePermissions|array
+    public function getGithubActionsPermissionsEnterprise(array $params): ActionsEnterprisePermissions
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -230,8 +226,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnerGroupsForEnterprise(array $params): Ok|array
+    public function listSelfHostedRunnerGroupsForEnterprise(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -263,8 +258,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['visible_to_organization'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|array
+    public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('name', $params) === false) {
@@ -296,8 +290,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['name'], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\GroupResponse|array{code:int} */
-    public function getProvisioningInformationForEnterpriseGroup(array $params): GroupResponse|array
+    public function getProvisioningInformationForEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_group_id', $params) === false) {
@@ -317,8 +310,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id'], $arguments['excludedAttributes']);
     }
 
-    /** @return Schema\UserResponse|array{code:int} */
-    public function getProvisioningInformationForEnterpriseUser(array $params): UserResponse|array
+    public function getProvisioningInformationForEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_user_id', $params) === false) {
@@ -332,8 +324,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_user_id']);
     }
 
-    /** @return */
-    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok|array
+    public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -359,8 +350,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getAllowedActionsEnterprise(array $params): SelectedActions|array
+    public function getAllowedActionsEnterprise(array $params): SelectedActions
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -374,8 +364,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function getSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
+    public function getSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -395,7 +384,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return iterable<int,Schema\RunnerApplication> */
     public function listRunnerApplicationsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -410,8 +399,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function getSelfHostedRunnerForEnterprise(array $params): Runner|array
+    public function getSelfHostedRunnerForEnterprise(array $params): Runner
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -431,8 +419,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return */
-    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json|array
+    public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -464,8 +451,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok|array
+    public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -497,8 +483,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listLabelsForSelfHostedRunnerForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|array
+    public function listLabelsForSelfHostedRunnerForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {

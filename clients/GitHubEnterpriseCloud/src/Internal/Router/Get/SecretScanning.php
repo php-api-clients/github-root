@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningAlert;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -21,8 +22,7 @@ final class SecretScanning
     {
     }
 
-    /** @return */
-    public function getSecurityAnalysisSettingsForEnterprise(array $params): EnterpriseSecurityAnalysisSettings|array
+    public function getSecurityAnalysisSettingsForEnterprise(array $params): EnterpriseSecurityAnalysisSettings
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -36,7 +36,7 @@ final class SecretScanning
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -76,6 +76,12 @@ final class SecretScanning
 
         $arguments['after'] = $params['after'];
         unset($params['after']);
+        if (array_key_exists('validity', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: validity');
+        }
+
+        $arguments['validity'] = $params['validity'];
+        unset($params['validity']);
         if (array_key_exists('sort', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: sort');
         }
@@ -96,10 +102,10 @@ final class SecretScanning
         unset($params['per_page']);
         $operator = new Internal\Operator\SecretScanning\ListAlertsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀SecretScanning🌀Alerts());
 
-        return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['sort'], $arguments['direction'], $arguments['per_page']);
+        return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
+    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -139,6 +145,12 @@ final class SecretScanning
 
         $arguments['after'] = $params['after'];
         unset($params['after']);
+        if (array_key_exists('validity', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: validity');
+        }
+
+        $arguments['validity'] = $params['validity'];
+        unset($params['validity']);
         if (array_key_exists('sort', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: sort');
         }
@@ -165,11 +177,11 @@ final class SecretScanning
         unset($params['per_page']);
         $operator = new Internal\Operator\SecretScanning\ListAlertsForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀SecretScanning🌀Alerts());
 
-        return $operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
+        return $operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Observable<Schema\SecretScanningAlert>|array{code:int} */
-    public function listAlertsForRepo(array $params): iterable
+    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -214,6 +226,12 @@ final class SecretScanning
 
         $arguments['after'] = $params['after'];
         unset($params['after']);
+        if (array_key_exists('validity', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: validity');
+        }
+
+        $arguments['validity'] = $params['validity'];
+        unset($params['validity']);
         if (array_key_exists('sort', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: sort');
         }
@@ -240,11 +258,10 @@ final class SecretScanning
         unset($params['per_page']);
         $operator = new Internal\Operator\SecretScanning\ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts());
 
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Schema\SecretScanningAlert|array{code:int} */
-    public function getAlert(array $params): SecretScanningAlert|array
+    public function getAlert(array $params): SecretScanningAlert|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -270,8 +287,8 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
-    /** @return Observable<Schema\SecretScanningLocation>|array{code:int} */
-    public function listLocationsForAlert(array $params): iterable
+    /** @return iterable<int,Schema\SecretScanningLocation>|WithoutBody */
+    public function listLocationsForAlert(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
