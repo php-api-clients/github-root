@@ -24,8 +24,6 @@ final class ListForOrgListing
 {
     public const OPERATION_ID    = 'repos/list-for-org';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/repos';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/repos';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Specifies the types of repositories you want returned. If your organization is associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+, `type` can also be `internal`. However, the `internal` value is not yet supported when a GitHub App calls this API with an installation access token. **/
@@ -51,7 +49,7 @@ final class ListForOrgListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{type}', '{direction}', '{sort}', '{per_page}', '{page}'], [$this->org, $this->type, $this->direction, $this->sort, $this->perPage, $this->page], self::PATH . '?type={type}&direction={direction}&sort={sort}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{org}', '{type}', '{direction}', '{sort}', '{per_page}', '{page}'], [$this->org, $this->type, $this->direction, $this->sort, $this->perPage, $this->page], '/orgs/{org}/repos' . '?type={type}&direction={direction}&sort={sort}&per_page={per_page}&page={page}'));
     }
 
     /** @return Observable<Schema\MinimalRepository> */
@@ -72,7 +70,7 @@ final class ListForOrgListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\MinimalRepository::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\MinimalRepository::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\MinimalRepository::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

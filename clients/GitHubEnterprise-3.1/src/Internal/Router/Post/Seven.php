@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\BranchWithProtection;
 use ApiClients\Client\GitHubEnterprise\Schema\CommitComment;
@@ -18,6 +19,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple;
 use ApiClients\Client\GitHubEnterprise\Schema\Reaction;
 use ApiClients\Client\GitHubEnterprise\Schema\ReleaseAsset;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -26,8 +28,8 @@ final class Seven
     {
     }
 
-    /** @return |Schema\ContentReferenceAttachment|array{code:int}|Observable<Schema\Label>|Schema\PullRequestSimple|Schema\ReleaseAsset */
-    public function call(string $call, array $params, array $pathChunks): AuthenticationToken|BranchWithProtection|Json|Reaction|CommitComment|ContentReferenceAttachment|DeploymentStatus|Issue|IssueComment|iterable|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
+    /** @return Schema\AuthenticationToken|Schema\BranchWithProtection|Schema\Operations\Checks\RerequestSuite\Response\ApplicationJson\Created\Application\Json|Schema\Reaction|Schema\CommitComment|Schema\ContentReferenceAttachment|WithoutBody|Schema\DeploymentStatus|Schema\Issue|Schema\IssueComment|iterable<int,Schema\Label>|Schema\PullRequestReviewComment|Schema\PullRequestSimple|Schema\PullRequestReview|Schema\ReleaseAsset */
+    public function call(string $call, array $params, array $pathChunks): AuthenticationToken|BranchWithProtection|Json|Reaction|CommitComment|ContentReferenceAttachment|WithoutBody|DeploymentStatus|Issue|IssueComment|iterable|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'repos') {

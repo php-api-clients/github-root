@@ -19,6 +19,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\ShortBlob;
 use ApiClients\Client\GitHubEnterprise\Schema\Status;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -27,8 +28,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int}|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt */
-    public function call(string $call, array $params, array $pathChunks): Created|Json|AuthenticationToken|TeamDiscussion|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|CodeScanningSarifsReceipt|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|Status|TeamDiscussionComment|Reaction|array
+    public function call(string $call, array $params, array $pathChunks): Created|Json|AuthenticationToken|WithoutBody|TeamDiscussion|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|CodeScanningSarifsReceipt|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|Status|TeamDiscussionComment|Reaction
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

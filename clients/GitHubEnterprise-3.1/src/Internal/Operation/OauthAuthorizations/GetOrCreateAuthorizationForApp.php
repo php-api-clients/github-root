@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizati
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class GetOrCreateAuthorizationForApp
 {
     public const OPERATION_ID    = 'oauth-authorizations/get-or-create-authorization-for-app';
     public const OPERATION_MATCH = 'PUT /authorizations/clients/{client_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/authorizations/clients/{client_id}';
     /**The client ID of the GitHub app. **/
     private string $clientId;
 
@@ -37,11 +36,10 @@ final class GetOrCreateAuthorizationForApp
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OauthAuthorizations\GetOrCreateAuthorizationForApp\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{client_id}'], [$this->clientId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{client_id}'], [$this->clientId], '/authorizations/clients/{client_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\Authorization|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\Authorization|array
+    public function createResponse(ResponseInterface $response): Schema\Authorization|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -98,7 +96,7 @@ final class GetOrCreateAuthorizationForApp
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

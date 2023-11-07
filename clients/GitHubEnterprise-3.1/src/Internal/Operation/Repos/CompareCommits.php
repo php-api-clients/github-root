@@ -22,8 +22,6 @@ final class CompareCommits
 {
     public const OPERATION_ID    = 'repos/compare-commits';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/compare/{basehead}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/compare/{basehead}';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository. The name is not case sensitive. **/
@@ -40,7 +38,7 @@ final class CompareCommits
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{basehead}'], [$this->owner, $this->repo, $this->basehead], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{basehead}'], [$this->owner, $this->repo, $this->basehead], '/repos/{owner}/{repo}/compare/{basehead}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\CommitComparison

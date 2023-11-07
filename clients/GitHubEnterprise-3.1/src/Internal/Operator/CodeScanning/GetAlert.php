@@ -24,12 +24,11 @@ final readonly class GetAlert
     {
     }
 
-    /** @return */
-    public function call(string $owner, string $repo, int $alertNumber): CodeScanningAlert|array
+    public function call(string $owner, string $repo, int $alertNumber): CodeScanningAlert
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\CodeScanning\GetAlert($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $alertNumber);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): CodeScanningAlert|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): CodeScanningAlert {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Client\GitHubEnterprise\Schema\Project;
 use ApiClients\Client\GitHubEnterprise\Schema\ProjectCard;
 use ApiClients\Client\GitHubEnterprise\Schema\ProjectColumn;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -23,16 +23,14 @@ final class Projects
     {
     }
 
-    /** @return Schema\Project|array{code:int} */
-    public function createForAuthenticatedUser(array $params): Project|array
+    public function createForAuthenticatedUser(array $params): Project|WithoutBody
     {
         $operator = new Internal\Operator\Projects\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Projects());
 
         return $operator->call($params);
     }
 
-    /** @return Schema\ProjectCard|array{code:int} */
-    public function createCard(array $params): ProjectCard|array
+    public function createCard(array $params): ProjectCard|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('column_id', $params) === false) {
@@ -46,8 +44,7 @@ final class Projects
         return $operator->call($arguments['column_id'], $params);
     }
 
-    /** @return Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json|array{code:int} */
-    public function moveColumn(array $params): Json|array
+    public function moveColumn(array $params): Json|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('column_id', $params) === false) {
@@ -61,8 +58,7 @@ final class Projects
         return $operator->call($arguments['column_id'], $params);
     }
 
-    /** @return */
-    public function createForRepo(array $params): Project|array
+    public function createForRepo(array $params): Project
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -82,8 +78,7 @@ final class Projects
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|array{code:int} */
-    public function moveCard(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|array
+    public function moveCard(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('card_id', $params) === false) {
@@ -97,8 +92,7 @@ final class Projects
         return $operator->call($arguments['card_id'], $params);
     }
 
-    /** @return */
-    public function createForOrg(array $params): Project|array
+    public function createForOrg(array $params): Project
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -112,8 +106,7 @@ final class Projects
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\ProjectColumn|array{code:int} */
-    public function createColumn(array $params): ProjectColumn|array
+    public function createColumn(array $params): ProjectColumn|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('project_id', $params) === false) {

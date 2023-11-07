@@ -24,12 +24,12 @@ final readonly class ListMatchingRefsListing
     {
     }
 
-    /** @return Observable<Schema\GitRef> */
+    /** @return iterable<int,Schema\GitRef> */
     public function call(string $owner, string $repo, string $ref, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Git\ListMatchingRefsListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref, $perPage, $page);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -24,12 +24,11 @@ final readonly class GetGlobalWebhook
     {
     }
 
-    /** @return */
-    public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json'): GlobalHook|array
+    public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json'): GlobalHook
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetGlobalWebhook($this->responseSchemaValidator, $this->hydrator, $hookId, $accept);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GlobalHook|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GlobalHook {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

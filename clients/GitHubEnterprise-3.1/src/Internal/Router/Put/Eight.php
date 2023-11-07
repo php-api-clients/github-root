@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Eight
@@ -14,8 +15,7 @@ final class Eight
     {
     }
 
-    /** @return array{code:int}| */
-    public function call(string $call, array $params, array $pathChunks): PullRequestReview|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|PullRequestReview
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
