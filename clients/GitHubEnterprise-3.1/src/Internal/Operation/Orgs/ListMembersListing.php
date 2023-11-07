@@ -7,6 +7,8 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\Header;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -25,8 +27,6 @@ final class ListMembersListing
 {
     public const OPERATION_ID    = 'orgs/list-members';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/members';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/members';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Filter members returned in the list. `2fa_disabled` means that only members without [two-factor authentication](https://github.com/blog/1614-two-factor-authentication) enabled will be returned. This options is only available for organization owners. **/
@@ -49,11 +49,11 @@ final class ListMembersListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{filter}', '{role}', '{per_page}', '{page}'], [$this->org, $this->filter, $this->role, $this->perPage, $this->page], self::PATH . '?filter={filter}&role={role}&per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{org}', '{filter}', '{role}', '{per_page}', '{page}'], [$this->org, $this->filter, $this->role, $this->perPage, $this->page], '/orgs/{org}/members' . '?filter={filter}&role={role}&per_page={per_page}&page={page}'));
     }
 
-    /** @return Observable<Schema\SimpleUser>|array{code: int,location: string} */
-    public function createResponse(ResponseInterface $response): Observable|array
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -70,7 +70,7 @@ final class ListMembersListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\SimpleUser::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\SimpleUser::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\SimpleUser::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -96,7 +96,7 @@ final class ListMembersListing
              * Response if requester is not an organization member
              **/
             case 302:
-                return ['code' => 302, 'location' => $response->getHeaderLine('Location')];
+                return new WithoutBody(302, [new Header('location', $response->getHeaderLine('Location'))]);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

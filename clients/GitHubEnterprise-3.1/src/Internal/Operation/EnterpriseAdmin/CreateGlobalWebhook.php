@@ -22,8 +22,6 @@ final class CreateGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/create-global-webhook';
     public const OPERATION_MATCH = 'POST /admin/hooks';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/hooks';
     /**This API is under preview and subject to change. **/
     private string $accept;
 
@@ -36,7 +34,7 @@ final class CreateGlobalWebhook
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\CreateGlobalWebhook\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace([], [], '/admin/hooks'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GlobalHook

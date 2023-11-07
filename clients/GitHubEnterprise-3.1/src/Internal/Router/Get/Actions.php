@@ -21,6 +21,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\SelectedActions;
 use ApiClients\Client\GitHubEnterprise\Schema\Workflow;
 use ApiClients\Client\GitHubEnterprise\Schema\WorkflowRun;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -33,8 +34,7 @@ final class Actions
     {
     }
 
-    /** @return */
-    public function listSelectedRepositoriesEnabledGithubActionsOrganization(array $params): Ok|array
+    public function listSelectedRepositoriesEnabledGithubActionsOrganization(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -60,8 +60,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getAllowedActionsOrganization(array $params): SelectedActions|array
+    public function getAllowedActionsOrganization(array $params): SelectedActions
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -75,8 +74,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function getSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
+    public function getSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -96,7 +94,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id']);
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return iterable<int,Schema\RunnerApplication> */
     public function listRunnerApplicationsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -111,8 +109,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function getSelfHostedRunnerForOrg(array $params): Runner|array
+    public function getSelfHostedRunnerForOrg(array $params): Runner
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -132,8 +129,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
-    /** @return */
-    public function getOrgPublicKey(array $params): ActionsPublicKey|array
+    public function getOrgPublicKey(array $params): ActionsPublicKey
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -147,8 +143,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function getOrgSecret(array $params): OrganizationActionsSecret|array
+    public function getOrgSecret(array $params): OrganizationActionsSecret
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -168,8 +163,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    /** @return */
-    public function listArtifactsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok|array
+    public function listArtifactsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListArtifactsForRepo\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -201,8 +195,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getGithubActionsPermissionsRepository(array $params): ActionsRepositoryPermissions|array
+    public function getGithubActionsPermissionsRepository(array $params): ActionsRepositoryPermissions
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -222,8 +215,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnersForRepo(array $params): Json|array
+    public function listSelfHostedRunnersForRepo(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -255,8 +247,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listWorkflowRunsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok|array
+    public function listWorkflowRunsForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -324,8 +315,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
-    /** @return */
-    public function listRepoSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok|array
+    public function listRepoSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoSecrets\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -357,8 +347,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listRepoWorkflows(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok|array
+    public function listRepoWorkflows(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -390,8 +379,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getGithubActionsPermissionsOrganization(array $params): ActionsOrganizationPermissions|array
+    public function getGithubActionsPermissionsOrganization(array $params): ActionsOrganizationPermissions
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -405,8 +393,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnerGroupsForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|array
+    public function listSelfHostedRunnerGroupsForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -432,8 +419,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnersForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|array
+    public function listSelfHostedRunnersForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -459,8 +445,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|array
+    public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -486,8 +471,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listRepoAccessToSelfHostedRunnerGroupInOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok|array
+    public function listRepoAccessToSelfHostedRunnerGroupInOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListRepoAccessToSelfHostedRunnerGroupInOrg\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -519,8 +503,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return */
-    public function listSelfHostedRunnersInGroupForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json|array
+    public function listSelfHostedRunnersInGroupForOrg(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelfHostedRunnersInGroupForOrg\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -552,8 +535,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listSelectedReposForOrgSecret(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok|array
+    public function listSelectedReposForOrgSecret(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelectedReposForOrgSecret\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -585,8 +567,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return */
-    public function getArtifact(array $params): Artifact|array
+    public function getArtifact(array $params): Artifact
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -612,8 +593,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
     }
 
-    /** @return */
-    public function getJobForWorkflowRun(array $params): Job|array
+    public function getJobForWorkflowRun(array $params): Job
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -639,8 +619,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    /** @return */
-    public function getAllowedActionsRepository(array $params): SelectedActions|array
+    public function getAllowedActionsRepository(array $params): SelectedActions
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -660,7 +639,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Observable<Schema\RunnerApplication> */
+    /** @return iterable<int,Schema\RunnerApplication> */
     public function listRunnerApplicationsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -681,8 +660,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function getSelfHostedRunnerForRepo(array $params): Runner|array
+    public function getSelfHostedRunnerForRepo(array $params): Runner
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -708,8 +686,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
-    /** @return */
-    public function getWorkflowRun(array $params): WorkflowRun|array
+    public function getWorkflowRun(array $params): WorkflowRun
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -741,8 +718,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['exclude_pull_requests']);
     }
 
-    /** @return */
-    public function getRepoPublicKey(array $params): ActionsPublicKey|array
+    public function getRepoPublicKey(array $params): ActionsPublicKey
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -762,8 +738,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function getRepoSecret(array $params): ActionsSecret|array
+    public function getRepoSecret(array $params): ActionsSecret
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -789,8 +764,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
 
-    /** @return */
-    public function getWorkflow(array $params): Workflow|array
+    public function getWorkflow(array $params): Workflow
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -816,8 +790,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
-    /** @return array{code:int,location:string} */
-    public function downloadArtifact(array $params): array
+    public function downloadArtifact(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -849,8 +822,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id'], $arguments['archive_format']);
     }
 
-    /** @return array{code:int,location:string} */
-    public function downloadJobLogsForWorkflowRun(array $params): array
+    public function downloadJobLogsForWorkflowRun(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -876,8 +848,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id']);
     }
 
-    /** @return */
-    public function listWorkflowRunArtifacts(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|array
+    public function listWorkflowRunArtifacts(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -915,8 +886,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function listJobsForWorkflowRun(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok|array
+    public function listJobsForWorkflowRun(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -960,8 +930,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $arguments['filter'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return array{code:int,location:string} */
-    public function downloadWorkflowRunLogs(array $params): array
+    public function downloadWorkflowRunLogs(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -987,8 +956,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return */
-    public function listWorkflowRuns(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|array
+    public function listWorkflowRuns(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

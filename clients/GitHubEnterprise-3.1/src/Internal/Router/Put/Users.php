@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class Users
     {
     }
 
-    /** @return array{code:int} */
-    public function follow(array $params): array
+    public function follow(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {

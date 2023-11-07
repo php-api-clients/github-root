@@ -22,8 +22,6 @@ final class UpdateLdapMappingForTeam
 {
     public const OPERATION_ID    = 'enterprise-admin/update-ldap-mapping-for-team';
     public const OPERATION_MATCH = 'PATCH /admin/ldap/teams/{team_id}/mapping';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/ldap/teams/{team_id}/mapping';
     /**The unique identifier of the team. **/
     private int $teamId;
 
@@ -36,7 +34,7 @@ final class UpdateLdapMappingForTeam
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForTeam\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{team_id}'], [$this->teamId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{team_id}'], [$this->teamId], '/admin/ldap/teams/{team_id}/mapping'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\LdapMappingTeam

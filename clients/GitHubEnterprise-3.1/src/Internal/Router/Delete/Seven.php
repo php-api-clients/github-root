@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\CodeScanningAnalysisDeletion;
 use ApiClients\Client\GitHubEnterprise\Schema\Issue;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -16,8 +17,7 @@ final class Seven
     {
     }
 
-    /** @return array{code:int}| */
-    public function call(string $call, array $params, array $pathChunks): CodeScanningAnalysisDeletion|Issue|PullRequestSimple|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|CodeScanningAnalysisDeletion|Issue|PullRequestSimple
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

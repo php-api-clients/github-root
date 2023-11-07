@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class CreateContentAttachment
 {
     public const OPERATION_ID    = 'apps/create-content-attachment';
     public const OPERATION_MATCH = 'POST /repos/{owner}/{repo}/content_references/{content_reference_id}/attachments';
-    private const METHOD         = 'POST';
-    private const PATH           = '/repos/{owner}/{repo}/content_references/{content_reference_id}/attachments';
     /**The owner of the repository. Determined from the `repository` `full_name` of the `content_reference` event. **/
     private string $owner;
     /**The name of the repository. Determined from the `repository` `full_name` of the `content_reference` event. **/
@@ -43,11 +42,10 @@ final class CreateContentAttachment
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Apps\CreateContentAttachment\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{content_reference_id}'], [$this->owner, $this->repo, $this->contentReferenceId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{owner}', '{repo}', '{content_reference_id}'], [$this->owner, $this->repo, $this->contentReferenceId], '/repos/{owner}/{repo}/content_references/{content_reference_id}/attachments'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\ContentReferenceAttachment|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ContentReferenceAttachment|array
+    public function createResponse(ResponseInterface $response): Schema\ContentReferenceAttachment|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -112,7 +110,7 @@ final class CreateContentAttachment
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
