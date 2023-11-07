@@ -21,8 +21,6 @@ final class GetGlobalWebhook
 {
     public const OPERATION_ID    = 'enterprise-admin/get-global-webhook';
     public const OPERATION_MATCH = 'GET /admin/hooks/{hook_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/hooks/{hook_id}';
     /**The unique identifier of the hook. **/
     private int $hookId;
     /**This API is under preview and subject to change. **/
@@ -36,7 +34,7 @@ final class GetGlobalWebhook
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{hook_id}'], [$this->hookId], self::PATH));
+        return new Request('GET', str_replace(['{hook_id}'], [$this->hookId], '/admin/hooks/{hook_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GlobalHook

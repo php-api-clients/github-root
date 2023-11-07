@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\GistSimple;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Two
@@ -16,8 +16,7 @@ final class Two
     {
     }
 
-    /** @return Schema\Authorization|array{code:int}|Schema\GistSimple|string */
-    public function call(string $call, array $params, array $pathChunks): Authorization|GistSimple|string|array
+    public function call(string $call, array $params, array $pathChunks): Authorization|WithoutBody|GistSimple|string
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'authorizations') {

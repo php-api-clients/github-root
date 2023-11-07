@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\SecretScanningAlert;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,8 @@ final class SecretScanning
     {
     }
 
-    /** @return Observable<Schema\SecretScanningAlert>|array{code:int} */
-    public function listAlertsForRepo(array $params): iterable
+    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -71,8 +72,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return Schema\SecretScanningAlert|array{code:int} */
-    public function getAlert(array $params): SecretScanningAlert|array
+    public function getAlert(array $params): SecretScanningAlert|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

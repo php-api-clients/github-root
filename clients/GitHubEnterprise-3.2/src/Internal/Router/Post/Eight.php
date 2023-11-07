@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted;
 use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterprise\Schema\Reaction;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Eight
@@ -18,8 +20,8 @@ final class Eight
     {
     }
 
-    /** @return |Observable<Schema\Deployment>|array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): Accepted|TeamDiscussionComment|Reaction|EmptyObject|iterable|ProtectedBranchAdminEnforced
+    /** @return Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted|Schema\TeamDiscussionComment|Schema\Reaction|Schema\EmptyObject|iterable<int,Schema\Deployment>|WithoutBody|Schema\ProtectedBranchAdminEnforced */
+    public function call(string $call, array $params, array $pathChunks): Accepted|TeamDiscussionComment|Reaction|EmptyObject|iterable|WithoutBody|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {

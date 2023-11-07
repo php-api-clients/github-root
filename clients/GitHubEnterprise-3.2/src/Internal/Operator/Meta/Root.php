@@ -23,12 +23,11 @@ final readonly class Root
     {
     }
 
-    /** @return */
-    public function call(): \ApiClients\Client\GitHubEnterprise\Schema\Root|array
+    public function call(): \ApiClients\Client\GitHubEnterprise\Schema\Root
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Meta\Root($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Root|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): \ApiClients\Client\GitHubEnterprise\Schema\Root {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

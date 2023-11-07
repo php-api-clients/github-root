@@ -12,6 +12,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\RepositorySubscription;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamMembership;
 use ApiClients\Client\GitHubEnterprise\Schema\ThreadSubscription;
 use ApiClients\Client\GitHubEnterprise\Schema\Topic;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Five
@@ -20,8 +21,7 @@ final class Five
     {
     }
 
-    /** @return array{code:int}||Schema\ThreadSubscription|Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|Schema\TeamMembership */
-    public function call(string $call, array $params, array $pathChunks): Authorization|ThreadSubscription|OrgMembership|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|RepositorySubscription|Topic|TeamMembership|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Authorization|ThreadSubscription|OrgMembership|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|RepositorySubscription|Topic|TeamMembership
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {

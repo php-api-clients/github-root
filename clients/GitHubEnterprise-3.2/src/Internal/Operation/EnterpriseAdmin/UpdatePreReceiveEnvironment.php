@@ -23,8 +23,6 @@ final class UpdatePreReceiveEnvironment
 {
     public const OPERATION_ID    = 'enterprise-admin/update-pre-receive-environment';
     public const OPERATION_MATCH = 'PATCH /admin/pre-receive-environments/{pre_receive_environment_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}';
     /**The unique identifier of the pre-receive environment. **/
     private int $preReceiveEnvironmentId;
 
@@ -37,7 +35,7 @@ final class UpdatePreReceiveEnvironment
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdatePreReceiveEnvironment\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{pre_receive_environment_id}'], [$this->preReceiveEnvironmentId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{pre_receive_environment_id}'], [$this->preReceiveEnvironmentId], '/admin/pre-receive-environments/{pre_receive_environment_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\PreReceiveEnvironment

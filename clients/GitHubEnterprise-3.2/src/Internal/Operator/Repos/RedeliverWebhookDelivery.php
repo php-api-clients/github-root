@@ -24,12 +24,11 @@ final readonly class RedeliverWebhookDelivery
     {
     }
 
-    /** @return */
-    public function call(string $owner, string $repo, int $hookId, int $deliveryId): Accepted|array
+    public function call(string $owner, string $repo, int $hookId, int $deliveryId): Accepted
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\RedeliverWebhookDelivery($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $hookId, $deliveryId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Accepted|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Accepted {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

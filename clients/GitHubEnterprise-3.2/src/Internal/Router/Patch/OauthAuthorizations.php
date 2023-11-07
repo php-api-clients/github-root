@@ -19,8 +19,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return */
-    public function updateAuthorization(array $params): Authorization|array
+    public function updateAuthorization(array $params): Authorization
     {
         $arguments = [];
         if (array_key_exists('authorization_id', $params) === false) {

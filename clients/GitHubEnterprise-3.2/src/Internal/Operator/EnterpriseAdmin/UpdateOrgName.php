@@ -24,12 +24,11 @@ final readonly class UpdateOrgName
     {
     }
 
-    /** @return */
-    public function call(string $org, array $params): Accepted|array
+    public function call(string $org, array $params): Accepted
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdateOrgName($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);
         $request   = $operation->createRequest($params);
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Accepted|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Accepted {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {
