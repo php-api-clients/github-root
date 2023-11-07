@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,7 @@ final class Orgs
     {
     }
 
-    /** @return array{code:int} */
-    public function pingWebhook(array $params): array
+    public function pingWebhook(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -41,8 +41,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    /** @return */
-    public function createWebhook(array $params): OrgHook|array
+    public function createWebhook(array $params): OrgHook
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -56,8 +55,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return */
-    public function redeliverWebhookDelivery(array $params): Json|array
+    public function redeliverWebhookDelivery(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
