@@ -21,8 +21,6 @@ final class ListCustomRepoRoles
 {
     public const OPERATION_ID    = 'orgs/list-custom-repo-roles';
     public const OPERATION_MATCH = 'GET /orgs/{org}/custom-repository-roles';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/custom-repository-roles';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -33,7 +31,7 @@ final class ListCustomRepoRoles
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
+        return new Request('GET', str_replace(['{org}'], [$this->org], '/orgs/{org}/custom-repository-roles'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Orgs\ListCustomRepoRoles\Response\ApplicationJson\Ok\Application\Json

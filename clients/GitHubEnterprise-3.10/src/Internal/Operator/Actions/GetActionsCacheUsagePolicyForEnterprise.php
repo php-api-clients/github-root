@@ -24,12 +24,11 @@ final readonly class GetActionsCacheUsagePolicyForEnterprise
     {
     }
 
-    /** @return */
-    public function call(string $enterprise): ActionsCacheUsagePolicyEnterprise|array
+    public function call(string $enterprise): ActionsCacheUsagePolicyEnterprise
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\GetActionsCacheUsagePolicyForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsCacheUsagePolicyEnterprise|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsCacheUsagePolicyEnterprise {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

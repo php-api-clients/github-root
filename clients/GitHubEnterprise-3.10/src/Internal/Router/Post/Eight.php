@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterprise\Schema\Reaction;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussionComment;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Eight
@@ -19,8 +21,8 @@ final class Eight
     {
     }
 
-    /** @return |array{code:int}|Observable<Schema\Deployment> */
-    public function call(string $call, array $params, array $pathChunks): Json|TeamDiscussionComment|Reaction|EmptyObject|Ok|iterable|ProtectedBranchAdminEnforced
+    /** @return Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|Schema\TeamDiscussionComment|Schema\Reaction|Schema\EmptyObject|Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|WithoutBody|iterable<int,Schema\Deployment>|Schema\ProtectedBranchAdminEnforced */
+    public function call(string $call, array $params, array $pathChunks): Json|TeamDiscussionComment|Reaction|EmptyObject|Ok|WithoutBody|iterable|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {

@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\Delete\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -19,8 +20,7 @@ final class Orgs
     {
     }
 
-    /** @return array{code:int} */
-    public function deleteCustomRepoRole(array $params): array
+    public function deleteCustomRepoRole(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -40,8 +40,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteWebhook(array $params): array
+    public function deleteWebhook(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -61,8 +60,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
-    /** @return array{code:int} */
-    public function removeMember(array $params): array
+    public function removeMember(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -82,8 +80,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return array{code:int} */
-    public function removeMembershipForUser(array $params): array
+    public function removeMembershipForUser(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -103,8 +100,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return array{code:int} */
-    public function removeOutsideCollaborator(array $params): array
+    public function removeOutsideCollaborator(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -124,8 +120,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return array{code:int} */
-    public function removePublicMembershipForAuthenticatedUser(array $params): array
+    public function removePublicMembershipForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -145,8 +140,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
-    /** @return */
-    public function delete(array $params): Json|array
+    public function delete(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -160,8 +154,7 @@ final class Orgs
         return $operator->call($arguments['org']);
     }
 
-    /** @return array{code:int} */
-    public function removeSecurityManagerTeam(array $params): array
+    public function removeSecurityManagerTeam(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
