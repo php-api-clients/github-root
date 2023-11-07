@@ -21,8 +21,6 @@ final class SyncLdapMappingForTeam
 {
     public const OPERATION_ID    = 'enterprise-admin/sync-ldap-mapping-for-team';
     public const OPERATION_MATCH = 'POST /admin/ldap/teams/{team_id}/sync';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/ldap/teams/{team_id}/sync';
     /**The unique identifier of the team. **/
     private int $teamId;
 
@@ -33,7 +31,7 @@ final class SyncLdapMappingForTeam
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{team_id}'], [$this->teamId], self::PATH));
+        return new Request('POST', str_replace(['{team_id}'], [$this->teamId], '/admin/ldap/teams/{team_id}/sync'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\EnterpriseAdmin\SyncLdapMappingForTeam\Response\ApplicationJson\Created

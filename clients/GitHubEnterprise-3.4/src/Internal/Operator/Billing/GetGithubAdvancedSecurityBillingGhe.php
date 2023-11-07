@@ -24,12 +24,11 @@ final readonly class GetGithubAdvancedSecurityBillingGhe
     {
     }
 
-    /** @return */
-    public function call(string $enterprise, int $perPage = 30, int $page = 1): AdvancedSecurityActiveCommitters|array
+    public function call(string $enterprise, int $perPage = 30, int $page = 1): AdvancedSecurityActiveCommitters
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Billing\GetGithubAdvancedSecurityBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise, $perPage, $page);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): AdvancedSecurityActiveCommitters|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): AdvancedSecurityActiveCommitters {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

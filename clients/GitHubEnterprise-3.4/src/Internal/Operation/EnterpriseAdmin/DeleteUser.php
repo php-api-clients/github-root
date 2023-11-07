@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin;
 
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
@@ -15,8 +16,6 @@ final class DeleteUser
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-user';
     public const OPERATION_MATCH = 'DELETE /admin/users/{username}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/admin/users/{username}';
     /**The handle for the GitHub user account. **/
     private string $username;
 
@@ -27,11 +26,10 @@ final class DeleteUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH));
+        return new Request('DELETE', str_replace(['{username}'], [$this->username], '/admin/users/{username}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -39,7 +37,7 @@ final class DeleteUser
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');
