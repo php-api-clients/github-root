@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\SecretScanning;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -25,8 +26,6 @@ final class ListAlertsForRepoListing
 {
     public const OPERATION_ID    = 'secret-scanning/list-alerts-for-repo';
     public const OPERATION_MATCH = 'LIST /repos/{owner}/{repo}/secret-scanning/alerts';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/secret-scanning/alerts';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository. The name is not case sensitive. **/
@@ -57,11 +56,11 @@ final class ListAlertsForRepoListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{state}', '{secret_type}', '{resolution}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->state, $this->secretType, $this->resolution, $this->page, $this->perPage], self::PATH . '?state={state}&secret_type={secret_type}&resolution={resolution}&page={page}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{state}', '{secret_type}', '{resolution}', '{page}', '{per_page}'], [$this->owner, $this->repo, $this->state, $this->secretType, $this->resolution, $this->page, $this->perPage], '/repos/{owner}/{repo}/secret-scanning/alerts' . '?state={state}&secret_type={secret_type}&resolution={resolution}&page={page}&per_page={per_page}'));
     }
 
-    /** @return Observable<Schema\SecretScanningAlert>|array{code: int} */
-    public function createResponse(ResponseInterface $response): Observable|array
+    /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */
+    public function createResponse(ResponseInterface $response): Observable|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -78,7 +77,7 @@ final class ListAlertsForRepoListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\SecretScanningAlert::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\SecretScanningAlert::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\SecretScanningAlert::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
@@ -104,7 +103,7 @@ final class ListAlertsForRepoListing
              * Repository is public or secret scanning is disabled for the repository
              **/
             case 404:
-                return ['code' => 404];
+                return new WithoutBody(404, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

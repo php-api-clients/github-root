@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\List;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,8 @@ final class Orgs
     {
     }
 
-    /** @return Observable<Schema\OrganizationSimple>|array{code:int} */
-    public function listForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\OrganizationSimple>|WithoutBody */
+    public function listForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -47,7 +48,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\OrgHook> */
+    /** @return iterable<int,Schema\OrgHook> */
     public function listWebhooksListing(array $params): iterable
     {
         $arguments = [];
@@ -80,7 +81,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listMembersListing(array $params): iterable
     {
         $arguments = [];
@@ -125,7 +126,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listOutsideCollaboratorsListing(array $params): iterable
     {
         $arguments = [];
@@ -164,7 +165,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listPublicMembersListing(array $params): iterable
     {
         $arguments = [];
@@ -197,8 +198,8 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\OrgMembership>|array{code:int} */
-    public function listMembershipsForAuthenticatedUserListing(array $params): iterable
+    /** @return iterable<int,Schema\OrgMembership>|WithoutBody */
+    public function listMembershipsForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('state', $params) === false) {
@@ -230,7 +231,7 @@ final class Orgs
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\OrganizationSimple> */
+    /** @return iterable<int,Schema\OrganizationSimple> */
     public function listForUserListing(array $params): iterable
     {
         $arguments = [];

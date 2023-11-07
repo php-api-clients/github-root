@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\BasicError;
 use ApiClients\Client\GitHubEnterprise\Schema\BranchWithProtection;
@@ -20,6 +21,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReviewComment;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestSimple;
 use ApiClients\Client\GitHubEnterprise\Schema\Reaction;
 use ApiClients\Client\GitHubEnterprise\Schema\ReleaseAsset;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -28,8 +30,8 @@ final class Seven
     {
     }
 
-    /** @return |Schema\ContentReferenceAttachment|array{code:int}|Schema\DeploymentBranchPolicy|Observable<Schema\Label>|Schema\BasicError|Schema\PullRequestSimple|Schema\ReleaseAsset */
-    public function call(string $call, array $params, array $pathChunks): AuthenticationToken|BranchWithProtection|EmptyObject|Reaction|CommitComment|ContentReferenceAttachment|DeploymentStatus|DeploymentBranchPolicy|Issue|IssueComment|iterable|BasicError|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
+    /** @return Schema\AuthenticationToken|Schema\BranchWithProtection|Schema\EmptyObject|Schema\Reaction|Schema\CommitComment|Schema\ContentReferenceAttachment|WithoutBody|Schema\DeploymentStatus|Schema\DeploymentBranchPolicy|Schema\Issue|Schema\IssueComment|iterable<int,Schema\Label>|Schema\BasicError|Schema\PullRequestReviewComment|Schema\PullRequestSimple|Schema\PullRequestReview|Schema\ReleaseAsset */
+    public function call(string $call, array $params, array $pathChunks): AuthenticationToken|BranchWithProtection|EmptyObject|Reaction|CommitComment|ContentReferenceAttachment|WithoutBody|DeploymentStatus|DeploymentBranchPolicy|Issue|IssueComment|iterable|BasicError|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'repos') {

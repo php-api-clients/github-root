@@ -21,8 +21,6 @@ final class GetForRepo
 {
     public const OPERATION_ID    = 'licenses/get-for-repo';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/license';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/license';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository. The name is not case sensitive. **/
@@ -36,7 +34,7 @@ final class GetForRepo
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
+        return new Request('GET', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/license'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\LicenseContent

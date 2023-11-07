@@ -21,8 +21,6 @@ final class GetMaintenanceStatus
 {
     public const OPERATION_ID    = 'enterprise-admin/get-maintenance-status';
     public const OPERATION_MATCH = 'GET /setup/api/maintenance';
-    private const METHOD         = 'GET';
-    private const PATH           = '/setup/api/maintenance';
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Setup\Api\Maintenance $hydrator)
     {
@@ -30,7 +28,7 @@ final class GetMaintenanceStatus
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace([], [], self::PATH));
+        return new Request('GET', str_replace([], [], '/setup/api/maintenance'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\MaintenanceStatus

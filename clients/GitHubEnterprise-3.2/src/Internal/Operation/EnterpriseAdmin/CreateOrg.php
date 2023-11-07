@@ -22,8 +22,6 @@ final class CreateOrg
 {
     public const OPERATION_ID    = 'enterprise-admin/create-org';
     public const OPERATION_MATCH = 'POST /admin/organizations';
-    private const METHOD         = 'POST';
-    private const PATH           = '/admin/organizations';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Admin\Organizations $hydrator)
     {
@@ -33,7 +31,7 @@ final class CreateOrg
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\CreateOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace([], [], '/admin/organizations'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrganizationSimple

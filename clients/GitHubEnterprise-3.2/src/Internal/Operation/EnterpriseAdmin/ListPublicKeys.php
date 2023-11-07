@@ -24,8 +24,6 @@ final class ListPublicKeys
 {
     public const OPERATION_ID    = 'enterprise-admin/list-public-keys';
     public const OPERATION_MATCH = 'GET /admin/keys';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/keys';
     /**Only show public keys accessed after the given time. **/
     private string $since;
     /**The number of results per page (max 100). **/
@@ -45,7 +43,7 @@ final class ListPublicKeys
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{since}', '{per_page}', '{page}', '{direction}', '{sort}'], [$this->since, $this->perPage, $this->page, $this->direction, $this->sort], self::PATH . '?since={since}&per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
+        return new Request('GET', str_replace(['{since}', '{per_page}', '{page}', '{direction}', '{sort}'], [$this->since, $this->perPage, $this->page, $this->direction, $this->sort], '/admin/keys' . '?since={since}&per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
     }
 
     /** @return Observable<Schema\PublicKeyFull> */
@@ -66,7 +64,7 @@ final class ListPublicKeys
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\PublicKeyFull::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\PublicKeyFull::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\PublicKeyFull::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

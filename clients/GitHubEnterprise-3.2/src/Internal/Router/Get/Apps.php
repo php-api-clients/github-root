@@ -15,6 +15,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListInstallationsF
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookConfig;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -27,7 +28,7 @@ final class Apps
     {
     }
 
-    /** @return Observable<Schema\Installation> */
+    /** @return iterable<int,Schema\Installation> */
     public function listInstallations(array $params): iterable
     {
         $arguments = [];
@@ -60,8 +61,7 @@ final class Apps
         return $operator->call($arguments['since'], $arguments['outdated'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getBySlug(array $params): Integration|array
+    public function getBySlug(array $params): Integration
     {
         $arguments = [];
         if (array_key_exists('app_slug', $params) === false) {
@@ -75,8 +75,7 @@ final class Apps
         return $operator->call($arguments['app_slug']);
     }
 
-    /** @return Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok|array{code:int} */
-    public function listReposAccessibleToInstallation(array $params): Ok|array
+    public function listReposAccessibleToInstallation(array $params): Ok|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -96,8 +95,7 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\Operations\Apps\ListInstallationsForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|array{code:int} */
-    public function listInstallationsForAuthenticatedUser(array $params): Json|array
+    public function listInstallationsForAuthenticatedUser(array $params): Json|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -117,15 +115,14 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getWebhookConfigForApp(array $params): WebhookConfig|array
+    public function getWebhookConfigForApp(array $params): WebhookConfig
     {
         $operator = new Internal\Operator\Apps\GetWebhookConfigForApp($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\HookDeliveryItem> */
+    /** @return iterable<int,Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -146,8 +143,7 @@ final class Apps
         return $operator->call($arguments['cursor'], $arguments['per_page']);
     }
 
-    /** @return */
-    public function getInstallation(array $params): Installation|array
+    public function getInstallation(array $params): Installation
     {
         $arguments = [];
         if (array_key_exists('installation_id', $params) === false) {
@@ -161,8 +157,7 @@ final class Apps
         return $operator->call($arguments['installation_id']);
     }
 
-    /** @return */
-    public function getOrgInstallation(array $params): Installation|array
+    public function getOrgInstallation(array $params): Installation
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -176,8 +171,7 @@ final class Apps
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function getUserInstallation(array $params): Installation|array
+    public function getUserInstallation(array $params): Installation
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -191,16 +185,14 @@ final class Apps
         return $operator->call($arguments['username']);
     }
 
-    /** @return */
-    public function getAuthenticated(array $params): Integration|array
+    public function getAuthenticated(array $params): Integration
     {
         $operator = new Internal\Operator\Apps\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App());
 
         return $operator->call();
     }
 
-    /** @return */
-    public function getWebhookDelivery(array $params): HookDelivery|array
+    public function getWebhookDelivery(array $params): HookDelivery
     {
         $arguments = [];
         if (array_key_exists('delivery_id', $params) === false) {
@@ -214,8 +206,7 @@ final class Apps
         return $operator->call($arguments['delivery_id']);
     }
 
-    /** @return */
-    public function checkAuthorization(array $params): Authorization|array
+    public function checkAuthorization(array $params): Authorization
     {
         $arguments = [];
         if (array_key_exists('client_id', $params) === false) {
@@ -235,8 +226,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
-    /** @return */
-    public function getRepoInstallation(array $params): Installation|BasicError|array
+    public function getRepoInstallation(array $params): Installation|BasicError
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -256,8 +246,7 @@ final class Apps
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|array{code:int} */
-    public function listInstallationReposForAuthenticatedUser(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|array
+    public function listInstallationReposForAuthenticatedUser(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('installation_id', $params) === false) {
