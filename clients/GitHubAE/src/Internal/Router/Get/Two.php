@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ApiOverview;
 use ApiClients\Client\GitHubAE\Schema\Feed;
 use ApiClients\Client\GitHubAE\Schema\Integration;
@@ -12,6 +13,7 @@ use ApiClients\Client\GitHubAE\Schema\Operations\Emojis\Get\Response\Application
 use ApiClients\Client\GitHubAE\Schema\PrivateUser;
 use ApiClients\Client\GitHubAE\Schema\PublicUser;
 use ApiClients\Client\GitHubAE\Schema\RateLimitOverview;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 
@@ -21,8 +23,8 @@ final class Two
     {
     }
 
-    /** @return |Observable<Schema\CodeOfConduct>|array{code:int}|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok\Application\Json|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Schema\ApiOverview|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Schema\RateLimitOverview|Schema\PrivateUser|Schema\PublicUser|Observable<Schema\SimpleUser> */
-    public function call(string $call, array $params, array $pathChunks): Integration|iterable|Json|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
+    /** @return Schema\Integration|iterable<int,Schema\CodeOfConduct>|WithoutBody|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok\Application\Json|Schema\Feed|iterable<int,Schema\BaseGist>|iterable<int,Schema\Issue>|iterable<int,Schema\LicenseSimple>|Schema\ApiOverview|iterable<int,Schema\Thread>|ResponseInterface|iterable<int,Schema\OrganizationSimple>|Schema\RateLimitOverview|Schema\PrivateUser|Schema\PublicUser|iterable<int,Schema\SimpleUser>|string */
+    public function call(string $call, array $params, array $pathChunks): Integration|iterable|WithoutBody|Json|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {

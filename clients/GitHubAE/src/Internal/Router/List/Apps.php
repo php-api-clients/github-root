@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\List;
 use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,8 @@ final class Apps
     {
     }
 
-    /** @return Observable<Schema\IntegrationInstallationRequest>|array{code:int} */
-    public function listInstallationRequestsForAuthenticatedAppListing(array $params): iterable
+    /** @return iterable<int,Schema\IntegrationInstallationRequest>|WithoutBody */
+    public function listInstallationRequestsForAuthenticatedAppListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -47,7 +48,7 @@ final class Apps
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Installation> */
+    /** @return iterable<int,Schema\Installation> */
     public function listInstallationsListing(array $params): iterable
     {
         $arguments = [];

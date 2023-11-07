@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class Activity
     {
     }
 
-    /** @return array{code:int} */
-    public function markThreadAsRead(array $params): array
+    public function markThreadAsRead(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('thread_id', $params) === false) {

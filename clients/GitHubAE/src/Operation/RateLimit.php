@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Operation;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\RateLimitOverview;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class RateLimit
 {
@@ -14,8 +14,7 @@ final class RateLimit
     {
     }
 
-    /** @return Schema\RateLimitOverview|array{code:int} */
-    public function get(): RateLimitOverview|array
+    public function get(): RateLimitOverview|WithoutBody
     {
         return $this->operators->rateLimit👷Get()->call();
     }

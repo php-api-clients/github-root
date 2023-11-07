@@ -24,12 +24,11 @@ final readonly class ExternalIdpGroupInfoForOrg
     {
     }
 
-    /** @return */
-    public function call(string $org, int $groupId): ExternalGroup|array
+    public function call(string $org, int $groupId): ExternalGroup
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Teams\ExternalIdpGroupInfoForOrg($this->responseSchemaValidator, $this->hydrator, $org, $groupId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ExternalGroup|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ExternalGroup {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

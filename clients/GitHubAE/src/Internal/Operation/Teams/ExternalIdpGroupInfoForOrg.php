@@ -21,8 +21,6 @@ final class ExternalIdpGroupInfoForOrg
 {
     public const OPERATION_ID    = 'teams/external-idp-group-info-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/external-group/{group_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/external-group/{group_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the group. **/
@@ -36,7 +34,7 @@ final class ExternalIdpGroupInfoForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{group_id}'], [$this->org, $this->groupId], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{group_id}'], [$this->org, $this->groupId], '/orgs/{org}/external-group/{group_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ExternalGroup

@@ -20,7 +20,7 @@ final class Reactions
     {
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<int,Schema\Reaction> */
     public function listForTeamDiscussionInOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -71,7 +71,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<int,Schema\Reaction> */
     public function listForIssueCommentListing(array $params): iterable
     {
         $arguments = [];
@@ -122,7 +122,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<int,Schema\Reaction> */
     public function listForPullRequestReviewCommentListing(array $params): iterable
     {
         $arguments = [];
@@ -173,7 +173,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<int,Schema\Reaction> */
     public function listForTeamDiscussionCommentInOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -230,7 +230,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<int,Schema\Reaction> */
     public function listForCommitCommentListing(array $params): iterable
     {
         $arguments = [];
@@ -281,7 +281,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<int,Schema\Reaction> */
     public function listForIssueListing(array $params): iterable
     {
         $arguments = [];
@@ -332,7 +332,7 @@ final class Reactions
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Reaction> */
+    /** @return iterable<int,Schema\Reaction> */
     public function listForReleaseListing(array $params): iterable
     {
         $arguments = [];

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubAE\Schema\OrgMembership;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -21,8 +21,7 @@ final class Orgs
     {
     }
 
-    /** @return */
-    public function setMembershipForUser(array $params): OrgMembership|array
+    public function setMembershipForUser(array $params): OrgMembership
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -42,8 +41,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username'], $params);
     }
 
-    /** @return Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|array{code:int} */
-    public function convertMemberToOutsideCollaborator(array $params): Json|array
+    public function convertMemberToOutsideCollaborator(array $params): Json|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

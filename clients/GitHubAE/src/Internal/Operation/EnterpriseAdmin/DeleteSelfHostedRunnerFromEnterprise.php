@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin;
 
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use RingCentral\Psr7\Request;
@@ -15,8 +16,6 @@ final class DeleteSelfHostedRunnerFromEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-self-hosted-runner-from-enterprise';
     public const OPERATION_MATCH = 'DELETE /enterprises/{enterprise}/actions/runners/{runner_id}';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner. **/
@@ -30,11 +29,10 @@ final class DeleteSelfHostedRunnerFromEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], self::PATH));
+        return new Request('DELETE', str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], '/enterprises/{enterprise}/actions/runners/{runner_id}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -42,7 +40,7 @@ final class DeleteSelfHostedRunnerFromEnterprise
              * Response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

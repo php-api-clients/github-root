@@ -19,8 +19,7 @@ final class Actions
     {
     }
 
-    /** @return */
-    public function updateSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
+    public function updateSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

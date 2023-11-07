@@ -11,6 +11,7 @@ use ApiClients\Client\GitHubAE\Schema\OrgMembership;
 use ApiClients\Client\GitHubAE\Schema\ProjectCard;
 use ApiClients\Client\GitHubAE\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubAE\Schema\TeamFull;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Five
@@ -19,8 +20,7 @@ final class Five
     {
     }
 
-    /** @return |Schema\ProjectCard|array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): GistComment|OrgHook|TeamFull|ProjectCard|TeamDiscussion|OrgMembership|array
+    public function call(string $call, array $params, array $pathChunks): GistComment|OrgHook|TeamFull|ProjectCard|WithoutBody|TeamDiscussion|OrgMembership
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {

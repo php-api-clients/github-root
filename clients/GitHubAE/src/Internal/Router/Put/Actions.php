@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +20,7 @@ final class Actions
     {
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsPermissionsOrganization(array $params): array
+    public function setGithubActionsPermissionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -35,8 +34,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setSelectedRepositoriesEnabledGithubActionsOrganization(array $params): array
+    public function setSelectedRepositoriesEnabledGithubActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -50,8 +48,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setAllowedActionsOrganization(array $params): array
+    public function setAllowedActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -65,8 +62,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsDefaultWorkflowPermissionsOrganization(array $params): array
+    public function setGithubActionsDefaultWorkflowPermissionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -80,8 +76,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return Schema\EmptyObject|array{code:int} */
-    public function createOrUpdateOrgSecret(array $params): EmptyObject|array
+    public function createOrUpdateOrgSecret(array $params): EmptyObject|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -101,8 +96,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsPermissionsRepository(array $params): array
+    public function setGithubActionsPermissionsRepository(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -122,8 +116,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return array{code:int} */
-    public function enableSelectedRepositoryGithubActionsOrganization(array $params): array
+    public function enableSelectedRepositoryGithubActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -143,8 +136,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['repository_id']);
     }
 
-    /** @return array{code:int} */
-    public function setSelectedReposForOrgSecret(array $params): array
+    public function setSelectedReposForOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -164,8 +156,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setAllowedActionsRepository(array $params): array
+    public function setAllowedActionsRepository(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -185,8 +176,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return Schema\EmptyObject|array{code:int} */
-    public function createOrUpdateRepoSecret(array $params): EmptyObject|array
+    public function createOrUpdateRepoSecret(array $params): EmptyObject|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -212,8 +202,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name'], $params);
     }
 
-    /** @return array{code:int} */
-    public function addSelfHostedRunnerToGroupForOrg(array $params): array
+    public function addSelfHostedRunnerToGroupForOrg(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -239,8 +228,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
-    /** @return array{code:int} */
-    public function addSelectedRepoToOrgSecret(array $params): array
+    public function addSelectedRepoToOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -266,8 +254,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }
 
-    /** @return array{code:int} */
-    public function disableWorkflow(array $params): array
+    public function disableWorkflow(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -293,8 +280,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
-    /** @return array{code:int} */
-    public function enableWorkflow(array $params): array
+    public function enableWorkflow(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

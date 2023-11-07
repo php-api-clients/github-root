@@ -24,12 +24,11 @@ final readonly class GetPreReceiveEnvironment
     {
     }
 
-    /** @return */
-    public function call(int $preReceiveEnvironmentId): PreReceiveEnvironment|array
+    public function call(int $preReceiveEnvironmentId): PreReceiveEnvironment
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetPreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator, $preReceiveEnvironmentId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PreReceiveEnvironment|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PreReceiveEnvironment {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

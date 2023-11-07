@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\List;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
 use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Two
@@ -14,8 +15,8 @@ final class Two
     {
     }
 
-    /** @return Observable<Schema\BaseGist>|array{code:int}|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Observable<Schema\Thread> */
-    public function call(string $call, array $params, array $pathChunks): iterable
+    /** @return iterable<int,Schema\BaseGist>|WithoutBody|iterable<int,Schema\Issue>|iterable<int,Schema\LicenseSimple>|iterable<int,Schema\Thread> */
+    public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {

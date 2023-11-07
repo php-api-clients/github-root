@@ -21,8 +21,6 @@ final class CreateRegistrationTokenForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/create-registration-token-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runners/registration-token';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/registration-token';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -33,7 +31,7 @@ final class CreateRegistrationTokenForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('POST', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/runners/registration-token'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\AuthenticationToken

@@ -21,8 +21,6 @@ final class GetPreReceiveEnvironment
 {
     public const OPERATION_ID    = 'enterprise-admin/get-pre-receive-environment';
     public const OPERATION_MATCH = 'GET /admin/pre-receive-environments/{pre_receive_environment_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/admin/pre-receive-environments/{pre_receive_environment_id}';
     /**The unique identifier of the pre-receive environment. **/
     private int $preReceiveEnvironmentId;
 
@@ -33,7 +31,7 @@ final class GetPreReceiveEnvironment
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{pre_receive_environment_id}'], [$this->preReceiveEnvironmentId], self::PATH));
+        return new Request('GET', str_replace(['{pre_receive_environment_id}'], [$this->preReceiveEnvironmentId], '/admin/pre-receive-environments/{pre_receive_environment_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\PreReceiveEnvironment

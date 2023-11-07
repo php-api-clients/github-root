@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class Users
     {
     }
 
-    /** @return array{code:int} */
-    public function unfollow(array $params): array
+    public function unfollow(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -33,8 +33,7 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
-    /** @return array{code:int} */
-    public function deleteGpgKeyForAuthenticatedUser(array $params): array
+    public function deleteGpgKeyForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('gpg_key_id', $params) === false) {
@@ -48,8 +47,7 @@ final class Users
         return $operator->call($arguments['gpg_key_id']);
     }
 
-    /** @return array{code:int} */
-    public function deletePublicSshKeyForAuthenticatedUser(array $params): array
+    public function deletePublicSshKeyForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('key_id', $params) === false) {

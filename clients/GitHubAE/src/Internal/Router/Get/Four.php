@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\EnterpriseCommentOverview;
 use ApiClients\Client\GitHubAE\Schema\EnterpriseGistOverview;
@@ -34,6 +35,7 @@ use ApiClients\Client\GitHubAE\Schema\Repository;
 use ApiClients\Client\GitHubAE\Schema\StarredRepository;
 use ApiClients\Client\GitHubAE\Schema\Thread;
 use ApiClients\Client\GitHubAE\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -42,8 +44,8 @@ final class Four
     {
     }
 
-    /** @return |Observable<Schema\HookDeliveryItem>|Observable<Schema\AuditLogEvent>|Observable<Schema\GistComment>|array{code:int}|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Schema\GitignoreTemplate|Schema\Thread|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\SimpleUser>|Observable<Schema\Migration>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|Schema\ProjectColumn|Observable<Schema\ProjectColumn>|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Schema\GpgKey|Schema\Key|Observable<Schema\OrgMembership>|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple> */
-    public function call(string $call, array $params, array $pathChunks): GlobalHook|PreReceiveEnvironment|WebhookConfig|iterable|Installation|LicenseInfo|EnterpriseOverview|EnterpriseCommentOverview|EnterpriseGistOverview|EnterpriseHookOverview|EnterpriseIssueOverview|EnterpriseMilestoneOverview|EnterpriseOrganizationOverview|EnterprisePageOverview|EnterprisePullRequestOverview|EnterpriseRepositoryOverview|EnterpriseUserOverview|GistSimple|GitignoreTemplate|Thread|ExternalGroups|Ok|ProjectColumn|FullRepository|BasicError|GpgKey|Key|Hovercard|StarredRepository|Repository
+    /** @return Schema\GlobalHook|Schema\PreReceiveEnvironment|Schema\WebhookConfig|iterable<int,Schema\HookDeliveryItem>|Schema\Installation|Schema\LicenseInfo|Schema\EnterpriseOverview|Schema\EnterpriseCommentOverview|Schema\EnterpriseGistOverview|Schema\EnterpriseHookOverview|Schema\EnterpriseIssueOverview|Schema\EnterpriseMilestoneOverview|Schema\EnterpriseOrganizationOverview|Schema\EnterprisePageOverview|Schema\EnterprisePullRequestOverview|Schema\EnterpriseRepositoryOverview|Schema\EnterpriseUserOverview|iterable<int,Schema\AuditLogEvent>|iterable<int,Schema\GistComment>|WithoutBody|iterable<int,Schema\GistCommit>|iterable<int,Schema\GistSimple>|Schema\GistSimple|Schema\GitignoreTemplate|Schema\Thread|Schema\ExternalGroups|iterable<int,Schema\OrgHook>|Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|iterable<int,Schema\Issue>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\Migration>|iterable<int,Schema\Project>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\Team>|Schema\ProjectColumn|iterable<int,Schema\ProjectColumn>|Schema\FullRepository|Schema\BasicError|iterable<int,Schema\TeamDiscussion>|iterable<int,Schema\TeamProject>|Schema\GpgKey|Schema\Key|iterable<int,Schema\OrgMembership>|iterable<int,Schema\Event>|iterable<int,Schema\BaseGist>|iterable<int,Schema\GpgKey>|Schema\Hovercard|iterable<int,Schema\KeySimple>|iterable<int,Schema\OrganizationSimple>|Schema\StarredRepository|Schema\Repository */
+    public function call(string $call, array $params, array $pathChunks): GlobalHook|PreReceiveEnvironment|WebhookConfig|iterable|Installation|LicenseInfo|EnterpriseOverview|EnterpriseCommentOverview|EnterpriseGistOverview|EnterpriseHookOverview|EnterpriseIssueOverview|EnterpriseMilestoneOverview|EnterpriseOrganizationOverview|EnterprisePageOverview|EnterprisePullRequestOverview|EnterpriseRepositoryOverview|EnterpriseUserOverview|WithoutBody|GistSimple|GitignoreTemplate|Thread|ExternalGroups|Ok|ProjectColumn|FullRepository|BasicError|GpgKey|Key|Hovercard|StarredRepository|Repository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

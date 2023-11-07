@@ -21,8 +21,6 @@ final class GetSelfHostedRunnerForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/get-self-hosted-runner-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runners/{runner_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/{runner_id}';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**Unique identifier of the self-hosted runner. **/
@@ -36,7 +34,7 @@ final class GetSelfHostedRunnerForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}', '{runner_id}'], [$this->enterprise, $this->runnerId], '/enterprises/{enterprise}/actions/runners/{runner_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Runner

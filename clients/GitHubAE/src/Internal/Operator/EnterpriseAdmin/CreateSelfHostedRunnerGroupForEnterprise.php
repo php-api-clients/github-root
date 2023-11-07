@@ -24,12 +24,11 @@ final readonly class CreateSelfHostedRunnerGroupForEnterprise
     {
     }
 
-    /** @return */
-    public function call(string $enterprise, array $params): RunnerGroupsEnterprise|array
+    public function call(string $enterprise, array $params): RunnerGroupsEnterprise
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest($params);
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RunnerGroupsEnterprise|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): RunnerGroupsEnterprise {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

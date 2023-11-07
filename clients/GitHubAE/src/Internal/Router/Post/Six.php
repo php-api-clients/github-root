@@ -17,6 +17,7 @@ use ApiClients\Client\GitHubAE\Schema\ShortBlob;
 use ApiClients\Client\GitHubAE\Schema\Status;
 use ApiClients\Client\GitHubAE\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubAE\Schema\TeamDiscussionComment;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -25,8 +26,7 @@ final class Six
     {
     }
 
-    /** @return |array{code:int}|Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|Schema\CodeScanningSarifsReceipt */
-    public function call(string $call, array $params, array $pathChunks): Json|AuthenticationToken|TeamDiscussion|\ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|CodeScanningSarifsReceipt|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|Status|TeamDiscussionComment|array
+    public function call(string $call, array $params, array $pathChunks): Json|AuthenticationToken|WithoutBody|TeamDiscussion|\ApiClients\Client\GitHubAE\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|CodeScanningSarifsReceipt|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|Status|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {

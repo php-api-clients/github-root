@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\PullRequestReview;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Eight
@@ -15,8 +17,8 @@ final class Eight
     {
     }
 
-    /** @return array{code:int}|Observable<Schema\Label>|Schema\BasicError| */
-    public function call(string $call, array $params, array $pathChunks): iterable|BasicError|PullRequestReview
+    /** @return WithoutBody|iterable<int,Schema\Label>|Schema\BasicError|Schema\PullRequestReview */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|iterable|BasicError|PullRequestReview
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
