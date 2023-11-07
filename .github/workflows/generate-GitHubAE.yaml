@@ -2,7 +2,7 @@ name: "Generate: GitHubAE"
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '13 5 * * *'
+    - cron:  '13 16 * * *'
 jobs:
   supported-versions-matrix:
     name: Supported Versions Matrix GitHubAE
