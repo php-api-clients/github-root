@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -15,8 +15,7 @@ final class Four
     {
     }
 
-    /** @return array{code:int}|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): BasicError|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|BasicError
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

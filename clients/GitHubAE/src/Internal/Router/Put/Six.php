@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubAE\Internal\Routers;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Client\GitHubAE\Schema\Environment;
 use ApiClients\Client\GitHubAE\Schema\FileCommit;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -16,8 +17,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}|Schema\EmptyObject| */
-    public function call(string $call, array $params, array $pathChunks): EmptyObject|FileCommit|Environment|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|EmptyObject|FileCommit|Environment
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

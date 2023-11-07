@@ -24,12 +24,11 @@ final readonly class GetAllowedActionsEnterprise
     {
     }
 
-    /** @return */
-    public function call(string $enterprise): SelectedActions|array
+    public function call(string $enterprise): SelectedActions
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetAllowedActionsEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): SelectedActions|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): SelectedActions {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -13,8 +14,7 @@ final class Four
     {
     }
 
-    /** @return array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {

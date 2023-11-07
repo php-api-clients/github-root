@@ -24,12 +24,11 @@ final readonly class GetUserStats
     {
     }
 
-    /** @return */
-    public function call(): EnterpriseUserOverview|array
+    public function call(): EnterpriseUserOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetUserStats($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseUserOverview|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseUserOverview {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

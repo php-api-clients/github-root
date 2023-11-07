@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Stream;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironmentDownloadStatus;
 use InvalidArgumentException;
 
@@ -14,7 +15,7 @@ final class Six
     {
     }
 
-    /** @return |Observable<string> */
+    /** @return Schema\PreReceiveEnvironmentDownloadStatus|iterable<int,string> */
     public function call(string $call, array $params, array $pathChunks): PreReceiveEnvironmentDownloadStatus|iterable
     {
         if ($pathChunks[0] === '') {

@@ -12,6 +12,7 @@ use ApiClients\Client\GitHubAE\Schema\Key;
 use ApiClients\Client\GitHubAE\Schema\PrivateUser;
 use ApiClients\Client\GitHubAE\Schema\PublicUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -24,8 +25,8 @@ final class Users
     {
     }
 
-    /** @return Observable<Schema\SimpleUser>|array{code:int} */
-    public function listFollowersForAuthenticatedUser(array $params): iterable
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function listFollowersForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -45,8 +46,8 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser>|array{code:int} */
-    public function listFollowedByAuthenticatedUser(array $params): iterable
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function listFollowedByAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -66,8 +67,8 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GpgKey>|array{code:int} */
-    public function listGpgKeysForAuthenticatedUser(array $params): iterable
+    /** @return iterable<int,Schema\GpgKey>|WithoutBody */
+    public function listGpgKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -87,8 +88,8 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Key>|array{code:int} */
-    public function listPublicSshKeysForAuthenticatedUser(array $params): iterable
+    /** @return iterable<int,Schema\Key>|WithoutBody */
+    public function listPublicSshKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('per_page', $params) === false) {
@@ -108,8 +109,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getByUsername(array $params): PrivateUser|PublicUser|array
+    public function getByUsername(array $params): PrivateUser|PublicUser
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -123,8 +123,7 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
-    /** @return array{code:int} */
-    public function checkPersonIsFollowedByAuthenticated(array $params): array
+    public function checkPersonIsFollowedByAuthenticated(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -138,8 +137,7 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
-    /** @return Schema\GpgKey|array{code:int} */
-    public function getGpgKeyForAuthenticatedUser(array $params): GpgKey|array
+    public function getGpgKeyForAuthenticatedUser(array $params): GpgKey|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('gpg_key_id', $params) === false) {
@@ -153,8 +151,7 @@ final class Users
         return $operator->call($arguments['gpg_key_id']);
     }
 
-    /** @return Schema\Key|array{code:int} */
-    public function getPublicSshKeyForAuthenticatedUser(array $params): Key|array
+    public function getPublicSshKeyForAuthenticatedUser(array $params): Key|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('key_id', $params) === false) {
@@ -168,7 +165,7 @@ final class Users
         return $operator->call($arguments['key_id']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listFollowersForUser(array $params): iterable
     {
         $arguments = [];
@@ -195,7 +192,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listFollowingForUser(array $params): iterable
     {
         $arguments = [];
@@ -222,7 +219,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GpgKey> */
+    /** @return iterable<int,Schema\GpgKey> */
     public function listGpgKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -249,8 +246,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
-    public function getContextForUser(array $params): Hovercard|array
+    public function getContextForUser(array $params): Hovercard
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -276,7 +272,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
     }
 
-    /** @return Observable<Schema\KeySimple> */
+    /** @return iterable<int,Schema\KeySimple> */
     public function listPublicKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -303,16 +299,15 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Schema\PrivateUser|Schema\PublicUser|array{code:int} */
-    public function getAuthenticated(array $params): PrivateUser|PublicUser|array
+    public function getAuthenticated(array $params): PrivateUser|PublicUser|WithoutBody
     {
         $operator = new Internal\Operator\Users\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User());
 
         return $operator->call();
     }
 
-    /** @return Observable<Schema\SimpleUser>|array{code:int} */
-    public function list(array $params): iterable
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function list(array $params): iterable|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('since', $params) === false) {
@@ -332,8 +327,7 @@ final class Users
         return $operator->call($arguments['since'], $arguments['per_page']);
     }
 
-    /** @return array{code:int} */
-    public function checkFollowingForUser(array $params): array
+    public function checkFollowingForUser(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {

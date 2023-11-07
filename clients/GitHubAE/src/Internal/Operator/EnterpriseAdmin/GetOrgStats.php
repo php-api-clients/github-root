@@ -24,12 +24,11 @@ final readonly class GetOrgStats
     {
     }
 
-    /** @return */
-    public function call(): EnterpriseOrganizationOverview|array
+    public function call(): EnterpriseOrganizationOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetOrgStats($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseOrganizationOverview|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseOrganizationOverview {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

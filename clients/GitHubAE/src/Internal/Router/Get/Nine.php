@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\TeamDiscussionComment;
 use ApiClients\Client\GitHubAE\Schema\WorkflowRun;
 use InvalidArgumentException;
@@ -15,7 +16,7 @@ final class Nine
     {
     }
 
-    /** @return |Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser>|Observable<Schema\ReviewComment> */
+    /** @return Schema\TeamDiscussionComment|Schema\WorkflowRun|iterable<int,string>|iterable<int,Schema\Integration>|iterable<int,Schema\Team>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\ReviewComment> */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussionComment|WorkflowRun|iterable
     {
         if ($pathChunks[0] === '') {

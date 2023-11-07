@@ -24,12 +24,11 @@ final readonly class GetSelfHostedRunnerForEnterprise
     {
     }
 
-    /** @return */
-    public function call(string $enterprise, int $runnerId): Runner|array
+    public function call(string $enterprise, int $runnerId): Runner
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $runnerId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Runner|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Runner {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

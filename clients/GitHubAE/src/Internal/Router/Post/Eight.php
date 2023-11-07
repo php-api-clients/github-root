@@ -10,6 +10,7 @@ use ApiClients\Client\GitHubAE\Schema\Operations\Orgs\RedeliverWebhookDelivery\R
 use ApiClients\Client\GitHubAE\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubAE\Schema\Reaction;
 use ApiClients\Client\GitHubAE\Schema\TeamDiscussionComment;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Eight
@@ -18,8 +19,7 @@ final class Eight
     {
     }
 
-    /** @return |array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): Json|TeamDiscussionComment|Reaction|EmptyObject|ProtectedBranchAdminEnforced|array
+    public function call(string $call, array $params, array $pathChunks): Json|TeamDiscussionComment|Reaction|EmptyObject|WithoutBody|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {

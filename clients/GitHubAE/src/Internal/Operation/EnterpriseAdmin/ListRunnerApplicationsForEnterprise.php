@@ -24,8 +24,6 @@ final class ListRunnerApplicationsForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-runner-applications-for-enterprise';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/actions/runners/downloads';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/actions/runners/downloads';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -36,7 +34,7 @@ final class ListRunnerApplicationsForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/runners/downloads'));
     }
 
     /** @return Observable<Schema\RunnerApplication> */
@@ -57,7 +55,7 @@ final class ListRunnerApplicationsForEnterprise
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RunnerApplication::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\RunnerApplication::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\RunnerApplication::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\CommitComment;
@@ -18,6 +19,7 @@ use ApiClients\Client\GitHubAE\Schema\PullRequestReviewComment;
 use ApiClients\Client\GitHubAE\Schema\PullRequestSimple;
 use ApiClients\Client\GitHubAE\Schema\Reaction;
 use ApiClients\Client\GitHubAE\Schema\ReleaseAsset;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -26,8 +28,8 @@ final class Seven
     {
     }
 
-    /** @return |Schema\DeploymentBranchPolicy|array{code:int}|Observable<Schema\Label>|Schema\BasicError|Schema\PullRequestSimple|Schema\ReleaseAsset */
-    public function call(string $call, array $params, array $pathChunks): AuthenticationToken|EmptyObject|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|Issue|IssueComment|iterable|BasicError|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
+    /** @return Schema\AuthenticationToken|Schema\EmptyObject|Schema\Reaction|Schema\CommitComment|Schema\DeploymentStatus|Schema\DeploymentBranchPolicy|WithoutBody|Schema\Issue|Schema\IssueComment|iterable<int,Schema\Label>|Schema\BasicError|Schema\PullRequestReviewComment|Schema\PullRequestSimple|Schema\PullRequestReview|Schema\ReleaseAsset */
+    public function call(string $call, array $params, array $pathChunks): AuthenticationToken|EmptyObject|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|WithoutBody|Issue|IssueComment|iterable|BasicError|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'repos') {

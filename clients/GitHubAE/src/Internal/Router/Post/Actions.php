@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubAE\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Client\GitHubAE\Schema\RunnerGroupsOrg;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -21,8 +22,7 @@ final class Actions
     {
     }
 
-    /** @return */
-    public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
+    public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -36,8 +36,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return */
-    public function createRegistrationTokenForOrg(array $params): AuthenticationToken|array
+    public function createRegistrationTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -51,8 +50,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function createRemoveTokenForOrg(array $params): AuthenticationToken|array
+    public function createRemoveTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -66,8 +64,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function cancelWorkflowRun(array $params): EmptyObject|array
+    public function cancelWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -93,8 +90,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return */
-    public function forceCancelWorkflowRun(array $params): EmptyObject|array
+    public function forceCancelWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -120,8 +116,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return */
-    public function reRunWorkflow(array $params): EmptyObject|array
+    public function reRunWorkflow(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -147,8 +142,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    /** @return array{code:int} */
-    public function createWorkflowDispatch(array $params): array
+    public function createWorkflowDispatch(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -174,8 +168,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $params);
     }
 
-    /** @return */
-    public function createRegistrationTokenForRepo(array $params): AuthenticationToken|array
+    public function createRegistrationTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -195,8 +188,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function createRemoveTokenForRepo(array $params): AuthenticationToken|array
+    public function createRemoveTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

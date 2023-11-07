@@ -13,6 +13,7 @@ use ApiClients\Client\GitHubAE\Schema\OrganizationSimple;
 use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment;
 use ApiClients\Client\GitHubAE\Schema\Project;
 use ApiClients\Client\GitHubAE\Schema\Repository;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Three
@@ -21,8 +22,7 @@ final class Three
     {
     }
 
-    /** @return |string|array{code:int}|Schema\GpgKey|Schema\Key|Schema\Migration|Schema\Project|Schema\Repository */
-    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|string|GpgKey|Key|Migration|Project|Repository|array
+    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|WithoutBody|string|GpgKey|Key|Migration|Project|Repository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

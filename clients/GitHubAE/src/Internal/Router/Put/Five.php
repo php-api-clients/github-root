@@ -11,6 +11,7 @@ use ApiClients\Client\GitHubAE\Schema\RepositorySubscription;
 use ApiClients\Client\GitHubAE\Schema\TeamMembership;
 use ApiClients\Client\GitHubAE\Schema\ThreadSubscription;
 use ApiClients\Client\GitHubAE\Schema\Topic;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Five
@@ -19,8 +20,7 @@ final class Five
     {
     }
 
-    /** @return array{code:int}|Schema\ThreadSubscription||Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|Schema\TeamMembership */
-    public function call(string $call, array $params, array $pathChunks): ThreadSubscription|OrgMembership|Json|\ApiClients\Client\GitHubAE\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|\ApiClients\Client\GitHubAE\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|RepositorySubscription|Topic|TeamMembership|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|ThreadSubscription|OrgMembership|Json|\ApiClients\Client\GitHubAE\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|\ApiClients\Client\GitHubAE\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|RepositorySubscription|Topic|TeamMembership
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {

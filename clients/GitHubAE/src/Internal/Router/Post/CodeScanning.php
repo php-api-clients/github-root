@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\CodeScanningSarifsReceipt;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +20,7 @@ final class CodeScanning
     {
     }
 
-    /** @return Schema\CodeScanningSarifsReceipt|array{code:int} */
-    public function uploadSarif(array $params): CodeScanningSarifsReceipt|array
+    public function uploadSarif(array $params): CodeScanningSarifsReceipt|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

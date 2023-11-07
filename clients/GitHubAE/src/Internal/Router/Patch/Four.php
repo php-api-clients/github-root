@@ -13,6 +13,7 @@ use ApiClients\Client\GitHubAE\Schema\Operations\EnterpriseAdmin\UpdateOrgName\R
 use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment;
 use ApiClients\Client\GitHubAE\Schema\ProjectColumn;
 use ApiClients\Client\GitHubAE\Schema\WebhookConfig;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -21,8 +22,7 @@ final class Four
     {
     }
 
-    /** @return |array{code:int}|Schema\ProjectColumn */
-    public function call(string $call, array $params, array $pathChunks): GlobalHook2|Accepted|PreReceiveEnvironment|WebhookConfig|Authorization|ProjectColumn|FullRepository|BasicError|array
+    public function call(string $call, array $params, array $pathChunks): GlobalHook2|Accepted|PreReceiveEnvironment|WebhookConfig|Authorization|WithoutBody|ProjectColumn|FullRepository|BasicError
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

@@ -16,6 +16,7 @@ use ApiClients\Client\GitHubAE\Schema\ProjectColumn;
 use ApiClients\Client\GitHubAE\Schema\Repository;
 use ApiClients\Client\GitHubAE\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubAE\Schema\TeamFull;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -24,8 +25,7 @@ final class Four
     {
     }
 
-    /** @return |Schema\GistComment|array{code:int}|Schema\BaseGist|Schema\ProjectColumn */
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|BaseGist|OrgHook|Migration|Project|Repository|TeamFull|ProjectColumn|TeamDiscussion|array
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrgHook|Migration|Project|Repository|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {

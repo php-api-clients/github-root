@@ -19,8 +19,7 @@ final class CodeScanning
     {
     }
 
-    /** @return */
-    public function updateAlert(array $params): CodeScanningAlert|array
+    public function updateAlert(array $params): CodeScanningAlert
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

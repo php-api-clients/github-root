@@ -22,8 +22,6 @@ final class SetAnnouncement
 {
     public const OPERATION_ID    = 'enterprise-admin/set-announcement';
     public const OPERATION_MATCH = 'PATCH /enterprise/announcement';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/enterprise/announcement';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Enterprise\Announcement $hydrator)
     {
@@ -33,7 +31,7 @@ final class SetAnnouncement
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Announcement::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace([], [], '/enterprise/announcement'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Announcement

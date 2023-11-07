@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\RateLimitOverview;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
 
@@ -17,8 +17,7 @@ final class RateLimit
     {
     }
 
-    /** @return Schema\RateLimitOverview|array{code:int} */
-    public function get(array $params): RateLimitOverview|array
+    public function get(array $params): RateLimitOverview|WithoutBody
     {
         $operator = new Internal\Operator\RateLimit\Get($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀RateLimit());
 

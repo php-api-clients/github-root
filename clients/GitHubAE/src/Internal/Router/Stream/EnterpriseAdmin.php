@@ -19,8 +19,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return */
-    public function startPreReceiveEnvironmentDownloadStreaming(array $params): PreReceiveEnvironmentDownloadStatus|array
+    public function startPreReceiveEnvironmentDownloadStreaming(array $params): PreReceiveEnvironmentDownloadStatus
     {
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
@@ -34,8 +33,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return */
-    public function getDownloadStatusForPreReceiveEnvironmentStreaming(array $params): PreReceiveEnvironmentDownloadStatus|array
+    public function getDownloadStatusForPreReceiveEnvironmentStreaming(array $params): PreReceiveEnvironmentDownloadStatus
     {
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {

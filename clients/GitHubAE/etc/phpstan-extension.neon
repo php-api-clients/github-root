@@ -1,0 +1,5 @@
+services:
+  - class: ApiClients\Client\GitHubAE\PHPStan\ClientCallReturnTypes
+    tags:
+      - phpstan.broker.dynamicMethodReturnTypeExtension
+

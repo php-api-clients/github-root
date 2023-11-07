@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Client\GitHubAE\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubAE\Schema\ProtectedBranch;
 use ApiClients\Client\GitHubAE\Schema\PullRequestMergeResult;
 use ApiClients\Client\GitHubAE\Schema\TeamMembership;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -19,8 +21,8 @@ final class Seven
     {
     }
 
-    /** @return array{code:int}|Schema\TeamMembership|Schema\EmptyObject||Observable<Schema\Label>|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): TeamMembership|EmptyObject|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json
+    /** @return WithoutBody|Schema\TeamMembership|Schema\EmptyObject|Schema\ProtectedBranch|iterable<int,Schema\Label>|Schema\BasicError|Schema\PullRequestMergeResult|Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|TeamMembership|EmptyObject|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

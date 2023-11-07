@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Operator\Pulls;
 
 use ApiClients\Client\GitHubAE\Internal;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\PullRequest;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
@@ -25,12 +25,11 @@ final readonly class Get
     {
     }
 
-    /** @return Schema\PullRequest|array{code:int} */
-    public function call(string $owner, string $repo, int $pullNumber): PullRequest|array
+    public function call(string $owner, string $repo, int $pullNumber): PullRequest|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Pulls\Get($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $pullNumber);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PullRequest|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): PullRequest|WithoutBody {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

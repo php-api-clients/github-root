@@ -24,8 +24,6 @@ final class GetAuditLogListing
 {
     public const OPERATION_ID    = 'enterprise-admin/get-audit-log';
     public const OPERATION_MATCH = 'LIST /enterprises/{enterprise}/audit-log';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/audit-log';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**A search phrase. For more information, see [Searching the audit log](https://docs.github.com/github-ae@latest/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log). **/
@@ -56,7 +54,7 @@ final class GetAuditLogListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{phrase}', '{after}', '{before}', '{order}', '{page}', '{per_page}'], [$this->enterprise, $this->phrase, $this->after, $this->before, $this->order, $this->page, $this->perPage], self::PATH . '?phrase={phrase}&after={after}&before={before}&order={order}&page={page}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{enterprise}', '{phrase}', '{after}', '{before}', '{order}', '{page}', '{per_page}'], [$this->enterprise, $this->phrase, $this->after, $this->before, $this->order, $this->page, $this->perPage], '/enterprises/{enterprise}/audit-log' . '?phrase={phrase}&after={after}&before={before}&order={order}&page={page}&per_page={per_page}'));
     }
 
     /** @return Observable<Schema\AuditLogEvent> */
@@ -77,7 +75,7 @@ final class GetAuditLogListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AuditLogEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\AuditLogEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\AuditLogEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

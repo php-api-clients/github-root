@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return array{code:int} */
-    public function setGithubActionsPermissionsEnterprise(array $params): array
+    public function setGithubActionsPermissionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -33,8 +33,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): array
+    public function setSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -48,8 +47,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return array{code:int} */
-    public function setAllowedActionsEnterprise(array $params): array
+    public function setAllowedActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -63,8 +61,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return array{code:int} */
-    public function enableSelectedOrganizationGithubActionsEnterprise(array $params): array
+    public function enableSelectedOrganizationGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -84,8 +81,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
-    /** @return array{code:int} */
-    public function setSelfHostedRunnersInGroupForEnterprise(array $params): array
+    public function setSelfHostedRunnersInGroupForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -105,8 +101,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return array{code:int} */
-    public function addSelfHostedRunnerToGroupForEnterprise(array $params): array
+    public function addSelfHostedRunnerToGroupForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -132,8 +127,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
-    /** @return array{code:int} */
-    public function suspendUser(array $params): array
+    public function suspendUser(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {

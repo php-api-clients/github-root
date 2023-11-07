@@ -24,12 +24,11 @@ final readonly class GetRepoStats
     {
     }
 
-    /** @return */
-    public function call(): EnterpriseRepositoryOverview|array
+    public function call(): EnterpriseRepositoryOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetRepoStats($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseRepositoryOverview|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): EnterpriseRepositoryOverview {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

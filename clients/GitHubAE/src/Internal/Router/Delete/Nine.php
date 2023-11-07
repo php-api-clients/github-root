@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
 use ApiClients\Client\GitHubAE\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Nine
@@ -14,8 +15,8 @@ final class Nine
     {
     }
 
-    /** @return array{code:int}|Observable<string>|Observable<Schema\Integration>|Observable<Schema\Team>|Observable<Schema\SimpleUser> */
-    public function call(string $call, array $params, array $pathChunks): iterable
+    /** @return WithoutBody|iterable<int,string>|iterable<int,Schema\Integration>|iterable<int,Schema\Team>|iterable<int,Schema\SimpleUser> */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|iterable
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {

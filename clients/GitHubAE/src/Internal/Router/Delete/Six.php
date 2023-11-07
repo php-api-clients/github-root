@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
 use ApiClients\Client\GitHubAE\Schema\FileCommit;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Six
@@ -14,8 +15,7 @@ final class Six
     {
     }
 
-    /** @return array{code:int}| */
-    public function call(string $call, array $params, array $pathChunks): FileCommit|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|FileCommit
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

@@ -265,6 +265,15 @@ final readonly class SecretScanningAlert
         "secret": {
             "type": "string",
             "description": "The secret that was detected."
+        },
+        "validity": {
+            "enum": [
+                "active",
+                "inactive",
+                "unknown"
+            ],
+            "type": "string",
+            "description": "The token status as of the latest validity check."
         }
     }
 }';
@@ -305,7 +314,8 @@ final readonly class SecretScanningAlert
     },
     "resolution_comment": "generated",
     "secret_type": "generated",
-    "secret": "generated"
+    "secret": "generated",
+    "validity": "unknown"
 }';
 
     /**
@@ -320,6 +330,7 @@ final readonly class SecretScanningAlert
      * resolutionComment: An optional comment to resolve an alert.
      * secretType: The type of secret that secret scanning detected.
      * secret: The secret that was detected.
+     * validity: The token status as of the latest validity check.
      */
     public function __construct(public int|null $number, #[MapFrom('created_at')]
     public string|null $createdAt, #[MapFrom('updated_at')]
@@ -329,7 +340,7 @@ final readonly class SecretScanningAlert
     public string|null $resolvedAt, #[MapFrom('resolved_by')]
     public Schema\SimpleUser|null $resolvedBy, #[MapFrom('resolution_comment')]
     public string|null $resolutionComment, #[MapFrom('secret_type')]
-    public string|null $secretType, public string|null $secret,)
+    public string|null $secretType, public string|null $secret, public string|null $validity,)
     {
     }
 }

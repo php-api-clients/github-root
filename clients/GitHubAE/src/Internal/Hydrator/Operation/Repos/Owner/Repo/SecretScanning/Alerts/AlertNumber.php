@@ -205,6 +205,17 @@ class AlertNumber implements ObjectMapper
             $properties['secret'] = $value;
 
             after_secret:
+
+            $value = $payload['validity'] ?? null;
+
+            if ($value === null) {
+                $properties['validity'] = null;
+                goto after_validity;
+            }
+
+            $properties['validity'] = $value;
+
+            after_validity:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecretScanningAlert', $exception, stack: $this->hydrationStack);
         }
@@ -727,6 +738,14 @@ class AlertNumber implements ObjectMapper
         }
 
         after_secret:        $result['secret'] = $secret;
+
+        $validity = $object->validity;
+
+        if ($validity === null) {
+            goto after_validity;
+        }
+
+        after_validity:        $result['validity'] = $validity;
 
         return $result;
     }

@@ -10,6 +10,7 @@ use ApiClients\Client\GitHubAE\Schema\GistSimple;
 use ApiClients\Client\GitHubAE\Schema\OrganizationFull;
 use ApiClients\Client\GitHubAE\Schema\Project;
 use ApiClients\Client\GitHubAE\Schema\TeamFull;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Three
@@ -18,8 +19,7 @@ final class Three
     {
     }
 
-    /** @return |Schema\Project|array{code:int} */
-    public function call(string $call, array $params, array $pathChunks): Announcement|GistSimple|OrganizationFull|Project|TeamFull|array
+    public function call(string $call, array $params, array $pathChunks): Announcement|GistSimple|OrganizationFull|Project|WithoutBody|TeamFull
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprise') {
