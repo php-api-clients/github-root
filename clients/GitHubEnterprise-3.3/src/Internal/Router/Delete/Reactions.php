@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class Reactions
     {
     }
 
-    /** @return array{code:int} */
-    public function deleteLegacy(array $params): array
+    public function deleteLegacy(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('reaction_id', $params) === false) {
@@ -33,8 +33,7 @@ final class Reactions
         return $operator->call($arguments['reaction_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteForCommitComment(array $params): array
+    public function deleteForCommitComment(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -66,8 +65,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteForIssue(array $params): array
+    public function deleteForIssue(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -99,8 +97,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $arguments['reaction_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteForRelease(array $params): array
+    public function deleteForRelease(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -132,8 +129,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['reaction_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteForTeamDiscussion(array $params): array
+    public function deleteForTeamDiscussion(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -165,8 +161,7 @@ final class Reactions
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['reaction_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteForIssueComment(array $params): array
+    public function deleteForIssueComment(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -198,8 +193,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteForPullRequestComment(array $params): array
+    public function deleteForPullRequestComment(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -231,8 +225,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $arguments['reaction_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteForTeamDiscussionComment(array $params): array
+    public function deleteForTeamDiscussionComment(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

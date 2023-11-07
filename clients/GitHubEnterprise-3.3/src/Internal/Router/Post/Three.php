@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook;
 use ApiClients\Client\GitHubEnterprise\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterprise\Schema\Key;
@@ -14,6 +15,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook;
 use ApiClients\Client\GitHubEnterprise\Schema\Project;
 use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleUser;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Three
@@ -22,8 +24,8 @@ final class Three
     {
     }
 
-    /** @return |string|array{code:int}|Observable<Schema\Email>|Schema\GpgKey|Schema\Key|Schema\Project|Schema\Repository */
-    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|PreReceiveHook|SimpleUser|string|iterable|GpgKey|Key|Project|Repository
+    /** @return Schema\GlobalHook|Schema\OrganizationSimple|Schema\PreReceiveEnvironment|Schema\PreReceiveHook|Schema\SimpleUser|string|WithoutBody|iterable<int,Schema\Email>|Schema\GpgKey|Schema\Key|Schema\Project|Schema\Repository */
+    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|PreReceiveHook|SimpleUser|WithoutBody|string|iterable|GpgKey|Key|Project|Repository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

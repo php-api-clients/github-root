@@ -25,8 +25,6 @@ final class RemoveAuthorizedSshKey
 {
     public const OPERATION_ID    = 'enterprise-admin/remove-authorized-ssh-key';
     public const OPERATION_MATCH = 'DELETE /setup/api/settings/authorized-keys';
-    private const METHOD         = 'DELETE';
-    private const PATH           = '/setup/api/settings/authorized-keys';
 
     public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Setup\Api\Settings\AuthorizedKeys $hydrator)
     {
@@ -36,7 +34,7 @@ final class RemoveAuthorizedSshKey
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\RemoveAuthorizedSshKey\Request\ApplicationXWwwFormUrlencoded::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace([], [], self::PATH), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
+        return new Request('DELETE', str_replace([], [], '/setup/api/settings/authorized-keys'), ['Content-Type' => 'application/x-www-form-urlencoded'], json_encode($data));
     }
 
     /** @return Observable<Schema\SshKey> */
@@ -57,7 +55,7 @@ final class RemoveAuthorizedSshKey
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\SshKey::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\SshKey::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\SshKey::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

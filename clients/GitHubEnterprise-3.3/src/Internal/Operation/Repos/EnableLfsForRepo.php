@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos;
 
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -21,8 +22,6 @@ final class EnableLfsForRepo
 {
     public const OPERATION_ID    = 'repos/enable-lfs-for-repo';
     public const OPERATION_MATCH = 'PUT /repos/{owner}/{repo}/lfs';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/repos/{owner}/{repo}/lfs';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository. The name is not case sensitive. **/
@@ -36,11 +35,10 @@ final class EnableLfsForRepo
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], self::PATH));
+        return new Request('PUT', str_replace(['{owner}', '{repo}'], [$this->owner, $this->repo], '/repos/{owner}/{repo}/lfs'));
     }
 
-    /** @return Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|array
+    public function createResponse(ResponseInterface $response): Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -69,7 +67,7 @@ final class EnableLfsForRepo
             - Git LFS support not enabled because Git LFS is disabled for <owner>.
              **/
             case 403:
-                return ['code' => 403];
+                return new WithoutBody(403, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

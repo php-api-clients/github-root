@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Operation\Projects;
 use ApiClients\Client\GitHubEnterprise\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterprise\Internal;
 use ApiClients\Client\GitHubEnterprise\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetColumn
 {
     public const OPERATION_ID    = 'projects/get-column';
     public const OPERATION_MATCH = 'GET /projects/columns/{column_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/projects/columns/{column_id}';
     /**The unique identifier of the column. **/
     private int $columnId;
 
@@ -34,11 +33,10 @@ final class GetColumn
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{column_id}'], [$this->columnId], self::PATH));
+        return new Request('GET', str_replace(['{column_id}'], [$this->columnId], '/projects/columns/{column_id}'));
     }
 
-    /** @return Schema\ProjectColumn|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ProjectColumn|array
+    public function createResponse(ResponseInterface $response): Schema\ProjectColumn|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -87,7 +85,7 @@ final class GetColumn
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

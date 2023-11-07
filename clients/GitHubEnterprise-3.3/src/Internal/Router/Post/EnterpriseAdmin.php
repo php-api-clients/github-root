@@ -19,6 +19,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -31,48 +32,42 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return */
-    public function createGlobalWebhook(array $params): GlobalHook|array
+    public function createGlobalWebhook(array $params): GlobalHook
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateGlobalWebhook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Hooks());
 
         return $operator->call($params);
     }
 
-    /** @return */
-    public function createOrg(array $params): OrganizationSimple|array
+    public function createOrg(array $params): OrganizationSimple
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateOrg($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Organizations());
 
         return $operator->call($params);
     }
 
-    /** @return */
-    public function createPreReceiveEnvironment(array $params): PreReceiveEnvironment|array
+    public function createPreReceiveEnvironment(array $params): PreReceiveEnvironment
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreatePreReceiveEnvironment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveEnvironments());
 
         return $operator->call($params);
     }
 
-    /** @return */
-    public function createPreReceiveHook(array $params): PreReceiveHook|array
+    public function createPreReceiveHook(array $params): PreReceiveHook
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreatePreReceiveHook($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀PreReceiveHooks());
 
         return $operator->call($params);
     }
 
-    /** @return */
-    public function createUser(array $params): SimpleUser|array
+    public function createUser(array $params): SimpleUser
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Admin🌀Users());
 
         return $operator->call($params);
     }
 
-    /** @return array{code:int} */
-    public function pingGlobalWebhook(array $params): array
+    public function pingGlobalWebhook(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('hook_id', $params) === false) {
@@ -86,8 +81,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
-    /** @return */
-    public function startPreReceiveEnvironmentDownload(array $params): PreReceiveEnvironmentDownloadStatus|array
+    public function startPreReceiveEnvironmentDownload(array $params): PreReceiveEnvironmentDownloadStatus
     {
         $arguments = [];
         if (array_key_exists('pre_receive_environment_id', $params) === false) {
@@ -101,8 +95,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return */
-    public function createImpersonationOAuthToken(array $params): Authorization|array
+    public function createImpersonationOAuthToken(array $params): Authorization
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -116,8 +109,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
-    /** @return */
-    public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
+    public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -131,7 +123,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return Observable<Schema\SshKey> */
+    /** @return iterable<int,Schema\SshKey> */
     public function addAuthorizedSshKey(array $params): iterable
     {
         $operator = new Internal\Operator\EnterpriseAdmin\AddAuthorizedSshKey($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys());
@@ -139,8 +131,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
-    /** @return */
-    public function syncLdapMappingForTeam(array $params): Created|array
+    public function syncLdapMappingForTeam(array $params): Created
     {
         $arguments = [];
         if (array_key_exists('team_id', $params) === false) {
@@ -154,8 +145,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['team_id']);
     }
 
-    /** @return */
-    public function syncLdapMappingForUser(array $params): Json|array
+    public function syncLdapMappingForUser(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('username', $params) === false) {
@@ -169,8 +159,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
-    /** @return */
-    public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken|array
+    public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -184,8 +173,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
-    public function createRemoveTokenForEnterprise(array $params): AuthenticationToken|array
+    public function createRemoveTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -199,32 +187,28 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return array{code:int} */
-    public function startConfigurationProcess(array $params): array
+    public function startConfigurationProcess(array $params): WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\StartConfigurationProcess($this->browser, $this->authentication);
 
         return $operator->call();
     }
 
-    /** @return */
-    public function enableOrDisableMaintenanceMode(array $params): MaintenanceStatus|array
+    public function enableOrDisableMaintenanceMode(array $params): MaintenanceStatus
     {
         $operator = new Internal\Operator\EnterpriseAdmin\EnableOrDisableMaintenanceMode($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Maintenance());
 
         return $operator->call($params);
     }
 
-    /** @return array{code:int} */
-    public function createEnterpriseServerLicense(array $params): array
+    public function createEnterpriseServerLicense(array $params): WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\CreateEnterpriseServerLicense($this->browser, $this->authentication, $this->requestSchemaValidator);
 
         return $operator->call($params);
     }
 
-    /** @return array{code:int} */
-    public function upgradeLicense(array $params): array
+    public function upgradeLicense(array $params): WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\UpgradeLicense($this->browser, $this->authentication, $this->requestSchemaValidator);
 

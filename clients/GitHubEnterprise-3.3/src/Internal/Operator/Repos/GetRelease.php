@@ -24,12 +24,11 @@ final readonly class GetRelease
     {
     }
 
-    /** @return */
-    public function call(string $owner, string $repo, int $releaseId): Release|array
+    public function call(string $owner, string $repo, int $releaseId): Release
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\GetRelease($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $releaseId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Release|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Release {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

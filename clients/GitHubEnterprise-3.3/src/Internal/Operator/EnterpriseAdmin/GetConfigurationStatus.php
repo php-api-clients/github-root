@@ -24,12 +24,11 @@ final readonly class GetConfigurationStatus
     {
     }
 
-    /** @return */
-    public function call(): ConfigurationStatus|array
+    public function call(): ConfigurationStatus
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ConfigurationStatus|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ConfigurationStatus {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

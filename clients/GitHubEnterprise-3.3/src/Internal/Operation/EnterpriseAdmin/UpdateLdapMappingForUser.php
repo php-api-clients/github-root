@@ -22,8 +22,6 @@ final class UpdateLdapMappingForUser
 {
     public const OPERATION_ID    = 'enterprise-admin/update-ldap-mapping-for-user';
     public const OPERATION_MATCH = 'PATCH /admin/ldap/users/{username}/mapping';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/admin/ldap/users/{username}/mapping';
     /**The handle for the GitHub user account. **/
     private string $username;
 
@@ -36,7 +34,7 @@ final class UpdateLdapMappingForUser
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\UpdateLdapMappingForUser\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{username}'], [$this->username], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{username}'], [$this->username], '/admin/ldap/users/{username}/mapping'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\LdapMappingUser

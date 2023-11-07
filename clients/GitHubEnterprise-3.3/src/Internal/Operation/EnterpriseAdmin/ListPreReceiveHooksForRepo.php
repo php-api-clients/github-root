@@ -24,8 +24,6 @@ final class ListPreReceiveHooksForRepo
 {
     public const OPERATION_ID    = 'enterprise-admin/list-pre-receive-hooks-for-repo';
     public const OPERATION_MATCH = 'GET /repos/{owner}/{repo}/pre-receive-hooks';
-    private const METHOD         = 'GET';
-    private const PATH           = '/repos/{owner}/{repo}/pre-receive-hooks';
     /**The account owner of the repository. The name is not case sensitive. **/
     private string $owner;
     /**The name of the repository. The name is not case sensitive. **/
@@ -48,7 +46,7 @@ final class ListPreReceiveHooksForRepo
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{owner}', '{repo}', '{per_page}', '{page}', '{direction}', '{sort}'], [$this->owner, $this->repo, $this->perPage, $this->page, $this->direction, $this->sort], self::PATH . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
+        return new Request('GET', str_replace(['{owner}', '{repo}', '{per_page}', '{page}', '{direction}', '{sort}'], [$this->owner, $this->repo, $this->perPage, $this->page, $this->direction, $this->sort], '/repos/{owner}/{repo}/pre-receive-hooks' . '?per_page={per_page}&page={page}&direction={direction}&sort={sort}'));
     }
 
     /** @return Observable<Schema\RepositoryPreReceiveHook> */
@@ -69,7 +67,7 @@ final class ListPreReceiveHooksForRepo
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RepositoryPreReceiveHook::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\RepositoryPreReceiveHook::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\RepositoryPreReceiveHook::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
