@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -22,8 +22,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return */
-    public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise|array
+    public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -43,8 +42,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return Schema\GroupResponse|array{code:int} */
-    public function updateAttributeForEnterpriseGroup(array $params): GroupResponse|array
+    public function updateAttributeForEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_group_id', $params) === false) {
@@ -58,8 +56,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id'], $params);
     }
 
-    /** @return Schema\UserResponse|array{code:int} */
-    public function updateAttributeForEnterpriseUser(array $params): UserResponse|array
+    public function updateAttributeForEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_user_id', $params) === false) {

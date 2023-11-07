@@ -21,8 +21,6 @@ final class ListIdpGroupsForOrg
 {
     public const OPERATION_ID    = 'teams/list-idp-groups-for-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/team-sync/groups';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/team-sync/groups';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Page token **/
@@ -42,7 +40,7 @@ final class ListIdpGroupsForOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{page}', '{q}', '{per_page}'], [$this->org, $this->page, $this->q, $this->perPage], self::PATH . '?page={page}&q={q}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{org}', '{page}', '{q}', '{per_page}'], [$this->org, $this->page, $this->q, $this->perPage], '/orgs/{org}/team-sync/groups' . '?page={page}&q={q}&per_page={per_page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupMapping

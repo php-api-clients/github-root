@@ -2011,6 +2011,7 @@ $client->call('GET /enterprises/{enterprise}/secret-scanning/alerts', [
         'resolution' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
+        'validity' => 'generated',
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
@@ -2025,6 +2026,7 @@ $client->operations()->secretScanning()->listAlertsForEnterprise(        enterpr
         resolution: 'generated',
         before: 'generated',
         after: 'generated',
+        validity: 'generated',
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
@@ -8191,7 +8193,7 @@ $client->operations()->orgs()->getAllCustomProperties(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#get-all-custom-properties-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#get-all-custom-properties-for-an-organization).
 
 
 ### orgs/create-or-update-custom-properties
@@ -8211,7 +8213,7 @@ $client->operations()->orgs()->createOrUpdateCustomProperties(        org: 'gene
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#create-or-update-custom-properties-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#create-or-update-custom-properties-for-an-organization).
 
 
 ### orgs/get-custom-property
@@ -8233,7 +8235,7 @@ $client->operations()->orgs()->getCustomProperty(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#get-a-custom-property-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#get-a-custom-property-for-an-organization).
 
 
 ### orgs/create-or-update-custom-property
@@ -8255,7 +8257,7 @@ $client->operations()->orgs()->createOrUpdateCustomProperty(        org: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#create-or-update-a-custom-property-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#create-or-update-a-custom-property-for-an-organization).
 
 
 ### orgs/remove-custom-property
@@ -8277,7 +8279,7 @@ $client->operations()->orgs()->removeCustomProperty(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#remove-a-custom-property-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#remove-a-custom-property-for-an-organization).
 
 
 ### orgs/list-custom-properties-values-for-repos
@@ -8288,6 +8290,7 @@ Using the `call` method:
 ```php
 $client->call('GET /orgs/{org}/properties/values', [
         'org' => 'generated',
+        'repository_query' => 'generated',
         'per_page' => 8,
         'page' => 1,
 ]);
@@ -8296,12 +8299,13 @@ $client->call('GET /orgs/{org}/properties/values', [
 Operations method:
 ```php
 $client->operations()->orgs()->listCustomPropertiesValuesForRepos(        org: 'generated',
+        repository_query: 'generated',
         per_page: 8,
         page: 1,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#list-custom-property-values-for-organization-repositories).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#list-custom-property-values-for-organization-repositories).
 
 
 ### orgs/list-custom-properties-values-for-repos
@@ -8312,6 +8316,7 @@ Using the `call` method:
 ```php
 $client->call('LIST /orgs/{org}/properties/values', [
         'org' => 'generated',
+        'repository_query' => 'generated',
         'per_page' => 8,
         'page' => 1,
 ]);
@@ -8320,12 +8325,13 @@ $client->call('LIST /orgs/{org}/properties/values', [
 Operations method:
 ```php
 $client->operations()->orgs()->listCustomPropertiesValuesForReposListing(        org: 'generated',
+        repository_query: 'generated',
         per_page: 8,
         page: 1,
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#list-custom-property-values-for-organization-repositories).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#list-custom-property-values-for-organization-repositories).
 
 
 ### orgs/create-or-update-custom-properties-values-for-repos
@@ -8345,7 +8351,7 @@ $client->operations()->orgs()->createOrUpdateCustomPropertiesValuesForRepos(    
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/properties#create-or-update-custom-property-values-for-organization-repositories).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-properties#create-or-update-custom-property-values-for-organization-repositories).
 
 
 ### orgs/list-public-members
@@ -8795,6 +8801,7 @@ $client->call('GET /orgs/{org}/secret-scanning/alerts', [
         'resolution' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
+        'validity' => 'generated',
         'sort' => 'generated',
         'direction' => 'generated',
         'page' => 1,
@@ -8810,6 +8817,7 @@ $client->operations()->secretScanning()->listAlertsForOrg(        org: 'generate
         resolution: 'generated',
         before: 'generated',
         after: 'generated',
+        validity: 'generated',
         sort: 'generated',
         direction: 'generated',
         page: 1,
@@ -8833,6 +8841,7 @@ $client->call('LIST /orgs/{org}/secret-scanning/alerts', [
         'resolution' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
+        'validity' => 'generated',
         'sort' => 'generated',
         'direction' => 'generated',
         'page' => 1,
@@ -8848,6 +8857,7 @@ $client->operations()->secretScanning()->listAlertsForOrgListing(        org: 'g
         resolution: 'generated',
         before: 'generated',
         after: 'generated',
+        validity: 'generated',
         sort: 'generated',
         direction: 'generated',
         page: 1,
@@ -17412,7 +17422,7 @@ $client->operations()->repos()->listWebhooks(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#list-repository-webhooks).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#list-repository-webhooks).
 
 
 ### repos/list-webhooks
@@ -17438,7 +17448,7 @@ $client->operations()->repos()->listWebhooksListing(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#list-repository-webhooks).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#list-repository-webhooks).
 
 
 ### repos/create-webhook
@@ -17460,7 +17470,7 @@ $client->operations()->repos()->createWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#create-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#create-a-repository-webhook).
 
 
 ### repos/get-webhook
@@ -17484,7 +17494,7 @@ $client->operations()->repos()->getWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#get-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#get-a-repository-webhook).
 
 
 ### repos/delete-webhook
@@ -17508,7 +17518,7 @@ $client->operations()->repos()->deleteWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#delete-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#delete-a-repository-webhook).
 
 
 ### repos/update-webhook
@@ -17532,7 +17542,7 @@ $client->operations()->repos()->updateWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#update-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#update-a-repository-webhook).
 
 
 ### repos/get-webhook-config-for-repo
@@ -17556,7 +17566,7 @@ $client->operations()->repos()->getWebhookConfigForRepo(        owner: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repo-config#get-a-webhook-configuration-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#get-a-webhook-configuration-for-a-repository).
 
 
 ### repos/update-webhook-config-for-repo
@@ -17580,7 +17590,7 @@ $client->operations()->repos()->updateWebhookConfigForRepo(        owner: 'gener
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repo-config#update-a-webhook-configuration-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#update-a-webhook-configuration-for-a-repository).
 
 
 ### repos/list-webhook-deliveries
@@ -17610,7 +17620,7 @@ $client->operations()->repos()->listWebhookDeliveries(        owner: 'generated'
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repo-deliveries#list-deliveries-for-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#list-deliveries-for-a-repository-webhook).
 
 
 ### repos/get-webhook-delivery
@@ -17636,7 +17646,7 @@ $client->operations()->repos()->getWebhookDelivery(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repo-deliveries#get-a-delivery-for-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#get-a-delivery-for-a-repository-webhook).
 
 
 ### repos/redeliver-webhook-delivery
@@ -17662,7 +17672,7 @@ $client->operations()->repos()->redeliverWebhookDelivery(        owner: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repo-deliveries#redeliver-a-delivery-for-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#redeliver-a-delivery-for-a-repository-webhook).
 
 
 ### repos/ping-webhook
@@ -17686,7 +17696,7 @@ $client->operations()->repos()->pingWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#ping-a-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#ping-a-repository-webhook).
 
 
 ### repos/test-push-webhook
@@ -17710,7 +17720,7 @@ $client->operations()->repos()->testPushWebhook(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/webhooks/repos#test-the-push-repository-webhook).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/webhooks#test-the-push-repository-webhook).
 
 
 ### migrations/get-import-status
@@ -20240,7 +20250,7 @@ $client->operations()->repos()->getCustomPropertiesValues(        owner: 'genera
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/properties#get-all-custom-property-values-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/custom-properties#get-all-custom-property-values-for-a-repository).
 
 
 ### pulls/list
@@ -22143,6 +22153,7 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts', [
         'resolution' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
+        'validity' => 'generated',
         'sort' => 'generated',
         'direction' => 'generated',
         'page' => 1,
@@ -22159,6 +22170,7 @@ $client->operations()->secretScanning()->listAlertsForRepo(        owner: 'gener
         resolution: 'generated',
         before: 'generated',
         after: 'generated',
+        validity: 'generated',
         sort: 'generated',
         direction: 'generated',
         page: 1,
@@ -22183,6 +22195,7 @@ $client->call('LIST /repos/{owner}/{repo}/secret-scanning/alerts', [
         'resolution' => 'generated',
         'before' => 'generated',
         'after' => 'generated',
+        'validity' => 'generated',
         'sort' => 'generated',
         'direction' => 'generated',
         'page' => 1,
@@ -22199,6 +22212,7 @@ $client->operations()->secretScanning()->listAlertsForRepoListing(        owner:
         resolution: 'generated',
         before: 'generated',
         after: 'generated',
+        validity: 'generated',
         sort: 'generated',
         direction: 'generated',
         page: 1,

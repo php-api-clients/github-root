@@ -24,12 +24,11 @@ final readonly class GetGithubActionsBillingGhe
     {
     }
 
-    /** @return */
-    public function call(string $enterprise): ActionsBillingUsage|array
+    public function call(string $enterprise): ActionsBillingUsage
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\GetGithubActionsBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsBillingUsage|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ActionsBillingUsage {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -33,7 +33,8 @@ final readonly class AdvancedSecurityActiveCommittersRepository
             "items": {
                 "required": [
                     "user_login",
-                    "last_pushed_date"
+                    "last_pushed_date",
+                    "last_pushed_email"
                 ],
                 "type": "object",
                 "properties": {
@@ -44,6 +45,12 @@ final readonly class AdvancedSecurityActiveCommittersRepository
                         "type": "string",
                         "examples": [
                             "2021-11-03"
+                        ]
+                    },
+                    "last_pushed_email": {
+                        "type": "string",
+                        "examples": [
+                            "monalisa@github.com"
                         ]
                     }
                 }
@@ -59,11 +66,13 @@ final readonly class AdvancedSecurityActiveCommittersRepository
     "advanced_security_committers_breakdown": [
         {
             "user_login": "generated",
-            "last_pushed_date": "2021-11-03"
+            "last_pushed_date": "2021-11-03",
+            "last_pushed_email": "monalisa@github.com"
         },
         {
             "user_login": "generated",
-            "last_pushed_date": "2021-11-03"
+            "last_pushed_date": "2021-11-03",
+            "last_pushed_email": "monalisa@github.com"
         }
     ]
 }';

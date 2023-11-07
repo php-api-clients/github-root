@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim;
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class SetInformationForProvisionedUser
 {
     public const OPERATION_ID    = 'scim/set-information-for-provisioned-user';
     public const OPERATION_MATCH = 'PUT /scim/v2/organizations/{org}/Users/{scim_user_id}';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/scim/v2/organizations/{org}/Users/{scim_user_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the SCIM user. **/
@@ -40,11 +39,10 @@ final class SetInformationForProvisionedUser
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Scim\SetInformationForProvisionedUser\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}', '{scim_user_id}'], [$this->org, $this->scimUserId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{org}', '{scim_user_id}'], [$this->org, $this->scimUserId], '/scim/v2/organizations/{org}/Users/{scim_user_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\ScimUser|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ScimUser|array
+    public function createResponse(ResponseInterface $response): Schema\ScimUser|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -106,7 +104,7 @@ final class SetInformationForProvisionedUser
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

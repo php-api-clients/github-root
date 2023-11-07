@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim;
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class GetProvisioningInformationForUser
 {
     public const OPERATION_ID    = 'scim/get-provisioning-information-for-user';
     public const OPERATION_MATCH = 'GET /scim/v2/organizations/{org}/Users/{scim_user_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/organizations/{org}/Users/{scim_user_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the SCIM user. **/
@@ -37,11 +36,10 @@ final class GetProvisioningInformationForUser
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{scim_user_id}'], [$this->org, $this->scimUserId], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{scim_user_id}'], [$this->org, $this->scimUserId], '/scim/v2/organizations/{org}/Users/{scim_user_id}'));
     }
 
-    /** @return Schema\ScimUser|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ScimUser|array
+    public function createResponse(ResponseInterface $response): Schema\ScimUser|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -103,7 +101,7 @@ final class GetProvisioningInformationForUser
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

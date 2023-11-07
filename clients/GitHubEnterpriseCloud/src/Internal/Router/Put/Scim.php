@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +20,7 @@ final class Scim
     {
     }
 
-    /** @return Schema\ScimUser|array{code:int} */
-    public function setInformationForProvisionedUser(array $params): ScimUser|array
+    public function setInformationForProvisionedUser(array $params): ScimUser|WithoutBody
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {

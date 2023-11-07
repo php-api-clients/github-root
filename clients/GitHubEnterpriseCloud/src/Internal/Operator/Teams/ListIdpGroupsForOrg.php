@@ -24,12 +24,11 @@ final readonly class ListIdpGroupsForOrg
     {
     }
 
-    /** @return */
-    public function call(string $org, string $page, string $q, int $perPage = 30): GroupMapping|array
+    public function call(string $org, string $page, string $q, int $perPage = 30): GroupMapping
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ListIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $page, $q, $perPage);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

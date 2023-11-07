@@ -24,8 +24,6 @@ final class GetAuditLog
 {
     public const OPERATION_ID    = 'orgs/get-audit-log';
     public const OPERATION_MATCH = 'GET /orgs/{org}/audit-log';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/audit-log';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**A search phrase. For more information, see [Searching the audit log](https://docs.github.com/enterprise-cloud@latest//github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log). **/
@@ -62,7 +60,7 @@ final class GetAuditLog
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{phrase}', '{include}', '{after}', '{before}', '{order}', '{per_page}'], [$this->org, $this->phrase, $this->include, $this->after, $this->before, $this->order, $this->perPage], self::PATH . '?phrase={phrase}&include={include}&after={after}&before={before}&order={order}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{org}', '{phrase}', '{include}', '{after}', '{before}', '{order}', '{per_page}'], [$this->org, $this->phrase, $this->include, $this->after, $this->before, $this->order, $this->perPage], '/orgs/{org}/audit-log' . '?phrase={phrase}&include={include}&after={after}&before={before}&order={order}&per_page={per_page}'));
     }
 
     /** @return Observable<Schema\AuditLogEvent> */
@@ -83,7 +81,7 @@ final class GetAuditLog
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\AuditLogEvent::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\AuditLogEvent::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\AuditLogEvent::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

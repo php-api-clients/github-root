@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\EnterpriseAdmin;
 
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
 use Rx\Observable;
@@ -21,12 +22,11 @@ final readonly class RemoveSelfHostedRunnerFromGroupForEnterprise
     {
     }
 
-    /** @return array{code:int} */
-    public function call(string $enterprise, int $runnerGroupId, int $runnerId): array
+    public function call(string $enterprise, int $runnerGroupId, int $runnerId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\RemoveSelfHostedRunnerFromGroupForEnterprise($enterprise, $runnerGroupId, $runnerId);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): WithoutBody {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

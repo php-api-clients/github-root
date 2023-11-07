@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -18,8 +19,7 @@ final class SecretScanning
     {
     }
 
-    /** @return array{code:int} */
-    public function postSecurityProductEnablementForEnterprise(array $params): array
+    public function postSecurityProductEnablementForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {

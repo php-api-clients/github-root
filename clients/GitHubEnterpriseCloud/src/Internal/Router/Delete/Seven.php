@@ -10,6 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAnalysisDeletion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestSimple;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -18,8 +19,7 @@ final class Seven
     {
     }
 
-    /** @return array{code:int}||Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json|CodeScanningAnalysisDeletion|Issue|BasicError|PullRequestSimple|array
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json|CodeScanningAnalysisDeletion|Issue|BasicError|PullRequestSimple
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

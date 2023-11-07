@@ -22,8 +22,6 @@ final class GetCustomRole
 {
     public const OPERATION_ID    = 'orgs/get-custom-role';
     public const OPERATION_MATCH = 'GET /orgs/{org}/custom_roles/{role_id}';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/custom_roles/{role_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the role. **/
@@ -37,7 +35,7 @@ final class GetCustomRole
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{role_id}'], [$this->org, $this->roleId], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{role_id}'], [$this->org, $this->roleId], '/orgs/{org}/custom_roles/{role_id}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrganizationCustomRepositoryRole

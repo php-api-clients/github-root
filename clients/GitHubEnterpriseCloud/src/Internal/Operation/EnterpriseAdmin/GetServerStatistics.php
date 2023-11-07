@@ -24,8 +24,6 @@ final class GetServerStatistics
 {
     public const OPERATION_ID    = 'enterprise-admin/get-server-statistics';
     public const OPERATION_MATCH = 'GET /enterprise-installation/{enterprise_or_org}/server-statistics';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprise-installation/{enterprise_or_org}/server-statistics';
     /**The slug version of the enterprise name or the login of an organization. **/
     private string $enterpriseOrOrg;
     /**A cursor, as given in the [Link header](https://docs.github.com/enterprise-cloud@latest//rest/guides/using-pagination-in-the-rest-api#using-link-headers). If specified, the query only searches for events after this cursor. **/
@@ -42,7 +40,7 @@ final class GetServerStatistics
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise_or_org}', '{date_start}', '{date_end}'], [$this->enterpriseOrOrg, $this->dateStart, $this->dateEnd], self::PATH . '?date_start={date_start}&date_end={date_end}'));
+        return new Request('GET', str_replace(['{enterprise_or_org}', '{date_start}', '{date_end}'], [$this->enterpriseOrOrg, $this->dateStart, $this->dateEnd], '/enterprise-installation/{enterprise_or_org}/server-statistics' . '?date_start={date_start}&date_end={date_end}'));
     }
 
     /** @return Observable<Schema\ServerStatistics> */
@@ -63,7 +61,7 @@ final class GetServerStatistics
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\ServerStatistics::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\ServerStatistics::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\ServerStatistics::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

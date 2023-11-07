@@ -23,8 +23,6 @@ final class UpdateCustomRole
 {
     public const OPERATION_ID    = 'orgs/update-custom-role';
     public const OPERATION_MATCH = 'PATCH /orgs/{org}/custom_roles/{role_id}';
-    private const METHOD         = 'PATCH';
-    private const PATH           = '/orgs/{org}/custom_roles/{role_id}';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The unique identifier of the role. **/
@@ -40,7 +38,7 @@ final class UpdateCustomRole
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OrganizationCustomRepositoryRoleUpdateSchema::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}', '{role_id}'], [$this->org, $this->roleId], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PATCH', str_replace(['{org}', '{role_id}'], [$this->org, $this->roleId], '/orgs/{org}/custom_roles/{role_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\OrganizationCustomRepositoryRole

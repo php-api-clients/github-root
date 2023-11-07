@@ -24,12 +24,12 @@ final readonly class ListFineGrainedPermissions
     {
     }
 
-    /** @return Observable<Schema\RepositoryFineGrainedPermission> */
+    /** @return iterable<int,Schema\RepositoryFineGrainedPermission> */
     public function call(string $org): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\ListFineGrainedPermissions($this->responseSchemaValidator, $this->hydrator, $org);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

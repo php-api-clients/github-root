@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScann
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class PostSecurityProductEnablementForEnterprise
 {
     public const OPERATION_ID    = 'secret-scanning/post-security-product-enablement-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/{security_product}/{enablement}';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/{security_product}/{enablement}';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**The security feature to enable or disable. **/
@@ -43,11 +42,10 @@ final class PostSecurityProductEnablementForEnterprise
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{security_product}', '{enablement}'], [$this->enterprise, $this->securityProduct, $this->enablement], self::PATH));
+        return new Request('POST', str_replace(['{enterprise}', '{security_product}', '{enablement}'], [$this->enterprise, $this->securityProduct, $this->enablement], '/enterprises/{enterprise}/{security_product}/{enablement}'));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -72,13 +70,13 @@ final class PostSecurityProductEnablementForEnterprise
              * Action started
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
             /**
              * The action could not be taken due to an in progress enablement, or a policy is preventing enablement
              **/
 
             case 422:
-                return ['code' => 422];
+                return new WithoutBody(422, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

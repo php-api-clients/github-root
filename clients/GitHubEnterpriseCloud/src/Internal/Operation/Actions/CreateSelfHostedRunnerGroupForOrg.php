@@ -22,8 +22,6 @@ final class CreateSelfHostedRunnerGroupForOrg
 {
     public const OPERATION_ID    = 'actions/create-self-hosted-runner-group-for-org';
     public const OPERATION_MATCH = 'POST /orgs/{org}/actions/runner-groups';
-    private const METHOD         = 'POST';
-    private const PATH           = '/orgs/{org}/actions/runner-groups';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -36,7 +34,7 @@ final class CreateSelfHostedRunnerGroupForOrg
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Actions\CreateSelfHostedRunnerGroupForOrg\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{org}'], [$this->org], '/orgs/{org}/actions/runner-groups'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\RunnerGroupsOrg

@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -20,8 +21,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return array{code:int} */
-    public function deleteScimGroupFromEnterprise(array $params): array
+    public function deleteScimGroupFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_group_id', $params) === false) {
@@ -35,8 +35,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteUserFromEnterprise(array $params): array
+    public function deleteUserFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('scim_user_id', $params) === false) {
@@ -50,8 +49,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_user_id']);
     }
 
-    /** @return array{code:int} */
-    public function disableSelectedOrganizationGithubActionsEnterprise(array $params): array
+    public function disableSelectedOrganizationGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -71,8 +69,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
-    /** @return */
-    public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params): Json|array
+    public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params): Json
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -92,8 +89,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteSelfHostedRunnerGroupFromEnterprise(array $params): array
+    public function deleteSelfHostedRunnerGroupFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -113,8 +109,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
-    /** @return array{code:int} */
-    public function deleteSelfHostedRunnerFromEnterprise(array $params): array
+    public function deleteSelfHostedRunnerFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -134,8 +129,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
-    /** @return array{code:int} */
-    public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): array
+    public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -161,8 +155,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
     }
 
-    /** @return array{code:int} */
-    public function removeSelfHostedRunnerFromGroupForEnterprise(array $params): array
+    public function removeSelfHostedRunnerFromGroupForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -188,8 +181,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
-    /** @return */
-    public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params): Ok|array
+    public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {

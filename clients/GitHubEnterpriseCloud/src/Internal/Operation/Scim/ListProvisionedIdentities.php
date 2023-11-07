@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim;
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -22,8 +23,6 @@ final class ListProvisionedIdentities
 {
     public const OPERATION_ID    = 'scim/list-provisioned-identities';
     public const OPERATION_MATCH = 'GET /scim/v2/organizations/{org}/Users';
-    private const METHOD         = 'GET';
-    private const PATH           = '/scim/v2/organizations/{org}/Users';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Used for pagination: the index of the first result to return. **/
@@ -49,11 +48,10 @@ final class ListProvisionedIdentities
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{startIndex}', '{count}', '{filter}'], [$this->org, $this->startIndex, $this->count, $this->filter], self::PATH . '?startIndex={startIndex}&count={count}&filter={filter}'));
+        return new Request('GET', str_replace(['{org}', '{startIndex}', '{count}', '{filter}'], [$this->org, $this->startIndex, $this->count, $this->filter], '/scim/v2/organizations/{org}/Users' . '?startIndex={startIndex}&count={count}&filter={filter}'));
     }
 
-    /** @return Schema\ScimUserList|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ScimUserList|array
+    public function createResponse(ResponseInterface $response): Schema\ScimUserList|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -147,7 +145,7 @@ final class ListProvisionedIdentities
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

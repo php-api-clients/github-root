@@ -21,8 +21,6 @@ final class ListIdpGroupsInOrg
 {
     public const OPERATION_ID    = 'teams/list-idp-groups-in-org';
     public const OPERATION_MATCH = 'GET /orgs/{org}/teams/{team_slug}/team-sync/group-mappings';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/teams/{team_slug}/team-sync/group-mappings';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**The slug of the team name. **/
@@ -36,7 +34,7 @@ final class ListIdpGroupsInOrg
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], self::PATH));
+        return new Request('GET', str_replace(['{org}', '{team_slug}'], [$this->org, $this->teamSlug], '/orgs/{org}/teams/{team_slug}/team-sync/group-mappings'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupMapping

@@ -22,6 +22,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamFull;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Four
@@ -30,8 +31,7 @@ final class Four
     {
     }
 
-    /** @return |Schema\GistComment|array{code:int}|Schema\BaseGist|Schema\ProjectColumn|Schema\GroupResponse|Schema\UserResponse */
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|Repository|RepositoryRuleset|TeamFull|ProjectColumn|GroupResponse|UserResponse|TeamDiscussion|array
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|Repository|RepositoryRuleset|TeamFull|ProjectColumn|GroupResponse|UserResponse|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {

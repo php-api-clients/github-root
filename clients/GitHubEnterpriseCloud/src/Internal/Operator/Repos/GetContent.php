@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Repos;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentDirectory;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentFile;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentSubmodule;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ContentSymlink;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
@@ -28,12 +28,11 @@ final readonly class GetContent
     {
     }
 
-    /** @return Schema\ContentDirectory|Schema\ContentFile|Schema\ContentSymlink|Schema\ContentSubmodule|array{code:int} */
-    public function call(string $owner, string $repo, string $path, string $ref): ContentDirectory|ContentFile|ContentSymlink|ContentSubmodule|array
+    public function call(string $owner, string $repo, string $path, string $ref): ContentDirectory|ContentFile|ContentSymlink|ContentSubmodule|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Repos\GetContent($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $path, $ref);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ContentDirectory|ContentFile|ContentSymlink|ContentSubmodule|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ContentDirectory|ContentFile|ContentSymlink|ContentSubmodule|WithoutBody {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

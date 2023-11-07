@@ -19,8 +19,6 @@ final class GetLicenseSyncStatus
 {
     public const OPERATION_ID    = 'enterprise-admin/get-license-sync-status';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/license-sync-status';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/license-sync-status';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -31,7 +29,7 @@ final class GetLicenseSyncStatus
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH));
+        return new Request('GET', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/license-sync-status'));
     }
 
     public function createResponse(ResponseInterface $response): string

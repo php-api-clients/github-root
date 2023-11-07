@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUserList;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class Scim
 {
@@ -15,38 +15,32 @@ final class Scim
     {
     }
 
-    /** @return Schema\ScimUserList|array{code:int} */
-    public function listProvisionedIdentities(string $org, int $startIndex, int $count, string $filter): ScimUserList|array
+    public function listProvisionedIdentities(string $org, int $startIndex, int $count, string $filter): ScimUserList|WithoutBody
     {
         return $this->operators->scim👷ListProvisionedIdentities()->call($org, $startIndex, $count, $filter);
     }
 
-    /** @return Schema\ScimUser|array{code:int} */
-    public function provisionAndInviteUser(string $org, array $params): ScimUser|array
+    public function provisionAndInviteUser(string $org, array $params): ScimUser|WithoutBody
     {
         return $this->operators->scim👷ProvisionAndInviteUser()->call($org, $params);
     }
 
-    /** @return Schema\ScimUser|array{code:int} */
-    public function getProvisioningInformationForUser(string $org, string $scimUserId): ScimUser|array
+    public function getProvisioningInformationForUser(string $org, string $scimUserId): ScimUser|WithoutBody
     {
         return $this->operators->scim👷GetProvisioningInformationForUser()->call($org, $scimUserId);
     }
 
-    /** @return Schema\ScimUser|array{code:int} */
-    public function setInformationForProvisionedUser(string $org, string $scimUserId, array $params): ScimUser|array
+    public function setInformationForProvisionedUser(string $org, string $scimUserId, array $params): ScimUser|WithoutBody
     {
         return $this->operators->scim👷SetInformationForProvisionedUser()->call($org, $scimUserId, $params);
     }
 
-    /** @return array{code:int} */
-    public function deleteUserFromOrg(string $org, string $scimUserId): array
+    public function deleteUserFromOrg(string $org, string $scimUserId): WithoutBody
     {
         return $this->operators->scim👷DeleteUserFromOrg()->call($org, $scimUserId);
     }
 
-    /** @return Schema\ScimUser|array{code:int} */
-    public function updateAttributeForUser(string $org, string $scimUserId, array $params): ScimUser|array
+    public function updateAttributeForUser(string $org, string $scimUserId, array $params): ScimUser|WithoutBody
     {
         return $this->operators->scim👷UpdateAttributeForUser()->call($org, $scimUserId, $params);
     }

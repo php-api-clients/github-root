@@ -12,6 +12,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GenerateRu
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsOrg;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use React\Http\Browser;
@@ -24,8 +25,7 @@ final class Actions
     {
     }
 
-    /** @return */
-    public function generateRunnerJitconfigForEnterprise(array $params): Created|array
+    public function generateRunnerJitconfigForEnterprise(array $params): Created
     {
         $arguments = [];
         if (array_key_exists('enterprise', $params) === false) {
@@ -39,8 +39,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $params);
     }
 
-    /** @return */
-    public function generateRunnerJitconfigForOrg(array $params): Created|array
+    public function generateRunnerJitconfigForOrg(array $params): Created
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -54,8 +53,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return */
-    public function createRegistrationTokenForOrg(array $params): AuthenticationToken|array
+    public function createRegistrationTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -69,8 +67,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function createRemoveTokenForOrg(array $params): AuthenticationToken|array
+    public function createRemoveTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -84,8 +81,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
-    public function createRepoVariable(array $params): EmptyObject|array
+    public function createRepoVariable(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -105,8 +101,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function createEnvironmentVariable(array $params): EmptyObject|array
+    public function createEnvironmentVariable(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('repository_id', $params) === false) {
@@ -126,8 +121,7 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $params);
     }
 
-    /** @return */
-    public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg|array
+    public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -141,8 +135,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return */
-    public function createOrgVariable(array $params): EmptyObject|array
+    public function createOrgVariable(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -156,8 +149,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
-    /** @return */
-    public function addCustomLabelsToSelfHostedRunnerForOrg(array $params): Ok|array
+    public function addCustomLabelsToSelfHostedRunnerForOrg(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -177,8 +169,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id'], $params);
     }
 
-    /** @return */
-    public function generateRunnerJitconfigForRepo(array $params): Created|array
+    public function generateRunnerJitconfigForRepo(array $params): Created
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -198,8 +189,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function createRegistrationTokenForRepo(array $params): AuthenticationToken|array
+    public function createRegistrationTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -219,8 +209,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function createRemoveTokenForRepo(array $params): AuthenticationToken|array
+    public function createRemoveTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -240,8 +229,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function reRunJobForWorkflowRun(array $params): EmptyObject|array
+    public function reRunJobForWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -267,8 +255,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id'], $params);
     }
 
-    /** @return */
-    public function addCustomLabelsToSelfHostedRunnerForRepo(array $params): Ok|array
+    public function addCustomLabelsToSelfHostedRunnerForRepo(array $params): Ok
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -294,8 +281,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id'], $params);
     }
 
-    /** @return */
-    public function approveWorkflowRun(array $params): EmptyObject|array
+    public function approveWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -321,8 +307,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return */
-    public function cancelWorkflowRun(array $params): EmptyObject|array
+    public function cancelWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -348,8 +333,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return array{code:int} */
-    public function reviewCustomGatesForRun(array $params): array
+    public function reviewCustomGatesForRun(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -375,8 +359,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    /** @return */
-    public function forceCancelWorkflowRun(array $params): EmptyObject|array
+    public function forceCancelWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -402,7 +385,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return Observable<Schema\Deployment> */
+    /** @return iterable<int,Schema\Deployment> */
     public function reviewPendingDeploymentsForRun(array $params): iterable
     {
         $arguments = [];
@@ -429,8 +412,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    /** @return */
-    public function reRunWorkflow(array $params): EmptyObject|array
+    public function reRunWorkflow(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -456,8 +438,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    /** @return */
-    public function reRunWorkflowFailedJobs(array $params): EmptyObject|array
+    public function reRunWorkflowFailedJobs(array $params): EmptyObject
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {
@@ -483,8 +464,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
-    /** @return array{code:int} */
-    public function createWorkflowDispatch(array $params): array
+    public function createWorkflowDispatch(array $params): WithoutBody
     {
         $arguments = [];
         if (array_key_exists('owner', $params) === false) {

@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\EnterpriseAdmin;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseGroupList;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\ResponseInterface;
 use React\Http\Browser;
@@ -25,12 +25,11 @@ final readonly class ListProvisionedGroupsEnterprise
     {
     }
 
-    /** @return Schema\ScimEnterpriseGroupList|array{code:int} */
-    public function call(string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30): ScimEnterpriseGroupList|array
+    public function call(string $filter, string $excludedAttributes, int $startIndex = 1, int $count = 30): ScimEnterpriseGroupList|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->responseSchemaValidator, $this->hydrator, $filter, $excludedAttributes, $startIndex, $count);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ScimEnterpriseGroupList|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): ScimEnterpriseGroupList|WithoutBody {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

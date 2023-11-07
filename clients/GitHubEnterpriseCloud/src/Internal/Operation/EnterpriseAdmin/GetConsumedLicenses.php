@@ -19,8 +19,6 @@ final class GetConsumedLicenses
 {
     public const OPERATION_ID    = 'enterprise-admin/get-consumed-licenses';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/consumed-licenses';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/consumed-licenses';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**The number of results per page (max 100). **/
@@ -37,7 +35,7 @@ final class GetConsumedLicenses
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{per_page}', '{page}'], [$this->enterprise, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{enterprise}', '{per_page}', '{page}'], [$this->enterprise, $this->perPage, $this->page], '/enterprises/{enterprise}/consumed-licenses' . '?per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): string

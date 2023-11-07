@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
@@ -16,6 +17,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectCard;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamFull;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Five
@@ -24,8 +26,8 @@ final class Five
     {
     }
 
-    /** @return |Observable<Schema\OrgCustomProperty>|Observable<Schema\OrgRepoCustomPropertyValues>|Schema\ProjectCard|array{code:int}|Schema\GroupResponse|Schema\UserResponse */
-    public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|iterable|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
+    /** @return Schema\GistComment|Schema\OrganizationCustomRepositoryRole|Schema\OrgHook|iterable<int,Schema\OrgCustomProperty>|WithoutBody|Schema\TeamFull|Schema\ProjectCard|Schema\Import|Schema\GroupResponse|Schema\UserResponse|Schema\TeamDiscussion|Schema\GroupMapping|Schema\OrgMembership */
+    public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|iterable|WithoutBody|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {

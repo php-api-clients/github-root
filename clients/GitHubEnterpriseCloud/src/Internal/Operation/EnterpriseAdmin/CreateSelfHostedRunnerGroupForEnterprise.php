@@ -22,8 +22,6 @@ final class CreateSelfHostedRunnerGroupForEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/create-self-hosted-runner-group-for-enterprise';
     public const OPERATION_MATCH = 'POST /enterprises/{enterprise}/actions/runner-groups';
-    private const METHOD         = 'POST';
-    private const PATH           = '/enterprises/{enterprise}/actions/runner-groups';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -36,7 +34,7 @@ final class CreateSelfHostedRunnerGroupForEnterprise
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/runner-groups'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\RunnerGroupsEnterprise

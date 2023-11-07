@@ -22,8 +22,6 @@ final class ListIdpGroupsForLegacy
 {
     public const OPERATION_ID    = 'teams/list-idp-groups-for-legacy';
     public const OPERATION_MATCH = 'GET /teams/{team_id}/team-sync/group-mappings';
-    private const METHOD         = 'GET';
-    private const PATH           = '/teams/{team_id}/team-sync/group-mappings';
     /**The unique identifier of the team. **/
     private int $teamId;
 
@@ -34,7 +32,7 @@ final class ListIdpGroupsForLegacy
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{team_id}'], [$this->teamId], self::PATH));
+        return new Request('GET', str_replace(['{team_id}'], [$this->teamId], '/teams/{team_id}/team-sync/group-mappings'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupMapping

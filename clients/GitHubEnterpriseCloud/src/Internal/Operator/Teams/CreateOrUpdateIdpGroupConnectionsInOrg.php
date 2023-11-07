@@ -24,12 +24,11 @@ final readonly class CreateOrUpdateIdpGroupConnectionsInOrg
     {
     }
 
-    /** @return */
-    public function call(string $org, string $teamSlug, array $params): GroupMapping|array
+    public function call(string $org, string $teamSlug, array $params): GroupMapping
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\CreateOrUpdateIdpGroupConnectionsInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);
         $request   = $operation->createRequest($params);
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupMapping {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

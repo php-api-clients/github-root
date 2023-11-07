@@ -24,12 +24,12 @@ final readonly class GetServerStatistics
     {
     }
 
-    /** @return Observable<Schema\ServerStatistics> */
+    /** @return iterable<int,Schema\ServerStatistics> */
     public function call(string $enterpriseOrOrg, string $dateStart, string $dateEnd): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetServerStatistics($this->responseSchemaValidator, $this->hydrator, $enterpriseOrOrg, $dateStart, $dateEnd);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

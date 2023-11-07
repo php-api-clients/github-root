@@ -22,8 +22,6 @@ final class GetGithubAdvancedSecurityBillingGhe
 {
     public const OPERATION_ID    = 'billing/get-github-advanced-security-billing-ghe';
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/settings/billing/advanced-security';
-    private const METHOD         = 'GET';
-    private const PATH           = '/enterprises/{enterprise}/settings/billing/advanced-security';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
     /**The number of results per page (max 100). **/
@@ -40,7 +38,7 @@ final class GetGithubAdvancedSecurityBillingGhe
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{enterprise}', '{per_page}', '{page}'], [$this->enterprise, $this->perPage, $this->page], self::PATH . '?per_page={per_page}&page={page}'));
+        return new Request('GET', str_replace(['{enterprise}', '{per_page}', '{page}'], [$this->enterprise, $this->perPage, $this->page], '/enterprises/{enterprise}/settings/billing/advanced-security' . '?per_page={per_page}&page={page}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\AdvancedSecurityActiveCommitters

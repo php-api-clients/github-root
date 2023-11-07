@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -19,8 +20,6 @@ final class SetGithubActionsDefaultWorkflowPermissionsEnterprise
 {
     public const OPERATION_ID    = 'actions/set-github-actions-default-workflow-permissions-enterprise';
     public const OPERATION_MATCH = 'PUT /enterprises/{enterprise}/actions/permissions/workflow';
-    private const METHOD         = 'PUT';
-    private const PATH           = '/enterprises/{enterprise}/actions/permissions/workflow';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
 
@@ -33,11 +32,10 @@ final class SetGithubActionsDefaultWorkflowPermissionsEnterprise
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\ActionsSetDefaultWorkflowPermissions::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{enterprise}'], [$this->enterprise], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{enterprise}'], [$this->enterprise], '/enterprises/{enterprise}/actions/permissions/workflow'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return array{code: int} */
-    public function createResponse(ResponseInterface $response): array
+    public function createResponse(ResponseInterface $response): WithoutBody
     {
         $code = $response->getStatusCode();
         switch ($code) {
@@ -45,7 +43,7 @@ final class SetGithubActionsDefaultWorkflowPermissionsEnterprise
              * Success response
              **/
             case 204:
-                return ['code' => 204];
+                return new WithoutBody(204, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

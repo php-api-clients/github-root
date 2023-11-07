@@ -24,12 +24,11 @@ final readonly class GetSharedStorageBillingGhe
     {
     }
 
-    /** @return */
-    public function call(string $enterprise): CombinedBillingUsage|array
+    public function call(string $enterprise): CombinedBillingUsage
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\GetSharedStorageBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): CombinedBillingUsage|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): CombinedBillingUsage {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -24,8 +24,6 @@ final class ListFineGrainedPermissions
 {
     public const OPERATION_ID    = 'orgs/list-fine-grained-permissions';
     public const OPERATION_MATCH = 'GET /orgs/{org}/fine_grained_permissions';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/fine_grained_permissions';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -36,7 +34,7 @@ final class ListFineGrainedPermissions
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH));
+        return new Request('GET', str_replace(['{org}'], [$this->org], '/orgs/{org}/fine_grained_permissions'));
     }
 
     /** @return Observable<Schema\RepositoryFineGrainedPermission> */
@@ -57,7 +55,7 @@ final class ListFineGrainedPermissions
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\RepositoryFineGrainedPermission::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\RepositoryFineGrainedPermission::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\RepositoryFineGrainedPermission::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }

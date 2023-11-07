@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
@@ -13,6 +14,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranch;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestMergeResult;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamMembership;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
 final class Seven
@@ -21,8 +23,8 @@ final class Seven
     {
     }
 
-    /** @return array{code:int}||Schema\TeamMembership|Schema\EmptyObject|Observable<Schema\Label>|Schema\BasicError|Schema\ScimUser */
-    public function call(string $call, array $params, array $pathChunks): Ok|EmptyObject|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|ScimUser
+    /** @return WithoutBody|Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|Schema\EmptyObject|Schema\TeamMembership|Schema\ProtectedBranch|iterable<int,Schema\Label>|Schema\BasicError|Schema\PullRequestMergeResult|Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json|Schema\ScimUser */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|ScimUser
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

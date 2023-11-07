@@ -21,8 +21,6 @@ final class ListCustomRoles
 {
     public const OPERATION_ID    = 'orgs/list-custom-roles';
     public const OPERATION_MATCH = 'GET /organizations/{organization_id}/custom_roles';
-    private const METHOD         = 'GET';
-    private const PATH           = '/organizations/{organization_id}/custom_roles';
     /**The unique identifier of the organization. **/
     private string $organizationId;
 
@@ -33,7 +31,7 @@ final class ListCustomRoles
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{organization_id}'], [$this->organizationId], self::PATH));
+        return new Request('GET', str_replace(['{organization_id}'], [$this->organizationId], '/organizations/{organization_id}/custom_roles'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok

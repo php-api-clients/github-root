@@ -24,12 +24,12 @@ final readonly class GetAuditLog
     {
     }
 
-    /** @return Observable<Schema\AuditLogEvent> */
+    /** @return iterable<int,Schema\AuditLogEvent> */
     public function call(string $org, string $phrase, string $include, string $after, string $before, string $order, int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\GetAuditLog($this->responseSchemaValidator, $this->hydrator, $org, $phrase, $include, $after, $before, $order, $perPage);
         $request   = $operation->createRequest();
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable|array {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Observable {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim;
 use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -23,8 +24,6 @@ final class ProvisionAndInviteUser
 {
     public const OPERATION_ID    = 'scim/provision-and-invite-user';
     public const OPERATION_MATCH = 'POST /scim/v2/organizations/{org}/Users';
-    private const METHOD         = 'POST';
-    private const PATH           = '/scim/v2/organizations/{org}/Users';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
 
@@ -37,11 +36,10 @@ final class ProvisionAndInviteUser
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Scim\ProvisionAndInviteUser\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request(self::METHOD, str_replace(['{org}'], [$this->org], self::PATH), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{org}'], [$this->org], '/scim/v2/organizations/{org}/Users'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    /** @return Schema\ScimUser|array{code: int} */
-    public function createResponse(ResponseInterface $response): Schema\ScimUser|array
+    public function createResponse(ResponseInterface $response): Schema\ScimUser|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -151,7 +149,7 @@ final class ProvisionAndInviteUser
              * Not modified
              **/
             case 304:
-                return ['code' => 304];
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

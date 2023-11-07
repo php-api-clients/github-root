@@ -24,8 +24,6 @@ final class ListSamlSsoAuthorizationsListing
 {
     public const OPERATION_ID    = 'orgs/list-saml-sso-authorizations';
     public const OPERATION_MATCH = 'LIST /orgs/{org}/credential-authorizations';
-    private const METHOD         = 'GET';
-    private const PATH           = '/orgs/{org}/credential-authorizations';
     /**The organization name. The name is not case sensitive. **/
     private string $org;
     /**Page token **/
@@ -45,7 +43,7 @@ final class ListSamlSsoAuthorizationsListing
 
     public function createRequest(): RequestInterface
     {
-        return new Request(self::METHOD, str_replace(['{org}', '{page}', '{login}', '{per_page}'], [$this->org, $this->page, $this->login, $this->perPage], self::PATH . '?page={page}&login={login}&per_page={per_page}'));
+        return new Request('GET', str_replace(['{org}', '{page}', '{login}', '{per_page}'], [$this->org, $this->page, $this->login, $this->perPage], '/orgs/{org}/credential-authorizations' . '?page={page}&login={login}&per_page={per_page}'));
     }
 
     /** @return Observable<Schema\CredentialAuthorization> */
@@ -66,7 +64,7 @@ final class ListSamlSsoAuthorizationsListing
                             try {
                                 $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\CredentialAuthorization::SCHEMA_JSON, '\\cebe\\openapi\\spec\\Schema'));
 
-                                return $this->hydrators->hydrateObject(Schema\CredentialAuthorization::class, $body);
+                                return $this->hydrator->hydrateObject(Schema\CredentialAuthorization::class, $body);
                             } catch (Throwable $error) {
                                 goto items_application_json_two_hundred_aaaaa;
                             }
