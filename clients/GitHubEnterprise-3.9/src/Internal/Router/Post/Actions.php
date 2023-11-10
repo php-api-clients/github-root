@@ -24,6 +24,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
@@ -38,6 +39,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createOrgVariable(array $params): EmptyObject
     {
         $arguments = [];
@@ -52,6 +54,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createRegistrationTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -66,6 +69,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function createRemoveTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -80,6 +84,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function createRepoVariable(array $params): EmptyObject
     {
         $arguments = [];
@@ -100,6 +105,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createEnvironmentVariable(array $params): EmptyObject
     {
         $arguments = [];
@@ -120,6 +126,7 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $params);
     }
 
+    /** @return */
     public function addCustomLabelsToSelfHostedRunnerForOrg(array $params): Ok
     {
         $arguments = [];
@@ -140,6 +147,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id'], $params);
     }
 
+    /** @return */
     public function createRegistrationTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -160,6 +168,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function createRemoveTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -180,6 +189,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function reRunJobForWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
@@ -206,6 +216,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['job_id'], $params);
     }
 
+    /** @return */
     public function addCustomLabelsToSelfHostedRunnerForRepo(array $params): Ok
     {
         $arguments = [];
@@ -232,6 +243,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id'], $params);
     }
 
+    /** @return */
     public function cancelWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
@@ -258,7 +270,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return iterable<int,Schema\Deployment> */
+    /** @return Observable<Schema\Deployment> */
     public function reviewPendingDeploymentsForRun(array $params): iterable
     {
         $arguments = [];
@@ -285,6 +297,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
+    /** @return */
     public function reRunWorkflow(array $params): EmptyObject
     {
         $arguments = [];
@@ -311,6 +324,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
+    /** @return */
     public function reRunWorkflowFailedJobs(array $params): EmptyObject
     {
         $arguments = [];
@@ -337,6 +351,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
+    /** @return */
     public function createWorkflowDispatch(array $params): WithoutBody
     {
         $arguments = [];

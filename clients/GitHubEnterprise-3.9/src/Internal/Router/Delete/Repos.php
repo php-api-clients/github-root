@@ -22,6 +22,7 @@ final class Repos
     {
     }
 
+    /** @return */
     public function delete(array $params): BasicError|WithoutBody
     {
         $arguments = [];
@@ -42,6 +43,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function declineInvitationForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -56,6 +58,7 @@ final class Repos
         return $operator->call($arguments['invitation_id']);
     }
 
+    /** @return */
     public function disableLfsForRepo(array $params): WithoutBody
     {
         $arguments = [];
@@ -76,6 +79,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function deletePagesSite(array $params): WithoutBody
     {
         $arguments = [];
@@ -96,6 +100,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function disableVulnerabilityAlerts(array $params): WithoutBody
     {
         $arguments = [];
@@ -116,6 +121,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function deleteBranchProtection(array $params): WithoutBody
     {
         $arguments = [];
@@ -142,6 +148,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function deleteReleaseAsset(array $params): WithoutBody
     {
         $arguments = [];
@@ -168,6 +175,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['asset_id']);
     }
 
+    /** @return */
     public function deleteTagProtection(array $params): WithoutBody
     {
         $arguments = [];
@@ -194,6 +202,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag_protection_id']);
     }
 
+    /** @return */
     public function deleteAutolink(array $params): WithoutBody
     {
         $arguments = [];
@@ -220,6 +229,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['autolink_id']);
     }
 
+    /** @return */
     public function removeCollaborator(array $params): WithoutBody
     {
         $arguments = [];
@@ -246,6 +256,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username']);
     }
 
+    /** @return */
     public function deleteCommitComment(array $params): WithoutBody
     {
         $arguments = [];
@@ -272,6 +283,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
+    /** @return */
     public function deleteFile(array $params): FileCommit
     {
         $arguments = [];
@@ -298,6 +310,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
 
+    /** @return */
     public function deleteDeployment(array $params): WithoutBody
     {
         $arguments = [];
@@ -324,6 +337,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
 
+    /** @return */
     public function deleteAnEnvironment(array $params): WithoutBody
     {
         $arguments = [];
@@ -350,6 +364,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name']);
     }
 
+    /** @return */
     public function deleteWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -376,6 +391,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
+    /** @return */
     public function deleteInvitation(array $params): WithoutBody
     {
         $arguments = [];
@@ -402,6 +418,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['invitation_id']);
     }
 
+    /** @return */
     public function deleteDeployKey(array $params): WithoutBody
     {
         $arguments = [];
@@ -428,6 +445,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key_id']);
     }
 
+    /** @return */
     public function deleteRelease(array $params): WithoutBody
     {
         $arguments = [];
@@ -454,6 +472,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id']);
     }
 
+    /** @return */
     public function deleteAdminBranchProtection(array $params): WithoutBody
     {
         $arguments = [];
@@ -480,6 +499,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function deletePullRequestReviewProtection(array $params): WithoutBody
     {
         $arguments = [];
@@ -506,6 +526,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function deleteCommitSignatureProtection(array $params): WithoutBody
     {
         $arguments = [];
@@ -532,6 +553,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function removeStatusCheckProtection(array $params): WithoutBody
     {
         $arguments = [];
@@ -558,6 +580,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function deleteAccessRestrictions(array $params): WithoutBody
     {
         $arguments = [];
@@ -584,6 +607,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function deleteDeploymentBranchPolicy(array $params): WithoutBody
     {
         $arguments = [];
@@ -616,7 +640,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id']);
     }
 
-    /** @return iterable<int,string> */
+    /** @return Observable<string> */
     public function removeStatusCheckContexts(array $params): iterable
     {
         $arguments = [];
@@ -643,7 +667,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\Integration> */
+    /** @return Observable<Schema\Integration> */
     public function removeAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -670,7 +694,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function removeTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -697,7 +721,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function removeUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];

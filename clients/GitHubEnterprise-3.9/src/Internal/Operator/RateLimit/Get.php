@@ -25,6 +25,7 @@ final readonly class Get
     {
     }
 
+    /** @return */
     public function call(): RateLimitOverview|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\RateLimit\Get($this->responseSchemaValidator, $this->hydrator);

@@ -20,7 +20,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<int,Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function listGlobalWebhooksListing(array $params): iterable
     {
         $arguments = [];
@@ -47,7 +47,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function listPublicKeysListing(array $params): iterable
     {
         $arguments = [];
@@ -92,7 +92,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\PreReceiveEnvironment> */
+    /** @return Observable<Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironmentsListing(array $params): iterable
     {
         $arguments = [];
@@ -131,7 +131,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\PreReceiveHook> */
+    /** @return Observable<Schema\PreReceiveHook> */
     public function listPreReceiveHooksListing(array $params): iterable
     {
         $arguments = [];
@@ -170,7 +170,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function listPersonalAccessTokensListing(array $params): iterable
     {
         $arguments = [];
@@ -197,7 +197,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLogListing(array $params): iterable
     {
         $arguments = [];
@@ -260,7 +260,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\OrgPreReceiveHook> */
+    /** @return Observable<Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -305,7 +305,7 @@ final class EnterpriseAdmin
         } while (count($items) > 0);
     }
 
-    /** @return iterable<int,Schema\RepositoryPreReceiveHook> */
+    /** @return Observable<Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepoListing(array $params): iterable
     {
         $arguments = [];
