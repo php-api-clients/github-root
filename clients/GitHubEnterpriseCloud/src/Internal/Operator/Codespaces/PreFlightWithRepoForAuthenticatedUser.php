@@ -24,6 +24,7 @@ final readonly class PreFlightWithRepoForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $ref, string $clientIp): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Codespaces\PreFlightWithRepoForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref, $clientIp);

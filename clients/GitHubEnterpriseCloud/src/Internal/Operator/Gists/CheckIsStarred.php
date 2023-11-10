@@ -24,6 +24,7 @@ final readonly class CheckIsStarred
     {
     }
 
+    /** @return */
     public function call(string $gistId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Gists\CheckIsStarred($this->responseSchemaValidator, $this->hydrator, $gistId);

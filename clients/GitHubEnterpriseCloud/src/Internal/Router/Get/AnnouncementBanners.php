@@ -19,6 +19,7 @@ final class AnnouncementBanners
     {
     }
 
+    /** @return */
     public function getAnnouncementBannerForEnterprise(array $params): AnnouncementBanner
     {
         $arguments = [];
@@ -33,6 +34,7 @@ final class AnnouncementBanners
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getAnnouncementBannerForOrg(array $params): AnnouncementBanner
     {
         $arguments = [];

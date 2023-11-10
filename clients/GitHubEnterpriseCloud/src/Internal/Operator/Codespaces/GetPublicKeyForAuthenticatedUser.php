@@ -24,6 +24,7 @@ final readonly class GetPublicKeyForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(): CodespacesUserPublicKey
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Codespaces\GetPublicKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator);

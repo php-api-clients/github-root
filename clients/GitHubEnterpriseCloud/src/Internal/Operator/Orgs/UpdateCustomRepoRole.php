@@ -24,6 +24,7 @@ final readonly class UpdateCustomRepoRole
     {
     }
 
+    /** @return */
     public function call(string $org, int $roleId, array $params): OrganizationCustomRepositoryRole
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\UpdateCustomRepoRole($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $roleId);

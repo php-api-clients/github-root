@@ -23,6 +23,7 @@ final readonly class GetLicenseSyncStatus
     {
     }
 
+    /** @return */
     public function call(string $enterprise): string
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetLicenseSyncStatus($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -24,6 +24,7 @@ final readonly class CreateRemoveTokenForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise): AuthenticationToken
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\CreateRemoveTokenForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

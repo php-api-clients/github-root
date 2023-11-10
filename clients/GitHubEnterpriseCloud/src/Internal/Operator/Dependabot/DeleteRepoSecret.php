@@ -22,6 +22,7 @@ final readonly class DeleteRepoSecret
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $secretName): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Dependabot\DeleteRepoSecret($owner, $repo, $secretName);

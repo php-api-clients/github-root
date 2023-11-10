@@ -22,6 +22,7 @@ final readonly class RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $runnerGroupId, int $orgId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\RemoveOrgAccessToSelfHostedRunnerGroupInEnterprise($enterprise, $runnerGroupId, $orgId);

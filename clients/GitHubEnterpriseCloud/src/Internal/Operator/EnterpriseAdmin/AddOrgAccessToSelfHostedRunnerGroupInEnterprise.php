@@ -22,6 +22,7 @@ final readonly class AddOrgAccessToSelfHostedRunnerGroupInEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $runnerGroupId, int $orgId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\AddOrgAccessToSelfHostedRunnerGroupInEnterprise($enterprise, $runnerGroupId, $orgId);

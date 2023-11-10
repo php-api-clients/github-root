@@ -24,6 +24,7 @@ final readonly class RemoveSamlSsoAuthorization
     {
     }
 
+    /** @return */
     public function call(string $org, int $credentialId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\RemoveSamlSsoAuthorization($this->responseSchemaValidator, $this->hydrator, $org, $credentialId);

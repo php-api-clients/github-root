@@ -21,6 +21,7 @@ final class Scim
     {
     }
 
+    /** @return */
     public function listProvisionedIdentities(array $params): ScimUserList|WithoutBody
     {
         $arguments = [];
@@ -53,6 +54,7 @@ final class Scim
         return $operator->call($arguments['org'], $arguments['startIndex'], $arguments['count'], $arguments['filter']);
     }
 
+    /** @return */
     public function getProvisioningInformationForUser(array $params): ScimUser|WithoutBody
     {
         $arguments = [];

@@ -19,6 +19,7 @@ final class Scim
     {
     }
 
+    /** @return */
     public function deleteUserFromOrg(array $params): WithoutBody
     {
         $arguments = [];

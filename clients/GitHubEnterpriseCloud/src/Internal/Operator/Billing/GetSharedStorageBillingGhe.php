@@ -24,6 +24,7 @@ final readonly class GetSharedStorageBillingGhe
     {
     }
 
+    /** @return */
     public function call(string $enterprise): CombinedBillingUsage
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\GetSharedStorageBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise);

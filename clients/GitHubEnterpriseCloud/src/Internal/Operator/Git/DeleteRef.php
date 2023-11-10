@@ -24,6 +24,7 @@ final readonly class DeleteRef
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $ref): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Git\DeleteRef($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref);

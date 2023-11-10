@@ -24,6 +24,7 @@ final readonly class DeleteUserFromEnterprise
     {
     }
 
+    /** @return */
     public function call(string $scimUserId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\DeleteUserFromEnterprise($this->responseSchemaValidator, $this->hydrator, $scimUserId);

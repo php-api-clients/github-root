@@ -23,6 +23,7 @@ final readonly class SetActionsOidcCustomIssuerPolicyForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\SetActionsOidcCustomIssuerPolicyForEnterprise($this->requestSchemaValidator, $enterprise);

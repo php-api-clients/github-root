@@ -23,6 +23,7 @@ final readonly class SetWorkflowAccessToRepository
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\SetWorkflowAccessToRepository($this->requestSchemaValidator, $owner, $repo);

@@ -24,6 +24,7 @@ final readonly class CreateOrUpdateIdpGroupConnectionsInOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $teamSlug, array $params): GroupMapping
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\CreateOrUpdateIdpGroupConnectionsInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

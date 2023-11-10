@@ -24,6 +24,7 @@ final readonly class CheckBlocked
     {
     }
 
+    /** @return */
     public function call(string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Users\CheckBlocked($this->responseSchemaValidator, $this->hydrator, $username);

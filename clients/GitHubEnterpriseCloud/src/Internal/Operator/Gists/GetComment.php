@@ -25,6 +25,7 @@ final readonly class GetComment
     {
     }
 
+    /** @return */
     public function call(string $gistId, int $commentId): GistComment|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Gists\GetComment($this->responseSchemaValidator, $this->hydrator, $gistId, $commentId);

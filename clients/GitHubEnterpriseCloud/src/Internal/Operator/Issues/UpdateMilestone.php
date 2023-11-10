@@ -24,6 +24,7 @@ final readonly class UpdateMilestone
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $milestoneNumber, array $params): Milestone
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Issues\UpdateMilestone($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $milestoneNumber);

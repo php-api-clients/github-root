@@ -20,6 +20,7 @@ final class Scim
     {
     }
 
+    /** @return */
     public function updateAttributeForUser(array $params): ScimUser|WithoutBody
     {
         $arguments = [];

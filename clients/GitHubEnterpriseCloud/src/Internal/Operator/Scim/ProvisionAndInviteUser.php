@@ -25,6 +25,7 @@ final readonly class ProvisionAndInviteUser
     {
     }
 
+    /** @return */
     public function call(string $org, array $params): ScimUser|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim\ProvisionAndInviteUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

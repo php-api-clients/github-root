@@ -22,6 +22,7 @@ final class EnterpriseAdmin
     {
     }
 
+    /** @return */
     public function updateSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
@@ -42,6 +43,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
+    /** @return */
     public function updateAttributeForEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
@@ -56,6 +58,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id'], $params);
     }
 
+    /** @return */
     public function updateAttributeForEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];

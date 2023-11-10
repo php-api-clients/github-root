@@ -22,6 +22,7 @@ final readonly class RemoveRestrictionsForOrg
     {
     }
 
+    /** @return */
     public function call(string $org): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Interactions\RemoveRestrictionsForOrg($org);

@@ -22,6 +22,7 @@ final class Billing
     {
     }
 
+    /** @return */
     public function getGithubActionsBillingGhe(array $params): ActionsBillingUsage
     {
         $arguments = [];
@@ -36,6 +37,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getGithubAdvancedSecurityBillingGhe(array $params): AdvancedSecurityActiveCommitters
     {
         $arguments = [];
@@ -62,6 +64,7 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getGithubPackagesBillingGhe(array $params): PackagesBillingUsage
     {
         $arguments = [];
@@ -76,6 +79,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getSharedStorageBillingGhe(array $params): CombinedBillingUsage
     {
         $arguments = [];
@@ -90,6 +94,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getGithubActionsBillingOrg(array $params): ActionsBillingUsage
     {
         $arguments = [];
@@ -104,6 +109,7 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getGithubAdvancedSecurityBillingOrg(array $params): AdvancedSecurityActiveCommitters
     {
         $arguments = [];
@@ -130,6 +136,7 @@ final class Billing
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getGithubPackagesBillingOrg(array $params): PackagesBillingUsage
     {
         $arguments = [];
@@ -144,6 +151,7 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getSharedStorageBillingOrg(array $params): CombinedBillingUsage
     {
         $arguments = [];
@@ -158,6 +166,7 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getGithubActionsBillingUser(array $params): ActionsBillingUsage
     {
         $arguments = [];
@@ -172,6 +181,7 @@ final class Billing
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function getGithubPackagesBillingUser(array $params): PackagesBillingUsage
     {
         $arguments = [];
@@ -186,6 +196,7 @@ final class Billing
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function getSharedStorageBillingUser(array $params): CombinedBillingUsage
     {
         $arguments = [];

@@ -23,6 +23,7 @@ final class Orgs
     {
     }
 
+    /** @return */
     public function createCustomRepoRole(array $params): OrganizationCustomRepositoryRole
     {
         $arguments = [];
@@ -37,6 +38,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createCustomRole(array $params): OrganizationCustomRepositoryRole
     {
         $arguments = [];
@@ -51,6 +53,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createWebhook(array $params): OrgHook
     {
         $arguments = [];
@@ -65,6 +68,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createInvitation(array $params): OrganizationInvitation
     {
         $arguments = [];
@@ -79,6 +83,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function reviewPatGrantRequestsInBulk(array $params): Json
     {
         $arguments = [];
@@ -93,6 +98,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function updatePatAccesses(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json
     {
         $arguments = [];
@@ -107,6 +113,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function pingWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -127,6 +134,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
+    /** @return */
     public function reviewPatGrantRequest(array $params): WithoutBody
     {
         $arguments = [];
@@ -147,6 +155,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['pat_request_id'], $params);
     }
 
+    /** @return */
     public function updatePatAccess(array $params): WithoutBody
     {
         $arguments = [];
@@ -167,6 +176,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['pat_id'], $params);
     }
 
+    /** @return */
     public function enableOrDisableSecurityProductOnAllOrgRepos(array $params): WithoutBody
     {
         $arguments = [];
@@ -193,6 +203,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['security_product'], $arguments['enablement'], $params);
     }
 
+    /** @return */
     public function redeliverWebhookDelivery(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json
     {
         $arguments = [];

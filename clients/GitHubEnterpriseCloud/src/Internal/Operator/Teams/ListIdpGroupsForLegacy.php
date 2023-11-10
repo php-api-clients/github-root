@@ -24,6 +24,7 @@ final readonly class ListIdpGroupsForLegacy
     {
     }
 
+    /** @return */
     public function call(int $teamId): GroupMapping
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ListIdpGroupsForLegacy($this->responseSchemaValidator, $this->hydrator, $teamId);

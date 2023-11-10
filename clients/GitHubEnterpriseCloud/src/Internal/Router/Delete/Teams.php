@@ -19,6 +19,7 @@ final class Teams
     {
     }
 
+    /** @return */
     public function deleteInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -39,6 +40,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
+    /** @return */
     public function deleteDiscussionLegacy(array $params): WithoutBody
     {
         $arguments = [];
@@ -59,6 +61,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number']);
     }
 
+    /** @return */
     public function removeMemberLegacy(array $params): WithoutBody
     {
         $arguments = [];
@@ -79,6 +82,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['username']);
     }
 
+    /** @return */
     public function removeMembershipForUserLegacy(array $params): WithoutBody
     {
         $arguments = [];
@@ -99,6 +103,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['username']);
     }
 
+    /** @return */
     public function removeProjectLegacy(array $params): WithoutBody
     {
         $arguments = [];
@@ -119,6 +124,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['project_id']);
     }
 
+    /** @return */
     public function deleteDiscussionInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -145,6 +151,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number']);
     }
 
+    /** @return */
     public function removeMembershipForUserInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -171,6 +178,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['username']);
     }
 
+    /** @return */
     public function removeProjectInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -197,6 +205,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['project_id']);
     }
 
+    /** @return */
     public function deleteDiscussionCommentLegacy(array $params): WithoutBody
     {
         $arguments = [];
@@ -223,6 +232,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 
+    /** @return */
     public function unlinkExternalIdpGroupFromTeamForOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -243,6 +253,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
+    /** @return */
     public function removeRepoLegacy(array $params): WithoutBody
     {
         $arguments = [];
@@ -269,6 +280,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function removeRepoInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -301,6 +313,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function deleteLegacy(array $params): WithoutBody
     {
         $arguments = [];
@@ -315,6 +328,7 @@ final class Teams
         return $operator->call($arguments['team_id']);
     }
 
+    /** @return */
     public function deleteDiscussionCommentInOrg(array $params): WithoutBody
     {
         $arguments = [];

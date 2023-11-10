@@ -19,6 +19,7 @@ final class SecretScanning
     {
     }
 
+    /** @return */
     public function postSecurityProductEnablementForEnterprise(array $params): WithoutBody
     {
         $arguments = [];

@@ -25,6 +25,7 @@ final readonly class StartForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(string $codespaceName): Codespace|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Codespaces\StartForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $codespaceName);

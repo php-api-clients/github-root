@@ -19,6 +19,7 @@ final class AnnouncementBanners
     {
     }
 
+    /** @return */
     public function removeAnnouncementBannerForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -33,6 +34,7 @@ final class AnnouncementBanners
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function removeAnnouncementBannerForOrg(array $params): WithoutBody
     {
         $arguments = [];

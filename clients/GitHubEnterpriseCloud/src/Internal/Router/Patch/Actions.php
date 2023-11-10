@@ -20,6 +20,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function updateSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
@@ -40,6 +41,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
+    /** @return */
     public function updateOrgVariable(array $params): WithoutBody
     {
         $arguments = [];
@@ -60,6 +62,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['name'], $params);
     }
 
+    /** @return */
     public function updateRepoVariable(array $params): WithoutBody
     {
         $arguments = [];
@@ -86,6 +89,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name'], $params);
     }
 
+    /** @return */
     public function updateEnvironmentVariable(array $params): WithoutBody
     {
         $arguments = [];

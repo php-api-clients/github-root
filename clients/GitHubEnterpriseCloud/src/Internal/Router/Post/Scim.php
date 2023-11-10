@@ -20,6 +20,7 @@ final class Scim
     {
     }
 
+    /** @return */
     public function provisionAndInviteUser(array $params): ScimUser|WithoutBody
     {
         $arguments = [];
