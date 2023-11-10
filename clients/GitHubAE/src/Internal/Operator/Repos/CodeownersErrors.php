@@ -24,6 +24,7 @@ final readonly class CodeownersErrors
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $ref): \ApiClients\Client\GitHubAE\Schema\CodeownersErrors|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\CodeownersErrors($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $ref);

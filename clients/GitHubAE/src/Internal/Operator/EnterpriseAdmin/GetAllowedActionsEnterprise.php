@@ -24,6 +24,7 @@ final readonly class GetAllowedActionsEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise): SelectedActions
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetAllowedActionsEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

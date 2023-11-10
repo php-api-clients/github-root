@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\ApiOverview;
 use ApiClients\Client\GitHubAE\Schema\Feed;
 use ApiClients\Client\GitHubAE\Schema\Integration;
@@ -23,7 +22,7 @@ final class Two
     {
     }
 
-    /** @return Schema\Integration|iterable<int,Schema\CodeOfConduct>|WithoutBody|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok\Application\Json|Schema\Feed|iterable<int,Schema\BaseGist>|iterable<int,Schema\Issue>|iterable<int,Schema\LicenseSimple>|Schema\ApiOverview|iterable<int,Schema\Thread>|ResponseInterface|iterable<int,Schema\OrganizationSimple>|Schema\RateLimitOverview|Schema\PrivateUser|Schema\PublicUser|iterable<int,Schema\SimpleUser>|string */
+    /** @return |Observable<Schema\CodeOfConduct>|WithoutBody|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Observable<Schema\SimpleUser> */
     public function call(string $call, array $params, array $pathChunks): Integration|iterable|WithoutBody|Json|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
     {
         if ($pathChunks[0] === '') {

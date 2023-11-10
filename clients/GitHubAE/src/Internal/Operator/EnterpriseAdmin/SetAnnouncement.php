@@ -24,6 +24,7 @@ final readonly class SetAnnouncement
     {
     }
 
+    /** @return */
     public function call(array $params): Announcement
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\SetAnnouncement($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

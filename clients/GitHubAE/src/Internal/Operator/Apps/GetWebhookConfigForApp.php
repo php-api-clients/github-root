@@ -24,6 +24,7 @@ final readonly class GetWebhookConfigForApp
     {
     }
 
+    /** @return */
     public function call(): WebhookConfig
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Apps\GetWebhookConfigForApp($this->responseSchemaValidator, $this->hydrator);

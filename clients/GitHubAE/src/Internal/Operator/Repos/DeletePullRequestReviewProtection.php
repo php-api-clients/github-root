@@ -24,6 +24,7 @@ final readonly class DeletePullRequestReviewProtection
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $branch): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\DeletePullRequestReviewProtection($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $branch);

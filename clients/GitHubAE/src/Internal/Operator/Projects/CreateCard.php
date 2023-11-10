@@ -25,6 +25,7 @@ final readonly class CreateCard
     {
     }
 
+    /** @return */
     public function call(int $columnId, array $params): ProjectCard|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Projects\CreateCard($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $columnId);

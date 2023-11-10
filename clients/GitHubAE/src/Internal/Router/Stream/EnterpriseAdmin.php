@@ -19,6 +19,7 @@ final class EnterpriseAdmin
     {
     }
 
+    /** @return */
     public function startPreReceiveEnvironmentDownloadStreaming(array $params): PreReceiveEnvironmentDownloadStatus
     {
         $arguments = [];
@@ -33,6 +34,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
+    /** @return */
     public function getDownloadStatusForPreReceiveEnvironmentStreaming(array $params): PreReceiveEnvironmentDownloadStatus
     {
         $arguments = [];

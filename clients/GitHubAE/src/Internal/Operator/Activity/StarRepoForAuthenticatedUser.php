@@ -24,6 +24,7 @@ final readonly class StarRepoForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Activity\StarRepoForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

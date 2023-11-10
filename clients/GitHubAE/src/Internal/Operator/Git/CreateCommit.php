@@ -24,6 +24,7 @@ final readonly class CreateCommit
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): GitCommit
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Git\CreateCommit($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

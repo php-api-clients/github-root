@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Put;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BasicError;
 use ApiClients\Client\GitHubAE\Schema\EmptyObject;
 use ApiClients\Client\GitHubAE\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json;
@@ -21,7 +20,7 @@ final class Seven
     {
     }
 
-    /** @return WithoutBody|Schema\TeamMembership|Schema\EmptyObject|Schema\ProtectedBranch|iterable<int,Schema\Label>|Schema\BasicError|Schema\PullRequestMergeResult|Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json */
+    /** @return |Observable<Schema\Label>|Schema\BasicError */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|TeamMembership|EmptyObject|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json
     {
         if ($pathChunks[0] === '') {

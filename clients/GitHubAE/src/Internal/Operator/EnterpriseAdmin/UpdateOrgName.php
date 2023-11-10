@@ -24,6 +24,7 @@ final readonly class UpdateOrgName
     {
     }
 
+    /** @return */
     public function call(string $org, array $params): Accepted
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\UpdateOrgName($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

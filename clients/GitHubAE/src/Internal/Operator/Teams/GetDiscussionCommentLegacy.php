@@ -24,6 +24,7 @@ final readonly class GetDiscussionCommentLegacy
     {
     }
 
+    /** @return */
     public function call(int $teamId, int $discussionNumber, int $commentNumber): TeamDiscussionComment
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Teams\GetDiscussionCommentLegacy($this->responseSchemaValidator, $this->hydrator, $teamId, $discussionNumber, $commentNumber);

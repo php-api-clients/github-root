@@ -25,6 +25,7 @@ final readonly class Fork
     {
     }
 
+    /** @return */
     public function call(string $gistId): BaseGist|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Gists\Fork($this->responseSchemaValidator, $this->hydrator, $gistId);

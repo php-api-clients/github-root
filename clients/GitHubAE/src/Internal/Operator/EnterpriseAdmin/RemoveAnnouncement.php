@@ -22,6 +22,7 @@ final readonly class RemoveAnnouncement
     {
     }
 
+    /** @return */
     public function call(): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\RemoveAnnouncement();

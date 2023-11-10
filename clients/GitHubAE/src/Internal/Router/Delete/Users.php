@@ -19,6 +19,7 @@ final class Users
     {
     }
 
+    /** @return */
     public function unfollow(array $params): WithoutBody
     {
         $arguments = [];
@@ -33,6 +34,7 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function deleteGpgKeyForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -47,6 +49,7 @@ final class Users
         return $operator->call($arguments['gpg_key_id']);
     }
 
+    /** @return */
     public function deletePublicSshKeyForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];

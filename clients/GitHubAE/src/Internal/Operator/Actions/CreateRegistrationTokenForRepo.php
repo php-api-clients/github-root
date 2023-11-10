@@ -24,6 +24,7 @@ final readonly class CreateRegistrationTokenForRepo
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): AuthenticationToken
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\CreateRegistrationTokenForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

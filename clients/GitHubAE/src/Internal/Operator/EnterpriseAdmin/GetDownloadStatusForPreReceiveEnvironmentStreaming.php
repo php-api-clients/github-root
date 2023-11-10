@@ -24,6 +24,7 @@ final readonly class GetDownloadStatusForPreReceiveEnvironmentStreaming
     {
     }
 
+    /** @return */
     public function call(int $preReceiveEnvironmentId): PreReceiveEnvironmentDownloadStatus
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetDownloadStatusForPreReceiveEnvironmentStreaming($this->responseSchemaValidator, $this->hydrator, $this->browser, $preReceiveEnvironmentId);

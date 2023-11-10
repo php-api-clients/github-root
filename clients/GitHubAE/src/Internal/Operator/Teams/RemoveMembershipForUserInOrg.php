@@ -22,6 +22,7 @@ final readonly class RemoveMembershipForUserInOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $teamSlug, string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Teams\RemoveMembershipForUserInOrg($org, $teamSlug, $username);

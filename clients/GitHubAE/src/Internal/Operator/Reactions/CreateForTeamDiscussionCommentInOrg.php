@@ -24,6 +24,7 @@ final readonly class CreateForTeamDiscussionCommentInOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $teamSlug, int $discussionNumber, int $commentNumber, array $params): Reaction
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Reactions\CreateForTeamDiscussionCommentInOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $teamSlug, $discussionNumber, $commentNumber);

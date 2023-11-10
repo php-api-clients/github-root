@@ -19,6 +19,7 @@ final class CodeScanning
     {
     }
 
+    /** @return */
     public function updateAlert(array $params): CodeScanningAlert
     {
         $arguments = [];

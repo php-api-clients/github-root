@@ -22,6 +22,7 @@ final readonly class DownloadWorkflowRunAttemptLogs
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $runId, int $attemptNumber): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\DownloadWorkflowRunAttemptLogs($owner, $repo, $runId, $attemptNumber);

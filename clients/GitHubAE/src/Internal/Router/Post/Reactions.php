@@ -19,6 +19,7 @@ final class Reactions
     {
     }
 
+    /** @return */
     public function createForTeamDiscussionInOrg(array $params): Reaction
     {
         $arguments = [];
@@ -45,6 +46,7 @@ final class Reactions
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $params);
     }
 
+    /** @return */
     public function createForIssueComment(array $params): Reaction
     {
         $arguments = [];
@@ -71,6 +73,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
+    /** @return */
     public function createForPullRequestReviewComment(array $params): Reaction
     {
         $arguments = [];
@@ -97,6 +100,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
+    /** @return */
     public function createForTeamDiscussionCommentInOrg(array $params): Reaction
     {
         $arguments = [];
@@ -129,6 +133,7 @@ final class Reactions
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['discussion_number'], $arguments['comment_number'], $params);
     }
 
+    /** @return */
     public function createForCommitComment(array $params): Reaction
     {
         $arguments = [];
@@ -155,6 +160,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id'], $params);
     }
 
+    /** @return */
     public function createForIssue(array $params): Reaction
     {
         $arguments = [];
@@ -181,6 +187,7 @@ final class Reactions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
+    /** @return */
     public function createForRelease(array $params): Reaction
     {
         $arguments = [];

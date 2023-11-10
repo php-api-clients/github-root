@@ -22,6 +22,7 @@ final readonly class DeleteWorkflowRun
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $runId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\DeleteWorkflowRun($owner, $repo, $runId);

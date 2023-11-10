@@ -24,6 +24,7 @@ final readonly class GetGithubActionsPermissionsOrganization
     {
     }
 
+    /** @return */
     public function call(string $org): ActionsOrganizationPermissions
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\GetGithubActionsPermissionsOrganization($this->responseSchemaValidator, $this->hydrator, $org);

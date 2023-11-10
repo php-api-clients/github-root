@@ -24,6 +24,7 @@ final readonly class GetRepoStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseRepositoryOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetRepoStats($this->responseSchemaValidator, $this->hydrator);

@@ -21,6 +21,7 @@ final class CodesOfConduct
     {
     }
 
+    /** @return */
     public function getConductCode(array $params): CodeOfConduct|WithoutBody
     {
         $arguments = [];
@@ -35,7 +36,7 @@ final class CodesOfConduct
         return $operator->call($arguments['key']);
     }
 
-    /** @return iterable<int,Schema\CodeOfConduct>|WithoutBody */
+    /** @return Observable<Schema\CodeOfConduct>|WithoutBody */
     public function getAllCodesOfConduct(array $params): iterable|WithoutBody
     {
         $operator = new Internal\Operator\CodesOfConduct\GetAllCodesOfConduct($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀CodesOfConduct());

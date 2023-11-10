@@ -24,6 +24,7 @@ final readonly class GetGithubActionsDefaultWorkflowPermissionsOrganization
     {
     }
 
+    /** @return */
     public function call(string $org): ActionsGetDefaultWorkflowPermissions
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\GetGithubActionsDefaultWorkflowPermissionsOrganization($this->responseSchemaValidator, $this->hydrator, $org);

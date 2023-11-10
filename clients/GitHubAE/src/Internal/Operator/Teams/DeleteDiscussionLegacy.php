@@ -22,6 +22,7 @@ final readonly class DeleteDiscussionLegacy
     {
     }
 
+    /** @return */
     public function call(int $teamId, int $discussionNumber): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Teams\DeleteDiscussionLegacy($teamId, $discussionNumber);

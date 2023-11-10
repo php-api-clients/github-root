@@ -25,6 +25,7 @@ final readonly class MarkRepoNotificationsAsRead
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): Json|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Activity\MarkRepoNotificationsAsRead($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

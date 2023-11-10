@@ -24,6 +24,7 @@ final readonly class AddOrUpdateRepoPermissionsLegacy
     {
     }
 
+    /** @return */
     public function call(int $teamId, string $owner, string $repo, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Teams\AddOrUpdateRepoPermissionsLegacy($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $teamId, $owner, $repo);

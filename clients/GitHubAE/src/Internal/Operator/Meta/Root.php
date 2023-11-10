@@ -23,6 +23,7 @@ final readonly class Root
     {
     }
 
+    /** @return */
     public function call(): \ApiClients\Client\GitHubAE\Schema\Root
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Meta\Root($this->responseSchemaValidator, $this->hydrator);

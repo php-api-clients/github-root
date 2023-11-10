@@ -24,6 +24,7 @@ final readonly class GetMilestoneStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseMilestoneOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetMilestoneStats($this->responseSchemaValidator, $this->hydrator);

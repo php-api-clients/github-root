@@ -24,6 +24,7 @@ final readonly class DeletePublicSshKeyForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(int $keyId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Users\DeletePublicSshKeyForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $keyId);

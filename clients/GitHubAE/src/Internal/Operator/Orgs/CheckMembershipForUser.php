@@ -22,6 +22,7 @@ final readonly class CheckMembershipForUser
     {
     }
 
+    /** @return */
     public function call(string $org, string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Orgs\CheckMembershipForUser($org, $username);
