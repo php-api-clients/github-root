@@ -22,6 +22,7 @@ final class Orgs
     {
     }
 
+    /** @return */
     public function enableOrDisableSecurityProductOnAllOrgRepos(array $params): WithoutBody
     {
         $arguments = [];
@@ -48,6 +49,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['security_product'], $arguments['enablement']);
     }
 
+    /** @return */
     public function pingWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -68,6 +70,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
+    /** @return */
     public function createCustomRepoRole(array $params): OrganizationCustomRepositoryRole
     {
         $arguments = [];
@@ -82,6 +85,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createWebhook(array $params): OrgHook
     {
         $arguments = [];
@@ -96,6 +100,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function redeliverWebhookDelivery(array $params): Json
     {
         $arguments = [];

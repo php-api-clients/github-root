@@ -24,6 +24,7 @@ final readonly class GetAnnouncementBannerForOrg
     {
     }
 
+    /** @return */
     public function call(string $org): AnnouncementBanner
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\AnnouncementBanners\GetAnnouncementBannerForOrg($this->responseSchemaValidator, $this->hydrator, $org);

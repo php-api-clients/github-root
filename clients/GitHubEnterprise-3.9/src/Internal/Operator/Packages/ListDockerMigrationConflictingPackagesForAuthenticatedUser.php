@@ -24,7 +24,7 @@ final readonly class ListDockerMigrationConflictingPackagesForAuthenticatedUser
     {
     }
 
-    /** @return iterable<int,Schema\Package> */
+    /** @return Observable<Schema\Package> */
     public function call(): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Packages\ListDockerMigrationConflictingPackagesForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator);

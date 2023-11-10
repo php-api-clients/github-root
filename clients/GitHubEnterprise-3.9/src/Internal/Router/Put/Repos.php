@@ -26,6 +26,7 @@ final class Repos
     {
     }
 
+    /** @return */
     public function enableLfsForRepo(array $params): Json|WithoutBody
     {
         $arguments = [];
@@ -46,6 +47,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function updateInformationAboutPagesSite(array $params): WithoutBody
     {
         $arguments = [];
@@ -66,6 +68,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function replaceAllTopics(array $params): Topic
     {
         $arguments = [];
@@ -86,6 +89,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function enableVulnerabilityAlerts(array $params): WithoutBody
     {
         $arguments = [];
@@ -106,6 +110,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function addCollaborator(array $params): WithoutBody
     {
         $arguments = [];
@@ -132,6 +137,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['username'], $params);
     }
 
+    /** @return */
     public function createOrUpdateFileContents(array $params): FileCommit
     {
         $arguments = [];
@@ -158,6 +164,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
 
+    /** @return */
     public function createOrUpdateEnvironment(array $params): Environment
     {
         $arguments = [];
@@ -184,6 +191,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $params);
     }
 
+    /** @return */
     public function updateBranchProtection(array $params): ProtectedBranch
     {
         $arguments = [];
@@ -210,6 +218,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
+    /** @return */
     public function updateDeploymentBranchPolicy(array $params): DeploymentBranchPolicy
     {
         $arguments = [];
@@ -242,7 +251,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id'], $params);
     }
 
-    /** @return iterable<int,string> */
+    /** @return Observable<string> */
     public function setStatusCheckContexts(array $params): iterable
     {
         $arguments = [];
@@ -269,7 +278,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\Integration> */
+    /** @return Observable<Schema\Integration> */
     public function setAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -296,7 +305,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function setTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -323,7 +332,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function setUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];

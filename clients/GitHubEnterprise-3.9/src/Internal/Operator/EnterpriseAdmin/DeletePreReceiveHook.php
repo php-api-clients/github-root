@@ -22,6 +22,7 @@ final readonly class DeletePreReceiveHook
     {
     }
 
+    /** @return */
     public function call(int $preReceiveHookId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeletePreReceiveHook($preReceiveHookId);

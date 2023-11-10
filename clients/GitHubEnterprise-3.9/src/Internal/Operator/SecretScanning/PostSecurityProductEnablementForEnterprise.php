@@ -24,6 +24,7 @@ final readonly class PostSecurityProductEnablementForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, string $securityProduct, string $enablement): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\SecretScanning\PostSecurityProductEnablementForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $securityProduct, $enablement);
