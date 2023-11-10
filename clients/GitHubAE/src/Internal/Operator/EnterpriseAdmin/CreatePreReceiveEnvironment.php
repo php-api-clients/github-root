@@ -24,6 +24,7 @@ final readonly class CreatePreReceiveEnvironment
     {
     }
 
+    /** @return */
     public function call(array $params): PreReceiveEnvironment
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\CreatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

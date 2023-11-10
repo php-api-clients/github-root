@@ -24,6 +24,7 @@ final readonly class ForceCancelWorkflowRun
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $runId): EmptyObject
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\ForceCancelWorkflowRun($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $runId);

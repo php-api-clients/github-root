@@ -24,6 +24,7 @@ final readonly class MarkThreadAsRead
     {
     }
 
+    /** @return */
     public function call(int $threadId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Activity\MarkThreadAsRead($this->responseSchemaValidator, $this->hydrator, $threadId);

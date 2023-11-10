@@ -22,6 +22,7 @@ final readonly class DeleteImpersonationOAuthToken
     {
     }
 
+    /** @return */
     public function call(string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\DeleteImpersonationOAuthToken($username);

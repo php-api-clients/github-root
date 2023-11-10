@@ -22,6 +22,7 @@ final readonly class DeletePublicKey
     {
     }
 
+    /** @return */
     public function call(string $keyIds): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\DeletePublicKey($keyIds);

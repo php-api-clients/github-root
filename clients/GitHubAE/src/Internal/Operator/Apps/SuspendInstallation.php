@@ -24,6 +24,7 @@ final readonly class SuspendInstallation
     {
     }
 
+    /** @return */
     public function call(int $installationId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Apps\SuspendInstallation($this->responseSchemaValidator, $this->hydrator, $installationId);

@@ -22,6 +22,7 @@ final readonly class DeleteDeployKey
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $keyId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\DeleteDeployKey($owner, $repo, $keyId);

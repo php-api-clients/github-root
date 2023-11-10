@@ -22,6 +22,7 @@ final readonly class EnableWorkflow
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, $workflowId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\EnableWorkflow($owner, $repo, $workflowId);

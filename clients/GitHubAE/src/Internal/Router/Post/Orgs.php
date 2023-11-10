@@ -21,6 +21,7 @@ final class Orgs
     {
     }
 
+    /** @return */
     public function createWebhook(array $params): OrgHook
     {
         $arguments = [];
@@ -35,6 +36,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function pingWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -55,6 +57,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
+    /** @return */
     public function redeliverWebhookDelivery(array $params): Json
     {
         $arguments = [];

@@ -24,6 +24,7 @@ final readonly class GetGlobalWebhook
     {
     }
 
+    /** @return */
     public function call(int $hookId): GlobalHook
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetGlobalWebhook($this->responseSchemaValidator, $this->hydrator, $hookId);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\BranchRestrictionPolicy;
 use ApiClients\Client\GitHubAE\Schema\DeploymentBranchPolicy;
 use ApiClients\Client\GitHubAE\Schema\DeploymentStatus;
@@ -27,7 +26,7 @@ final class Eight
     {
     }
 
-    /** @return iterable<int,Schema\TeamDiscussionComment>|iterable<int,Schema\Reaction>|Schema\TeamRepository|WithoutBody|Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|Schema\WorkflowRunUsage|Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|Schema\WorkflowUsage|Schema\ProtectedBranchAdminEnforced|Schema\ProtectedBranchPullRequestReview|Schema\StatusCheckPolicy|Schema\BranchRestrictionPolicy|iterable<int,Schema\CodeScanningAlertInstance>|Schema\DeploymentStatus|Schema\DeploymentBranchPolicy|Schema\HookDelivery|Schema\PullRequestReview|iterable<int,Schema\SecretScanningLocation> */
+    /** @return Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>||Observable<Schema\CodeScanningAlertInstance>|Observable<Schema\SecretScanningLocation>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): iterable|TeamRepository|WithoutBody|Json|\ApiClients\Client\GitHubAE\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|WorkflowRunUsage|\ApiClients\Client\GitHubAE\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|WorkflowUsage|ProtectedBranchAdminEnforced|ProtectedBranchPullRequestReview|StatusCheckPolicy|BranchRestrictionPolicy|DeploymentStatus|DeploymentBranchPolicy|HookDelivery|PullRequestReview
     {
         if ($pathChunks[0] === '') {

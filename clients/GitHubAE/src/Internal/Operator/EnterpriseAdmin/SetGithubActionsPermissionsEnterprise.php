@@ -23,6 +23,7 @@ final readonly class SetGithubActionsPermissionsEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\SetGithubActionsPermissionsEnterprise($this->requestSchemaValidator, $enterprise);

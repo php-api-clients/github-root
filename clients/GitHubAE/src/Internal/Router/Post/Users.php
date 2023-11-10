@@ -18,6 +18,7 @@ final class Users
     {
     }
 
+    /** @return */
     public function createGpgKeyForAuthenticatedUser(array $params): GpgKey|WithoutBody
     {
         $operator = new Internal\Operator\Users\CreateGpgKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀GpgKeys());
@@ -25,6 +26,7 @@ final class Users
         return $operator->call($params);
     }
 
+    /** @return */
     public function createPublicSshKeyForAuthenticatedUser(array $params): Key|WithoutBody
     {
         $operator = new Internal\Operator\Users\CreatePublicSshKeyForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Keys());

@@ -19,6 +19,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function updateSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];

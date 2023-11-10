@@ -24,6 +24,7 @@ final readonly class GetIssueStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseIssueOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetIssueStats($this->responseSchemaValidator, $this->hydrator);

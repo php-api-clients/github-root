@@ -25,6 +25,7 @@ final readonly class EnableLfsForRepo
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): Json|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\EnableLfsForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

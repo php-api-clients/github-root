@@ -24,6 +24,7 @@ final readonly class UpdateWebhookConfigForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, int $hookId, array $params): WebhookConfig
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Orgs\UpdateWebhookConfigForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $hookId);

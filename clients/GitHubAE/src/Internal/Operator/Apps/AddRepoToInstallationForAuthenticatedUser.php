@@ -24,6 +24,7 @@ final readonly class AddRepoToInstallationForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(int $installationId, int $repositoryId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Apps\AddRepoToInstallationForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $installationId, $repositoryId);

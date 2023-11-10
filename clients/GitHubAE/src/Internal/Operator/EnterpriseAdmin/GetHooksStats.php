@@ -24,6 +24,7 @@ final readonly class GetHooksStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseHookOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetHooksStats($this->responseSchemaValidator, $this->hydrator);

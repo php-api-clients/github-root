@@ -24,6 +24,7 @@ final readonly class CreateRegistrationTokenForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise): AuthenticationToken
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\CreateRegistrationTokenForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

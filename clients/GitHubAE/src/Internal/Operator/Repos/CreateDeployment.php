@@ -26,6 +26,7 @@ final readonly class CreateDeployment
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): Deployment|Json|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\CreateDeployment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

@@ -25,6 +25,7 @@ final readonly class CreatePublicSshKeyForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(array $params): Key|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Users\CreatePublicSshKeyForAuthenticatedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

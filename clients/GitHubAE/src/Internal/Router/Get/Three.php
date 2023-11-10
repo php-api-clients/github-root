@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Get;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
-use ApiClients\Client\GitHubAE\Schema;
 use ApiClients\Client\GitHubAE\Schema\Announcement;
 use ApiClients\Client\GitHubAE\Schema\CodeOfConduct;
 use ApiClients\Client\GitHubAE\Schema\GistSimple;
@@ -27,7 +26,7 @@ final class Three
     {
     }
 
-    /** @return iterable<int,Schema\GlobalHook>|iterable<int,Schema\PublicKeyFull>|iterable<int,Schema\PreReceiveEnvironment>|iterable<int,Schema\Authorization>|iterable<int,Schema\IntegrationInstallationRequest>|WithoutBody|iterable<int,Schema\Installation>|Schema\Integration|Schema\CodeOfConduct|Schema\Announcement|iterable<int,Schema\BaseGist>|Schema\GistSimple|iterable<int,string>|Schema\Operations\Apps\ListReposAccessibleToInstallation\Response\ApplicationJson\Ok|Schema\License|Schema\OrganizationFull|Schema\Project|Schema\Operations\Search\Code\Response\ApplicationJson\Ok|Schema\Operations\Search\Commits\Response\ApplicationJson\Ok|Schema\Operations\Search\IssuesAndPullRequests\Response\ApplicationJson\Ok|Schema\Operations\Search\Labels\Response\ApplicationJson\Ok|Schema\Operations\Search\Repos\Response\ApplicationJson\Ok|Schema\Operations\Search\Topics\Response\ApplicationJson\Ok|Schema\Operations\Search\Users\Response\ApplicationJson\Ok|Schema\TeamFull|iterable<int,Schema\SimpleUser>|iterable<int,Schema\GpgKey>|Schema\Operations\Apps\ListInstallationsForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|iterable<int,Schema\Issue>|iterable<int,Schema\Key>|iterable<int,Schema\Migration>|iterable<int,Schema\OrganizationSimple>|iterable<int,Schema\Repository>|iterable<int,Schema\RepositoryInvitation>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\TeamFull>|Schema\PrivateUser|Schema\PublicUser */
+    /** @return Observable<Schema\GlobalHook>|Observable<Schema\PublicKeyFull>|Observable<Schema\PreReceiveEnvironment>|Observable<Schema\Authorization>|Observable<Schema\IntegrationInstallationRequest>|WithoutBody|Observable<Schema\Installation>||Observable<Schema\BaseGist>|Observable<string>|Observable<Schema\SimpleUser>|Observable<Schema\GpgKey>|Observable<Schema\Issue>|Observable<Schema\Key>|Observable<Schema\Migration>|Observable<Schema\OrganizationSimple>|Observable<Schema\Repository>|Observable<Schema\RepositoryInvitation>|Observable<Schema\MinimalRepository>|Observable<Schema\TeamFull> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody|Integration|CodeOfConduct|Announcement|GistSimple|Ok|License|OrganizationFull|Project|\ApiClients\Client\GitHubAE\Schema\Operations\Search\Code\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubAE\Schema\Operations\Search\Commits\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubAE\Schema\Operations\Search\IssuesAndPullRequests\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubAE\Schema\Operations\Search\Labels\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubAE\Schema\Operations\Search\Repos\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubAE\Schema\Operations\Search\Topics\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubAE\Schema\Operations\Search\Users\Response\ApplicationJson\Ok|TeamFull|Json|PrivateUser|PublicUser
     {
         if ($pathChunks[0] === '') {

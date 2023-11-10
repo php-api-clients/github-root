@@ -24,6 +24,7 @@ final readonly class GetRepoPublicKey
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): ActionsPublicKey
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\GetRepoPublicKey($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

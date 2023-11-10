@@ -24,6 +24,7 @@ final readonly class DeleteWorkflowRunLogs
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $runId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\DeleteWorkflowRunLogs($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $runId);

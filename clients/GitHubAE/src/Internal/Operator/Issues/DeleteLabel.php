@@ -22,6 +22,7 @@ final readonly class DeleteLabel
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $name): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Issues\DeleteLabel($owner, $repo, $name);

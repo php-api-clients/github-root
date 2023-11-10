@@ -24,6 +24,7 @@ final readonly class GetAllStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetAllStats($this->responseSchemaValidator, $this->hydrator);

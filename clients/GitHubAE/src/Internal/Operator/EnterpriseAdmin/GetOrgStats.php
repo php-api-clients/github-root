@@ -24,6 +24,7 @@ final readonly class GetOrgStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseOrganizationOverview
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\GetOrgStats($this->responseSchemaValidator, $this->hydrator);

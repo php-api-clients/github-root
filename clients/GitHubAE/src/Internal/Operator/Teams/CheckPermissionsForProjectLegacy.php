@@ -25,6 +25,7 @@ final readonly class CheckPermissionsForProjectLegacy
     {
     }
 
+    /** @return */
     public function call(int $teamId, int $projectId): TeamProject|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Teams\CheckPermissionsForProjectLegacy($this->responseSchemaValidator, $this->hydrator, $teamId, $projectId);

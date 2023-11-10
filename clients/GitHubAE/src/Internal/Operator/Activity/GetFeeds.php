@@ -24,6 +24,7 @@ final readonly class GetFeeds
     {
     }
 
+    /** @return */
     public function call(): Feed
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Activity\GetFeeds($this->responseSchemaValidator, $this->hydrator);

@@ -25,6 +25,7 @@ final readonly class RemoveAllLabels
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $issueNumber): BasicError|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Issues\RemoveAllLabels($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $issueNumber);

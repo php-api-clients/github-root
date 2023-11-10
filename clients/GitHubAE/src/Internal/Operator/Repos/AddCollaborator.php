@@ -24,6 +24,7 @@ final readonly class AddCollaborator
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $username, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\AddCollaborator($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $username);

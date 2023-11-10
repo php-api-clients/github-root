@@ -25,6 +25,7 @@ final readonly class SetThreadSubscription
     {
     }
 
+    /** @return */
     public function call(int $threadId, array $params): ThreadSubscription|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Activity\SetThreadSubscription($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $threadId);

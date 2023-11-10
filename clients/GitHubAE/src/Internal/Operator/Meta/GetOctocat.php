@@ -21,6 +21,7 @@ final readonly class GetOctocat
     {
     }
 
+    /** @return */
     public function call(string $s): ResponseInterface
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Meta\GetOctocat($s);

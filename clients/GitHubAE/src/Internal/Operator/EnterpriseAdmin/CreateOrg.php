@@ -24,6 +24,7 @@ final readonly class CreateOrg
     {
     }
 
+    /** @return */
     public function call(array $params): OrganizationSimple
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\EnterpriseAdmin\CreateOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

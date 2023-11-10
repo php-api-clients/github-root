@@ -22,6 +22,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function createSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
@@ -36,6 +37,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createRegistrationTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -50,6 +52,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function createRemoveTokenForOrg(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -64,6 +67,7 @@ final class Actions
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function cancelWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
@@ -90,6 +94,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
+    /** @return */
     public function forceCancelWorkflowRun(array $params): EmptyObject
     {
         $arguments = [];
@@ -116,6 +121,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
+    /** @return */
     public function reRunWorkflow(array $params): EmptyObject
     {
         $arguments = [];
@@ -142,6 +148,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id'], $params);
     }
 
+    /** @return */
     public function createWorkflowDispatch(array $params): WithoutBody
     {
         $arguments = [];
@@ -168,6 +175,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $params);
     }
 
+    /** @return */
     public function createRegistrationTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -188,6 +196,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function createRemoveTokenForRepo(array $params): AuthenticationToken
     {
         $arguments = [];

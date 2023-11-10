@@ -24,6 +24,7 @@ final readonly class GetBlob
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $fileSha): Blob
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Git\GetBlob($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $fileSha);

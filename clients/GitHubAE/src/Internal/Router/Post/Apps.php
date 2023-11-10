@@ -22,6 +22,7 @@ final class Apps
     {
     }
 
+    /** @return */
     public function createInstallationAccessToken(array $params): InstallationToken
     {
         $arguments = [];
@@ -36,6 +37,7 @@ final class Apps
         return $operator->call($arguments['installation_id'], $params);
     }
 
+    /** @return */
     public function resetAuthorization(array $params): Authorization
     {
         $arguments = [];
@@ -56,6 +58,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
+    /** @return */
     public function createFromManifest(array $params): Integration
     {
         $arguments = [];
@@ -70,6 +73,7 @@ final class Apps
         return $operator->call($arguments['code']);
     }
 
+    /** @return */
     public function checkToken(array $params): Authorization
     {
         $arguments = [];
@@ -84,6 +88,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $params);
     }
 
+    /** @return */
     public function redeliverWebhookDelivery(array $params): Json
     {
         $arguments = [];
