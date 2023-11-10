@@ -24,6 +24,7 @@ final readonly class Follow
     {
     }
 
+    /** @return */
     public function call(string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Users\Follow($this->responseSchemaValidator, $this->hydrator, $username);

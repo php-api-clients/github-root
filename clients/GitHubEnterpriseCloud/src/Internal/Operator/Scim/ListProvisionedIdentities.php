@@ -25,6 +25,7 @@ final readonly class ListProvisionedIdentities
     {
     }
 
+    /** @return */
     public function call(string $org, int $startIndex, int $count, string $filter): ScimUserList|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim\ListProvisionedIdentities($this->responseSchemaValidator, $this->hydrator, $org, $startIndex, $count, $filter);

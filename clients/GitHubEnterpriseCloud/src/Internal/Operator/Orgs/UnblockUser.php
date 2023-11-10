@@ -22,6 +22,7 @@ final readonly class UnblockUser
     {
     }
 
+    /** @return */
     public function call(string $org, string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\UnblockUser($org, $username);

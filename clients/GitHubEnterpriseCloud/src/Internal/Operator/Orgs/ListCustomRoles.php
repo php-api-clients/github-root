@@ -24,6 +24,7 @@ final readonly class ListCustomRoles
     {
     }
 
+    /** @return */
     public function call(string $organizationId): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\ListCustomRoles($this->responseSchemaValidator, $this->hydrator, $organizationId);

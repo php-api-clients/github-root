@@ -25,6 +25,7 @@ final readonly class CodespaceMachinesForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(string $codespaceName): Json|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Codespaces\CodespaceMachinesForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $codespaceName);

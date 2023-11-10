@@ -24,6 +24,7 @@ final readonly class DeleteReviewComment
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $commentId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Pulls\DeleteReviewComment($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $commentId);

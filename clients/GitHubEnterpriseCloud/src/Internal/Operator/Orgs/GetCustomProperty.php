@@ -24,6 +24,7 @@ final readonly class GetCustomProperty
     {
     }
 
+    /** @return */
     public function call(string $org, string $customPropertyName): OrgCustomProperty
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\GetCustomProperty($this->responseSchemaValidator, $this->hydrator, $org, $customPropertyName);

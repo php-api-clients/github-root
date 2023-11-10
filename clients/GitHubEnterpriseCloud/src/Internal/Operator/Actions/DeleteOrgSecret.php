@@ -22,6 +22,7 @@ final readonly class DeleteOrgSecret
     {
     }
 
+    /** @return */
     public function call(string $org, string $secretName): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\DeleteOrgSecret($org, $secretName);

@@ -24,6 +24,7 @@ final readonly class LinkExternalIdpGroupToTeamForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $teamSlug, array $params): ExternalGroup
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\LinkExternalIdpGroupToTeamForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

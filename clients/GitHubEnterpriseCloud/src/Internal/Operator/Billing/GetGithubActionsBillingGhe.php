@@ -24,6 +24,7 @@ final readonly class GetGithubActionsBillingGhe
     {
     }
 
+    /** @return */
     public function call(string $enterprise): ActionsBillingUsage
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\GetGithubActionsBillingGhe($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -24,6 +24,7 @@ final readonly class SetAnnouncementBannerForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, array $params): AnnouncementBanner
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\AnnouncementBanners\SetAnnouncementBannerForOrg($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

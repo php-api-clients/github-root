@@ -25,6 +25,7 @@ final readonly class GetRestrictionsForRepo
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): InteractionLimitResponse|One
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Interactions\GetRestrictionsForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

@@ -25,6 +25,7 @@ final readonly class ProvisionEnterpriseUser
     {
     }
 
+    /** @return */
     public function call(array $params): UserResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\ProvisionEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

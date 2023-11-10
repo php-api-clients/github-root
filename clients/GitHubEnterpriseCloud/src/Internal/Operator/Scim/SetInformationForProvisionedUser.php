@@ -25,6 +25,7 @@ final readonly class SetInformationForProvisionedUser
     {
     }
 
+    /** @return */
     public function call(string $org, string $scimUserId, array $params): ScimUser|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim\SetInformationForProvisionedUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org, $scimUserId);

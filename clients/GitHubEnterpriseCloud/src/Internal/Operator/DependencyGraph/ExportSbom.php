@@ -24,6 +24,7 @@ final readonly class ExportSbom
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): DependencyGraphSpdxSbom
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\DependencyGraph\ExportSbom($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

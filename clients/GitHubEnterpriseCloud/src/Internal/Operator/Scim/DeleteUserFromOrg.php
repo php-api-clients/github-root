@@ -24,6 +24,7 @@ final readonly class DeleteUserFromOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $scimUserId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Scim\DeleteUserFromOrg($this->responseSchemaValidator, $this->hydrator, $org, $scimUserId);

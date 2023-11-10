@@ -24,6 +24,7 @@ final class EnterpriseAdmin
     {
     }
 
+    /** @return */
     public function provisionEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups());
@@ -31,6 +32,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function provisionEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users());
@@ -38,6 +40,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -52,6 +55,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function createRemoveTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -66,6 +70,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function createSelfHostedRunnerGroupForEnterprise(array $params): RunnerGroupsEnterprise
     {
         $arguments = [];
@@ -80,6 +85,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function addCustomLabelsToSelfHostedRunnerForEnterprise(array $params): Ok
     {
         $arguments = [];

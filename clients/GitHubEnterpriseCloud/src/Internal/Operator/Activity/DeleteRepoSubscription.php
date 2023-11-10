@@ -22,6 +22,7 @@ final readonly class DeleteRepoSubscription
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Activity\DeleteRepoSubscription($owner, $repo);

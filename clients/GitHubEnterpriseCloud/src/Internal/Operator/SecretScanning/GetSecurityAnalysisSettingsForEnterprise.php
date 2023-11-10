@@ -24,6 +24,7 @@ final readonly class GetSecurityAnalysisSettingsForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise): EnterpriseSecurityAnalysisSettings
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\GetSecurityAnalysisSettingsForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise);

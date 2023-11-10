@@ -22,6 +22,7 @@ final readonly class AddSelectedRepoToOrgVariable
     {
     }
 
+    /** @return */
     public function call(string $org, string $name, int $repositoryId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Actions\AddSelectedRepoToOrgVariable($org, $name, $repositoryId);

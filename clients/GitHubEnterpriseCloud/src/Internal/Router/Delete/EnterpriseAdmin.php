@@ -21,6 +21,7 @@ final class EnterpriseAdmin
     {
     }
 
+    /** @return */
     public function deleteScimGroupFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -35,6 +36,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id']);
     }
 
+    /** @return */
     public function deleteUserFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -49,6 +51,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_user_id']);
     }
 
+    /** @return */
     public function disableSelectedOrganizationGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -69,6 +72,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
+    /** @return */
     public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params): Json
     {
         $arguments = [];
@@ -89,6 +93,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function deleteSelfHostedRunnerGroupFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -109,6 +114,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
+    /** @return */
     public function deleteSelfHostedRunnerFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -129,6 +135,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -155,6 +162,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
     }
 
+    /** @return */
     public function removeSelfHostedRunnerFromGroupForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -181,6 +189,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params): Ok
     {
         $arguments = [];

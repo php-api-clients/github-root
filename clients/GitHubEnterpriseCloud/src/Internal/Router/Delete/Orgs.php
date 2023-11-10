@@ -20,6 +20,7 @@ final class Orgs
     {
     }
 
+    /** @return */
     public function unblockUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -40,6 +41,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    /** @return */
     public function removeSamlSsoAuthorization(array $params): WithoutBody
     {
         $arguments = [];
@@ -60,6 +62,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['credential_id']);
     }
 
+    /** @return */
     public function deleteCustomRepoRole(array $params): WithoutBody
     {
         $arguments = [];
@@ -80,6 +83,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id']);
     }
 
+    /** @return */
     public function deleteCustomRole(array $params): WithoutBody
     {
         $arguments = [];
@@ -100,6 +104,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id']);
     }
 
+    /** @return */
     public function deleteWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -120,6 +125,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id']);
     }
 
+    /** @return */
     public function cancelInvitation(array $params): WithoutBody
     {
         $arguments = [];
@@ -140,6 +146,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['invitation_id']);
     }
 
+    /** @return */
     public function removeMember(array $params): WithoutBody
     {
         $arguments = [];
@@ -160,6 +167,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    /** @return */
     public function removeMembershipForUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -180,6 +188,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    /** @return */
     public function removeOutsideCollaborator(array $params): WithoutBody
     {
         $arguments = [];
@@ -200,6 +209,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    /** @return */
     public function removePublicMembershipForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -220,6 +230,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    /** @return */
     public function removeCustomProperty(array $params): WithoutBody
     {
         $arguments = [];
@@ -240,6 +251,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['custom_property_name']);
     }
 
+    /** @return */
     public function removeSecurityManagerTeam(array $params): WithoutBody
     {
         $arguments = [];
@@ -260,6 +272,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
+    /** @return */
     public function delete(array $params): Json
     {
         $arguments = [];

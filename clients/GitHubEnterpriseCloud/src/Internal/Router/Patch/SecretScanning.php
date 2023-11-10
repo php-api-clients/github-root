@@ -20,6 +20,7 @@ final class SecretScanning
     {
     }
 
+    /** @return */
     public function patchSecurityAnalysisSettingsForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -34,6 +35,7 @@ final class SecretScanning
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function updateAlert(array $params): SecretScanningAlert|WithoutBody
     {
         $arguments = [];

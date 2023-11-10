@@ -16,56 +16,67 @@ final class Billing
     {
     }
 
+    /** @return */
     public function getGithubActionsBillingGhe(string $enterprise): ActionsBillingUsage
     {
         return $this->operators->billing👷GetGithubActionsBillingGhe()->call($enterprise);
     }
 
+    /** @return */
     public function getGithubAdvancedSecurityBillingGhe(string $enterprise, int $perPage, int $page): AdvancedSecurityActiveCommitters
     {
         return $this->operators->billing👷GetGithubAdvancedSecurityBillingGhe()->call($enterprise, $perPage, $page);
     }
 
+    /** @return */
     public function getGithubPackagesBillingGhe(string $enterprise): PackagesBillingUsage
     {
         return $this->operators->billing👷GetGithubPackagesBillingGhe()->call($enterprise);
     }
 
+    /** @return */
     public function getSharedStorageBillingGhe(string $enterprise): CombinedBillingUsage
     {
         return $this->operators->billing👷GetSharedStorageBillingGhe()->call($enterprise);
     }
 
+    /** @return */
     public function getGithubActionsBillingOrg(string $org): ActionsBillingUsage
     {
         return $this->operators->billing👷GetGithubActionsBillingOrg()->call($org);
     }
 
+    /** @return */
     public function getGithubAdvancedSecurityBillingOrg(string $org, int $perPage, int $page): AdvancedSecurityActiveCommitters
     {
         return $this->operators->billing👷GetGithubAdvancedSecurityBillingOrg()->call($org, $perPage, $page);
     }
 
+    /** @return */
     public function getGithubPackagesBillingOrg(string $org): PackagesBillingUsage
     {
         return $this->operators->billing👷GetGithubPackagesBillingOrg()->call($org);
     }
 
+    /** @return */
     public function getSharedStorageBillingOrg(string $org): CombinedBillingUsage
     {
         return $this->operators->billing👷GetSharedStorageBillingOrg()->call($org);
     }
 
+    /** @return */
     public function getGithubActionsBillingUser(string $username): ActionsBillingUsage
     {
         return $this->operators->billing👷GetGithubActionsBillingUser()->call($username);
     }
 
+    /** @return */
     public function getGithubPackagesBillingUser(string $username): PackagesBillingUsage
     {
         return $this->operators->billing👷GetGithubPackagesBillingUser()->call($username);
     }
 
+    /** @return */
     public function getSharedStorageBillingUser(string $username): CombinedBillingUsage
     {
         return $this->operators->billing👷GetSharedStorageBillingUser()->call($username);

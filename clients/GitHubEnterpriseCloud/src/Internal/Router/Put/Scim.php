@@ -20,6 +20,7 @@ final class Scim
     {
     }
 
+    /** @return */
     public function setInformationForProvisionedUser(array $params): ScimUser|WithoutBody
     {
         $arguments = [];

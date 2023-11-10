@@ -23,6 +23,7 @@ final readonly class SetAllowedActionsEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\SetAllowedActionsEnterprise($this->requestSchemaValidator, $enterprise);
