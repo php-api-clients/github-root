@@ -22,6 +22,7 @@ final readonly class DeleteGlobalWebhook
     {
     }
 
+    /** @return */
     public function call(int $hookId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeleteGlobalWebhook($hookId);

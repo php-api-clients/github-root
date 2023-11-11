@@ -22,6 +22,7 @@ final readonly class DeleteCustomRepoRole
     {
     }
 
+    /** @return */
     public function call(string $org, int $roleId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\DeleteCustomRepoRole($org, $roleId);

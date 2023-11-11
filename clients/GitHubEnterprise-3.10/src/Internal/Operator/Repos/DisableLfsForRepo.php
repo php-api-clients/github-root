@@ -22,6 +22,7 @@ final readonly class DisableLfsForRepo
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\DisableLfsForRepo($owner, $repo);

@@ -19,6 +19,7 @@ final class OauthAuthorizations
     {
     }
 
+    /** @return */
     public function deleteGrant(array $params): WithoutBody
     {
         $arguments = [];
@@ -33,6 +34,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['grant_id']);
     }
 
+    /** @return */
     public function deleteAuthorization(array $params): WithoutBody
     {
         $arguments = [];
