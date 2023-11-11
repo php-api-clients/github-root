@@ -22,6 +22,7 @@ final readonly class EnableOrDisableSecurityProductOnAllOrgRepos
     {
     }
 
+    /** @return */
     public function call(string $org, string $securityProduct, string $enablement): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\EnableOrDisableSecurityProductOnAllOrgRepos($org, $securityProduct, $enablement);

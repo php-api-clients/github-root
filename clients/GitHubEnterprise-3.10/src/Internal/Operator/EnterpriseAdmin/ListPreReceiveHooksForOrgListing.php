@@ -24,7 +24,7 @@ final readonly class ListPreReceiveHooksForOrgListing
     {
     }
 
-    /** @return iterable<int,Schema\OrgPreReceiveHook> */
+    /** @return Observable<Schema\OrgPreReceiveHook> */
     public function call(string $org, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\ListPreReceiveHooksForOrgListing($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page, $direction, $sort);

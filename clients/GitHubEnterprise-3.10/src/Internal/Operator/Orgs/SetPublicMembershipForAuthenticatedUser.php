@@ -24,6 +24,7 @@ final readonly class SetPublicMembershipForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(string $org, string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\SetPublicMembershipForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $org, $username);
