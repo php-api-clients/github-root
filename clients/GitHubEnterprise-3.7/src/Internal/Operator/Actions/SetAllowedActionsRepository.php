@@ -23,6 +23,7 @@ final readonly class SetAllowedActionsRepository
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\SetAllowedActionsRepository($this->requestSchemaValidator, $owner, $repo);

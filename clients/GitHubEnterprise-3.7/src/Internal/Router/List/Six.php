@@ -15,7 +15,7 @@ final class Six
     {
     }
 
-    /** @return iterable<int,Schema\MinimalRepository>|iterable<int,Schema\TeamDiscussion>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\TeamProject>|iterable<int,Schema\Team>|iterable<int,Schema\CodeScanningAlertItems>|WithoutBody|iterable<int,Schema\CodeScanningAnalysis>|iterable<int,Schema\IssueComment>|iterable<int,Schema\IssueEvent>|iterable<int,Schema\PageBuild>|iterable<int,Schema\PullRequestReviewComment>|iterable<int,Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok>|iterable<int,Schema\SecretScanningAlert>|iterable<int,Schema\TeamDiscussionComment>|iterable<int,Schema\Reaction>|iterable<int,Schema\Event> */
+    /** @return Observable<Schema\MinimalRepository>|Observable<Schema\TeamDiscussion>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\Team>|Observable<Schema\CodeScanningAlertItems>|WithoutBody|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok>|Observable<Schema\SecretScanningAlert>|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\Event> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {

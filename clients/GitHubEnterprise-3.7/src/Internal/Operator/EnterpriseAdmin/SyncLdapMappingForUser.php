@@ -24,6 +24,7 @@ final readonly class SyncLdapMappingForUser
     {
     }
 
+    /** @return */
     public function call(string $username): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SyncLdapMappingForUser($this->responseSchemaValidator, $this->hydrator, $username);

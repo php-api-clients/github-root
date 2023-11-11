@@ -22,6 +22,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function disableSelectedRepositoryGithubActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
@@ -42,6 +43,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['repository_id']);
     }
 
+    /** @return */
     public function removeAllCustomLabelsFromSelfHostedRunnerForOrg(array $params): Json
     {
         $arguments = [];
@@ -62,6 +64,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function deleteArtifact(array $params): WithoutBody
     {
         $arguments = [];
@@ -88,6 +91,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['artifact_id']);
     }
 
+    /** @return */
     public function deleteActionsCacheById(array $params): WithoutBody
     {
         $arguments = [];
@@ -114,6 +118,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['cache_id']);
     }
 
+    /** @return */
     public function deleteSelfHostedRunnerFromRepo(array $params): WithoutBody
     {
         $arguments = [];
@@ -140,6 +145,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function deleteWorkflowRun(array $params): WithoutBody
     {
         $arguments = [];
@@ -166,6 +172,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
+    /** @return */
     public function deleteRepoSecret(array $params): WithoutBody
     {
         $arguments = [];
@@ -192,6 +199,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
 
+    /** @return */
     public function deleteEnvironmentSecret(array $params): WithoutBody
     {
         $arguments = [];
@@ -218,6 +226,7 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name'], $arguments['secret_name']);
     }
 
+    /** @return */
     public function deleteSelfHostedRunnerGroupFromOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -238,6 +247,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id']);
     }
 
+    /** @return */
     public function deleteSelfHostedRunnerFromOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -258,6 +268,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function deleteOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
@@ -278,6 +289,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
+    /** @return */
     public function deleteActionsCacheByKey(array $params): ActionsCacheList
     {
         $arguments = [];
@@ -310,6 +322,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['key'], $arguments['ref']);
     }
 
+    /** @return */
     public function removeRepoAccessToSelfHostedRunnerGroupInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -336,6 +349,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
     }
 
+    /** @return */
     public function removeSelfHostedRunnerFromGroupForOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -362,6 +376,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function removeCustomLabelFromSelfHostedRunnerForOrg(array $params): Ok
     {
         $arguments = [];
@@ -388,6 +403,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_id'], $arguments['name']);
     }
 
+    /** @return */
     public function removeSelectedRepoFromOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
@@ -414,6 +430,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }
 
+    /** @return */
     public function removeAllCustomLabelsFromSelfHostedRunnerForRepo(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -440,6 +457,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function deleteWorkflowRunLogs(array $params): WithoutBody
     {
         $arguments = [];
@@ -466,6 +484,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
+    /** @return */
     public function removeCustomLabelFromSelfHostedRunnerForRepo(array $params): Ok
     {
         $arguments = [];
