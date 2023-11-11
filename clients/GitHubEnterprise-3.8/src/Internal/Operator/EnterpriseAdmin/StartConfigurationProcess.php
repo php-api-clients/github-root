@@ -22,6 +22,7 @@ final readonly class StartConfigurationProcess
     {
     }
 
+    /** @return */
     public function call(): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\StartConfigurationProcess();

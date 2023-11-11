@@ -19,6 +19,7 @@ final class OauthAuthorizations
     {
     }
 
+    /** @return */
     public function updateAuthorization(array $params): Authorization
     {
         $arguments = [];

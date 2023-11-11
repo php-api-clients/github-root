@@ -24,6 +24,7 @@ final readonly class RemovePreReceiveHookEnforcementForRepo
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $preReceiveHookId): RepositoryPreReceiveHook
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\RemovePreReceiveHookEnforcementForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $preReceiveHookId);

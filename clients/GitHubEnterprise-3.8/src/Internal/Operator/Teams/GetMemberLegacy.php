@@ -22,6 +22,7 @@ final readonly class GetMemberLegacy
     {
     }
 
+    /** @return */
     public function call(int $teamId, string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Teams\GetMemberLegacy($teamId, $username);
