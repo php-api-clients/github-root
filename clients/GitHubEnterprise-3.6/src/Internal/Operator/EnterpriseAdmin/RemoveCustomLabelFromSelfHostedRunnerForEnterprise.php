@@ -24,6 +24,7 @@ final readonly class RemoveCustomLabelFromSelfHostedRunnerForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $runnerId, string $name): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\RemoveCustomLabelFromSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $runnerId, $name);

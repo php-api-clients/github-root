@@ -22,6 +22,7 @@ final readonly class UnlinkExternalIdpGroupFromTeamForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $teamSlug): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Teams\UnlinkExternalIdpGroupFromTeamForOrg($org, $teamSlug);

@@ -25,6 +25,7 @@ final readonly class GetConfigurationStatus
     {
     }
 
+    /** @return */
     public function call(): ConfigurationStatus|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator);

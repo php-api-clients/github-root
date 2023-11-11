@@ -24,6 +24,7 @@ final readonly class GetOrCreateAuthorizationForAppAndFingerprint
     {
     }
 
+    /** @return */
     public function call(string $clientId, string $fingerprint, array $params): Authorization
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\GetOrCreateAuthorizationForAppAndFingerprint($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $clientId, $fingerprint);

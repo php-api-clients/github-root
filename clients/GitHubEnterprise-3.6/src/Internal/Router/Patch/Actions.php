@@ -20,6 +20,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function setActionsCacheUsagePolicyForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -34,6 +35,7 @@ final class Actions
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function updateSelfHostedRunnerGroupForOrg(array $params): RunnerGroupsOrg
     {
         $arguments = [];
@@ -54,6 +56,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
+    /** @return */
     public function setActionsCacheUsagePolicy(array $params): WithoutBody
     {
         $arguments = [];

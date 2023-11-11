@@ -19,7 +19,7 @@ final class DependencyGraph
     {
     }
 
-    /** @return iterable<int,Schema\DependencyGraphDiff> */
+    /** @return Observable<Schema\DependencyGraphDiff> */
     public function diffRange(array $params): iterable
     {
         $arguments = [];
