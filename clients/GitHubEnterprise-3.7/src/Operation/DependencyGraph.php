@@ -14,12 +14,13 @@ final class DependencyGraph
     {
     }
 
-    /** @return iterable<int,Schema\DependencyGraphDiff> */
+    /** @return Observable<Schema\DependencyGraphDiff> */
     public function diffRange(string $owner, string $repo, string $basehead, string $name): iterable
     {
         return $this->operators->dependencyGraph👷DiffRange()->call($owner, $repo, $basehead, $name);
     }
 
+    /** @return */
     public function createRepositorySnapshot(string $owner, string $repo, array $params): Created
     {
         return $this->operators->dependencyGraph👷CreateRepositorySnapshot()->call($owner, $repo, $params);

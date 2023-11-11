@@ -23,6 +23,7 @@ final readonly class CreateEnterpriseServerLicense
     {
     }
 
+    /** @return */
     public function call(array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\CreateEnterpriseServerLicense($this->requestSchemaValidator);

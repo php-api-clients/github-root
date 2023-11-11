@@ -17,6 +17,7 @@ final class OauthAuthorizations
     {
     }
 
+    /** @return */
     public function createAuthorization(array $params): Authorization|WithoutBody
     {
         $operator = new Internal\Operator\OauthAuthorizations\CreateAuthorization($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations());

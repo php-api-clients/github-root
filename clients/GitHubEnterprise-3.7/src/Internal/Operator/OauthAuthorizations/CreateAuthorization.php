@@ -25,6 +25,7 @@ final readonly class CreateAuthorization
     {
     }
 
+    /** @return */
     public function call(array $params): Authorization|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\CreateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
