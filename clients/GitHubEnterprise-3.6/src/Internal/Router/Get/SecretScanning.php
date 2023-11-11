@@ -21,7 +21,7 @@ final class SecretScanning
     {
     }
 
-    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */
     public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -84,7 +84,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -147,7 +147,7 @@ final class SecretScanning
         return $operator->call($arguments['enterprise'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['sort'], $arguments['direction'], $arguments['per_page']);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -204,6 +204,7 @@ final class SecretScanning
         return $operator->call($arguments['org'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page']);
     }
 
+    /** @return */
     public function getAlert(array $params): SecretScanningAlert|WithoutBody
     {
         $arguments = [];
@@ -230,7 +231,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
-    /** @return iterable<int,Schema\SecretScanningLocation>|WithoutBody */
+    /** @return Observable<Schema\SecretScanningLocation>|WithoutBody */
     public function listLocationsForAlert(array $params): iterable|WithoutBody
     {
         $arguments = [];

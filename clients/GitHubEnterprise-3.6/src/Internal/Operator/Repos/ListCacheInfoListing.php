@@ -24,7 +24,7 @@ final readonly class ListCacheInfoListing
     {
     }
 
-    /** @return iterable<int,Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
+    /** @return Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
     public function call(string $owner, string $repo, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\ListCacheInfoListing($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $perPage, $page);

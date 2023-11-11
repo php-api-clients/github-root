@@ -24,6 +24,7 @@ final readonly class UpdateUsernameForUser
     {
     }
 
+    /** @return */
     public function call(string $username, array $params): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdateUsernameForUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $username);

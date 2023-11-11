@@ -24,7 +24,7 @@ final readonly class ListAlertsForOrgListing
     {
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function call(string $org, string $state, string $secretType, string $resolution, string $sort = 'created', string $direction = 'desc', int $page = 1, int $perPage = 30): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\SecretScanning\ListAlertsForOrgListing($this->responseSchemaValidator, $this->hydrator, $org, $state, $secretType, $resolution, $sort, $direction, $page, $perPage);

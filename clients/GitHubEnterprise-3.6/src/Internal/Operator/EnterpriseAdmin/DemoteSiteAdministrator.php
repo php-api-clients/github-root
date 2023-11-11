@@ -22,6 +22,7 @@ final readonly class DemoteSiteAdministrator
     {
     }
 
+    /** @return */
     public function call(string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DemoteSiteAdministrator($username);

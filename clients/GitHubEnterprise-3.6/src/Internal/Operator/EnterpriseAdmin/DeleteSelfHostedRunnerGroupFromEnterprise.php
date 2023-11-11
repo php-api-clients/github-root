@@ -22,6 +22,7 @@ final readonly class DeleteSelfHostedRunnerGroupFromEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $runnerGroupId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeleteSelfHostedRunnerGroupFromEnterprise($enterprise, $runnerGroupId);
