@@ -1,5 +1,5 @@
 {
-    "specHash": "93fcb79e417a73083950e021c1a1da31",
+    "specHash": "d1cc219023169a82457fb797e7d85531",
     "generatedFiles": {
         "files": [
             {
@@ -348,7 +348,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningRef.php",
-                "hash": "42f91b825985c2f1c10bdf2cdb580ddf"
+                "hash": "11c81a0414d0a9bd9843035753ec2c7e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAnalysisAnalysisKey.php",
@@ -372,7 +372,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertInstance.php",
-                "hash": "40d0235ff2283f01b05de23ae9d6811b"
+                "hash": "b55cb74864713d0f57845ccd1cae9b39"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/SimpleRepository.php",
@@ -380,7 +380,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningOrganizationAlertItems.php",
-                "hash": "7de58312caed994965541307f003da51"
+                "hash": "391adf81e7cedb9f857f1b97c507f927"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/EnterpriseSecurityAnalysisSettings.php",
@@ -860,11 +860,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertItems.php",
-                "hash": "202be348034fef3b4a4ea19ef73bd236"
+                "hash": "3bc10539fd0297ab95ca62dd4da1e399"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAlert.php",
-                "hash": "50ece7da678184ba256af8750703b317"
+                "hash": "719f50822180fdea8d792457631965d2"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertSetState.php",
@@ -892,7 +892,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAnalysis.php",
-                "hash": "0b77848e5a2a956ef24a3d2eaf33ecab"
+                "hash": "cb612320913588cf8f4c698b10bed33d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAnalysisDeletion.php",
@@ -5096,7 +5096,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanning\/UploadSarif\/Request\/ApplicationJson.php",
-                "hash": "46a910b8a40c80cd9ab35cc14d5e0ce3"
+                "hash": "47225ce3b0cbd066498b83fcb1ac6235"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/Repos\/AddCollaborator\/Request\/ApplicationJson.php",
@@ -28901,6 +28901,10 @@
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/WorkflowRun.php",
                 "hash": "d22da183d2f9a1080f9a94f05d57e24b"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningRefFull.php",
+                "hash": "a464860dbfd47c0226c937874a2e19aa"
             }
         ]
     },
