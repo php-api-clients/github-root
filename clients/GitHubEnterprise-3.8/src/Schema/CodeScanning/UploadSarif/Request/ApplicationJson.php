@@ -24,8 +24,12 @@ final readonly class ApplicationJson
             "description": "The SHA of the commit to which the analysis you are uploading relates."
         },
         "ref": {
+            "pattern": "^refs\\/(heads|pull)\\/.*$",
             "type": "string",
-            "description": "The full Git reference, formatted as `refs\\/heads\\/<branch name>`,\\n`refs\\/pull\\/<number>\\/merge`, or `refs\\/pull\\/<number>\\/head`."
+            "description": "The full Git reference, formatted as `refs\\/heads\\/<branch name>`,\\n`refs\\/pull\\/<number>\\/merge`, or `refs\\/pull\\/<number>\\/head`.",
+            "examples": [
+                "refs\\/heads\\/main"
+            ]
         },
         "sarif": {
             "type": "string",
@@ -48,13 +52,14 @@ final readonly class ApplicationJson
             "type": "string",
             "description": "The name of the tool used to generate the code scanning analysis. If this parameter is not used, the tool name defaults to \\"API\\". If the uploaded SARIF contains a tool GUID, this will be available for filtering using the `tool_guid` parameter of operations such as `GET \\/repos\\/{owner}\\/{repo}\\/code-scanning\\/alerts`."
         }
-    }
+    },
+    "additionalProperties": false
 }';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "commit_sha": "DDDDDDDDDDDDDD",
-    "ref": "generated",
+    "ref": "refs\\/heads\\/main",
     "sarif": "generated",
     "checkout_uri": "file:\\/\\/\\/github\\/workspace\\/",
     "started_at": "1970-01-01T00:00:00+00:00",
