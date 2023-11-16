@@ -72,6 +72,28 @@ class AdvancedSecurity implements ObjectMapper
 
             after_totalCount:
 
+            $value = $payload['maximum_advanced_security_committers'] ?? null;
+
+            if ($value === null) {
+                $properties['maximumAdvancedSecurityCommitters'] = null;
+                goto after_maximumAdvancedSecurityCommitters;
+            }
+
+            $properties['maximumAdvancedSecurityCommitters'] = $value;
+
+            after_maximumAdvancedSecurityCommitters:
+
+            $value = $payload['purchased_advanced_security_committers'] ?? null;
+
+            if ($value === null) {
+                $properties['purchasedAdvancedSecurityCommitters'] = null;
+                goto after_purchasedAdvancedSecurityCommitters;
+            }
+
+            $properties['purchasedAdvancedSecurityCommitters'] = $value;
+
+            after_purchasedAdvancedSecurityCommitters:
+
             $value = $payload['repositories'] ?? null;
 
             if ($value === null) {
@@ -275,6 +297,22 @@ class AdvancedSecurity implements ObjectMapper
         }
 
         after_totalCount:        $result['total_count'] = $totalCount;
+
+        $maximumAdvancedSecurityCommitters = $object->maximumAdvancedSecurityCommitters;
+
+        if ($maximumAdvancedSecurityCommitters === null) {
+            goto after_maximumAdvancedSecurityCommitters;
+        }
+
+        after_maximumAdvancedSecurityCommitters:        $result['maximum_advanced_security_committers'] = $maximumAdvancedSecurityCommitters;
+
+        $purchasedAdvancedSecurityCommitters = $object->purchasedAdvancedSecurityCommitters;
+
+        if ($purchasedAdvancedSecurityCommitters === null) {
+            goto after_purchasedAdvancedSecurityCommitters;
+        }
+
+        after_purchasedAdvancedSecurityCommitters:        $result['purchased_advanced_security_committers'] = $purchasedAdvancedSecurityCommitters;
 
         $repositories = $object->repositories;
         static $repositoriesSerializer0;

@@ -1,5 +1,5 @@
 {
-    "specHash": "8ecaace45ed715d2d715454782f344f9",
+    "specHash": "eae95cc6c2c48fb77444f971acc17775",
     "generatedFiles": {
         "files": [
             {
@@ -368,7 +368,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AdvancedSecurityActiveCommitters.php",
-                "hash": "9a1e41a2b32445ad21a0cef85d94fed6"
+                "hash": "88443601b7b8027cbb35d8a419334cea"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/PackagesBillingUsage.php",
@@ -28996,7 +28996,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Settings\/Billing\/AdvancedSecurity.php",
-                "hash": "0269bee3dad66eb66882b8acd6353d8e"
+                "hash": "96bae146f68db214898b2ea6d0c0d53c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Settings\/Billing\/Packages.php",
@@ -29532,7 +29532,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Settings\/Billing\/AdvancedSecurity.php",
-                "hash": "ad073098f66a43a5b2ef8224a9d33bbb"
+                "hash": "8b32fcd1ad48b8d2a566ab2ea57ba638"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Settings\/Billing\/Packages.php",

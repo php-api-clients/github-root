@@ -26,6 +26,20 @@ final readonly class AdvancedSecurityActiveCommitters
                 2
             ]
         },
+        "maximum_advanced_security_committers": {
+            "type": "integer",
+            "description": "The total number of GitHub Advanced Security licences required if all repositories were to enable GitHub Advanced Security",
+            "examples": [
+                4
+            ]
+        },
+        "purchased_advanced_security_committers": {
+            "type": "integer",
+            "description": "The total number of GitHub Advanced Security licences purchased",
+            "examples": [
+                4
+            ]
+        },
         "repositories": {
             "type": "array",
             "items": {
@@ -86,6 +100,8 @@ final readonly class AdvancedSecurityActiveCommitters
     public const SCHEMA_EXAMPLE_DATA = '{
     "total_advanced_security_committers": 25,
     "total_count": 2,
+    "maximum_advanced_security_committers": 4,
+    "purchased_advanced_security_committers": 4,
     "repositories": [
         {
             "name": "octocat\\/Hello-World",
@@ -122,9 +138,15 @@ final readonly class AdvancedSecurityActiveCommitters
     ]
 }';
 
+    /**
+     * maximumAdvancedSecurityCommitters: The total number of GitHub Advanced Security licences required if all repositories were to enable GitHub Advanced Security
+     * purchasedAdvancedSecurityCommitters: The total number of GitHub Advanced Security licences purchased
+     */
     public function __construct(#[MapFrom('total_advanced_security_committers')]
     public int|null $totalAdvancedSecurityCommitters, #[MapFrom('total_count')]
-    public int|null $totalCount, public array $repositories,)
+    public int|null $totalCount, #[MapFrom('maximum_advanced_security_committers')]
+    public int|null $maximumAdvancedSecurityCommitters, #[MapFrom('purchased_advanced_security_committers')]
+    public int|null $purchasedAdvancedSecurityCommitters, public array $repositories,)
     {
     }
 }
