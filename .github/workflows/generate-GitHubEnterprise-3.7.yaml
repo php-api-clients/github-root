@@ -2,7 +2,7 @@ name: "Generate: GitHubEnterprise-3.7"
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '13 11 * * *'
+    - cron:  '13 12 * * *'
 jobs:
   supported-versions-matrix:
     name: Supported Versions Matrix GitHubEnterprise-3.7

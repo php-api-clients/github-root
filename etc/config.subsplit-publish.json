@@ -20,6 +20,12 @@
         },
         {
             "name": "github-enterprise",
+            "directory": "clients/GitHubEnterprise-3.11",
+            "target": "git@github.com:php-api-clients/github-enterprise.git",
+            "target-branch": "v0.1.3.11.x"
+        },
+        {
+            "name": "github-enterprise",
             "directory": "clients/GitHubEnterprise-3.2",
             "target": "git@github.com:php-api-clients/github-enterprise.git",
             "target-branch": "v0.1.3.2.x"
