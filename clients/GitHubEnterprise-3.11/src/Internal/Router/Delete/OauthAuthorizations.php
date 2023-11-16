@@ -1,0 +1,49 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
+
+use ApiClients\Client\GitHubEnterprise\Internal;
+use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
+use InvalidArgumentException;
+use League\OpenAPIValidation\Schema\SchemaValidator;
+use React\Http\Browser;
+
+use function array_key_exists;
+
+final class OauthAuthorizations
+{
+    public function __construct(private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrators $hydrators, private Browser $browser, private AuthenticationInterface $authentication)
+    {
+    }
+
+    public function deleteGrant(array $params): WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('grant_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: grant_id');
+        }
+
+        $arguments['grant_id'] = $params['grant_id'];
+        unset($params['grant_id']);
+        $operator = new Internal\Operator\OauthAuthorizations\DeleteGrant($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Applications🌀Grants🌀GrantId());
+
+        return $operator->call($arguments['grant_id']);
+    }
+
+    public function deleteAuthorization(array $params): WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('authorization_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: authorization_id');
+        }
+
+        $arguments['authorization_id'] = $params['authorization_id'];
+        unset($params['authorization_id']);
+        $operator = new Internal\Operator\OauthAuthorizations\DeleteAuthorization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Authorizations🌀AuthorizationId());
+
+        return $operator->call($arguments['authorization_id']);
+    }
+}
