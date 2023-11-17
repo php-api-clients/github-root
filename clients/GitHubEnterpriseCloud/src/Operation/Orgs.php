@@ -12,6 +12,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRol
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationFull;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationInvitation;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgMembership;
@@ -334,6 +335,91 @@ final class Orgs
     public function removeMembershipForUser(string $org, string $username): WithoutBody
     {
         return $this->operators->orgs👷RemoveMembershipForUser()->call($org, $username);
+    }
+
+    /** @return iterable<int,Schema\OrganizationFineGrainedPermission> */
+    public function listOrganizationFineGrainedPermissions(string $org): iterable
+    {
+        return $this->operators->orgs👷ListOrganizationFineGrainedPermissions()->call($org);
+    }
+
+    public function listOrgRoles(string $org): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListOrgRoles\Response\ApplicationJson\Ok
+    {
+        return $this->operators->orgs👷ListOrgRoles()->call($org);
+    }
+
+    public function createCustomOrganizationRole(string $org, array $params): OrganizationRole
+    {
+        return $this->operators->orgs👷CreateCustomOrganizationRole()->call($org, $params);
+    }
+
+    public function revokeAllOrgRolesTeam(string $org, string $teamSlug): WithoutBody
+    {
+        return $this->operators->orgs👷RevokeAllOrgRolesTeam()->call($org, $teamSlug);
+    }
+
+    public function assignTeamToOrgRole(string $org, string $teamSlug, int $roleId): WithoutBody
+    {
+        return $this->operators->orgs👷AssignTeamToOrgRole()->call($org, $teamSlug, $roleId);
+    }
+
+    public function revokeOrgRoleTeam(string $org, string $teamSlug, int $roleId): WithoutBody
+    {
+        return $this->operators->orgs👷RevokeOrgRoleTeam()->call($org, $teamSlug, $roleId);
+    }
+
+    public function revokeAllOrgRolesUser(string $org, string $username): WithoutBody
+    {
+        return $this->operators->orgs👷RevokeAllOrgRolesUser()->call($org, $username);
+    }
+
+    public function assignUserToOrgRole(string $org, string $username, int $roleId): WithoutBody
+    {
+        return $this->operators->orgs👷AssignUserToOrgRole()->call($org, $username, $roleId);
+    }
+
+    public function revokeOrgRoleUser(string $org, string $username, int $roleId): WithoutBody
+    {
+        return $this->operators->orgs👷RevokeOrgRoleUser()->call($org, $username, $roleId);
+    }
+
+    public function getOrgRole(string $org, int $roleId): OrganizationRole
+    {
+        return $this->operators->orgs👷GetOrgRole()->call($org, $roleId);
+    }
+
+    public function deleteCustomOrganizationRole(string $org, int $roleId): WithoutBody
+    {
+        return $this->operators->orgs👷DeleteCustomOrganizationRole()->call($org, $roleId);
+    }
+
+    public function patchCustomOrganizationRole(string $org, int $roleId, array $params): OrganizationRole
+    {
+        return $this->operators->orgs👷PatchCustomOrganizationRole()->call($org, $roleId, $params);
+    }
+
+    /** @return iterable<int,Schema\Team>|WithoutBody */
+    public function listOrgRoleTeams(string $org, int $roleId, int $perPage, int $page): iterable|WithoutBody
+    {
+        return $this->operators->orgs👷ListOrgRoleTeams()->call($org, $roleId, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\Team>|WithoutBody */
+    public function listOrgRoleTeamsListing(string $org, int $roleId, int $perPage, int $page): iterable|WithoutBody
+    {
+        return $this->operators->orgs👷ListOrgRoleTeamsListing()->call($org, $roleId, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function listOrgRoleUsers(string $org, int $roleId, int $perPage, int $page): iterable|WithoutBody
+    {
+        return $this->operators->orgs👷ListOrgRoleUsers()->call($org, $roleId, $perPage, $page);
+    }
+
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function listOrgRoleUsersListing(string $org, int $roleId, int $perPage, int $page): iterable|WithoutBody
+    {
+        return $this->operators->orgs👷ListOrgRoleUsersListing()->call($org, $roleId, $perPage, $page);
     }
 
     /** @return Observable<Schema\SimpleUser> */

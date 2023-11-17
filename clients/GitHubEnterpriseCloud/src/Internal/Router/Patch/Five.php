@@ -10,6 +10,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Import;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectCard;
@@ -25,8 +26,8 @@ final class Five
     {
     }
 
-    /** @return |Observable<Schema\OrgCustomProperty> */
-    public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|iterable|WithoutBody|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
+    /** @return |Schema\OrganizationRole|Observable<Schema\OrgCustomProperty> */
+    public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|iterable|WithoutBody|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {
@@ -57,6 +58,12 @@ final class Five
                         if ($pathChunks[4] === '{hook_id}') {
                             if ($call === 'PATCH /orgs/{org}/hooks/{hook_id}') {
                                 return $this->routers->internal🔀Router🔀Patch🔀Orgs()->updateWebhook($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'organization-roles') {
+                        if ($pathChunks[4] === '{role_id}') {
+                            if ($call === 'PATCH /orgs/{org}/organization-roles/{role_id}') {
+                                return $this->routers->internal🔀Router🔀Patch🔀Orgs()->patchCustomOrganizationRole($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'properties') {

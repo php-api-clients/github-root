@@ -11,6 +11,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRep
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationFull;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgMembership;
@@ -399,6 +400,35 @@ final class Orgs
         $operator = new Internal\Operator\Orgs\ListMembers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members());
 
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['role'], $arguments['per_page'], $arguments['page']);
+    }
+
+    /** @return iterable<int,Schema\OrganizationFineGrainedPermission> */
+    public function listOrganizationFineGrainedPermissions(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Orgs\ListOrganizationFineGrainedPermissions($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationFineGrainedPermissions());
+
+        return $operator->call($arguments['org']);
+    }
+
+    public function listOrgRoles(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListOrgRoles\Response\ApplicationJson\Ok
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Orgs\ListOrgRoles($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles());
+
+        return $operator->call($arguments['org']);
     }
 
     /** @return Observable<Schema\SimpleUser> */
@@ -809,6 +839,26 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    public function getOrgRole(array $params): OrganizationRole
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('role_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: role_id');
+        }
+
+        $arguments['role_id'] = $params['role_id'];
+        unset($params['role_id']);
+        $operator = new Internal\Operator\Orgs\GetOrgRole($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId());
+
+        return $operator->call($arguments['org'], $arguments['role_id']);
+    }
+
     /** @return Observable<Schema\OrgCustomProperty> */
     public function getAllCustomProperties(array $params): iterable
     {
@@ -984,6 +1034,72 @@ final class Orgs
         $operator = new Internal\Operator\Orgs\ListInvitationTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations🌀InvitationId🌀Teams());
 
         return $operator->call($arguments['org'], $arguments['invitation_id'], $arguments['per_page'], $arguments['page']);
+    }
+
+    /** @return iterable<int,Schema\Team>|WithoutBody */
+    public function listOrgRoleTeams(array $params): iterable|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('role_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: role_id');
+        }
+
+        $arguments['role_id'] = $params['role_id'];
+        unset($params['role_id']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\Orgs\ListOrgRoleTeams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId🌀Teams());
+
+        return $operator->call($arguments['org'], $arguments['role_id'], $arguments['per_page'], $arguments['page']);
+    }
+
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    public function listOrgRoleUsers(array $params): iterable|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('role_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: role_id');
+        }
+
+        $arguments['role_id'] = $params['role_id'];
+        unset($params['role_id']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
+        $operator = new Internal\Operator\Orgs\ListOrgRoleUsers($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀OrganizationRoles🌀RoleId🌀Users());
+
+        return $operator->call($arguments['org'], $arguments['role_id'], $arguments['per_page'], $arguments['page']);
     }
 
     /** @return Observable<Schema\MinimalRepository> */
