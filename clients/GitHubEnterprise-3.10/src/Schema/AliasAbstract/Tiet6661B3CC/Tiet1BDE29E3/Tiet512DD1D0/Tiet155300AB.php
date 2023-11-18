@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\Tiet5EB50E44\Tiet2B2EC8CE\Tiet69829B4F;
+namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\Tiet6661B3CC\Tiet1BDE29E3\Tiet512DD1D0;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet5F2241D9
+abstract readonly class Tiet155300AB
 {
     public const SCHEMA_JSON         = '{
     "type": "object",
@@ -235,7 +235,7 @@ abstract readonly class Tiet5F2241D9
                         "format": "date-time"
                     }
                 },
-                "description": "Custom repository roles created by organization administrators"
+                "description": "Custom repository roles created by organization owners"
             }
         }
     }
