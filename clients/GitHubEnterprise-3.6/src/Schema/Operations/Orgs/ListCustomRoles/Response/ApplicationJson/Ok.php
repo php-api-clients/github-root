@@ -37,7 +37,7 @@ final readonly class Ok
                         "description": "The name of the custom role."
                     }
                 },
-                "description": "Custom repository roles created by organization administrators"
+                "description": "Custom repository roles created by organization owners"
             }
         }
     }
