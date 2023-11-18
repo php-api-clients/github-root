@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListSe
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class Json extends Schema\AliasAbstract\Tiet39ECFCA1\TietA91DCB6A\Tiet3053F88A\Tiet427619C0
+final readonly class Json extends Schema\AliasAbstract\Tiet61D2E994\TietADD701C1\Tiet3075A98E\Tiet221E26CF
 {
 }
