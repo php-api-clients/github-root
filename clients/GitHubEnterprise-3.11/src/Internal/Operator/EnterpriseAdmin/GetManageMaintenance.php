@@ -25,7 +25,7 @@ final readonly class GetManageMaintenance
     {
     }
 
-    /** @return iterable<int,Schema\GhesGetMaintenance>|WithoutBody */
+    /** @return Observable<Schema\GhesGetMaintenance>|WithoutBody */
     public function call(string $uuid, string $clusterRoles): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetManageMaintenance($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

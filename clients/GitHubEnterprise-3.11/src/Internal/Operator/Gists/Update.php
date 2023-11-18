@@ -24,6 +24,7 @@ final readonly class Update
     {
     }
 
+    /** @return */
     public function call(string $gistId, array $params): GistSimple
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Gists\Update($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $gistId);

@@ -25,6 +25,7 @@ final readonly class GetProvisioningInformationForEnterpriseGroup
     {
     }
 
+    /** @return */
     public function call(string $scimGroupId, string $excludedAttributes): GroupResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->responseSchemaValidator, $this->hydrator, $scimGroupId, $excludedAttributes);

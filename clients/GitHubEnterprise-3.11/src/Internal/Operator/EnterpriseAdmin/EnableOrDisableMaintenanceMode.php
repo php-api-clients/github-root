@@ -25,6 +25,7 @@ final readonly class EnableOrDisableMaintenanceMode
     {
     }
 
+    /** @return */
     public function call(array $params): MaintenanceStatus|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\EnableOrDisableMaintenanceMode($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

@@ -17,6 +17,7 @@ final class Users
     {
     }
 
+    /** @return */
     public function updateAuthenticated(array $params): PrivateUser|WithoutBody
     {
         $operator = new Internal\Operator\Users\UpdateAuthenticated($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User());

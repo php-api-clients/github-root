@@ -25,6 +25,7 @@ final readonly class UpdateAttributeForEnterpriseGroup
     {
     }
 
+    /** @return */
     public function call(string $scimGroupId, array $params): GroupResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimGroupId);

@@ -24,7 +24,7 @@ final readonly class ListRepoFineGrainedPermissions
     {
     }
 
-    /** @return iterable<int,Schema\RepositoryFineGrainedPermission> */
+    /** @return Observable<Schema\RepositoryFineGrainedPermission> */
     public function call(string $org): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\ListRepoFineGrainedPermissions($this->responseSchemaValidator, $this->hydrator, $org);

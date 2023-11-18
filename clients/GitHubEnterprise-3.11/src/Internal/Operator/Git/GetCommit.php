@@ -24,6 +24,7 @@ final readonly class GetCommit
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $commitSha): GitCommit
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Git\GetCommit($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $commitSha);

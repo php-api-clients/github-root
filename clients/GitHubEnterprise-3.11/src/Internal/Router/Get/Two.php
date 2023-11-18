@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\ApiOverview;
 use ApiClients\Client\GitHubEnterprise\Schema\Feed;
 use ApiClients\Client\GitHubEnterprise\Schema\Integration;
@@ -23,7 +22,7 @@ final class Two
     {
     }
 
-    /** @return iterable<int,Schema\GlobalAdvisory>|Schema\Integration|iterable<int,Schema\Authorization>|WithoutBody|iterable<int,Schema\CodeOfConduct>|Schema\Operations\Emojis\Get\Response\ApplicationJson\Ok\Application\Json|iterable<int,Schema\Event>|Schema\Feed|iterable<int,Schema\BaseGist>|iterable<int,Schema\Issue>|iterable<int,Schema\LicenseSimple>|Schema\ApiOverview|iterable<int,Schema\Thread>|ResponseInterface|iterable<int,Schema\OrganizationSimple>|Schema\RateLimitOverview|iterable<int,Schema\MinimalRepository>|Schema\PrivateUser|Schema\PublicUser|iterable<int,Schema\SimpleUser>|string */
+    /** @return Observable<Schema\GlobalAdvisory>||Observable<Schema\Authorization>|WithoutBody|Observable<Schema\CodeOfConduct>|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Observable<Schema\MinimalRepository>|Observable<Schema\SimpleUser> */
     public function call(string $call, array $params, array $pathChunks): iterable|Integration|WithoutBody|Json|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
     {
         if ($pathChunks[0] === '') {

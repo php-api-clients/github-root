@@ -25,6 +25,7 @@ final readonly class GetGrant
     {
     }
 
+    /** @return */
     public function call(int $grantId): ApplicationGrant|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\GetGrant($this->responseSchemaValidator, $this->hydrator, $grantId);
