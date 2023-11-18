@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\BranchRestrictionPolicy;
 use ApiClients\Client\GitHubEnterprise\Schema\DeploymentBranchPolicy;
 use ApiClients\Client\GitHubEnterprise\Schema\DeploymentProtectionRule;
@@ -29,7 +28,7 @@ final class Eight
     {
     }
 
-    /** @return Schema\PackageVersion|iterable<int,Schema\TeamDiscussionComment>|iterable<int,Schema\Reaction>|Schema\TeamRepository|WithoutBody|Schema\OidcCustomSubRepo|Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|iterable<int,Schema\EnvironmentApprovals>|Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|iterable<int,Schema\PendingDeployment>|Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|Schema\ProtectedBranchAdminEnforced|Schema\ProtectedBranchPullRequestReview|Schema\StatusCheckPolicy|Schema\BranchRestrictionPolicy|iterable<int,Schema\CodeScanningAlertInstance>|Schema\DeploymentStatus|Schema\DeploymentBranchPolicy|Schema\Operations\Repos\ListCustomDeploymentRuleIntegrations\Response\ApplicationJson\Ok|Schema\DeploymentProtectionRule|Schema\HookDelivery|Schema\PullRequestReview|iterable<int,Schema\SecretScanningLocation> */
+    /** @return |Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\EnvironmentApprovals>|Observable<Schema\PendingDeployment>|Observable<Schema\CodeScanningAlertInstance>|Observable<Schema\SecretScanningLocation>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): PackageVersion|iterable|TeamRepository|WithoutBody|OidcCustomSubRepo|Ok|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|ProtectedBranchAdminEnforced|ProtectedBranchPullRequestReview|StatusCheckPolicy|BranchRestrictionPolicy|DeploymentStatus|DeploymentBranchPolicy|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListCustomDeploymentRuleIntegrations\Response\ApplicationJson\Ok|DeploymentProtectionRule|HookDelivery|PullRequestReview
     {
         if ($pathChunks[0] === '') {

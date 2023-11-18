@@ -25,6 +25,7 @@ final readonly class GetReplicationStatus
     {
     }
 
+    /** @return */
     public function call(string $uuid, string $clusterRoles): GhesReplicationStatus|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetReplicationStatus($this->responseSchemaValidator, $this->hydrator, $uuid, $clusterRoles);

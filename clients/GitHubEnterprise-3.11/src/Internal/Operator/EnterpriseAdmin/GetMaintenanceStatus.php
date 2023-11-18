@@ -25,6 +25,7 @@ final readonly class GetMaintenanceStatus
     {
     }
 
+    /** @return */
     public function call(): MaintenanceStatus|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetMaintenanceStatus($this->responseSchemaValidator, $this->hydrator);

@@ -224,10 +224,10 @@ final readonly class OrganizationCustomRepositoryRole
             "format": "date-time"
         }
     },
-    "description": "Custom repository roles created by organization administrators"
+    "description": "Custom repository roles created by organization owners"
 }';
     public const SCHEMA_TITLE        = 'Organization Custom Repository Role';
-    public const SCHEMA_DESCRIPTION  = 'Custom repository roles created by organization administrators';
+    public const SCHEMA_DESCRIPTION  = 'Custom repository roles created by organization owners';
     public const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "name": "generated",

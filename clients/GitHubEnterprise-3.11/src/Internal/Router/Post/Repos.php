@@ -45,6 +45,7 @@ final class Repos
     {
     }
 
+    /** @return */
     public function createForAuthenticatedUser(array $params): Repository|WithoutBody
     {
         $operator = new Internal\Operator\Repos\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Repos());
@@ -52,6 +53,7 @@ final class Repos
         return $operator->call($params);
     }
 
+    /** @return */
     public function createAutolink(array $params): Autolink
     {
         $arguments = [];
@@ -72,6 +74,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createDeployment(array $params): Deployment|Json|WithoutBody
     {
         $arguments = [];
@@ -92,6 +95,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createDispatchEvent(array $params): WithoutBody
     {
         $arguments = [];
@@ -112,6 +116,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createFork(array $params): FullRepository
     {
         $arguments = [];
@@ -132,6 +137,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createWebhook(array $params): Hook
     {
         $arguments = [];
@@ -152,6 +158,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createDeployKey(array $params): DeployKey
     {
         $arguments = [];
@@ -172,6 +179,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function mergeUpstream(array $params): MergedUpstream|WithoutBody
     {
         $arguments = [];
@@ -192,6 +200,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function merge(array $params): Commit|WithoutBody
     {
         $arguments = [];
@@ -212,6 +221,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createPagesSite(array $params): Page
     {
         $arguments = [];
@@ -232,6 +242,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createRelease(array $params): Release
     {
         $arguments = [];
@@ -252,6 +263,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createRepoRuleset(array $params): RepositoryRuleset
     {
         $arguments = [];
@@ -272,6 +284,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function transfer(array $params): MinimalRepository
     {
         $arguments = [];
@@ -292,6 +305,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createUsingTemplate(array $params): Repository
     {
         $arguments = [];
@@ -312,6 +326,7 @@ final class Repos
         return $operator->call($arguments['template_owner'], $arguments['template_repo'], $params);
     }
 
+    /** @return */
     public function requestPagesBuild(array $params): PageBuildStatus
     {
         $arguments = [];
@@ -332,6 +347,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function createPagesDeployment(array $params): PageDeployment
     {
         $arguments = [];
@@ -352,6 +368,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function generateReleaseNotes(array $params): ReleaseNotesContent
     {
         $arguments = [];
@@ -372,6 +389,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createCommitStatus(array $params): Status
     {
         $arguments = [];
@@ -398,6 +416,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sha'], $params);
     }
 
+    /** @return */
     public function createTagProtection(array $params): TagProtection
     {
         $arguments = [];
@@ -418,6 +437,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createInOrg(array $params): Repository
     {
         $arguments = [];
@@ -432,6 +452,7 @@ final class Repos
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createOrgRuleset(array $params): RepositoryRuleset
     {
         $arguments = [];
@@ -446,6 +467,7 @@ final class Repos
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function renameBranch(array $params): BranchWithProtection
     {
         $arguments = [];
@@ -472,6 +494,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
+    /** @return */
     public function createCommitComment(array $params): CommitComment
     {
         $arguments = [];
@@ -498,6 +521,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha'], $params);
     }
 
+    /** @return */
     public function createDeploymentStatus(array $params): DeploymentStatus
     {
         $arguments = [];
@@ -524,6 +548,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $params);
     }
 
+    /** @return */
     public function createDeploymentBranchPolicy(array $params): DeploymentBranchPolicy|WithoutBody
     {
         $arguments = [];
@@ -550,6 +575,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $params);
     }
 
+    /** @return */
     public function createDeploymentProtectionRule(array $params): DeploymentProtectionRule
     {
         $arguments = [];
@@ -576,6 +602,7 @@ final class Repos
         return $operator->call($arguments['environment_name'], $arguments['repo'], $arguments['owner'], $params);
     }
 
+    /** @return */
     public function pingWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -602,6 +629,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
+    /** @return */
     public function testPushWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -628,6 +656,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['hook_id']);
     }
 
+    /** @return */
     public function uploadReleaseAsset(array $params): ReleaseAsset|WithoutBody
     {
         $arguments = [];
@@ -666,6 +695,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['name'], $arguments['label'], $params);
     }
 
+    /** @return */
     public function setAdminBranchProtection(array $params): ProtectedBranchAdminEnforced
     {
         $arguments = [];
@@ -692,6 +722,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function createCommitSignatureProtection(array $params): ProtectedBranchAdminEnforced
     {
         $arguments = [];
@@ -718,7 +749,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
-    /** @return iterable<int,string> */
+    /** @return Observable<string> */
     public function addStatusCheckContexts(array $params): iterable
     {
         $arguments = [];
@@ -745,7 +776,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\Integration> */
+    /** @return Observable<Schema\Integration> */
     public function addAppAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -772,7 +803,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function addTeamAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -799,7 +830,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function addUserAccessRestrictions(array $params): iterable
     {
         $arguments = [];
@@ -826,6 +857,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
+    /** @return */
     public function redeliverWebhookDelivery(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json
     {
         $arguments = [];

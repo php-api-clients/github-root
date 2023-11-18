@@ -22,6 +22,7 @@ final readonly class RemoveAnnouncementBannerForOrg
     {
     }
 
+    /** @return */
     public function call(string $org): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\AnnouncementBanners\RemoveAnnouncementBannerForOrg($org);
