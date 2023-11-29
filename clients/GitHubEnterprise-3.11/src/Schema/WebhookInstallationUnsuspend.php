@@ -633,7 +633,14 @@ final readonly class WebhookInstallationUnsuspend
                                 "write"
                             ],
                             "type": "string",
-                            "description": "The level of permission to grant the access token for custom repository roles management. This property is in beta and is subject to change."
+                            "description": "The level of permission to grant the access token for custom repository roles management."
+                        },
+                        "organization_copilot_seat_management": {
+                            "enum": [
+                                "write"
+                            ],
+                            "type": "string",
+                            "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in beta and is subject to change."
                         },
                         "organization_announcement_banners": {
                             "enum": [
@@ -2789,6 +2796,7 @@ final readonly class WebhookInstallationUnsuspend
             "members": "read",
             "organization_administration": "read",
             "organization_custom_roles": "read",
+            "organization_copilot_seat_management": "write",
             "organization_announcement_banners": "read",
             "organization_hooks": "write",
             "organization_personal_access_tokens": "read",
