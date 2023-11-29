@@ -994,6 +994,17 @@ class Authorizations implements ObjectMapper
 
             after_organizationAdministration:
 
+            $value = $payload['organization_copilot_seat_management'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationCopilotSeatManagement'] = null;
+                goto after_organizationCopilotSeatManagement;
+            }
+
+            $properties['organizationCopilotSeatManagement'] = $value;
+
+            after_organizationCopilotSeatManagement:
+
             $value = $payload['organization_hooks'] ?? null;
 
             if ($value === null) {
@@ -1759,6 +1770,14 @@ class Authorizations implements ObjectMapper
         }
 
         after_organizationAdministration:        $result['organization_administration'] = $organizationAdministration;
+
+        $organizationCopilotSeatManagement = $object->organizationCopilotSeatManagement;
+
+        if ($organizationCopilotSeatManagement === null) {
+            goto after_organizationCopilotSeatManagement;
+        }
+
+        after_organizationCopilotSeatManagement:        $result['organization_copilot_seat_management'] = $organizationCopilotSeatManagement;
 
         $organizationHooks = $object->organizationHooks;
 

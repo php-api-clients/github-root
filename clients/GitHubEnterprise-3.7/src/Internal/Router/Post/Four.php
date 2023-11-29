@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\BaseGist;
+use ApiClients\Client\GitHubEnterprise\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\GistComment;
 use ApiClients\Client\GitHubEnterprise\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterprise\Schema\Integration;
@@ -15,7 +16,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\Migration;
 use ApiClients\Client\GitHubEnterprise\Schema\OrgHook;
 use ApiClients\Client\GitHubEnterprise\Schema\Project;
 use ApiClients\Client\GitHubEnterprise\Schema\ProjectColumn;
-use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterprise\Schema\TeamFull;
 use ApiClients\Client\GitHubEnterprise\Schema\UserResponse;
@@ -28,7 +28,8 @@ final class Four
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrgHook|Migration|Project|Repository|TeamFull|ProjectColumn|GroupResponse|UserResponse|MaintenanceStatus|TeamDiscussion
+    /** @return |Schema\FullRepository */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrgHook|Migration|Project|FullRepository|TeamFull|ProjectColumn|GroupResponse|UserResponse|MaintenanceStatus|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
