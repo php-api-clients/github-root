@@ -29,7 +29,7 @@ final class Seven
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
+    /** @return |Schema\DeploymentBranchPolicy|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Observable<Schema\Label>|Schema\BasicError */
     public function call(string $call, array $params, array $pathChunks): Ok|WithoutBody|AuthenticationToken|BranchWithProtection|EmptyObject|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|Issue|IssueComment|iterable|BasicError|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
     {
         if ($pathChunks[0] === '') {

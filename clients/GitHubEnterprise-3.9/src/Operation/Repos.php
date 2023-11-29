@@ -45,7 +45,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\ProtectedBranchPullRequestReview;
 use ApiClients\Client\GitHubEnterprise\Schema\Release;
 use ApiClients\Client\GitHubEnterprise\Schema\ReleaseAsset;
 use ApiClients\Client\GitHubEnterprise\Schema\ReleaseNotesContent;
-use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryCollaboratorPermission;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryInvitation;
 use ApiClients\Client\GitHubEnterprise\Schema\Status;
@@ -73,8 +72,7 @@ final class Repos
         return $this->operators->repos👷ListForOrgListing()->call($org, $type, $direction, $sort, $perPage, $page);
     }
 
-    /** @return */
-    public function createInOrg(string $org, array $params): Repository
+    public function createInOrg(string $org, array $params): FullRepository
     {
         return $this->operators->repos👷CreateInOrg()->call($org, $params);
     }
@@ -589,49 +587,41 @@ final class Repos
         return $this->operators->repos👷GetAllEnvironments()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return */
     public function getEnvironment(string $owner, string $repo, string $environmentName): Environment
     {
         return $this->operators->repos👷GetEnvironment()->call($owner, $repo, $environmentName);
     }
 
-    /** @return */
     public function createOrUpdateEnvironment(string $owner, string $repo, string $environmentName, array $params): Environment
     {
         return $this->operators->repos👷CreateOrUpdateEnvironment()->call($owner, $repo, $environmentName, $params);
     }
 
-    /** @return */
     public function deleteAnEnvironment(string $owner, string $repo, string $environmentName): WithoutBody
     {
         return $this->operators->repos👷DeleteAnEnvironment()->call($owner, $repo, $environmentName);
     }
 
-    /** @return */
     public function listDeploymentBranchPolicies(string $owner, string $repo, string $environmentName, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson\Ok
     {
         return $this->operators->repos👷ListDeploymentBranchPolicies()->call($owner, $repo, $environmentName, $perPage, $page);
     }
 
-    /** @return */
     public function createDeploymentBranchPolicy(string $owner, string $repo, string $environmentName, array $params): DeploymentBranchPolicy|WithoutBody
     {
         return $this->operators->repos👷CreateDeploymentBranchPolicy()->call($owner, $repo, $environmentName, $params);
     }
 
-    /** @return */
     public function getDeploymentBranchPolicy(string $owner, string $repo, string $environmentName, int $branchPolicyId): DeploymentBranchPolicy
     {
         return $this->operators->repos👷GetDeploymentBranchPolicy()->call($owner, $repo, $environmentName, $branchPolicyId);
     }
 
-    /** @return */
     public function updateDeploymentBranchPolicy(string $owner, string $repo, string $environmentName, int $branchPolicyId, array $params): DeploymentBranchPolicy
     {
         return $this->operators->repos👷UpdateDeploymentBranchPolicy()->call($owner, $repo, $environmentName, $branchPolicyId, $params);
     }
 
-    /** @return */
     public function deleteDeploymentBranchPolicy(string $owner, string $repo, string $environmentName, int $branchPolicyId): WithoutBody
     {
         return $this->operators->repos👷DeleteDeploymentBranchPolicy()->call($owner, $repo, $environmentName, $branchPolicyId);
@@ -1129,8 +1119,7 @@ final class Repos
         return $this->operators->repos👷DownloadZipballArchiveStreaming()->call($owner, $repo, $ref);
     }
 
-    /** @return */
-    public function createUsingTemplate(string $templateOwner, string $templateRepo, array $params): Repository
+    public function createUsingTemplate(string $templateOwner, string $templateRepo, array $params): FullRepository
     {
         return $this->operators->repos👷CreateUsingTemplate()->call($templateOwner, $templateRepo, $params);
     }
@@ -1153,8 +1142,7 @@ final class Repos
         return $this->operators->repos👷ListForAuthenticatedUserListing()->call($direction, $since, $before, $visibility, $affiliation, $type, $sort, $perPage, $page);
     }
 
-    /** @return */
-    public function createForAuthenticatedUser(array $params): Repository|WithoutBody
+    public function createForAuthenticatedUser(array $params): FullRepository|WithoutBody
     {
         return $this->operators->repos👷CreateForAuthenticatedUser()->call($params);
     }
