@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\Tiet52AC7AAD\Tiet045A8678\TietB872B550;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\AliasAbstract\TietB4B89922\Tiet57FFE9DB\TietCC731D3B;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet62F74A00
+abstract readonly class Tiet084F949E
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -1201,6 +1201,18 @@ abstract readonly class Tiet62F74A00
                                                 "type": "string"
                                             }
                                         }
+                                    },
+                                    "secret_scanning_validity_checks": {
+                                        "type": "object",
+                                        "properties": {
+                                            "status": {
+                                                "enum": [
+                                                    "enabled",
+                                                    "disabled"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -1732,6 +1744,9 @@ abstract readonly class Tiet62F74A00
                     },
                     "secret_scanning_push_protection": {
                         "status": "disabled"
+                    },
+                    "secret_scanning_validity_checks": {
+                        "status": "disabled"
                     }
                 }
             },
@@ -1972,6 +1987,9 @@ abstract readonly class Tiet62F74A00
                         "status": "disabled"
                     },
                     "secret_scanning_push_protection": {
+                        "status": "disabled"
+                    },
+                    "secret_scanning_validity_checks": {
                         "status": "disabled"
                     }
                 }

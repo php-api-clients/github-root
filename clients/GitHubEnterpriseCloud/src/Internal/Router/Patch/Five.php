@@ -26,7 +26,7 @@ final class Five
     {
     }
 
-    /** @return |Schema\OrganizationRole|Observable<Schema\OrgCustomProperty> */
+    /** @return |Observable<Schema\OrgCustomProperty> */
     public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|iterable|WithoutBody|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {

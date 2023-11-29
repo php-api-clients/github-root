@@ -402,7 +402,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['filter'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\OrganizationFineGrainedPermission> */
+    /** @return Observable<Schema\OrganizationFineGrainedPermission> */
     public function listOrganizationFineGrainedPermissions(array $params): iterable
     {
         $arguments = [];
@@ -417,6 +417,7 @@ final class Orgs
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function listOrgRoles(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListOrgRoles\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -839,6 +840,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username']);
     }
 
+    /** @return */
     public function getOrgRole(array $params): OrganizationRole
     {
         $arguments = [];
@@ -1036,7 +1038,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['invitation_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\Team>|WithoutBody */
+    /** @return Observable<Schema\Team>|WithoutBody */
     public function listOrgRoleTeams(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -1069,7 +1071,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function listOrgRoleUsers(array $params): iterable|WithoutBody
     {
         $arguments = [];

@@ -55,6 +55,13 @@ final readonly class EnterpriseSecurityAnalysisSettings
             "examples": [
                 "https:\\/\\/github.com\\/test-org\\/test-repo\\/blob\\/main\\/README.md"
             ]
+        },
+        "secret_scanning_validity_checks_enabled": {
+            "type": "boolean",
+            "description": "Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this enterprise.",
+            "examples": [
+                false
+            ]
         }
     }
 }';
@@ -65,7 +72,8 @@ final readonly class EnterpriseSecurityAnalysisSettings
     "dependabot_alerts_enabled_for_new_repositories": false,
     "secret_scanning_enabled_for_new_repositories": false,
     "secret_scanning_push_protection_enabled_for_new_repositories": false,
-    "secret_scanning_push_protection_custom_link": "https:\\/\\/github.com\\/test-org\\/test-repo\\/blob\\/main\\/README.md"
+    "secret_scanning_push_protection_custom_link": "https:\\/\\/github.com\\/test-org\\/test-repo\\/blob\\/main\\/README.md",
+    "secret_scanning_validity_checks_enabled": false
 }';
 
     /**
@@ -78,13 +86,15 @@ final readonly class EnterpriseSecurityAnalysisSettings
      * secretScanningPushProtectionEnabledForNewRepositories: Whether secret scanning push protection is automatically enabled for new repositories and repositories
     transferred to this enterprise.
      * secretScanningPushProtectionCustomLink: An optional URL string to display to contributors who are blocked from pushing a secret.
+     * secretScanningValidityChecksEnabled: Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this enterprise.
      */
     public function __construct(#[MapFrom('advanced_security_enabled_for_new_repositories')]
     public bool $advancedSecurityEnabledForNewRepositories, #[MapFrom('dependabot_alerts_enabled_for_new_repositories')]
     public bool $dependabotAlertsEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')]
     public bool $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')]
     public bool $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link')]
-    public string|null $secretScanningPushProtectionCustomLink,)
+    public string|null $secretScanningPushProtectionCustomLink, #[MapFrom('secret_scanning_validity_checks_enabled')]
+    public bool|null $secretScanningValidityChecksEnabled,)
     {
     }
 }

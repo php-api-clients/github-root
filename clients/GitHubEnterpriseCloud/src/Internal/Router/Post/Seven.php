@@ -14,6 +14,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentBranchPolicy;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentProtectionRule;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DeploymentStatus;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created;
@@ -33,8 +34,8 @@ final class Seven
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): Ok|WithoutBody|Created|AuthenticationToken|BranchWithProtection|EmptyObject|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|DeploymentProtectionRule|Issue|IssueComment|iterable|BasicError|Codespace|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset|Json
+    /** @return |Schema\DeploymentBranchPolicy|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Schema\DeploymentProtectionRule|Observable<Schema\Label>|Schema\BasicError|Schema\FullRepository */
+    public function call(string $call, array $params, array $pathChunks): Ok|WithoutBody|Created|AuthenticationToken|BranchWithProtection|EmptyObject|Reaction|CommitComment|DeploymentStatus|DeploymentBranchPolicy|DeploymentProtectionRule|Issue|IssueComment|iterable|BasicError|Codespace|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset|Json|FullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -223,6 +224,10 @@ final class Seven
                                 if ($pathChunks[6] === 'cve') {
                                     if ($call === 'POST /repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve') {
                                         return $this->routers->internal🔀Router🔀Post🔀SecurityAdvisories()->createRepositoryAdvisoryCveRequest($params);
+                                    }
+                                } elseif ($pathChunks[6] === 'forks') {
+                                    if ($call === 'POST /repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks') {
+                                        return $this->routers->internal🔀Router🔀Post🔀SecurityAdvisories()->createFork($params);
                                     }
                                 }
                             }
