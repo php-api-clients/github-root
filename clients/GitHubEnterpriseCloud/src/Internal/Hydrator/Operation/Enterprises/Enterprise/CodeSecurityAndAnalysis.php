@@ -104,6 +104,17 @@ class CodeSecurityAndAnalysis implements ObjectMapper
             $properties['secretScanningPushProtectionCustomLink'] = $value;
 
             after_secretScanningPushProtectionCustomLink:
+
+            $value = $payload['secret_scanning_validity_checks_enabled'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningValidityChecksEnabled'] = null;
+                goto after_secretScanningValidityChecksEnabled;
+            }
+
+            $properties['secretScanningValidityChecksEnabled'] = $value;
+
+            after_secretScanningValidityChecksEnabled:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings', $exception, stack: $this->hydrationStack);
         }
@@ -301,6 +312,14 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         }
 
         after_secretScanningPushProtectionCustomLink:        $result['secret_scanning_push_protection_custom_link'] = $secretScanningPushProtectionCustomLink;
+
+        $secretScanningValidityChecksEnabled = $object->secretScanningValidityChecksEnabled;
+
+        if ($secretScanningValidityChecksEnabled === null) {
+            goto after_secretScanningValidityChecksEnabled;
+        }
+
+        after_secretScanningValidityChecksEnabled:        $result['secret_scanning_validity_checks_enabled'] = $secretScanningValidityChecksEnabled;
 
         return $result;
     }

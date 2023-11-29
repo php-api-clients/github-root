@@ -27,7 +27,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Release;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseAsset;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseNotesContent;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Status;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TagProtection;
@@ -45,8 +44,7 @@ final class Repos
     {
     }
 
-    /** @return */
-    public function createInOrg(array $params): Repository
+    public function createInOrg(array $params): FullRepository
     {
         $arguments = [];
         if (array_key_exists('org', $params) === false) {
@@ -438,8 +436,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
-    /** @return */
-    public function createUsingTemplate(array $params): Repository
+    public function createUsingTemplate(array $params): FullRepository
     {
         $arguments = [];
         if (array_key_exists('template_owner', $params) === false) {
@@ -540,7 +537,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $params);
     }
 
-    /** @return */
     public function createDeploymentBranchPolicy(array $params): DeploymentBranchPolicy|WithoutBody
     {
         $arguments = [];
@@ -567,7 +563,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $params);
     }
 
-    /** @return */
     public function createDeploymentProtectionRule(array $params): DeploymentProtectionRule
     {
         $arguments = [];
@@ -687,8 +682,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['release_id'], $arguments['name'], $arguments['label'], $params);
     }
 
-    /** @return */
-    public function createForAuthenticatedUser(array $params): Repository|WithoutBody
+    public function createForAuthenticatedUser(array $params): FullRepository|WithoutBody
     {
         $operator = new Internal\Operator\Repos\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Repos());
 

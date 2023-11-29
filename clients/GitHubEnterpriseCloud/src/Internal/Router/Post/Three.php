@@ -6,11 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Key;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Migration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Project;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SshSigningKey;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -21,8 +21,8 @@ final class Three
     {
     }
 
-    /** @return |Observable<Schema\Email>|WithoutBody|Observable<Schema\SocialAccount> */
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|string|Codespace|iterable|GpgKey|Key|Migration|Project|Repository|SshSigningKey
+    /** @return |Observable<Schema\Email>|WithoutBody|Schema\FullRepository|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Observable<Schema\SocialAccount> */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|string|Codespace|iterable|GpgKey|Key|Migration|Project|FullRepository|SshSigningKey
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'markdown') {

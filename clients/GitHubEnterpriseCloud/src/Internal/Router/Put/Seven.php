@@ -22,7 +22,7 @@ final class Seven
     {
     }
 
-    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Observable<Schema\Label>|Schema\BasicError */
+    /** @return |Observable<Schema\Label>|Schema\BasicError|Schema\EmptyObject|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|ScimUser
     {
         if ($pathChunks[0] === '') {

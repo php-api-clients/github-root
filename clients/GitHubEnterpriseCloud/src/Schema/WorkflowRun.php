@@ -1580,6 +1580,18 @@ final readonly class WorkflowRun
                                     "type": "string"
                                 }
                             }
+                        },
+                        "secret_scanning_validity_checks": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "enum": [
+                                        "enabled",
+                                        "disabled"
+                                    ],
+                                    "type": "string"
+                                }
+                            }
                         }
                     }
                 }
@@ -2384,6 +2396,18 @@ final readonly class WorkflowRun
                                     "type": "string"
                                 }
                             }
+                        },
+                        "secret_scanning_validity_checks": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "enum": [
+                                        "enabled",
+                                        "disabled"
+                                    ],
+                                    "type": "string"
+                                }
+                            }
                         }
                     }
                 }
@@ -2640,6 +2664,9 @@ final readonly class WorkflowRun
             },
             "secret_scanning_push_protection": {
                 "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
+                "status": "disabled"
             }
         }
     },
@@ -2784,6 +2811,9 @@ final readonly class WorkflowRun
                 "status": "disabled"
             },
             "secret_scanning_push_protection": {
+                "status": "disabled"
+            },
+            "secret_scanning_validity_checks": {
                 "status": "disabled"
             }
         }

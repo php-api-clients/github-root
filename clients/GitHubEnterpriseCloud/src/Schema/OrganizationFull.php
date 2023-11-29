@@ -426,6 +426,13 @@ final readonly class OrganizationFull
                 "https:\\/\\/github.com\\/test-org\\/test-repo\\/blob\\/main\\/README.md"
             ]
         },
+        "secret_scanning_validity_checks_enabled": {
+            "type": "boolean",
+            "description": "Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
+            "examples": [
+                false
+            ]
+        },
         "created_at": {
             "type": "string",
             "format": "date-time",
@@ -510,6 +517,7 @@ final readonly class OrganizationFull
     "secret_scanning_push_protection_enabled_for_new_repositories": false,
     "secret_scanning_push_protection_custom_link_enabled": false,
     "secret_scanning_push_protection_custom_link": "https:\\/\\/github.com\\/test-org\\/test-repo\\/blob\\/main\\/README.md",
+    "secret_scanning_validity_checks_enabled": false,
     "created_at": "2008-01-14T04:33:35Z",
     "updated_at": "1970-01-01T00:00:00+00:00",
     "archived_at": "1970-01-01T00:00:00+00:00"
@@ -541,6 +549,7 @@ final readonly class OrganizationFull
     This field is only visible to organization owners or members of a team with the security manager role.
      * secretScanningPushProtectionCustomLinkEnabled: Whether a custom link is shown to contributors who are blocked from pushing a secret by push protection.
      * secretScanningPushProtectionCustomLink: An optional URL string to display to contributors who are blocked from pushing a secret.
+     * secretScanningValidityChecksEnabled: Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.
      */
     public function __construct(public string $login, public int $id, #[MapFrom('node_id')]
     public string $nodeId, public string $url, #[MapFrom('repos_url')]
@@ -582,7 +591,8 @@ final readonly class OrganizationFull
     public bool|null $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')]
     public bool|null $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link_enabled')]
     public bool|null $secretScanningPushProtectionCustomLinkEnabled, #[MapFrom('secret_scanning_push_protection_custom_link')]
-    public string|null $secretScanningPushProtectionCustomLink, #[MapFrom('created_at')]
+    public string|null $secretScanningPushProtectionCustomLink, #[MapFrom('secret_scanning_validity_checks_enabled')]
+    public bool|null $secretScanningValidityChecksEnabled, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('archived_at')]
     public string|null $archivedAt,)
