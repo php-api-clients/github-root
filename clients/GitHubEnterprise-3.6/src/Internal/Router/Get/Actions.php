@@ -505,7 +505,6 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listEnvironmentSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -1075,7 +1074,6 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
-    /** @return */
     public function getEnvironmentPublicKey(array $params): ActionsPublicKey
     {
         $arguments = [];
@@ -1096,7 +1094,6 @@ final class Actions
         return $operator->call($arguments['repository_id'], $arguments['environment_name']);
     }
 
-    /** @return */
     public function getEnvironmentSecret(array $params): ActionsSecret
     {
         $arguments = [];
