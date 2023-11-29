@@ -526,7 +526,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
 
-    /** @return */
     public function getEnvironment(array $params): Environment
     {
         $arguments = [];
@@ -1954,7 +1953,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listDeploymentBranchPolicies(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -1993,7 +1991,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function getAllDeploymentProtectionRules(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\GetAllDeploymentProtectionRules\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -2401,7 +2398,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['status_id']);
     }
 
-    /** @return */
     public function getDeploymentBranchPolicy(array $params): DeploymentBranchPolicy
     {
         $arguments = [];
@@ -2434,7 +2430,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['branch_policy_id']);
     }
 
-    /** @return */
     public function listCustomDeploymentRuleIntegrations(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListCustomDeploymentRuleIntegrations\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -2473,7 +2468,6 @@ final class Repos
         return $operator->call($arguments['environment_name'], $arguments['repo'], $arguments['owner'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return */
     public function getCustomDeploymentProtectionRule(array $params): DeploymentProtectionRule
     {
         $arguments = [];
