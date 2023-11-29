@@ -657,6 +657,17 @@ class Org implements ObjectMapper
 
             after_secretScanningPushProtectionCustomLink:
 
+            $value = $payload['secret_scanning_validity_checks_enabled'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningValidityChecksEnabled'] = null;
+                goto after_secretScanningValidityChecksEnabled;
+            }
+
+            $properties['secretScanningValidityChecksEnabled'] = $value;
+
+            after_secretScanningValidityChecksEnabled:
+
             $value = $payload['created_at'] ?? null;
 
             if ($value === null) {
@@ -1279,6 +1290,14 @@ class Org implements ObjectMapper
         }
 
         after_secretScanningPushProtectionCustomLink:        $result['secret_scanning_push_protection_custom_link'] = $secretScanningPushProtectionCustomLink;
+
+        $secretScanningValidityChecksEnabled = $object->secretScanningValidityChecksEnabled;
+
+        if ($secretScanningValidityChecksEnabled === null) {
+            goto after_secretScanningValidityChecksEnabled;
+        }
+
+        after_secretScanningValidityChecksEnabled:        $result['secret_scanning_validity_checks_enabled'] = $secretScanningValidityChecksEnabled;
 
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;

@@ -27,7 +27,6 @@ use ApiClients\Client\GitHubAE\Schema\Project;
 use ApiClients\Client\GitHubAE\Schema\ProjectCard;
 use ApiClients\Client\GitHubAE\Schema\PullRequest;
 use ApiClients\Client\GitHubAE\Schema\Release;
-use ApiClients\Client\GitHubAE\Schema\Repository;
 use ApiClients\Client\GitHubAE\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubAE\Schema\RunnerGroupsOrg;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -39,7 +38,8 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|RunnerGroupsOrg|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubAE\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|MinimalRepository|Repository
+    /** @return |Schema\FullRepository */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|RunnerGroupsOrg|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubAE\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|MinimalRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

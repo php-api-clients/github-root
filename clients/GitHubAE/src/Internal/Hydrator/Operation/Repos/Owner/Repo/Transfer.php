@@ -13,6 +13,7 @@ use ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\AdvancedSecurity;
 use ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\DependabotSecurityUpdates;
 use ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning;
 use ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection;
+use ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningValidityChecks;
 use ApiClients\Client\GitHubAE\Schema\SimpleUser;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -59,6 +60,7 @@ class Transfer implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\DependabotSecurityUpdates' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️DependabotSecurityUpdates($payload),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($payload),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($payload),
+                'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningValidityChecks' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -1640,6 +1642,26 @@ class Transfer implements ObjectMapper
             $properties['secretScanningPushProtection'] = $value;
 
             after_secretScanningPushProtection:
+
+            $value = $payload['secret_scanning_validity_checks'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningValidityChecks'] = null;
+                goto after_secretScanningValidityChecks;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'secretScanningValidityChecks';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['secretScanningValidityChecks'] = $value;
+
+            after_secretScanningValidityChecks:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis', $exception, stack: $this->hydrationStack);
         }
@@ -1775,6 +1797,36 @@ class Transfer implements ObjectMapper
         }
     }
 
+    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks(array $payload): SecretScanningValidityChecks
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningValidityChecks', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(SecretScanningValidityChecks::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new SecretScanningValidityChecks(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningValidityChecks', $exception, stack: $this->hydrationStack);
+        }
+    }
+
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
         foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
@@ -1816,6 +1868,7 @@ class Transfer implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\DependabotSecurityUpdates' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️DependabotSecurityUpdates($object),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
+                'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningValidityChecks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($object),
                 default => throw new LogicException('No serialization defined for $className'),
             };
         } catch (Throwable $exception) {
@@ -2630,6 +2683,15 @@ class Transfer implements ObjectMapper
         $secretScanningPushProtection                                                         = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($secretScanningPushProtection);
         after_secretScanningPushProtection:        $result['secret_scanning_push_protection'] = $secretScanningPushProtection;
 
+        $secretScanningValidityChecks = $object->secretScanningValidityChecks;
+
+        if ($secretScanningValidityChecks === null) {
+            goto after_secretScanningValidityChecks;
+        }
+
+        $secretScanningValidityChecks                                                         = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($secretScanningValidityChecks);
+        after_secretScanningValidityChecks:        $result['secret_scanning_validity_checks'] = $secretScanningValidityChecks;
+
         return $result;
     }
 
@@ -2684,6 +2746,22 @@ class Transfer implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(mixed $object): mixed
     {
         assert($object instanceof SecretScanningPushProtection);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+
+        after_status:        $result['status'] = $status;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks(mixed $object): mixed
+    {
+        assert($object instanceof SecretScanningValidityChecks);
         $result = [];
 
         $status = $object->status;

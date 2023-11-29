@@ -138,6 +138,10 @@ final readonly class ApplicationJson
         "secret_scanning_push_protection_enabled_for_new_repositories": {
             "type": "boolean",
             "description": "Whether secret scanning push protection is automatically enabled for new repositories.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/github-ae@latest\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request."
+        },
+        "secret_scanning_validity_checks_enabled": {
+            "type": "boolean",
+            "description": "Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization."
         }
     }
 }';
@@ -170,7 +174,8 @@ final readonly class ApplicationJson
     "dependabot_security_updates_enabled_for_new_repositories": false,
     "dependency_graph_enabled_for_new_repositories": false,
     "secret_scanning_enabled_for_new_repositories": false,
-    "secret_scanning_push_protection_enabled_for_new_repositories": false
+    "secret_scanning_push_protection_enabled_for_new_repositories": false,
+    "secret_scanning_validity_checks_enabled": false
 }';
 
     /**
@@ -225,6 +230,7 @@ final readonly class ApplicationJson
     To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/github-ae@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.
+     * secretScanningValidityChecksEnabled: Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.
      */
     public function __construct(#[MapFrom('billing_email')]
     public string|null $billingEmail, public string|null $company, public string|null $email, #[MapFrom('twitter_username')]
@@ -247,7 +253,8 @@ final readonly class ApplicationJson
     public bool|null $dependabotSecurityUpdatesEnabledForNewRepositories, #[MapFrom('dependency_graph_enabled_for_new_repositories')]
     public bool|null $dependencyGraphEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')]
     public bool|null $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')]
-    public bool|null $secretScanningPushProtectionEnabledForNewRepositories,)
+    public bool|null $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_validity_checks_enabled')]
+    public bool|null $secretScanningValidityChecksEnabled,)
     {
     }
 }
