@@ -186,7 +186,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['path'], $params);
     }
 
-    /** @return */
     public function createOrUpdateEnvironment(array $params): Environment
     {
         $arguments = [];
@@ -267,7 +266,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch'], $params);
     }
 
-    /** @return */
     public function updateDeploymentBranchPolicy(array $params): DeploymentBranchPolicy
     {
         $arguments = [];

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
+use ApiClients\Client\GitHubEnterprise\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook;
 use ApiClients\Client\GitHubEnterprise\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterprise\Schema\Key;
@@ -13,7 +14,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimple;
 use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment;
 use ApiClients\Client\GitHubEnterprise\Schema\PreReceiveHook;
 use ApiClients\Client\GitHubEnterprise\Schema\Project;
-use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterprise\Schema\SshSigningKey;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -25,8 +25,8 @@ final class Three
     {
     }
 
-    /** @return |Observable<Schema\Email>|WithoutBody|Observable<Schema\SocialAccount> */
-    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|PreReceiveHook|SimpleUser|WithoutBody|string|iterable|GpgKey|Key|Migration|Project|Repository|SshSigningKey
+    /** @return |Observable<Schema\Email>|WithoutBody|Schema\FullRepository|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Observable<Schema\SocialAccount> */
+    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|PreReceiveHook|SimpleUser|WithoutBody|string|iterable|GpgKey|Key|Migration|Project|FullRepository|SshSigningKey
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {
