@@ -188,6 +188,13 @@ final readonly class AppPermissions
             "type": "string",
             "description": "The level of permission to grant the access token to manage access to an organization."
         },
+        "organization_copilot_seat_management": {
+            "enum": [
+                "write"
+            ],
+            "type": "string",
+            "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in beta and is subject to change."
+        },
         "organization_announcement_banners": {
             "enum": [
                 "read",
@@ -310,6 +317,7 @@ final readonly class AppPermissions
     "workflows": "write",
     "members": "read",
     "organization_administration": "read",
+    "organization_copilot_seat_management": "write",
     "organization_announcement_banners": "read",
     "organization_hooks": "write",
     "organization_personal_access_tokens": "read",
@@ -346,6 +354,7 @@ final readonly class AppPermissions
      * workflows: The level of permission to grant the access token to update GitHub Actions workflow files.
      * members: The level of permission to grant the access token for organization teams and members.
      * organizationAdministration: The level of permission to grant the access token to manage access to an organization.
+     * organizationCopilotSeatManagement: The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in beta and is subject to change.
      * organizationAnnouncementBanners: The level of permission to grant the access token to view and manage announcement banners for an organization.
      * organizationHooks: The level of permission to grant the access token to manage the post-receive hooks for an organization.
      * organizationPersonalAccessTokens: The level of permission to grant the access token for viewing and managing fine-grained personal access token requests to an organization.
@@ -366,7 +375,8 @@ final readonly class AppPermissions
     public string|null $securityEvents, #[MapFrom('single_file')]
     public string|null $singleFile, public string|null $statuses, #[MapFrom('vulnerability_alerts')]
     public string|null $vulnerabilityAlerts, public string|null $workflows, public string|null $members, #[MapFrom('organization_administration')]
-    public string|null $organizationAdministration, #[MapFrom('organization_announcement_banners')]
+    public string|null $organizationAdministration, #[MapFrom('organization_copilot_seat_management')]
+    public string|null $organizationCopilotSeatManagement, #[MapFrom('organization_announcement_banners')]
     public string|null $organizationAnnouncementBanners, #[MapFrom('organization_hooks')]
     public string|null $organizationHooks, #[MapFrom('organization_personal_access_tokens')]
     public string|null $organizationPersonalAccessTokens, #[MapFrom('organization_personal_access_token_requests')]

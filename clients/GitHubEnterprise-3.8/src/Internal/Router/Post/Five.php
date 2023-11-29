@@ -28,7 +28,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\Project;
 use ApiClients\Client\GitHubEnterprise\Schema\ProjectCard;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequest;
 use ApiClients\Client\GitHubEnterprise\Schema\Release;
-use ApiClients\Client\GitHubEnterprise\Schema\Repository;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsEnterprise;
 use ApiClients\Client\GitHubEnterprise\Schema\RunnerGroupsOrg;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -40,8 +39,8 @@ final class Five
     {
     }
 
-    /** @return |Observable<Schema\SshKey>|WithoutBody */
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|MinimalRepository|Repository|iterable
+    /** @return |Schema\FullRepository|Observable<Schema\SshKey>|WithoutBody */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|MinimalRepository|iterable
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

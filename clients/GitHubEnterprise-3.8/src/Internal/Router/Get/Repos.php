@@ -524,7 +524,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
 
-    /** @return */
     public function getEnvironment(array $params): Environment
     {
         $arguments = [];
@@ -1910,7 +1909,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listDeploymentBranchPolicies(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -2330,7 +2328,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $arguments['status_id']);
     }
 
-    /** @return */
     public function getDeploymentBranchPolicy(array $params): DeploymentBranchPolicy
     {
         $arguments = [];
