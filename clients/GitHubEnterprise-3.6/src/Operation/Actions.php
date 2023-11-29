@@ -696,31 +696,26 @@ final class Actions
         return $this->operators->actions👷ListWorkflowRuns()->call($owner, $repo, $workflowId, $actor, $branch, $event, $status, $created, $checkSuiteId, $perPage, $page, $excludePullRequests);
     }
 
-    /** @return */
     public function listEnvironmentSecrets(int $repositoryId, string $environmentName, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok\Application\Json
     {
         return $this->operators->actions👷ListEnvironmentSecrets()->call($repositoryId, $environmentName, $perPage, $page);
     }
 
-    /** @return */
     public function getEnvironmentPublicKey(int $repositoryId, string $environmentName): ActionsPublicKey
     {
         return $this->operators->actions👷GetEnvironmentPublicKey()->call($repositoryId, $environmentName);
     }
 
-    /** @return */
     public function getEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName): ActionsSecret
     {
         return $this->operators->actions👷GetEnvironmentSecret()->call($repositoryId, $environmentName, $secretName);
     }
 
-    /** @return */
     public function createOrUpdateEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName, array $params): EmptyObject|WithoutBody
     {
         return $this->operators->actions👷CreateOrUpdateEnvironmentSecret()->call($repositoryId, $environmentName, $secretName, $params);
     }
 
-    /** @return */
     public function deleteEnvironmentSecret(int $repositoryId, string $environmentName, string $secretName): WithoutBody
     {
         return $this->operators->actions👷DeleteEnvironmentSecret()->call($repositoryId, $environmentName, $secretName);

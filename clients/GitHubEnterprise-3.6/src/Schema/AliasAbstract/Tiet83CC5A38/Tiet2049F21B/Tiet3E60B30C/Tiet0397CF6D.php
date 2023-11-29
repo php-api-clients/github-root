@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\TietCDBBBCF8\TietCDAFCCCF\Tiet81364F28;
+namespace ApiClients\Client\GitHubEnterprise\Schema\AliasAbstract\Tiet83CC5A38\Tiet2049F21B\Tiet3E60B30C;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class Tiet4334A870
+abstract readonly class Tiet0397CF6D
 {
     public const SCHEMA_JSON         = '{
     "required": [
@@ -534,6 +534,13 @@ abstract readonly class Tiet4334A870
                                 "type": "string",
                                 "description": "The level of permission to grant the access token to manage access to an organization."
                             },
+                            "organization_copilot_seat_management": {
+                                "enum": [
+                                    "write"
+                                ],
+                                "type": "string",
+                                "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in beta and is subject to change."
+                            },
                             "organization_hooks": {
                                 "enum": [
                                     "read",
@@ -896,6 +903,7 @@ abstract readonly class Tiet4334A870
                 "workflows": "write",
                 "members": "read",
                 "organization_administration": "read",
+                "organization_copilot_seat_management": "write",
                 "organization_hooks": "write",
                 "organization_personal_access_tokens": "read",
                 "organization_personal_access_token_requests": "read",
@@ -979,6 +987,7 @@ abstract readonly class Tiet4334A870
                 "workflows": "write",
                 "members": "read",
                 "organization_administration": "read",
+                "organization_copilot_seat_management": "write",
                 "organization_hooks": "write",
                 "organization_personal_access_tokens": "read",
                 "organization_personal_access_token_requests": "read",

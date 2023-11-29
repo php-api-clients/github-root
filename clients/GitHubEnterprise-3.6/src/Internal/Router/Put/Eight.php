@@ -17,6 +17,7 @@ final class Eight
     {
     }
 
+    /** @return |Schema\DeploymentBranchPolicy */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|DeploymentBranchPolicy|PullRequestReview
     {
         if ($pathChunks[0] === '') {
