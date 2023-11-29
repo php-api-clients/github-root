@@ -1670,6 +1670,18 @@ final readonly class WebhookCheckRunCreated
                                                     "type": "string"
                                                 }
                                             }
+                                        },
+                                        "secret_scanning_validity_checks": {
+                                            "type": "object",
+                                            "properties": {
+                                                "status": {
+                                                    "enum": [
+                                                        "enabled",
+                                                        "disabled"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -4362,6 +4374,9 @@ final readonly class WebhookCheckRunCreated
                         "status": "disabled"
                     },
                     "secret_scanning_push_protection": {
+                        "status": "disabled"
+                    },
+                    "secret_scanning_validity_checks": {
                         "status": "disabled"
                     }
                 }

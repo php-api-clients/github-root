@@ -22,7 +22,6 @@ final readonly class DeleteDeploymentBranchPolicy
     {
     }
 
-    /** @return */
     public function call(string $owner, string $repo, string $environmentName, int $branchPolicyId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Repos\DeleteDeploymentBranchPolicy($owner, $repo, $environmentName, $branchPolicyId);

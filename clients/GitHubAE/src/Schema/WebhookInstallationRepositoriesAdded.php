@@ -632,6 +632,13 @@ final readonly class WebhookInstallationRepositoriesAdded
                             "type": "string",
                             "description": "The level of permission to grant the access token to manage access to an organization."
                         },
+                        "organization_copilot_seat_management": {
+                            "enum": [
+                                "write"
+                            ],
+                            "type": "string",
+                            "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in beta and is subject to change."
+                        },
                         "organization_hooks": {
                             "enum": [
                                 "read",
@@ -2818,6 +2825,7 @@ final readonly class WebhookInstallationRepositoriesAdded
             "workflows": "write",
             "members": "read",
             "organization_administration": "read",
+            "organization_copilot_seat_management": "write",
             "organization_hooks": "write",
             "organization_personal_access_tokens": "read",
             "organization_personal_access_token_requests": "read",

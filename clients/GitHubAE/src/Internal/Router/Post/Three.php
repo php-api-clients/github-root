@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 
 use ApiClients\Client\GitHubAE\Internal\Routers;
+use ApiClients\Client\GitHubAE\Schema\FullRepository;
 use ApiClients\Client\GitHubAE\Schema\GlobalHook;
 use ApiClients\Client\GitHubAE\Schema\GpgKey;
 use ApiClients\Client\GitHubAE\Schema\Key;
@@ -12,7 +13,6 @@ use ApiClients\Client\GitHubAE\Schema\Migration;
 use ApiClients\Client\GitHubAE\Schema\OrganizationSimple;
 use ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment;
 use ApiClients\Client\GitHubAE\Schema\Project;
-use ApiClients\Client\GitHubAE\Schema\Repository;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
@@ -22,7 +22,8 @@ final class Three
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|WithoutBody|string|GpgKey|Key|Migration|Project|Repository
+    /** @return |Schema\FullRepository|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|WithoutBody|string|GpgKey|Key|Migration|Project|FullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'admin') {

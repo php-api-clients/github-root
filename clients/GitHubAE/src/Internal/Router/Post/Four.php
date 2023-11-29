@@ -7,13 +7,13 @@ namespace ApiClients\Client\GitHubAE\Internal\Router\Post;
 use ApiClients\Client\GitHubAE\Internal\Routers;
 use ApiClients\Client\GitHubAE\Schema\Authorization;
 use ApiClients\Client\GitHubAE\Schema\BaseGist;
+use ApiClients\Client\GitHubAE\Schema\FullRepository;
 use ApiClients\Client\GitHubAE\Schema\GistComment;
 use ApiClients\Client\GitHubAE\Schema\Integration;
 use ApiClients\Client\GitHubAE\Schema\Migration;
 use ApiClients\Client\GitHubAE\Schema\OrgHook;
 use ApiClients\Client\GitHubAE\Schema\Project;
 use ApiClients\Client\GitHubAE\Schema\ProjectColumn;
-use ApiClients\Client\GitHubAE\Schema\Repository;
 use ApiClients\Client\GitHubAE\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubAE\Schema\TeamFull;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -25,7 +25,8 @@ final class Four
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrgHook|Migration|Project|Repository|TeamFull|ProjectColumn|TeamDiscussion
+    /** @return |Schema\FullRepository */
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrgHook|Migration|Project|FullRepository|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
