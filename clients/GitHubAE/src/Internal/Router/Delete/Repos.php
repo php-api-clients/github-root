@@ -289,6 +289,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id']);
     }
 
+    /** @return */
     public function deleteAnEnvironment(array $params): WithoutBody
     {
         $arguments = [];
@@ -558,6 +559,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['branch']);
     }
 
+    /** @return */
     public function deleteDeploymentBranchPolicy(array $params): WithoutBody
     {
         $arguments = [];

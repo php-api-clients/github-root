@@ -4330,6 +4330,14 @@ class SecretScanningAlertLocation implements ObjectMapper
             'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationIssueTitle' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationIssueTitle($details),
             'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationIssueBody' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationIssueBody($details),
             'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationIssueComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationIssueComment($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationDiscussionTitle' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationDiscussionTitle($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationDiscussionBody' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationDiscussionBody($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationDiscussionComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationDiscussionComment($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationPullRequestTitle' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationPullRequestTitle($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationPullRequestBody' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationPullRequestBody($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationPullRequestComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationPullRequestComment($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationPullRequestReview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationPullRequestReview($details),
+            'ApiClients\Client\GitHubAE\Schema\SecretScanningLocationPullRequestReviewComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecretScanningLocationPullRequestReviewComment($details),
         };
         after_details:        $result['details'] = $details;
 
