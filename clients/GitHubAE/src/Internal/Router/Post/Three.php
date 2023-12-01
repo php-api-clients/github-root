@@ -22,7 +22,6 @@ final class Three
     {
     }
 
-    /** @return |Schema\FullRepository|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|WithoutBody|string|GpgKey|Key|Migration|Project|FullRepository
     {
         if ($pathChunks[0] === '') {

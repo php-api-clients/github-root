@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubAE\Schema\PullRequestSimple;
 
 use ApiClients\Client\GitHubAE\Schema;
 
-final readonly class Head extends Schema\AliasAbstract\Tiet5BEA58D0\TietC926C3B9\Tiet71C53A38\Tiet60F11478
+final readonly class Head extends Schema\AliasAbstract\TietA427149E\Tiet0C6D29C4\TietBB7290F3\TietDA4A8500
 {
 }
