@@ -27,7 +27,6 @@ final class Seven
     {
     }
 
-    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {
