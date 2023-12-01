@@ -32,7 +32,6 @@ final class Four
     {
     }
 
-    /** @return |Schema\FullRepository */
     public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|RepositoryRuleset|TeamFull|ProjectColumn|GroupResponse|UserResponse|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
