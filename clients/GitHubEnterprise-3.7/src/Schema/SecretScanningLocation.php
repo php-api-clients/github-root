@@ -21,7 +21,7 @@ final readonly class SecretScanningLocation
                 "commit"
             ],
             "type": "string",
-            "description": "The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.",
+            "description": "The location type. Because secrets may be found in different types of resources (ie. code, comments, issues, pull requests, discussions), this field identifies the type of resource where the secret was found.",
             "examples": [
                 "commit"
             ]
@@ -102,7 +102,7 @@ final readonly class SecretScanningLocation
 }';
 
     /**
-     * type: The location type. Because secrets may be found in different types of resources (ie. code, comments, issues), this field identifies the type of resource where the secret was found.
+     * type: The location type. Because secrets may be found in different types of resources (ie. code, comments, issues, pull requests, discussions), this field identifies the type of resource where the secret was found.
      */
     public function __construct(public string $type, #[Details]
     public Schema\SecretScanningLocationCommit $details,)

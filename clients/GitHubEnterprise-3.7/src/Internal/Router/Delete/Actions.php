@@ -199,6 +199,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name']);
     }
 
+    /** @return */
     public function deleteEnvironmentSecret(array $params): WithoutBody
     {
         $arguments = [];
