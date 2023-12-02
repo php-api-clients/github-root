@@ -28,7 +28,6 @@ final class Four
     {
     }
 
-    /** @return |Schema\FullRepository */
     public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrgHook|Migration|Project|FullRepository|TeamFull|ProjectColumn|GroupResponse|UserResponse|MaintenanceStatus|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
