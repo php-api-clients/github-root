@@ -39,7 +39,7 @@ final class Five
     {
     }
 
-    /** @return |Schema\FullRepository|Observable<Schema\SshKey>|WithoutBody */
+    /** @return |Observable<Schema\SshKey>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|PreReceiveEnvironmentDownloadStatus|Authorization|InstallationToken|RunnerGroupsEnterprise|RunnerGroupsOrg|EmptyObject|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Deployment|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|MinimalRepository|iterable
     {
         if ($pathChunks[0] === '') {

@@ -19,7 +19,6 @@ final class Seven
     {
     }
 
-    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json|CodeScanningAnalysisDeletion|Issue|BasicError|PullRequestSimple
     {
         if ($pathChunks[0] === '') {
