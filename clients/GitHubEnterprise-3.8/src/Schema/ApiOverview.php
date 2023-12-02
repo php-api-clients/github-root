@@ -78,6 +78,15 @@ final readonly class ApiOverview
                             "example.com"
                         ]
                     }
+                },
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "examples": [
+                            "example.com"
+                        ]
+                    }
                 }
             }
         },
@@ -116,6 +125,10 @@ final readonly class ApiOverview
             "generated"
         ],
         "packages": [
+            "generated",
+            "generated"
+        ],
+        "actions": [
             "generated",
             "generated"
         ]
