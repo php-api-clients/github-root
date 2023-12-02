@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListSelec
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class Json extends Schema\AliasAbstract\Tiet47757633\Tiet24C6C089\Tiet13DDB385\Tiet9803835C
+final readonly class Json extends Schema\AliasAbstract\TietD7448B78\TietB40D0098\TietCDB71BC0\Tiet494B566B
 {
 }
