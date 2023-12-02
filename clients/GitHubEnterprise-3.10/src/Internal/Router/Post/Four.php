@@ -30,7 +30,7 @@ final class Four
     {
     }
 
-    /** @return |Observable<Schema\GhesSetMaintenanceResponse>|WithoutBody|Schema\FullRepository */
+    /** @return |Observable<Schema\GhesSetMaintenanceResponse>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|iterable|OrganizationCustomRepositoryRole|OrgHook|Migration|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|TeamFull|ProjectColumn|GroupResponse|UserResponse|MaintenanceStatus|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
