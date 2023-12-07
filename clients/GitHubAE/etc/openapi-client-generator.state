@@ -1,5 +1,5 @@
 {
-    "specHash": "4c5e05b63b9b55649d3117efa99d0e48",
+    "specHash": "b989ff83ac81fa58b5ba441c3533ada9",
     "generatedFiles": {
         "files": [
             {
@@ -36,15 +36,15 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/AppPermissions.php",
-                "hash": "38792ea2550ecd9f2b8329035c14831e"
+                "hash": "a38c3ddf50ebd520fefc6d274b2f2298"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/ScopedInstallation.php",
-                "hash": "44952b290edc7baa9db8da5da09c4f08"
+                "hash": "e4543b7910d295c1c0da27d4cdde3a6a"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Authorization.php",
-                "hash": "1baf0d9e9042574cedc65385018e2bca"
+                "hash": "5c4c1b50b6a1cf06dcd203e6f88f5731"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Integration.php",
@@ -120,7 +120,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Installation.php",
-                "hash": "32ef290fb2859e8b5fdd83cc88ddbd85"
+                "hash": "7dd78a493c1fe9cc32c74556788c1f2f"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/LicenseSimple.php",
@@ -132,7 +132,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/InstallationToken.php",
-                "hash": "f573fd756818540a166c440ded927ac3"
+                "hash": "68e4b28837e835194a0106b9c73861dc"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/CodeOfConduct.php",
@@ -1476,27 +1476,27 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationCreated.php",
-                "hash": "82c5d4e881748fd0d38d208f5958b70d"
+                "hash": "64cc6edc41d1ef85cf09d0eef72fe946"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationDeleted.php",
-                "hash": "fcd63a49fb166f102665c504c8e2abd2"
+                "hash": "675031d67535d11c3f5390930a7ceac0"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationNewPermissionsAccepted.php",
-                "hash": "b481a343f1e71e06b24c03c652fafff0"
+                "hash": "0b29ea7b7144ddc1fe6159bf8c6a735a"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationRepositoriesAdded.php",
-                "hash": "10bec329b79439f8201c78932f936343"
+                "hash": "2da95f7749d2f5aea33d83a97fab0696"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationRepositoriesRemoved.php",
-                "hash": "e0bb64069ad43d06491421afab0ec5d7"
+                "hash": "a6bec153c16f9c4ad76d3337cb7c1075"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationSuspend.php",
-                "hash": "7d3ad9a281c64d96555369d77a40b95e"
+                "hash": "4a69d7f9b506703465825a787eeebfef"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationTargetRenamed.php",
@@ -1504,7 +1504,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookInstallationUnsuspend.php",
-                "hash": "78e66c559678e4126cbb6bbf41d120d6"
+                "hash": "02e19c22f645293df6935b8a759917af"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookIssueCommentCreated.php",
@@ -3888,7 +3888,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Apps\/CreateInstallationAccessToken\/Request\/ApplicationJson.php",
-                "hash": "2bf46348ad691fc2815cd388c79225f5"
+                "hash": "e456ab330745f40053b95b0c16909bd7"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Apps\/DeleteAuthorization\/Request\/ApplicationJson.php",
@@ -4080,7 +4080,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Operations\/Orgs\/ListAppInstallations\/Response\/ApplicationJson\/Ok.php",
-                "hash": "8fcd99acef8313f390a9ee4d2a7b97c7"
+                "hash": "c04f550d75097e9b2605aa77d671e546"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Orgs\/SetMembershipForUser\/Request\/ApplicationJson.php",
@@ -4380,7 +4380,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/CodeScanning\/UploadSarif\/Request\/ApplicationJson.php",
-                "hash": "632219b855e4c893441eabaa0b842937"
+                "hash": "63bd3ce66efe80eff7c2d85f02ac153f"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/AddCollaborator\/Request\/ApplicationJson.php",
@@ -4916,7 +4916,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "4aceb876edc7b72661ebc4195a896450"
+                "hash": "6cc447fe7e3bd473f3a26760862ec255"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -11368,11 +11368,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Operations\/Apps\/ListInstallationsForAuthenticatedUser\/Response\/ApplicationJson\/Ok.php",
-                "hash": "6f0ef95be047db0263c44bbfb07a6512"
+                "hash": "404d4555074997c39f8e1ce6a1b2ffdc"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Operations\/Apps\/ListInstallationsForAuthenticatedUser\/Response\/ApplicationJson\/Ok\/Application\/Json.php",
-                "hash": "d8e7fbcff6016b50da2312868c218e40"
+                "hash": "e2177ea3f54dcd44eff3841090894109"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet378515F7\/Tiet728150FE\/Tiet48B2FA76\/Tiet970A57B1.php",
@@ -21920,7 +21920,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Admin\/Users\/Username\/Authorizations.php",
-                "hash": "a53da34429f2ace054b0a26b8a723e04"
+                "hash": "1bebdfb7b56bb5589657a90c4a48ffdf"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/App.php",
@@ -21952,11 +21952,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/App\/Installations\/InstallationId.php",
-                "hash": "1afbc0c8e4840e3f08b572fef0cefc65"
+                "hash": "e3bd1fa174f8aa823911aabcc97ed50e"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/App\/Installations\/InstallationId\/AccessTokens.php",
-                "hash": "cd20406b3edbce8b7e2833365c467911"
+                "hash": "178fe3866efec93f458b0d7f811a04c1"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/App\/Installations\/InstallationId\/Suspended.php",
@@ -21968,11 +21968,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Applications\/ClientId\/Token.php",
-                "hash": "30959771a2c11110a3fded80382d0012"
+                "hash": "6c5f1fc11fa761a8dd7d3b5066a0dc76"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Applications\/ClientId\/Tokens\/AccessToken.php",
-                "hash": "a2fe297f4479824bca1898aa6f6cbffe"
+                "hash": "a9112762700ce6cf0bb21a68f94bd196"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Apps\/AppSlug.php",
@@ -22260,7 +22260,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Installation.php",
-                "hash": "51254188ab6915a949ce55c1a703e501"
+                "hash": "a1aedd8e133f4c254a875c2f4ac9142d"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Installations.php",
@@ -22832,7 +22832,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Installation.php",
-                "hash": "eae5d4fefdcaebabca22e83958ad4288"
+                "hash": "77d18e6dbad4bf75e932cb98293b3b97"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Invitations\/InvitationId.php",
@@ -23320,7 +23320,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Users\/Username\/Installation.php",
-                "hash": "7cfa7d3523441e37402e6c21521bbcb8"
+                "hash": "a285b6a86455df5dc5c03b1a0a28a5ff"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Users\/Username\/Projects.php",
@@ -23796,11 +23796,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Installation.php",
-                "hash": "a40ec2be4a8c91c5e9da8edff1a94163"
+                "hash": "380b146a21b4cf9d0292c8487a970324"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/InstallationRepositories.php",
-                "hash": "2ca0a6b7124b4b153520439cd586475b"
+                "hash": "60085478bc538d5abd9832a3745a40df"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/InstallationTarget.php",
@@ -23960,15 +23960,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/CodeScanningRefFull.php",
-                "hash": "ef45d0e89ff1a5dd91e3a9b76ddadd85"
+                "hash": "f78fce035d303fde844574a5b562641c"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/SecurityAndAnalysis\/SecretScanningValidityChecks.php",
                 "hash": "29f200a9586bd889f16f54162758774a"
-            },
-            {
-                "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet83CC5A38\/Tiet2049F21B\/Tiet3E60B30C\/Tiet0397CF6D.php",
-                "hash": "469ed2cd43ad676daf26092b421b9578"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/Update\/Request\/ApplicationJson\/SecurityAndAnalysis\/SecretScanningValidityChecks.php",
@@ -24013,6 +24009,10 @@
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet36CC9CCF\/TietB147C53A\/TietC420DE99\/Tiet4282E6ED.php",
                 "hash": "3674534311e1849698bd2eed4c267aae"
+            },
+            {
+                "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietDF7DA6DA\/Tiet443C845B\/Tiet48A20ECE\/Tiet88BE4595.php",
+                "hash": "81863db2b39efaa424703b46a49cba3e"
             }
         ]
     },

@@ -698,6 +698,17 @@ class InstallationRepositories implements ObjectMapper
 
             after_checks:
 
+            $value = $payload['codespaces'] ?? null;
+
+            if ($value === null) {
+                $properties['codespaces'] = null;
+                goto after_codespaces;
+            }
+
+            $properties['codespaces'] = $value;
+
+            after_codespaces:
+
             $value = $payload['contents'] ?? null;
 
             if ($value === null) {
@@ -708,6 +719,17 @@ class InstallationRepositories implements ObjectMapper
             $properties['contents'] = $value;
 
             after_contents:
+
+            $value = $payload['dependabot_secrets'] ?? null;
+
+            if ($value === null) {
+                $properties['dependabotSecrets'] = null;
+                goto after_dependabotSecrets;
+            }
+
+            $properties['dependabotSecrets'] = $value;
+
+            after_dependabotSecrets:
 
             $value = $payload['deployments'] ?? null;
 
@@ -918,6 +940,17 @@ class InstallationRepositories implements ObjectMapper
 
             after_organizationCopilotSeatManagement:
 
+            $value = $payload['organization_events'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationEvents'] = null;
+                goto after_organizationEvents;
+            }
+
+            $properties['organizationEvents'] = $value;
+
+            after_organizationEvents:
+
             $value = $payload['organization_hooks'] ?? null;
 
             if ($value === null) {
@@ -1027,6 +1060,83 @@ class InstallationRepositories implements ObjectMapper
             $properties['teamDiscussions'] = $value;
 
             after_teamDiscussions:
+
+            $value = $payload['email_addresses'] ?? null;
+
+            if ($value === null) {
+                $properties['emailAddresses'] = null;
+                goto after_emailAddresses;
+            }
+
+            $properties['emailAddresses'] = $value;
+
+            after_emailAddresses:
+
+            $value = $payload['followers'] ?? null;
+
+            if ($value === null) {
+                $properties['followers'] = null;
+                goto after_followers;
+            }
+
+            $properties['followers'] = $value;
+
+            after_followers:
+
+            $value = $payload['git_ssh_keys'] ?? null;
+
+            if ($value === null) {
+                $properties['gitSshKeys'] = null;
+                goto after_gitSshKeys;
+            }
+
+            $properties['gitSshKeys'] = $value;
+
+            after_gitSshKeys:
+
+            $value = $payload['gpg_keys'] ?? null;
+
+            if ($value === null) {
+                $properties['gpgKeys'] = null;
+                goto after_gpgKeys;
+            }
+
+            $properties['gpgKeys'] = $value;
+
+            after_gpgKeys:
+
+            $value = $payload['interaction_limits'] ?? null;
+
+            if ($value === null) {
+                $properties['interactionLimits'] = null;
+                goto after_interactionLimits;
+            }
+
+            $properties['interactionLimits'] = $value;
+
+            after_interactionLimits:
+
+            $value = $payload['profile'] ?? null;
+
+            if ($value === null) {
+                $properties['profile'] = null;
+                goto after_profile;
+            }
+
+            $properties['profile'] = $value;
+
+            after_profile:
+
+            $value = $payload['starring'] ?? null;
+
+            if ($value === null) {
+                $properties['starring'] = null;
+                goto after_starring;
+            }
+
+            $properties['starring'] = $value;
+
+            after_starring:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\AppPermissions', $exception, stack: $this->hydrationStack);
         }
@@ -5575,6 +5685,14 @@ class InstallationRepositories implements ObjectMapper
 
         after_checks:        $result['checks'] = $checks;
 
+        $codespaces = $object->codespaces;
+
+        if ($codespaces === null) {
+            goto after_codespaces;
+        }
+
+        after_codespaces:        $result['codespaces'] = $codespaces;
+
         $contents = $object->contents;
 
         if ($contents === null) {
@@ -5582,6 +5700,14 @@ class InstallationRepositories implements ObjectMapper
         }
 
         after_contents:        $result['contents'] = $contents;
+
+        $dependabotSecrets = $object->dependabotSecrets;
+
+        if ($dependabotSecrets === null) {
+            goto after_dependabotSecrets;
+        }
+
+        after_dependabotSecrets:        $result['dependabot_secrets'] = $dependabotSecrets;
 
         $deployments = $object->deployments;
 
@@ -5735,6 +5861,14 @@ class InstallationRepositories implements ObjectMapper
 
         after_organizationCopilotSeatManagement:        $result['organization_copilot_seat_management'] = $organizationCopilotSeatManagement;
 
+        $organizationEvents = $object->organizationEvents;
+
+        if ($organizationEvents === null) {
+            goto after_organizationEvents;
+        }
+
+        after_organizationEvents:        $result['organization_events'] = $organizationEvents;
+
         $organizationHooks = $object->organizationHooks;
 
         if ($organizationHooks === null) {
@@ -5814,6 +5948,62 @@ class InstallationRepositories implements ObjectMapper
         }
 
         after_teamDiscussions:        $result['team_discussions'] = $teamDiscussions;
+
+        $emailAddresses = $object->emailAddresses;
+
+        if ($emailAddresses === null) {
+            goto after_emailAddresses;
+        }
+
+        after_emailAddresses:        $result['email_addresses'] = $emailAddresses;
+
+        $followers = $object->followers;
+
+        if ($followers === null) {
+            goto after_followers;
+        }
+
+        after_followers:        $result['followers'] = $followers;
+
+        $gitSshKeys = $object->gitSshKeys;
+
+        if ($gitSshKeys === null) {
+            goto after_gitSshKeys;
+        }
+
+        after_gitSshKeys:        $result['git_ssh_keys'] = $gitSshKeys;
+
+        $gpgKeys = $object->gpgKeys;
+
+        if ($gpgKeys === null) {
+            goto after_gpgKeys;
+        }
+
+        after_gpgKeys:        $result['gpg_keys'] = $gpgKeys;
+
+        $interactionLimits = $object->interactionLimits;
+
+        if ($interactionLimits === null) {
+            goto after_interactionLimits;
+        }
+
+        after_interactionLimits:        $result['interaction_limits'] = $interactionLimits;
+
+        $profile = $object->profile;
+
+        if ($profile === null) {
+            goto after_profile;
+        }
+
+        after_profile:        $result['profile'] = $profile;
+
+        $starring = $object->starring;
+
+        if ($starring === null) {
+            goto after_starring;
+        }
+
+        after_starring:        $result['starring'] = $starring;
 
         return $result;
     }
