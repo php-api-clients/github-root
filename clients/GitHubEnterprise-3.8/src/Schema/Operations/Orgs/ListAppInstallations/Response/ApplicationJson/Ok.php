@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ListAppInsta
 
 use ApiClients\Client\GitHubEnterprise\Schema;
 
-final readonly class Ok extends Schema\AliasAbstract\TietB6DAB0A9\Tiet693638E3\TietBA3D7F1A\Tiet37BC4C7A
+final readonly class Ok extends Schema\AliasAbstract\TietD8E36A2E\Tiet32019E02\Tiet8087ED5E\TietD51F6A4B
 {
 }
