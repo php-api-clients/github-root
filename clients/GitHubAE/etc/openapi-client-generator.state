@@ -1,5 +1,5 @@
 {
-    "specHash": "b989ff83ac81fa58b5ba441c3533ada9",
+    "specHash": "c6744147e855e41e495357d212c83466",
     "generatedFiles": {
         "files": [
             {
@@ -468,7 +468,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/CodeScanningOrganizationAlertItems.php",
-                "hash": "78a9834d04c1617c0c10f6bed0a0f036"
+                "hash": "e270c78f15264f0de6d3a988a05096ea"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/ExternalGroup.php",
@@ -688,11 +688,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertRuleSummary.php",
-                "hash": "59130a5d28fe7f4acdefff56f9276401"
+                "hash": "ddba583d9e34cc8a585ac8cfea57ae97"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertItems.php",
-                "hash": "80279a3963e8841dea15abfb9b0afaab"
+                "hash": "a2eac92731a844f25ef801f3bf3947f1"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/CodeScanningAlert.php",
@@ -4148,7 +4148,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateProjectPermissionsInOrg\/Request\/ApplicationJson.php",
-                "hash": "b92b31139d586c9675e2bf57fabea386"
+                "hash": "a7c2e3664c3ee099dd4e8ede7da3a660"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateRepoPermissionsInOrg\/Request\/ApplicationJson.php",
@@ -4776,7 +4776,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateProjectPermissionsLegacy\/Request\/ApplicationJson.php",
-                "hash": "66067df717853b88172b8ac39f270ee1"
+                "hash": "43f451d158ea6f59434bce6c13d9f697"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateRepoPermissionsLegacy\/Request\/ApplicationJson.php",
