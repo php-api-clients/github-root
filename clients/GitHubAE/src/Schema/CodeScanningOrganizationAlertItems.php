@@ -315,34 +315,6 @@ final readonly class CodeScanningOrganizationAlertItems
                 "description": {
                     "type": "string",
                     "description": "A short description of the rule used to detect the alert."
-                },
-                "full_description": {
-                    "type": "string",
-                    "description": "description of the rule used to detect the alert."
-                },
-                "tags": {
-                    "type": [
-                        "array",
-                        "null"
-                    ],
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "A set of tags applicable for the rule."
-                },
-                "help": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "description": "Detailed documentation for the rule as GitHub Flavored Markdown."
-                },
-                "help_uri": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "description": "A link to the documentation for the rule used to detect the alert."
                 }
             }
         },
@@ -1038,11 +1010,7 @@ final readonly class CodeScanningOrganizationAlertItems
         "name": "generated",
         "severity": "error",
         "security_severity_level": "low",
-        "description": "generated",
-        "full_description": "generated",
-        "tags": null,
-        "help": "generated",
-        "help_uri": "generated"
+        "description": "generated"
     },
     "tool": {
         "name": "generated",
@@ -1165,7 +1133,7 @@ final readonly class CodeScanningOrganizationAlertItems
     public string|null $fixedAt, #[MapFrom('dismissed_by')]
     public Schema\SimpleUser|null $dismissedBy, #[MapFrom('dismissed_at')]
     public string|null $dismissedAt, #[MapFrom('dismissed_reason')]
-    public string|null $dismissedReason, public Schema\CodeScanningAlertRule $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')]
+    public string|null $dismissedReason, public Schema\CodeScanningAlertRuleSummary $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')]
     public Schema\CodeScanningAlertInstance $mostRecentInstance, public Schema\SimpleRepository $repository,)
     {
     }
