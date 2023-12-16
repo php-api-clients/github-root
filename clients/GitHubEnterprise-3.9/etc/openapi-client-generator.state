@@ -1,5 +1,5 @@
 {
-    "specHash": "b65de54831446d196d0701f96ddb91f6",
+    "specHash": "ac5f2a744766b192f47d36d4902a6550",
     "generatedFiles": {
         "files": [
             {
@@ -380,7 +380,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningOrganizationAlertItems.php",
-                "hash": "391adf81e7cedb9f857f1b97c507f927"
+                "hash": "bcf2fa222c71d3f67974853969888dc5"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/EnterpriseSecurityAnalysisSettings.php",
@@ -856,11 +856,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertRuleSummary.php",
-                "hash": "bb39124740c9aaaee17cddd667d3e6b7"
+                "hash": "64a707ace111721a3e18a45e228ad93e"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertItems.php",
-                "hash": "3bc10539fd0297ab95ca62dd4da1e399"
+                "hash": "9450eff17d611a8615391709a88d1709"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/CodeScanningAlert.php",
@@ -4844,7 +4844,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateProjectPermissionsInOrg\/Request\/ApplicationJson.php",
-                "hash": "fa202b5626462ea05e37cbbf3bdd3b56"
+                "hash": "743f2f807efeddc9ee7db692a2c5b2d5"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateRepoPermissionsInOrg\/Request\/ApplicationJson.php",
@@ -5548,7 +5548,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateProjectPermissionsLegacy\/Request\/ApplicationJson.php",
-                "hash": "5ec417a85b7eb8e638c200dcd53f548d"
+                "hash": "e8c027165cadd0e3359489308813b3a9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.9\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateRepoPermissionsLegacy\/Request\/ApplicationJson.php",
