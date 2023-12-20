@@ -8,7 +8,6 @@ use ApiClients\Client\GitHubAE\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubAE\Schema\LicenseSimple;
 use ApiClients\Client\GitHubAE\Schema\OrganizationSimpleWebhooks;
 use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks;
-use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties;
 use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\TemplateRepository;
 use ApiClients\Client\GitHubAE\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubAE\Schema\SimpleUser;
@@ -321,13 +320,10 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentCreated\Issue\Milestone\Creator' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentCreated⚡️Issue⚡️Milestone⚡️Creator($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentDeleted⚡️Issue⚡️PerformedViaGithubApp⚡️Permissions($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️CustomProperties($payload),
-                'ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -4211,26 +4207,6 @@ class Issues implements ObjectMapper
             $properties['topics'] = $value;
 
             after_topics:
-
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
 
             $value = $payload['has_issues'] ?? null;
 
@@ -28328,26 +28304,6 @@ class Issues implements ObjectMapper
 
             after_createdAt:
 
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
-
             $value = $payload['default_branch'] ?? null;
 
             if ($value === null) {
@@ -39853,26 +39809,6 @@ class Issues implements ObjectMapper
             $properties['createdAt'] = $value;
 
             after_createdAt:
-
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
 
             $value = $payload['default_branch'] ?? null;
 
@@ -55986,26 +55922,6 @@ class Issues implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties(array $payload): CustomProperties
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new CustomProperties(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-    }
-
     private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
     {
         $properties    = [];
@@ -56948,46 +56864,6 @@ class Issues implements ObjectMapper
             return new \ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentDeleted\Issue\PerformedViaGithubApp\Permissions', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️CustomProperties(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesOpened\Changes\OldRepository\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties(array $payload): \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -59315,15 +59191,6 @@ class Issues implements ObjectMapper
 
         $topics                                = $topicsSerializer0->serialize($topics, $this);
         after_topics:        $result['topics'] = $topics;
-
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
 
         $hasIssues                                    = $object->hasIssues;
         after_hasIssues:        $result['has_issues'] = $hasIssues;
@@ -73004,15 +72871,6 @@ class Issues implements ObjectMapper
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
 
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesOpened⚡️Changes⚡️OldRepository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
-
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;
 
@@ -79419,15 +79277,6 @@ class Issues implements ObjectMapper
 
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
-
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
 
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;

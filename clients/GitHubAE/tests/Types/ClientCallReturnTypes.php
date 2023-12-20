@@ -154,6 +154,7 @@ assertType('Observable<Schema\\Thread>|WithoutBody', $client->call('GET /notific
 assertType('Observable<Schema\\Thread>|WithoutBody', $client->call('LIST /notifications'));
 assertType('', $client->call('PUT /notifications'));
 assertType('', $client->call('GET /notifications/threads/{thread_id}'));
+assertType('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('DELETE /notifications/threads/{thread_id}'));
 assertType('', $client->call('PATCH /notifications/threads/{thread_id}'));
 assertType('', $client->call('GET /notifications/threads/{thread_id}/subscription'));
 assertType('', $client->call('PUT /notifications/threads/{thread_id}/subscription'));
@@ -644,7 +645,7 @@ assertType('', $client->call('DELETE /repos/{owner}/{repo}/releases/assets/{asse
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/releases/assets/{asset_id}'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/releases/latest'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/releases/tags/{tag}'));
-assertType('', $client->call('GET /repos/{owner}/{repo}/releases/{release_id}'));
+assertType('Schema\\Release|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /repos/{owner}/{repo}/releases/{release_id}'));
 assertType('', $client->call('DELETE /repos/{owner}/{repo}/releases/{release_id}'));
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/releases/{release_id}'));
 assertType('Observable<Schema\\ReleaseAsset>', $client->call('GET /repos/{owner}/{repo}/releases/{release_id}/assets'));

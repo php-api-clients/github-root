@@ -1045,6 +1045,7 @@ final readonly class WebhookFork
                     }
                 }
             ],
+            "properties": {},
             "description": "The created [`repository`](https:\\/\\/docs.github.com\\/github-ae@latest\\/rest\\/repos\\/repos#get-a-repository) resource."
         },
         "installation": {
@@ -2058,11 +2059,6 @@ final readonly class WebhookFork
                         "type": "string"
                     }
                 },
-                "custom_properties": {
-                    "type": "object",
-                    "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values.",
-                    "additionalProperties": true
-                },
                 "has_issues": {
                     "type": "boolean",
                     "description": "Whether issues are enabled.",
@@ -3013,7 +3009,6 @@ final readonly class WebhookFork
             "generated",
             "generated"
         ],
-        "custom_properties": [],
         "has_issues": true,
         "has_projects": true,
         "has_wiki": true,
