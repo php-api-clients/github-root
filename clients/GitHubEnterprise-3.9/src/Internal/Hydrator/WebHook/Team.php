@@ -10,7 +10,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleUserWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository;
-use ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository\CustomProperties;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository\License;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository\Owner;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository\Permissions;
@@ -105,7 +104,9 @@ class Team implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamRemovedFromRepository\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamRemovedFromRepository⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamRemovedFromRepository\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamRemovedFromRepository⚡️Team($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamRemovedFromRepository\Team\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamRemovedFromRepository⚡️Team⚡️Parent_($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMembershipAdded\Team\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMembershipAdded⚡️Team⚡️Parent_($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -796,26 +797,6 @@ class Team implements ObjectMapper
 
             after_createdAt:
 
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
-
             $value = $payload['default_branch'] ?? null;
 
             if ($value === null) {
@@ -1189,7 +1170,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1319,7 +1300,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1339,7 +1320,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -2950,26 +2931,6 @@ class Team implements ObjectMapper
 
             after_createdAt:
 
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
-
             $value = $payload['default_branch'] ?? null;
 
             if ($value === null) {
@@ -3343,7 +3304,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3473,7 +3434,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3493,7 +3454,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4854,26 +4815,6 @@ class Team implements ObjectMapper
 
             after_createdAt:
 
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
-
             $value = $payload['default_branch'] ?? null;
 
             if ($value === null) {
@@ -5247,7 +5188,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5377,7 +5318,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -5397,7 +5338,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7097,26 +7038,6 @@ class Team implements ObjectMapper
 
             after_createdAt:
 
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
-
             $value = $payload['default_branch'] ?? null;
 
             if ($value === null) {
@@ -7490,7 +7411,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7620,7 +7541,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7640,7 +7561,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9001,26 +8922,6 @@ class Team implements ObjectMapper
 
             after_createdAt:
 
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
-
             $value = $payload['default_branch'] ?? null;
 
             if ($value === null) {
@@ -9394,7 +9295,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'license';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9524,7 +9425,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'owner';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -9544,7 +9445,7 @@ class Team implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'permissions';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -10541,23 +10442,401 @@ class Team implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties(array $payload): CustomProperties
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License
     {
         $properties    = [];
         $missingFields = [];
         try {
+            $value = $payload['key'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'key';
+                goto after_key;
+            }
+
+            $properties['key'] = $value;
+
+            after_key:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'name';
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'node_id';
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['spdx_id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'spdx_id';
+                goto after_spdxId;
+            }
+
+            $properties['spdxId'] = $value;
+
+            after_spdxId:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository\CustomProperties', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new CustomProperties(...$properties);
+            return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAddedToRepository\Repository\CustomProperties', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['avatar_url'] ?? null;
+
+            if ($value === null) {
+                $properties['avatarUrl'] = null;
+                goto after_avatarUrl;
+            }
+
+            $properties['avatarUrl'] = $value;
+
+            after_avatarUrl:
+
+            $value = $payload['deleted'] ?? null;
+
+            if ($value === null) {
+                $properties['deleted'] = null;
+                goto after_deleted;
+            }
+
+            $properties['deleted'] = $value;
+
+            after_deleted:
+
+            $value = $payload['email'] ?? null;
+
+            if ($value === null) {
+                $properties['email'] = null;
+                goto after_email;
+            }
+
+            $properties['email'] = $value;
+
+            after_email:
+
+            $value = $payload['events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['eventsUrl'] = null;
+                goto after_eventsUrl;
+            }
+
+            $properties['eventsUrl'] = $value;
+
+            after_eventsUrl:
+
+            $value = $payload['followers_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followersUrl'] = null;
+                goto after_followersUrl;
+            }
+
+            $properties['followersUrl'] = $value;
+
+            after_followersUrl:
+
+            $value = $payload['following_url'] ?? null;
+
+            if ($value === null) {
+                $properties['followingUrl'] = null;
+                goto after_followingUrl;
+            }
+
+            $properties['followingUrl'] = $value;
+
+            after_followingUrl:
+
+            $value = $payload['gists_url'] ?? null;
+
+            if ($value === null) {
+                $properties['gistsUrl'] = null;
+                goto after_gistsUrl;
+            }
+
+            $properties['gistsUrl'] = $value;
+
+            after_gistsUrl:
+
+            $value = $payload['gravatar_id'] ?? null;
+
+            if ($value === null) {
+                $properties['gravatarId'] = null;
+                goto after_gravatarId;
+            }
+
+            $properties['gravatarId'] = $value;
+
+            after_gravatarId:
+
+            $value = $payload['html_url'] ?? null;
+
+            if ($value === null) {
+                $properties['htmlUrl'] = null;
+                goto after_htmlUrl;
+            }
+
+            $properties['htmlUrl'] = $value;
+
+            after_htmlUrl:
+
+            $value = $payload['id'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'id';
+                goto after_id;
+            }
+
+            $properties['id'] = $value;
+
+            after_id:
+
+            $value = $payload['login'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'login';
+                goto after_login;
+            }
+
+            $properties['login'] = $value;
+
+            after_login:
+
+            $value = $payload['name'] ?? null;
+
+            if ($value === null) {
+                $properties['name'] = null;
+                goto after_name;
+            }
+
+            $properties['name'] = $value;
+
+            after_name:
+
+            $value = $payload['node_id'] ?? null;
+
+            if ($value === null) {
+                $properties['nodeId'] = null;
+                goto after_nodeId;
+            }
+
+            $properties['nodeId'] = $value;
+
+            after_nodeId:
+
+            $value = $payload['organizations_url'] ?? null;
+
+            if ($value === null) {
+                $properties['organizationsUrl'] = null;
+                goto after_organizationsUrl;
+            }
+
+            $properties['organizationsUrl'] = $value;
+
+            after_organizationsUrl:
+
+            $value = $payload['received_events_url'] ?? null;
+
+            if ($value === null) {
+                $properties['receivedEventsUrl'] = null;
+                goto after_receivedEventsUrl;
+            }
+
+            $properties['receivedEventsUrl'] = $value;
+
+            after_receivedEventsUrl:
+
+            $value = $payload['repos_url'] ?? null;
+
+            if ($value === null) {
+                $properties['reposUrl'] = null;
+                goto after_reposUrl;
+            }
+
+            $properties['reposUrl'] = $value;
+
+            after_reposUrl:
+
+            $value = $payload['site_admin'] ?? null;
+
+            if ($value === null) {
+                $properties['siteAdmin'] = null;
+                goto after_siteAdmin;
+            }
+
+            $properties['siteAdmin'] = $value;
+
+            after_siteAdmin:
+
+            $value = $payload['starred_url'] ?? null;
+
+            if ($value === null) {
+                $properties['starredUrl'] = null;
+                goto after_starredUrl;
+            }
+
+            $properties['starredUrl'] = $value;
+
+            after_starredUrl:
+
+            $value = $payload['subscriptions_url'] ?? null;
+
+            if ($value === null) {
+                $properties['subscriptionsUrl'] = null;
+                goto after_subscriptionsUrl;
+            }
+
+            $properties['subscriptionsUrl'] = $value;
+
+            after_subscriptionsUrl:
+
+            $value = $payload['type'] ?? null;
+
+            if ($value === null) {
+                $properties['type'] = null;
+                goto after_type;
+            }
+
+            $properties['type'] = $value;
+
+            after_type:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['admin'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'admin';
+                goto after_admin;
+            }
+
+            $properties['admin'] = $value;
+
+            after_admin:
+
+            $value = $payload['maintain'] ?? null;
+
+            if ($value === null) {
+                $properties['maintain'] = null;
+                goto after_maintain;
+            }
+
+            $properties['maintain'] = $value;
+
+            after_maintain:
+
+            $value = $payload['pull'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'pull';
+                goto after_pull;
+            }
+
+            $properties['pull'] = $value;
+
+            after_pull:
+
+            $value = $payload['push'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'push';
+                goto after_push;
+            }
+
+            $properties['push'] = $value;
+
+            after_push:
+
+            $value = $payload['triage'] ?? null;
+
+            if ($value === null) {
+                $properties['triage'] = null;
+                goto after_triage;
+            }
+
+            $properties['triage'] = $value;
+
+            after_triage:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new \ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -11108,15 +11387,6 @@ class Team implements ObjectMapper
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
 
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
-
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;
 
@@ -11252,7 +11522,7 @@ class Team implements ObjectMapper
             goto after_license;
         }
 
-        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($license);
+        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($license);
         after_license:        $result['license'] = $license;
 
         $masterBranch = $object->masterBranch;
@@ -11306,7 +11576,7 @@ class Team implements ObjectMapper
             goto after_owner;
         }
 
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($owner);
+        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         $permissions = $object->permissions;
@@ -11315,7 +11585,7 @@ class Team implements ObjectMapper
             goto after_permissions;
         }
 
-        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($permissions);
+        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         $private                                 = $object->private;
@@ -12024,15 +12294,6 @@ class Team implements ObjectMapper
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
 
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
-
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;
 
@@ -12168,7 +12429,7 @@ class Team implements ObjectMapper
             goto after_license;
         }
 
-        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($license);
+        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($license);
         after_license:        $result['license'] = $license;
 
         $masterBranch = $object->masterBranch;
@@ -12222,7 +12483,7 @@ class Team implements ObjectMapper
             goto after_owner;
         }
 
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($owner);
+        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         $permissions = $object->permissions;
@@ -12231,7 +12492,7 @@ class Team implements ObjectMapper
             goto after_permissions;
         }
 
-        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($permissions);
+        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         $private                                 = $object->private;
@@ -12854,15 +13115,6 @@ class Team implements ObjectMapper
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
 
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
-
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;
 
@@ -12998,7 +13250,7 @@ class Team implements ObjectMapper
             goto after_license;
         }
 
-        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($license);
+        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($license);
         after_license:        $result['license'] = $license;
 
         $masterBranch = $object->masterBranch;
@@ -13052,7 +13304,7 @@ class Team implements ObjectMapper
             goto after_owner;
         }
 
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($owner);
+        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         $permissions = $object->permissions;
@@ -13061,7 +13313,7 @@ class Team implements ObjectMapper
             goto after_permissions;
         }
 
-        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($permissions);
+        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         $private                                 = $object->private;
@@ -13816,15 +14068,6 @@ class Team implements ObjectMapper
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
 
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
-
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;
 
@@ -13960,7 +14203,7 @@ class Team implements ObjectMapper
             goto after_license;
         }
 
-        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($license);
+        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($license);
         after_license:        $result['license'] = $license;
 
         $masterBranch = $object->masterBranch;
@@ -14014,7 +14257,7 @@ class Team implements ObjectMapper
             goto after_owner;
         }
 
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($owner);
+        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         $permissions = $object->permissions;
@@ -14023,7 +14266,7 @@ class Team implements ObjectMapper
             goto after_permissions;
         }
 
-        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($permissions);
+        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         $private                                 = $object->private;
@@ -14641,15 +14884,6 @@ class Team implements ObjectMapper
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
 
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
-
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;
 
@@ -14785,7 +15019,7 @@ class Team implements ObjectMapper
             goto after_license;
         }
 
-        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️License($license);
+        $license                                 = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️License($license);
         after_license:        $result['license'] = $license;
 
         $masterBranch = $object->masterBranch;
@@ -14839,7 +15073,7 @@ class Team implements ObjectMapper
             goto after_owner;
         }
 
-        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Owner($owner);
+        $owner                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Owner($owner);
         after_owner:        $result['owner'] = $owner;
 
         $permissions = $object->permissions;
@@ -14848,7 +15082,7 @@ class Team implements ObjectMapper
             goto after_permissions;
         }
 
-        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAddedToRepository⚡️Repository⚡️Permissions($permissions);
+        $permissions                                     = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPullRequestReviewEdited⚡️PullRequest⚡️Base⚡️Repo⚡️Permissions($permissions);
         after_permissions:        $result['permissions'] = $permissions;
 
         $private                                 = $object->private;
