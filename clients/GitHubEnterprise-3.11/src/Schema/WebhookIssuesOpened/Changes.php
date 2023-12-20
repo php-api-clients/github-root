@@ -1409,11 +1409,6 @@ final readonly class Changes
                         }
                     ]
                 },
-                "custom_properties": {
-                    "type": "object",
-                    "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values.",
-                    "additionalProperties": true
-                },
                 "default_branch": {
                     "type": "string",
                     "description": "The default branch of the repository."
@@ -2162,7 +2157,6 @@ final readonly class Changes
         "contents_url": "generated",
         "contributors_url": "https:\\/\\/example.com\\/",
         "created_at": null,
-        "custom_properties": [],
         "default_branch": "generated",
         "delete_branch_on_merge": false,
         "deployments_url": "https:\\/\\/example.com\\/",
