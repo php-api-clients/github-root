@@ -794,7 +794,7 @@ assertType('', $client->call('PATCH /repos/{owner}/{repo}/releases/assets/{asset
 assertType('', $client->call('POST /repos/{owner}/{repo}/releases/generate-notes'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/releases/latest'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/releases/tags/{tag}'));
-assertType('', $client->call('GET /repos/{owner}/{repo}/releases/{release_id}'));
+assertType('Schema\\Release|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /repos/{owner}/{repo}/releases/{release_id}'));
 assertType('', $client->call('DELETE /repos/{owner}/{repo}/releases/{release_id}'));
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/releases/{release_id}'));
 assertType('Observable<Schema\\ReleaseAsset>', $client->call('GET /repos/{owner}/{repo}/releases/{release_id}/assets'));
