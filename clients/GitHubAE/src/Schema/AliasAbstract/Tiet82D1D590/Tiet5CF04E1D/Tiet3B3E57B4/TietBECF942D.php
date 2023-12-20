@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubAE\Schema\AliasAbstract\Tiet50E90A81\TietC28AD061\Tiet3E2243BE;
+namespace ApiClients\Client\GitHubAE\Schema\AliasAbstract\Tiet82D1D590\Tiet5CF04E1D\Tiet3B3E57B4;
 
 use ApiClients\Client\GitHubAE\Schema;
 use EventSauce\ObjectHydrator\MapFrom;
 
-abstract readonly class TietC859F456
+abstract readonly class TietBECF942D
 {
     public const SCHEMA_JSON         = '{
     "title": "Repository",
@@ -75,7 +75,6 @@ abstract readonly class TietC859F456
         "has_downloads",
         "has_wiki",
         "has_pages",
-        "has_discussions",
         "forks_count",
         "mirror_url",
         "archived",
@@ -177,11 +176,6 @@ abstract readonly class TietC859F456
                 }
             ]
         },
-        "custom_properties": {
-            "type": "object",
-            "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values.",
-            "additionalProperties": true
-        },
         "default_branch": {
             "type": "string",
             "description": "The default branch of the repository."
@@ -267,11 +261,6 @@ abstract readonly class TietC859F456
             "type": "boolean",
             "description": "Whether the wiki is enabled.",
             "default": true
-        },
-        "has_discussions": {
-            "type": "boolean",
-            "description": "Whether discussions are enabled.",
-            "default": false
         },
         "homepage": {
             "type": [
@@ -626,10 +615,6 @@ abstract readonly class TietC859F456
         },
         "watchers_count": {
             "type": "integer"
-        },
-        "web_commit_signoff_required": {
-            "type": "boolean",
-            "description": "Whether to require contributors to sign off on web-based commits"
         }
     },
     "description": "A git repository"
@@ -656,7 +641,6 @@ abstract readonly class TietC859F456
     "contents_url": "generated",
     "contributors_url": "https:\\/\\/example.com\\/",
     "created_at": null,
-    "custom_properties": [],
     "default_branch": "generated",
     "delete_branch_on_merge": false,
     "deployments_url": "https:\\/\\/example.com\\/",
@@ -678,7 +662,6 @@ abstract readonly class TietC859F456
     "has_pages": false,
     "has_projects": false,
     "has_wiki": false,
-    "has_discussions": false,
     "homepage": "generated",
     "hooks_url": "https:\\/\\/example.com\\/",
     "html_url": "https:\\/\\/example.com\\/",
@@ -764,8 +747,7 @@ abstract readonly class TietC859F456
     "url": "https:\\/\\/example.com\\/",
     "visibility": "internal",
     "watchers": 8,
-    "watchers_count": 14,
-    "web_commit_signoff_required": false
+    "watchers_count": 14
 }';
 
     /**
@@ -775,7 +757,6 @@ abstract readonly class TietC859F456
      * allowRebaseMerge: Whether to allow rebase merges for pull requests.
      * allowSquashMerge: Whether to allow squash merges for pull requests.
      * archived: Whether the repository is archived.
-     * customProperties: The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values.
      * defaultBranch: The default branch of the repository.
      * deleteBranchOnMerge: Whether to delete head branches when pull requests are merged
      * disabled: Returns whether or not this repository is disabled.
@@ -783,11 +764,9 @@ abstract readonly class TietC859F456
      * hasIssues: Whether issues are enabled.
      * hasProjects: Whether projects are enabled.
      * hasWiki: Whether the wiki is enabled.
-     * hasDiscussions: Whether discussions are enabled.
      * id: Unique identifier of the repository
      * name: The name of the repository.
      * private: Whether the repository is private or public.
-     * webCommitSignoffRequired: Whether to require contributors to sign off on web-based commits
      */
     public function __construct(#[MapFrom('allow_auto_merge')]
     public bool|null $allowAutoMerge, #[MapFrom('allow_forking')]
@@ -807,8 +786,7 @@ abstract readonly class TietC859F456
     public string $compareUrl, #[MapFrom('contents_url')]
     public string $contentsUrl, #[MapFrom('contributors_url')]
     public string $contributorsUrl, #[MapFrom('created_at')]
-    public int|string $createdAt, #[MapFrom('custom_properties')]
-    public Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties|null $customProperties, #[MapFrom('default_branch')]
+    public int|string $createdAt, #[MapFrom('default_branch')]
     public string $defaultBranch, #[MapFrom('delete_branch_on_merge')]
     public bool|null $deleteBranchOnMerge, #[MapFrom('deployments_url')]
     public string $deploymentsUrl, public string|null $description, public bool|null $disabled, #[MapFrom('downloads_url')]
@@ -825,8 +803,7 @@ abstract readonly class TietC859F456
     public bool $hasIssues, #[MapFrom('has_pages')]
     public bool $hasPages, #[MapFrom('has_projects')]
     public bool $hasProjects, #[MapFrom('has_wiki')]
-    public bool $hasWiki, #[MapFrom('has_discussions')]
-    public bool $hasDiscussions, public string|null $homepage, #[MapFrom('hooks_url')]
+    public bool $hasWiki, public string|null $homepage, #[MapFrom('hooks_url')]
     public string $hooksUrl, #[MapFrom('html_url')]
     public string $htmlUrl, public int $id, #[MapFrom('is_template')]
     public bool|null $isTemplate, #[MapFrom('issue_comment_url')]
@@ -835,7 +812,7 @@ abstract readonly class TietC859F456
     public string $issuesUrl, #[MapFrom('keys_url')]
     public string $keysUrl, #[MapFrom('labels_url')]
     public string $labelsUrl, public string|null $language, #[MapFrom('languages_url')]
-    public string $languagesUrl, public Schema\WebhookIssuesTransferred\Changes\NewRepository\License|null $license, #[MapFrom('master_branch')]
+    public string $languagesUrl, public Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\License|null $license, #[MapFrom('master_branch')]
     public string|null $masterBranch, #[MapFrom('merges_url')]
     public string $mergesUrl, #[MapFrom('milestones_url')]
     public string $milestonesUrl, #[MapFrom('mirror_url')]
@@ -843,7 +820,7 @@ abstract readonly class TietC859F456
     public string $nodeId, #[MapFrom('notifications_url')]
     public string $notificationsUrl, #[MapFrom('open_issues')]
     public int $openIssues, #[MapFrom('open_issues_count')]
-    public int $openIssuesCount, public string|null $organization, public Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner|null $owner, public Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
+    public int $openIssuesCount, public string|null $organization, public Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Owner|null $owner, public Schema\WebhookPullRequestReviewEdited\PullRequest\Base\Repo\Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
     public string $pullsUrl, #[MapFrom('pushed_at')]
     public int|string $pushedAt, #[MapFrom('releases_url')]
     public string $releasesUrl, #[MapFrom('role_name')]
@@ -859,8 +836,7 @@ abstract readonly class TietC859F456
     public string $teamsUrl, public array $topics, #[MapFrom('trees_url')]
     public string $treesUrl, #[MapFrom('updated_at')]
     public string $updatedAt, public string $url, public string $visibility, public int $watchers, #[MapFrom('watchers_count')]
-    public int $watchersCount, #[MapFrom('web_commit_signoff_required')]
-    public bool|null $webCommitSignoffRequired,)
+    public int $watchersCount,)
     {
     }
 }

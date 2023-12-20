@@ -8,7 +8,6 @@ use ApiClients\Client\GitHubAE\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubAE\Schema\LicenseSimple;
 use ApiClients\Client\GitHubAE\Schema\OrganizationSimpleWebhooks;
 use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks;
-use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties;
 use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\Permissions;
 use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\TemplateRepository;
 use ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\TemplateRepository\Owner;
@@ -103,7 +102,6 @@ class DeploymentReview implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentReviewRequested\WorkflowRun\Repository' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentReviewRequested⚡️WorkflowRun⚡️Repository($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentReviewRequested\WorkflowRun\Repository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentReviewRequested⚡️WorkflowRun⚡️Repository⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentReviewRequested\WorkflowRun\TriggeringActor' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentReviewRequested⚡️WorkflowRun⚡️TriggeringActor($payload),
-                'ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentReviewApproved\WorkflowRun\HeadCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentReviewApproved⚡️WorkflowRun⚡️HeadCommit($payload),
@@ -1640,26 +1638,6 @@ class DeploymentReview implements ObjectMapper
             $properties['topics'] = $value;
 
             after_topics:
-
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
 
             $value = $payload['has_issues'] ?? null;
 
@@ -12479,26 +12457,6 @@ class DeploymentReview implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties(array $payload): CustomProperties
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new CustomProperties(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-    }
-
     private function hydrateApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubAE\Schema\Repository\TemplateRepository\Owner
     {
         $properties    = [];
@@ -13621,15 +13579,6 @@ class DeploymentReview implements ObjectMapper
 
         $topics                                = $topicsSerializer0->serialize($topics, $this);
         after_topics:        $result['topics'] = $topics;
-
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
 
         $hasIssues                                    = $object->hasIssues;
         after_hasIssues:        $result['has_issues'] = $hasIssues;
