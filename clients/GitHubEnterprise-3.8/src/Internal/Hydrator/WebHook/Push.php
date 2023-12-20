@@ -8,7 +8,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimpleWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterprise\Schema\SimpleUserWebhooks;
-use ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookPush;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\HeadCommit;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\HeadCommit\Author;
@@ -66,7 +65,6 @@ class Push implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Repository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPush\Repository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUserWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUserWebhooks($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\License' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️Permissions($payload),
@@ -1213,26 +1211,6 @@ class Push implements ObjectMapper
             $properties['createdAt'] = $value;
 
             after_createdAt:
-
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
 
             $value = $payload['default_branch'] ?? null;
 
@@ -2715,26 +2693,6 @@ class Push implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties(array $payload): CustomProperties
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new CustomProperties(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-    }
-
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️License(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\WebhookIssuesTransferred\Changes\NewRepository\License
     {
         $properties    = [];
@@ -3735,15 +3693,6 @@ class Push implements ObjectMapper
 
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
-
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookIssuesTransferred⚡️Changes⚡️NewRepository⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
 
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;

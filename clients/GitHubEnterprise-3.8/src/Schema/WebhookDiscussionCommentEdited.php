@@ -1775,11 +1775,6 @@ final readonly class WebhookDiscussionCommentEdited
                         "type": "string"
                     }
                 },
-                "custom_properties": {
-                    "type": "object",
-                    "description": "The custom properties that were defined for the repository. The keys are the custom property names, and the values are the corresponding custom property values.",
-                    "additionalProperties": true
-                },
                 "has_issues": {
                     "type": "boolean",
                     "description": "Whether issues are enabled.",
@@ -2828,7 +2823,6 @@ final readonly class WebhookDiscussionCommentEdited
             "generated",
             "generated"
         ],
-        "custom_properties": [],
         "has_issues": true,
         "has_projects": true,
         "has_wiki": true,
