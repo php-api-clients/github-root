@@ -1089,7 +1089,6 @@ final class Repos
         return $this->operators->repos👷GetReleaseByTag()->call($owner, $repo, $tag);
     }
 
-    /** @return */
     public function getRelease(string $owner, string $repo, int $releaseId): Release|WithoutBody
     {
         return $this->operators->repos👷GetRelease()->call($owner, $repo, $releaseId);
