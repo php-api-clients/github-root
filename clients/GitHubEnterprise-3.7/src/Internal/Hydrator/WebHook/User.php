@@ -8,7 +8,6 @@ use ApiClients\Client\GitHubEnterprise\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\LicenseSimple;
 use ApiClients\Client\GitHubEnterprise\Schema\OrganizationSimpleWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks;
-use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\CustomProperties;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\Permissions;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository;
 use ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\TemplateRepository\Owner;
@@ -67,7 +66,6 @@ class User implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookUserCreated\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookUserCreated⚡️User($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookUserDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookUserDeleted($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookUserDeleted\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookUserDeleted⚡️User($payload),
-                'ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
@@ -1300,26 +1298,6 @@ class User implements ObjectMapper
             $properties['topics'] = $value;
 
             after_topics:
-
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
 
             $value = $payload['has_issues'] ?? null;
 
@@ -4312,26 +4290,6 @@ class User implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties(array $payload): CustomProperties
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new CustomProperties(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-    }
-
     private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Owner(array $payload): \ApiClients\Client\GitHubEnterprise\Schema\Repository\TemplateRepository\Owner
     {
         $properties    = [];
@@ -5172,15 +5130,6 @@ class User implements ObjectMapper
 
         $topics                                = $topicsSerializer0->serialize($topics, $this);
         after_topics:        $result['topics'] = $topics;
-
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
 
         $hasIssues                                    = $object->hasIssues;
         after_hasIssues:        $result['has_issues'] = $hasIssues;
