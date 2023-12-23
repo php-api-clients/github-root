@@ -1,5 +1,5 @@
 {
-    "specHash": "163186e7c02f9cd439623d84516cbf0f",
+    "specHash": "009af9395d9c94675ca16c1442141d84",
     "generatedFiles": {
         "files": [
             {
@@ -9616,7 +9616,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetRelease.php",
-                "hash": "8c9dde0e319b4accaa364e6bef2b4983"
+                "hash": "fd2db05221b492fa735a87f497f459e4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetReleaseTest.php",
@@ -26672,7 +26672,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "87ac29bc68f821380d3b5771cd5ac326"
+                "hash": "9d07766aa18fa15f28a0e3e0ed8875f2"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Activity.php",
@@ -27144,7 +27144,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "e36b8121bae1bc67f24bcab235012720"
+                "hash": "25711f0c083497bf6064832f0dac0bc4"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
@@ -27356,11 +27356,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "6b48ad216cd95b2e7b4d438090e0ea45"
+                "hash": "ab8721856dbbec55b7f6ad1cc76b3fe6"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "9b4649e76c7bc5f02d30dcb7129e3281"
+                "hash": "85c12e9903e964ec150ad07e085c85ab"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -27472,7 +27472,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "e0f01e6f31ceb1a7e802ccc9ed97f2e2"
+                "hash": "b319ed9772dff11031658682056b6bd3"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Operation\/Reactions.php",
