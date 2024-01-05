@@ -22,7 +22,7 @@ final class Repos
     {
     }
 
-    /** @return Observable<Schema\Repository>|WithoutBody */
+    /** @return iterable<int,Schema\Repository>|WithoutBody */
     public function listForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -91,7 +91,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\RepositoryInvitation>|WithoutBody */
+    /** @return iterable<int,Schema\RepositoryInvitation>|WithoutBody */
     public function listInvitationsForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -118,7 +118,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<int,Schema\MinimalRepository> */
     public function listForOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -169,7 +169,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<int,Schema\MinimalRepository> */
     public function listForUserListing(array $params): iterable
     {
         $arguments = [];
@@ -220,7 +220,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\ShortBranch> */
+    /** @return iterable<int,Schema\ShortBranch> */
     public function listBranchesListing(array $params): iterable
     {
         $arguments = [];
@@ -265,7 +265,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Collaborator> */
+    /** @return iterable<int,Schema\Collaborator> */
     public function listCollaboratorsListing(array $params): iterable
     {
         $arguments = [];
@@ -310,7 +310,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\CommitComment> */
+    /** @return iterable<int,Schema\CommitComment> */
     public function listCommitCommentsForRepoListing(array $params): iterable
     {
         $arguments = [];
@@ -349,7 +349,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Commit> */
+    /** @return iterable<int,Schema\Commit> */
     public function listCommitsListing(array $params): iterable
     {
         $arguments = [];
@@ -424,7 +424,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Contributor>|WithoutBody */
+    /** @return iterable<int,Schema\Contributor>|WithoutBody */
     public function listContributorsListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -469,7 +469,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Deployment> */
+    /** @return iterable<int,Schema\Deployment> */
     public function listDeploymentsListing(array $params): iterable
     {
         $arguments = [];
@@ -532,7 +532,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<int,Schema\MinimalRepository> */
     public function listForksListing(array $params): iterable
     {
         $arguments = [];
@@ -577,7 +577,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Hook> */
+    /** @return iterable<int,Schema\Hook> */
     public function listWebhooksListing(array $params): iterable
     {
         $arguments = [];
@@ -616,7 +616,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\RepositoryInvitation> */
+    /** @return iterable<int,Schema\RepositoryInvitation> */
     public function listInvitationsListing(array $params): iterable
     {
         $arguments = [];
@@ -655,7 +655,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\DeployKey> */
+    /** @return iterable<int,Schema\DeployKey> */
     public function listDeployKeysListing(array $params): iterable
     {
         $arguments = [];
@@ -694,7 +694,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Release> */
+    /** @return iterable<int,Schema\Release> */
     public function listReleasesListing(array $params): iterable
     {
         $arguments = [];
@@ -733,7 +733,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Tag> */
+    /** @return iterable<int,Schema\Tag> */
     public function listTagsListing(array $params): iterable
     {
         $arguments = [];
@@ -772,7 +772,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<int,Schema\Team> */
     public function listTeamsListing(array $params): iterable
     {
         $arguments = [];
@@ -811,7 +811,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\PageBuild> */
+    /** @return iterable<int,Schema\PageBuild> */
     public function listPagesBuildsListing(array $params): iterable
     {
         $arguments = [];
@@ -850,7 +850,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
+    /** @return iterable<int,Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
     public function listCacheInfoListing(array $params): iterable
     {
         $arguments = [];
@@ -889,7 +889,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\CommitComment> */
+    /** @return iterable<int,Schema\CommitComment> */
     public function listCommentsForCommitListing(array $params): iterable
     {
         $arguments = [];
@@ -934,7 +934,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\PullRequestSimple> */
+    /** @return iterable<int,Schema\PullRequestSimple> */
     public function listPullRequestsAssociatedWithCommitListing(array $params): iterable
     {
         $arguments = [];
@@ -979,7 +979,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Status>|Schema\BasicError */
+    /** @return iterable<int,Schema\Status>|Schema\BasicError */
     public function listCommitStatusesForRefListing(array $params): iterable|BasicError
     {
         $arguments = [];
@@ -1024,7 +1024,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\DeploymentStatus> */
+    /** @return iterable<int,Schema\DeploymentStatus> */
     public function listDeploymentStatusesListing(array $params): iterable
     {
         $arguments = [];
@@ -1069,7 +1069,7 @@ final class Repos
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\ReleaseAsset> */
+    /** @return iterable<int,Schema\ReleaseAsset> */
     public function listReleaseAssetsListing(array $params): iterable
     {
         $arguments = [];

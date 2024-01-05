@@ -23,7 +23,7 @@ final class CodeScanning
     {
     }
 
-    /** @return Observable<Schema\CodeScanningAlertItems>|WithoutBody */
+    /** @return iterable<int,Schema\CodeScanningAlertItems>|WithoutBody */
     public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -92,7 +92,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\CodeScanningAnalysis> */
+    /** @return iterable<int,Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(array $params): iterable
     {
         $arguments = [];
@@ -161,7 +161,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\CodeScanningOrganizationAlertItems> */
+    /** @return iterable<int,Schema\CodeScanningOrganizationAlertItems> */
     public function listAlertsForEnterprise(array $params): iterable
     {
         $arguments = [];
@@ -230,7 +230,7 @@ final class CodeScanning
         return $operator->call($arguments['enterprise'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\CodeScanningOrganizationAlertItems> */
+    /** @return iterable<int,Schema\CodeScanningOrganizationAlertItems> */
     public function listAlertsForOrg(array $params): iterable
     {
         $arguments = [];
@@ -380,7 +380,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sarif_id']);
     }
 
-    /** @return Observable<Schema\CodeScanningAlertInstance> */
+    /** @return iterable<int,Schema\CodeScanningAlertInstance> */
     public function listAlertInstances(array $params): iterable
     {
         $arguments = [];
