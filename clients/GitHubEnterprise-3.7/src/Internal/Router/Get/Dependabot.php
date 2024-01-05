@@ -59,7 +59,6 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['secret_name']);
     }
 
-    /** @return */
     public function listRepoSecrets(array $params): Ok
     {
         $arguments = [];
@@ -92,7 +91,6 @@ final class Dependabot
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listOrgSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -119,7 +117,6 @@ final class Dependabot
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listSelectedReposForOrgSecret(array $params): Json
     {
         $arguments = [];
