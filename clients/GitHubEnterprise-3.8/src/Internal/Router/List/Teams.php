@@ -21,7 +21,7 @@ final class Teams
     {
     }
 
-    /** @return Observable<Schema\TeamFull>|WithoutBody */
+    /** @return iterable<int,Schema\TeamFull>|WithoutBody */
     public function listForAuthenticatedUserListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -48,7 +48,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<int,Schema\Team> */
     public function listListing(array $params): iterable
     {
         $arguments = [];
@@ -81,7 +81,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return iterable<int,Schema\TeamDiscussion> */
     public function listDiscussionsLegacyListing(array $params): iterable
     {
         $arguments = [];
@@ -120,7 +120,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listMembersLegacyListing(array $params): iterable
     {
         $arguments = [];
@@ -159,7 +159,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return iterable<int,Schema\TeamProject> */
     public function listProjectsLegacyListing(array $params): iterable
     {
         $arguments = [];
@@ -192,7 +192,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<int,Schema\MinimalRepository> */
     public function listReposLegacyListing(array $params): iterable
     {
         $arguments = [];
@@ -225,7 +225,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<int,Schema\Team> */
     public function listChildLegacyListing(array $params): iterable
     {
         $arguments = [];
@@ -258,7 +258,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussion> */
+    /** @return iterable<int,Schema\TeamDiscussion> */
     public function listDiscussionsInOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -309,7 +309,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listMembersInOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -354,7 +354,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamProject> */
+    /** @return iterable<int,Schema\TeamProject> */
     public function listProjectsInOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -393,7 +393,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<int,Schema\MinimalRepository> */
     public function listReposInOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -432,7 +432,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Team> */
+    /** @return iterable<int,Schema\Team> */
     public function listChildInOrgListing(array $params): iterable
     {
         $arguments = [];
@@ -471,7 +471,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return iterable<int,Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsLegacyListing(array $params): iterable
     {
         $arguments = [];
@@ -516,7 +516,7 @@ final class Teams
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment> */
+    /** @return iterable<int,Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsInOrgListing(array $params): iterable
     {
         $arguments = [];

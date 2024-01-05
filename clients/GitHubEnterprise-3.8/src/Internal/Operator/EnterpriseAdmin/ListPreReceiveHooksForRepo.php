@@ -24,7 +24,7 @@ final readonly class ListPreReceiveHooksForRepo
     {
     }
 
-    /** @return Observable<Schema\RepositoryPreReceiveHook> */
+    /** @return iterable<int,Schema\RepositoryPreReceiveHook> */
     public function call(string $owner, string $repo, int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\ListPreReceiveHooksForRepo($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $perPage, $page, $direction, $sort);

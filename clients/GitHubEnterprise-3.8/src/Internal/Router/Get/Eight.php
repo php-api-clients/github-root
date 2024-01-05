@@ -26,7 +26,7 @@ final class Eight
     {
     }
 
-    /** @return Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>||Observable<Schema\EnvironmentApprovals>|Observable<Schema\PendingDeployment>|Observable<Schema\CodeScanningAlertInstance>|Observable<Schema\SecretScanningLocation>|WithoutBody */
+    /** @return iterable<int,Schema\TeamDiscussionComment>|iterable<int,Schema\Reaction>||Observable<Schema\EnvironmentApprovals>|Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|Observable<Schema\PendingDeployment>|Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|iterable<int,Schema\CodeScanningAlertInstance>|iterable<int,Schema\SecretScanningLocation>|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): iterable|TeamRepository|WithoutBody|OidcCustomSubRepo|Ok|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|ProtectedBranchAdminEnforced|ProtectedBranchPullRequestReview|StatusCheckPolicy|BranchRestrictionPolicy|DeploymentStatus|DeploymentBranchPolicy|HookDelivery|PullRequestReview
     {
         if ($pathChunks[0] === '') {
