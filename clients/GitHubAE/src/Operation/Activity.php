@@ -30,13 +30,13 @@ final class Activity
         return $this->operators->activity👷GetFeeds()->call();
     }
 
-    /** @return Observable<Schema\Thread>|WithoutBody */
+    /** @return iterable<int,Schema\Thread>|WithoutBody */
     public function listNotificationsForAuthenticatedUser(string $since, string $before, bool $all, bool $participating, int $page, int $perPage): iterable|WithoutBody
     {
         return $this->operators->activity👷ListNotificationsForAuthenticatedUser()->call($since, $before, $all, $participating, $page, $perPage);
     }
 
-    /** @return Observable<Schema\Thread>|WithoutBody */
+    /** @return iterable<int,Schema\Thread>|WithoutBody */
     public function listNotificationsForAuthenticatedUserListing(string $since, string $before, bool $all, bool $participating, int $page, int $perPage): iterable|WithoutBody
     {
         return $this->operators->activity👷ListNotificationsForAuthenticatedUserListing()->call($since, $before, $all, $participating, $page, $perPage);
@@ -54,6 +54,7 @@ final class Activity
         return $this->operators->activity👷GetThread()->call($threadId);
     }
 
+    /** @return */
     public function markThreadAsDone(int $threadId): WithoutBody
     {
         return $this->operators->activity👷MarkThreadAsDone()->call($threadId);
@@ -83,25 +84,25 @@ final class Activity
         return $this->operators->activity👷DeleteThreadSubscription()->call($threadId);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return iterable<int,Schema\Event> */
     public function listRepoEvents(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListRepoEvents()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return iterable<int,Schema\Event> */
     public function listRepoEventsListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListRepoEventsListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Thread> */
+    /** @return iterable<int,Schema\Thread> */
     public function listRepoNotificationsForAuthenticatedUser(string $owner, string $repo, string $since, string $before, bool $all, bool $participating, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListRepoNotificationsForAuthenticatedUser()->call($owner, $repo, $since, $before, $all, $participating, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Thread> */
+    /** @return iterable<int,Schema\Thread> */
     public function listRepoNotificationsForAuthenticatedUserListing(string $owner, string $repo, string $since, string $before, bool $all, bool $participating, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListRepoNotificationsForAuthenticatedUserListing()->call($owner, $repo, $since, $before, $all, $participating, $perPage, $page);
@@ -113,19 +114,18 @@ final class Activity
         return $this->operators->activity👷MarkRepoNotificationsAsRead()->call($owner, $repo, $params);
     }
 
-    /** @return */
     public function listStargazersForRepo(string $owner, string $repo, int $perPage, int $page): SimpleUser|Stargazer
     {
         return $this->operators->activity👷ListStargazersForRepo()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listWatchersForRepo(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListWatchersForRepo()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listWatchersForRepoListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListWatchersForRepoListing()->call($owner, $repo, $perPage, $page);
@@ -149,13 +149,13 @@ final class Activity
         return $this->operators->activity👷DeleteRepoSubscription()->call($owner, $repo);
     }
 
-    /** @return Observable<Schema\Repository>|WithoutBody */
+    /** @return iterable<int,Schema\Repository>|WithoutBody */
     public function listReposStarredByAuthenticatedUser(string $sort, string $direction, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->activity👷ListReposStarredByAuthenticatedUser()->call($sort, $direction, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Repository>|WithoutBody */
+    /** @return iterable<int,Schema\Repository>|WithoutBody */
     public function listReposStarredByAuthenticatedUserListing(string $sort, string $direction, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->activity👷ListReposStarredByAuthenticatedUserListing()->call($sort, $direction, $perPage, $page);
@@ -179,55 +179,54 @@ final class Activity
         return $this->operators->activity👷UnstarRepoForAuthenticatedUser()->call($owner, $repo);
     }
 
-    /** @return Observable<Schema\MinimalRepository>|WithoutBody */
+    /** @return iterable<int,Schema\MinimalRepository>|WithoutBody */
     public function listWatchedReposForAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->activity👷ListWatchedReposForAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return Observable<Schema\MinimalRepository>|WithoutBody */
+    /** @return iterable<int,Schema\MinimalRepository>|WithoutBody */
     public function listWatchedReposForAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->activity👷ListWatchedReposForAuthenticatedUserListing()->call($perPage, $page);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return iterable<int,Schema\Event> */
     public function listEventsForAuthenticatedUser(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListEventsForAuthenticatedUser()->call($username, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return iterable<int,Schema\Event> */
     public function listEventsForAuthenticatedUserListing(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListEventsForAuthenticatedUserListing()->call($username, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return iterable<int,Schema\Event> */
     public function listOrgEventsForAuthenticatedUser(string $username, string $org, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListOrgEventsForAuthenticatedUser()->call($username, $org, $perPage, $page);
     }
 
-    /** @return Observable<Schema\Event> */
+    /** @return iterable<int,Schema\Event> */
     public function listOrgEventsForAuthenticatedUserListing(string $username, string $org, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListOrgEventsForAuthenticatedUserListing()->call($username, $org, $perPage, $page);
     }
 
-    /** @return */
     public function listReposStarredByUser(string $username, string $sort, string $direction, int $perPage, int $page): StarredRepository|Repository
     {
         return $this->operators->activity👷ListReposStarredByUser()->call($username, $sort, $direction, $perPage, $page);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<int,Schema\MinimalRepository> */
     public function listReposWatchedByUser(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListReposWatchedByUser()->call($username, $perPage, $page);
     }
 
-    /** @return Observable<Schema\MinimalRepository> */
+    /** @return iterable<int,Schema\MinimalRepository> */
     public function listReposWatchedByUserListing(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->activity👷ListReposWatchedByUserListing()->call($username, $perPage, $page);

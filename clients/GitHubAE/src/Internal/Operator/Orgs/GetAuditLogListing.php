@@ -24,7 +24,7 @@ final readonly class GetAuditLogListing
     {
     }
 
-    /** @return Observable<Schema\AuditLogEvent> */
+    /** @return iterable<int,Schema\AuditLogEvent> */
     public function call(string $org, string $phrase, string $after, string $before, string $order, int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Orgs\GetAuditLogListing($this->responseSchemaValidator, $this->hydrator, $org, $phrase, $after, $before, $order, $perPage, $page);

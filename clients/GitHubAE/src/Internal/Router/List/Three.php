@@ -15,7 +15,7 @@ final class Three
     {
     }
 
-    /** @return Observable<Schema\GlobalHook>|Observable<Schema\PublicKeyFull>|Observable<Schema\PreReceiveEnvironment>|Observable<Schema\Authorization>|Observable<Schema\IntegrationInstallationRequest>|WithoutBody|Observable<Schema\Installation>|Observable<Schema\BaseGist>|Observable<Schema\SimpleUser>|Observable<Schema\GpgKey>|Observable<Schema\Issue>|Observable<Schema\Key>|Observable<Schema\Migration>|Observable<Schema\OrganizationSimple>|Observable<Schema\Repository>|Observable<Schema\RepositoryInvitation>|Observable<Schema\MinimalRepository>|Observable<Schema\TeamFull> */
+    /** @return iterable<int,Schema\GlobalHook>|iterable<int,Schema\PublicKeyFull>|iterable<int,Schema\PreReceiveEnvironment>|iterable<int,Schema\Authorization>|iterable<int,Schema\IntegrationInstallationRequest>|WithoutBody|iterable<int,Schema\Installation>|iterable<int,Schema\BaseGist>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\GpgKey>|iterable<int,Schema\Issue>|iterable<int,Schema\Key>|iterable<int,Schema\Migration>|iterable<int,Schema\OrganizationSimple>|iterable<int,Schema\Repository>|iterable<int,Schema\RepositoryInvitation>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\TeamFull> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {

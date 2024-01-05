@@ -25,7 +25,7 @@ final class Users
     {
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
     public function listFollowersForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -46,7 +46,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
     public function listFollowedByAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -67,7 +67,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GpgKey>|WithoutBody */
+    /** @return iterable<int,Schema\GpgKey>|WithoutBody */
     public function listGpgKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -88,7 +88,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\Key>|WithoutBody */
+    /** @return iterable<int,Schema\Key>|WithoutBody */
     public function listPublicSshKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -169,7 +169,7 @@ final class Users
         return $operator->call($arguments['key_id']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listFollowersForUser(array $params): iterable
     {
         $arguments = [];
@@ -196,7 +196,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\SimpleUser> */
+    /** @return iterable<int,Schema\SimpleUser> */
     public function listFollowingForUser(array $params): iterable
     {
         $arguments = [];
@@ -223,7 +223,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\GpgKey> */
+    /** @return iterable<int,Schema\GpgKey> */
     public function listGpgKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -277,7 +277,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
     }
 
-    /** @return Observable<Schema\KeySimple> */
+    /** @return iterable<int,Schema\KeySimple> */
     public function listPublicKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -312,7 +312,7 @@ final class Users
         return $operator->call();
     }
 
-    /** @return Observable<Schema\SimpleUser>|WithoutBody */
+    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
     public function list(array $params): iterable|WithoutBody
     {
         $arguments = [];
