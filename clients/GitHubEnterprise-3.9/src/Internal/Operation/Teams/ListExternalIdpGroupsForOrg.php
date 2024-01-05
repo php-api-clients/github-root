@@ -27,7 +27,7 @@ final class ListExternalIdpGroupsForOrg
     private int $page;
     /**Limits the list to groups containing the text in the group name **/
     private string $displayName;
-    /**The number of results per page (max 100). **/
+    /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\ExternalGroups $hydrator, string $org, int $page, string $displayName, int $perPage = 30)

@@ -28,9 +28,9 @@ final class ListGrantsListing
     public const OPERATION_MATCH = 'LIST /applications/grants';
     /**The client ID of your GitHub app. **/
     private string $clientId;
-    /**The number of results per page (max 100). **/
+    /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
-    /**Page number of the results to fetch. **/
+    /**The page number of the results to fetch. For more information, see "[Using pagination in the REST API](https://docs.github.com/enterprise-server@3.9/rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $page;
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Applications\Grants $hydrator, string $clientId, int $perPage = 30, int $page = 1)

@@ -54,7 +54,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return Observable<Schema\GlobalHook> */
+    /** @return iterable<int,Schema\GlobalHook> */
     public function listGlobalWebhooks(array $params): iterable
     {
         $arguments = [];
@@ -75,7 +75,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return Observable<Schema\PublicKeyFull> */
+    /** @return iterable<int,Schema\PublicKeyFull> */
     public function listPublicKeys(array $params): iterable
     {
         $arguments = [];
@@ -114,7 +114,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['since'], $arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\PreReceiveEnvironment> */
+    /** @return iterable<int,Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironments(array $params): iterable
     {
         $arguments = [];
@@ -147,7 +147,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\PreReceiveHook> */
+    /** @return iterable<int,Schema\PreReceiveHook> */
     public function listPreReceiveHooks(array $params): iterable
     {
         $arguments = [];
@@ -180,7 +180,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['per_page'], $arguments['page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\Authorization> */
+    /** @return iterable<int,Schema\Authorization> */
     public function listPersonalAccessTokens(array $params): iterable
     {
         $arguments = [];
@@ -350,7 +350,7 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    /** @return Observable<Schema\AuditLogEvent> */
+    /** @return iterable<int,Schema\AuditLogEvent> */
     public function getAuditLog(array $params): iterable
     {
         $arguments = [];
@@ -428,7 +428,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['uuid'], $arguments['cluster_roles']);
     }
 
-    /** @return Observable<Schema\OrgPreReceiveHook> */
+    /** @return iterable<int,Schema\OrgPreReceiveHook> */
     public function listPreReceiveHooksForOrg(array $params): iterable
     {
         $arguments = [];
@@ -566,7 +566,6 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
-    /** @return */
     public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): Ok
     {
         $arguments = [];
@@ -707,7 +706,6 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
     public function listSelfHostedRunnerGroupsForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -740,7 +738,6 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['visible_to_organization'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -830,7 +827,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return Observable<Schema\RepositoryPreReceiveHook> */
+    /** @return iterable<int,Schema\RepositoryPreReceiveHook> */
     public function listPreReceiveHooksForRepo(array $params): iterable
     {
         $arguments = [];
@@ -919,7 +916,6 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
-    /** @return */
     public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json
     {
         $arguments = [];
@@ -952,7 +948,6 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
