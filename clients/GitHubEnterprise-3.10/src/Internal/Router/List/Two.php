@@ -15,7 +15,7 @@ final class Two
     {
     }
 
-    /** @return Observable<Schema\Authorization>|WithoutBody|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Observable<Schema\Thread> */
+    /** @return iterable<int,Schema\Authorization>|WithoutBody|iterable<int,Schema\Event>|iterable<int,Schema\BaseGist>|iterable<int,Schema\Issue>|iterable<int,Schema\LicenseSimple>|iterable<int,Schema\Thread> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {

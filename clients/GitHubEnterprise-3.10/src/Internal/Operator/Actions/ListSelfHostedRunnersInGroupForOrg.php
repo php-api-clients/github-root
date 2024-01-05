@@ -24,7 +24,6 @@ final readonly class ListSelfHostedRunnersInGroupForOrg
     {
     }
 
-    /** @return */
     public function call(string $org, int $runnerGroupId, int $perPage = 30, int $page = 1): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\ListSelfHostedRunnersInGroupForOrg($this->responseSchemaValidator, $this->hydrator, $org, $runnerGroupId, $perPage, $page);
