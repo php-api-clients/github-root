@@ -24,7 +24,6 @@ final readonly class ListSelfHostedRunnerGroupsForOrg
     {
     }
 
-    /** @return */
     public function call(string $org, int $perPage = 30, int $page = 1): Ok
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Actions\ListSelfHostedRunnerGroupsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page);
