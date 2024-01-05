@@ -22,7 +22,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return Observable<Schema\ApplicationGrant>|WithoutBody */
+    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
     public function listGrants(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -79,7 +79,7 @@ final class OauthAuthorizations
         return $operator->call($arguments['grant_id']);
     }
 
-    /** @return Observable<Schema\Authorization>|WithoutBody */
+    /** @return iterable<int,Schema\Authorization>|WithoutBody */
     public function listAuthorizations(array $params): iterable|WithoutBody
     {
         $arguments = [];
