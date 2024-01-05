@@ -24,7 +24,6 @@ final readonly class ListExternalIdpGroupsForOrg
     {
     }
 
-    /** @return */
     public function call(string $org, int $page, string $displayName, int $perPage = 30): ExternalGroups
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ListExternalIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $page, $displayName, $perPage);
