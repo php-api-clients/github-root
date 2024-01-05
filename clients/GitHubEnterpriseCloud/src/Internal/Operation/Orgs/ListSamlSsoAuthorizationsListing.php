@@ -30,7 +30,7 @@ final class ListSamlSsoAuthorizationsListing
     private int $page;
     /**Limits the list of credentials authorizations for an organization to a specific login **/
     private string $login;
-    /**The number of results per page (max 100). **/
+    /**The number of results per page (max 100). For more information, see "[Using pagination in the REST API](https://docs.github.com/enterprise-cloud@latest//rest/using-the-rest-api/using-pagination-in-the-rest-api)." **/
     private int $perPage;
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Orgs\Org\CredentialAuthorizations $hydrator, string $org, int $page, string $login, int $perPage = 30)

@@ -37,7 +37,6 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return */
     public function getGithubAdvancedSecurityBillingGhe(array $params): AdvancedSecurityActiveCommitters
     {
         $arguments = [];
@@ -109,7 +108,6 @@ final class Billing
         return $operator->call($arguments['org']);
     }
 
-    /** @return */
     public function getGithubAdvancedSecurityBillingOrg(array $params): AdvancedSecurityActiveCommitters
     {
         $arguments = [];
