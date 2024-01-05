@@ -21,7 +21,7 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return Observable<Schema\ApplicationGrant>|WithoutBody */
+    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
     public function listGrantsListing(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -54,7 +54,7 @@ final class OauthAuthorizations
         } while (count($items) > 0);
     }
 
-    /** @return Observable<Schema\Authorization>|WithoutBody */
+    /** @return iterable<int,Schema\Authorization>|WithoutBody */
     public function listAuthorizationsListing(array $params): iterable|WithoutBody
     {
         $arguments = [];

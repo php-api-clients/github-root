@@ -24,7 +24,7 @@ final readonly class ListPreReceiveEnvironmentsListing
     {
     }
 
-    /** @return Observable<Schema\PreReceiveEnvironment> */
+    /** @return iterable<int,Schema\PreReceiveEnvironment> */
     public function call(int $perPage = 30, int $page = 1, string $direction = 'desc', string $sort = 'created'): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\ListPreReceiveEnvironmentsListing($this->responseSchemaValidator, $this->hydrator, $perPage, $page, $direction, $sort);
