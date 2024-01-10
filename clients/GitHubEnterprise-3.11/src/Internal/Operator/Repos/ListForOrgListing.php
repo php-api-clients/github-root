@@ -24,7 +24,7 @@ final readonly class ListForOrgListing
     {
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function call(string $org, string $type, string $direction, string $sort = 'created', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\ListForOrgListing($this->responseSchemaValidator, $this->hydrator, $org, $type, $direction, $sort, $perPage, $page);
