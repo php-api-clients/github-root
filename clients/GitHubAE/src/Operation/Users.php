@@ -31,25 +31,25 @@ final class Users
         return $this->operators->users👷UpdateAuthenticated()->call($params);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function listFollowersForAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListFollowersForAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function listFollowersForAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListFollowersForAuthenticatedUserListing()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function listFollowedByAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListFollowedByAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function listFollowedByAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListFollowedByAuthenticatedUserListing()->call($perPage, $page);
@@ -73,13 +73,13 @@ final class Users
         return $this->operators->users👷Unfollow()->call($username);
     }
 
-    /** @return iterable<int,Schema\GpgKey>|WithoutBody */
+    /** @return Observable<Schema\GpgKey>|WithoutBody */
     public function listGpgKeysForAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListGpgKeysForAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\GpgKey>|WithoutBody */
+    /** @return Observable<Schema\GpgKey>|WithoutBody */
     public function listGpgKeysForAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListGpgKeysForAuthenticatedUserListing()->call($perPage, $page);
@@ -103,13 +103,13 @@ final class Users
         return $this->operators->users👷DeleteGpgKeyForAuthenticatedUser()->call($gpgKeyId);
     }
 
-    /** @return iterable<int,Schema\Key>|WithoutBody */
+    /** @return Observable<Schema\Key>|WithoutBody */
     public function listPublicSshKeysForAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListPublicSshKeysForAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Key>|WithoutBody */
+    /** @return Observable<Schema\Key>|WithoutBody */
     public function listPublicSshKeysForAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->users👷ListPublicSshKeysForAuthenticatedUserListing()->call($perPage, $page);
@@ -133,7 +133,7 @@ final class Users
         return $this->operators->users👷DeletePublicSshKeyForAuthenticatedUser()->call($keyId);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function list(int $since, int $perPage): iterable|WithoutBody
     {
         return $this->operators->users👷List_()->call($since, $perPage);
@@ -145,25 +145,25 @@ final class Users
         return $this->operators->users👷GetByUsername()->call($username);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowersForUser(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListFollowersForUser()->call($username, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowersForUserListing(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListFollowersForUserListing()->call($username, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowingForUser(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListFollowingForUser()->call($username, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowingForUserListing(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListFollowingForUserListing()->call($username, $perPage, $page);
@@ -175,13 +175,13 @@ final class Users
         return $this->operators->users👷CheckFollowingForUser()->call($username, $targetUser);
     }
 
-    /** @return iterable<int,Schema\GpgKey> */
+    /** @return Observable<Schema\GpgKey> */
     public function listGpgKeysForUser(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListGpgKeysForUser()->call($username, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\GpgKey> */
+    /** @return Observable<Schema\GpgKey> */
     public function listGpgKeysForUserListing(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListGpgKeysForUserListing()->call($username, $perPage, $page);
@@ -193,13 +193,13 @@ final class Users
         return $this->operators->users👷GetContextForUser()->call($username, $subjectType, $subjectId);
     }
 
-    /** @return iterable<int,Schema\KeySimple> */
+    /** @return Observable<Schema\KeySimple> */
     public function listPublicKeysForUser(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListPublicKeysForUser()->call($username, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\KeySimple> */
+    /** @return Observable<Schema\KeySimple> */
     public function listPublicKeysForUserListing(string $username, int $perPage, int $page): iterable
     {
         return $this->operators->users👷ListPublicKeysForUserListing()->call($username, $perPage, $page);

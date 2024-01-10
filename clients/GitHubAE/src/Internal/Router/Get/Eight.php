@@ -26,7 +26,7 @@ final class Eight
     {
     }
 
-    /** @return iterable<int,Schema\TeamDiscussionComment>|iterable<int,Schema\Reaction>||Schema\Operations\Actions\ListWorkflowRunArtifacts\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|iterable<int,Schema\CodeScanningAlertInstance>|iterable<int,Schema\SecretScanningLocation>|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    /** @return Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>||Observable<Schema\CodeScanningAlertInstance>|Observable<Schema\SecretScanningLocation>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): iterable|TeamRepository|WithoutBody|Json|\ApiClients\Client\GitHubAE\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|WorkflowRunUsage|\ApiClients\Client\GitHubAE\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|WorkflowUsage|ProtectedBranchAdminEnforced|ProtectedBranchPullRequestReview|StatusCheckPolicy|BranchRestrictionPolicy|DeploymentStatus|DeploymentBranchPolicy|HookDelivery|PullRequestReview
     {
         if ($pathChunks[0] === '') {
