@@ -63,13 +63,13 @@ final class Repos
     {
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForOrg(string $org, string $type, string $direction, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListForOrg()->call($org, $type, $direction, $sort, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForOrgListing(string $org, string $type, string $direction, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListForOrgListing()->call($org, $type, $direction, $sort, $perPage, $page);
@@ -81,13 +81,13 @@ final class Repos
         return $this->operators->repos👷CreateInOrg()->call($org, $params);
     }
 
-    /** @return iterable<int,Schema\RepositoryRuleset> */
+    /** @return Observable<Schema\RepositoryRuleset> */
     public function getOrgRulesets(string $org, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷GetOrgRulesets()->call($org, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\RepositoryRuleset> */
+    /** @return Observable<Schema\RepositoryRuleset> */
     public function getOrgRulesetsListing(string $org, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷GetOrgRulesetsListing()->call($org, $perPage, $page);
@@ -135,13 +135,13 @@ final class Repos
         return $this->operators->repos👷Update()->call($owner, $repo, $params);
     }
 
-    /** @return iterable<int,Schema\Activity> */
+    /** @return Observable<Schema\Activity> */
     public function listActivities(string $owner, string $repo, string $before, string $after, string $ref, string $actor, string $timePeriod, string $activityType, string $direction, int $perPage): iterable
     {
         return $this->operators->repos👷ListActivities()->call($owner, $repo, $before, $after, $ref, $actor, $timePeriod, $activityType, $direction, $perPage);
     }
 
-    /** @return iterable<int,Schema\Autolink> */
+    /** @return Observable<Schema\Autolink> */
     public function listAutolinks(string $owner, string $repo, int $page): iterable
     {
         return $this->operators->repos👷ListAutolinks()->call($owner, $repo, $page);
@@ -171,13 +171,13 @@ final class Repos
         return $this->operators->repos👷CheckAutomatedSecurityFixes()->call($owner, $repo);
     }
 
-    /** @return iterable<int,Schema\ShortBranch> */
+    /** @return Observable<Schema\ShortBranch> */
     public function listBranches(string $owner, string $repo, bool $protected, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListBranches()->call($owner, $repo, $protected, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\ShortBranch> */
+    /** @return Observable<Schema\ShortBranch> */
     public function listBranchesListing(string $owner, string $repo, bool $protected, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListBranchesListing()->call($owner, $repo, $protected, $perPage, $page);
@@ -399,13 +399,13 @@ final class Repos
         return $this->operators->repos👷CodeownersErrors()->call($owner, $repo, $ref);
     }
 
-    /** @return iterable<int,Schema\Collaborator> */
+    /** @return Observable<Schema\Collaborator> */
     public function listCollaborators(string $owner, string $repo, string $permission, string $affiliation, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCollaborators()->call($owner, $repo, $permission, $affiliation, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Collaborator> */
+    /** @return Observable<Schema\Collaborator> */
     public function listCollaboratorsListing(string $owner, string $repo, string $permission, string $affiliation, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCollaboratorsListing()->call($owner, $repo, $permission, $affiliation, $perPage, $page);
@@ -435,13 +435,13 @@ final class Repos
         return $this->operators->repos👷GetCollaboratorPermissionLevel()->call($owner, $repo, $username);
     }
 
-    /** @return iterable<int,Schema\CommitComment> */
+    /** @return Observable<Schema\CommitComment> */
     public function listCommitCommentsForRepo(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCommitCommentsForRepo()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\CommitComment> */
+    /** @return Observable<Schema\CommitComment> */
     public function listCommitCommentsForRepoListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCommitCommentsForRepoListing()->call($owner, $repo, $perPage, $page);
@@ -465,13 +465,13 @@ final class Repos
         return $this->operators->repos👷UpdateCommitComment()->call($owner, $repo, $commentId, $params);
     }
 
-    /** @return iterable<int,Schema\Commit> */
+    /** @return Observable<Schema\Commit> */
     public function listCommits(string $owner, string $repo, string $sha, string $path, string $author, string $committer, string $since, string $until, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCommits()->call($owner, $repo, $sha, $path, $author, $committer, $since, $until, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Commit> */
+    /** @return Observable<Schema\Commit> */
     public function listCommitsListing(string $owner, string $repo, string $sha, string $path, string $author, string $committer, string $since, string $until, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCommitsListing()->call($owner, $repo, $sha, $path, $author, $committer, $since, $until, $perPage, $page);
@@ -483,13 +483,13 @@ final class Repos
         return $this->operators->repos👷ListBranchesForHeadCommit()->call($owner, $repo, $commitSha);
     }
 
-    /** @return iterable<int,Schema\CommitComment> */
+    /** @return Observable<Schema\CommitComment> */
     public function listCommentsForCommit(string $owner, string $repo, string $commitSha, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCommentsForCommit()->call($owner, $repo, $commitSha, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\CommitComment> */
+    /** @return Observable<Schema\CommitComment> */
     public function listCommentsForCommitListing(string $owner, string $repo, string $commitSha, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCommentsForCommitListing()->call($owner, $repo, $commitSha, $perPage, $page);
@@ -501,40 +501,43 @@ final class Repos
         return $this->operators->repos👷CreateCommitComment()->call($owner, $repo, $commitSha, $params);
     }
 
-    /** @return iterable<int,Schema\PullRequestSimple> */
+    /** @return Observable<Schema\PullRequestSimple> */
     public function listPullRequestsAssociatedWithCommit(string $owner, string $repo, string $commitSha, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListPullRequestsAssociatedWithCommit()->call($owner, $repo, $commitSha, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\PullRequestSimple> */
+    /** @return Observable<Schema\PullRequestSimple> */
     public function listPullRequestsAssociatedWithCommitListing(string $owner, string $repo, string $commitSha, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListPullRequestsAssociatedWithCommitListing()->call($owner, $repo, $commitSha, $perPage, $page);
     }
 
+    /** @return */
     public function getCommit(string $owner, string $repo, string $ref, int $page, int $perPage): Commit
     {
         return $this->operators->repos👷GetCommit()->call($owner, $repo, $ref, $page, $perPage);
     }
 
+    /** @return */
     public function getCombinedStatusForRef(string $owner, string $repo, string $ref, int $perPage, int $page): CombinedCommitStatus
     {
         return $this->operators->repos👷GetCombinedStatusForRef()->call($owner, $repo, $ref, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Status>|Schema\BasicError */
+    /** @return Observable<Schema\Status>|Schema\BasicError */
     public function listCommitStatusesForRef(string $owner, string $repo, string $ref, int $perPage, int $page): iterable|BasicError
     {
         return $this->operators->repos👷ListCommitStatusesForRef()->call($owner, $repo, $ref, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Status>|Schema\BasicError */
+    /** @return Observable<Schema\Status>|Schema\BasicError */
     public function listCommitStatusesForRefListing(string $owner, string $repo, string $ref, int $perPage, int $page): iterable|BasicError
     {
         return $this->operators->repos👷ListCommitStatusesForRefListing()->call($owner, $repo, $ref, $perPage, $page);
     }
 
+    /** @return */
     public function compareCommits(string $owner, string $repo, string $basehead, int $page, int $perPage): CommitComparison
     {
         return $this->operators->repos👷CompareCommits()->call($owner, $repo, $basehead, $page, $perPage);
@@ -558,25 +561,25 @@ final class Repos
         return $this->operators->repos👷DeleteFile()->call($owner, $repo, $path, $params);
     }
 
-    /** @return iterable<int,Schema\Contributor>|WithoutBody */
+    /** @return Observable<Schema\Contributor>|WithoutBody */
     public function listContributors(string $owner, string $repo, string $anon, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->repos👷ListContributors()->call($owner, $repo, $anon, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Contributor>|WithoutBody */
+    /** @return Observable<Schema\Contributor>|WithoutBody */
     public function listContributorsListing(string $owner, string $repo, string $anon, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->repos👷ListContributorsListing()->call($owner, $repo, $anon, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Deployment> */
+    /** @return Observable<Schema\Deployment> */
     public function listDeployments(string $owner, string $repo, string $sha, string $ref, string $task, string|null $environment, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListDeployments()->call($owner, $repo, $sha, $ref, $task, $environment, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Deployment> */
+    /** @return Observable<Schema\Deployment> */
     public function listDeploymentsListing(string $owner, string $repo, string $sha, string $ref, string $task, string|null $environment, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListDeploymentsListing()->call($owner, $repo, $sha, $ref, $task, $environment, $perPage, $page);
@@ -600,13 +603,13 @@ final class Repos
         return $this->operators->repos👷DeleteDeployment()->call($owner, $repo, $deploymentId);
     }
 
-    /** @return iterable<int,Schema\DeploymentStatus> */
+    /** @return Observable<Schema\DeploymentStatus> */
     public function listDeploymentStatuses(string $owner, string $repo, int $deploymentId, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListDeploymentStatuses()->call($owner, $repo, $deploymentId, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\DeploymentStatus> */
+    /** @return Observable<Schema\DeploymentStatus> */
     public function listDeploymentStatusesListing(string $owner, string $repo, int $deploymentId, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListDeploymentStatusesListing()->call($owner, $repo, $deploymentId, $perPage, $page);
@@ -630,6 +633,7 @@ final class Repos
         return $this->operators->repos👷CreateDispatchEvent()->call($owner, $repo, $params);
     }
 
+    /** @return */
     public function getAllEnvironments(string $owner, string $repo, int $perPage, int $page): Ok
     {
         return $this->operators->repos👷GetAllEnvironments()->call($owner, $repo, $perPage, $page);
@@ -653,6 +657,7 @@ final class Repos
         return $this->operators->repos👷DeleteAnEnvironment()->call($owner, $repo, $environmentName);
     }
 
+    /** @return */
     public function listDeploymentBranchPolicies(string $owner, string $repo, string $environmentName, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson\Ok
     {
         return $this->operators->repos👷ListDeploymentBranchPolicies()->call($owner, $repo, $environmentName, $perPage, $page);
@@ -694,6 +699,7 @@ final class Repos
         return $this->operators->repos👷CreateDeploymentProtectionRule()->call($environmentName, $repo, $owner, $params);
     }
 
+    /** @return */
     public function listCustomDeploymentRuleIntegrations(string $environmentName, string $repo, string $owner, int $page, int $perPage): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\ListCustomDeploymentRuleIntegrations\Response\ApplicationJson\Ok
     {
         return $this->operators->repos👷ListCustomDeploymentRuleIntegrations()->call($environmentName, $repo, $owner, $page, $perPage);
@@ -711,13 +717,13 @@ final class Repos
         return $this->operators->repos👷DisableDeploymentProtectionRule()->call($environmentName, $repo, $owner, $protectionRuleId);
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForks(string $owner, string $repo, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListForks()->call($owner, $repo, $sort, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForksListing(string $owner, string $repo, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListForksListing()->call($owner, $repo, $sort, $perPage, $page);
@@ -729,13 +735,13 @@ final class Repos
         return $this->operators->repos👷CreateFork()->call($owner, $repo, $params);
     }
 
-    /** @return iterable<int,Schema\Hook> */
+    /** @return Observable<Schema\Hook> */
     public function listWebhooks(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListWebhooks()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Hook> */
+    /** @return Observable<Schema\Hook> */
     public function listWebhooksListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListWebhooksListing()->call($owner, $repo, $perPage, $page);
@@ -777,7 +783,7 @@ final class Repos
         return $this->operators->repos👷UpdateWebhookConfigForRepo()->call($owner, $repo, $hookId, $params);
     }
 
-    /** @return iterable<int,Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(string $owner, string $repo, int $hookId, string $cursor, bool $redelivery, int $perPage): iterable
     {
         return $this->operators->repos👷ListWebhookDeliveries()->call($owner, $repo, $hookId, $cursor, $redelivery, $perPage);
@@ -807,13 +813,13 @@ final class Repos
         return $this->operators->repos👷TestPushWebhook()->call($owner, $repo, $hookId);
     }
 
-    /** @return iterable<int,Schema\RepositoryInvitation> */
+    /** @return Observable<Schema\RepositoryInvitation> */
     public function listInvitations(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListInvitations()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\RepositoryInvitation> */
+    /** @return Observable<Schema\RepositoryInvitation> */
     public function listInvitationsListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListInvitationsListing()->call($owner, $repo, $perPage, $page);
@@ -831,13 +837,13 @@ final class Repos
         return $this->operators->repos👷UpdateInvitation()->call($owner, $repo, $invitationId, $params);
     }
 
-    /** @return iterable<int,Schema\DeployKey> */
+    /** @return Observable<Schema\DeployKey> */
     public function listDeployKeys(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListDeployKeys()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\DeployKey> */
+    /** @return Observable<Schema\DeployKey> */
     public function listDeployKeysListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListDeployKeysListing()->call($owner, $repo, $perPage, $page);
@@ -915,13 +921,13 @@ final class Repos
         return $this->operators->repos👷DeletePagesSite()->call($owner, $repo);
     }
 
-    /** @return iterable<int,Schema\PageBuild> */
+    /** @return Observable<Schema\PageBuild> */
     public function listPagesBuilds(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListPagesBuilds()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\PageBuild> */
+    /** @return Observable<Schema\PageBuild> */
     public function listPagesBuildsListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListPagesBuildsListing()->call($owner, $repo, $perPage, $page);
@@ -963,13 +969,13 @@ final class Repos
         return $this->operators->repos👷GetReadmeInDirectory()->call($owner, $repo, $dir, $ref);
     }
 
-    /** @return iterable<int,Schema\Release> */
+    /** @return Observable<Schema\Release> */
     public function listReleases(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListReleases()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Release> */
+    /** @return Observable<Schema\Release> */
     public function listReleasesListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListReleasesListing()->call($owner, $repo, $perPage, $page);
@@ -1035,13 +1041,13 @@ final class Repos
         return $this->operators->repos👷UpdateRelease()->call($owner, $repo, $releaseId, $params);
     }
 
-    /** @return iterable<int,Schema\ReleaseAsset> */
+    /** @return Observable<Schema\ReleaseAsset> */
     public function listReleaseAssets(string $owner, string $repo, int $releaseId, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListReleaseAssets()->call($owner, $repo, $releaseId, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\ReleaseAsset> */
+    /** @return Observable<Schema\ReleaseAsset> */
     public function listReleaseAssetsListing(string $owner, string $repo, int $releaseId, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListReleaseAssetsListing()->call($owner, $repo, $releaseId, $perPage, $page);
@@ -1053,37 +1059,37 @@ final class Repos
         return $this->operators->repos👷UploadReleaseAsset()->call($owner, $repo, $releaseId, $name, $label, $params);
     }
 
-    /** @return iterable<int,Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
+    /** @return Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
     public function listCacheInfo(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCacheInfo()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
+    /** @return Observable<Schema\Operations\Repos\ListCacheInfo\Response\ApplicationJson\Ok> */
     public function listCacheInfoListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListCacheInfoListing()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\RepositoryRuleCreation|Schema\RepositoryRuleUpdate|Schema\RepositoryRuleDeletion|Schema\RepositoryRuleRequiredLinearHistory|Schema\RepositoryRuleRequiredDeployments|Schema\RepositoryRuleRequiredSignatures|Schema\RepositoryRulePullRequest|Schema\RepositoryRuleRequiredStatusChecks|Schema\RepositoryRuleNonFastForward|Schema\RepositoryRuleCommitMessagePattern|Schema\RepositoryRuleCommitAuthorEmailPattern|Schema\RepositoryRuleCommitterEmailPattern|Schema\RepositoryRuleBranchNamePattern|Schema\RepositoryRuleTagNamePattern|Schema\RepositoryRuleWorkflows> */
+    /** @return Observable<Schema\RepositoryRuleCreation|Schema\RepositoryRuleUpdate|Schema\RepositoryRuleDeletion|Schema\RepositoryRuleRequiredLinearHistory|Schema\RepositoryRuleRequiredDeployments|Schema\RepositoryRuleRequiredSignatures|Schema\RepositoryRulePullRequest|Schema\RepositoryRuleRequiredStatusChecks|Schema\RepositoryRuleNonFastForward|Schema\RepositoryRuleCommitMessagePattern|Schema\RepositoryRuleCommitAuthorEmailPattern|Schema\RepositoryRuleCommitterEmailPattern|Schema\RepositoryRuleBranchNamePattern|Schema\RepositoryRuleTagNamePattern|Schema\RepositoryRuleWorkflows> */
     public function getBranchRules(string $owner, string $repo, string $branch, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷GetBranchRules()->call($owner, $repo, $branch, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\RepositoryRuleCreation|Schema\RepositoryRuleUpdate|Schema\RepositoryRuleDeletion|Schema\RepositoryRuleRequiredLinearHistory|Schema\RepositoryRuleRequiredDeployments|Schema\RepositoryRuleRequiredSignatures|Schema\RepositoryRulePullRequest|Schema\RepositoryRuleRequiredStatusChecks|Schema\RepositoryRuleNonFastForward|Schema\RepositoryRuleCommitMessagePattern|Schema\RepositoryRuleCommitAuthorEmailPattern|Schema\RepositoryRuleCommitterEmailPattern|Schema\RepositoryRuleBranchNamePattern|Schema\RepositoryRuleTagNamePattern|Schema\RepositoryRuleWorkflows> */
+    /** @return Observable<Schema\RepositoryRuleCreation|Schema\RepositoryRuleUpdate|Schema\RepositoryRuleDeletion|Schema\RepositoryRuleRequiredLinearHistory|Schema\RepositoryRuleRequiredDeployments|Schema\RepositoryRuleRequiredSignatures|Schema\RepositoryRulePullRequest|Schema\RepositoryRuleRequiredStatusChecks|Schema\RepositoryRuleNonFastForward|Schema\RepositoryRuleCommitMessagePattern|Schema\RepositoryRuleCommitAuthorEmailPattern|Schema\RepositoryRuleCommitterEmailPattern|Schema\RepositoryRuleBranchNamePattern|Schema\RepositoryRuleTagNamePattern|Schema\RepositoryRuleWorkflows> */
     public function getBranchRulesListing(string $owner, string $repo, string $branch, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷GetBranchRulesListing()->call($owner, $repo, $branch, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\RepositoryRuleset> */
+    /** @return Observable<Schema\RepositoryRuleset> */
     public function getRepoRulesets(string $owner, string $repo, int $perPage, int $page, bool $includesParents): iterable
     {
         return $this->operators->repos👷GetRepoRulesets()->call($owner, $repo, $perPage, $page, $includesParents);
     }
 
-    /** @return iterable<int,Schema\RepositoryRuleset> */
+    /** @return Observable<Schema\RepositoryRuleset> */
     public function getRepoRulesetsListing(string $owner, string $repo, int $perPage, int $page, bool $includesParents): iterable
     {
         return $this->operators->repos👷GetRepoRulesetsListing()->call($owner, $repo, $perPage, $page, $includesParents);
@@ -1149,13 +1155,13 @@ final class Repos
         return $this->operators->repos👷CreateCommitStatus()->call($owner, $repo, $sha, $params);
     }
 
-    /** @return iterable<int,Schema\Tag> */
+    /** @return Observable<Schema\Tag> */
     public function listTags(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListTags()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Tag> */
+    /** @return Observable<Schema\Tag> */
     public function listTagsListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListTagsListing()->call($owner, $repo, $perPage, $page);
@@ -1191,18 +1197,19 @@ final class Repos
         return $this->operators->repos👷DownloadTarballArchiveStreaming()->call($owner, $repo, $ref);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listTeams(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListTeams()->call($owner, $repo, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listTeamsListing(string $owner, string $repo, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListTeamsListing()->call($owner, $repo, $perPage, $page);
     }
 
+    /** @return */
     public function getAllTopics(string $owner, string $repo, int $page, int $perPage): Topic
     {
         return $this->operators->repos👷GetAllTopics()->call($owner, $repo, $page, $perPage);
@@ -1262,13 +1269,13 @@ final class Repos
         return $this->operators->repos👷ListPublic()->call($since, $visibility);
     }
 
-    /** @return iterable<int,Schema\Repository>|WithoutBody */
+    /** @return Observable<Schema\Repository>|WithoutBody */
     public function listForAuthenticatedUser(string $direction, string $since, string $before, string $visibility, string $affiliation, string $type, string $sort, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->repos👷ListForAuthenticatedUser()->call($direction, $since, $before, $visibility, $affiliation, $type, $sort, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Repository>|WithoutBody */
+    /** @return Observable<Schema\Repository>|WithoutBody */
     public function listForAuthenticatedUserListing(string $direction, string $since, string $before, string $visibility, string $affiliation, string $type, string $sort, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->repos👷ListForAuthenticatedUserListing()->call($direction, $since, $before, $visibility, $affiliation, $type, $sort, $perPage, $page);
@@ -1280,13 +1287,13 @@ final class Repos
         return $this->operators->repos👷CreateForAuthenticatedUser()->call($params);
     }
 
-    /** @return iterable<int,Schema\RepositoryInvitation>|WithoutBody */
+    /** @return Observable<Schema\RepositoryInvitation>|WithoutBody */
     public function listInvitationsForAuthenticatedUser(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->repos👷ListInvitationsForAuthenticatedUser()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\RepositoryInvitation>|WithoutBody */
+    /** @return Observable<Schema\RepositoryInvitation>|WithoutBody */
     public function listInvitationsForAuthenticatedUserListing(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->repos👷ListInvitationsForAuthenticatedUserListing()->call($perPage, $page);
@@ -1304,13 +1311,13 @@ final class Repos
         return $this->operators->repos👷AcceptInvitationForAuthenticatedUser()->call($invitationId);
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForUser(string $username, string $direction, string $type, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListForUser()->call($username, $direction, $type, $sort, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listForUserListing(string $username, string $direction, string $type, string $sort, int $perPage, int $page): iterable
     {
         return $this->operators->repos👷ListForUserListing()->call($username, $direction, $type, $sort, $perPage, $page);

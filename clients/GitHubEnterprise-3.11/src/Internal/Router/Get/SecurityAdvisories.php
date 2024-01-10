@@ -35,7 +35,7 @@ final class SecurityAdvisories
         return $operator->call($arguments['ghsa_id']);
     }
 
-    /** @return iterable<int,Schema\GlobalAdvisory> */
+    /** @return Observable<Schema\GlobalAdvisory> */
     public function listGlobalAdvisories(array $params): iterable
     {
         $arguments = [];
