@@ -23,6 +23,7 @@ final readonly class GetConsumedLicenses
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $perPage = 30, int $page = 1): string
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetConsumedLicenses($this->responseSchemaValidator, $this->hydrator, $enterprise, $perPage, $page);

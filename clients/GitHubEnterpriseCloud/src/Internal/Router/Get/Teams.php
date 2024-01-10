@@ -44,7 +44,7 @@ final class Teams
         return $operator->call($arguments['team_id']);
     }
 
-    /** @return iterable<int,Schema\TeamFull>|WithoutBody */
+    /** @return Observable<Schema\TeamFull>|WithoutBody */
     public function listForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -65,6 +65,7 @@ final class Teams
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listExternalIdpGroupsForOrg(array $params): ExternalGroups
     {
         $arguments = [];
@@ -97,7 +98,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['page'], $arguments['display_name'], $arguments['per_page']);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function list(array $params): iterable
     {
         $arguments = [];
@@ -124,7 +125,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\TeamDiscussion> */
+    /** @return Observable<Schema\TeamDiscussion> */
     public function listDiscussionsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -157,7 +158,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['direction'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\OrganizationInvitation> */
+    /** @return Observable<Schema\OrganizationInvitation> */
     public function listPendingInvitationsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -184,7 +185,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersLegacy(array $params): iterable
     {
         $arguments = [];
@@ -217,7 +218,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\TeamProject> */
+    /** @return Observable<Schema\TeamProject> */
     public function listProjectsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -244,7 +245,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposLegacy(array $params): iterable
     {
         $arguments = [];
@@ -271,7 +272,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listChildLegacy(array $params): iterable
     {
         $arguments = [];
@@ -319,6 +320,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['group_id']);
     }
 
+    /** @return */
     public function listIdpGroupsForOrg(array $params): GroupMapping
     {
         $arguments = [];
@@ -471,7 +473,7 @@ final class Teams
         return $operator->call($arguments['team_id']);
     }
 
-    /** @return iterable<int,Schema\TeamDiscussion> */
+    /** @return Observable<Schema\TeamDiscussion> */
     public function listDiscussionsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -537,7 +539,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug']);
     }
 
-    /** @return iterable<int,Schema\OrganizationInvitation> */
+    /** @return Observable<Schema\OrganizationInvitation> */
     public function listPendingInvitationsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -570,7 +572,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listMembersInOrg(array $params): iterable
     {
         $arguments = [];
@@ -609,7 +611,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['role'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\TeamProject> */
+    /** @return Observable<Schema\TeamProject> */
     public function listProjectsInOrg(array $params): iterable
     {
         $arguments = [];
@@ -642,7 +644,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\MinimalRepository> */
+    /** @return Observable<Schema\MinimalRepository> */
     public function listReposInOrg(array $params): iterable
     {
         $arguments = [];
@@ -675,7 +677,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\Team> */
+    /** @return Observable<Schema\Team> */
     public function listChildInOrg(array $params): iterable
     {
         $arguments = [];
@@ -708,7 +710,7 @@ final class Teams
         return $operator->call($arguments['org'], $arguments['team_slug'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\TeamDiscussionComment> */
+    /** @return Observable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsLegacy(array $params): iterable
     {
         $arguments = [];
@@ -903,7 +905,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['discussion_number'], $arguments['comment_number']);
     }
 
-    /** @return iterable<int,Schema\TeamDiscussionComment> */
+    /** @return Observable<Schema\TeamDiscussionComment> */
     public function listDiscussionCommentsInOrg(array $params): iterable
     {
         $arguments = [];

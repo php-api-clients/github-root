@@ -20,7 +20,7 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<int,Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLogListing(array $params): iterable
     {
         $arguments = [];

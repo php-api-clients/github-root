@@ -24,6 +24,7 @@ final readonly class ListIdpGroupsForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, string $page, string $q, int $perPage = 30): GroupMapping
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ListIdpGroupsForOrg($this->responseSchemaValidator, $this->hydrator, $org, $page, $q, $perPage);
