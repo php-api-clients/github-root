@@ -27,7 +27,7 @@ final class Apps
     {
     }
 
-    /** @return iterable<int,Schema\IntegrationInstallationRequest>|WithoutBody */
+    /** @return Observable<Schema\IntegrationInstallationRequest>|WithoutBody */
     public function listInstallationRequestsForAuthenticatedApp(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -48,7 +48,7 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallations(array $params): iterable
     {
         $arguments = [];
@@ -96,6 +96,7 @@ final class Apps
         return $operator->call($arguments['app_slug']);
     }
 
+    /** @return */
     public function listReposAccessibleToInstallation(array $params): Ok|WithoutBody
     {
         $arguments = [];
@@ -116,6 +117,7 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listInstallationsForAuthenticatedUser(array $params): Json|WithoutBody
     {
         $arguments = [];
@@ -144,7 +146,7 @@ final class Apps
         return $operator->call();
     }
 
-    /** @return iterable<int,Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -260,6 +262,7 @@ final class Apps
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function listInstallationReposForAuthenticatedUser(array $params): \ApiClients\Client\GitHubAE\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|WithoutBody
     {
         $arguments = [];

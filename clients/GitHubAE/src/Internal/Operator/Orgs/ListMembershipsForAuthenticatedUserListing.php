@@ -25,7 +25,7 @@ final readonly class ListMembershipsForAuthenticatedUserListing
     {
     }
 
-    /** @return iterable<int,Schema\OrgMembership>|WithoutBody */
+    /** @return Observable<Schema\OrgMembership>|WithoutBody */
     public function call(string $state, int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubAE\Internal\Operation\Orgs\ListMembershipsForAuthenticatedUserListing($this->responseSchemaValidator, $this->hydrator, $state, $perPage, $page);

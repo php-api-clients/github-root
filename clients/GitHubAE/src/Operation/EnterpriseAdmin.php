@@ -40,13 +40,13 @@ final class EnterpriseAdmin
     {
     }
 
-    /** @return iterable<int,Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function listGlobalWebhooks(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListGlobalWebhooks()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function listGlobalWebhooksListing(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListGlobalWebhooksListing()->call($perPage, $page);
@@ -82,13 +82,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷PingGlobalWebhook()->call($hookId);
     }
 
-    /** @return iterable<int,Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function listPublicKeys(string $since, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPublicKeys()->call($since, $perPage, $page, $direction, $sort);
     }
 
-    /** @return iterable<int,Schema\PublicKeyFull> */
+    /** @return Observable<Schema\PublicKeyFull> */
     public function listPublicKeysListing(string $since, int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPublicKeysListing()->call($since, $perPage, $page, $direction, $sort);
@@ -112,13 +112,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷UpdateOrgName()->call($org, $params);
     }
 
-    /** @return iterable<int,Schema\PreReceiveEnvironment> */
+    /** @return Observable<Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironments(int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveEnvironments()->call($perPage, $page, $direction, $sort);
     }
 
-    /** @return iterable<int,Schema\PreReceiveEnvironment> */
+    /** @return Observable<Schema\PreReceiveEnvironment> */
     public function listPreReceiveEnvironmentsListing(int $perPage, int $page, string $direction, string $sort): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPreReceiveEnvironmentsListing()->call($perPage, $page, $direction, $sort);
@@ -172,13 +172,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷GetDownloadStatusForPreReceiveEnvironmentStreaming()->call($preReceiveEnvironmentId);
     }
 
-    /** @return iterable<int,Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function listPersonalAccessTokens(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPersonalAccessTokens()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Authorization> */
+    /** @return Observable<Schema\Authorization> */
     public function listPersonalAccessTokensListing(int $perPage, int $page): iterable
     {
         return $this->operators->enterpriseAdmin👷ListPersonalAccessTokensListing()->call($perPage, $page);
@@ -310,6 +310,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷SetGithubActionsPermissionsEnterprise()->call($enterprise, $params);
     }
 
+    /** @return */
     public function listSelectedOrganizationsEnabledGithubActionsEnterprise(string $enterprise, int $perPage, int $page): Ok
     {
         return $this->operators->enterpriseAdmin👷ListSelectedOrganizationsEnabledGithubActionsEnterprise()->call($enterprise, $perPage, $page);
@@ -345,6 +346,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷SetAllowedActionsEnterprise()->call($enterprise, $params);
     }
 
+    /** @return */
     public function listSelfHostedRunnerGroupsForEnterprise(string $enterprise, string $visibleToOrganization, int $perPage, int $page): \ApiClients\Client\GitHubAE\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok
     {
         return $this->operators->enterpriseAdmin👷ListSelfHostedRunnerGroupsForEnterprise()->call($enterprise, $visibleToOrganization, $perPage, $page);
@@ -374,6 +376,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷UpdateSelfHostedRunnerGroupForEnterprise()->call($enterprise, $runnerGroupId, $params);
     }
 
+    /** @return */
     public function listSelfHostedRunnersInGroupForEnterprise(string $enterprise, int $runnerGroupId, int $perPage, int $page): \ApiClients\Client\GitHubAE\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok
     {
         return $this->operators->enterpriseAdmin👷ListSelfHostedRunnersInGroupForEnterprise()->call($enterprise, $runnerGroupId, $perPage, $page);
@@ -397,6 +400,7 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷RemoveSelfHostedRunnerFromGroupForEnterprise()->call($enterprise, $runnerGroupId, $runnerId);
     }
 
+    /** @return */
     public function listSelfHostedRunnersForEnterprise(string $enterprise, int $perPage, int $page): \ApiClients\Client\GitHubAE\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok
     {
         return $this->operators->enterpriseAdmin👷ListSelfHostedRunnersForEnterprise()->call($enterprise, $perPage, $page);
@@ -432,13 +436,13 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷DeleteSelfHostedRunnerFromEnterprise()->call($enterprise, $runnerId);
     }
 
-    /** @return iterable<int,Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLog(string $enterprise, string $phrase, string $after, string $before, string $order, int $page, int $perPage): iterable
     {
         return $this->operators->enterpriseAdmin👷GetAuditLog()->call($enterprise, $phrase, $after, $before, $order, $page, $perPage);
     }
 
-    /** @return iterable<int,Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLogListing(string $enterprise, string $phrase, string $after, string $before, string $order, int $page, int $perPage): iterable
     {
         return $this->operators->enterpriseAdmin👷GetAuditLogListing()->call($enterprise, $phrase, $after, $before, $order, $page, $perPage);

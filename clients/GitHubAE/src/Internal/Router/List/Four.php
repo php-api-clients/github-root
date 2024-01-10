@@ -15,7 +15,7 @@ final class Four
     {
     }
 
-    /** @return iterable<int,Schema\AuditLogEvent>|iterable<int,Schema\GistComment>|WithoutBody|iterable<int,Schema\GistCommit>|iterable<int,Schema\GistSimple>|iterable<int,Schema\OrgHook>|iterable<int,Schema\Issue>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\Migration>|iterable<int,Schema\Project>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\Team>|iterable<int,Schema\ProjectColumn>|iterable<int,Schema\TeamDiscussion>|iterable<int,Schema\TeamProject>|iterable<int,Schema\OrgMembership>|iterable<int,Schema\Event>|iterable<int,Schema\BaseGist>|iterable<int,Schema\GpgKey>|iterable<int,Schema\KeySimple>|iterable<int,Schema\OrganizationSimple> */
+    /** @return Observable<Schema\AuditLogEvent>|Observable<Schema\GistComment>|WithoutBody|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\SimpleUser>|Observable<Schema\Migration>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|Observable<Schema\ProjectColumn>|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Observable<Schema\OrgMembership>|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {

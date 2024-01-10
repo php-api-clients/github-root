@@ -16,7 +16,7 @@ final class Five
     {
     }
 
-    /** @return iterable<int,Schema\CodeScanningOrganizationAlertItems>|iterable<int,Schema\ProjectCard>|WithoutBody|iterable<int,Schema\SimpleUser>|iterable<int,Schema\ShortBranch>|iterable<int,Schema\Collaborator>|iterable<int,Schema\CommitComment>|iterable<int,Schema\Commit>|iterable<int,Schema\Contributor>|iterable<int,Schema\Deployment>|iterable<int,Schema\Event>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\Hook>|iterable<int,Schema\RepositoryInvitation>|iterable<int,Schema\Issue>|Schema\BasicError|iterable<int,Schema\DeployKey>|iterable<int,Schema\Label>|iterable<int,Schema\Milestone>|iterable<int,Schema\Thread>|iterable<int,Schema\Project>|iterable<int,Schema\PullRequestSimple>|iterable<int,Schema\Release>|iterable<int,Schema\Tag>|iterable<int,Schema\Team> */
+    /** @return Observable<Schema\CodeScanningOrganizationAlertItems>|Observable<Schema\ProjectCard>|WithoutBody|Observable<Schema\SimpleUser>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\Event>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Schema\BasicError|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\Tag>|Observable<Schema\Team> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody|BasicError
     {
         if ($pathChunks[0] === '') {

@@ -47,7 +47,7 @@ final class Apps
         return $this->operators->apps👷UpdateWebhookConfigForApp()->call($params);
     }
 
-    /** @return iterable<int,Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(string $cursor, bool $redelivery, int $perPage): iterable
     {
         return $this->operators->apps👷ListWebhookDeliveries()->call($cursor, $redelivery, $perPage);
@@ -65,25 +65,25 @@ final class Apps
         return $this->operators->apps👷RedeliverWebhookDelivery()->call($deliveryId);
     }
 
-    /** @return iterable<int,Schema\IntegrationInstallationRequest>|WithoutBody */
+    /** @return Observable<Schema\IntegrationInstallationRequest>|WithoutBody */
     public function listInstallationRequestsForAuthenticatedApp(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->apps👷ListInstallationRequestsForAuthenticatedApp()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\IntegrationInstallationRequest>|WithoutBody */
+    /** @return Observable<Schema\IntegrationInstallationRequest>|WithoutBody */
     public function listInstallationRequestsForAuthenticatedAppListing(int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->apps👷ListInstallationRequestsForAuthenticatedAppListing()->call($perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallations(string $since, string $outdated, int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListInstallations()->call($since, $outdated, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallationsListing(string $since, string $outdated, int $perPage, int $page): iterable
     {
         return $this->operators->apps👷ListInstallationsListing()->call($since, $outdated, $perPage, $page);
@@ -155,6 +155,7 @@ final class Apps
         return $this->operators->apps👷GetBySlug()->call($appSlug);
     }
 
+    /** @return */
     public function listReposAccessibleToInstallation(int $perPage, int $page): Ok|WithoutBody
     {
         return $this->operators->apps👷ListReposAccessibleToInstallation()->call($perPage, $page);
@@ -178,11 +179,13 @@ final class Apps
         return $this->operators->apps👷GetRepoInstallation()->call($owner, $repo);
     }
 
+    /** @return */
     public function listInstallationsForAuthenticatedUser(int $perPage, int $page): \ApiClients\Client\GitHubAE\Schema\Operations\Apps\ListInstallationsForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|WithoutBody
     {
         return $this->operators->apps👷ListInstallationsForAuthenticatedUser()->call($perPage, $page);
     }
 
+    /** @return */
     public function listInstallationReposForAuthenticatedUser(int $installationId, int $perPage, int $page): \ApiClients\Client\GitHubAE\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|WithoutBody
     {
         return $this->operators->apps👷ListInstallationReposForAuthenticatedUser()->call($installationId, $perPage, $page);
