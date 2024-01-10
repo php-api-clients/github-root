@@ -57,7 +57,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise_or_org'], $arguments['date_start'], $arguments['date_end']);
     }
 
-    /** @return iterable<int,Schema\AuditLogEvent> */
+    /** @return Observable<Schema\AuditLogEvent> */
     public function getAuditLog(array $params): iterable
     {
         $arguments = [];
@@ -114,6 +114,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['phrase'], $arguments['include'], $arguments['after'], $arguments['before'], $arguments['order'], $arguments['page'], $arguments['per_page']);
     }
 
+    /** @return */
     public function getConsumedLicenses(array $params): string
     {
         $arguments = [];
@@ -230,6 +231,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function listSelfHostedRunnerGroupsForEnterprise(array $params): Ok
     {
         $arguments = [];
@@ -262,6 +264,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['visible_to_organization'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listSelfHostedRunnersForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -330,6 +333,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_user_id']);
     }
 
+    /** @return */
     public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -428,6 +432,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json
     {
         $arguments = [];
@@ -460,6 +465,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listSelfHostedRunnersInGroupForEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersInGroupForEnterprise\Response\ApplicationJson\Ok
     {
         $arguments = [];
