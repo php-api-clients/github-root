@@ -22,7 +22,7 @@ final class Two
     {
     }
 
-    /** @return |iterable<int,Schema\Authorization>|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Observable<Schema\CodeOfConduct>|WithoutBody|iterable<int,Schema\Event>|iterable<int,Schema\BaseGist>|iterable<int,Schema\Issue>|iterable<int,Schema\LicenseSimple>|iterable<int,Schema\Thread>|iterable<int,Schema\OrganizationSimple>|Observable<Schema\MinimalRepository>|iterable<int,Schema\SimpleUser> */
+    /** @return |Observable<Schema\Authorization>|WithoutBody|Observable<Schema\CodeOfConduct>|Observable<Schema\Event>|Observable<Schema\BaseGist>|Observable<Schema\Issue>|Observable<Schema\LicenseSimple>|Observable<Schema\Thread>|Observable<Schema\OrganizationSimple>|Observable<Schema\MinimalRepository>|Observable<Schema\SimpleUser> */
     public function call(string $call, array $params, array $pathChunks): Integration|iterable|WithoutBody|Json|Feed|ApiOverview|ResponseInterface|RateLimitOverview|PrivateUser|PublicUser|string
     {
         if ($pathChunks[0] === '') {
