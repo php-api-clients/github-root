@@ -48,11 +48,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /admin/hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GlobalHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\GlobalHook>');
         }
 
         if ($call === 'LIST /admin/hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GlobalHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\GlobalHook>');
         }
 
         if ($call === 'POST /admin/hooks') {
@@ -76,11 +76,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /admin/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PublicKeyFull>');
+            return $this->typeResolver->resolve('Observable<Schema\\PublicKeyFull>');
         }
 
         if ($call === 'LIST /admin/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PublicKeyFull>');
+            return $this->typeResolver->resolve('Observable<Schema\\PublicKeyFull>');
         }
 
         if ($call === 'DELETE /admin/keys/{key_ids}') {
@@ -112,11 +112,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /admin/pre-receive-environments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PreReceiveEnvironment>');
+            return $this->typeResolver->resolve('Observable<Schema\\PreReceiveEnvironment>');
         }
 
         if ($call === 'LIST /admin/pre-receive-environments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PreReceiveEnvironment>');
+            return $this->typeResolver->resolve('Observable<Schema\\PreReceiveEnvironment>');
         }
 
         if ($call === 'POST /admin/pre-receive-environments') {
@@ -152,11 +152,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /admin/pre-receive-hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PreReceiveHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\PreReceiveHook>');
         }
 
         if ($call === 'LIST /admin/pre-receive-hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PreReceiveHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\PreReceiveHook>');
         }
 
         if ($call === 'POST /admin/pre-receive-hooks') {
@@ -176,11 +176,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /admin/tokens') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Authorization>');
+            return $this->typeResolver->resolve('Observable<Schema\\Authorization>');
         }
 
         if ($call === 'LIST /admin/tokens') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Authorization>');
+            return $this->typeResolver->resolve('Observable<Schema\\Authorization>');
         }
 
         if ($call === 'DELETE /admin/tokens/{token_id}') {
@@ -224,7 +224,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /app/hook/deliveries') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\HookDeliveryItem>');
+            return $this->typeResolver->resolve('Observable<Schema\\HookDeliveryItem>');
         }
 
         if ($call === 'GET /app/hook/deliveries/{delivery_id}') {
@@ -236,19 +236,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /app/installation-requests') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IntegrationInstallationRequest>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\IntegrationInstallationRequest>|WithoutBody');
         }
 
         if ($call === 'LIST /app/installation-requests') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IntegrationInstallationRequest>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\IntegrationInstallationRequest>|WithoutBody');
         }
 
         if ($call === 'GET /app/installations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Installation>');
+            return $this->typeResolver->resolve('Observable<Schema\\Installation>');
         }
 
         if ($call === 'LIST /app/installations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Installation>');
+            return $this->typeResolver->resolve('Observable<Schema\\Installation>');
         }
 
         if ($call === 'GET /app/installations/{installation_id}') {
@@ -272,11 +272,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /applications/grants') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ApplicationGrant>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\ApplicationGrant>|WithoutBody');
         }
 
         if ($call === 'LIST /applications/grants') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ApplicationGrant>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\ApplicationGrant>|WithoutBody');
         }
 
         if ($call === 'GET /applications/grants/{grant_id}') {
@@ -312,11 +312,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /authorizations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Authorization>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Authorization>|WithoutBody');
         }
 
         if ($call === 'LIST /authorizations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Authorization>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Authorization>|WithoutBody');
         }
 
         if ($call === 'POST /authorizations') {
@@ -436,7 +436,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/actions/permissions/organizations') {
-            return $this->typeResolver->resolve('Schema\\Operations\\EnterpriseAdmin\\ListSelectedOrganizationsEnabledGithubActionsEnterprise\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /enterprises/{enterprise}/actions/permissions/organizations') {
@@ -468,7 +468,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/actions/runner-groups') {
-            return $this->typeResolver->resolve('Schema\\Operations\\EnterpriseAdmin\\ListSelfHostedRunnerGroupsForEnterprise\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/actions/runner-groups') {
@@ -488,7 +488,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations') {
-            return $this->typeResolver->resolve('Schema\\Operations\\EnterpriseAdmin\\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/organizations') {
@@ -504,7 +504,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners') {
-            return $this->typeResolver->resolve('Schema\\Operations\\EnterpriseAdmin\\ListSelfHostedRunnersInGroupForEnterprise\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /enterprises/{enterprise}/actions/runner-groups/{runner_group_id}/runners') {
@@ -520,7 +520,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/actions/runners') {
-            return $this->typeResolver->resolve('Schema\\Operations\\EnterpriseAdmin\\ListSelfHostedRunnersForEnterprise\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/actions/runners/downloads') {
@@ -564,19 +564,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/audit-log') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\AuditLogEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\AuditLogEvent>');
         }
 
         if ($call === 'LIST /enterprises/{enterprise}/audit-log') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\AuditLogEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\AuditLogEvent>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningOrganizationAlertItems>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningOrganizationAlertItems>');
         }
 
         if ($call === 'LIST /enterprises/{enterprise}/code-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningOrganizationAlertItems>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningOrganizationAlertItems>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code_security_and_analysis') {
@@ -588,15 +588,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/advanced-security') {
-            return $this->typeResolver->resolve('Schema\\AdvancedSecurityActiveCommitters');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/{security_product}/{enablement}') {
@@ -604,11 +604,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>|WithoutBody');
         }
 
         if ($call === 'LIST /events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>|WithoutBody');
         }
 
         if ($call === 'GET /feeds') {
@@ -616,11 +616,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /gists') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>|WithoutBody');
         }
 
         if ($call === 'LIST /gists') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>|WithoutBody');
         }
 
         if ($call === 'POST /gists') {
@@ -628,19 +628,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /gists/public') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>|WithoutBody');
         }
 
         if ($call === 'LIST /gists/public') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>|WithoutBody');
         }
 
         if ($call === 'GET /gists/starred') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>|WithoutBody');
         }
 
         if ($call === 'LIST /gists/starred') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>|WithoutBody');
         }
 
         if ($call === 'GET /gists/{gist_id}') {
@@ -656,11 +656,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /gists/{gist_id}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GistComment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GistComment>|WithoutBody');
         }
 
         if ($call === 'LIST /gists/{gist_id}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GistComment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GistComment>|WithoutBody');
         }
 
         if ($call === 'POST /gists/{gist_id}/comments') {
@@ -680,19 +680,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /gists/{gist_id}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GistCommit>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GistCommit>|WithoutBody');
         }
 
         if ($call === 'LIST /gists/{gist_id}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GistCommit>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GistCommit>|WithoutBody');
         }
 
         if ($call === 'GET /gists/{gist_id}/forks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GistSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GistSimple>|WithoutBody');
         }
 
         if ($call === 'LIST /gists/{gist_id}/forks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GistSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GistSimple>|WithoutBody');
         }
 
         if ($call === 'POST /gists/{gist_id}/forks') {
@@ -724,7 +724,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /installation/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Apps\\ListReposAccessibleToInstallation\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /installation/token') {
@@ -732,19 +732,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>|WithoutBody');
         }
 
         if ($call === 'LIST /issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>|WithoutBody');
         }
 
         if ($call === 'GET /licenses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\LicenseSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\LicenseSimple>|WithoutBody');
         }
 
         if ($call === 'LIST /licenses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\LicenseSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\LicenseSimple>|WithoutBody');
         }
 
         if ($call === 'GET /licenses/{license}') {
@@ -764,19 +764,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /networks/{owner}/{repo}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>|Schema\\BasicError|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>|Schema\\BasicError|WithoutBody');
         }
 
         if ($call === 'LIST /networks/{owner}/{repo}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>|Schema\\BasicError|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>|Schema\\BasicError|WithoutBody');
         }
 
         if ($call === 'GET /notifications') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Thread>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Thread>|WithoutBody');
         }
 
         if ($call === 'LIST /notifications') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Thread>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Thread>|WithoutBody');
         }
 
         if ($call === 'PUT /notifications') {
@@ -808,7 +808,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /organizations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSimple>|WithoutBody');
         }
 
         if ($call === 'GET /organizations/{organization_id}/custom_roles') {
@@ -828,7 +828,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/cache/usage-by-repository') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\GetActionsCacheUsageByRepoForOrg\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/actions/oidc/customization/sub') {
@@ -848,7 +848,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/permissions/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListSelectedRepositoriesEnabledGithubActionsOrganization\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /orgs/{org}/actions/permissions/repositories') {
@@ -880,7 +880,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/runner-groups') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListSelfHostedRunnerGroupsForOrg\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /orgs/{org}/actions/runner-groups') {
@@ -900,7 +900,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListRepoAccessToSelfHostedRunnerGroupInOrg\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/repositories') {
@@ -916,7 +916,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/runner-groups/{runner_group_id}/runners') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListSelfHostedRunnersInGroupForOrg\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /orgs/{org}/actions/runner-groups/{runner_group_id}/runners') {
@@ -932,7 +932,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/runners') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListSelfHostedRunnersForOrg\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/actions/runners/downloads') {
@@ -976,7 +976,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/secrets') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListOrgSecrets\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/actions/secrets/public-key') {
@@ -996,7 +996,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/secrets/{secret_name}/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListSelectedReposForOrgSecret\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /orgs/{org}/actions/secrets/{secret_name}/repositories') {
@@ -1012,7 +1012,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/variables') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListOrgVariables\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /orgs/{org}/actions/variables') {
@@ -1032,7 +1032,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/actions/variables/{name}/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListSelectedReposForOrgVariable\\Response\\ApplicationJson\\Ok\\Application\\Json|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /orgs/{org}/actions/variables/{name}/repositories') {
@@ -1060,27 +1060,27 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/audit-log') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\AuditLogEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\AuditLogEvent>');
         }
 
         if ($call === 'LIST /orgs/{org}/audit-log') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\AuditLogEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\AuditLogEvent>');
         }
 
         if ($call === 'GET /orgs/{org}/code-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningOrganizationAlertItems>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningOrganizationAlertItems>');
         }
 
         if ($call === 'LIST /orgs/{org}/code-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningOrganizationAlertItems>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningOrganizationAlertItems>');
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlertWithRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/secrets') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Dependabot\\ListOrgSecrets\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/secrets/public-key') {
@@ -1100,7 +1100,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/dependabot/secrets/{secret_name}/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Dependabot\\ListSelectedReposForOrgSecret\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /orgs/{org}/dependabot/secrets/{secret_name}/repositories') {
@@ -1116,11 +1116,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'LIST /orgs/{org}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'GET /orgs/{org}/external-group/{group_id}') {
@@ -1128,15 +1128,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/external-groups') {
-            return $this->typeResolver->resolve('Schema\\ExternalGroups');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrgHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrgHook>');
         }
 
         if ($call === 'LIST /orgs/{org}/hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrgHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrgHook>');
         }
 
         if ($call === 'POST /orgs/{org}/hooks') {
@@ -1164,7 +1164,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/hooks/{hook_id}/deliveries') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\HookDeliveryItem>');
+            return $this->typeResolver->resolve('Observable<Schema\\HookDeliveryItem>');
         }
 
         if ($call === 'GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}') {
@@ -1184,23 +1184,23 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/installations') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Orgs\\ListAppInstallations\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>');
         }
 
         if ($call === 'LIST /orgs/{org}/issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>');
         }
 
         if ($call === 'GET /orgs/{org}/members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /orgs/{org}/members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /orgs/{org}/members/{username}') {
@@ -1224,11 +1224,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/migrations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Migration>');
+            return $this->typeResolver->resolve('Observable<Schema\\Migration>');
         }
 
         if ($call === 'LIST /orgs/{org}/migrations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Migration>');
+            return $this->typeResolver->resolve('Observable<Schema\\Migration>');
         }
 
         if ($call === 'POST /orgs/{org}/migrations') {
@@ -1256,19 +1256,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/migrations/{migration_id}/repositories') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /orgs/{org}/migrations/{migration_id}/repositories') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'GET /orgs/{org}/outside_collaborators') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /orgs/{org}/outside_collaborators') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'PUT /orgs/{org}/outside_collaborators/{username}') {
@@ -1280,11 +1280,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/pre-receive-hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrgPreReceiveHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrgPreReceiveHook>');
         }
 
         if ($call === 'LIST /orgs/{org}/pre-receive-hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrgPreReceiveHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrgPreReceiveHook>');
         }
 
         if ($call === 'GET /orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}') {
@@ -1300,11 +1300,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Project>');
+            return $this->typeResolver->resolve('Observable<Schema\\Project>');
         }
 
         if ($call === 'LIST /orgs/{org}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Project>');
+            return $this->typeResolver->resolve('Observable<Schema\\Project>');
         }
 
         if ($call === 'POST /orgs/{org}/projects') {
@@ -1312,11 +1312,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/public_members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /orgs/{org}/public_members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /orgs/{org}/public_members/{username}') {
@@ -1332,11 +1332,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /orgs/{org}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'POST /orgs/{org}/repos') {
@@ -1344,11 +1344,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'LIST /orgs/{org}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'GET /orgs/{org}/security-managers') {
@@ -1364,15 +1364,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/settings/billing/advanced-security') {
-            return $this->typeResolver->resolve('Schema\\AdvancedSecurityActiveCommitters');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'POST /orgs/{org}/teams') {
@@ -1392,11 +1392,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/discussions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussion>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussion>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/discussions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussion>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussion>');
         }
 
         if ($call === 'POST /orgs/{org}/teams/{team_slug}/discussions') {
@@ -1416,11 +1416,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussionComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussionComment>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussionComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussionComment>');
         }
 
         if ($call === 'POST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments') {
@@ -1440,11 +1440,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions') {
@@ -1456,11 +1456,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions') {
@@ -1484,11 +1484,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/memberships/{username}') {
@@ -1504,11 +1504,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamProject>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamProject>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamProject>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamProject>');
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/projects/{project_id}') {
@@ -1524,11 +1524,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}') {
@@ -1544,11 +1544,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/teams/{team_slug}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'LIST /orgs/{org}/teams/{team_slug}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'POST /orgs/{org}/{security_product}/{enablement}') {
@@ -1584,11 +1584,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /projects/columns/{column_id}/cards') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ProjectCard>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\ProjectCard>|WithoutBody');
         }
 
         if ($call === 'LIST /projects/columns/{column_id}/cards') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ProjectCard>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\ProjectCard>|WithoutBody');
         }
 
         if ($call === 'POST /projects/columns/{column_id}/cards') {
@@ -1612,11 +1612,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /projects/{project_id}/collaborators') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
         }
 
         if ($call === 'LIST /projects/{project_id}/collaborators') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
         }
 
         if ($call === 'PUT /projects/{project_id}/collaborators/{username}') {
@@ -1632,11 +1632,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /projects/{project_id}/columns') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ProjectColumn>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\ProjectColumn>|WithoutBody');
         }
 
         if ($call === 'LIST /projects/{project_id}/columns') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ProjectColumn>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\ProjectColumn>|WithoutBody');
         }
 
         if ($call === 'POST /projects/{project_id}/columns') {
@@ -1660,7 +1660,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/artifacts') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListArtifactsForRepo\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/artifacts/{artifact_id}') {
@@ -1692,7 +1692,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/caches') {
-            return $this->typeResolver->resolve('Schema\\ActionsCacheList');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/actions/caches') {
@@ -1760,7 +1760,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runners') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListSelfHostedRunnersForRepo\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runners/downloads') {
@@ -1804,7 +1804,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListWorkflowRunsForRepo\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}') {
@@ -1820,7 +1820,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/artifacts') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListWorkflowRunArtifacts\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}') {
@@ -1828,7 +1828,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/jobs') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListJobsForWorkflowRunAttempt\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/attempts/{attempt_number}/logs') {
@@ -1844,7 +1844,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/jobs') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListJobsForWorkflowRun\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/runs/{run_id}/logs') {
@@ -1876,7 +1876,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/secrets') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListRepoSecrets\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/secrets/public-key') {
@@ -1896,7 +1896,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/variables') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListRepoVariables\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/actions/variables') {
@@ -1916,7 +1916,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/workflows') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListRepoWorkflows\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}') {
@@ -1936,15 +1936,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/actions/workflows/{workflow_id}/runs') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListWorkflowRuns\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/assignees') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/assignees') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/assignees/{assignee}') {
@@ -1952,7 +1952,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/autolinks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Autolink>');
+            return $this->typeResolver->resolve('Observable<Schema\\Autolink>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/autolinks') {
@@ -1968,11 +1968,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/branches') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ShortBranch>');
+            return $this->typeResolver->resolve('Observable<Schema\\ShortBranch>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/branches') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ShortBranch>');
+            return $this->typeResolver->resolve('Observable<Schema\\ShortBranch>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/branches/{branch}') {
@@ -2128,11 +2128,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CheckAnnotation>');
+            return $this->typeResolver->resolve('Observable<Schema\\CheckAnnotation>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/check-runs/{check_run_id}/annotations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CheckAnnotation>');
+            return $this->typeResolver->resolve('Observable<Schema\\CheckAnnotation>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/check-runs/{check_run_id}/rerequest') {
@@ -2152,7 +2152,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Checks\\ListForSuite\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest') {
@@ -2160,11 +2160,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningAlertItems>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningAlertItems>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/code-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningAlertItems>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningAlertItems>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}') {
@@ -2176,19 +2176,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningAlertInstance>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningAlertInstance>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningAlertInstance>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningAlertInstance>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/analyses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningAnalysis>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningAnalysis>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/code-scanning/analyses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeScanningAnalysis>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeScanningAnalysis>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/analyses/{analysis_id}') {
@@ -2212,11 +2212,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/collaborators') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Collaborator>');
+            return $this->typeResolver->resolve('Observable<Schema\\Collaborator>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/collaborators') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Collaborator>');
+            return $this->typeResolver->resolve('Observable<Schema\\Collaborator>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/collaborators/{username}') {
@@ -2236,11 +2236,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CommitComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\CommitComment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CommitComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\CommitComment>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/comments/{comment_id}') {
@@ -2256,11 +2256,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/comments/{comment_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/comments/{comment_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/comments/{comment_id}/reactions') {
@@ -2272,11 +2272,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Commit>');
+            return $this->typeResolver->resolve('Observable<Schema\\Commit>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Commit>');
+            return $this->typeResolver->resolve('Observable<Schema\\Commit>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head') {
@@ -2284,11 +2284,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CommitComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\CommitComment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/commits/{commit_sha}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CommitComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\CommitComment>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/commits/{commit_sha}/comments') {
@@ -2296,39 +2296,39 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestSimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestSimple>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/commits/{commit_sha}/pulls') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestSimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestSimple>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}') {
-            return $this->typeResolver->resolve('Schema\\Commit');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/check-runs') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Checks\\ListForRef\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/check-suites') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Checks\\ListSuitesForRef\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/status') {
-            return $this->typeResolver->resolve('Schema\\CombinedCommitStatus');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/statuses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Status>|Schema\\BasicError');
+            return $this->typeResolver->resolve('Observable<Schema\\Status>|Schema\\BasicError');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/commits/{ref}/statuses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Status>|Schema\\BasicError');
+            return $this->typeResolver->resolve('Observable<Schema\\Status>|Schema\\BasicError');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/compare/{basehead}') {
-            return $this->typeResolver->resolve('Schema\\CommitComparison');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/contents/{path}') {
@@ -2344,19 +2344,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/contributors') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Contributor>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Contributor>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/contributors') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Contributor>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Contributor>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/dependabot/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DependabotAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\DependabotAlert>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/alerts/{alert_number}') {
@@ -2368,7 +2368,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/secrets') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Dependabot\\ListRepoSecrets\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/dependabot/secrets/public-key') {
@@ -2396,11 +2396,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/deployments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Deployment>');
+            return $this->typeResolver->resolve('Observable<Schema\\Deployment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/deployments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Deployment>');
+            return $this->typeResolver->resolve('Observable<Schema\\Deployment>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/deployments') {
@@ -2416,11 +2416,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/deployments/{deployment_id}/statuses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DeploymentStatus>');
+            return $this->typeResolver->resolve('Observable<Schema\\DeploymentStatus>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DeploymentStatus>');
+            return $this->typeResolver->resolve('Observable<Schema\\DeploymentStatus>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/deployments/{deployment_id}/statuses') {
@@ -2436,7 +2436,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Repos\\GetAllEnvironments\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}') {
@@ -2452,7 +2452,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Repos\\ListDeploymentBranchPolicies\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies') {
@@ -2472,19 +2472,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/forks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/forks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/forks') {
@@ -2544,11 +2544,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Hook>');
+            return $this->typeResolver->resolve('Observable<Schema\\Hook>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Hook>');
+            return $this->typeResolver->resolve('Observable<Schema\\Hook>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/hooks') {
@@ -2576,7 +2576,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\HookDeliveryItem>');
+            return $this->typeResolver->resolve('Observable<Schema\\HookDeliveryItem>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}') {
@@ -2600,11 +2600,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/invitations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryInvitation>');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryInvitation>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/invitations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryInvitation>');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryInvitation>');
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/invitations/{invitation_id}') {
@@ -2616,11 +2616,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>|Schema\\BasicError');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>|Schema\\BasicError');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>|Schema\\BasicError');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>|Schema\\BasicError');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/issues') {
@@ -2628,11 +2628,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IssueComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\IssueComment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IssueComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\IssueComment>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/comments/{comment_id}') {
@@ -2648,11 +2648,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/issues/comments/{comment_id}/reactions') {
@@ -2664,11 +2664,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IssueEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\IssueEvent>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IssueEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\IssueEvent>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/events/{event_id}') {
@@ -2696,11 +2696,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IssueComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\IssueComment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/{issue_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\IssueComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\IssueComment>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/issues/{issue_number}/comments') {
@@ -2708,19 +2708,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\AssignedIssueEvent|Schema\\UnassignedIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\AssignedIssueEvent|Schema\\UnassignedIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/{issue_number}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\AssignedIssueEvent|Schema\\UnassignedIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\AssignedIssueEvent|Schema\\UnassignedIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/labels') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Label>|Schema\\BasicError');
+            return $this->typeResolver->resolve('Observable<Schema\\Label>|Schema\\BasicError');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/{issue_number}/labels') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Label>|Schema\\BasicError');
+            return $this->typeResolver->resolve('Observable<Schema\\Label>|Schema\\BasicError');
         }
 
         if ($call === 'PUT /repos/{owner}/{repo}/issues/{issue_number}/labels') {
@@ -2748,11 +2748,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/{issue_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/issues/{issue_number}/reactions') {
@@ -2764,19 +2764,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/issues/{issue_number}/timeline') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent|Schema\\TimelineCommentEvent|Schema\\TimelineCrossReferencedEvent|Schema\\TimelineCommittedEvent|Schema\\TimelineReviewedEvent|Schema\\TimelineLineCommentedEvent|Schema\\TimelineCommitCommentedEvent|Schema\\TimelineAssignedIssueEvent|Schema\\TimelineUnassignedIssueEvent|Schema\\StateChangeIssueEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent|Schema\\TimelineCommentEvent|Schema\\TimelineCrossReferencedEvent|Schema\\TimelineCommittedEvent|Schema\\TimelineReviewedEvent|Schema\\TimelineLineCommentedEvent|Schema\\TimelineCommitCommentedEvent|Schema\\TimelineAssignedIssueEvent|Schema\\TimelineUnassignedIssueEvent|Schema\\StateChangeIssueEvent>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/issues/{issue_number}/timeline') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent|Schema\\TimelineCommentEvent|Schema\\TimelineCrossReferencedEvent|Schema\\TimelineCommittedEvent|Schema\\TimelineReviewedEvent|Schema\\TimelineLineCommentedEvent|Schema\\TimelineCommitCommentedEvent|Schema\\TimelineAssignedIssueEvent|Schema\\TimelineUnassignedIssueEvent|Schema\\StateChangeIssueEvent>');
+            return $this->typeResolver->resolve('Observable<Schema\\LabeledIssueEvent|Schema\\UnlabeledIssueEvent|Schema\\MilestonedIssueEvent|Schema\\DemilestonedIssueEvent|Schema\\RenamedIssueEvent|Schema\\ReviewRequestedIssueEvent|Schema\\ReviewRequestRemovedIssueEvent|Schema\\ReviewDismissedIssueEvent|Schema\\LockedIssueEvent|Schema\\AddedToProjectIssueEvent|Schema\\MovedColumnInProjectIssueEvent|Schema\\RemovedFromProjectIssueEvent|Schema\\ConvertedNoteToIssueIssueEvent|Schema\\TimelineCommentEvent|Schema\\TimelineCrossReferencedEvent|Schema\\TimelineCommittedEvent|Schema\\TimelineReviewedEvent|Schema\\TimelineLineCommentedEvent|Schema\\TimelineCommitCommentedEvent|Schema\\TimelineAssignedIssueEvent|Schema\\TimelineUnassignedIssueEvent|Schema\\StateChangeIssueEvent>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DeployKey>');
+            return $this->typeResolver->resolve('Observable<Schema\\DeployKey>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DeployKey>');
+            return $this->typeResolver->resolve('Observable<Schema\\DeployKey>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/keys') {
@@ -2792,11 +2792,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/labels') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Label>');
+            return $this->typeResolver->resolve('Observable<Schema\\Label>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/labels') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Label>');
+            return $this->typeResolver->resolve('Observable<Schema\\Label>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/labels') {
@@ -2840,11 +2840,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/milestones') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Milestone>');
+            return $this->typeResolver->resolve('Observable<Schema\\Milestone>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/milestones') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Milestone>');
+            return $this->typeResolver->resolve('Observable<Schema\\Milestone>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/milestones') {
@@ -2864,19 +2864,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/milestones/{milestone_number}/labels') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Label>');
+            return $this->typeResolver->resolve('Observable<Schema\\Label>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/milestones/{milestone_number}/labels') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Label>');
+            return $this->typeResolver->resolve('Observable<Schema\\Label>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/notifications') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Thread>');
+            return $this->typeResolver->resolve('Observable<Schema\\Thread>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/notifications') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Thread>');
+            return $this->typeResolver->resolve('Observable<Schema\\Thread>');
         }
 
         if ($call === 'PUT /repos/{owner}/{repo}/notifications') {
@@ -2900,11 +2900,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pages/builds') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PageBuild>');
+            return $this->typeResolver->resolve('Observable<Schema\\PageBuild>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pages/builds') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PageBuild>');
+            return $this->typeResolver->resolve('Observable<Schema\\PageBuild>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/pages/builds') {
@@ -2924,11 +2924,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pre-receive-hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryPreReceiveHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryPreReceiveHook>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pre-receive-hooks') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryPreReceiveHook>');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryPreReceiveHook>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}') {
@@ -2944,11 +2944,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Project>');
+            return $this->typeResolver->resolve('Observable<Schema\\Project>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Project>');
+            return $this->typeResolver->resolve('Observable<Schema\\Project>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/projects') {
@@ -2956,11 +2956,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestSimple>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestSimple>|WithoutBody');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/pulls') {
@@ -2968,11 +2968,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestReviewComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestReviewComment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestReviewComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestReviewComment>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/comments/{comment_id}') {
@@ -2988,11 +2988,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions') {
@@ -3012,11 +3012,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestReviewComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestReviewComment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls/{pull_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestReviewComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestReviewComment>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/pulls/{pull_number}/comments') {
@@ -3028,19 +3028,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Commit>');
+            return $this->typeResolver->resolve('Observable<Schema\\Commit>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls/{pull_number}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Commit>');
+            return $this->typeResolver->resolve('Observable<Schema\\Commit>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/files') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DiffEntry>');
+            return $this->typeResolver->resolve('Observable<Schema\\DiffEntry>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls/{pull_number}/files') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\DiffEntry>');
+            return $this->typeResolver->resolve('Observable<Schema\\DiffEntry>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/merge') {
@@ -3064,11 +3064,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestReview>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestReview>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls/{pull_number}/reviews') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestReview>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestReview>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/pulls/{pull_number}/reviews') {
@@ -3088,11 +3088,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ReviewComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\ReviewComment>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ReviewComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\ReviewComment>');
         }
 
         if ($call === 'PUT /repos/{owner}/{repo}/pulls/{pull_number}/reviews/{review_id}/dismissals') {
@@ -3116,11 +3116,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/releases') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Release>');
+            return $this->typeResolver->resolve('Observable<Schema\\Release>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/releases') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Release>');
+            return $this->typeResolver->resolve('Observable<Schema\\Release>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/releases') {
@@ -3164,11 +3164,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/releases/{release_id}/assets') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ReleaseAsset>');
+            return $this->typeResolver->resolve('Observable<Schema\\ReleaseAsset>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/releases/{release_id}/assets') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\ReleaseAsset>');
+            return $this->typeResolver->resolve('Observable<Schema\\ReleaseAsset>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/releases/{release_id}/assets') {
@@ -3176,11 +3176,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/releases/{release_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/releases/{release_id}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/releases/{release_id}/reactions') {
@@ -3192,19 +3192,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/replicas/caches') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Operations\\Repos\\ListCacheInfo\\Response\\ApplicationJson\\Ok>');
+            return $this->typeResolver->resolve('Observable<Schema\\Operations\\Repos\\ListCacheInfo\\Response\\ApplicationJson\\Ok>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/replicas/caches') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Operations\\Repos\\ListCacheInfo\\Response\\ApplicationJson\\Ok>');
+            return $this->typeResolver->resolve('Observable<Schema\\Operations\\Repos\\ListCacheInfo\\Response\\ApplicationJson\\Ok>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningAlert>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningAlert>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}') {
@@ -3216,15 +3216,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningLocation>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningLocation>|WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningLocation>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningLocation>|WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/stargazers') {
-            return $this->typeResolver->resolve('Schema\\SimpleUser|Schema\\Stargazer');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/stats/code_frequency') {
@@ -3252,11 +3252,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/subscribers') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/subscribers') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/subscription') {
@@ -3272,11 +3272,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/tags') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Tag>');
+            return $this->typeResolver->resolve('Observable<Schema\\Tag>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/tags') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Tag>');
+            return $this->typeResolver->resolve('Observable<Schema\\Tag>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/tags/protection') {
@@ -3300,15 +3300,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/topics') {
-            return $this->typeResolver->resolve('Schema\\Topic');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /repos/{owner}/{repo}/topics') {
@@ -3336,7 +3336,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/secrets') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListEnvironmentSecrets\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/secrets/public-key') {
@@ -3356,7 +3356,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/variables') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListEnvironmentVariables\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repositories/{repository_id}/environments/{environment_name}/variables') {
@@ -3424,31 +3424,31 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /search/code') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Search\\Code\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /search/commits') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Search\\Commits\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /search/issues') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Search\\IssuesAndPullRequests\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /search/labels') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Search\\Labels\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /search/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Search\\Repos\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /search/topics') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Search\\Topics\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /search/users') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Search\\Users\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /setup/api/configcheck') {
@@ -3508,11 +3508,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/discussions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussion>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussion>');
         }
 
         if ($call === 'LIST /teams/{team_id}/discussions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussion>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussion>');
         }
 
         if ($call === 'POST /teams/{team_id}/discussions') {
@@ -3532,11 +3532,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/discussions/{discussion_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussionComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussionComment>');
         }
 
         if ($call === 'LIST /teams/{team_id}/discussions/{discussion_number}/comments') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamDiscussionComment>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamDiscussionComment>');
         }
 
         if ($call === 'POST /teams/{team_id}/discussions/{discussion_number}/comments') {
@@ -3556,11 +3556,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions') {
@@ -3568,11 +3568,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/discussions/{discussion_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'LIST /teams/{team_id}/discussions/{discussion_number}/reactions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Reaction>');
+            return $this->typeResolver->resolve('Observable<Schema\\Reaction>');
         }
 
         if ($call === 'POST /teams/{team_id}/discussions/{discussion_number}/reactions') {
@@ -3580,11 +3580,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /teams/{team_id}/members') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /teams/{team_id}/members/{username}') {
@@ -3612,11 +3612,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamProject>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamProject>');
         }
 
         if ($call === 'LIST /teams/{team_id}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamProject>');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamProject>');
         }
 
         if ($call === 'GET /teams/{team_id}/projects/{project_id}') {
@@ -3632,11 +3632,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /teams/{team_id}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'GET /teams/{team_id}/repos/{owner}/{repo}') {
@@ -3652,11 +3652,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /teams/{team_id}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'LIST /teams/{team_id}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Team>');
+            return $this->typeResolver->resolve('Observable<Schema\\Team>');
         }
 
         if ($call === 'GET /user') {
@@ -3668,11 +3668,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/emails') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Email>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Email>|WithoutBody');
         }
 
         if ($call === 'LIST /user/emails') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Email>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Email>|WithoutBody');
         }
 
         if ($call === 'POST /user/emails') {
@@ -3684,19 +3684,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/followers') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
         }
 
         if ($call === 'LIST /user/followers') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
         }
 
         if ($call === 'GET /user/following') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
         }
 
         if ($call === 'LIST /user/following') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
         }
 
         if ($call === 'GET /user/following/{username}') {
@@ -3712,11 +3712,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/gpg_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GpgKey>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GpgKey>|WithoutBody');
         }
 
         if ($call === 'LIST /user/gpg_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GpgKey>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\GpgKey>|WithoutBody');
         }
 
         if ($call === 'POST /user/gpg_keys') {
@@ -3732,11 +3732,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/installations') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Apps\\ListInstallationsForAuthenticatedUser\\Response\\ApplicationJson\\Ok\\Application\\Json|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /user/installations/{installation_id}/repositories') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Apps\\ListInstallationReposForAuthenticatedUser\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /user/installations/{installation_id}/repositories/{repository_id}') {
@@ -3748,19 +3748,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>|WithoutBody');
         }
 
         if ($call === 'LIST /user/issues') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Issue>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Issue>|WithoutBody');
         }
 
         if ($call === 'GET /user/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Key>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Key>|WithoutBody');
         }
 
         if ($call === 'LIST /user/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Key>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Key>|WithoutBody');
         }
 
         if ($call === 'POST /user/keys') {
@@ -3776,11 +3776,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/memberships/orgs') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrgMembership>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\OrgMembership>|WithoutBody');
         }
 
         if ($call === 'LIST /user/memberships/orgs') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrgMembership>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\OrgMembership>|WithoutBody');
         }
 
         if ($call === 'GET /user/memberships/orgs/{org}') {
@@ -3792,11 +3792,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/migrations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Migration>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Migration>|WithoutBody');
         }
 
         if ($call === 'LIST /user/migrations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Migration>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Migration>|WithoutBody');
         }
 
         if ($call === 'POST /user/migrations') {
@@ -3808,19 +3808,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/migrations/{migration_id}/repositories') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /user/migrations/{migration_id}/repositories') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'GET /user/orgs') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSimple>|WithoutBody');
         }
 
         if ($call === 'LIST /user/orgs') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSimple>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSimple>|WithoutBody');
         }
 
         if ($call === 'POST /user/projects') {
@@ -3828,19 +3828,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/public_emails') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Email>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Email>|WithoutBody');
         }
 
         if ($call === 'LIST /user/public_emails') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Email>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Email>|WithoutBody');
         }
 
         if ($call === 'GET /user/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Repository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Repository>|WithoutBody');
         }
 
         if ($call === 'LIST /user/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Repository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Repository>|WithoutBody');
         }
 
         if ($call === 'POST /user/repos') {
@@ -3848,11 +3848,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/repository_invitations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryInvitation>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryInvitation>|WithoutBody');
         }
 
         if ($call === 'LIST /user/repository_invitations') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryInvitation>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryInvitation>|WithoutBody');
         }
 
         if ($call === 'DELETE /user/repository_invitations/{invitation_id}') {
@@ -3864,11 +3864,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/ssh_signing_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SshSigningKey>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SshSigningKey>|WithoutBody');
         }
 
         if ($call === 'LIST /user/ssh_signing_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SshSigningKey>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SshSigningKey>|WithoutBody');
         }
 
         if ($call === 'POST /user/ssh_signing_keys') {
@@ -3884,11 +3884,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/starred') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Repository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Repository>|WithoutBody');
         }
 
         if ($call === 'LIST /user/starred') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Repository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\Repository>|WithoutBody');
         }
 
         if ($call === 'GET /user/starred/{owner}/{repo}') {
@@ -3904,23 +3904,23 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /user/subscriptions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>|WithoutBody');
         }
 
         if ($call === 'LIST /user/subscriptions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>|WithoutBody');
         }
 
         if ($call === 'GET /user/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamFull>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamFull>|WithoutBody');
         }
 
         if ($call === 'LIST /user/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamFull>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamFull>|WithoutBody');
         }
 
         if ($call === 'GET /users') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
         }
 
         if ($call === 'GET /users/{username}') {
@@ -3928,43 +3928,43 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /users/{username}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'LIST /users/{username}/events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'GET /users/{username}/events/orgs/{org}') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'LIST /users/{username}/events/orgs/{org}') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'GET /users/{username}/events/public') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'LIST /users/{username}/events/public') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'GET /users/{username}/followers') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /users/{username}/followers') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /users/{username}/following') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'LIST /users/{username}/following') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SimpleUser>');
+            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>');
         }
 
         if ($call === 'GET /users/{username}/following/{target_user}') {
@@ -3972,19 +3972,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /users/{username}/gists') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>');
         }
 
         if ($call === 'LIST /users/{username}/gists') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BaseGist>');
+            return $this->typeResolver->resolve('Observable<Schema\\BaseGist>');
         }
 
         if ($call === 'GET /users/{username}/gpg_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GpgKey>');
+            return $this->typeResolver->resolve('Observable<Schema\\GpgKey>');
         }
 
         if ($call === 'LIST /users/{username}/gpg_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GpgKey>');
+            return $this->typeResolver->resolve('Observable<Schema\\GpgKey>');
         }
 
         if ($call === 'GET /users/{username}/hovercard') {
@@ -3996,51 +3996,51 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /users/{username}/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\KeySimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\KeySimple>');
         }
 
         if ($call === 'LIST /users/{username}/keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\KeySimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\KeySimple>');
         }
 
         if ($call === 'GET /users/{username}/orgs') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSimple>');
         }
 
         if ($call === 'LIST /users/{username}/orgs') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSimple>');
         }
 
         if ($call === 'GET /users/{username}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Project>');
+            return $this->typeResolver->resolve('Observable<Schema\\Project>');
         }
 
         if ($call === 'LIST /users/{username}/projects') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Project>');
+            return $this->typeResolver->resolve('Observable<Schema\\Project>');
         }
 
         if ($call === 'GET /users/{username}/received_events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'LIST /users/{username}/received_events') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'GET /users/{username}/received_events/public') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'LIST /users/{username}/received_events/public') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Event>');
+            return $this->typeResolver->resolve('Observable<Schema\\Event>');
         }
 
         if ($call === 'GET /users/{username}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /users/{username}/repos') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'PUT /users/{username}/site_admin') {
@@ -4052,23 +4052,23 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /users/{username}/ssh_signing_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SshSigningKey>');
+            return $this->typeResolver->resolve('Observable<Schema\\SshSigningKey>');
         }
 
         if ($call === 'LIST /users/{username}/ssh_signing_keys') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\SshSigningKey>');
+            return $this->typeResolver->resolve('Observable<Schema\\SshSigningKey>');
         }
 
         if ($call === 'GET /users/{username}/starred') {
-            return $this->typeResolver->resolve('Schema\\StarredRepository|Schema\\Repository');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /users/{username}/subscriptions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'LIST /users/{username}/subscriptions') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\MinimalRepository>');
+            return $this->typeResolver->resolve('Observable<Schema\\MinimalRepository>');
         }
 
         if ($call === 'PUT /users/{username}/suspended') {
