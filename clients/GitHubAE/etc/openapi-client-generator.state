@@ -1,5 +1,5 @@
 {
-    "specHash": "85b44e1fd5b2db48b1416de6372728c7",
+    "specHash": "9f4d4c650bdcedb87ba86bd4ef652f7e",
     "generatedFiles": {
         "files": [
             {
@@ -896,7 +896,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Hook.php",
-                "hash": "e6cb407d76687e3ccbb46b1ddbdace38"
+                "hash": "71734034dc5ca37ea75568ef5633cb18"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/IssueEventLabel.php",
@@ -2521,10 +2521,6 @@
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/GitTree\/Tree.php",
                 "hash": "044a91ad5dbb7afa640cc37d4755edf8"
-            },
-            {
-                "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Hook\/Config.php",
-                "hash": "3cb7e6225af854d207170da73b63d236"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/LabeledIssueEvent\/Label.php",
@@ -4516,19 +4512,15 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/CreateWebhook\/Request\/ApplicationJson.php",
-                "hash": "8e7da7c5c13712179fd8addb0ed38280"
+                "hash": "7d17f932dae306e5f1696b598d0a5888"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/CreateWebhook\/Request\/ApplicationJson\/Config.php",
-                "hash": "d36c9e3dc134f2fc6059af08c64af5fe"
+                "hash": "5c48afb60fc96f778d146775307d14a0"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/UpdateWebhook\/Request\/ApplicationJson.php",
-                "hash": "81ca208bb01d53041f00a47b5aa39b22"
-            },
-            {
-                "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/UpdateWebhook\/Request\/ApplicationJson\/Config.php",
-                "hash": "2b644b867596381f370553f7bea6f02a"
+                "hash": "218a3bdd99b9db30e99a8e51fbefa9ac"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Repos\/UpdateWebhookConfigForRepo\/Request\/ApplicationJson.php",
@@ -4848,11 +4840,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "0e92426b7782c5fccfc539fa271fae5c"
+                "hash": "39cede2df144c50eb9e8a399160d7c1b"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Apps.php",
-                "hash": "635b60b99577b40926da43aa6467774c"
+                "hash": "6ce6dc25f82af02b2cf9f70237e7c1aa"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/CodesOfConduct.php",
@@ -4864,15 +4856,15 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
-                "hash": "8089b5cacd1ada2c762d82d031908249"
+                "hash": "e0a069c8c36d053fba64c321ffb9555f"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Activity.php",
-                "hash": "9f3efba756997073944bdc9ddac219e9"
+                "hash": "4130ef874c43b61601fbc45f806f7000"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Gists.php",
-                "hash": "2d4b46bf82c34b3f2fd16311ff432955"
+                "hash": "1ca991fbe1b3f7ab133b287d31a8a744"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Gitignore.php",
@@ -4880,11 +4872,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Issues.php",
-                "hash": "e57ec364f1e9544437de51c7750dc722"
+                "hash": "3985bab680fabf44503ad6be3f7f5f52"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Licenses.php",
-                "hash": "b47f74cad527a44ec30d39b60dfb7f0c"
+                "hash": "6fee1cec1d963b280796d047fca624ee"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Markdown.php",
@@ -4892,35 +4884,35 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "501070ab7bc8fd9cee97fe9b58589129"
+                "hash": "9fd0060eb02bbfe20be1b7a56dd90c48"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Actions.php",
-                "hash": "61e25149947c2e3d83297da32242f8cd"
+                "hash": "5e02bbc492898fe82f06b40a523413b8"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
-                "hash": "138304f46d8b970ee9d1f01f7781306f"
+                "hash": "b8c6914f0d80802faa46ba41ae5d7995"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Teams.php",
-                "hash": "6a88a22a340317f2468748592cc00c6d"
+                "hash": "df084dc2d44e1516a45b7877558553d4"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Migrations.php",
-                "hash": "60670c61897aab5cf796bfc6a49d3c28"
+                "hash": "a891703ec0988c9e7eeca3479fb33990"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Projects.php",
-                "hash": "0ac560f5d96d25ab8c51ede55cfdf63b"
+                "hash": "2d82cb7abfe9d5ea4a24a3a7f2886775"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "dd34497894dec6b8013bfe89fefae687"
+                "hash": "c268e3648584bf0be6447ad5de1b3dda"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Reactions.php",
-                "hash": "0b50601e291daf6d250f68d75518edd2"
+                "hash": "464ec6f02194f9db909fe1e01314017a"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/RateLimit.php",
@@ -4928,7 +4920,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Checks.php",
-                "hash": "740589ab046bbbd617ff15fd973fe87d"
+                "hash": "21893139c26dc1808f86dd2886a35a8d"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Git.php",
@@ -4936,15 +4928,15 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Pulls.php",
-                "hash": "7d495e45599a7287a22b589ea6f93d7a"
+                "hash": "cb40b10f153a5ed8d20eb336685ef533"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Search.php",
-                "hash": "1b4a67b225f2d9e1605bb453fc99f848"
+                "hash": "231a63de45d9bac03ddfd8b92a041121"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Users.php",
-                "hash": "2411883b87a240199ebdc2939727d2ba"
+                "hash": "0fa3b78791c83a93275e406285e1f001"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operations.php",
@@ -19412,7 +19404,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetCodeFrequencyStats.php",
-                "hash": "e2d4e8a1354182be66d2fe56e9cb5dbc"
+                "hash": "43034c225c13668182516d261e09813d"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetCodeFrequencyStatsTest.php",
@@ -21284,7 +21276,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "10a67fbd404e634439e9212514f5ed3d"
+                "hash": "d65aefe97b9a423213bedc0fa029dd14"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Activity.php",
@@ -21668,7 +21660,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "bf7b8c59d7baac347dde243c5b3e7519"
+                "hash": "068639be1e698c228134ef8fdb9c581d"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Two.php",
@@ -22800,11 +22792,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Hooks.php",
-                "hash": "f11c551a1910b332f99a0bdf324d7f8f"
+                "hash": "bcd0ed65c2eaac151862a274ec192e67"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Hooks\/HookId.php",
-                "hash": "f6752d7bec3310c658ee1c38bdc03615"
+                "hash": "aa70dc37ae4020dbb1f482fadbd4d74c"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Hooks\/HookId\/Config.php",
@@ -23328,7 +23320,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "287b232d289443b5a475d8b5bdb3c462"
+                "hash": "18c44cdc9fb5441f8212c01b55aae8a4"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/OrganizationSimpleWebhooks.php",
@@ -23428,11 +23420,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "95d0e508e63826dad90be1c6a3aa0582"
+                "hash": "60e5145c0a8f78ecc20ccc2f75b55e52"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "d9987aaa54004772f9da3c731865700a"
+                "hash": "cebc119575c71cbf269c9bdfa7272fe9"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
