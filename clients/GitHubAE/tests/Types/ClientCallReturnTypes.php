@@ -662,7 +662,7 @@ assertType('', $client->call('PATCH /repos/{owner}/{repo}/secret-scanning/alerts
 assertType('Observable<Schema\\SecretScanningLocation>|WithoutBody', $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations'));
 assertType('Observable<Schema\\SecretScanningLocation>|WithoutBody', $client->call('LIST /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/stargazers'));
-assertType('iterable<int,int>|Schema\\Operations\\Repos\\GetCodeFrequencyStats\\Response\\ApplicationJson\\Accepted\\Application\\Json|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /repos/{owner}/{repo}/stats/code_frequency'));
+assertType('Observable<int>|Schema\\Operations\\Repos\\GetCodeFrequencyStats\\Response\\ApplicationJson\\Accepted\\Application\\Json|WithoutBody', $client->call('GET /repos/{owner}/{repo}/stats/code_frequency'));
 assertType('Observable<Schema\\CommitActivity>|Schema\\Operations\\Repos\\GetCommitActivityStats\\Response\\ApplicationJson\\Accepted\\Application\\Json|WithoutBody', $client->call('GET /repos/{owner}/{repo}/stats/commit_activity'));
 assertType('Observable<Schema\\ContributorActivity>|Schema\\Operations\\Repos\\GetContributorsStats\\Response\\ApplicationJson\\Accepted\\Application\\Json|WithoutBody', $client->call('GET /repos/{owner}/{repo}/stats/contributors'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/stats/participation'));
