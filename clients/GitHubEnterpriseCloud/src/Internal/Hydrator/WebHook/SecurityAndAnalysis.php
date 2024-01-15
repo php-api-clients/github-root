@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\WebHook;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository\CustomProperties;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository\Permissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimpleWebhooks;
@@ -82,6 +83,7 @@ class SecurityAndAnalysis implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Repository⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeOfConductSimple' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeOfConductSimple($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FullRepository⚡️CustomProperties($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -2100,6 +2102,26 @@ class SecurityAndAnalysis implements ObjectMapper
             $properties['securityAndAnalysis'] = $value;
 
             after_securityAndAnalysis:
+
+            $value = $payload['custom_properties'] ?? null;
+
+            if ($value === null) {
+                $properties['customProperties'] = null;
+                goto after_customProperties;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'customProperties';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FullRepository⚡️CustomProperties($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['customProperties'] = $value;
+
+            after_customProperties:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository', $exception, stack: $this->hydrationStack);
         }
@@ -5349,6 +5371,26 @@ class SecurityAndAnalysis implements ObjectMapper
         }
     }
 
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FullRepository⚡️CustomProperties(array $payload): CustomProperties
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository\CustomProperties', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new CustomProperties(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository\CustomProperties', $exception, stack: $this->hydrationStack);
+        }
+    }
+
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
         foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
@@ -6291,6 +6333,15 @@ class SecurityAndAnalysis implements ObjectMapper
 
         $securityAndAnalysis                                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis($securityAndAnalysis);
         after_securityAndAnalysis:        $result['security_and_analysis'] = $securityAndAnalysis;
+
+        $customProperties = $object->customProperties;
+
+        if ($customProperties === null) {
+            goto after_customProperties;
+        }
+
+        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️FullRepository⚡️CustomProperties($customProperties);
+        after_customProperties:        $result['custom_properties'] = $customProperties;
 
         return $result;
     }
