@@ -7790,7 +7790,7 @@ final class Operators
     public function repos👷CreatePagesDeployment(): Internal\Operator\Repos\CreatePagesDeployment
     {
         if ($this->repos👷CreatePagesDeployment instanceof Internal\Operator\Repos\CreatePagesDeployment === false) {
-            $this->repos👷CreatePagesDeployment = new Internal\Operator\Repos\CreatePagesDeployment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployment());
+            $this->repos👷CreatePagesDeployment = new Internal\Operator\Repos\CreatePagesDeployment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployments());
         }
 
         return $this->repos👷CreatePagesDeployment;

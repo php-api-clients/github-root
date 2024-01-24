@@ -361,6 +361,17 @@ class SecretScanningAlert implements ObjectMapper
 
             after_secretType:
 
+            $value = $payload['validity'] ?? null;
+
+            if ($value === null) {
+                $properties['validity'] = null;
+                goto after_validity;
+            }
+
+            $properties['validity'] = $value;
+
+            after_validity:
+
             $value = $payload['push_protection_bypassed'] ?? null;
 
             if ($value === null) {
@@ -4833,6 +4844,14 @@ class SecretScanningAlert implements ObjectMapper
         }
 
         after_secretType:        $result['secret_type'] = $secretType;
+
+        $validity = $object->validity;
+
+        if ($validity === null) {
+            goto after_validity;
+        }
+
+        after_validity:        $result['validity'] = $validity;
 
         $pushProtectionBypassed = $object->pushProtectionBypassed;
 
