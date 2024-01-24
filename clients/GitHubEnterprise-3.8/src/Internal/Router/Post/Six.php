@@ -32,6 +32,7 @@ final class Six
     {
     }
 
+    /** @return |Schema\PageDeployment */
     public function call(string $call, array $params, array $pathChunks): Created|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json|AuthenticationToken|WithoutBody|TeamDiscussion|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterprise\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|Status|TagProtection|TeamDiscussionComment|Reaction
     {
         if ($pathChunks[0] === '') {
@@ -175,8 +176,8 @@ final class Six
                                 if ($call === 'POST /repos/{owner}/{repo}/pages/builds') {
                                     return $this->routers->internal🔀Router🔀Post🔀Repos()->requestPagesBuild($params);
                                 }
-                            } elseif ($pathChunks[5] === 'deployment') {
-                                if ($call === 'POST /repos/{owner}/{repo}/pages/deployment') {
+                            } elseif ($pathChunks[5] === 'deployments') {
+                                if ($call === 'POST /repos/{owner}/{repo}/pages/deployments') {
                                     return $this->routers->internal🔀Router🔀Post🔀Repos()->createPagesDeployment($params);
                                 }
                             }
