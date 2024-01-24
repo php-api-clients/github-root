@@ -2919,8 +2919,8 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
-        if ($call === 'POST /repos/{owner}/{repo}/pages/deployment') {
-            return $this->typeResolver->resolve('');
+        if ($call === 'POST /repos/{owner}/{repo}/pages/deployments') {
+            return $this->typeResolver->resolve('Schema\\PageDeployment');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pre-receive-hooks') {
