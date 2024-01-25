@@ -346,7 +346,6 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
     public function createPagesDeployment(array $params): PageDeployment
     {
         $arguments = [];
@@ -362,7 +361,7 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        $operator = new Internal\Operator\Repos\CreatePagesDeployment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployment());
+        $operator = new Internal\Operator\Repos\CreatePagesDeployment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployments());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
