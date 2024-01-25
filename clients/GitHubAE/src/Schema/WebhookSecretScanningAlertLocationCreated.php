@@ -270,6 +270,15 @@ final readonly class WebhookSecretScanningAlertLocationCreated
                 "secret_type": {
                     "type": "string",
                     "description": "The type of secret that secret scanning detected."
+                },
+                "validity": {
+                    "enum": [
+                        "active",
+                        "inactive",
+                        "unknown"
+                    ],
+                    "type": "string",
+                    "description": "The token status as of the latest validity check."
                 }
             }
         },
@@ -2264,7 +2273,8 @@ final readonly class WebhookSecretScanningAlertLocationCreated
             "starred_at": "\\"2020-07-09T00:17:55Z\\""
         },
         "resolution_comment": "generated",
-        "secret_type": "generated"
+        "secret_type": "generated",
+        "validity": "unknown"
     },
     "installation": {
         "id": 1,

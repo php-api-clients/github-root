@@ -357,6 +357,17 @@ class SecretScanningAlertLocation implements ObjectMapper
             $properties['secretType'] = $value;
 
             after_secretType:
+
+            $value = $payload['validity'] ?? null;
+
+            if ($value === null) {
+                $properties['validity'] = null;
+                goto after_validity;
+            }
+
+            $properties['validity'] = $value;
+
+            after_validity:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubAE\Schema\SecretScanningAlertWebhook', $exception, stack: $this->hydrationStack);
         }
@@ -4165,6 +4176,14 @@ class SecretScanningAlertLocation implements ObjectMapper
         }
 
         after_secretType:        $result['secret_type'] = $secretType;
+
+        $validity = $object->validity;
+
+        if ($validity === null) {
+            goto after_validity;
+        }
+
+        after_validity:        $result['validity'] = $validity;
 
         return $result;
     }
