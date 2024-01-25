@@ -18856,7 +18856,7 @@ Create a GitHub Pages deployment
 
 Using the `call` method:
 ```php
-$client->call('POST /repos/{owner}/{repo}/pages/deployment', [
+$client->call('POST /repos/{owner}/{repo}/pages/deployments', [
         'owner' => 'generated',
         'repo' => 'generated',
 ]);
