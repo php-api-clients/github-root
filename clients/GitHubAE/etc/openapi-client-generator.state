@@ -1,5 +1,5 @@
 {
-    "specHash": "9f4d4c650bdcedb87ba86bd4ef652f7e",
+    "specHash": "ed5808c1d3a8b2350deb978276a97387",
     "generatedFiles": {
         "files": [
             {
@@ -1468,7 +1468,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookGithubAppAuthorizationRevoked.php",
-                "hash": "1e4b4cbc84ce9f348f626dab7790c6e1"
+                "hash": "66936405ecdc3f070fa62188efb8c63d"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookGollum.php",
@@ -1960,11 +1960,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookSecretScanningAlertCreated.php",
-                "hash": "d41bf8c1a4c714525d6d305c915fe5ae"
+                "hash": "bfc9278ad24eef5d982fb8d6afe8ddff"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookSecretScanningAlertLocationCreated.php",
-                "hash": "956e36d2e230da43877eedcfb40f383f"
+                "hash": "6772f9848f9dc7e521dc5075049b558a"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookSecretScanningAlertLocationCreatedFormEncoded.php",
@@ -1972,15 +1972,15 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookSecretScanningAlertReopened.php",
-                "hash": "b637f0f63a0a24032af3b182fbac58de"
+                "hash": "501b3b48a66a227cc6b0be8075edee70"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookSecretScanningAlertResolved.php",
-                "hash": "48489996f07694c7ca10d216e8dbec5c"
+                "hash": "9e4ee57fa4955b2bebe473b6a72bafcd"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookSecretScanningAlertRevoked.php",
-                "hash": "dc8ad8ab8b4a217216b5a6a4b1602f2d"
+                "hash": "aa379bb4a9baf20ba98166b4b240051c"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookSecurityAndAnalysis.php",
@@ -4640,7 +4640,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Pulls\/CreateReviewComment\/Request\/ApplicationJson.php",
-                "hash": "1973a92243a1ef4ef201e0b4888d1847"
+                "hash": "aa3dac9796b263d112b16858c1226dda"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Pulls\/CreateReplyForReviewComment\/Request\/ApplicationJson.php",
@@ -4660,11 +4660,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Pulls\/CreateReview\/Request\/ApplicationJson.php",
-                "hash": "785be6762db9ba586cd5a86c1eef9b20"
+                "hash": "15614f03aa556afa7fd829f24d603b68"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Pulls\/CreateReview\/Request\/ApplicationJson\/Comments.php",
-                "hash": "e7365b6303e513f70c99cbc09b650cc1"
+                "hash": "888bbe927a76a34e3d0fae0f96d4ce3a"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/Pulls\/UpdateReview\/Request\/ApplicationJson.php",
@@ -4908,7 +4908,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "c268e3648584bf0be6447ad5de1b3dda"
+                "hash": "6cc447fe7e3bd473f3a26760862ec255"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -11704,7 +11704,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/SecretScanningAlertWebhook.php",
-                "hash": "41f581ca8a6d1be939a3f90329471ffd"
+                "hash": "f0ec65ac32bd66ce151c2fc885382d9e"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Schema\/WebhookDeploymentReviewApproved.php",
@@ -23732,7 +23732,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/GithubAppAuthorization.php",
-                "hash": "c550c07589a188f0477f7b83fd7ae7c4"
+                "hash": "c406ea5754c7bfb8952102310b2bb993"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Gollum.php",
@@ -23852,11 +23852,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/SecretScanningAlert.php",
-                "hash": "cdf47ae19e57df224131950de9f2aa7b"
+                "hash": "56c6754931c550779a1685d9bf41a6b7"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/SecretScanningAlertLocation.php",
-                "hash": "27c75aeac2424a09a23d7d6d592bdb75"
+                "hash": "be4fc9149e7e47cc66fecf5e9e8070f1"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/SecurityAndAnalysis.php",
