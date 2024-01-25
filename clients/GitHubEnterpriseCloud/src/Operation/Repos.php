@@ -43,6 +43,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Page;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PageBuild;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PageBuildStatus;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PageDeployment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\PagesDeploymentStatus;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PagesHealthCheck;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ParticipationStats;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranch;
@@ -993,10 +994,19 @@ final class Repos
         return $this->operators->repos👷GetPagesBuild()->call($owner, $repo, $buildId);
     }
 
-    /** @return */
     public function createPagesDeployment(string $owner, string $repo, array $params): PageDeployment
     {
         return $this->operators->repos👷CreatePagesDeployment()->call($owner, $repo, $params);
+    }
+
+    public function getPagesDeployment(string $owner, string $repo, mixed $pagesDeploymentId): PagesDeploymentStatus
+    {
+        return $this->operators->repos👷GetPagesDeployment()->call($owner, $repo, $pagesDeploymentId);
+    }
+
+    public function cancelPagesDeployment(string $owner, string $repo, mixed $pagesDeploymentId): WithoutBody
+    {
+        return $this->operators->repos👷CancelPagesDeployment()->call($owner, $repo, $pagesDeploymentId);
     }
 
     /** @return */
@@ -1023,6 +1033,7 @@ final class Repos
         return $this->operators->repos👷GetCustomPropertiesValues()->call($owner, $repo);
     }
 
+    /** @return */
     public function createOrUpdateCustomPropertiesValues(string $owner, string $repo, array $params): WithoutBody
     {
         return $this->operators->repos👷CreateOrUpdateCustomPropertiesValues()->call($owner, $repo, $params);
