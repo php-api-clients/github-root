@@ -23,7 +23,7 @@ final class CodeScanning
     {
     }
 
-    /** @return iterable<int,Schema\CodeScanningAlertItems> */
+    /** @return Observable<Schema\CodeScanningAlertItems> */
     public function listAlertsForRepo(array $params): iterable
     {
         $arguments = [];
@@ -80,7 +80,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['page'], $arguments['per_page']);
     }
 
-    /** @return iterable<int,Schema\CodeScanningAnalysis> */
+    /** @return Observable<Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(array $params): iterable
     {
         $arguments = [];
@@ -137,6 +137,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page']);
     }
 
+    /** @return */
     public function getAlert(array $params): CodeScanningAlert
     {
         $arguments = [];
@@ -163,6 +164,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number']);
     }
 
+    /** @return */
     public function getAnalysis(array $params): CodeScanningAnalysis
     {
         $arguments = [];
@@ -189,6 +191,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['analysis_id']);
     }
 
+    /** @return */
     public function getSarif(array $params): CodeScanningSarifsStatus|WithoutBody
     {
         $arguments = [];
@@ -215,7 +218,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sarif_id']);
     }
 
-    /** @return iterable<int,Schema\CodeScanningAlertInstance> */
+    /** @return Observable<Schema\CodeScanningAlertInstance> */
     public function listAlertInstances(array $params): iterable
     {
         $arguments = [];

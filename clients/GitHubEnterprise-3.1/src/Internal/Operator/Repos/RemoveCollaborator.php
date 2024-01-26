@@ -22,6 +22,7 @@ final readonly class RemoveCollaborator
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\RemoveCollaborator($owner, $repo, $username);

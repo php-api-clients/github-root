@@ -24,6 +24,7 @@ final readonly class UpdateAuthorization
     {
     }
 
+    /** @return */
     public function call(int $authorizationId, array $params): Authorization
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\UpdateAuthorization($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $authorizationId);

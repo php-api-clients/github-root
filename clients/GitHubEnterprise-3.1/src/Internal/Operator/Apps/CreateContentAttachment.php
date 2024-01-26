@@ -25,6 +25,7 @@ final readonly class CreateContentAttachment
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $contentReferenceId, array $params): ContentReferenceAttachment|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps\CreateContentAttachment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo, $contentReferenceId);

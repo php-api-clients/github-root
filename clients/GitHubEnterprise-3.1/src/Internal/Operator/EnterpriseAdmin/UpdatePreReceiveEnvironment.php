@@ -24,6 +24,7 @@ final readonly class UpdatePreReceiveEnvironment
     {
     }
 
+    /** @return */
     public function call(int $preReceiveEnvironmentId, array $params): PreReceiveEnvironment
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdatePreReceiveEnvironment($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $preReceiveEnvironmentId);
