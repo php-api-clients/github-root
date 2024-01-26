@@ -24,6 +24,7 @@ final readonly class ResetAuthorization
     {
     }
 
+    /** @return */
     public function call(string $clientId, string $accessToken): Authorization
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps\ResetAuthorization($this->responseSchemaValidator, $this->hydrator, $clientId, $accessToken);

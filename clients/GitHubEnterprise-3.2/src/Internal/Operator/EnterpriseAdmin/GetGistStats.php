@@ -24,6 +24,7 @@ final readonly class GetGistStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseGistOverview
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetGistStats($this->responseSchemaValidator, $this->hydrator);

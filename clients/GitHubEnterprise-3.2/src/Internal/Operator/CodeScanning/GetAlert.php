@@ -24,6 +24,7 @@ final readonly class GetAlert
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $alertNumber): CodeScanningAlert
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\CodeScanning\GetAlert($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $alertNumber);

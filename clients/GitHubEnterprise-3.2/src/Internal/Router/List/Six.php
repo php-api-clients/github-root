@@ -15,7 +15,7 @@ final class Six
     {
     }
 
-    /** @return iterable<int,Schema\TeamDiscussion>|iterable<int,Schema\SimpleUser>|iterable<int,Schema\TeamProject>|iterable<int,Schema\MinimalRepository>|iterable<int,Schema\Team>|iterable<int,Schema\CodeScanningAlertItems>|iterable<int,Schema\CodeScanningAnalysis>|iterable<int,Schema\IssueComment>|iterable<int,Schema\IssueEvent>|iterable<int,Schema\PageBuild>|iterable<int,Schema\PullRequestReviewComment>|iterable<int,Schema\SecretScanningAlert>|WithoutBody|iterable<int,Schema\TeamDiscussionComment>|iterable<int,Schema\Reaction>|iterable<int,Schema\Event> */
+    /** @return Observable<Schema\TeamDiscussion>|Observable<Schema\SimpleUser>|Observable<Schema\TeamProject>|Observable<Schema\MinimalRepository>|Observable<Schema\Team>|Observable<Schema\CodeScanningAlertItems>|Observable<Schema\CodeScanningAnalysis>|Observable<Schema\IssueComment>|Observable<Schema\IssueEvent>|Observable<Schema\PageBuild>|Observable<Schema\PullRequestReviewComment>|Observable<Schema\SecretScanningAlert>|WithoutBody|Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\Event> */
     public function call(string $call, array $params, array $pathChunks): iterable|WithoutBody
     {
         if ($pathChunks[0] === '') {
