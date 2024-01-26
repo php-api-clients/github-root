@@ -22,6 +22,7 @@ final readonly class PingGlobalWebhook
     {
     }
 
+    /** @return */
     public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json'): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\PingGlobalWebhook($hookId, $accept);

@@ -21,6 +21,7 @@ final class Actions
     {
     }
 
+    /** @return */
     public function setGithubActionsPermissionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
@@ -35,6 +36,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function setSelectedRepositoriesEnabledGithubActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
@@ -49,6 +51,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function setAllowedActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
@@ -63,6 +66,7 @@ final class Actions
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function createOrUpdateOrgSecret(array $params): EmptyObject|WithoutBody
     {
         $arguments = [];
@@ -83,6 +87,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
+    /** @return */
     public function setGithubActionsPermissionsRepository(array $params): WithoutBody
     {
         $arguments = [];
@@ -103,6 +108,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function enableSelectedRepositoryGithubActionsOrganization(array $params): WithoutBody
     {
         $arguments = [];
@@ -123,6 +129,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['repository_id']);
     }
 
+    /** @return */
     public function setRepoAccessToSelfHostedRunnerGroupInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -143,6 +150,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
+    /** @return */
     public function setSelfHostedRunnersInGroupForOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -163,6 +171,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $params);
     }
 
+    /** @return */
     public function setSelectedReposForOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
@@ -183,6 +192,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $params);
     }
 
+    /** @return */
     public function setAllowedActionsRepository(array $params): WithoutBody
     {
         $arguments = [];
@@ -203,6 +213,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createOrUpdateRepoSecret(array $params): Json|WithoutBody
     {
         $arguments = [];
@@ -229,6 +240,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['secret_name'], $params);
     }
 
+    /** @return */
     public function addRepoAccessToSelfHostedRunnerGroupInOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -255,6 +267,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['repository_id']);
     }
 
+    /** @return */
     public function addSelfHostedRunnerToGroupForOrg(array $params): WithoutBody
     {
         $arguments = [];
@@ -281,6 +294,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function addSelectedRepoToOrgSecret(array $params): WithoutBody
     {
         $arguments = [];
@@ -307,6 +321,7 @@ final class Actions
         return $operator->call($arguments['org'], $arguments['secret_name'], $arguments['repository_id']);
     }
 
+    /** @return */
     public function disableWorkflow(array $params): WithoutBody
     {
         $arguments = [];
@@ -333,6 +348,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
+    /** @return */
     public function enableWorkflow(array $params): WithoutBody
     {
         $arguments = [];

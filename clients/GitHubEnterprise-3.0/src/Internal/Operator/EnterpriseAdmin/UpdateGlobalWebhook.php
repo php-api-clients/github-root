@@ -24,6 +24,7 @@ final readonly class UpdateGlobalWebhook
     {
     }
 
+    /** @return */
     public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json', array $params): GlobalHook2
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\UpdateGlobalWebhook($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $hookId, $accept);

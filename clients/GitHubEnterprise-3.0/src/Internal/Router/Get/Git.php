@@ -24,6 +24,7 @@ final class Git
     {
     }
 
+    /** @return */
     public function getBlob(array $params): Blob
     {
         $arguments = [];
@@ -50,6 +51,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['file_sha']);
     }
 
+    /** @return */
     public function getCommit(array $params): GitCommit
     {
         $arguments = [];
@@ -76,7 +78,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['commit_sha']);
     }
 
-    /** @return iterable<int,Schema\GitRef> */
+    /** @return Observable<Schema\GitRef> */
     public function listMatchingRefs(array $params): iterable
     {
         $arguments = [];
@@ -115,6 +117,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getRef(array $params): GitRef
     {
         $arguments = [];
@@ -141,6 +144,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
+    /** @return */
     public function getTag(array $params): GitTag
     {
         $arguments = [];
@@ -167,6 +171,7 @@ final class Git
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tag_sha']);
     }
 
+    /** @return */
     public function getTree(array $params): GitTree
     {
         $arguments = [];
