@@ -787,7 +787,7 @@ assertType('Observable<Schema\\PageBuild>', $client->call('LIST /repos/{owner}/{
 assertType('', $client->call('POST /repos/{owner}/{repo}/pages/builds'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/pages/builds/latest'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/pages/builds/{build_id}'));
-assertType('Schema\\PageDeployment', $client->call('POST /repos/{owner}/{repo}/pages/deployments'));
+assertType('', $client->call('POST /repos/{owner}/{repo}/pages/deployments'));
 assertType('Observable<Schema\\RepositoryPreReceiveHook>', $client->call('GET /repos/{owner}/{repo}/pre-receive-hooks'));
 assertType('Observable<Schema\\RepositoryPreReceiveHook>', $client->call('LIST /repos/{owner}/{repo}/pre-receive-hooks'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}'));
