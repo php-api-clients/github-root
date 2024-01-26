@@ -24,6 +24,7 @@ final readonly class CreateUser
     {
     }
 
+    /** @return */
     public function call(array $params): SimpleUser
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\CreateUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

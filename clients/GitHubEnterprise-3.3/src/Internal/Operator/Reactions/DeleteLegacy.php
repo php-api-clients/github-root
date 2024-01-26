@@ -24,6 +24,7 @@ final readonly class DeleteLegacy
     {
     }
 
+    /** @return */
     public function call(int $reactionId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Reactions\DeleteLegacy($this->responseSchemaValidator, $this->hydrator, $reactionId);

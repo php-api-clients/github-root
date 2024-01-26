@@ -25,6 +25,7 @@ final readonly class GetAuthorization
     {
     }
 
+    /** @return */
     public function call(int $authorizationId): Authorization|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\GetAuthorization($this->responseSchemaValidator, $this->hydrator, $authorizationId);

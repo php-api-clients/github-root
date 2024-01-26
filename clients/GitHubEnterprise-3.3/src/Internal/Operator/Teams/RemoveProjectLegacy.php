@@ -24,6 +24,7 @@ final readonly class RemoveProjectLegacy
     {
     }
 
+    /** @return */
     public function call(int $teamId, int $projectId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Teams\RemoveProjectLegacy($this->responseSchemaValidator, $this->hydrator, $teamId, $projectId);

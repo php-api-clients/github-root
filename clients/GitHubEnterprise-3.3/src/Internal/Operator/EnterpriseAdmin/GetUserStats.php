@@ -24,6 +24,7 @@ final readonly class GetUserStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseUserOverview
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetUserStats($this->responseSchemaValidator, $this->hydrator);

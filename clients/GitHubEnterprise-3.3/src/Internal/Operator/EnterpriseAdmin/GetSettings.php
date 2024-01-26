@@ -24,6 +24,7 @@ final readonly class GetSettings
     {
     }
 
+    /** @return */
     public function call(): EnterpriseSettings
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetSettings($this->responseSchemaValidator, $this->hydrator);

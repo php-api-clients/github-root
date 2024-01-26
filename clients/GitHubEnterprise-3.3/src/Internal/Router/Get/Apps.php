@@ -28,7 +28,7 @@ final class Apps
     {
     }
 
-    /** @return iterable<int,Schema\Installation> */
+    /** @return Observable<Schema\Installation> */
     public function listInstallations(array $params): iterable
     {
         $arguments = [];
@@ -61,6 +61,7 @@ final class Apps
         return $operator->call($arguments['since'], $arguments['outdated'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getBySlug(array $params): Integration
     {
         $arguments = [];
@@ -75,6 +76,7 @@ final class Apps
         return $operator->call($arguments['app_slug']);
     }
 
+    /** @return */
     public function listReposAccessibleToInstallation(array $params): Ok|WithoutBody
     {
         $arguments = [];
@@ -95,6 +97,7 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listInstallationsForAuthenticatedUser(array $params): Json|WithoutBody
     {
         $arguments = [];
@@ -115,6 +118,7 @@ final class Apps
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getWebhookConfigForApp(array $params): WebhookConfig
     {
         $operator = new Internal\Operator\Apps\GetWebhookConfigForApp($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App🌀Hook🌀Config());
@@ -122,7 +126,7 @@ final class Apps
         return $operator->call();
     }
 
-    /** @return iterable<int,Schema\HookDeliveryItem> */
+    /** @return Observable<Schema\HookDeliveryItem> */
     public function listWebhookDeliveries(array $params): iterable
     {
         $arguments = [];
@@ -149,6 +153,7 @@ final class Apps
         return $operator->call($arguments['cursor'], $arguments['redelivery'], $arguments['per_page']);
     }
 
+    /** @return */
     public function getInstallation(array $params): Installation
     {
         $arguments = [];
@@ -163,6 +168,7 @@ final class Apps
         return $operator->call($arguments['installation_id']);
     }
 
+    /** @return */
     public function getOrgInstallation(array $params): Installation
     {
         $arguments = [];
@@ -177,6 +183,7 @@ final class Apps
         return $operator->call($arguments['org']);
     }
 
+    /** @return */
     public function getUserInstallation(array $params): Installation
     {
         $arguments = [];
@@ -191,6 +198,7 @@ final class Apps
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function getAuthenticated(array $params): Integration
     {
         $operator = new Internal\Operator\Apps\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀App());
@@ -198,6 +206,7 @@ final class Apps
         return $operator->call();
     }
 
+    /** @return */
     public function getWebhookDelivery(array $params): HookDelivery
     {
         $arguments = [];
@@ -212,6 +221,7 @@ final class Apps
         return $operator->call($arguments['delivery_id']);
     }
 
+    /** @return */
     public function checkAuthorization(array $params): Authorization
     {
         $arguments = [];
@@ -232,6 +242,7 @@ final class Apps
         return $operator->call($arguments['client_id'], $arguments['access_token']);
     }
 
+    /** @return */
     public function getRepoInstallation(array $params): Installation|BasicError
     {
         $arguments = [];
@@ -252,6 +263,7 @@ final class Apps
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function listInstallationReposForAuthenticatedUser(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|WithoutBody
     {
         $arguments = [];

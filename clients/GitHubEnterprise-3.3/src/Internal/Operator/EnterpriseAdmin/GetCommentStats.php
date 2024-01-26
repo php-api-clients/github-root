@@ -24,6 +24,7 @@ final readonly class GetCommentStats
     {
     }
 
+    /** @return */
     public function call(): EnterpriseCommentOverview
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetCommentStats($this->responseSchemaValidator, $this->hydrator);

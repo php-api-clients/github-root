@@ -24,6 +24,7 @@ final readonly class DeleteWebhook
     {
     }
 
+    /** @return */
     public function call(string $org, int $hookId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\DeleteWebhook($this->responseSchemaValidator, $this->hydrator, $org, $hookId);

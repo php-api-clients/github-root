@@ -22,6 +22,7 @@ final readonly class RevokeGrantForApplication
     {
     }
 
+    /** @return */
     public function call(string $clientId, string $accessToken): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps\RevokeGrantForApplication($clientId, $accessToken);

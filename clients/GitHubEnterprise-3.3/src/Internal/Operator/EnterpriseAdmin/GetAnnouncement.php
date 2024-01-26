@@ -24,6 +24,7 @@ final readonly class GetAnnouncement
     {
     }
 
+    /** @return */
     public function call(): Announcement
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetAnnouncement($this->responseSchemaValidator, $this->hydrator);

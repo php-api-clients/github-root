@@ -24,6 +24,7 @@ final readonly class DeleteGrant
     {
     }
 
+    /** @return */
     public function call(int $grantId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\DeleteGrant($this->responseSchemaValidator, $this->hydrator, $grantId);
