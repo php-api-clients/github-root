@@ -22,6 +22,7 @@ final readonly class PromoteUserToBeSiteAdministrator
     {
     }
 
+    /** @return */
     public function call(string $username): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\PromoteUserToBeSiteAdministrator($username);

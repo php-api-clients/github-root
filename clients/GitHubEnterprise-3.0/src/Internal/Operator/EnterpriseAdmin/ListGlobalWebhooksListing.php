@@ -24,7 +24,7 @@ final readonly class ListGlobalWebhooksListing
     {
     }
 
-    /** @return iterable<int,Schema\GlobalHook> */
+    /** @return Observable<Schema\GlobalHook> */
     public function call(string $accept = 'application/vnd.github.superpro-preview+json', int $perPage = 30, int $page = 1): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\ListGlobalWebhooksListing($this->responseSchemaValidator, $this->hydrator, $accept, $perPage, $page);

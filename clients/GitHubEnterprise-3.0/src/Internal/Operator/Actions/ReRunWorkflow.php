@@ -24,6 +24,7 @@ final readonly class ReRunWorkflow
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $runId): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\ReRunWorkflow($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $runId);

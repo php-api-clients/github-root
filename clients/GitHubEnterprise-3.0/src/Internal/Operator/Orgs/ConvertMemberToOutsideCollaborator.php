@@ -25,6 +25,7 @@ final readonly class ConvertMemberToOutsideCollaborator
     {
     }
 
+    /** @return */
     public function call(string $org, string $username): Json|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\ConvertMemberToOutsideCollaborator($this->responseSchemaValidator, $this->hydrator, $org, $username);

@@ -24,6 +24,7 @@ final readonly class GetConfigurationStatus
     {
     }
 
+    /** @return */
     public function call(): ConfigurationStatus
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetConfigurationStatus($this->responseSchemaValidator, $this->hydrator);

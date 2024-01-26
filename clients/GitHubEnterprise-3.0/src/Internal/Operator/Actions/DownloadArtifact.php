@@ -22,6 +22,7 @@ final readonly class DownloadArtifact
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $artifactId, string $archiveFormat): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\DownloadArtifact($owner, $repo, $artifactId, $archiveFormat);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\PullRequestReview;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -16,7 +15,7 @@ final class Eight
     {
     }
 
-    /** @return WithoutBody|iterable<int,Schema\Label>|Schema\PullRequestReview */
+    /** @return |Observable<Schema\Label> */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|iterable|PullRequestReview
     {
         if ($pathChunks[0] === '') {

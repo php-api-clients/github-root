@@ -25,6 +25,7 @@ final readonly class Get
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): FullRepository|BasicError
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\Get($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

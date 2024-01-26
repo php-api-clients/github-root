@@ -22,6 +22,7 @@ final readonly class DisableWorkflow
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, $workflowId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\DisableWorkflow($owner, $repo, $workflowId);

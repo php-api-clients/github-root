@@ -21,6 +21,7 @@ final class Issues
     {
     }
 
+    /** @return */
     public function deleteComment(array $params): WithoutBody
     {
         $arguments = [];
@@ -47,6 +48,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['comment_id']);
     }
 
+    /** @return */
     public function removeAssignees(array $params): Issue
     {
         $arguments = [];
@@ -73,6 +75,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
+    /** @return */
     public function removeAllLabels(array $params): WithoutBody
     {
         $arguments = [];
@@ -99,6 +102,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number']);
     }
 
+    /** @return */
     public function unlock(array $params): WithoutBody
     {
         $arguments = [];
@@ -125,6 +129,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number']);
     }
 
+    /** @return */
     public function deleteLabel(array $params): WithoutBody
     {
         $arguments = [];
@@ -151,6 +156,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['name']);
     }
 
+    /** @return */
     public function deleteMilestone(array $params): WithoutBody
     {
         $arguments = [];
@@ -177,7 +183,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['milestone_number']);
     }
 
-    /** @return iterable<int,Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function removeLabel(array $params): iterable
     {
         $arguments = [];

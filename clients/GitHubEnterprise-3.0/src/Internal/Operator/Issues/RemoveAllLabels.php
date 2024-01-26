@@ -24,6 +24,7 @@ final readonly class RemoveAllLabels
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $issueNumber): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Issues\RemoveAllLabels($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $issueNumber);

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\AuthenticationToken;
 use ApiClients\Client\GitHubEnterprise\Schema\CommitComment;
 use ApiClients\Client\GitHubEnterprise\Schema\ContentReferenceAttachment;
@@ -27,7 +26,7 @@ final class Seven
     {
     }
 
-    /** @return Schema\AuthenticationToken|Schema\Operations\Checks\RerequestSuite\Response\ApplicationJson\Created\Application\Json|Schema\Reaction|Schema\CommitComment|Schema\ContentReferenceAttachment|WithoutBody|Schema\DeploymentStatus|Schema\Issue|Schema\IssueComment|iterable<int,Schema\Label>|Schema\PullRequestReviewComment|Schema\PullRequestSimple|Schema\PullRequestReview|Schema\ReleaseAsset */
+    /** @return |Observable<Schema\Label> */
     public function call(string $call, array $params, array $pathChunks): AuthenticationToken|Json|Reaction|CommitComment|ContentReferenceAttachment|WithoutBody|DeploymentStatus|Issue|IssueComment|iterable|PullRequestReviewComment|PullRequestSimple|PullRequestReview|ReleaseAsset
     {
         if ($pathChunks[0] === '') {

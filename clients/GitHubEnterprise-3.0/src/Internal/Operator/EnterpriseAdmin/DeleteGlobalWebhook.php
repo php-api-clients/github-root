@@ -22,6 +22,7 @@ final readonly class DeleteGlobalWebhook
     {
     }
 
+    /** @return */
     public function call(int $hookId, string $accept = 'application/vnd.github.superpro-preview+json'): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeleteGlobalWebhook($hookId, $accept);

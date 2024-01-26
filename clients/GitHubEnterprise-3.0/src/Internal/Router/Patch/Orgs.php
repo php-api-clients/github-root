@@ -22,6 +22,7 @@ final class Orgs
     {
     }
 
+    /** @return */
     public function updateWebhookConfigForOrg(array $params): WebhookConfig
     {
         $arguments = [];
@@ -42,6 +43,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
+    /** @return */
     public function update(array $params): OrganizationFull
     {
         $arguments = [];
@@ -56,6 +58,7 @@ final class Orgs
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function updateWebhook(array $params): OrgHook
     {
         $arguments = [];
@@ -76,6 +79,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['hook_id'], $params);
     }
 
+    /** @return */
     public function updateMembershipForAuthenticatedUser(array $params): OrgMembership
     {
         $arguments = [];

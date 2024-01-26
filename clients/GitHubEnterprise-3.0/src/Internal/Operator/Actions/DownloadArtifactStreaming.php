@@ -21,7 +21,7 @@ final readonly class DownloadArtifactStreaming
     {
     }
 
-    /** @return iterable<int,string> */
+    /** @return Observable<string> */
     public function call(string $owner, string $repo, int $artifactId, string $archiveFormat): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\DownloadArtifactStreaming($this->browser, $owner, $repo, $artifactId, $archiveFormat);
