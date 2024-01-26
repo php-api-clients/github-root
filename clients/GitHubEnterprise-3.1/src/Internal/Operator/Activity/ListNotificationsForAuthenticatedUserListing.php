@@ -25,7 +25,7 @@ final readonly class ListNotificationsForAuthenticatedUserListing
     {
     }
 
-    /** @return iterable<int,Schema\Thread>|WithoutBody */
+    /** @return Observable<Schema\Thread>|WithoutBody */
     public function call(string $since, string $before, bool $all = false, bool $participating = false, int $perPage = 30, int $page = 1): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Activity\ListNotificationsForAuthenticatedUserListing($this->responseSchemaValidator, $this->hydrator, $since, $before, $all, $participating, $perPage, $page);

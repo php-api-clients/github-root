@@ -24,6 +24,7 @@ final readonly class GetPullRequestStats
     {
     }
 
+    /** @return */
     public function call(): EnterprisePullRequestOverview
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetPullRequestStats($this->responseSchemaValidator, $this->hydrator);

@@ -22,6 +22,7 @@ final readonly class DeletePersonalAccessToken
     {
     }
 
+    /** @return */
     public function call(int $tokenId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeletePersonalAccessToken($tokenId);

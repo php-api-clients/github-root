@@ -24,6 +24,7 @@ final readonly class RerequestSuite
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, int $checkSuiteId): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Checks\RerequestSuite($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $checkSuiteId);

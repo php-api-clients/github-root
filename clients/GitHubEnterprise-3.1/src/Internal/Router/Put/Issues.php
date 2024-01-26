@@ -20,7 +20,7 @@ final class Issues
     {
     }
 
-    /** @return iterable<int,Schema\Label> */
+    /** @return Observable<Schema\Label> */
     public function setLabels(array $params): iterable
     {
         $arguments = [];
@@ -47,6 +47,7 @@ final class Issues
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['issue_number'], $params);
     }
 
+    /** @return */
     public function lock(array $params): WithoutBody
     {
         $arguments = [];

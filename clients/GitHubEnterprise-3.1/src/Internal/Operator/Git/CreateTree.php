@@ -24,6 +24,7 @@ final readonly class CreateTree
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): GitTree
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Git\CreateTree($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);
