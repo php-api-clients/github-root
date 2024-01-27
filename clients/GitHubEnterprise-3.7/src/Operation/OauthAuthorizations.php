@@ -16,13 +16,13 @@ final class OauthAuthorizations
     {
     }
 
-    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
+    /** @return Observable<Schema\ApplicationGrant>|WithoutBody */
     public function listGrants(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListGrants()->call($clientId, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\ApplicationGrant>|WithoutBody */
+    /** @return Observable<Schema\ApplicationGrant>|WithoutBody */
     public function listGrantsListing(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListGrantsListing()->call($clientId, $perPage, $page);
@@ -40,13 +40,13 @@ final class OauthAuthorizations
         return $this->operators->oauthAuthorizations👷DeleteGrant()->call($grantId);
     }
 
-    /** @return iterable<int,Schema\Authorization>|WithoutBody */
+    /** @return Observable<Schema\Authorization>|WithoutBody */
     public function listAuthorizations(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListAuthorizations()->call($clientId, $perPage, $page);
     }
 
-    /** @return iterable<int,Schema\Authorization>|WithoutBody */
+    /** @return Observable<Schema\Authorization>|WithoutBody */
     public function listAuthorizationsListing(string $clientId, int $perPage, int $page): iterable|WithoutBody
     {
         return $this->operators->oauthAuthorizations👷ListAuthorizationsListing()->call($clientId, $perPage, $page);
