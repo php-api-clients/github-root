@@ -25,6 +25,7 @@ final readonly class UpdateAuthenticated
     {
     }
 
+    /** @return */
     public function call(array $params): PrivateUser|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Users\UpdateAuthenticated($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
