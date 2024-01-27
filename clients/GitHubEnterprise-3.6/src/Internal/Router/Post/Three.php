@@ -24,7 +24,7 @@ final class Three
     {
     }
 
-    /** @return |Observable<Schema\Email>|WithoutBody|Schema\FullRepository|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    /** @return |Observable<Schema\Email>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|PreReceiveHook|SimpleUser|WithoutBody|string|iterable|GpgKey|Key|Migration|Project|FullRepository
     {
         if ($pathChunks[0] === '') {

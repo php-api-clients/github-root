@@ -1256,7 +1256,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /orgs/{org}/repos') {
-            return $this->typeResolver->resolve('Schema\\FullRepository');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/secret-scanning/alerts') {
@@ -2280,35 +2280,35 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}') {
-            return $this->typeResolver->resolve('Schema\\Environment');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /repos/{owner}/{repo}/environments/{environment_name}') {
-            return $this->typeResolver->resolve('Schema\\Environment');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/environments/{environment_name}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Repos\\ListDeploymentBranchPolicies\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies') {
-            return $this->typeResolver->resolve('Schema\\DeploymentBranchPolicy|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}') {
-            return $this->typeResolver->resolve('Schema\\DeploymentBranchPolicy');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}') {
-            return $this->typeResolver->resolve('Schema\\DeploymentBranchPolicy');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/events') {
@@ -3164,7 +3164,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /repos/{template_owner}/{template_repo}/generate') {
-            return $this->typeResolver->resolve('Schema\\FullRepository');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repositories') {
@@ -3172,23 +3172,23 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/secrets') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListEnvironmentSecrets\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/secrets/public-key') {
-            return $this->typeResolver->resolve('Schema\\ActionsPublicKey');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}') {
-            return $this->typeResolver->resolve('Schema\\ActionsSecret');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}') {
-            return $this->typeResolver->resolve('Schema\\EmptyObject|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /repositories/{repository_id}/environments/{environment_name}/secrets/{secret_name}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /scim/v2/Groups') {
@@ -3660,7 +3660,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /user/repos') {
-            return $this->typeResolver->resolve('Schema\\FullRepository|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /user/repository_invitations') {

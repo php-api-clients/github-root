@@ -17,7 +17,6 @@ final class Six
     {
     }
 
-    /** @return |Schema\Environment */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|EmptyObject|FileCommit|Environment
     {
         if ($pathChunks[0] === '') {
