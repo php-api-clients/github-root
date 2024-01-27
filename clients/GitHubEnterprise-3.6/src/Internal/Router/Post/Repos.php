@@ -41,6 +41,7 @@ final class Repos
     {
     }
 
+    /** @return */
     public function createForAuthenticatedUser(array $params): FullRepository|WithoutBody
     {
         $operator = new Internal\Operator\Repos\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Repos());
@@ -279,6 +280,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createUsingTemplate(array $params): FullRepository
     {
         $arguments = [];
@@ -389,6 +391,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $params);
     }
 
+    /** @return */
     public function createInOrg(array $params): FullRepository
     {
         $arguments = [];
@@ -484,6 +487,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['deployment_id'], $params);
     }
 
+    /** @return */
     public function createDeploymentBranchPolicy(array $params): DeploymentBranchPolicy|WithoutBody
     {
         $arguments = [];
