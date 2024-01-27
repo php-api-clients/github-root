@@ -25,7 +25,7 @@ final class Users
     {
     }
 
-    /** @return iterable<int,Schema\Email>|WithoutBody */
+    /** @return Observable<Schema\Email>|WithoutBody */
     public function listEmailsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -46,7 +46,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function listFollowersForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -67,7 +67,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function listFollowedByAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -88,7 +88,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\GpgKey>|WithoutBody */
+    /** @return Observable<Schema\GpgKey>|WithoutBody */
     public function listGpgKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -109,7 +109,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\Key>|WithoutBody */
+    /** @return Observable<Schema\Key>|WithoutBody */
     public function listPublicSshKeysForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -130,7 +130,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\Email>|WithoutBody */
+    /** @return Observable<Schema\Email>|WithoutBody */
     public function listPublicEmailsForAuthenticatedUser(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -151,6 +151,7 @@ final class Users
         return $operator->call($arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getByUsername(array $params): PrivateUser|PublicUser
     {
         $arguments = [];
@@ -165,6 +166,7 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function checkPersonIsFollowedByAuthenticated(array $params): WithoutBody
     {
         $arguments = [];
@@ -179,6 +181,7 @@ final class Users
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function getGpgKeyForAuthenticatedUser(array $params): GpgKey|WithoutBody
     {
         $arguments = [];
@@ -193,6 +196,7 @@ final class Users
         return $operator->call($arguments['gpg_key_id']);
     }
 
+    /** @return */
     public function getPublicSshKeyForAuthenticatedUser(array $params): Key|WithoutBody
     {
         $arguments = [];
@@ -207,7 +211,7 @@ final class Users
         return $operator->call($arguments['key_id']);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowersForUser(array $params): iterable
     {
         $arguments = [];
@@ -234,7 +238,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\SimpleUser> */
+    /** @return Observable<Schema\SimpleUser> */
     public function listFollowingForUser(array $params): iterable
     {
         $arguments = [];
@@ -261,7 +265,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return iterable<int,Schema\GpgKey> */
+    /** @return Observable<Schema\GpgKey> */
     public function listGpgKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -288,6 +292,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getContextForUser(array $params): Hovercard
     {
         $arguments = [];
@@ -314,7 +319,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['subject_type'], $arguments['subject_id']);
     }
 
-    /** @return iterable<int,Schema\KeySimple> */
+    /** @return Observable<Schema\KeySimple> */
     public function listPublicKeysForUser(array $params): iterable
     {
         $arguments = [];
@@ -341,6 +346,7 @@ final class Users
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getAuthenticated(array $params): PrivateUser|PublicUser|WithoutBody
     {
         $operator = new Internal\Operator\Users\GetAuthenticated($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User());
@@ -348,7 +354,7 @@ final class Users
         return $operator->call();
     }
 
-    /** @return iterable<int,Schema\SimpleUser>|WithoutBody */
+    /** @return Observable<Schema\SimpleUser>|WithoutBody */
     public function list(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -369,6 +375,7 @@ final class Users
         return $operator->call($arguments['since'], $arguments['per_page']);
     }
 
+    /** @return */
     public function checkFollowingForUser(array $params): WithoutBody
     {
         $arguments = [];

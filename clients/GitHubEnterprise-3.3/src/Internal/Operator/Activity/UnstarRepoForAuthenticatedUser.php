@@ -24,6 +24,7 @@ final readonly class UnstarRepoForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Activity\UnstarRepoForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

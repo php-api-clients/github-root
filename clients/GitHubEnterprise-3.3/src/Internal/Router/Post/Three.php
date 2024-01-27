@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\GlobalHook;
 use ApiClients\Client\GitHubEnterprise\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterprise\Schema\Key;
@@ -24,7 +23,7 @@ final class Three
     {
     }
 
-    /** @return Schema\GlobalHook|Schema\OrganizationSimple|Schema\PreReceiveEnvironment|Schema\PreReceiveHook|Schema\SimpleUser|string|WithoutBody|iterable<int,Schema\Email>|Schema\GpgKey|Schema\Key|Schema\Project|Schema\Repository */
+    /** @return |Observable<Schema\Email>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): GlobalHook|OrganizationSimple|PreReceiveEnvironment|PreReceiveHook|SimpleUser|WithoutBody|string|iterable|GpgKey|Key|Project|Repository
     {
         if ($pathChunks[0] === '') {

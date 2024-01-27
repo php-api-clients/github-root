@@ -22,6 +22,7 @@ final readonly class RevokeAuthorizationForApplication
     {
     }
 
+    /** @return */
     public function call(string $clientId, string $accessToken): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps\RevokeAuthorizationForApplication($clientId, $accessToken);
