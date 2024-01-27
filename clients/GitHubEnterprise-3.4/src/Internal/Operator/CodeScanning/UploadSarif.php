@@ -25,6 +25,7 @@ final readonly class UploadSarif
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): CodeScanningSarifsReceipt|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\CodeScanning\UploadSarif($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

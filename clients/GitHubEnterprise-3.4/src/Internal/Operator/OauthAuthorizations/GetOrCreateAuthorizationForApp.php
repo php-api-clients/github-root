@@ -25,6 +25,7 @@ final readonly class GetOrCreateAuthorizationForApp
     {
     }
 
+    /** @return */
     public function call(string $clientId, array $params): Authorization|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\GetOrCreateAuthorizationForApp($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $clientId);
