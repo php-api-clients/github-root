@@ -24,6 +24,7 @@ final readonly class GetByName
     {
     }
 
+    /** @return */
     public function call(string $org, string $teamSlug): TeamFull
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Teams\GetByName($this->responseSchemaValidator, $this->hydrator, $org, $teamSlug);

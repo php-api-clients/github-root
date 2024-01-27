@@ -24,6 +24,7 @@ final readonly class GetArchiveForAuthenticatedUser
     {
     }
 
+    /** @return */
     public function call(int $migrationId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Migrations\GetArchiveForAuthenticatedUser($this->responseSchemaValidator, $this->hydrator, $migrationId);
