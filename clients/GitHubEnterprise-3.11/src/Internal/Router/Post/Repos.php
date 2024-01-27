@@ -346,6 +346,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function createPagesDeployment(array $params): PageDeployment
     {
         $arguments = [];
