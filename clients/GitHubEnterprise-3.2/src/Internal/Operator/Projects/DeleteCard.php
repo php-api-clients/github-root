@@ -24,6 +24,7 @@ final readonly class DeleteCard
     {
     }
 
+    /** @return */
     public function call(int $cardId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Projects\DeleteCard($this->responseSchemaValidator, $this->hydrator, $cardId);
