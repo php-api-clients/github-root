@@ -23,6 +23,7 @@ final readonly class SetSelfHostedRunnersInGroupForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, int $runnerGroupId, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\SetSelfHostedRunnersInGroupForOrg($this->requestSchemaValidator, $org, $runnerGroupId);

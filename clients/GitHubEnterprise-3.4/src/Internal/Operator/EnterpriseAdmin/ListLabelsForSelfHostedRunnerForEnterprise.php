@@ -24,6 +24,7 @@ final readonly class ListLabelsForSelfHostedRunnerForEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $runnerId): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise($this->responseSchemaValidator, $this->hydrator, $enterprise, $runnerId);

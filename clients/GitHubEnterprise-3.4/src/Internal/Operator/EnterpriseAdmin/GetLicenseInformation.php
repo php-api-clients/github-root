@@ -24,6 +24,7 @@ final readonly class GetLicenseInformation
     {
     }
 
+    /** @return */
     public function call(): LicenseInfo
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetLicenseInformation($this->responseSchemaValidator, $this->hydrator);
