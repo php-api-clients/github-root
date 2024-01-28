@@ -24,6 +24,7 @@ final readonly class DeletePreReceiveEnvironment
     {
     }
 
+    /** @return */
     public function call(int $preReceiveEnvironmentId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\DeletePreReceiveEnvironment($this->responseSchemaValidator, $this->hydrator, $preReceiveEnvironmentId);

@@ -24,6 +24,7 @@ final readonly class GetAuthenticated
     {
     }
 
+    /** @return */
     public function call(): Integration
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Apps\GetAuthenticated($this->responseSchemaValidator, $this->hydrator);

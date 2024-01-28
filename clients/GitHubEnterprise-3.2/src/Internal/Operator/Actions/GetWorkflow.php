@@ -24,6 +24,7 @@ final readonly class GetWorkflow
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, $workflowId): Workflow
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Actions\GetWorkflow($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $workflowId);

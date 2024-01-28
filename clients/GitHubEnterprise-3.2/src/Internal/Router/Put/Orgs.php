@@ -21,6 +21,7 @@ final class Orgs
     {
     }
 
+    /** @return */
     public function setMembershipForUser(array $params): OrgMembership
     {
         $arguments = [];
@@ -41,6 +42,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username'], $params);
     }
 
+    /** @return */
     public function convertMemberToOutsideCollaborator(array $params): Json|WithoutBody
     {
         $arguments = [];
@@ -61,6 +63,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['username'], $params);
     }
 
+    /** @return */
     public function setPublicMembershipForAuthenticatedUser(array $params): WithoutBody
     {
         $arguments = [];

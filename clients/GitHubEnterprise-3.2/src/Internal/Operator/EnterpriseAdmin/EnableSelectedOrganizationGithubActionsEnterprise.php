@@ -22,6 +22,7 @@ final readonly class EnableSelectedOrganizationGithubActionsEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $orgId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\EnableSelectedOrganizationGithubActionsEnterprise($enterprise, $orgId);

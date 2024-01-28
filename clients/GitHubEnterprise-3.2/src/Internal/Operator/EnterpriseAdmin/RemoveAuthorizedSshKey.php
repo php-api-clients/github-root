@@ -24,7 +24,7 @@ final readonly class RemoveAuthorizedSshKey
     {
     }
 
-    /** @return iterable<int,Schema\SshKey> */
+    /** @return Observable<Schema\SshKey> */
     public function call(array $params): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\RemoveAuthorizedSshKey($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
