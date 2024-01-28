@@ -20,6 +20,7 @@ final class EnterpriseAdmin
     {
     }
 
+    /** @return */
     public function setGithubActionsPermissionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -34,6 +35,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function setSettings(array $params): WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\SetSettings($this->browser, $this->authentication, $this->requestSchemaValidator);
@@ -41,6 +43,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function promoteUserToBeSiteAdministrator(array $params): WithoutBody
     {
         $arguments = [];
@@ -55,6 +58,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function suspendUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -69,6 +73,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
+    /** @return */
     public function setSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -83,6 +88,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function setAllowedActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -97,6 +103,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function enableSelectedOrganizationGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -117,6 +124,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
+    /** @return */
     public function setOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -137,6 +145,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
+    /** @return */
     public function setSelfHostedRunnersInGroupForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -157,6 +166,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
+    /** @return */
     public function setCustomLabelsForSelfHostedRunnerForEnterprise(array $params): Ok
     {
         $arguments = [];
@@ -177,6 +187,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id'], $params);
     }
 
+    /** @return */
     public function addOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -203,6 +214,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
     }
 
+    /** @return */
     public function addSelfHostedRunnerToGroupForEnterprise(array $params): WithoutBody
     {
         $arguments = [];

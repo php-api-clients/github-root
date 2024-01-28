@@ -23,6 +23,7 @@ final readonly class SuspendUser
     {
     }
 
+    /** @return */
     public function call(string $username, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SuspendUser($this->requestSchemaValidator, $username);

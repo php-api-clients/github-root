@@ -24,6 +24,7 @@ final readonly class GetOrgPublicKey
     {
     }
 
+    /** @return */
     public function call(string $org): DependabotPublicKey
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Dependabot\GetOrgPublicKey($this->responseSchemaValidator, $this->hydrator, $org);

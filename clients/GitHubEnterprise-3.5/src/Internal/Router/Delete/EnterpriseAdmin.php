@@ -24,6 +24,7 @@ final class EnterpriseAdmin
     {
     }
 
+    /** @return */
     public function deleteGlobalWebhook(array $params): WithoutBody
     {
         $arguments = [];
@@ -38,6 +39,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['hook_id']);
     }
 
+    /** @return */
     public function deletePublicKey(array $params): WithoutBody
     {
         $arguments = [];
@@ -52,6 +54,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['key_ids']);
     }
 
+    /** @return */
     public function deletePreReceiveEnvironment(array $params): WithoutBody
     {
         $arguments = [];
@@ -66,6 +69,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_environment_id']);
     }
 
+    /** @return */
     public function deletePreReceiveHook(array $params): WithoutBody
     {
         $arguments = [];
@@ -80,6 +84,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['pre_receive_hook_id']);
     }
 
+    /** @return */
     public function deletePersonalAccessToken(array $params): WithoutBody
     {
         $arguments = [];
@@ -94,6 +99,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['token_id']);
     }
 
+    /** @return */
     public function deleteUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -108,6 +114,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function demoteSiteAdministrator(array $params): WithoutBody
     {
         $arguments = [];
@@ -122,6 +129,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function unsuspendUser(array $params): WithoutBody
     {
         $arguments = [];
@@ -136,6 +144,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username'], $params);
     }
 
+    /** @return */
     public function deleteImpersonationOAuthToken(array $params): WithoutBody
     {
         $arguments = [];
@@ -150,6 +159,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['username']);
     }
 
+    /** @return */
     public function removePreReceiveHookEnforcementForOrg(array $params): OrgPreReceiveHook
     {
         $arguments = [];
@@ -170,7 +180,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['org'], $arguments['pre_receive_hook_id']);
     }
 
-    /** @return iterable<int,Schema\SshKey>|WithoutBody */
+    /** @return Observable<Schema\SshKey>|WithoutBody */
     public function removeAuthorizedSshKey(array $params): iterable|WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\RemoveAuthorizedSshKey($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Setup🌀Api🌀Settings🌀AuthorizedKeys());
@@ -178,6 +188,7 @@ final class EnterpriseAdmin
         return $operator->call($params);
     }
 
+    /** @return */
     public function removeAnnouncement(array $params): WithoutBody
     {
         $operator = new Internal\Operator\EnterpriseAdmin\RemoveAnnouncement($this->browser, $this->authentication);
@@ -185,6 +196,7 @@ final class EnterpriseAdmin
         return $operator->call();
     }
 
+    /** @return */
     public function disableSelectedOrganizationGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -205,6 +217,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['org_id']);
     }
 
+    /** @return */
     public function removeAllCustomLabelsFromSelfHostedRunnerForEnterprise(array $params): Json
     {
         $arguments = [];
@@ -225,6 +238,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function deleteSelfHostedRunnerGroupFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -245,6 +259,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id']);
     }
 
+    /** @return */
     public function deleteSelfHostedRunnerFromEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -265,6 +280,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function removePreReceiveHookEnforcementForRepo(array $params): RepositoryPreReceiveHook
     {
         $arguments = [];
@@ -291,6 +307,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pre_receive_hook_id']);
     }
 
+    /** @return */
     public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -317,6 +334,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['org_id']);
     }
 
+    /** @return */
     public function removeSelfHostedRunnerFromGroupForEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -343,6 +361,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function removeCustomLabelFromSelfHostedRunnerForEnterprise(array $params): Ok
     {
         $arguments = [];
