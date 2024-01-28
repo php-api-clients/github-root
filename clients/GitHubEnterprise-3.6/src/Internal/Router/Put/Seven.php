@@ -21,7 +21,7 @@ final class Seven
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError|Schema\EmptyObject|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    /** @return |Observable<Schema\Label>|Schema\BasicError */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|TeamMembership|EmptyObject|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json
     {
         if ($pathChunks[0] === '') {
