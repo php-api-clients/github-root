@@ -951,6 +951,7 @@ final class Repos
         return $this->operators->repos👷GetPagesBuild()->call($owner, $repo, $buildId);
     }
 
+    /** @return */
     public function createPagesDeployment(string $owner, string $repo, array $params): PageDeployment
     {
         return $this->operators->repos👷CreatePagesDeployment()->call($owner, $repo, $params);
