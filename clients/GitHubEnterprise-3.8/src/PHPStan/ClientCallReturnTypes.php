@@ -2920,7 +2920,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/pages/deployments') {
-            return $this->typeResolver->resolve('Schema\\PageDeployment');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pre-receive-hooks') {
