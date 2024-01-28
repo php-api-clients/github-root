@@ -19,6 +19,7 @@ final class Dependabot
     {
     }
 
+    /** @return */
     public function listOrgSecrets(string $org, int $perPage, int $page): Ok
     {
         return $this->operators->dependabot👷ListOrgSecrets()->call($org, $perPage, $page);
@@ -48,6 +49,7 @@ final class Dependabot
         return $this->operators->dependabot👷DeleteOrgSecret()->call($org, $secretName);
     }
 
+    /** @return */
     public function listSelectedReposForOrgSecret(string $org, string $secretName, int $page, int $perPage): Json
     {
         return $this->operators->dependabot👷ListSelectedReposForOrgSecret()->call($org, $secretName, $page, $perPage);
@@ -71,6 +73,7 @@ final class Dependabot
         return $this->operators->dependabot👷RemoveSelectedRepoFromOrgSecret()->call($org, $secretName, $repositoryId);
     }
 
+    /** @return */
     public function listRepoSecrets(string $owner, string $repo, int $perPage, int $page): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Dependabot\ListRepoSecrets\Response\ApplicationJson\Ok
     {
         return $this->operators->dependabot👷ListRepoSecrets()->call($owner, $repo, $perPage, $page);
