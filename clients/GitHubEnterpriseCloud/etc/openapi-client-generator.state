@@ -1,5 +1,5 @@
 {
-    "specHash": "cdf1c4b4a04721843e9a87a8283dcc3a",
+    "specHash": "2980cdf5d8304bf99dd7d5d951d11b9d",
     "generatedFiles": {
         "files": [
             {
@@ -6180,7 +6180,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "6f32667c0ac712b37366def057197046"
+                "hash": "2daf7ea48883fac1e575d521fc561f7b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -31736,7 +31736,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/OrgCustomProperty.php",
-                "hash": "274739c19ef1ef225a117f0e6a208405"
+                "hash": "2becb00175e43efac685102acd9df160"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CustomPropertyValue.php",
@@ -31748,11 +31748,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Orgs\/CreateOrUpdateCustomProperties\/Request\/ApplicationJson.php",
-                "hash": "faa9d07651a045f1291954a8c5858101"
+                "hash": "34a7cd036c03010f155258806cf61497"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Orgs\/CreateOrUpdateCustomProperty\/Request\/ApplicationJson.php",
-                "hash": "270fd709715184c4ec3df88d2d6be0c7"
+                "hash": "baf30401729ea693a6468df6dba1126b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Orgs\/CreateOrUpdateCustomPropertiesValuesForRepos\/Request\/ApplicationJson.php",
@@ -31776,7 +31776,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookCustomPropertyCreated.php",
-                "hash": "c05cf77658e2e9c354916c30a12f8544"
+                "hash": "10150439706000aedfd4f9d054c04cae"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookCustomPropertyDeleted.php",
@@ -31784,7 +31784,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookCustomPropertyUpdated.php",
-                "hash": "3b9d1f5769ffc4e30395d7119e6c5d2f"
+                "hash": "3c3fe6f4dc9ad3b43936629df5f6afba"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookCustomPropertyValuesUpdated.php",
@@ -32828,7 +32828,7 @@
         "files": [
             {
                 "name": "composer.json",
-                "hash": "7d3180732e075fdd950bf5e7bda7a62f"
+                "hash": "7e43612bb6ac7a031e2718700ac57c96"
             },
             {
                 "name": "composer.lock",
