@@ -23976,11 +23976,11 @@
         "files": [
             {
                 "name": "composer.json",
-                "hash": "1daacb473d61d068c98c2b03eed996ef"
+                "hash": "36a33c4a65111d73824c4efad4960337"
             },
             {
                 "name": "composer.lock",
-                "hash": "f827a4ea009d945ed20fc3f8799edbc6"
+                "hash": "e826a46ca774a6ffd00e03d3022eefa9"
             },
             {
                 "name": "..\/..\/composer.json",
@@ -23988,7 +23988,7 @@
             },
             {
                 "name": "..\/..\/composer.lock",
-                "hash": "2053e003d7d52bf507d9f14ca944cc3f"
+                "hash": "896c1363277f60ac64a6288682a2713a"
             }
         ]
     }
