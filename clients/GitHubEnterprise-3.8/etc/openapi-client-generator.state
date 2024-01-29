@@ -5576,7 +5576,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.8\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "ee0ebb84f4d082838ec1c2ce79d37ff9"
+                "hash": "3eee0264ce3eb58f5c15d26d4b53eeea"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.8\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -27880,7 +27880,7 @@
         "files": [
             {
                 "name": "composer.json",
-                "hash": "09cacb724dcbe82f3757ad712a3a2cd9"
+                "hash": "57b28b8068ed5c11ddd8e035e56ce2e5"
             },
             {
                 "name": "composer.lock",
