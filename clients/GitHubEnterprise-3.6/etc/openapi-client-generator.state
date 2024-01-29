@@ -3208,7 +3208,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Actions.php",
-                "hash": "6c97d09b2319b9e31b29e09ccc950b49"
+                "hash": "4623c33adbd0f320dfc6163e6669d011"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
@@ -3268,7 +3268,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "82debc449b8e8e853eabac7e46b1f60a"
+                "hash": "25ea2ce29a0b0553044ae418c0f16fb1"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.6\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -18016,7 +18016,7 @@
         "files": [
             {
                 "name": "composer.json",
-                "hash": "fcffb41dced5db61bd54ee2b37c83b68"
+                "hash": "7da32b46fd9a01250a483e89d42e261a"
             },
             {
                 "name": "composer.lock",
