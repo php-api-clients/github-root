@@ -5396,15 +5396,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/EnterpriseAdmin.php",
-                "hash": "d2a6aa742cbdf3762d728abe95dfd19e"
+                "hash": "16e25a99a76b6e679646771cdab30f60"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Apps.php",
-                "hash": "80228334cb698fe5f9dfabf4588850c1"
+                "hash": "4f9cd4c8dba1fc8731a54533419c3e86"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/OauthAuthorizations.php",
-                "hash": "6f72bd5150b579e1c21538b4ba8a4bd0"
+                "hash": "10b3d7ab0928f1394efcf73f21ff3a07"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/CodesOfConduct.php",
@@ -5416,27 +5416,27 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Actions.php",
-                "hash": "87517e0aaec9c8af8ce8821e0e12cee6"
+                "hash": "31aaaf1b83fbd9948aab8d0d28c0aae8"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/CodeScanning.php",
-                "hash": "99d90c45ccbb8f0e0a3fe741ba6a9897"
+                "hash": "61f99455d3cb5dc271fe72066623d0ce"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/SecretScanning.php",
-                "hash": "4b861d20fa69f312698c742b1ee66fb8"
+                "hash": "fd5d41afa35fc0b55e8b506ea070abe9"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Billing.php",
-                "hash": "dbf0e15fddcc14841352c1c6fcf17c9a"
+                "hash": "a9b8e085d4498873d43af940caa6f27b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Activity.php",
-                "hash": "70854f7fea5eee74d3045b258b926d98"
+                "hash": "0515ee3d56434609b30daa1689d3ee52"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Gists.php",
-                "hash": "f7831d52a4ac98eb5ba31beccde2d2e2"
+                "hash": "dcbd654fd08e7f5e6ef821110847b33a"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Gitignore.php",
@@ -5444,11 +5444,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Issues.php",
-                "hash": "5eeb2f1fd8a1f01c385250e923c9b46d"
+                "hash": "35c64af07212fd2867cedbad7f520cbc"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Licenses.php",
-                "hash": "253af1a1ccd02060323c2284929c9825"
+                "hash": "f49c43374c9cdf83839bf4c9efb7788b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Markdown.php",
@@ -5456,7 +5456,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "61aaf598d754ae74a1306aaa3c77e45a"
+                "hash": "7a8cea3912e872ffa91d715a9c386ac1"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -5464,27 +5464,27 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Dependabot.php",
-                "hash": "a52ebbbda02fed07e320435db163933b"
+                "hash": "6288133dac1fab62db48177783edadb2"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Teams.php",
-                "hash": "728ff8ab494b0c31d5b90babf5822864"
+                "hash": "270a855f0519a73790ff90a0880d6c01"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Migrations.php",
-                "hash": "5c3586e9584deb09301a4999a91729b1"
+                "hash": "75a9dbc00a423613f7044841829c282f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Projects.php",
-                "hash": "2fbb4c4867aa385ac42283f538ed3dd2"
+                "hash": "3e90e269db0fc92da9a346cd31875516"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "6ff235710d04d1b42d08acec7d0b63eb"
+                "hash": "b039dd7d1e12bddab7a23443744a0fad"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Reactions.php",
-                "hash": "3e850324e0635f49d093905704da8a86"
+                "hash": "61228303c2b949e0b77147ce8af75cdd"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/RateLimit.php",
@@ -5492,7 +5492,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Checks.php",
-                "hash": "a1021dbfc1057d1de5b41c38eda78bf5"
+                "hash": "2a98475dae061d86e6f9a9df81f151f2"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/DependencyGraph.php",
@@ -5504,15 +5504,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Pulls.php",
-                "hash": "1a72f586df7351ff94b86457e5f86de3"
+                "hash": "32674ccd8390448362aa20c4836e7d52"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Search.php",
-                "hash": "f104c650e8fb9d12812d39bd7c300db5"
+                "hash": "f575d503a83922ab6cd69e189613b87d"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operation\/Users.php",
-                "hash": "3d21aff2b0c1f9c8fd919316df8ac0f4"
+                "hash": "1440822dd01d54a5b9f1632850fce1ac"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.7\/etc\/..\/\/src\/\/Operations.php",
@@ -27284,7 +27284,7 @@
         "files": [
             {
                 "name": "composer.json",
-                "hash": "da2511529f3cf23b4cf86ccc9d8c5963"
+                "hash": "eca0ad00f5bf0e6d28d3a40eedeba3be"
             },
             {
                 "name": "composer.lock",
