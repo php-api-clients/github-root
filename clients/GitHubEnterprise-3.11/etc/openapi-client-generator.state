@@ -1,5 +1,5 @@
 {
-    "specHash": "7896308aac5721a0e0d051d14203a71b",
+    "specHash": "a2af7631437bba6d1a0f12872eaf5a11",
     "generatedFiles": {
         "files": [
             {
@@ -27464,7 +27464,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "8d20b924a1d9b5f2512dd36b1f93ba12"
+                "hash": "e72ae080de87df83e831060873cb1f3c"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -30112,7 +30112,7 @@
         "files": [
             {
                 "name": "composer.json",
-                "hash": "765f8ed75a2ecb168d40ad6c546d8dd2"
+                "hash": "2a970068748966a05c58696ac312a68b"
             },
             {
                 "name": "composer.lock",
