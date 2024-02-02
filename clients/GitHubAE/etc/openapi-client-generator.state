@@ -1,5 +1,5 @@
 {
-    "specHash": "a4b4de44e0d05ceb3ff58b2a46d305a4",
+    "specHash": "a8cad12970f1ee84856b800561c6d2f3",
     "generatedFiles": {
         "files": [
             {
@@ -4908,7 +4908,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "6cc447fe7e3bd473f3a26760862ec255"
+                "hash": "e909c314abd300ee5c7c0ea38a00f2c5"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -15896,11 +15896,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/ListAutolinks.php",
-                "hash": "997bd8139d37171d1e70da9a87c24ee1"
+                "hash": "6ddc451d88f4fe60a35958aa3a410cef"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/ListAutolinks.php",
-                "hash": "1104dea89cd6e3997c35831c5524391c"
+                "hash": "f6875da9f9f0355acfbe80527f3105e3"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/ListAutolinksTest.php",
@@ -21276,7 +21276,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "d65aefe97b9a423213bedc0fa029dd14"
+                "hash": "89483ae76e0044247edb69f9ededc4f3"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Activity.php",
@@ -21668,7 +21668,7 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "5265cfb14f469cb614b7c670de15cfa2"
+                "hash": "b41c736961a7e1c5515840b53b3b7362"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -23420,11 +23420,11 @@
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "60e5145c0a8f78ecc20ccc2f75b55e52"
+                "hash": "4f291049d0160bb442a950f69ef97bda"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "cebc119575c71cbf269c9bdfa7272fe9"
+                "hash": "73a5861feb18113c05f6f834f7784943"
             },
             {
                 "name": ".\/clients\/GitHubAE\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
