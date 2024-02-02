@@ -98,10 +98,10 @@ final class Repos
         return $this->operators->repos👷Update()->call($owner, $repo, $params);
     }
 
-    /** @return Observable<Schema\Autolink> */
-    public function listAutolinks(string $owner, string $repo, int $page): iterable
+    /** @return iterable<int,Schema\Autolink> */
+    public function listAutolinks(string $owner, string $repo): iterable
     {
-        return $this->operators->repos👷ListAutolinks()->call($owner, $repo, $page);
+        return $this->operators->repos👷ListAutolinks()->call($owner, $repo);
     }
 
     /** @return */
