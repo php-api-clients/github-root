@@ -955,7 +955,7 @@ final class Repos
         return $operator->call($arguments['since'], $arguments['visibility']);
     }
 
-    /** @return Observable<Schema\Autolink> */
+    /** @return iterable<int,Schema\Autolink> */
     public function listAutolinks(array $params): iterable
     {
         $arguments = [];
@@ -971,15 +971,9 @@ final class Repos
 
         $arguments['repo'] = $params['repo'];
         unset($params['repo']);
-        if (array_key_exists('page', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: page');
-        }
-
-        $arguments['page'] = $params['page'];
-        unset($params['page']);
         $operator = new Internal\Operator\Repos\ListAutolinks($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Autolinks());
 
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['page']);
+        return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
     /** @return */
