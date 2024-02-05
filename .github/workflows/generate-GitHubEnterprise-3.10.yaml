@@ -64,7 +64,7 @@ jobs:
         run: |
           make generate-client GitHubEnterprise-3.10
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v6
         with:
           branch: "GitHubEnterprise-3.10/from-${{ steps.look-current-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }}-from-${{ steps.look-previous-up-spec-version.outputs.result }}-${{ steps.spec-hash.outputs.current }}"
           token: ${{ secrets.SUBSPLIT_GITHUB_TOKEN }}
