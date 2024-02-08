@@ -878,7 +878,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['ref']);
     }
 
-    /** @return iterable<int,Schema\Autolink> */
+    /** @return Observable<Schema\Autolink> */
     public function listAutolinks(array $params): iterable
     {
         $arguments = [];
