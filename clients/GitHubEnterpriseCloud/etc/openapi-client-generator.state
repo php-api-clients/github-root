@@ -1,5 +1,5 @@
 {
-    "specHash": "f8df699aca4545c5da69cedcf2da7c36",
+    "specHash": "811db4bc3c41558ba41a19ae42d5b3f8",
     "generatedFiles": {
         "files": [
             {
@@ -1392,7 +1392,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/PageDeployment.php",
-                "hash": "5b773b16982766409fc572bf46175cab"
+                "hash": "8cf482c3fe030ffad96a8ead365aa0c8"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/PagesHealthCheck.php",
@@ -2392,7 +2392,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPush.php",
-                "hash": "33d092149af3532d67f67a55b0e76c29"
+                "hash": "ee38ffa7d23ffdadf39a74abd183645a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookRegistryPackagePublished.php",
@@ -4484,7 +4484,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPush\/Commits.php",
-                "hash": "c4f4e2e43bdc1a90094a07994eaf51fb"
+                "hash": "0b710d2be2622b722160d17f39c69784"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPush\/HeadCommit.php",
@@ -6180,7 +6180,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "f2753d017acc8d75f2228189f9a97f81"
+                "hash": "952031546bfdd37a0ded7195336a7d57"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -20432,7 +20432,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/ListAutolinks.php",
-                "hash": "8f545981d955364dde6862df958cb525"
+                "hash": "22706898f633b749d9c4dcd006d1689b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/ListAutolinksTest.php",
@@ -28044,7 +28044,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "056e0c5af907185442c344b2e53c31a7"
+                "hash": "0042f53b470938033bb8d793152eb66b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Users.php",
@@ -28596,7 +28596,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "337c9569e7c8b71512d2fcdfa4b6ef4a"
+                "hash": "da8afc25858bf9ab936a233e4966b47d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
@@ -31884,11 +31884,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "5c627570befb52ad43c2a70612744dcd"
+                "hash": "8d4c6bba384c321e1c471455261dea31"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "b1b4840e0a3e56fbb6ea89f09498f5c7"
+                "hash": "6fd5cfe80262fa8052a8d91247518f70"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -32812,7 +32812,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Pages\/Deployments.php",
-                "hash": "ac553831f2a5283f573a1520cf8c78cc"
+                "hash": "e11059181711625a6d1ad3cb8a50362d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Pages\/Deployments\/PagesDeploymentId.php",
