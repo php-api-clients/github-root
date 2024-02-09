@@ -1,5 +1,5 @@
 {
-    "specHash": "d360d5f2a68d74d272a599d869bd1480",
+    "specHash": "0ebdfdf9e0a959e971632edc7d77de11",
     "generatedFiles": {
         "files": [
             {
@@ -5980,7 +5980,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/ListAutolinks.php",
-                "hash": "2afde29ec1f30a5a19b6f8d1d6966722"
+                "hash": "040fa3f855da717a814bc8e99816f7b0"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/ListAutolinksTest.php",
@@ -14252,7 +14252,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Schema\/PageDeployment.php",
-                "hash": "ce056e9657a83774cfa1379dca0a2a15"
+                "hash": "06711622039f976b784c0b79b01a2824"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Schema\/RepositoryPreReceiveHook.php",
@@ -15260,7 +15260,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Schema\/WebhookPush.php",
-                "hash": "ace6e7bfe1958ecc44161ae936aae81f"
+                "hash": "605cd5532c3dba4bc8c94f214e34e7b3"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Schema\/WebhookRegistryPackagePublished.php",
@@ -23752,7 +23752,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Schema\/WebhookPush\/Commits.php",
-                "hash": "906d7a6de0a9284556f797df1b01afaf"
+                "hash": "04ddfa9b1f876169e22f7b16724f4d52"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Schema\/WebhookPush\/HeadCommit.php",
@@ -26664,7 +26664,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "804cea46736a25839da5959c6ffabb4a"
+                "hash": "6c911fdb7d52b667740568a93cb1db9b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Activity.php",
@@ -27144,7 +27144,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "fa3432029c830c2cbf4b9302f9655643"
+                "hash": "7b0f0760f62bcdd3b0e97bbae0549f0a"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -27348,11 +27348,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "bfa41c29568fe22db199d62f18dda836"
+                "hash": "daab6f2bce3627cf8d5587e55f04913a"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "2e9b9e97d69faf44c4943c21263726c3"
+                "hash": "c8c85fd16e075d754c3d2d2be73dab74"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -27464,7 +27464,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "4983f932a3e3568e2d283c760c59abe0"
+                "hash": "df341e86dcdbb994b229b36ff2b07c4f"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.11\/etc\/..\/\/src\/\/Operation\/Reactions.php",
