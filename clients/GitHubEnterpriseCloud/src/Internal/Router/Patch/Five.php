@@ -26,7 +26,7 @@ final class Five
     {
     }
 
-    /** @return |Observable<Schema\OrgCustomProperty> */
+    /** @return |Observable<Schema\OrgCustomProperty>|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|iterable|WithoutBody|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {

@@ -1544,7 +1544,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PATCH /orgs/{org}/properties/values') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/public_members') {
@@ -3444,7 +3444,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/properties/values') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls') {
