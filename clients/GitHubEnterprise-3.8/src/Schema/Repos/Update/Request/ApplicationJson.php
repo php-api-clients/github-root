@@ -168,7 +168,7 @@ final readonly class ApplicationJson
         },
         "archived": {
             "type": "boolean",
-            "description": "Whether to archive this repository. `false` will unarchive a previously archived repository.",
+            "description": "Whether to archive this repository. **Note**: You cannot unarchive repositories through the API.",
             "default": false
         },
         "allow_forking": {
@@ -266,7 +266,7 @@ final readonly class ApplicationJson
     - `PR_TITLE` - default to the pull request's title.
     - `PR_BODY` - default to the pull request's body.
     - `BLANK` - default to a blank commit message.
-     * archived: Whether to archive this repository. `false` will unarchive a previously archived repository.
+     * archived: Whether to archive this repository. **Note**: You cannot unarchive repositories through the API.
      * allowForking: Either `true` to allow private forks, or `false` to prevent private forks.
      * webCommitSignoffRequired: Either `true` to require contributors to sign off on web-based commits, or `false` to not require contributors to sign off on web-based commits.
      */
