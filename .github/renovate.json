@@ -775,6 +775,124 @@
         },
         {
             "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/infection"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.12.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
                 "clients/GitHubEnterprise-3.2/composer.json"
             ],
             "branchPrefix": "renovate/GitHubEnterprise-3.2/php/",
