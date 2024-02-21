@@ -1,5 +1,5 @@
 {
-    "specHash": "ade4da2a5d32c2cb87a1cff5ec839b64",
+    "specHash": "9e2a14ab3b4428c74cab67107599dac3",
     "generatedFiles": {
         "files": [
             {
@@ -6056,11 +6056,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "fe4aa1fd7a489039c4f5b1901fede613"
+                "hash": "a8a6567fea3ff8a35a7a162863ce107e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Client.php",
-                "hash": "dca5905488e5bda47b4c968829d6a6d8"
+                "hash": "50d54999c88f0f7a0ce58449ff04498d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -6136,7 +6136,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "d3cb7e93b8f39fb62278b4950e72e304"
+                "hash": "d583cdde9847a86367c3cdfcc56089a7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -6168,7 +6168,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "1b06d20eb0fd6842bb52e73e8c6636b4"
+                "hash": "f68d001cec888c733957ddd5e2cb18b3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -6216,7 +6216,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/WebHooks.php",
-                "hash": "1bf98893121ee1a10cacfbbb380598dc"
+                "hash": "82607bf4038e9941900674dbd688a47b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietEB301A03\/Tiet504AADCF\/Tiet2FEB0C19\/TietF58BE94A.php",
@@ -13972,27 +13972,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/ListCopilotSeats\/Response\/ApplicationJson\/Ok.php",
-                "hash": "230bf38dbbdd842a5b409ba228ef0fa1"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/AddCopilotForBusinessSeatsForTeams\/Request\/ApplicationJson.php",
-                "hash": "a75f53ec78b477909be3e343f8be734b"
+                "hash": "0e24d0000afcc62d45c8130b6cd7a0e2"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietF5944C0A\/TietAA99D7D8\/Tiet9AE1F544\/TietA28F869C.php",
                 "hash": "6df78246dee0734b666ca7726dd2f05a"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotForBusinessSeatsForUsers\/Response\/ApplicationJson\/Created.php",
-                "hash": "5b9f3a682aef9819d5abc6fec0690f95"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotForBusinessSeatsForUsers\/Response\/ApplicationJson\/Created\/Application\/Json.php",
-                "hash": "59325843b6bc5126d5c5c5f8c7aad3fd"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotForBusinessSeatsForTeams\/Response\/ApplicationJson\/Created.php",
-                "hash": "01ae2084ca3e5cc766a74c91e2fc832c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/CancelCopilotSeatAssignmentForTeams\/Request\/ApplicationJson.php",
@@ -14015,16 +13999,12 @@
                 "hash": "80abff17f768e9fb1f8e0621ef1c382b"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/AddCopilotForBusinessSeatsForUsers\/Request\/ApplicationJson.php",
-                "hash": "59caf287073cfffb97fc22400c2721d4"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/CancelCopilotSeatAssignmentForUsers\/Request\/ApplicationJson.php",
                 "hash": "e0b91d93c952ea46e680dc84a7516e06"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Copilot.php",
-                "hash": "17e479c7de5afbf18d05a1bb68882324"
+                "hash": "4fdbc88cd166dc368196fd3aef5f53ed"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CheckAutomatedSecurityFixes.php",
@@ -17111,48 +17091,24 @@
                 "hash": "afd44b3d74d947d718c53942f1d95d06"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/AddCopilotForBusinessSeatsForTeams.php",
-                "hash": "51f73b0aa6977a0ced49a31db3251e92"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/AddCopilotForBusinessSeatsForTeams.php",
-                "hash": "42f7517c175f7edef790d0862bb678cd"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/AddCopilotForBusinessSeatsForTeamsTest.php",
-                "hash": "dc507252f574d033bd442479f9eb6055"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/CancelCopilotSeatAssignmentForTeams.php",
-                "hash": "9c3bfafe07a6317b757088298363a83d"
+                "hash": "f93c0eada425c8de671287ceca36abc3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/CancelCopilotSeatAssignmentForTeams.php",
-                "hash": "9390e3d54c109d871f56ad54b1552fda"
+                "hash": "9b4d63ec795351988ac9f41bcf08c5df"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/CancelCopilotSeatAssignmentForTeamsTest.php",
                 "hash": "7791a07d7ab3725047d97d7d7de7af2f"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/AddCopilotForBusinessSeatsForUsers.php",
-                "hash": "01b4a30e048ab168f5931a1c352ab61b"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/AddCopilotForBusinessSeatsForUsers.php",
-                "hash": "39ef6656c1148dd2041051861df7e1e9"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/AddCopilotForBusinessSeatsForUsersTest.php",
-                "hash": "62874dd3cd5191413fb2e44c539b1586"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/CancelCopilotSeatAssignmentForUsers.php",
-                "hash": "c79ff5123ff407a4ad2a80b1592b7cdf"
+                "hash": "a9beb916855ead661cdcff78e153dd0a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/CancelCopilotSeatAssignmentForUsers.php",
-                "hash": "844adbaaa99ba7265c228b6a12c877a0"
+                "hash": "db1a8e85ca72d1f52be63985fff7a5a7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/CancelCopilotSeatAssignmentForUsersTest.php",
@@ -28096,7 +28052,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Copilot.php",
-                "hash": "66787fd2b8248728747bd791a698d706"
+                "hash": "f97a06d5b2b4f7f61c3b49a965476fd6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Pulls.php",
@@ -28172,7 +28128,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Copilot.php",
-                "hash": "1723ccdaf7146d4496fc62abf80001c6"
+                "hash": "e2277956c31f1e0dab807c170a28dcb6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/CodeScanning.php",
@@ -28248,7 +28204,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Repos.php",
-                "hash": "baf6c2fd3a00c6bd0df1040bc0b80742"
+                "hash": "28a251ce1bbe86c3289f0d4df1c2fe30"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Codespaces.php",
@@ -28268,7 +28224,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Orgs.php",
-                "hash": "ae525f8b28eecd81e250888daa78003f"
+                "hash": "b80778561e4f356cac672789c1406377"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Teams.php",
@@ -28476,7 +28432,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Copilot.php",
-                "hash": "609f735cdcfe90d3cebf8c5026976e66"
+                "hash": "8446518306d71bb494096b112d68b13a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Reactions.php",
@@ -28588,7 +28544,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "0c73fff643784943f9f446280775e530"
+                "hash": "c5e0e3aa606201b77115fdf2151a7d09"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -28612,7 +28568,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Six.php",
-                "hash": "f5bdc1fd58a6a287d20dad78b10549dc"
+                "hash": "c7dcffe1dda7721d5e2c0fc28693e339"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Five.php",
@@ -28648,7 +28604,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Six.php",
-                "hash": "cdcc2ea9f5db5cda0f54b5b7b3da23fb"
+                "hash": "769e66aa0e18e1f39da6485b36f18fdb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Three.php",
@@ -28656,7 +28612,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Five.php",
-                "hash": "e684767838d803b410d646e7330c8c4d"
+                "hash": "3197b605611a49ace533f5623c889b9f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Patch\/Seven.php",
@@ -28724,7 +28680,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Six.php",
-                "hash": "23423303b4599889f96aa0400f9751e8"
+                "hash": "bc6403b704b88b09a2a4af7a890e7f0f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Eight.php",
@@ -28792,7 +28748,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operators.php",
-                "hash": "c1d5d687a1a84a692c6cf4151ab97550"
+                "hash": "4ca01e4e16475dd908eb477dd9da884e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Root.php",
@@ -29244,11 +29200,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Copilot\/Billing\/SelectedTeams.php",
-                "hash": "585b734aefb79ec185155e7beff4f6d5"
+                "hash": "7c139f7cb046ad13cd579f143e1d49bb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Copilot\/Billing\/SelectedUsers.php",
-                "hash": "6fe625a09031f070bfad7ab531eae9db"
+                "hash": "82a8495ee42b58b9f51f48513fc7eaf5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/CredentialAuthorizations\/CredentialId.php",
@@ -30984,7 +30940,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "62abbff7fa50c65081eafab7e8a6a281"
+                "hash": "95fc55ad85b41770c0f481b3664f276d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/ListProvisionedGroupsEnterprise.php",
@@ -31443,22 +31399,6 @@
                 "hash": "fba134c1aacaf9c8be23fd6d360140da"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserCreated.php",
-                "hash": "d31a37c71168c8da7361d4d9414add66"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserDeleted.php",
-                "hash": "20cb7b9762b01cbefc86537439325837"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserCreated\/User.php",
-                "hash": "3515106ed9f57a53619b2896e5e39ba8"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookUserDeleted\/User.php",
-                "hash": "5bfeb22e76ad14e92ba63249ab068651"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/GetOrgRuleSuites.php",
                 "hash": "bffbfd44dfdf28f6a5b03b9d4d0ac0f3"
             },
@@ -31588,11 +31528,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/GetCopilotSeatDetailsForUser.php",
-                "hash": "d61029ca2b3b976eddb3b83a5b6883cd"
+                "hash": "e8a88df61d07115f4e9fffb6aeaaf2cf"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/GetCopilotSeatDetailsForUser.php",
-                "hash": "106fe77032525b3621f32edd879aef50"
+                "hash": "630df311412461212978a27eb8c53a8d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/GetCopilotSeatDetailsForUserTest.php",
@@ -31700,7 +31640,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/CreateOrUpdateCustomPropertiesValuesForRepos.php",
-                "hash": "ea1f6dfb453993f7e138aa6722bb7cc2"
+                "hash": "33023b47b8148a1db369a9ceb2e485f1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Orgs\/CreateOrUpdateCustomPropertiesValuesForReposTest.php",
@@ -31868,11 +31808,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "9d57f5bf8245cb004f95b8388c9bcb7a"
+                "hash": "b3a6953cc0bbb6defc0b54d5e93bc74a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "b0f54fd2a67c38765c2fb40487b10493"
+                "hash": "84f33ec1f5a413b95ffa3e1446aa695c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -32145,10 +32085,6 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/WebHook\/Team.php",
                 "hash": "7d7ebba6eb6699cb760dd31d19da5f5f"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/WebHook\/User.php",
-                "hash": "e80dba455e42323a646cebfe4cbfaa21"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/WebHook\/Watch.php",
@@ -32433,10 +32369,6 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Team.php",
                 "hash": "d7d3b570e093b097499d8e1bb0895e54"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/User.php",
-                "hash": "0547b4d295c151119189a1ad26260d3b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Watch.php",
@@ -32744,7 +32676,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/CreateOrUpdateCustomPropertiesValues.php",
-                "hash": "a2d8c08a9189d6d89f5d793d8d4afd92"
+                "hash": "e36df7160eb46c986e13a3ed81964dbb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/CreateOrUpdateCustomPropertiesValuesTest.php",
@@ -32821,6 +32753,50 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietEFFA6FFB\/Tiet89C56FE5\/Tiet7374F427\/Tiet2850382E.php",
                 "hash": "01edaa858722136bc5f3ab4db1beb796"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/AddCopilotSeatsForTeams.php",
+                "hash": "cfc12ae24b135abd08512a6d2c3393d9"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/AddCopilotSeatsForTeams.php",
+                "hash": "b9291ad495f31c027e6c7da65e0526d1"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/AddCopilotSeatsForTeamsTest.php",
+                "hash": "23a069840175b807ce99aa4ebf2535bf"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/AddCopilotSeatsForUsers.php",
+                "hash": "67929ab9f47c2993ccb4b4f22cd45896"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/AddCopilotSeatsForUsers.php",
+                "hash": "d490bbc8c0cc40acbc0ba01350d84d52"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/AddCopilotSeatsForUsersTest.php",
+                "hash": "789301cfdd11607d92dac88f8ad372e1"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/AddCopilotSeatsForTeams\/Request\/ApplicationJson.php",
+                "hash": "f7ed76c0af64712f6afda21ef3eea4c2"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotSeatsForUsers\/Response\/ApplicationJson\/Created.php",
+                "hash": "b6f04e9b4feadfca07ad9e47ef932945"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotSeatsForUsers\/Response\/ApplicationJson\/Created\/Application\/Json.php",
+                "hash": "9078040927bd6b23f14338a2a9937669"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotSeatsForTeams\/Response\/ApplicationJson\/Created.php",
+                "hash": "6eba6a75043802ddc9bbd4dbc348711c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/AddCopilotSeatsForUsers\/Request\/ApplicationJson.php",
+                "hash": "c61a9f11689aee05146288d1e26c701f"
             }
         ]
     },
