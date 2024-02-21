@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Copilot\AddCopilotForBusinessSeatsForUsers\Request;
+namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Copilot\AddCopilotSeatsForTeams\Request;
 
 use EventSauce\ObjectHydrator\MapFrom;
 
@@ -10,33 +10,33 @@ final readonly class ApplicationJson
 {
     public const SCHEMA_JSON         = '{
     "required": [
-        "selected_usernames"
+        "selected_teams"
     ],
     "type": "object",
     "properties": {
-        "selected_usernames": {
+        "selected_teams": {
             "minItems": 1,
             "type": "array",
             "items": {
                 "type": "string"
             },
-            "description": "The usernames of the organization members to be granted access to GitHub Copilot."
+            "description": "List of team names within the organization to which to grant access to GitHub Copilot."
         }
     }
 }';
     public const SCHEMA_TITLE        = '';
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
-    "selected_usernames": [
+    "selected_teams": [
         "generated"
     ]
 }';
 
     /**
-     * selectedUsernames: The usernames of the organization members to be granted access to GitHub Copilot.
+     * selectedTeams: List of team names within the organization to which to grant access to GitHub Copilot.
      */
-    public function __construct(#[MapFrom('selected_usernames')]
-    public array $selectedUsernames,)
+    public function __construct(#[MapFrom('selected_teams')]
+    public array $selectedTeams,)
     {
     }
 }

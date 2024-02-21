@@ -5496,7 +5496,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### copilot/get-copilot-organization-details
 
-Get Copilot Business seat information and settings for an organization
+Get Copilot seat information and settings for an organization
 
 Using the `call` method:
 ```php
@@ -5511,12 +5511,12 @@ $client->operations()->copilot()->getCopilotOrganizationDetails(        org: 'ge
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-business#get-copilot-business-seat-information-and-settings-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#get-copilot-seat-information-and-settings-for-an-organization).
 
 
 ### copilot/list-copilot-seats
 
-List all Copilot Business seat assignments for an organization
+List all Copilot seat assignments for an organization
 
 Using the `call` method:
 ```php
@@ -5535,12 +5535,12 @@ $client->operations()->copilot()->listCopilotSeats(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-business#list-all-copilot-business-seat-assignments-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#list-all-copilot-seat-assignments-for-an-organization).
 
 
-### copilot/add-copilot-for-business-seats-for-teams
+### copilot/add-copilot-seats-for-teams
 
-Add teams to the Copilot Business subscription for an organization
+Add teams to the Copilot subscription for an organization
 
 Using the `call` method:
 ```php
@@ -5551,16 +5551,16 @@ $client->call('POST /orgs/{org}/copilot/billing/selected_teams', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->addCopilotForBusinessSeatsForTeams(        org: 'generated',
+$client->operations()->copilot()->addCopilotSeatsForTeams(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-business#add-teams-to-the-copilot-business-subscription-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#add-teams-to-the-copilot-subscription-for-an-organization).
 
 
 ### copilot/cancel-copilot-seat-assignment-for-teams
 
-Remove teams from the Copilot Business subscription for an organization
+Remove teams from the Copilot subscription for an organization
 
 Using the `call` method:
 ```php
@@ -5575,12 +5575,12 @@ $client->operations()->copilot()->cancelCopilotSeatAssignmentForTeams(        or
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-business#remove-teams-from-the-copilot-business-subscription-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#remove-teams-from-the-copilot-subscription-for-an-organization).
 
 
-### copilot/add-copilot-for-business-seats-for-users
+### copilot/add-copilot-seats-for-users
 
-Add users to the Copilot Business subscription for an organization
+Add users to the Copilot subscription for an organization
 
 Using the `call` method:
 ```php
@@ -5591,16 +5591,16 @@ $client->call('POST /orgs/{org}/copilot/billing/selected_users', [
 
 Operations method:
 ```php
-$client->operations()->copilot()->addCopilotForBusinessSeatsForUsers(        org: 'generated',
+$client->operations()->copilot()->addCopilotSeatsForUsers(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-business#add-users-to-the-copilot-business-subscription-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#add-users-to-the-copilot-subscription-for-an-organization).
 
 
 ### copilot/cancel-copilot-seat-assignment-for-users
 
-Remove users from the Copilot Business subscription for an organization
+Remove users from the Copilot subscription for an organization
 
 Using the `call` method:
 ```php
@@ -5615,7 +5615,7 @@ $client->operations()->copilot()->cancelCopilotSeatAssignmentForUsers(        or
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-business#remove-users-from-the-copilot-business-subscription-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#remove-users-from-the-copilot-subscription-for-an-organization).
 
 
 ### orgs/list-saml-sso-authorizations
@@ -7096,7 +7096,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### copilot/get-copilot-seat-details-for-user
 
-Get Copilot Business seat assignment details for a user
+Get Copilot seat assignment details for a user
 
 Using the `call` method:
 ```php
@@ -7113,7 +7113,7 @@ $client->operations()->copilot()->getCopilotSeatDetailsForUser(        org: 'gen
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-business#get-copilot-business-seat-assignment-details-for-a-user).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#get-copilot-seat-assignment-details-for-a-user).
 
 
 ### orgs/get-membership-for-user
