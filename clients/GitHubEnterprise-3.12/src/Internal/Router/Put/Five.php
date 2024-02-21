@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterprise\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterprise\Internal\Routers;
-use ApiClients\Client\GitHubEnterprise\Schema;
 use ApiClients\Client\GitHubEnterprise\Schema\Authorization;
 use ApiClients\Client\GitHubEnterprise\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json;
@@ -25,7 +24,7 @@ final class Five
     {
     }
 
-    /** @return WithoutBody|Schema\Authorization|iterable<int,Schema\GhesLicenseUpload>|Schema\ThreadSubscription|Schema\OrgMembership|Schema\Operations\Orgs\ConvertMemberToOutsideCollaborator\Response\ApplicationJson\Accepted\Application\Json|Schema\RepositoryRuleset|Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|Schema\RepositorySubscription|Schema\Topic|Schema\GroupResponse|Schema\UserResponse|Schema\TeamMembership */
+    /** @return |Observable<Schema\GhesLicenseUpload>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Authorization|iterable|ThreadSubscription|OrgMembership|Json|RepositoryRuleset|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|RepositorySubscription|Topic|GroupResponse|UserResponse|TeamMembership
     {
         if ($pathChunks[0] === '') {

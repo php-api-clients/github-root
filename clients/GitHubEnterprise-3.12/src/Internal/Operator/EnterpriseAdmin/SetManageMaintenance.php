@@ -25,7 +25,7 @@ final readonly class SetManageMaintenance
     {
     }
 
-    /** @return iterable<int,Schema\GhesSetMaintenanceResponse>|WithoutBody */
+    /** @return Observable<Schema\GhesSetMaintenanceResponse>|WithoutBody */
     public function call(array $params): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SetManageMaintenance($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

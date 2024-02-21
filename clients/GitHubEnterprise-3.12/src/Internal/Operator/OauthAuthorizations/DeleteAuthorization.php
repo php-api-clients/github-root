@@ -24,6 +24,7 @@ final readonly class DeleteAuthorization
     {
     }
 
+    /** @return */
     public function call(int $authorizationId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\OauthAuthorizations\DeleteAuthorization($this->responseSchemaValidator, $this->hydrator, $authorizationId);

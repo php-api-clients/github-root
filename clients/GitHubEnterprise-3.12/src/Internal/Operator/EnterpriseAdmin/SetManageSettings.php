@@ -23,6 +23,7 @@ final readonly class SetManageSettings
     {
     }
 
+    /** @return */
     public function call(array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SetManageSettings($this->requestSchemaValidator);

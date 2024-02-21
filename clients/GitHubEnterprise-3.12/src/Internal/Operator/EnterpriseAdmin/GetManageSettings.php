@@ -25,6 +25,7 @@ final readonly class GetManageSettings
     {
     }
 
+    /** @return */
     public function call(): GhesGetSettings|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetManageSettings($this->responseSchemaValidator, $this->hydrator);

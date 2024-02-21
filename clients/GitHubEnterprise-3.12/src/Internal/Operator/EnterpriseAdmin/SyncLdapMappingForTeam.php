@@ -24,6 +24,7 @@ final readonly class SyncLdapMappingForTeam
     {
     }
 
+    /** @return */
     public function call(int $teamId): Created
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SyncLdapMappingForTeam($this->responseSchemaValidator, $this->hydrator, $teamId);

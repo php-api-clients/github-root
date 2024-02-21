@@ -25,7 +25,7 @@ final readonly class LicenseUpload
     {
     }
 
-    /** @return iterable<int,Schema\GhesLicenseUpload>|WithoutBody */
+    /** @return Observable<Schema\GhesLicenseUpload>|WithoutBody */
     public function call(array $params): iterable|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\LicenseUpload($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);

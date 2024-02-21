@@ -19,6 +19,7 @@ final class AnnouncementBanners
     {
     }
 
+    /** @return */
     public function removeAnnouncementBannerForOrg(array $params): WithoutBody
     {
         $arguments = [];

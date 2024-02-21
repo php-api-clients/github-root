@@ -24,6 +24,7 @@ final readonly class GetPagesStats
     {
     }
 
+    /** @return */
     public function call(): EnterprisePageOverview
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\GetPagesStats($this->responseSchemaValidator, $this->hydrator);
