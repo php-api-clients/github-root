@@ -24,6 +24,7 @@ final readonly class CheckAutomatedSecurityFixes
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): \ApiClients\Client\GitHubEnterprise\Schema\CheckAutomatedSecurityFixes|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Repos\CheckAutomatedSecurityFixes($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

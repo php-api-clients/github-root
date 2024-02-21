@@ -23,6 +23,7 @@ final readonly class SetOrgAccessToSelfHostedRunnerGroupInEnterprise
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $runnerGroupId, array $params): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\EnterpriseAdmin\SetOrgAccessToSelfHostedRunnerGroupInEnterprise($this->requestSchemaValidator, $enterprise, $runnerGroupId);

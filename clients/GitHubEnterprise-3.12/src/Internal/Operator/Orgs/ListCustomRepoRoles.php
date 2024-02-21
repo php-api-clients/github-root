@@ -24,6 +24,7 @@ final readonly class ListCustomRepoRoles
     {
     }
 
+    /** @return */
     public function call(string $org): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterprise\Internal\Operation\Orgs\ListCustomRepoRoles($this->responseSchemaValidator, $this->hydrator, $org);
