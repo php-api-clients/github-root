@@ -1016,19 +1016,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /orgs/{org}/copilot/billing/selected_teams') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\AddCopilotSeatsForTeams\\Response\\ApplicationJson\\Created|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /orgs/{org}/copilot/billing/selected_teams') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\CancelCopilotSeatAssignmentForTeams\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /orgs/{org}/copilot/billing/selected_users') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\AddCopilotSeatsForUsers\\Response\\ApplicationJson\\Created\\Application\\Json|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /orgs/{org}/copilot/billing/selected_users') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\CancelCopilotSeatAssignmentForUsers\\Response\\ApplicationJson\\Ok\\Application\\Json|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/credential-authorizations') {
@@ -1280,7 +1280,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/members/{username}/copilot') {
-            return $this->typeResolver->resolve('Schema\\CopilotSeatDetails|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/memberships/{username}') {
