@@ -1,5 +1,5 @@
 {
-    "specHash": "6e16f9d48773023a9ee73b54b6afc059",
+    "specHash": "75cae343d05ec275c00b3c7e009d6cd0",
     "generatedFiles": {
         "files": [
             {
@@ -2112,7 +2112,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.8\/etc\/..\/\/src\/\/Schema\/WebhookPush.php",
-                "hash": "a4bbbf189a4eab2d7f8bd563c629c696"
+                "hash": "6b4145fe4060562395ef2382b9bf932b"
             },
             {
                 "name": ".\/clients\/GitHubEnterprise-3.8\/etc\/..\/\/src\/\/Schema\/WebhookRegistryPackagePublished.php",
