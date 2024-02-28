@@ -24,7 +24,6 @@ final readonly class GetGithubAdvancedSecurityBillingOrg
     {
     }
 
-    /** @return */
     public function call(string $org, int $perPage = 30, int $page = 1): AdvancedSecurityActiveCommitters
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\GetGithubAdvancedSecurityBillingOrg($this->responseSchemaValidator, $this->hydrator, $org, $perPage, $page);

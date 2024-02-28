@@ -1,5 +1,5 @@
 {
-    "specHash": "aac9174d4a1dfe95ad6ff969d25fba1a",
+    "specHash": "1e5665ad707a6042586f05a37e990074",
     "generatedFiles": {
         "files": [
             {
@@ -6108,7 +6108,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
-                "hash": "2f89f8f34c1648063bd254cf117621d1"
+                "hash": "e91380bc951c865dc3a281116a800760"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Activity.php",
@@ -6128,7 +6128,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Licenses.php",
-                "hash": "9385aea163849d89e9b238f8fccfd845"
+                "hash": "c91c673516a6e89c4a4b75f25baf68cb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Markdown.php",
@@ -15360,15 +15360,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubAdvancedSecurityBillingGhe.php",
-                "hash": "e687408aa00deb30987b7c6c1e491238"
+                "hash": "7920a60cabcab10201ceb36ce3501139"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/GetGithubAdvancedSecurityBillingGhe.php",
-                "hash": "02331c54e823011bef21436d174dad60"
+                "hash": "ab92036517688f8cb6552d59e6ce0ca5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/GetGithubAdvancedSecurityBillingGheTest.php",
-                "hash": "9f8be1fcc7d1e17c0e45c87be8b1267f"
+                "hash": "ca763b878e7b47c63091233de3971bbf"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubPackagesBillingGhe.php",
@@ -18580,15 +18580,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubAdvancedSecurityBillingOrg.php",
-                "hash": "b7e4932d89213f0aba7a76b64c345fe0"
+                "hash": "3c77a5c5ba9ea28b20fdea0458f40aac"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/GetGithubAdvancedSecurityBillingOrg.php",
-                "hash": "5dac03411cf1ef6e5768442275553a51"
+                "hash": "95e7bab4123b6f1b2db78ec0cc89fdf6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/GetGithubAdvancedSecurityBillingOrgTest.php",
-                "hash": "46773005bedb29a91906f60620ee0617"
+                "hash": "f767192d429119efbf2c924c7bc94878"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubPackagesBillingOrg.php",
@@ -23344,15 +23344,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Licenses\/GetForRepo.php",
-                "hash": "7d31437aed451471be02fc85f3fde9b7"
+                "hash": "93a6ae4fa636397cc9d024bf26dbfa55"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Licenses\/GetForRepo.php",
-                "hash": "0c3e60fa607def8277b54beea4e5a9f8"
+                "hash": "2c68cb8a1a6c3cce4fc62a5300e6b0bc"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Licenses\/GetForRepoTest.php",
-                "hash": "01027afc315db445374421f32e8d74fd"
+                "hash": "fe6634b9b088098191347643f0470979"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Repos\/MergeUpstream.php",
@@ -27976,7 +27976,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Licenses.php",
-                "hash": "84d1551035880d6c271cb3b5159d5e0f"
+                "hash": "10865bbe8258479c98088f638b926698"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Orgs.php",
@@ -28060,7 +28060,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Billing.php",
-                "hash": "6cd51d86132d2ced5d1933abcaec00c7"
+                "hash": "01b4be6122ab9bbf671277f314bc0e15"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Checks.php",
@@ -28540,11 +28540,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "da8afc25858bf9ab936a233e4966b47d"
+                "hash": "7e7bcc82043b5c52eaebd9a2d486a540"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "0c73fff643784943f9f446280775e530"
+                "hash": "2358a6a72bd04f4f9cc72d6bea0acaff"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -28916,7 +28916,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Settings\/Billing\/AdvancedSecurity.php",
-                "hash": "96bae146f68db214898b2ea6d0c0d53c"
+                "hash": "994a9b2ee536818ba9a0596c9b29bc2a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Settings\/Billing\/Packages.php",
@@ -29452,7 +29452,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Settings\/Billing\/AdvancedSecurity.php",
-                "hash": "8b32fcd1ad48b8d2a566ab2ea57ba638"
+                "hash": "54b27ae9b526ab01671683bafb9bd7e3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Settings\/Billing\/Packages.php",
@@ -31808,11 +31808,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "8d4c6bba384c321e1c471455261dea31"
+                "hash": "58a31640d7fa36c36e142e66de63bd3a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "6fd5cfe80262fa8052a8d91247518f70"
+                "hash": "144bd72a7bb6590d5c286235d34fa779"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
