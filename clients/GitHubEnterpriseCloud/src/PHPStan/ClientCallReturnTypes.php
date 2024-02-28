@@ -400,7 +400,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/advanced-security') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\AdvancedSecurityActiveCommitters');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/packages') {
@@ -1648,7 +1648,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/settings/billing/advanced-security') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\AdvancedSecurityActiveCommitters');
         }
 
         if ($call === 'GET /orgs/{org}/settings/billing/packages') {
@@ -3312,7 +3312,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/license') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\LicenseContent');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/merge-upstream') {

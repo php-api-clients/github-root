@@ -106,7 +106,7 @@ assertType('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody', $cli
 assertType('', $client->call('GET /enterprises/{enterprise}/license-sync-status'));
 assertType('Observable<Schema\\OrganizationSecretScanningAlert>', $client->call('GET /enterprises/{enterprise}/secret-scanning/alerts'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/actions'));
-assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/advanced-security'));
+assertType('Schema\\AdvancedSecurityActiveCommitters', $client->call('GET /enterprises/{enterprise}/settings/billing/advanced-security'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/packages'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/shared-storage'));
 assertType('', $client->call('POST /enterprises/{enterprise}/{security_product}/{enablement}'));
@@ -418,7 +418,7 @@ assertType('Observable<Schema\\TeamSimple>', $client->call('GET /orgs/{org}/secu
 assertType('', $client->call('PUT /orgs/{org}/security-managers/teams/{team_slug}'));
 assertType('', $client->call('DELETE /orgs/{org}/security-managers/teams/{team_slug}'));
 assertType('', $client->call('GET /orgs/{org}/settings/billing/actions'));
-assertType('', $client->call('GET /orgs/{org}/settings/billing/advanced-security'));
+assertType('Schema\\AdvancedSecurityActiveCommitters', $client->call('GET /orgs/{org}/settings/billing/advanced-security'));
 assertType('', $client->call('GET /orgs/{org}/settings/billing/packages'));
 assertType('', $client->call('GET /orgs/{org}/settings/billing/shared-storage'));
 assertType('', $client->call('GET /orgs/{org}/team-sync/groups'));
@@ -834,7 +834,7 @@ assertType('', $client->call('PATCH /repos/{owner}/{repo}/labels/{name}'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/languages'));
 assertType('', $client->call('PUT /repos/{owner}/{repo}/lfs'));
 assertType('', $client->call('DELETE /repos/{owner}/{repo}/lfs'));
-assertType('', $client->call('GET /repos/{owner}/{repo}/license'));
+assertType('Schema\\LicenseContent', $client->call('GET /repos/{owner}/{repo}/license'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/merge-upstream'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/merges'));
 assertType('Observable<Schema\\Milestone>', $client->call('GET /repos/{owner}/{repo}/milestones'));
