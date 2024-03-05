@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Internal\Hydrator\Operation\Repositories\RepositoryId\Environments\EnvironmentName\Secrets;
+namespace ApiClients\Client\GitHubEnterprise\Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName\Variables;
 
-use ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret;
+use ApiClients\Client\GitHubEnterprise\Schema\ActionsVariable;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -20,7 +20,7 @@ use function assert;
 use function count;
 use function is_a;
 
-class SecretName implements ObjectMapper
+class Name implements ObjectMapper
 {
     private array $hydrationStack = [];
 
@@ -38,12 +38,12 @@ class SecretName implements ObjectMapper
     public function hydrateObject(string $className, array $payload): object
     {
         return match ($className) {
-            'ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsSecret($payload),
+            'ApiClients\Client\GitHubEnterprise\Schema\ActionsVariable' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsVariable($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsSecret(array $payload): ActionsSecret
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsVariable(array $payload): ActionsVariable
     {
         $properties    = [];
         $missingFields = [];
@@ -58,6 +58,17 @@ class SecretName implements ObjectMapper
             $properties['name'] = $value;
 
             after_name:
+
+            $value = $payload['value'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'value';
+                goto after_value;
+            }
+
+            $properties['value'] = $value;
+
+            after_value:
 
             $value = $payload['created_at'] ?? null;
 
@@ -81,17 +92,17 @@ class SecretName implements ObjectMapper
 
             after_updatedAt:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsVariable', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(ActionsSecret::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(ActionsVariable::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new ActionsSecret(...$properties);
+            return new ActionsVariable(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\ActionsVariable', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -126,7 +137,7 @@ class SecretName implements ObjectMapper
                 'DateTime' => $this->serializeValueDateTime($object),
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHubEnterprise\Schema\ActionsSecret' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsSecret($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\ActionsVariable' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsVariable($object),
                 default => throw new LogicException('No serialization defined for $className'),
             };
         } catch (Throwable $exception) {
@@ -189,13 +200,16 @@ class SecretName implements ObjectMapper
         return $serializer->serialize($value, $this);
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsSecret(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ActionsVariable(mixed $object): mixed
     {
-        assert($object instanceof ActionsSecret);
+        assert($object instanceof ActionsVariable);
         $result = [];
 
         $name                              = $object->name;
         after_name:        $result['name'] = $name;
+
+        $value                               = $object->value;
+        after_value:        $result['value'] = $value;
 
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
