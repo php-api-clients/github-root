@@ -217,18 +217,6 @@ final class Six
                         }
                     }
                 }
-            } elseif ($pathChunks[1] === 'repositories') {
-                if ($pathChunks[2] === '{repository_id}') {
-                    if ($pathChunks[3] === 'environments') {
-                        if ($pathChunks[4] === '{environment_name}') {
-                            if ($pathChunks[5] === 'variables') {
-                                if ($call === 'POST /repositories/{repository_id}/environments/{environment_name}/variables') {
-                                    return $this->routers->internal🔀Router🔀Post🔀Actions()->createEnvironmentVariable($params);
-                                }
-                            }
-                        }
-                    }
-                }
             } elseif ($pathChunks[1] === 'scim') {
                 if ($pathChunks[2] === 'v2') {
                     if ($pathChunks[3] === 'organizations') {

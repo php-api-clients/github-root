@@ -136,20 +136,6 @@ final class Seven
                         }
                     }
                 }
-            } elseif ($pathChunks[1] === 'repositories') {
-                if ($pathChunks[2] === '{repository_id}') {
-                    if ($pathChunks[3] === 'environments') {
-                        if ($pathChunks[4] === '{environment_name}') {
-                            if ($pathChunks[5] === 'variables') {
-                                if ($pathChunks[6] === '{name}') {
-                                    if ($call === 'PATCH /repositories/{repository_id}/environments/{environment_name}/variables/{name}') {
-                                        return $this->routers->internal🔀Router🔀Patch🔀Actions()->updateEnvironmentVariable($params);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
             } elseif ($pathChunks[1] === 'scim') {
                 if ($pathChunks[2] === 'v2') {
                     if ($pathChunks[3] === 'organizations') {
