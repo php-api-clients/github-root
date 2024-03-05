@@ -22,6 +22,7 @@ final class Billing
         return $this->operators->billing👷GetGithubActionsBillingGhe()->call($enterprise);
     }
 
+    /** @return */
     public function getGithubAdvancedSecurityBillingGhe(string $enterprise, int $perPage, int $page): AdvancedSecurityActiveCommitters
     {
         return $this->operators->billing👷GetGithubAdvancedSecurityBillingGhe()->call($enterprise, $perPage, $page);
@@ -45,6 +46,7 @@ final class Billing
         return $this->operators->billing👷GetGithubActionsBillingOrg()->call($org);
     }
 
+    /** @return */
     public function getGithubAdvancedSecurityBillingOrg(string $org, int $perPage, int $page): AdvancedSecurityActiveCommitters
     {
         return $this->operators->billing👷GetGithubAdvancedSecurityBillingOrg()->call($org, $perPage, $page);
