@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ApiClients\Client\GitHubEnterprise\Internal\Hydrator\Operation\Repositories\RepositoryId\Environments\EnvironmentName;
+namespace ApiClients\Client\GitHubEnterprise\Internal\Hydrator\Operation\Repos\Owner\Repo\Environments\EnvironmentName;
 
 use ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentVariables\Response\ApplicationJson\Ok\Application\Json;
 use EventSauce\ObjectHydrator\IterableList;
