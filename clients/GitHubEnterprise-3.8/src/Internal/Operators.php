@@ -618,6 +618,16 @@ final class Operators
     private Internal\Operator\Repos\GetDeploymentBranchPolicy|null $repos👷GetDeploymentBranchPolicy                                                                                 = null;
     private Internal\Operator\Repos\UpdateDeploymentBranchPolicy|null $repos👷UpdateDeploymentBranchPolicy                                                                           = null;
     private Internal\Operator\Repos\DeleteDeploymentBranchPolicy|null $repos👷DeleteDeploymentBranchPolicy                                                                           = null;
+    private Internal\Operator\Actions\ListEnvironmentSecrets|null $actions👷ListEnvironmentSecrets                                                                                   = null;
+    private Internal\Operator\Actions\GetEnvironmentPublicKey|null $actions👷GetEnvironmentPublicKey                                                                                 = null;
+    private Internal\Operator\Actions\GetEnvironmentSecret|null $actions👷GetEnvironmentSecret                                                                                       = null;
+    private Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret|null $actions👷CreateOrUpdateEnvironmentSecret                                                                 = null;
+    private Internal\Operator\Actions\DeleteEnvironmentSecret|null $actions👷DeleteEnvironmentSecret                                                                                 = null;
+    private Internal\Operator\Actions\ListEnvironmentVariables|null $actions👷ListEnvironmentVariables                                                                               = null;
+    private Internal\Operator\Actions\CreateEnvironmentVariable|null $actions👷CreateEnvironmentVariable                                                                             = null;
+    private Internal\Operator\Actions\GetEnvironmentVariable|null $actions👷GetEnvironmentVariable                                                                                   = null;
+    private Internal\Operator\Actions\DeleteEnvironmentVariable|null $actions👷DeleteEnvironmentVariable                                                                             = null;
+    private Internal\Operator\Actions\UpdateEnvironmentVariable|null $actions👷UpdateEnvironmentVariable                                                                             = null;
     private Internal\Operator\Activity\ListRepoEvents|null $activity👷ListRepoEvents                                                                                                 = null;
     private Internal\Operator\Activity\ListRepoEventsListing|null $activity👷ListRepoEventsListing                                                                                   = null;
     private Internal\Operator\Repos\ListForks|null $repos👷ListForks                                                                                                                 = null;
@@ -834,16 +844,6 @@ final class Operators
     private Internal\Operator\Repos\DownloadZipballArchiveStreaming|null $repos👷DownloadZipballArchiveStreaming                                                                     = null;
     private Internal\Operator\Repos\CreateUsingTemplate|null $repos👷CreateUsingTemplate                                                                                             = null;
     private Internal\Operator\Repos\ListPublic|null $repos👷ListPublic                                                                                                               = null;
-    private Internal\Operator\Actions\ListEnvironmentSecrets|null $actions👷ListEnvironmentSecrets                                                                                   = null;
-    private Internal\Operator\Actions\GetEnvironmentPublicKey|null $actions👷GetEnvironmentPublicKey                                                                                 = null;
-    private Internal\Operator\Actions\GetEnvironmentSecret|null $actions👷GetEnvironmentSecret                                                                                       = null;
-    private Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret|null $actions👷CreateOrUpdateEnvironmentSecret                                                                 = null;
-    private Internal\Operator\Actions\DeleteEnvironmentSecret|null $actions👷DeleteEnvironmentSecret                                                                                 = null;
-    private Internal\Operator\Actions\ListEnvironmentVariables|null $actions👷ListEnvironmentVariables                                                                               = null;
-    private Internal\Operator\Actions\CreateEnvironmentVariable|null $actions👷CreateEnvironmentVariable                                                                             = null;
-    private Internal\Operator\Actions\GetEnvironmentVariable|null $actions👷GetEnvironmentVariable                                                                                   = null;
-    private Internal\Operator\Actions\DeleteEnvironmentVariable|null $actions👷DeleteEnvironmentVariable                                                                             = null;
-    private Internal\Operator\Actions\UpdateEnvironmentVariable|null $actions👷UpdateEnvironmentVariable                                                                             = null;
     private Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise|null $enterpriseAdmin👷ListProvisionedGroupsEnterprise                                                 = null;
     private Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup|null $enterpriseAdmin👷ProvisionEnterpriseGroup                                                               = null;
     private Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup|null $enterpriseAdmin👷GetProvisioningInformationForEnterpriseGroup                       = null;
@@ -6489,6 +6489,96 @@ final class Operators
         return $this->repos👷DeleteDeploymentBranchPolicy;
     }
 
+    public function actions👷ListEnvironmentSecrets(): Internal\Operator\Actions\ListEnvironmentSecrets
+    {
+        if ($this->actions👷ListEnvironmentSecrets instanceof Internal\Operator\Actions\ListEnvironmentSecrets === false) {
+            $this->actions👷ListEnvironmentSecrets = new Internal\Operator\Actions\ListEnvironmentSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Secrets());
+        }
+
+        return $this->actions👷ListEnvironmentSecrets;
+    }
+
+    public function actions👷GetEnvironmentPublicKey(): Internal\Operator\Actions\GetEnvironmentPublicKey
+    {
+        if ($this->actions👷GetEnvironmentPublicKey instanceof Internal\Operator\Actions\GetEnvironmentPublicKey === false) {
+            $this->actions👷GetEnvironmentPublicKey = new Internal\Operator\Actions\GetEnvironmentPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Secrets🌀PublicKey());
+        }
+
+        return $this->actions👷GetEnvironmentPublicKey;
+    }
+
+    public function actions👷GetEnvironmentSecret(): Internal\Operator\Actions\GetEnvironmentSecret
+    {
+        if ($this->actions👷GetEnvironmentSecret instanceof Internal\Operator\Actions\GetEnvironmentSecret === false) {
+            $this->actions👷GetEnvironmentSecret = new Internal\Operator\Actions\GetEnvironmentSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
+        }
+
+        return $this->actions👷GetEnvironmentSecret;
+    }
+
+    public function actions👷CreateOrUpdateEnvironmentSecret(): Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret
+    {
+        if ($this->actions👷CreateOrUpdateEnvironmentSecret instanceof Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret === false) {
+            $this->actions👷CreateOrUpdateEnvironmentSecret = new Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
+        }
+
+        return $this->actions👷CreateOrUpdateEnvironmentSecret;
+    }
+
+    public function actions👷DeleteEnvironmentSecret(): Internal\Operator\Actions\DeleteEnvironmentSecret
+    {
+        if ($this->actions👷DeleteEnvironmentSecret instanceof Internal\Operator\Actions\DeleteEnvironmentSecret === false) {
+            $this->actions👷DeleteEnvironmentSecret = new Internal\Operator\Actions\DeleteEnvironmentSecret($this->browser, $this->authentication);
+        }
+
+        return $this->actions👷DeleteEnvironmentSecret;
+    }
+
+    public function actions👷ListEnvironmentVariables(): Internal\Operator\Actions\ListEnvironmentVariables
+    {
+        if ($this->actions👷ListEnvironmentVariables instanceof Internal\Operator\Actions\ListEnvironmentVariables === false) {
+            $this->actions👷ListEnvironmentVariables = new Internal\Operator\Actions\ListEnvironmentVariables($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Variables());
+        }
+
+        return $this->actions👷ListEnvironmentVariables;
+    }
+
+    public function actions👷CreateEnvironmentVariable(): Internal\Operator\Actions\CreateEnvironmentVariable
+    {
+        if ($this->actions👷CreateEnvironmentVariable instanceof Internal\Operator\Actions\CreateEnvironmentVariable === false) {
+            $this->actions👷CreateEnvironmentVariable = new Internal\Operator\Actions\CreateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Variables());
+        }
+
+        return $this->actions👷CreateEnvironmentVariable;
+    }
+
+    public function actions👷GetEnvironmentVariable(): Internal\Operator\Actions\GetEnvironmentVariable
+    {
+        if ($this->actions👷GetEnvironmentVariable instanceof Internal\Operator\Actions\GetEnvironmentVariable === false) {
+            $this->actions👷GetEnvironmentVariable = new Internal\Operator\Actions\GetEnvironmentVariable($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Environments🌀EnvironmentName🌀Variables🌀Name());
+        }
+
+        return $this->actions👷GetEnvironmentVariable;
+    }
+
+    public function actions👷DeleteEnvironmentVariable(): Internal\Operator\Actions\DeleteEnvironmentVariable
+    {
+        if ($this->actions👷DeleteEnvironmentVariable instanceof Internal\Operator\Actions\DeleteEnvironmentVariable === false) {
+            $this->actions👷DeleteEnvironmentVariable = new Internal\Operator\Actions\DeleteEnvironmentVariable($this->browser, $this->authentication);
+        }
+
+        return $this->actions👷DeleteEnvironmentVariable;
+    }
+
+    public function actions👷UpdateEnvironmentVariable(): Internal\Operator\Actions\UpdateEnvironmentVariable
+    {
+        if ($this->actions👷UpdateEnvironmentVariable instanceof Internal\Operator\Actions\UpdateEnvironmentVariable === false) {
+            $this->actions👷UpdateEnvironmentVariable = new Internal\Operator\Actions\UpdateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
+        }
+
+        return $this->actions👷UpdateEnvironmentVariable;
+    }
+
     public function activity👷ListRepoEvents(): Internal\Operator\Activity\ListRepoEvents
     {
         if ($this->activity👷ListRepoEvents instanceof Internal\Operator\Activity\ListRepoEvents === false) {
@@ -8431,96 +8521,6 @@ final class Operators
         }
 
         return $this->repos👷ListPublic;
-    }
-
-    public function actions👷ListEnvironmentSecrets(): Internal\Operator\Actions\ListEnvironmentSecrets
-    {
-        if ($this->actions👷ListEnvironmentSecrets instanceof Internal\Operator\Actions\ListEnvironmentSecrets === false) {
-            $this->actions👷ListEnvironmentSecrets = new Internal\Operator\Actions\ListEnvironmentSecrets($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets());
-        }
-
-        return $this->actions👷ListEnvironmentSecrets;
-    }
-
-    public function actions👷GetEnvironmentPublicKey(): Internal\Operator\Actions\GetEnvironmentPublicKey
-    {
-        if ($this->actions👷GetEnvironmentPublicKey instanceof Internal\Operator\Actions\GetEnvironmentPublicKey === false) {
-            $this->actions👷GetEnvironmentPublicKey = new Internal\Operator\Actions\GetEnvironmentPublicKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets🌀PublicKey());
-        }
-
-        return $this->actions👷GetEnvironmentPublicKey;
-    }
-
-    public function actions👷GetEnvironmentSecret(): Internal\Operator\Actions\GetEnvironmentSecret
-    {
-        if ($this->actions👷GetEnvironmentSecret instanceof Internal\Operator\Actions\GetEnvironmentSecret === false) {
-            $this->actions👷GetEnvironmentSecret = new Internal\Operator\Actions\GetEnvironmentSecret($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
-        }
-
-        return $this->actions👷GetEnvironmentSecret;
-    }
-
-    public function actions👷CreateOrUpdateEnvironmentSecret(): Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret
-    {
-        if ($this->actions👷CreateOrUpdateEnvironmentSecret instanceof Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret === false) {
-            $this->actions👷CreateOrUpdateEnvironmentSecret = new Internal\Operator\Actions\CreateOrUpdateEnvironmentSecret($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Secrets🌀SecretName());
-        }
-
-        return $this->actions👷CreateOrUpdateEnvironmentSecret;
-    }
-
-    public function actions👷DeleteEnvironmentSecret(): Internal\Operator\Actions\DeleteEnvironmentSecret
-    {
-        if ($this->actions👷DeleteEnvironmentSecret instanceof Internal\Operator\Actions\DeleteEnvironmentSecret === false) {
-            $this->actions👷DeleteEnvironmentSecret = new Internal\Operator\Actions\DeleteEnvironmentSecret($this->browser, $this->authentication);
-        }
-
-        return $this->actions👷DeleteEnvironmentSecret;
-    }
-
-    public function actions👷ListEnvironmentVariables(): Internal\Operator\Actions\ListEnvironmentVariables
-    {
-        if ($this->actions👷ListEnvironmentVariables instanceof Internal\Operator\Actions\ListEnvironmentVariables === false) {
-            $this->actions👷ListEnvironmentVariables = new Internal\Operator\Actions\ListEnvironmentVariables($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Variables());
-        }
-
-        return $this->actions👷ListEnvironmentVariables;
-    }
-
-    public function actions👷CreateEnvironmentVariable(): Internal\Operator\Actions\CreateEnvironmentVariable
-    {
-        if ($this->actions👷CreateEnvironmentVariable instanceof Internal\Operator\Actions\CreateEnvironmentVariable === false) {
-            $this->actions👷CreateEnvironmentVariable = new Internal\Operator\Actions\CreateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Variables());
-        }
-
-        return $this->actions👷CreateEnvironmentVariable;
-    }
-
-    public function actions👷GetEnvironmentVariable(): Internal\Operator\Actions\GetEnvironmentVariable
-    {
-        if ($this->actions👷GetEnvironmentVariable instanceof Internal\Operator\Actions\GetEnvironmentVariable === false) {
-            $this->actions👷GetEnvironmentVariable = new Internal\Operator\Actions\GetEnvironmentVariable($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repositories🌀RepositoryId🌀Environments🌀EnvironmentName🌀Variables🌀Name());
-        }
-
-        return $this->actions👷GetEnvironmentVariable;
-    }
-
-    public function actions👷DeleteEnvironmentVariable(): Internal\Operator\Actions\DeleteEnvironmentVariable
-    {
-        if ($this->actions👷DeleteEnvironmentVariable instanceof Internal\Operator\Actions\DeleteEnvironmentVariable === false) {
-            $this->actions👷DeleteEnvironmentVariable = new Internal\Operator\Actions\DeleteEnvironmentVariable($this->browser, $this->authentication);
-        }
-
-        return $this->actions👷DeleteEnvironmentVariable;
-    }
-
-    public function actions👷UpdateEnvironmentVariable(): Internal\Operator\Actions\UpdateEnvironmentVariable
-    {
-        if ($this->actions👷UpdateEnvironmentVariable instanceof Internal\Operator\Actions\UpdateEnvironmentVariable === false) {
-            $this->actions👷UpdateEnvironmentVariable = new Internal\Operator\Actions\UpdateEnvironmentVariable($this->browser, $this->authentication, $this->requestSchemaValidator);
-        }
-
-        return $this->actions👷UpdateEnvironmentVariable;
     }
 
     public function enterpriseAdmin👷ListProvisionedGroupsEnterprise(): Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise
