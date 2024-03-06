@@ -532,6 +532,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
+    /** @return */
     public function deleteEnvironmentSecret(array $params): WithoutBody
     {
         $arguments = [];
@@ -564,6 +565,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['secret_name']);
     }
 
+    /** @return */
     public function deleteEnvironmentVariable(array $params): WithoutBody
     {
         $arguments = [];
