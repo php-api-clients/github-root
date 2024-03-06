@@ -2768,43 +2768,43 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/secrets') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListEnvironmentSecrets\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key') {
-            return $this->typeResolver->resolve('Schema\\ActionsPublicKey');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}') {
-            return $this->typeResolver->resolve('Schema\\ActionsSecret');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}') {
-            return $this->typeResolver->resolve('Schema\\EmptyObject|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/variables') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Actions\\ListEnvironmentVariables\\Response\\ApplicationJson\\Ok\\Application\\Json');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/environments/{environment_name}/variables') {
-            return $this->typeResolver->resolve('Schema\\EmptyObject');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}') {
-            return $this->typeResolver->resolve('Schema\\ActionsVariable');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/environments/{environment_name}/variables/{name}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/events') {
