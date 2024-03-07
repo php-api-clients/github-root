@@ -30,7 +30,7 @@ final class Eight
     {
     }
 
-    /** @return |Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\EnvironmentApprovals>|Observable<Schema\PendingDeployment>|Observable<Schema\CodeScanningAlertInstance>|Schema\ActionsPublicKey|Schema\ActionsSecret|Schema\ActionsVariable|Observable<Schema\SecretScanningLocation>|WithoutBody */
+    /** @return |Observable<Schema\TeamDiscussionComment>|Observable<Schema\Reaction>|Observable<Schema\EnvironmentApprovals>|Observable<Schema\PendingDeployment>|Observable<Schema\CodeScanningAlertInstance>|Observable<Schema\SecretScanningLocation>|WithoutBody */
     public function call(string $call, array $params, array $pathChunks): PackageVersion|iterable|TeamRepository|WithoutBody|OidcCustomSubRepo|Ok|Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListJobsForWorkflowRun\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json|ProtectedBranchAdminEnforced|ProtectedBranchPullRequestReview|StatusCheckPolicy|BranchRestrictionPolicy|DeploymentStatus|DeploymentBranchPolicy|ActionsPublicKey|ActionsSecret|ActionsVariable|HookDelivery|PullRequestReview
     {
         if ($pathChunks[0] === '') {
