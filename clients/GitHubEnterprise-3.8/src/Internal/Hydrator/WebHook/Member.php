@@ -17,6 +17,7 @@ use ApiClients\Client\GitHubEnterprise\Schema\SimpleUserWebhooks;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\Permission;
+use ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\RoleName;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberEdited;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberEdited\Changes\OldPermission;
 use ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberRemoved;
@@ -58,6 +59,7 @@ class Member implements ObjectMapper
             'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\Permission' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️Permission($payload),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\RoleName' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️RoleName($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseWebhooks($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Member' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Member($payload),
@@ -275,6 +277,26 @@ class Member implements ObjectMapper
             $properties['permission'] = $value;
 
             after_permission:
+
+            $value = $payload['role_name'] ?? null;
+
+            if ($value === null) {
+                $properties['roleName'] = null;
+                goto after_roleName;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'roleName';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️RoleName($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['roleName'] = $value;
+
+            after_roleName:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes', $exception, stack: $this->hydrationStack);
         }
@@ -317,6 +339,36 @@ class Member implements ObjectMapper
             return new Permission(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\Permission', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️RoleName(array $payload): RoleName
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['to'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'to';
+                goto after_to;
+            }
+
+            $properties['to'] = $value;
+
+            after_to:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\RoleName', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(RoleName::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new RoleName(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\RoleName', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4972,6 +5024,7 @@ class Member implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\Permission' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️Permission($object),
+                'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Changes\RoleName' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️RoleName($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseWebhooks($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookMemberAdded\Member' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Member($object),
@@ -5131,12 +5184,32 @@ class Member implements ObjectMapper
         $permission                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️Permission($permission);
         after_permission:        $result['permission'] = $permission;
 
+        $roleName = $object->roleName;
+
+        if ($roleName === null) {
+            goto after_roleName;
+        }
+
+        $roleName                                   = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️RoleName($roleName);
+        after_roleName:        $result['role_name'] = $roleName;
+
         return $result;
     }
 
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️Permission(mixed $object): mixed
     {
         assert($object instanceof Permission);
+        $result = [];
+
+        $to                            = $object->to;
+        after_to:        $result['to'] = $to;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookMemberAdded⚡️Changes⚡️RoleName(mixed $object): mixed
+    {
+        assert($object instanceof RoleName);
         $result = [];
 
         $to                            = $object->to;
