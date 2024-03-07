@@ -1322,6 +1322,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id']);
     }
 
+    /** @return */
     public function listEnvironmentSecrets(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentSecrets\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -1360,6 +1361,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function listEnvironmentVariables(array $params): \ApiClients\Client\GitHubEnterprise\Schema\Operations\Actions\ListEnvironmentVariables\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
@@ -1764,6 +1766,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['workflow_id'], $arguments['actor'], $arguments['branch'], $arguments['event'], $arguments['status'], $arguments['created'], $arguments['check_suite_id'], $arguments['head_sha'], $arguments['per_page'], $arguments['page'], $arguments['exclude_pull_requests']);
     }
 
+    /** @return */
     public function getEnvironmentPublicKey(array $params): ActionsPublicKey
     {
         $arguments = [];
@@ -1790,6 +1793,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name']);
     }
 
+    /** @return */
     public function getEnvironmentSecret(array $params): ActionsSecret
     {
         $arguments = [];
@@ -1822,6 +1826,7 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['environment_name'], $arguments['secret_name']);
     }
 
+    /** @return */
     public function getEnvironmentVariable(array $params): ActionsVariable
     {
         $arguments = [];
