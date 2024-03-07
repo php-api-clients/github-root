@@ -2788,11 +2788,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/matching-refs/{ref}') {
-            return $this->typeResolver->resolve('Observable<Schema\\GitRef>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\GitRef>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/ref/{ref}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\GitRef');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/git/refs') {
@@ -2800,11 +2800,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/git/refs/{ref}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/git/refs/{ref}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\GitRef');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/git/tags') {
