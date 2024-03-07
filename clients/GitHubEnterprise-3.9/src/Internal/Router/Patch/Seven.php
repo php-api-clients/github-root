@@ -24,6 +24,7 @@ final class Seven
     {
     }
 
+    /** @return |Schema\GitRef */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {
