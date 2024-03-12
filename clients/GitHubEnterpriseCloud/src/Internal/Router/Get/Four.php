@@ -25,8 +25,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRep
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectColumn;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseGroupList;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimEnterpriseUserList;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SshSigningKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\StarredRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Thread;
@@ -41,7 +39,7 @@ final class Four
     }
 
     /** @return |Observable<Schema\HookDeliveryItem>|Observable<Schema\ClassroomAcceptedAssignment>|Observable<Schema\ClassroomAssignmentGrade>|Observable<Schema\SimpleClassroomAssignment>|Observable<Schema\ServerStatistics>|Observable<Schema\AuditLogEvent>|Observable<Schema\GistComment>|WithoutBody|Observable<Schema\GistCommit>|Observable<Schema\GistSimple>|Observable<Schema\MarketplaceListingPlan>|Observable<Schema\SimpleUser>|Observable<Schema\CredentialAuthorization>|Observable<Schema\Event>|Observable<Schema\OrganizationInvitation>|Observable<Schema\RepositoryFineGrainedPermission>|Observable<Schema\OrgHook>|Observable<Schema\Issue>|Observable<Schema\Migration>|Observable<Schema\OrganizationFineGrainedPermission>|Observable<Schema\Package>|Observable<Schema\OrganizationProgrammaticAccessGrantRequest>|Observable<Schema\OrganizationProgrammaticAccessGrant>|Observable<Schema\Project>|Observable<Schema\MinimalRepository>|Observable<Schema\RepositoryRuleset>|Observable<Schema\RepositoryAdvisory>|Observable<Schema\TeamSimple>|Observable<Schema\Team>|Observable<Schema\ProjectColumn>|Observable<Schema\TeamDiscussion>|Observable<Schema\TeamProject>|Observable<Schema\UserMarketplacePurchase>|Observable<Schema\OrgMembership>|Observable<Schema\BaseGist>|Observable<Schema\GpgKey>|Observable<Schema\KeySimple>|Observable<Schema\OrganizationSimple>|Observable<Schema\SocialAccount>|Observable<Schema\SshSigningKey> */
-    public function call(string $call, array $params, array $pathChunks): WebhookConfig|iterable|Installation|AnnouncementBanner|EnterpriseSecurityAnalysisSettings|string|WithoutBody|GistSimple|GitignoreTemplate|MarketplacePurchase|Thread|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListInOrganization\Response\ApplicationJson\Ok|Json|ExternalGroups|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|InteractionLimitResponse|One|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListOrgRoles\Response\ApplicationJson\Ok|ProjectColumn|FullRepository|BasicError|ScimEnterpriseGroupList|ScimEnterpriseUserList|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListSecretsForAuthenticatedUser\Response\ApplicationJson\Ok|Codespace|GpgKey|Key|Migration|SshSigningKey|Hovercard|StarredRepository|Repository
+    public function call(string $call, array $params, array $pathChunks): WebhookConfig|iterable|Installation|AnnouncementBanner|EnterpriseSecurityAnalysisSettings|string|WithoutBody|GistSimple|GitignoreTemplate|MarketplacePurchase|Thread|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListInOrganization\Response\ApplicationJson\Ok|Json|ExternalGroups|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListAppInstallations\Response\ApplicationJson\Ok|InteractionLimitResponse|One|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListOrgRoles\Response\ApplicationJson\Ok|ProjectColumn|FullRepository|BasicError|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListSecretsForAuthenticatedUser\Response\ApplicationJson\Ok|Codespace|GpgKey|Key|Migration|SshSigningKey|Hovercard|StarredRepository|Repository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -331,18 +329,6 @@ final class Four
                     if ($pathChunks[3] === '{repo}') {
                         if ($call === 'GET /repos/{owner}/{repo}') {
                             return $this->routers->internal🔀Router🔀Get🔀Repos()->get($params);
-                        }
-                    }
-                }
-            } elseif ($pathChunks[1] === 'scim') {
-                if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'Groups') {
-                        if ($call === 'GET /scim/v2/Groups') {
-                            return $this->routers->internal🔀Router🔀Get🔀EnterpriseAdmin()->listProvisionedGroupsEnterprise($params);
-                        }
-                    } elseif ($pathChunks[3] === 'Users') {
-                        if ($call === 'GET /scim/v2/Users') {
-                            return $this->routers->internal🔀Router🔀Get🔀EnterpriseAdmin()->listProvisionedIdentitiesEnterprise($params);
                         }
                     }
                 }

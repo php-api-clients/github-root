@@ -22,18 +22,21 @@ use function str_replace;
 final class DeleteUserFromEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-user-from-enterprise';
-    public const OPERATION_MATCH = 'DELETE /scim/v2/Users/{scim_user_id}';
+    public const OPERATION_MATCH = 'DELETE /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}';
     /**The unique identifier of the SCIM user. **/
     private string $scimUserId;
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
+    private string $enterprise;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator, string $scimUserId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users\ScimUserId $hydrator, string $scimUserId, string $enterprise)
     {
         $this->scimUserId = $scimUserId;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{scim_user_id}'], [$this->scimUserId], '/scim/v2/Users/{scim_user_id}'));
+        return new Request('DELETE', str_replace(['{scim_user_id}', '{enterprise}'], [$this->scimUserId, $this->enterprise], '/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}'));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

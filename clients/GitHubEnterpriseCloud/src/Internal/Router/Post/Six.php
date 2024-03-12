@@ -12,6 +12,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitCommit;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitRef;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitTag;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitTree;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\GenerateRunnerJitconfigForEnterprise\Response\ApplicationJson\Created;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Apps\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PageBuildStatus;
@@ -25,6 +26,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Status;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TagProtection;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussionComment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
@@ -34,7 +36,8 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Json|Created|AuthenticationToken|WithoutBody|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson\Created|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created\Application\Json|TeamDiscussion|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|RepositoryAdvisory|Status|TagProtection|ScimUser|TeamDiscussionComment|Reaction
+    /** @return |Schema\GitCommit|Schema\GitRef|Schema\GitTag|Schema\GitTree|Schema\GroupResponse|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Schema\UserResponse */
+    public function call(string $call, array $params, array $pathChunks): Json|Created|AuthenticationToken|WithoutBody|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson\Created|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created\Application\Json|TeamDiscussion|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|RepositoryAdvisory|Status|TagProtection|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment|Reaction
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -219,7 +222,19 @@ final class Six
                 }
             } elseif ($pathChunks[1] === 'scim') {
                 if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'organizations') {
+                    if ($pathChunks[3] === 'enterprises') {
+                        if ($pathChunks[4] === '{enterprise}') {
+                            if ($pathChunks[5] === 'Groups') {
+                                if ($call === 'POST /scim/v2/enterprises/{enterprise}/Groups') {
+                                    return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->provisionEnterpriseGroup($params);
+                                }
+                            } elseif ($pathChunks[5] === 'Users') {
+                                if ($call === 'POST /scim/v2/enterprises/{enterprise}/Users') {
+                                    return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->provisionEnterpriseUser($params);
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'organizations') {
                         if ($pathChunks[4] === '{org}') {
                             if ($pathChunks[5] === 'Users') {
                                 if ($call === 'POST /scim/v2/organizations/{org}/Users') {

@@ -19,16 +19,15 @@ use function WyriHaximus\React\awaitObservable;
 final readonly class UpdateAttributeForEnterpriseUser
 {
     public const OPERATION_ID    = 'enterprise-admin/update-attribute-for-enterprise-user';
-    public const OPERATION_MATCH = 'PATCH /scim/v2/Users/{scim_user_id}';
+    public const OPERATION_MATCH = 'PATCH /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users\ScimUserId $hydrator)
     {
     }
 
-    /** @return */
-    public function call(string $scimUserId, array $params): UserResponse|WithoutBody
+    public function call(string $scimUserId, string $enterprise, array $params): UserResponse|WithoutBody
     {
-        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimUserId);
+        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimUserId, $enterprise);
         $request   = $operation->createRequest($params);
         $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): UserResponse|WithoutBody {
             return $operation->createResponse($response);

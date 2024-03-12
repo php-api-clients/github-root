@@ -19,16 +19,15 @@ use function WyriHaximus\React\awaitObservable;
 final readonly class UpdateAttributeForEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/update-attribute-for-enterprise-group';
-    public const OPERATION_MATCH = 'PATCH /scim/v2/Groups/{scim_group_id}';
+    public const OPERATION_MATCH = 'PATCH /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId $hydrator)
     {
     }
 
-    /** @return */
-    public function call(string $scimGroupId, array $params): GroupResponse|WithoutBody
+    public function call(string $scimGroupId, string $enterprise, array $params): GroupResponse|WithoutBody
     {
-        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimGroupId);
+        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimGroupId, $enterprise);
         $request   = $operation->createRequest($params);
         $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupResponse|WithoutBody {
             return $operation->createResponse($response);

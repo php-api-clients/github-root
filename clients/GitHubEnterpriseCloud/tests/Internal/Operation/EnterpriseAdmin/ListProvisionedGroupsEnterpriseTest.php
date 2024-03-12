@@ -30,11 +30,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -51,9 +52,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -66,11 +67,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -88,9 +90,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -103,11 +105,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -125,9 +128,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -140,11 +143,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -162,9 +166,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -177,11 +181,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -199,9 +204,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -214,11 +219,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -236,9 +242,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -251,11 +257,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -273,9 +280,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
     }
 
     /** @test */
@@ -287,11 +294,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -308,9 +316,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
         self::assertArrayHasKey('code', $result);
         self::assertSame(401, $result['code']);
     }
@@ -324,11 +332,12 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\ListProvisionedGroupsEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['filter']             = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
             $data['startIndex']         = 10;
             $data['count']              = 5;
 
@@ -345,9 +354,9 @@ final class ListProvisionedGroupsEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups?filter=generated&excludedAttributes=generated&startIndex=10&count=5', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 10, 5);
+        $result = $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise('generated', 'generated', 'generated', 10, 5);
         self::assertArrayHasKey('code', $result);
         self::assertSame(403, $result['code']);
     }

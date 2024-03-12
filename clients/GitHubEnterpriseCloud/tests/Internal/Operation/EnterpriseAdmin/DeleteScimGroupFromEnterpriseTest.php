@@ -31,10 +31,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -50,9 +51,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
     }
 
     /** @test */
@@ -65,10 +66,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -84,9 +86,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
     }
 
     /** @test */
@@ -99,10 +101,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -118,9 +121,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
     }
 
     /** @test */
@@ -133,10 +136,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -152,9 +156,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
     }
 
     /** @test */
@@ -167,10 +171,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -186,9 +191,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
     }
 
     /** @test */
@@ -201,10 +206,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -220,9 +226,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
     }
 
     /** @test */
@@ -235,10 +241,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -254,9 +261,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
     }
 
     /** @test */
@@ -268,10 +275,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -286,9 +294,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(204, $result['code']);
     }
@@ -302,10 +310,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -320,9 +329,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(401, $result['code']);
     }
@@ -336,10 +345,11 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })([]));
@@ -354,9 +364,9 @@ final class DeleteScimGroupFromEnterpriseTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('DELETE', '/scim/v2/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('DELETE', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated');
+        $result = $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(403, $result['code']);
     }

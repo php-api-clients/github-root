@@ -563,10 +563,10 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Repos\Owner\Repo\Zipball\Ref|null $operation🌀Repos🌀Owner🌀Repo🌀Zipball🌀Ref                                                                                                                                         = null;
     private Internal\Hydrator\Operation\Repos\TemplateOwner\TemplateRepo\Generate|null $operation🌀Repos🌀TemplateOwner🌀TemplateRepo🌀Generate                                                                                                               = null;
     private Internal\Hydrator\Operation\Repositories|null $operation🌀Repositories                                                                                                                                                                         = null;
-    private Internal\Hydrator\Operation\Scim\V2\Groups|null $operation🌀Scim🌀V2🌀Groups                                                                                                                                                                     = null;
-    private Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId|null $operation🌀Scim🌀V2🌀Groups🌀ScimGroupId                                                                                                                                             = null;
-    private Internal\Hydrator\Operation\Scim\V2\Users|null $operation🌀Scim🌀V2🌀Users                                                                                                                                                                       = null;
-    private Internal\Hydrator\Operation\Scim\V2\Users\ScimUserId|null $operation🌀Scim🌀V2🌀Users🌀ScimUserId                                                                                                                                                 = null;
+    private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups|null $operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups                                                                                                                       = null;
+    private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId|null $operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups🌀ScimGroupId                                                                                               = null;
+    private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users|null $operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users                                                                                                                         = null;
+    private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users\ScimUserId|null $operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users🌀ScimUserId                                                                                                   = null;
     private Internal\Hydrator\Operation\Scim\V2\Organizations\Org\Users|null $operation🌀Scim🌀V2🌀Organizations🌀Org🌀Users                                                                                                                                   = null;
     private Internal\Hydrator\Operation\Scim\V2\Organizations\Org\Users\ScimUserId|null $operation🌀Scim🌀V2🌀Organizations🌀Org🌀Users🌀ScimUserId                                                                                                             = null;
     private Internal\Hydrator\Operation\Search\Code|null $operation🌀Search🌀Code                                                                                                                                                                           = null;
@@ -1002,8 +1002,8 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Topic' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Topics()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CloneTraffic' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Clones()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ViewTraffic' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Views()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseGroupList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Groups()->hydrateObject($className, $payload),
-            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseUserList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserResponse', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserNameResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Users()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseGroupList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseUserList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserResponse', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserNameResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUserList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Name', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Meta' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Search\\Code\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Search🌀Code()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Search\\Commits\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Search🌀Commits()->hydrateObject($className, $payload),
@@ -1364,8 +1364,8 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Topic' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Topics()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CloneTraffic' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Clones()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ViewTraffic' => $this->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Traffic🌀Views()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseGroupList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Groups()->serializeObject($object),
-            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseUserList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserResponse', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserNameResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Users()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseGroupList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GroupResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimEnterpriseUserList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserResponse', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\UserNameResponse' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUserList', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Name', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ScimUser\\Meta' => $this->getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Search\\Code\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Search🌀Code()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Search\\Commits\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Search🌀Commits()->serializeObject($object),
@@ -6445,40 +6445,40 @@ final class Hydrators implements ObjectMapper
         return $this->operation🌀Repositories;
     }
 
-    public function getObjectMapperOperation🌀Scim🌀V2🌀Groups(): Internal\Hydrator\Operation\Scim\V2\Groups
+    public function getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups(): Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups
     {
-        if ($this->operation🌀Scim🌀V2🌀Groups instanceof Internal\Hydrator\Operation\Scim\V2\Groups === false) {
-            $this->operation🌀Scim🌀V2🌀Groups = new Internal\Hydrator\Operation\Scim\V2\Groups();
+        if ($this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups instanceof Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups === false) {
+            $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups = new Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups();
         }
 
-        return $this->operation🌀Scim🌀V2🌀Groups;
+        return $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups;
     }
 
-    public function getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId(): Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId
+    public function getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups🌀ScimGroupId(): Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId
     {
-        if ($this->operation🌀Scim🌀V2🌀Groups🌀ScimGroupId instanceof Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId === false) {
-            $this->operation🌀Scim🌀V2🌀Groups🌀ScimGroupId = new Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId();
+        if ($this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups🌀ScimGroupId instanceof Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId === false) {
+            $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups🌀ScimGroupId = new Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId();
         }
 
-        return $this->operation🌀Scim🌀V2🌀Groups🌀ScimGroupId;
+        return $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups🌀ScimGroupId;
     }
 
-    public function getObjectMapperOperation🌀Scim🌀V2🌀Users(): Internal\Hydrator\Operation\Scim\V2\Users
+    public function getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users(): Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users
     {
-        if ($this->operation🌀Scim🌀V2🌀Users instanceof Internal\Hydrator\Operation\Scim\V2\Users === false) {
-            $this->operation🌀Scim🌀V2🌀Users = new Internal\Hydrator\Operation\Scim\V2\Users();
+        if ($this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users instanceof Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users === false) {
+            $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users = new Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users();
         }
 
-        return $this->operation🌀Scim🌀V2🌀Users;
+        return $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users;
     }
 
-    public function getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId(): Internal\Hydrator\Operation\Scim\V2\Users\ScimUserId
+    public function getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users🌀ScimUserId(): Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users\ScimUserId
     {
-        if ($this->operation🌀Scim🌀V2🌀Users🌀ScimUserId instanceof Internal\Hydrator\Operation\Scim\V2\Users\ScimUserId === false) {
-            $this->operation🌀Scim🌀V2🌀Users🌀ScimUserId = new Internal\Hydrator\Operation\Scim\V2\Users\ScimUserId();
+        if ($this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users🌀ScimUserId instanceof Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users\ScimUserId === false) {
+            $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users🌀ScimUserId = new Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users\ScimUserId();
         }
 
-        return $this->operation🌀Scim🌀V2🌀Users🌀ScimUserId;
+        return $this->operation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users🌀ScimUserId;
     }
 
     public function getObjectMapperOperation🌀Scim🌀V2🌀Organizations🌀Org🌀Users(): Internal\Hydrator\Operation\Scim\V2\Organizations\Org\Users

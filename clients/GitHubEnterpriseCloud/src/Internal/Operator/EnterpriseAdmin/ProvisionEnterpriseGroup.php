@@ -19,16 +19,15 @@ use function WyriHaximus\React\awaitObservable;
 final readonly class ProvisionEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/provision-enterprise-group';
-    public const OPERATION_MATCH = 'POST /scim/v2/Groups';
+    public const OPERATION_MATCH = 'POST /scim/v2/enterprises/{enterprise}/Groups';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Groups $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $requestSchemaValidator, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups $hydrator)
     {
     }
 
-    /** @return */
-    public function call(array $params): GroupResponse|WithoutBody
+    public function call(string $enterprise, array $params): GroupResponse|WithoutBody
     {
-        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\ProvisionEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
+        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\ProvisionEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);
         $request   = $operation->createRequest($params);
         $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupResponse|WithoutBody {
             return $operation->createResponse($response);

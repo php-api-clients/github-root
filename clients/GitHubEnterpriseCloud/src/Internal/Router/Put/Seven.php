@@ -7,12 +7,14 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Pulls\UpdateBranch\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranch;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestMergeResult;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamMembership;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
@@ -22,8 +24,8 @@ final class Seven
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|ScimUser
+    /** @return |Observable<Schema\Label>|Schema\BasicError|Schema\GroupResponse|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Schema\UserResponse */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|GroupResponse|UserResponse|ScimUser
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -258,7 +260,23 @@ final class Seven
                 }
             } elseif ($pathChunks[1] === 'scim') {
                 if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'organizations') {
+                    if ($pathChunks[3] === 'enterprises') {
+                        if ($pathChunks[4] === '{enterprise}') {
+                            if ($pathChunks[5] === 'Groups') {
+                                if ($pathChunks[6] === '{scim_group_id}') {
+                                    if ($call === 'PUT /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}') {
+                                        return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setInformationForProvisionedEnterpriseGroup($params);
+                                    }
+                                }
+                            } elseif ($pathChunks[5] === 'Users') {
+                                if ($pathChunks[6] === '{scim_user_id}') {
+                                    if ($call === 'PUT /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}') {
+                                        return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setInformationForProvisionedEnterpriseUser($params);
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'organizations') {
                         if ($pathChunks[4] === '{org}') {
                             if ($pathChunks[5] === 'Users') {
                                 if ($pathChunks[6] === '{scim_user_id}') {

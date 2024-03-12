@@ -18,16 +18,15 @@ use function WyriHaximus\React\awaitObservable;
 final readonly class DeleteScimGroupFromEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-scim-group-from-enterprise';
-    public const OPERATION_MATCH = 'DELETE /scim/v2/Groups/{scim_group_id}';
+    public const OPERATION_MATCH = 'DELETE /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId $hydrator)
     {
     }
 
-    /** @return */
-    public function call(string $scimGroupId): WithoutBody
+    public function call(string $scimGroupId, string $enterprise): WithoutBody
     {
-        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->responseSchemaValidator, $this->hydrator, $scimGroupId);
+        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->responseSchemaValidator, $this->hydrator, $scimGroupId, $enterprise);
         $request   = $operation->createRequest();
         $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): WithoutBody {
             return $operation->createResponse($response);

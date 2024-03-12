@@ -19,16 +19,15 @@ use function WyriHaximus\React\awaitObservable;
 final readonly class GetProvisioningInformationForEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/get-provisioning-information-for-enterprise-group';
-    public const OPERATION_MATCH = 'GET /scim/v2/Groups/{scim_group_id}';
+    public const OPERATION_MATCH = 'GET /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}';
 
-    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator)
+    public function __construct(private Browser $browser, private AuthenticationInterface $authentication, private SchemaValidator $responseSchemaValidator, private Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId $hydrator)
     {
     }
 
-    /** @return */
-    public function call(string $scimGroupId, string $excludedAttributes): GroupResponse|WithoutBody
+    public function call(string $scimGroupId, string $excludedAttributes, string $enterprise): GroupResponse|WithoutBody
     {
-        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->responseSchemaValidator, $this->hydrator, $scimGroupId, $excludedAttributes);
+        $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->responseSchemaValidator, $this->hydrator, $scimGroupId, $excludedAttributes, $enterprise);
         $request   = $operation->createRequest();
         $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): GroupResponse|WithoutBody {
             return $operation->createResponse($response);

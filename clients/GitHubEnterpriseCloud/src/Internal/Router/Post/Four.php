@@ -9,7 +9,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Authorization;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BaseGist;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Migration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ReviewPatGrantRequestsInBulk\Response\ApplicationJson\Accepted\Application\Json;
@@ -22,7 +21,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectColumn;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamFull;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
@@ -32,7 +30,7 @@ final class Four
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|RepositoryRuleset|TeamFull|ProjectColumn|GroupResponse|UserResponse|TeamDiscussion
+    public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|RepositoryRuleset|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app-manifests') {
@@ -120,18 +118,6 @@ final class Four
                     if ($pathChunks[3] === 'columns') {
                         if ($call === 'POST /projects/{project_id}/columns') {
                             return $this->routers->internal🔀Router🔀Post🔀Projects()->createColumn($params);
-                        }
-                    }
-                }
-            } elseif ($pathChunks[1] === 'scim') {
-                if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'Groups') {
-                        if ($call === 'POST /scim/v2/Groups') {
-                            return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->provisionEnterpriseGroup($params);
-                        }
-                    } elseif ($pathChunks[3] === 'Users') {
-                        if ($call === 'POST /scim/v2/Users') {
-                            return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->provisionEnterpriseUser($params);
                         }
                     }
                 }

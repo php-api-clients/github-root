@@ -25,22 +25,6 @@ final class EnterpriseAdmin
     }
 
     /** @return */
-    public function provisionEnterpriseGroup(array $params): GroupResponse|WithoutBody
-    {
-        $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups());
-
-        return $operator->call($params);
-    }
-
-    /** @return */
-    public function provisionEnterpriseUser(array $params): UserResponse|WithoutBody
-    {
-        $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users());
-
-        return $operator->call($params);
-    }
-
-    /** @return */
     public function createRegistrationTokenForEnterprise(array $params): AuthenticationToken
     {
         $arguments = [];
@@ -68,6 +52,34 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\CreateRemoveTokenForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RemoveToken());
 
         return $operator->call($arguments['enterprise']);
+    }
+
+    public function provisionEnterpriseGroup(array $params): GroupResponse|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseGroup($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups());
+
+        return $operator->call($arguments['enterprise'], $params);
+    }
+
+    public function provisionEnterpriseUser(array $params): UserResponse|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\ProvisionEnterpriseUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users());
+
+        return $operator->call($arguments['enterprise'], $params);
     }
 
     /** @return */

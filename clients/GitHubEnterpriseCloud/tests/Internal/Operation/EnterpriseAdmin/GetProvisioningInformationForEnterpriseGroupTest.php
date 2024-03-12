@@ -30,11 +30,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -49,9 +50,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -64,11 +65,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -84,9 +86,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -99,11 +101,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -119,9 +122,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -134,11 +137,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -154,9 +158,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -169,11 +173,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -189,9 +194,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -204,11 +209,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -224,9 +230,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -239,11 +245,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -259,9 +266,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -274,11 +281,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -294,9 +302,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
     }
 
     /** @test */
@@ -308,11 +316,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -327,9 +336,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(401, $result['code']);
     }
@@ -343,11 +352,12 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id']      = 'generated';
             $data['excludedAttributes'] = 'generated';
+            $data['enterprise']         = 'generated';
 
             return $data;
         })([]));
@@ -362,9 +372,9 @@ final class GetProvisioningInformationForEnterpriseGroupTest extends AsyncTestCa
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Groups/generated?excludedAttributes=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup('generated', 'generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(403, $result['code']);
     }

@@ -19,6 +19,7 @@ final class Seven
     {
     }
 
+    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForOrg\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\DeleteFromOrganization\Response\ApplicationJson\Accepted\Application\Json|CodeScanningAnalysisDeletion|Issue|BasicError|PullRequestSimple
     {
         if ($pathChunks[0] === '') {
@@ -254,7 +255,23 @@ final class Seven
                 }
             } elseif ($pathChunks[1] === 'scim') {
                 if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'organizations') {
+                    if ($pathChunks[3] === 'enterprises') {
+                        if ($pathChunks[4] === '{enterprise}') {
+                            if ($pathChunks[5] === 'Groups') {
+                                if ($pathChunks[6] === '{scim_group_id}') {
+                                    if ($call === 'DELETE /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}') {
+                                        return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->deleteScimGroupFromEnterprise($params);
+                                    }
+                                }
+                            } elseif ($pathChunks[5] === 'Users') {
+                                if ($pathChunks[6] === '{scim_user_id}') {
+                                    if ($call === 'DELETE /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}') {
+                                        return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->deleteUserFromEnterprise($params);
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'organizations') {
                         if ($pathChunks[4] === '{org}') {
                             if ($pathChunks[5] === 'Users') {
                                 if ($pathChunks[6] === '{scim_user_id}') {

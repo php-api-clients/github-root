@@ -23,17 +23,20 @@ use function str_replace;
 final class ProvisionEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/provision-enterprise-group';
-    public const OPERATION_MATCH = 'POST /scim/v2/Groups';
+    public const OPERATION_MATCH = 'POST /scim/v2/enterprises/{enterprise}/Groups';
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
+    private string $enterprise;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Groups $hydrator)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups $hydrator, string $enterprise)
     {
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(array $data): RequestInterface
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Group::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request('POST', str_replace([], [], '/scim/v2/Groups'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('POST', str_replace(['{enterprise}'], [$this->enterprise], '/scim/v2/enterprises/{enterprise}/Groups'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupResponse|WithoutBody

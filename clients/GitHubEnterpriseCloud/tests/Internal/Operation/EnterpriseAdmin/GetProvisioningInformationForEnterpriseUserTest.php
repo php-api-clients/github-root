@@ -30,10 +30,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -48,9 +49,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -63,10 +64,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -82,9 +84,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -97,10 +99,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -116,9 +119,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -131,10 +134,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -150,9 +154,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -165,10 +169,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -184,9 +189,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -199,10 +204,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -218,9 +224,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -233,10 +239,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -252,9 +259,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -267,10 +274,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -286,9 +294,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
     }
 
     /** @test */
@@ -300,10 +308,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -318,9 +327,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(401, $result['code']);
     }
@@ -334,10 +343,11 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_user_id'] = 'generated';
+            $data['enterprise']   = 'generated';
 
             return $data;
         })([]));
@@ -352,9 +362,9 @@ final class GetProvisioningInformationForEnterpriseUserTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('GET', '/scim/v2/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('GET', '/scim/v2/enterprises/generated/Users/generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated');
+        $result = $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser('generated', 'generated');
         self::assertArrayHasKey('code', $result);
         self::assertSame(403, $result['code']);
     }

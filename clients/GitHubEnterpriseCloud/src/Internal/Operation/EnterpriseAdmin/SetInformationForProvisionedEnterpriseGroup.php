@@ -23,20 +23,23 @@ use function str_replace;
 final class SetInformationForProvisionedEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/set-information-for-provisioned-enterprise-group';
-    public const OPERATION_MATCH = 'PUT /scim/v2/Groups/{scim_group_id}';
+    public const OPERATION_MATCH = 'PUT /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
+    private string $enterprise;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId $hydrator, string $scimGroupId, string $enterprise)
     {
         $this->scimGroupId = $scimGroupId;
+        $this->enterprise  = $enterprise;
     }
 
     public function createRequest(array $data): RequestInterface
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Group::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request('PUT', str_replace(['{scim_group_id}'], [$this->scimGroupId], '/scim/v2/Groups/{scim_group_id}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{scim_group_id}', '{enterprise}'], [$this->scimGroupId, $this->enterprise], '/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupResponse|WithoutBody

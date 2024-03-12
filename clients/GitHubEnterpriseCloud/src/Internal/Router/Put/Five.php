@@ -6,7 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Import;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\InteractionLimitResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted;
@@ -17,7 +16,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositorySubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ThreadSubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Topic;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
@@ -27,7 +25,7 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|ThreadSubscription|OrgMembership|Json|RepositoryRuleset|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|GroupResponse|UserResponse|TeamMembership|EmptyObject
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|ThreadSubscription|OrgMembership|Json|RepositoryRuleset|Import|InteractionLimitResponse|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\EnableLfsForRepo\Response\ApplicationJson\Accepted\Application\Json|Accepted|RepositorySubscription|Topic|TeamMembership|EmptyObject
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -158,22 +156,6 @@ final class Five
                         } elseif ($pathChunks[4] === 'vulnerability-alerts') {
                             if ($call === 'PUT /repos/{owner}/{repo}/vulnerability-alerts') {
                                 return $this->routers->internal🔀Router🔀Put🔀Repos()->enableVulnerabilityAlerts($params);
-                            }
-                        }
-                    }
-                }
-            } elseif ($pathChunks[1] === 'scim') {
-                if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'Groups') {
-                        if ($pathChunks[4] === '{scim_group_id}') {
-                            if ($call === 'PUT /scim/v2/Groups/{scim_group_id}') {
-                                return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setInformationForProvisionedEnterpriseGroup($params);
-                            }
-                        }
-                    } elseif ($pathChunks[3] === 'Users') {
-                        if ($pathChunks[4] === '{scim_user_id}') {
-                            if ($call === 'PUT /scim/v2/Users/{scim_user_id}') {
-                                return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->setInformationForProvisionedEnterpriseUser($params);
                             }
                         }
                     }

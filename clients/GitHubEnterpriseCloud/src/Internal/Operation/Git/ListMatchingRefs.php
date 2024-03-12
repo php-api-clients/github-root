@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Git;
 
+use ApiClients\Client\GitHubEnterpriseCloud\Error as ErrorSchemas;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use cebe\openapi\Reader;
@@ -69,6 +70,14 @@ final class ListMatchingRefs
                             items_application_json_two_hundred_aaaaa:
                             throw $error;
                         });
+                    /**
+                     * Conflict
+                     **/
+
+                    case 409:
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\BasicError::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+
+                        throw new ErrorSchemas\BasicError(409, $this->hydrator->hydrateObject(Schema\BasicError::class, $body));
                 }
 
                 break;
