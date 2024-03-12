@@ -22,36 +22,6 @@ final class EnterpriseAdmin
     }
 
     /** @return */
-    public function deleteScimGroupFromEnterprise(array $params): WithoutBody
-    {
-        $arguments = [];
-        if (array_key_exists('scim_group_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
-        }
-
-        $arguments['scim_group_id'] = $params['scim_group_id'];
-        unset($params['scim_group_id']);
-        $operator = new Internal\Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
-
-        return $operator->call($arguments['scim_group_id']);
-    }
-
-    /** @return */
-    public function deleteUserFromEnterprise(array $params): WithoutBody
-    {
-        $arguments = [];
-        if (array_key_exists('scim_user_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
-        }
-
-        $arguments['scim_user_id'] = $params['scim_user_id'];
-        unset($params['scim_user_id']);
-        $operator = new Internal\Operator\EnterpriseAdmin\DeleteUserFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
-
-        return $operator->call($arguments['scim_user_id']);
-    }
-
-    /** @return */
     public function disableSelectedOrganizationGithubActionsEnterprise(array $params): WithoutBody
     {
         $arguments = [];
@@ -91,6 +61,46 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
+    }
+
+    public function deleteScimGroupFromEnterprise(array $params): WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('scim_group_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
+        }
+
+        $arguments['scim_group_id'] = $params['scim_group_id'];
+        unset($params['scim_group_id']);
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\DeleteScimGroupFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups🌀ScimGroupId());
+
+        return $operator->call($arguments['scim_group_id'], $arguments['enterprise']);
+    }
+
+    public function deleteUserFromEnterprise(array $params): WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('scim_user_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
+        }
+
+        $arguments['scim_user_id'] = $params['scim_user_id'];
+        unset($params['scim_user_id']);
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\DeleteUserFromEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users🌀ScimUserId());
+
+        return $operator->call($arguments['scim_user_id'], $arguments['enterprise']);
     }
 
     /** @return */

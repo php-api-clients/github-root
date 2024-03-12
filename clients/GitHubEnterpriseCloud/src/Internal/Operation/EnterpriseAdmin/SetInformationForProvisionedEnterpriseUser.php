@@ -23,20 +23,23 @@ use function str_replace;
 final class SetInformationForProvisionedEnterpriseUser
 {
     public const OPERATION_ID    = 'enterprise-admin/set-information-for-provisioned-enterprise-user';
-    public const OPERATION_MATCH = 'PUT /scim/v2/Users/{scim_user_id}';
+    public const OPERATION_MATCH = 'PUT /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}';
     /**The unique identifier of the SCIM user. **/
     private string $scimUserId;
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
+    private string $enterprise;
 
-    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Users\ScimUserId $hydrator, string $scimUserId)
+    public function __construct(private readonly SchemaValidator $requestSchemaValidator, private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users\ScimUserId $hydrator, string $scimUserId, string $enterprise)
     {
         $this->scimUserId = $scimUserId;
+        $this->enterprise = $enterprise;
     }
 
     public function createRequest(array $data): RequestInterface
     {
         $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\User::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-        return new Request('PUT', str_replace(['{scim_user_id}'], [$this->scimUserId], '/scim/v2/Users/{scim_user_id}'), ['Content-Type' => 'application/json'], json_encode($data));
+        return new Request('PUT', str_replace(['{scim_user_id}', '{enterprise}'], [$this->scimUserId, $this->enterprise], '/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
     public function createResponse(ResponseInterface $response): Schema\UserResponse|WithoutBody

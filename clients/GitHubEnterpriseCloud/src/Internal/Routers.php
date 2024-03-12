@@ -55,8 +55,8 @@ final class Routers
     private Internal\Router\Post\Projects|null $internal🔀Router🔀Post🔀Projects                           = null;
     private Internal\Router\Post\Repos|null $internal🔀Router🔀Post🔀Repos                                 = null;
     private Internal\Router\Post\Teams|null $internal🔀Router🔀Post🔀Teams                                 = null;
-    private Internal\Router\Post\EnterpriseAdmin|null $internal🔀Router🔀Post🔀EnterpriseAdmin             = null;
     private Internal\Router\Post\Actions|null $internal🔀Router🔀Post🔀Actions                             = null;
+    private Internal\Router\Post\EnterpriseAdmin|null $internal🔀Router🔀Post🔀EnterpriseAdmin             = null;
     private Internal\Router\Post\Codespaces|null $internal🔀Router🔀Post🔀Codespaces                       = null;
     private Internal\Router\Post\Copilot|null $internal🔀Router🔀Post🔀Copilot                             = null;
     private Internal\Router\Post\CodeScanning|null $internal🔀Router🔀Post🔀CodeScanning                   = null;
@@ -126,8 +126,8 @@ final class Routers
     private Internal\Router\Delete\Orgs|null $internal🔀Router🔀Delete🔀Orgs                               = null;
     private Internal\Router\Delete\Teams|null $internal🔀Router🔀Delete🔀Teams                             = null;
     private Internal\Router\Delete\Migrations|null $internal🔀Router🔀Delete🔀Migrations                   = null;
-    private Internal\Router\Delete\EnterpriseAdmin|null $internal🔀Router🔀Delete🔀EnterpriseAdmin         = null;
     private Internal\Router\Delete\Packages|null $internal🔀Router🔀Delete🔀Packages                       = null;
+    private Internal\Router\Delete\EnterpriseAdmin|null $internal🔀Router🔀Delete🔀EnterpriseAdmin         = null;
     private Internal\Router\Delete\Actions|null $internal🔀Router🔀Delete🔀Actions                         = null;
     private Internal\Router\Delete\CodeScanning|null $internal🔀Router🔀Delete🔀CodeScanning               = null;
     private Internal\Router\Delete\Dependabot|null $internal🔀Router🔀Delete🔀Dependabot                   = null;
@@ -559,15 +559,6 @@ final class Routers
         return $this->internal🔀Router🔀Post🔀Teams;
     }
 
-    public function internal🔀Router🔀Post🔀EnterpriseAdmin(): Internal\Router\Post\EnterpriseAdmin
-    {
-        if ($this->internal🔀Router🔀Post🔀EnterpriseAdmin instanceof Internal\Router\Post\EnterpriseAdmin === false) {
-            $this->internal🔀Router🔀Post🔀EnterpriseAdmin = new Internal\Router\Post\EnterpriseAdmin(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Post🔀EnterpriseAdmin;
-    }
-
     public function internal🔀Router🔀Post🔀Actions(): Internal\Router\Post\Actions
     {
         if ($this->internal🔀Router🔀Post🔀Actions instanceof Internal\Router\Post\Actions === false) {
@@ -575,6 +566,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Post🔀Actions;
+    }
+
+    public function internal🔀Router🔀Post🔀EnterpriseAdmin(): Internal\Router\Post\EnterpriseAdmin
+    {
+        if ($this->internal🔀Router🔀Post🔀EnterpriseAdmin instanceof Internal\Router\Post\EnterpriseAdmin === false) {
+            $this->internal🔀Router🔀Post🔀EnterpriseAdmin = new Internal\Router\Post\EnterpriseAdmin(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Post🔀EnterpriseAdmin;
     }
 
     public function internal🔀Router🔀Post🔀Codespaces(): Internal\Router\Post\Codespaces
@@ -1198,15 +1198,6 @@ final class Routers
         return $this->internal🔀Router🔀Delete🔀Migrations;
     }
 
-    public function internal🔀Router🔀Delete🔀EnterpriseAdmin(): Internal\Router\Delete\EnterpriseAdmin
-    {
-        if ($this->internal🔀Router🔀Delete🔀EnterpriseAdmin instanceof Internal\Router\Delete\EnterpriseAdmin === false) {
-            $this->internal🔀Router🔀Delete🔀EnterpriseAdmin = new Internal\Router\Delete\EnterpriseAdmin(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Delete🔀EnterpriseAdmin;
-    }
-
     public function internal🔀Router🔀Delete🔀Packages(): Internal\Router\Delete\Packages
     {
         if ($this->internal🔀Router🔀Delete🔀Packages instanceof Internal\Router\Delete\Packages === false) {
@@ -1214,6 +1205,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Delete🔀Packages;
+    }
+
+    public function internal🔀Router🔀Delete🔀EnterpriseAdmin(): Internal\Router\Delete\EnterpriseAdmin
+    {
+        if ($this->internal🔀Router🔀Delete🔀EnterpriseAdmin instanceof Internal\Router\Delete\EnterpriseAdmin === false) {
+            $this->internal🔀Router🔀Delete🔀EnterpriseAdmin = new Internal\Router\Delete\EnterpriseAdmin(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀EnterpriseAdmin;
     }
 
     public function internal🔀Router🔀Delete🔀Actions(): Internal\Router\Delete\Actions

@@ -7,7 +7,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Patch;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GistComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Import;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryRole;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationRole;
@@ -16,7 +15,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectCard;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamFull;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
 
@@ -27,7 +25,7 @@ final class Five
     }
 
     /** @return |Observable<Schema\OrgCustomProperty> */
-    public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|iterable|WithoutBody|TeamFull|ProjectCard|Import|GroupResponse|UserResponse|TeamDiscussion|GroupMapping|OrgMembership
+    public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|iterable|WithoutBody|TeamFull|ProjectCard|Import|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'gists') {
@@ -100,22 +98,6 @@ final class Five
                         if ($pathChunks[4] === 'import') {
                             if ($call === 'PATCH /repos/{owner}/{repo}/import') {
                                 return $this->routers->internal🔀Router🔀Patch🔀Migrations()->updateImport($params);
-                            }
-                        }
-                    }
-                }
-            } elseif ($pathChunks[1] === 'scim') {
-                if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'Groups') {
-                        if ($pathChunks[4] === '{scim_group_id}') {
-                            if ($call === 'PATCH /scim/v2/Groups/{scim_group_id}') {
-                                return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->updateAttributeForEnterpriseGroup($params);
-                            }
-                        }
-                    } elseif ($pathChunks[3] === 'Users') {
-                        if ($pathChunks[4] === '{scim_user_id}') {
-                            if ($call === 'PATCH /scim/v2/Users/{scim_user_id}') {
-                                return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->updateAttributeForEnterpriseUser($params);
                             }
                         }
                     }

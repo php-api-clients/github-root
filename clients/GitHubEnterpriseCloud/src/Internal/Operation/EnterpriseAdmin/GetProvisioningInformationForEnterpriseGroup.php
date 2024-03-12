@@ -22,21 +22,24 @@ use function str_replace;
 final class GetProvisioningInformationForEnterpriseGroup
 {
     public const OPERATION_ID    = 'enterprise-admin/get-provisioning-information-for-enterprise-group';
-    public const OPERATION_MATCH = 'GET /scim/v2/Groups/{scim_group_id}';
+    public const OPERATION_MATCH = 'GET /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
     /**Excludes the specified attribute from being returned in the results. Using this parameter can speed up response time. **/
     private string $excludedAttributes;
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
+    private string $enterprise;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId, string $excludedAttributes)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId $hydrator, string $scimGroupId, string $excludedAttributes, string $enterprise)
     {
         $this->scimGroupId        = $scimGroupId;
         $this->excludedAttributes = $excludedAttributes;
+        $this->enterprise         = $enterprise;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{scim_group_id}', '{excludedAttributes}'], [$this->scimGroupId, $this->excludedAttributes], '/scim/v2/Groups/{scim_group_id}' . '?excludedAttributes={excludedAttributes}'));
+        return new Request('GET', str_replace(['{scim_group_id}', '{excludedAttributes}', '{enterprise}'], [$this->scimGroupId, $this->excludedAttributes, $this->enterprise], '/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}' . '?excludedAttributes={excludedAttributes}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\GroupResponse|WithoutBody

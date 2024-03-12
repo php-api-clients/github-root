@@ -30,10 +30,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -48,9 +49,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -63,10 +64,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -82,9 +84,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -97,10 +99,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -116,9 +119,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -131,10 +134,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -150,9 +154,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -165,10 +169,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -184,9 +189,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -199,10 +204,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -218,9 +224,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -233,10 +239,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -252,9 +259,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -267,10 +274,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -286,9 +294,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -300,10 +308,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -318,9 +327,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(401, $result['code']);
     }
@@ -334,10 +343,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -352,9 +362,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(403, $result['code']);
     }
@@ -368,10 +378,11 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseGroup::OPERATION_MATCH, (static function (array $data): array {
             $data['scim_group_id'] = 'generated';
+            $data['enterprise']    = 'generated';
 
             return $data;
         })(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)));
@@ -386,9 +397,9 @@ final class SetInformationForProvisionedEnterpriseGroupTest extends AsyncTestCas
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PUT', '/scim/v2/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PUT', '/scim/v2/enterprises/generated/Groups/generated', Argument::type('array'), json_encode(json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup('generated', 'generated', json_decode(Schema\Group::SCHEMA_EXAMPLE_DATA, true));
         self::assertArrayHasKey('code', $result);
         self::assertSame(409, $result['code']);
     }

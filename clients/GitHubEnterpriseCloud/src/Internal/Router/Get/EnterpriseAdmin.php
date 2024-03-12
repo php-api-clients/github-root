@@ -157,66 +157,6 @@ final class EnterpriseAdmin
     }
 
     /** @return */
-    public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|WithoutBody
-    {
-        $arguments = [];
-        if (array_key_exists('filter', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: filter');
-        }
-
-        $arguments['filter'] = $params['filter'];
-        unset($params['filter']);
-        if (array_key_exists('excludedAttributes', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: excludedAttributes');
-        }
-
-        $arguments['excludedAttributes'] = $params['excludedAttributes'];
-        unset($params['excludedAttributes']);
-        if (array_key_exists('startIndex', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: startIndex');
-        }
-
-        $arguments['startIndex'] = $params['startIndex'];
-        unset($params['startIndex']);
-        if (array_key_exists('count', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: count');
-        }
-
-        $arguments['count'] = $params['count'];
-        unset($params['count']);
-        $operator = new Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups());
-
-        return $operator->call($arguments['filter'], $arguments['excludedAttributes'], $arguments['startIndex'], $arguments['count']);
-    }
-
-    /** @return */
-    public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|WithoutBody
-    {
-        $arguments = [];
-        if (array_key_exists('filter', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: filter');
-        }
-
-        $arguments['filter'] = $params['filter'];
-        unset($params['filter']);
-        if (array_key_exists('startIndex', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: startIndex');
-        }
-
-        $arguments['startIndex'] = $params['startIndex'];
-        unset($params['startIndex']);
-        if (array_key_exists('count', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: count');
-        }
-
-        $arguments['count'] = $params['count'];
-        unset($params['count']);
-        $operator = new Internal\Operator\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users());
-
-        return $operator->call($arguments['filter'], $arguments['startIndex'], $arguments['count']);
-    }
-
-    /** @return */
     public function getGithubActionsPermissionsEnterprise(array $params): ActionsEnterprisePermissions
     {
         $arguments = [];
@@ -295,42 +235,6 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners());
 
         return $operator->call($arguments['name'], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
-    }
-
-    /** @return */
-    public function getProvisioningInformationForEnterpriseGroup(array $params): GroupResponse|WithoutBody
-    {
-        $arguments = [];
-        if (array_key_exists('scim_group_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
-        }
-
-        $arguments['scim_group_id'] = $params['scim_group_id'];
-        unset($params['scim_group_id']);
-        if (array_key_exists('excludedAttributes', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: excludedAttributes');
-        }
-
-        $arguments['excludedAttributes'] = $params['excludedAttributes'];
-        unset($params['excludedAttributes']);
-        $operator = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Groups🌀ScimGroupId());
-
-        return $operator->call($arguments['scim_group_id'], $arguments['excludedAttributes']);
-    }
-
-    /** @return */
-    public function getProvisioningInformationForEnterpriseUser(array $params): UserResponse|WithoutBody
-    {
-        $arguments = [];
-        if (array_key_exists('scim_user_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
-        }
-
-        $arguments['scim_user_id'] = $params['scim_user_id'];
-        unset($params['scim_user_id']);
-        $operator = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Users🌀ScimUserId());
-
-        return $operator->call($arguments['scim_user_id']);
     }
 
     /** @return */
@@ -432,6 +336,76 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('filter', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: filter');
+        }
+
+        $arguments['filter'] = $params['filter'];
+        unset($params['filter']);
+        if (array_key_exists('excludedAttributes', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: excludedAttributes');
+        }
+
+        $arguments['excludedAttributes'] = $params['excludedAttributes'];
+        unset($params['excludedAttributes']);
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('startIndex', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: startIndex');
+        }
+
+        $arguments['startIndex'] = $params['startIndex'];
+        unset($params['startIndex']);
+        if (array_key_exists('count', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: count');
+        }
+
+        $arguments['count'] = $params['count'];
+        unset($params['count']);
+        $operator = new Internal\Operator\EnterpriseAdmin\ListProvisionedGroupsEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups());
+
+        return $operator->call($arguments['filter'], $arguments['excludedAttributes'], $arguments['enterprise'], $arguments['startIndex'], $arguments['count']);
+    }
+
+    public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('filter', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: filter');
+        }
+
+        $arguments['filter'] = $params['filter'];
+        unset($params['filter']);
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('startIndex', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: startIndex');
+        }
+
+        $arguments['startIndex'] = $params['startIndex'];
+        unset($params['startIndex']);
+        if (array_key_exists('count', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: count');
+        }
+
+        $arguments['count'] = $params['count'];
+        unset($params['count']);
+        $operator = new Internal\Operator\EnterpriseAdmin\ListProvisionedIdentitiesEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users());
+
+        return $operator->call($arguments['filter'], $arguments['enterprise'], $arguments['startIndex'], $arguments['count']);
+    }
+
     /** @return */
     public function listOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): Json
     {
@@ -517,5 +491,51 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels());
 
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
+    }
+
+    public function getProvisioningInformationForEnterpriseGroup(array $params): GroupResponse|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('scim_group_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_group_id');
+        }
+
+        $arguments['scim_group_id'] = $params['scim_group_id'];
+        unset($params['scim_group_id']);
+        if (array_key_exists('excludedAttributes', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: excludedAttributes');
+        }
+
+        $arguments['excludedAttributes'] = $params['excludedAttributes'];
+        unset($params['excludedAttributes']);
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseGroup($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Groups🌀ScimGroupId());
+
+        return $operator->call($arguments['scim_group_id'], $arguments['excludedAttributes'], $arguments['enterprise']);
+    }
+
+    public function getProvisioningInformationForEnterpriseUser(array $params): UserResponse|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('scim_user_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: scim_user_id');
+        }
+
+        $arguments['scim_user_id'] = $params['scim_user_id'];
+        unset($params['scim_user_id']);
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetProvisioningInformationForEnterpriseUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Scim🌀V2🌀Enterprises🌀Enterprise🌀Users🌀ScimUserId());
+
+        return $operator->call($arguments['scim_user_id'], $arguments['enterprise']);
     }
 }

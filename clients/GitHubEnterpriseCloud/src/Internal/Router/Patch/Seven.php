@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\DependabotAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GitRef;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupMapping;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PorterAuthor;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestReviewComment;
@@ -17,6 +18,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussion;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TeamDiscussionComment;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\UserResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -27,7 +29,8 @@ final class Seven
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|ScimUser|TeamDiscussionComment
+    /** @return |Schema\GitRef|Schema\GroupResponse|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Schema\UserResponse */
+    public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'orgs') {
@@ -138,7 +141,23 @@ final class Seven
                 }
             } elseif ($pathChunks[1] === 'scim') {
                 if ($pathChunks[2] === 'v2') {
-                    if ($pathChunks[3] === 'organizations') {
+                    if ($pathChunks[3] === 'enterprises') {
+                        if ($pathChunks[4] === '{enterprise}') {
+                            if ($pathChunks[5] === 'Groups') {
+                                if ($pathChunks[6] === '{scim_group_id}') {
+                                    if ($call === 'PATCH /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}') {
+                                        return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->updateAttributeForEnterpriseGroup($params);
+                                    }
+                                }
+                            } elseif ($pathChunks[5] === 'Users') {
+                                if ($pathChunks[6] === '{scim_user_id}') {
+                                    if ($call === 'PATCH /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}') {
+                                        return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->updateAttributeForEnterpriseUser($params);
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'organizations') {
                         if ($pathChunks[4] === '{org}') {
                             if ($pathChunks[5] === 'Users') {
                                 if ($pathChunks[6] === '{scim_user_id}') {

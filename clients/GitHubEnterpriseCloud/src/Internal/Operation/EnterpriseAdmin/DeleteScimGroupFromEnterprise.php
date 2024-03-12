@@ -22,18 +22,21 @@ use function str_replace;
 final class DeleteScimGroupFromEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/delete-scim-group-from-enterprise';
-    public const OPERATION_MATCH = 'DELETE /scim/v2/Groups/{scim_group_id}';
+    public const OPERATION_MATCH = 'DELETE /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}';
     /**A unique identifier of the SCIM group. **/
     private string $scimGroupId;
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
+    private string $enterprise;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Groups\ScimGroupId $hydrator, string $scimGroupId)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Groups\ScimGroupId $hydrator, string $scimGroupId, string $enterprise)
     {
         $this->scimGroupId = $scimGroupId;
+        $this->enterprise  = $enterprise;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('DELETE', str_replace(['{scim_group_id}'], [$this->scimGroupId], '/scim/v2/Groups/{scim_group_id}'));
+        return new Request('DELETE', str_replace(['{scim_group_id}', '{enterprise}'], [$this->scimGroupId, $this->enterprise], '/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}'));
     }
 
     public function createResponse(ResponseInterface $response): WithoutBody

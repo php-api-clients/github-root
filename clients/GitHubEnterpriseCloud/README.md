@@ -24065,9 +24065,10 @@ List provisioned SCIM groups for an enterprise
 
 Using the `call` method:
 ```php
-$client->call('GET /scim/v2/Groups', [
+$client->call('GET /scim/v2/enterprises/{enterprise}/Groups', [
         'filter' => 'generated',
         'excludedAttributes' => 'generated',
+        'enterprise' => 'generated',
         'startIndex' => 10,
         'count' => 5,
 ]);
@@ -24077,6 +24078,7 @@ Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listProvisionedGroupsEnterprise(        filter: 'generated',
         excludedAttributes: 'generated',
+        enterprise: 'generated',
         startIndex: 10,
         count: 5,
 );
@@ -24091,12 +24093,15 @@ Provision a SCIM enterprise group
 
 Using the `call` method:
 ```php
-$client->call('POST /scim/v2/Groups');
+$client->call('POST /scim/v2/enterprises/{enterprise}/Groups', [
+        'enterprise' => 'generated',
+]);
 ```
 
 Operations method:
 ```php
-$client->operations()->enterpriseAdmin()->provisionEnterpriseGroup();
+$client->operations()->enterpriseAdmin()->provisionEnterpriseGroup(        enterprise: 'generated',
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#provision-a-scim-enterprise-group).
@@ -24108,9 +24113,10 @@ Get SCIM provisioning information for an enterprise group
 
 Using the `call` method:
 ```php
-$client->call('GET /scim/v2/Groups/{scim_group_id}', [
+$client->call('GET /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}', [
         'scim_group_id' => 'generated',
         'excludedAttributes' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
@@ -24118,6 +24124,7 @@ Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseGroup(        scim_group_id: 'generated',
         excludedAttributes: 'generated',
+        enterprise: 'generated',
 );
 ```
 
@@ -24130,14 +24137,16 @@ Set SCIM information for a provisioned enterprise group
 
 Using the `call` method:
 ```php
-$client->call('PUT /scim/v2/Groups/{scim_group_id}', [
+$client->call('PUT /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}', [
         'scim_group_id' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseGroup(        scim_group_id: 'generated',
+        enterprise: 'generated',
 );
 ```
 
@@ -24150,14 +24159,16 @@ Delete a SCIM group from an enterprise
 
 Using the `call` method:
 ```php
-$client->call('DELETE /scim/v2/Groups/{scim_group_id}', [
+$client->call('DELETE /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}', [
         'scim_group_id' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->deleteScimGroupFromEnterprise(        scim_group_id: 'generated',
+        enterprise: 'generated',
 );
 ```
 
@@ -24170,14 +24181,16 @@ Update an attribute for a SCIM enterprise group
 
 Using the `call` method:
 ```php
-$client->call('PATCH /scim/v2/Groups/{scim_group_id}', [
+$client->call('PATCH /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}', [
         'scim_group_id' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->updateAttributeForEnterpriseGroup(        scim_group_id: 'generated',
+        enterprise: 'generated',
 );
 ```
 
@@ -24190,8 +24203,9 @@ List SCIM provisioned identities for an enterprise
 
 Using the `call` method:
 ```php
-$client->call('GET /scim/v2/Users', [
+$client->call('GET /scim/v2/enterprises/{enterprise}/Users', [
         'filter' => 'generated',
+        'enterprise' => 'generated',
         'startIndex' => 10,
         'count' => 5,
 ]);
@@ -24200,6 +24214,7 @@ $client->call('GET /scim/v2/Users', [
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->listProvisionedIdentitiesEnterprise(        filter: 'generated',
+        enterprise: 'generated',
         startIndex: 10,
         count: 5,
 );
@@ -24214,12 +24229,15 @@ Provision a SCIM enterprise user
 
 Using the `call` method:
 ```php
-$client->call('POST /scim/v2/Users');
+$client->call('POST /scim/v2/enterprises/{enterprise}/Users', [
+        'enterprise' => 'generated',
+]);
 ```
 
 Operations method:
 ```php
-$client->operations()->enterpriseAdmin()->provisionEnterpriseUser();
+$client->operations()->enterpriseAdmin()->provisionEnterpriseUser(        enterprise: 'generated',
+);
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/scim#provision-a-scim-enterprise-user).
@@ -24231,14 +24249,16 @@ Get SCIM provisioning information for an enterprise user
 
 Using the `call` method:
 ```php
-$client->call('GET /scim/v2/Users/{scim_user_id}', [
+$client->call('GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}', [
         'scim_user_id' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->getProvisioningInformationForEnterpriseUser(        scim_user_id: 'generated',
+        enterprise: 'generated',
 );
 ```
 
@@ -24251,14 +24271,16 @@ Set SCIM information for a provisioned enterprise user
 
 Using the `call` method:
 ```php
-$client->call('PUT /scim/v2/Users/{scim_user_id}', [
+$client->call('PUT /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}', [
         'scim_user_id' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->setInformationForProvisionedEnterpriseUser(        scim_user_id: 'generated',
+        enterprise: 'generated',
 );
 ```
 
@@ -24271,14 +24293,16 @@ Delete a SCIM user from an enterprise
 
 Using the `call` method:
 ```php
-$client->call('DELETE /scim/v2/Users/{scim_user_id}', [
+$client->call('DELETE /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}', [
         'scim_user_id' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->deleteUserFromEnterprise(        scim_user_id: 'generated',
+        enterprise: 'generated',
 );
 ```
 
@@ -24291,14 +24315,16 @@ Update an attribute for a SCIM enterprise user
 
 Using the `call` method:
 ```php
-$client->call('PATCH /scim/v2/Users/{scim_user_id}', [
+$client->call('PATCH /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}', [
         'scim_user_id' => 'generated',
+        'enterprise' => 'generated',
 ]);
 ```
 
 Operations method:
 ```php
 $client->operations()->enterpriseAdmin()->updateAttributeForEnterpriseUser(        scim_user_id: 'generated',
+        enterprise: 'generated',
 );
 ```
 

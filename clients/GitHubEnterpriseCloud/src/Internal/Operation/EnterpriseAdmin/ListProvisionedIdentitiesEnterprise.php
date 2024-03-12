@@ -22,24 +22,27 @@ use function str_replace;
 final class ListProvisionedIdentitiesEnterprise
 {
     public const OPERATION_ID    = 'enterprise-admin/list-provisioned-identities-enterprise';
-    public const OPERATION_MATCH = 'GET /scim/v2/Users';
+    public const OPERATION_MATCH = 'GET /scim/v2/enterprises/{enterprise}/Users';
     /**If specified, only results that match the specified filter will be returned. Multiple filters are not supported. Possible filters are `userName`, `externalId`, `id`, and `displayName`. For example, `?filter="externalId eq '9138790-10932-109120392-12321'"`. **/
     private string $filter;
+    /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
+    private string $enterprise;
     /**Used for pagination: the starting index of the first result to return when paginating through values. **/
     private int $startIndex;
     /**Used for pagination: the number of results to return per page. **/
     private int $count;
 
-    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Users $hydrator, string $filter, int $startIndex = 1, int $count = 30)
+    public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Scim\V2\Enterprises\Enterprise\Users $hydrator, string $filter, string $enterprise, int $startIndex = 1, int $count = 30)
     {
         $this->filter     = $filter;
+        $this->enterprise = $enterprise;
         $this->startIndex = $startIndex;
         $this->count      = $count;
     }
 
     public function createRequest(): RequestInterface
     {
-        return new Request('GET', str_replace(['{filter}', '{startIndex}', '{count}'], [$this->filter, $this->startIndex, $this->count], '/scim/v2/Users' . '?filter={filter}&startIndex={startIndex}&count={count}'));
+        return new Request('GET', str_replace(['{filter}', '{enterprise}', '{startIndex}', '{count}'], [$this->filter, $this->enterprise, $this->startIndex, $this->count], '/scim/v2/enterprises/{enterprise}/Users' . '?filter={filter}&startIndex={startIndex}&count={count}'));
     }
 
     public function createResponse(ResponseInterface $response): Schema\ScimEnterpriseUserList|WithoutBody
