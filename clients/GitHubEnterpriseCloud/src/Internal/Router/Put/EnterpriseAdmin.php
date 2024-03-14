@@ -121,6 +121,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id'], $params);
     }
 
+    /** @return */
     public function setInformationForProvisionedEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
@@ -141,6 +142,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id'], $arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function setInformationForProvisionedEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];

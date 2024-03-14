@@ -1008,7 +1008,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/copilot/billing') {
-            return $this->typeResolver->resolve('Schema\\CopilotOrganizationDetails|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/copilot/billing/seats') {
@@ -2692,7 +2692,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\BranchShort>');
+            return $this->typeResolver->resolve('Observable<Schema\\BranchShort>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/comments') {
@@ -2708,15 +2708,15 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/pulls') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestSimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestSimple>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/commits/{commit_sha}/pulls') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\PullRequestSimple>');
+            return $this->typeResolver->resolve('Observable<Schema\\PullRequestSimple>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}') {
-            return $this->typeResolver->resolve('Schema\\Commit');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{ref}/check-runs') {
@@ -2976,51 +2976,51 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/blobs/{file_sha}') {
-            return $this->typeResolver->resolve('Schema\\Blob');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/git/commits') {
-            return $this->typeResolver->resolve('Schema\\GitCommit');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/commits/{commit_sha}') {
-            return $this->typeResolver->resolve('Schema\\GitCommit');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/matching-refs/{ref}') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GitRef>');
+            return $this->typeResolver->resolve('Observable<Schema\\GitRef>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/ref/{ref}') {
-            return $this->typeResolver->resolve('Schema\\GitRef');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/git/refs') {
-            return $this->typeResolver->resolve('Schema\\GitRef');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/git/refs/{ref}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/git/refs/{ref}') {
-            return $this->typeResolver->resolve('Schema\\GitRef');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/git/tags') {
-            return $this->typeResolver->resolve('Schema\\GitTag');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/tags/{tag_sha}') {
-            return $this->typeResolver->resolve('Schema\\GitTag');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/git/trees') {
-            return $this->typeResolver->resolve('Schema\\GitTree');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/git/trees/{tree_sha}') {
-            return $this->typeResolver->resolve('Schema\\GitTree');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/hooks') {
@@ -3968,51 +3968,51 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Groups') {
-            return $this->typeResolver->resolve('Schema\\ScimEnterpriseGroupList|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /scim/v2/enterprises/{enterprise}/Groups') {
-            return $this->typeResolver->resolve('Schema\\GroupResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}') {
-            return $this->typeResolver->resolve('Schema\\GroupResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}') {
-            return $this->typeResolver->resolve('Schema\\GroupResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PATCH /scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}') {
-            return $this->typeResolver->resolve('Schema\\GroupResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Users') {
-            return $this->typeResolver->resolve('Schema\\ScimEnterpriseUserList|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /scim/v2/enterprises/{enterprise}/Users') {
-            return $this->typeResolver->resolve('Schema\\UserResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}') {
-            return $this->typeResolver->resolve('Schema\\UserResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}') {
-            return $this->typeResolver->resolve('Schema\\UserResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PATCH /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}') {
-            return $this->typeResolver->resolve('Schema\\UserResponse|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /scim/v2/organizations/{org}/Users') {

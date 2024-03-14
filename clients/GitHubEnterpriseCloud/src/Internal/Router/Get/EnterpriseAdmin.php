@@ -336,6 +336,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function listProvisionedGroupsEnterprise(array $params): ScimEnterpriseGroupList|WithoutBody
     {
         $arguments = [];
@@ -374,6 +375,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['filter'], $arguments['excludedAttributes'], $arguments['enterprise'], $arguments['startIndex'], $arguments['count']);
     }
 
+    /** @return */
     public function listProvisionedIdentitiesEnterprise(array $params): ScimEnterpriseUserList|WithoutBody
     {
         $arguments = [];
@@ -493,6 +495,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function getProvisioningInformationForEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
@@ -519,6 +522,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['scim_group_id'], $arguments['excludedAttributes'], $arguments['enterprise']);
     }
 
+    /** @return */
     public function getProvisioningInformationForEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];

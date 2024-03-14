@@ -25,6 +25,7 @@ final readonly class ProvisionEnterpriseGroup
     {
     }
 
+    /** @return */
     public function call(string $enterprise, array $params): GroupResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\ProvisionEnterpriseGroup($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);

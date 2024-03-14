@@ -25,6 +25,7 @@ final readonly class SetInformationForProvisionedEnterpriseUser
     {
     }
 
+    /** @return */
     public function call(string $scimUserId, string $enterprise, array $params): UserResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\SetInformationForProvisionedEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimUserId, $enterprise);

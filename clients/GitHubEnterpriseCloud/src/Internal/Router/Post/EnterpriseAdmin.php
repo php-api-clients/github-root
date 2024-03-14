@@ -54,6 +54,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function provisionEnterpriseGroup(array $params): GroupResponse|WithoutBody
     {
         $arguments = [];
@@ -68,6 +69,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function provisionEnterpriseUser(array $params): UserResponse|WithoutBody
     {
         $arguments = [];
