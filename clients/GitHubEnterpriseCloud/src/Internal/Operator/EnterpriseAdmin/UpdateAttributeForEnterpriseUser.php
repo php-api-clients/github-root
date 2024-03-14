@@ -25,6 +25,7 @@ final readonly class UpdateAttributeForEnterpriseUser
     {
     }
 
+    /** @return */
     public function call(string $scimUserId, string $enterprise, array $params): UserResponse|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\UpdateAttributeForEnterpriseUser($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $scimUserId, $enterprise);

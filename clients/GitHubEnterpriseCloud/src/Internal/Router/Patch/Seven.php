@@ -29,7 +29,6 @@ final class Seven
     {
     }
 
-    /** @return |Schema\GitRef|Schema\GroupResponse|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody|Schema\UserResponse */
     public function call(string $call, array $params, array $pathChunks): TeamDiscussion|GroupMapping|WithoutBody|CodeScanningAlert|DependabotAlert|GitRef|WebhookConfig|PorterAuthor|IssueComment|PullRequestReviewComment|ReleaseAsset|SecretScanningAlert|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment
     {
         if ($pathChunks[0] === '') {

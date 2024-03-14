@@ -247,61 +247,73 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷GetLicenseSyncStatus()->call($enterprise);
     }
 
+    /** @return */
     public function listProvisionedGroupsEnterprise(string $filter, string $excludedAttributes, string $enterprise, int $startIndex, int $count): ScimEnterpriseGroupList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedGroupsEnterprise()->call($filter, $excludedAttributes, $enterprise, $startIndex, $count);
     }
 
+    /** @return */
     public function provisionEnterpriseGroup(string $enterprise, array $params): GroupResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ProvisionEnterpriseGroup()->call($enterprise, $params);
     }
 
+    /** @return */
     public function getProvisioningInformationForEnterpriseGroup(string $scimGroupId, string $excludedAttributes, string $enterprise): GroupResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷GetProvisioningInformationForEnterpriseGroup()->call($scimGroupId, $excludedAttributes, $enterprise);
     }
 
+    /** @return */
     public function setInformationForProvisionedEnterpriseGroup(string $scimGroupId, string $enterprise, array $params): GroupResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷SetInformationForProvisionedEnterpriseGroup()->call($scimGroupId, $enterprise, $params);
     }
 
+    /** @return */
     public function deleteScimGroupFromEnterprise(string $scimGroupId, string $enterprise): WithoutBody
     {
         return $this->operators->enterpriseAdmin👷DeleteScimGroupFromEnterprise()->call($scimGroupId, $enterprise);
     }
 
+    /** @return */
     public function updateAttributeForEnterpriseGroup(string $scimGroupId, string $enterprise, array $params): GroupResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷UpdateAttributeForEnterpriseGroup()->call($scimGroupId, $enterprise, $params);
     }
 
+    /** @return */
     public function listProvisionedIdentitiesEnterprise(string $filter, string $enterprise, int $startIndex, int $count): ScimEnterpriseUserList|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ListProvisionedIdentitiesEnterprise()->call($filter, $enterprise, $startIndex, $count);
     }
 
+    /** @return */
     public function provisionEnterpriseUser(string $enterprise, array $params): UserResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷ProvisionEnterpriseUser()->call($enterprise, $params);
     }
 
+    /** @return */
     public function getProvisioningInformationForEnterpriseUser(string $scimUserId, string $enterprise): UserResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷GetProvisioningInformationForEnterpriseUser()->call($scimUserId, $enterprise);
     }
 
+    /** @return */
     public function setInformationForProvisionedEnterpriseUser(string $scimUserId, string $enterprise, array $params): UserResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷SetInformationForProvisionedEnterpriseUser()->call($scimUserId, $enterprise, $params);
     }
 
+    /** @return */
     public function deleteUserFromEnterprise(string $scimUserId, string $enterprise): WithoutBody
     {
         return $this->operators->enterpriseAdmin👷DeleteUserFromEnterprise()->call($scimUserId, $enterprise);
     }
 
+    /** @return */
     public function updateAttributeForEnterpriseUser(string $scimUserId, string $enterprise, array $params): UserResponse|WithoutBody
     {
         return $this->operators->enterpriseAdmin👷UpdateAttributeForEnterpriseUser()->call($scimUserId, $enterprise, $params);
