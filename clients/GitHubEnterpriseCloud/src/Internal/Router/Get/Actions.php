@@ -644,7 +644,6 @@ final class Actions
         return $operator->call($arguments['name'], $arguments['owner'], $arguments['repo'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function listWorkflowRunsForRepo(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListWorkflowRunsForRepo\Response\ApplicationJson\Ok
     {
         $arguments = [];
@@ -1682,7 +1681,6 @@ final class Actions
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['run_id']);
     }
 
-    /** @return */
     public function listWorkflowRuns(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListWorkflowRuns\Response\ApplicationJson\Ok\Application\Json
     {
         $arguments = [];
