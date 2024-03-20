@@ -61,6 +61,17 @@ class CodeSecurityAndAnalysis implements ObjectMapper
 
             after_advancedSecurityEnabledForNewRepositories:
 
+            $value = $payload['advanced_security_enabled_for_new_user_namespace_repositories'] ?? null;
+
+            if ($value === null) {
+                $properties['advancedSecurityEnabledForNewUserNamespaceRepositories'] = null;
+                goto after_advancedSecurityEnabledForNewUserNamespaceRepositories;
+            }
+
+            $properties['advancedSecurityEnabledForNewUserNamespaceRepositories'] = $value;
+
+            after_advancedSecurityEnabledForNewUserNamespaceRepositories:
+
             $value = $payload['dependabot_alerts_enabled_for_new_repositories'] ?? null;
 
             if ($value === null) {
@@ -295,6 +306,14 @@ class CodeSecurityAndAnalysis implements ObjectMapper
 
         $advancedSecurityEnabledForNewRepositories                                                                        = $object->advancedSecurityEnabledForNewRepositories;
         after_advancedSecurityEnabledForNewRepositories:        $result['advanced_security_enabled_for_new_repositories'] = $advancedSecurityEnabledForNewRepositories;
+
+        $advancedSecurityEnabledForNewUserNamespaceRepositories = $object->advancedSecurityEnabledForNewUserNamespaceRepositories;
+
+        if ($advancedSecurityEnabledForNewUserNamespaceRepositories === null) {
+            goto after_advancedSecurityEnabledForNewUserNamespaceRepositories;
+        }
+
+        after_advancedSecurityEnabledForNewUserNamespaceRepositories:        $result['advanced_security_enabled_for_new_user_namespace_repositories'] = $advancedSecurityEnabledForNewUserNamespaceRepositories;
 
         $dependabotAlertsEnabledForNewRepositories                                                                        = $object->dependabotAlertsEnabledForNewRepositories;
         after_dependabotAlertsEnabledForNewRepositories:        $result['dependabot_alerts_enabled_for_new_repositories'] = $dependabotAlertsEnabledForNewRepositories;
