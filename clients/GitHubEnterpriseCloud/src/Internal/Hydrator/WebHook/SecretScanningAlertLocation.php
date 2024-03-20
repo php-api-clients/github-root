@@ -35,6 +35,7 @@ use function assert;
 use function count;
 use function is_a;
 use function is_array;
+use function is_object;
 
 class SecretScanningAlertLocation implements ObjectMapper
 {
@@ -724,7 +725,7 @@ class SecretScanningAlertLocation implements ObjectMapper
             $value = $payload['type'] ?? null;
 
             if ($value === null) {
-                $missingFields[] = 'type';
+                $properties['type'] = null;
                 goto after_type;
             }
 
@@ -735,7 +736,7 @@ class SecretScanningAlertLocation implements ObjectMapper
             $value = $payload['details'] ?? null;
 
             if ($value === null) {
-                $missingFields[] = 'details';
+                $properties['details'] = null;
                 goto after_details;
             }
 
@@ -748,7 +749,7 @@ class SecretScanningAlertLocation implements ObjectMapper
             $value = $detailsCaster1->cast($value, $this);
 
             if ($value === null) {
-                                $missingFields[] = 'details';
+                                $properties['details'] = null;
                 goto after_details;
             }
 
@@ -4235,24 +4236,24 @@ class SecretScanningAlertLocation implements ObjectMapper
         assert($object instanceof SecretScanningLocation);
         $result = [];
 
-        $type                              = $object->type;
+        $type = $object->type;
+
+        if ($type === null) {
+            goto after_type;
+        }
+
         after_type:        $result['type'] = $type;
 
         $details = $object->details;
-        $details = match ($details::class) {
-                        'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationCommit($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueTitle' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueTitle($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueBody' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueBody($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationIssueComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationIssueComment($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationDiscussionTitle' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationDiscussionTitle($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationDiscussionBody' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationDiscussionBody($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationDiscussionComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationDiscussionComment($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationPullRequestTitle' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationPullRequestTitle($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationPullRequestBody' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationPullRequestBody($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationPullRequestComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationPullRequestComment($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationPullRequestReview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationPullRequestReview($details),
-            'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningLocationPullRequestReviewComment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecretScanningLocationPullRequestReviewComment($details),
-        };
+
+        if ($details === null) {
+            goto after_details;
+        }
+
+        if (is_object($details)) {
+            $details = $this->serializeObject($details);
+        }
+
         after_details:        $result['details'] = $details;
 
         return $result;

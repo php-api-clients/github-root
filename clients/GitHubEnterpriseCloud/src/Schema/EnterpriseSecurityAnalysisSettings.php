@@ -25,6 +25,13 @@ final readonly class EnterpriseSecurityAnalysisSettings
                 false
             ]
         },
+        "advanced_security_enabled_for_new_user_namespace_repositories": {
+            "type": "boolean",
+            "description": "Whether GitHub Advanced Security is automatically enabled for new user namespace repositories.",
+            "examples": [
+                false
+            ]
+        },
         "dependabot_alerts_enabled_for_new_repositories": {
             "type": "boolean",
             "description": "Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this\\nenterprise.",
@@ -69,6 +76,7 @@ final readonly class EnterpriseSecurityAnalysisSettings
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "advanced_security_enabled_for_new_repositories": false,
+    "advanced_security_enabled_for_new_user_namespace_repositories": false,
     "dependabot_alerts_enabled_for_new_repositories": false,
     "secret_scanning_enabled_for_new_repositories": false,
     "secret_scanning_push_protection_enabled_for_new_repositories": false,
@@ -79,6 +87,7 @@ final readonly class EnterpriseSecurityAnalysisSettings
     /**
      * advancedSecurityEnabledForNewRepositories: Whether GitHub advanced security is automatically enabled for new repositories and repositories transferred to
     this enterprise.
+     * advancedSecurityEnabledForNewUserNamespaceRepositories: Whether GitHub Advanced Security is automatically enabled for new user namespace repositories.
      * dependabotAlertsEnabledForNewRepositories: Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this
     enterprise.
      * secretScanningEnabledForNewRepositories: Whether secret scanning is automatically enabled for new repositories and repositories transferred to this
@@ -89,7 +98,8 @@ final readonly class EnterpriseSecurityAnalysisSettings
      * secretScanningValidityChecksEnabled: Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this enterprise.
      */
     public function __construct(#[MapFrom('advanced_security_enabled_for_new_repositories')]
-    public bool $advancedSecurityEnabledForNewRepositories, #[MapFrom('dependabot_alerts_enabled_for_new_repositories')]
+    public bool $advancedSecurityEnabledForNewRepositories, #[MapFrom('advanced_security_enabled_for_new_user_namespace_repositories')]
+    public bool|null $advancedSecurityEnabledForNewUserNamespaceRepositories, #[MapFrom('dependabot_alerts_enabled_for_new_repositories')]
     public bool $dependabotAlertsEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')]
     public bool $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')]
     public bool $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link')]
