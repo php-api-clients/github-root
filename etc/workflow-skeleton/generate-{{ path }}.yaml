@@ -54,7 +54,7 @@ jobs:
         run: |
           curl -fsSL https://pb33f.io/openapi-changes/install.sh | sh
           echo "Detected Schema changes:" >> "var/detected-schema-changes"
-          echo "$(openapi-changes summary --no-color --no-logo etc/specs/{{ path }}/current.spec.yaml etc/specs/{{ path }}/previous.spec.yaml)" >> "var/detected-schema-changes"
+          echo "$(openapi-changes summary --markdown --no-color --no-logo etc/specs/{{ path }}/current.spec.yaml etc/specs/{{ path }}/previous.spec.yaml)" >> "var/detected-schema-changes"
           cat var/detected-schema-changes
           delimiter="$(openssl rand -hex 8)"
           echo "diff<<${delimiter}" >> "${GITHUB_OUTPUT}"
