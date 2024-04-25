@@ -1934,6 +1934,62 @@ $client->operations()->enterpriseAdmin()->getConsumedLicenses(        enterprise
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/license#list-enterprise-consumed-licenses).
 
 
+### copilot/usage-metrics-for-enterprise
+
+Get a summary of Copilot usage for enterprise members
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/copilot/usage', [
+        'enterprise' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForEnterprise(        enterprise: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-enterprise-members).
+
+
+### copilot/usage-metrics-for-enterprise
+
+Get a summary of Copilot usage for enterprise members
+
+Using the `call` method:
+```php
+$client->call('LIST /enterprises/{enterprise}/copilot/usage', [
+        'enterprise' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForEnterpriseListing(        enterprise: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-enterprise-members).
+
+
 ### dependabot/list-alerts-for-enterprise
 
 List Dependabot alerts for an enterprise
@@ -5616,6 +5672,62 @@ $client->operations()->copilot()->cancelCopilotSeatAssignmentForUsers(        or
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-user-management#remove-users-from-the-copilot-subscription-for-an-organization).
+
+
+### copilot/usage-metrics-for-org
+
+Get a summary of Copilot usage for organization members
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/copilot/usage', [
+        'org' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForOrg(        org: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-organization-members).
+
+
+### copilot/usage-metrics-for-org
+
+Get a summary of Copilot usage for organization members
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/copilot/usage', [
+        'org' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForOrgListing(        org: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-organization-members).
 
 
 ### orgs/list-saml-sso-authorizations
@@ -9462,6 +9574,66 @@ $client->operations()->teams()->listIdpGroupsForOrg(        org: 'generated',
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/team-sync#list-idp-groups-for-an-organization).
+
+
+### copilot/usage-metrics-for-team
+
+Get a summary of Copilot usage for a team
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/team/{team_slug}/copilot/usage', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForTeam(        org: 'generated',
+        team_slug: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-a-team).
+
+
+### copilot/usage-metrics-for-team
+
+Get a summary of Copilot usage for a team
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/team/{team_slug}/copilot/usage', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForTeamListing(        org: 'generated',
+        team_slug: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-a-team).
 
 
 ### teams/list

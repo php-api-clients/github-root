@@ -53,7 +53,7 @@ final class Five
     {
     }
 
-    /** @return |Observable<Schema\CodeScanningOrganizationAlertItems>|Observable<Schema\DependabotAlertWithRepository>|WithoutBody|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|Observable<Schema\Package>|Observable<Schema\OrgCustomProperty>|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\ProjectCard>|Observable<Schema\Activity>|Observable<Schema\SimpleUser>|Observable<Schema\Autolink>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\RepositoryAdvisory>|Observable<Schema\Tag>|Observable<Schema\Team> */
+    /** @return |Observable<Schema\CodeScanningOrganizationAlertItems>|iterable<int,Schema\CopilotUsageMetrics>|Observable<Schema\DependabotAlertWithRepository>|WithoutBody|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|Observable<Schema\Package>|Observable<Schema\OrgCustomProperty>|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\ProjectCard>|Observable<Schema\Activity>|Observable<Schema\SimpleUser>|Observable<Schema\Autolink>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\RepositoryAdvisory>|Observable<Schema\Tag>|Observable<Schema\Team> */
     public function call(string $call, array $params, array $pathChunks): HookDelivery|ActionsEnterprisePermissions|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnersForEnterprise\Response\ApplicationJson\Ok|iterable|WithoutBody|GistComment|MarketplacePurchase|BasicError|ThreadSubscription|ActionsOrganizationPermissions|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnerGroupsForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListSelfHostedRunnersForOrg\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgSecrets\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\ListOrgSecrets\Response\ApplicationJson\Ok|CopilotOrganizationDetails|OrganizationCustomRepositoryRole|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Dependabot\ListOrgSecrets\Response\ApplicationJson\Ok|ExternalGroup|OrgHook|OrgMembership|Migration|OrganizationRole|RepositoryRuleset|GroupMapping|TeamFull|ProjectCard|CheckAutomatedSecurityFixes|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok|Import|Installation|InteractionLimitResponse|One|Language|LicenseContent|Page|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CheckPrivateVulnerabilityReporting\Response\ApplicationJson\Ok|ContentFile|SimpleUser|Stargazer|RepositorySubscription|Topic|TeamDiscussion|TeamMembership|TeamProject|CodespacesUserPublicKey|CodespacesSecret|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\CodespaceMachinesForAuthenticatedUser\Response\ApplicationJson\Ok\Application\Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Apps\ListInstallationReposForAuthenticatedUser\Response\ApplicationJson\Ok|Package
     {
         if ($pathChunks[0] === '') {
@@ -87,6 +87,12 @@ final class Five
                         if ($pathChunks[4] === 'alerts') {
                             if ($call === 'GET /enterprises/{enterprise}/code-scanning/alerts') {
                                 return $this->routers->internal🔀Router🔀Get🔀CodeScanning()->listAlertsForEnterprise($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'copilot') {
+                        if ($pathChunks[4] === 'usage') {
+                            if ($call === 'GET /enterprises/{enterprise}/copilot/usage') {
+                                return $this->routers->internal🔀Router🔀Get🔀Copilot()->usageMetricsForEnterprise($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'dependabot') {
@@ -197,6 +203,10 @@ final class Five
                         if ($pathChunks[4] === 'billing') {
                             if ($call === 'GET /orgs/{org}/copilot/billing') {
                                 return $this->routers->internal🔀Router🔀Get🔀Copilot()->getCopilotOrganizationDetails($params);
+                            }
+                        } elseif ($pathChunks[4] === 'usage') {
+                            if ($call === 'GET /orgs/{org}/copilot/usage') {
+                                return $this->routers->internal🔀Router🔀Get🔀Copilot()->usageMetricsForOrg($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'custom-repository-roles') {

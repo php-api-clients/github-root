@@ -383,6 +383,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /enterprises/{enterprise}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+        }
+
+        if ($call === 'LIST /enterprises/{enterprise}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+        }
+
         if ($call === 'GET /enterprises/{enterprise}/dependabot/alerts') {
             return $this->typeResolver->resolve('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody');
         }
@@ -1031,6 +1039,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /orgs/{org}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+        }
+
         if ($call === 'GET /orgs/{org}/credential-authorizations') {
             return $this->typeResolver->resolve('Observable<Schema\\CredentialAuthorization>');
         }
@@ -1661,6 +1677,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /orgs/{org}/team-sync/groups') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /orgs/{org}/team/{team_slug}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/team/{team_slug}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'GET /orgs/{org}/teams') {
@@ -3540,7 +3564,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/pulls/{pull_number}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\PullRequest|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'PATCH /repos/{owner}/{repo}/pulls/{pull_number}') {
