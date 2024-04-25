@@ -65,6 +65,11 @@ final readonly class Operations implements OperationsInterface
         return new Operation\SecretScanning($this->operators);
     }
 
+    public function copilot(): Operation\Copilot
+    {
+        return new Operation\Copilot($this->operators);
+    }
+
     public function dependabot(): Operation\Dependabot
     {
         return new Operation\Dependabot($this->operators);
@@ -118,11 +123,6 @@ final readonly class Operations implements OperationsInterface
     public function codespaces(): Operation\Codespaces
     {
         return new Operation\Codespaces($this->operators);
-    }
-
-    public function copilot(): Operation\Copilot
-    {
-        return new Operation\Copilot($this->operators);
     }
 
     public function packages(): Operation\Packages

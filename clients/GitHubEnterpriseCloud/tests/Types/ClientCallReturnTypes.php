@@ -102,6 +102,8 @@ assertType('Observable<Schema\\CodeScanningOrganizationAlertItems>', $client->ca
 assertType('', $client->call('GET /enterprises/{enterprise}/code_security_and_analysis'));
 assertType('', $client->call('PATCH /enterprises/{enterprise}/code_security_and_analysis'));
 assertType('', $client->call('GET /enterprises/{enterprise}/consumed-licenses'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('GET /enterprises/{enterprise}/copilot/usage'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('LIST /enterprises/{enterprise}/copilot/usage'));
 assertType('Observable<Schema\\DependabotAlertWithRepository>|WithoutBody', $client->call('GET /enterprises/{enterprise}/dependabot/alerts'));
 assertType('', $client->call('GET /enterprises/{enterprise}/license-sync-status'));
 assertType('Observable<Schema\\OrganizationSecretScanningAlert>', $client->call('GET /enterprises/{enterprise}/secret-scanning/alerts'));
@@ -264,6 +266,8 @@ assertType('', $client->call('POST /orgs/{org}/copilot/billing/selected_teams'))
 assertType('', $client->call('DELETE /orgs/{org}/copilot/billing/selected_teams'));
 assertType('', $client->call('POST /orgs/{org}/copilot/billing/selected_users'));
 assertType('', $client->call('DELETE /orgs/{org}/copilot/billing/selected_users'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('GET /orgs/{org}/copilot/usage'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('LIST /orgs/{org}/copilot/usage'));
 assertType('Observable<Schema\\CredentialAuthorization>', $client->call('GET /orgs/{org}/credential-authorizations'));
 assertType('Observable<Schema\\CredentialAuthorization>', $client->call('LIST /orgs/{org}/credential-authorizations'));
 assertType('', $client->call('DELETE /orgs/{org}/credential-authorizations/{credential_id}'));
@@ -422,6 +426,8 @@ assertType('', $client->call('GET /orgs/{org}/settings/billing/advanced-security
 assertType('', $client->call('GET /orgs/{org}/settings/billing/packages'));
 assertType('', $client->call('GET /orgs/{org}/settings/billing/shared-storage'));
 assertType('', $client->call('GET /orgs/{org}/team-sync/groups'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('GET /orgs/{org}/team/{team_slug}/copilot/usage'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('LIST /orgs/{org}/team/{team_slug}/copilot/usage'));
 assertType('Observable<Schema\\Team>', $client->call('GET /orgs/{org}/teams'));
 assertType('Observable<Schema\\Team>', $client->call('LIST /orgs/{org}/teams'));
 assertType('', $client->call('POST /orgs/{org}/teams'));
@@ -891,7 +897,7 @@ assertType('Observable<Schema\\Reaction>', $client->call('GET /repos/{owner}/{re
 assertType('Observable<Schema\\Reaction>', $client->call('LIST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions'));
 assertType('', $client->call('DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}'));
-assertType('', $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}'));
+assertType('Schema\\PullRequest|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}'));
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/pulls/{pull_number}'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/pulls/{pull_number}/codespaces'));
 assertType('Observable<Schema\\PullRequestReviewComment>', $client->call('GET /repos/{owner}/{repo}/pulls/{pull_number}/comments'));

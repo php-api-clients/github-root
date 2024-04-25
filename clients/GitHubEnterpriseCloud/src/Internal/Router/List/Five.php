@@ -16,7 +16,7 @@ final class Five
     {
     }
 
-    /** @return Observable<Schema\CodeScanningOrganizationAlertItems>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|WithoutBody|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\ProjectCard>|Observable<Schema\SimpleUser>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\Tag>|Observable<Schema\Team> */
+    /** @return Observable<Schema\CodeScanningOrganizationAlertItems>|iterable<int,Schema\CopilotUsageMetrics>|Observable<Schema\MarketplacePurchase>|Observable<Schema\Event>|Schema\BasicError|WithoutBody|Observable<Schema\OrgRepoCustomPropertyValues>|Observable<Schema\RuleSuites>|Observable<Schema\OrganizationSecretScanningAlert>|Observable<Schema\ProjectCard>|Observable<Schema\SimpleUser>|Observable<Schema\ShortBranch>|Observable<Schema\Collaborator>|Observable<Schema\CommitComment>|Observable<Schema\Commit>|Observable<Schema\Contributor>|Observable<Schema\Deployment>|Observable<Schema\MinimalRepository>|Observable<Schema\Hook>|Observable<Schema\RepositoryInvitation>|Observable<Schema\Issue>|Observable<Schema\DeployKey>|Observable<Schema\Label>|Observable<Schema\Milestone>|Observable<Schema\Thread>|Observable<Schema\Project>|Observable<Schema\PullRequestSimple>|Observable<Schema\Release>|Observable<Schema\RepositoryRuleset>|Observable<Schema\Tag>|Observable<Schema\Team> */
     public function call(string $call, array $params, array $pathChunks): iterable|BasicError|WithoutBody
     {
         if ($pathChunks[0] === '') {
@@ -26,6 +26,12 @@ final class Five
                         if ($pathChunks[4] === 'alerts') {
                             if ($call === 'LIST /enterprises/{enterprise}/code-scanning/alerts') {
                                 return $this->routers->internal🔀Router🔀List🔀CodeScanning()->listAlertsForEnterpriseListing($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'copilot') {
+                        if ($pathChunks[4] === 'usage') {
+                            if ($call === 'LIST /enterprises/{enterprise}/copilot/usage') {
+                                return $this->routers->internal🔀Router🔀List🔀Copilot()->usageMetricsForEnterpriseListing($params);
                             }
                         }
                     }
@@ -56,6 +62,12 @@ final class Five
                         if ($pathChunks[4] === 'alerts') {
                             if ($call === 'LIST /orgs/{org}/code-scanning/alerts') {
                                 return $this->routers->internal🔀Router🔀List🔀CodeScanning()->listAlertsForOrgListing($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'copilot') {
+                        if ($pathChunks[4] === 'usage') {
+                            if ($call === 'LIST /orgs/{org}/copilot/usage') {
+                                return $this->routers->internal🔀Router🔀List🔀Copilot()->usageMetricsForOrgListing($params);
                             }
                         }
                     } elseif ($pathChunks[3] === 'properties') {

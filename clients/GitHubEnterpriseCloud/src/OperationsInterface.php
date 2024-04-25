@@ -28,6 +28,8 @@ interface OperationsInterface
 
     public function secretScanning(): Operation\SecretScanning;
 
+    public function copilot(): Operation\Copilot;
+
     public function dependabot(): Operation\Dependabot;
 
     public function billing(): Operation\Billing;
@@ -49,8 +51,6 @@ interface OperationsInterface
     public function oidc(): Operation\Oidc;
 
     public function codespaces(): Operation\Codespaces;
-
-    public function copilot(): Operation\Copilot;
 
     public function packages(): Operation\Packages;
 
