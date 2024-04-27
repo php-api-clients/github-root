@@ -18,9 +18,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\Reactions;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\User;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionCategoryChanged;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionCategoryChanged\Changes;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionCategoryChanged\Changes\Category\From;
@@ -31,16 +28,18 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionEdited;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionEdited\Changes\Body;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionEdited\Changes\Title;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled\Label;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLocked;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionPinned;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionReopened;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionTransferred;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlocked;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnpinned;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\Reactions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\User;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksLabel;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -77,9 +76,9 @@ class Discussion implements ObjectMapper
     {
         return match ($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️Reactions($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️User($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Category' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Category($payload),
@@ -108,18 +107,14 @@ class Discussion implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionEdited\Changes\Body' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionEdited⚡️Changes⚡️Body($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionEdited\Changes\Title' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionEdited⚡️Changes⚡️Title($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksLabel' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLocked' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLocked($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionPinned' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionPinned($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionReopened' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionReopened($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionTransferred' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionTransferred($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionTransferred\Changes' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️Reactions($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️User($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled⚡️Label($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlocked' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlocked($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnpinned' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnpinned($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
@@ -153,7 +148,7 @@ class Discussion implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'answer';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -297,7 +292,7 @@ class Discussion implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer(array $payload): Answer
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer(array $payload): WebhooksAnswer
     {
         $properties    = [];
         $missingFields = [];
@@ -411,7 +406,7 @@ class Discussion implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'reactions';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️Reactions($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -453,7 +448,7 @@ class Discussion implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'user';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️User($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -463,21 +458,21 @@ class Discussion implements ObjectMapper
 
             after_user:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Answer::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(WebhooksAnswer::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Answer(...$properties);
+            return new WebhooksAnswer(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer', $exception, stack: $this->hydrationStack);
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions(array $payload): Reactions
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️Reactions(array $payload): Reactions
     {
         $properties    = [];
         $missingFields = [];
@@ -592,7 +587,7 @@ class Discussion implements ObjectMapper
 
             after_url:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\Reactions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\Reactions', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
@@ -602,11 +597,11 @@ class Discussion implements ObjectMapper
         try {
             return new Reactions(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\Reactions', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\Reactions', $exception, stack: $this->hydrationStack);
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User(array $payload): User
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️User(array $payload): User
     {
         $properties    = [];
         $missingFields = [];
@@ -842,7 +837,7 @@ class Discussion implements ObjectMapper
 
             after_url:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\User', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
@@ -852,7 +847,7 @@ class Discussion implements ObjectMapper
         try {
             return new User(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\User', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\User', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -6551,7 +6546,7 @@ class Discussion implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'label';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -6635,7 +6630,7 @@ class Discussion implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(array $payload): Label
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel(array $payload): WebhooksLabel
     {
         $properties    = [];
         $missingFields = [];
@@ -6717,17 +6712,17 @@ class Discussion implements ObjectMapper
 
             after_url:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksLabel', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Label::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(WebhooksLabel::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Label(...$properties);
+            return new WebhooksLabel(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled\Label', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksLabel', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -7456,7 +7451,7 @@ class Discussion implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'oldAnswer';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -7537,565 +7532,6 @@ class Discussion implements ObjectMapper
             return new WebhookDiscussionUnanswered(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer(array $payload): OldAnswer
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-            $value = $payload['author_association'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'author_association';
-                goto after_authorAssociation;
-            }
-
-            $properties['authorAssociation'] = $value;
-
-            after_authorAssociation:
-
-            $value = $payload['body'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'body';
-                goto after_body;
-            }
-
-            $properties['body'] = $value;
-
-            after_body:
-
-            $value = $payload['child_comment_count'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'child_comment_count';
-                goto after_childCommentCount;
-            }
-
-            $properties['childCommentCount'] = $value;
-
-            after_childCommentCount:
-
-            $value = $payload['created_at'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'created_at';
-                goto after_createdAt;
-            }
-
-            $properties['createdAt'] = $value;
-
-            after_createdAt:
-
-            $value = $payload['discussion_id'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'discussion_id';
-                goto after_discussionId;
-            }
-
-            $properties['discussionId'] = $value;
-
-            after_discussionId:
-
-            $value = $payload['html_url'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'html_url';
-                goto after_htmlUrl;
-            }
-
-            $properties['htmlUrl'] = $value;
-
-            after_htmlUrl:
-
-            $value = $payload['id'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'id';
-                goto after_id;
-            }
-
-            $properties['id'] = $value;
-
-            after_id:
-
-            $value = $payload['node_id'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'node_id';
-                goto after_nodeId;
-            }
-
-            $properties['nodeId'] = $value;
-
-            after_nodeId:
-
-            $value = $payload['parent_id'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'parent_id';
-                goto after_parentId;
-            }
-
-            $properties['parentId'] = $value;
-
-            after_parentId:
-
-            $value = $payload['reactions'] ?? null;
-
-            if ($value === null) {
-                $properties['reactions'] = null;
-                goto after_reactions;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'reactions';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['reactions'] = $value;
-
-            after_reactions:
-
-            $value = $payload['repository_url'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'repository_url';
-                goto after_repositoryUrl;
-            }
-
-            $properties['repositoryUrl'] = $value;
-
-            after_repositoryUrl:
-
-            $value = $payload['updated_at'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'updated_at';
-                goto after_updatedAt;
-            }
-
-            $properties['updatedAt'] = $value;
-
-            after_updatedAt:
-
-            $value = $payload['user'] ?? null;
-
-            if ($value === null) {
-                $properties['user'] = null;
-                goto after_user;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'user';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['user'] = $value;
-
-            after_user:
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(OldAnswer::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new OldAnswer(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️Reactions(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-            $value = $payload['+1'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = '+1';
-                goto after_plusOne;
-            }
-
-            $properties['plusOne'] = $value;
-
-            after_plusOne:
-
-            $value = $payload['-1'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = '-1';
-                goto after_minOne;
-            }
-
-            $properties['minOne'] = $value;
-
-            after_minOne:
-
-            $value = $payload['confused'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'confused';
-                goto after_confused;
-            }
-
-            $properties['confused'] = $value;
-
-            after_confused:
-
-            $value = $payload['eyes'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'eyes';
-                goto after_eyes;
-            }
-
-            $properties['eyes'] = $value;
-
-            after_eyes:
-
-            $value = $payload['heart'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'heart';
-                goto after_heart;
-            }
-
-            $properties['heart'] = $value;
-
-            after_heart:
-
-            $value = $payload['hooray'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'hooray';
-                goto after_hooray;
-            }
-
-            $properties['hooray'] = $value;
-
-            after_hooray:
-
-            $value = $payload['laugh'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'laugh';
-                goto after_laugh;
-            }
-
-            $properties['laugh'] = $value;
-
-            after_laugh:
-
-            $value = $payload['rocket'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'rocket';
-                goto after_rocket;
-            }
-
-            $properties['rocket'] = $value;
-
-            after_rocket:
-
-            $value = $payload['total_count'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'total_count';
-                goto after_totalCount;
-            }
-
-            $properties['totalCount'] = $value;
-
-            after_totalCount:
-
-            $value = $payload['url'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'url';
-                goto after_url;
-            }
-
-            $properties['url'] = $value;
-
-            after_url:
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️User(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-            $value = $payload['avatar_url'] ?? null;
-
-            if ($value === null) {
-                $properties['avatarUrl'] = null;
-                goto after_avatarUrl;
-            }
-
-            $properties['avatarUrl'] = $value;
-
-            after_avatarUrl:
-
-            $value = $payload['deleted'] ?? null;
-
-            if ($value === null) {
-                $properties['deleted'] = null;
-                goto after_deleted;
-            }
-
-            $properties['deleted'] = $value;
-
-            after_deleted:
-
-            $value = $payload['email'] ?? null;
-
-            if ($value === null) {
-                $properties['email'] = null;
-                goto after_email;
-            }
-
-            $properties['email'] = $value;
-
-            after_email:
-
-            $value = $payload['events_url'] ?? null;
-
-            if ($value === null) {
-                $properties['eventsUrl'] = null;
-                goto after_eventsUrl;
-            }
-
-            $properties['eventsUrl'] = $value;
-
-            after_eventsUrl:
-
-            $value = $payload['followers_url'] ?? null;
-
-            if ($value === null) {
-                $properties['followersUrl'] = null;
-                goto after_followersUrl;
-            }
-
-            $properties['followersUrl'] = $value;
-
-            after_followersUrl:
-
-            $value = $payload['following_url'] ?? null;
-
-            if ($value === null) {
-                $properties['followingUrl'] = null;
-                goto after_followingUrl;
-            }
-
-            $properties['followingUrl'] = $value;
-
-            after_followingUrl:
-
-            $value = $payload['gists_url'] ?? null;
-
-            if ($value === null) {
-                $properties['gistsUrl'] = null;
-                goto after_gistsUrl;
-            }
-
-            $properties['gistsUrl'] = $value;
-
-            after_gistsUrl:
-
-            $value = $payload['gravatar_id'] ?? null;
-
-            if ($value === null) {
-                $properties['gravatarId'] = null;
-                goto after_gravatarId;
-            }
-
-            $properties['gravatarId'] = $value;
-
-            after_gravatarId:
-
-            $value = $payload['html_url'] ?? null;
-
-            if ($value === null) {
-                $properties['htmlUrl'] = null;
-                goto after_htmlUrl;
-            }
-
-            $properties['htmlUrl'] = $value;
-
-            after_htmlUrl:
-
-            $value = $payload['id'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'id';
-                goto after_id;
-            }
-
-            $properties['id'] = $value;
-
-            after_id:
-
-            $value = $payload['login'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'login';
-                goto after_login;
-            }
-
-            $properties['login'] = $value;
-
-            after_login:
-
-            $value = $payload['name'] ?? null;
-
-            if ($value === null) {
-                $properties['name'] = null;
-                goto after_name;
-            }
-
-            $properties['name'] = $value;
-
-            after_name:
-
-            $value = $payload['node_id'] ?? null;
-
-            if ($value === null) {
-                $properties['nodeId'] = null;
-                goto after_nodeId;
-            }
-
-            $properties['nodeId'] = $value;
-
-            after_nodeId:
-
-            $value = $payload['organizations_url'] ?? null;
-
-            if ($value === null) {
-                $properties['organizationsUrl'] = null;
-                goto after_organizationsUrl;
-            }
-
-            $properties['organizationsUrl'] = $value;
-
-            after_organizationsUrl:
-
-            $value = $payload['received_events_url'] ?? null;
-
-            if ($value === null) {
-                $properties['receivedEventsUrl'] = null;
-                goto after_receivedEventsUrl;
-            }
-
-            $properties['receivedEventsUrl'] = $value;
-
-            after_receivedEventsUrl:
-
-            $value = $payload['repos_url'] ?? null;
-
-            if ($value === null) {
-                $properties['reposUrl'] = null;
-                goto after_reposUrl;
-            }
-
-            $properties['reposUrl'] = $value;
-
-            after_reposUrl:
-
-            $value = $payload['site_admin'] ?? null;
-
-            if ($value === null) {
-                $properties['siteAdmin'] = null;
-                goto after_siteAdmin;
-            }
-
-            $properties['siteAdmin'] = $value;
-
-            after_siteAdmin:
-
-            $value = $payload['starred_url'] ?? null;
-
-            if ($value === null) {
-                $properties['starredUrl'] = null;
-                goto after_starredUrl;
-            }
-
-            $properties['starredUrl'] = $value;
-
-            after_starredUrl:
-
-            $value = $payload['subscriptions_url'] ?? null;
-
-            if ($value === null) {
-                $properties['subscriptionsUrl'] = null;
-                goto after_subscriptionsUrl;
-            }
-
-            $properties['subscriptionsUrl'] = $value;
-
-            after_subscriptionsUrl:
-
-            $value = $payload['type'] ?? null;
-
-            if ($value === null) {
-                $properties['type'] = null;
-                goto after_type;
-            }
-
-            $properties['type'] = $value;
-
-            after_type:
-
-            $value = $payload['url'] ?? null;
-
-            if ($value === null) {
-                $properties['url'] = null;
-                goto after_url;
-            }
-
-            $properties['url'] = $value;
-
-            after_url:
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -8185,7 +7621,7 @@ class Discussion implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'label';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled⚡️Label($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -8266,102 +7702,6 @@ class Discussion implements ObjectMapper
             return new WebhookDiscussionUnlabeled(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled⚡️Label(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-            $value = $payload['color'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'color';
-                goto after_color;
-            }
-
-            $properties['color'] = $value;
-
-            after_color:
-
-            $value = $payload['default'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'default';
-                goto after_default;
-            }
-
-            $properties['default'] = $value;
-
-            after_default:
-
-            $value = $payload['description'] ?? null;
-
-            if ($value === null) {
-                $properties['description'] = null;
-                goto after_description;
-            }
-
-            $properties['description'] = $value;
-
-            after_description:
-
-            $value = $payload['id'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'id';
-                goto after_id;
-            }
-
-            $properties['id'] = $value;
-
-            after_id:
-
-            $value = $payload['name'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'name';
-                goto after_name;
-            }
-
-            $properties['name'] = $value;
-
-            after_name:
-
-            $value = $payload['node_id'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'node_id';
-                goto after_nodeId;
-            }
-
-            $properties['nodeId'] = $value;
-
-            after_nodeId:
-
-            $value = $payload['url'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'url';
-                goto after_url;
-            }
-
-            $properties['url'] = $value;
-
-            after_url:
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -8717,9 +8057,9 @@ class Discussion implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionAnswered\Answer\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️Reactions($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksAnswer\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️User($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\AnswerChosenBy' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️AnswerChosenBy($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Discussion\Category' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Discussion⚡️Category($object),
@@ -8748,18 +8088,14 @@ class Discussion implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionEdited\Changes\Body' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionEdited⚡️Changes⚡️Body($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionEdited\Changes\Title' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionEdited⚡️Changes⚡️Title($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksLabel' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionLocked' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLocked($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionPinned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionPinned($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionReopened' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionReopened($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionTransferred' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionTransferred($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionTransferred\Changes' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionTransferred⚡️Changes($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️Reactions($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️User($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled⚡️Label($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlocked' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlocked($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnpinned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnpinned($object),
                 default => throw new LogicException('No serialization defined for $className'),
@@ -8833,7 +8169,7 @@ class Discussion implements ObjectMapper
         after_action:        $result['action'] = $action;
 
         $answer                                = $object->answer;
-        $answer                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer($answer);
+        $answer                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer($answer);
         after_answer:        $result['answer'] = $answer;
 
         $discussion                                    = $object->discussion;
@@ -8878,9 +8214,9 @@ class Discussion implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer(mixed $object): mixed
     {
-        assert($object instanceof Answer);
+        assert($object instanceof WebhooksAnswer);
         $result = [];
 
         $authorAssociation                                            = $object->authorAssociation;
@@ -8916,7 +8252,7 @@ class Discussion implements ObjectMapper
             goto after_reactions;
         }
 
-        $reactions                                   = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions($reactions);
+        $reactions                                   = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️Reactions($reactions);
         after_reactions:        $result['reactions'] = $reactions;
 
         $repositoryUrl                                        = $object->repositoryUrl;
@@ -8931,13 +8267,13 @@ class Discussion implements ObjectMapper
             goto after_user;
         }
 
-        $user                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User($user);
+        $user                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️User($user);
         after_user:        $result['user'] = $user;
 
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️Reactions(mixed $object): mixed
     {
         assert($object instanceof Reactions);
         $result = [];
@@ -8975,7 +8311,7 @@ class Discussion implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer⚡️User(mixed $object): mixed
     {
         assert($object instanceof User);
         $result = [];
@@ -11867,7 +11203,7 @@ class Discussion implements ObjectMapper
         after_installation:        $result['installation'] = $installation;
 
         $label                               = $object->label;
-        $label                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label($label);
+        $label                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel($label);
         after_label:        $result['label'] = $label;
 
         $organization = $object->organization;
@@ -11890,9 +11226,9 @@ class Discussion implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionLabeled⚡️Label(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel(mixed $object): mixed
     {
-        assert($object instanceof Label);
+        assert($object instanceof WebhooksLabel);
         $result = [];
 
         $color                               = $object->color;
@@ -12157,7 +11493,7 @@ class Discussion implements ObjectMapper
         after_discussion:        $result['discussion'] = $discussion;
 
         $oldAnswer                                    = $object->oldAnswer;
-        $oldAnswer                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer($oldAnswer);
+        $oldAnswer                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksAnswer($oldAnswer);
         after_oldAnswer:        $result['old_answer'] = $oldAnswer;
 
         $organization = $object->organization;
@@ -12181,269 +11517,6 @@ class Discussion implements ObjectMapper
 
         $sender                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($sender);
         after_sender:        $result['sender'] = $sender;
-
-        return $result;
-    }
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer(mixed $object): mixed
-    {
-        assert($object instanceof OldAnswer);
-        $result = [];
-
-        $authorAssociation                                            = $object->authorAssociation;
-        after_authorAssociation:        $result['author_association'] = $authorAssociation;
-
-        $body                              = $object->body;
-        after_body:        $result['body'] = $body;
-
-        $childCommentCount                                             = $object->childCommentCount;
-        after_childCommentCount:        $result['child_comment_count'] = $childCommentCount;
-
-        $createdAt                                    = $object->createdAt;
-        after_createdAt:        $result['created_at'] = $createdAt;
-
-        $discussionId                                       = $object->discussionId;
-        after_discussionId:        $result['discussion_id'] = $discussionId;
-
-        $htmlUrl                                  = $object->htmlUrl;
-        after_htmlUrl:        $result['html_url'] = $htmlUrl;
-
-        $id                            = $object->id;
-        after_id:        $result['id'] = $id;
-
-        $nodeId                                 = $object->nodeId;
-        after_nodeId:        $result['node_id'] = $nodeId;
-
-        $parentId                                   = $object->parentId;
-        after_parentId:        $result['parent_id'] = $parentId;
-
-        $reactions = $object->reactions;
-
-        if ($reactions === null) {
-            goto after_reactions;
-        }
-
-        $reactions                                   = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️Reactions($reactions);
-        after_reactions:        $result['reactions'] = $reactions;
-
-        $repositoryUrl                                        = $object->repositoryUrl;
-        after_repositoryUrl:        $result['repository_url'] = $repositoryUrl;
-
-        $updatedAt                                    = $object->updatedAt;
-        after_updatedAt:        $result['updated_at'] = $updatedAt;
-
-        $user = $object->user;
-
-        if ($user === null) {
-            goto after_user;
-        }
-
-        $user                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionAnswered⚡️Answer⚡️User($user);
-        after_user:        $result['user'] = $user;
-
-        return $result;
-    }
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️Reactions(mixed $object): mixed
-    {
-        assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\Reactions);
-        $result = [];
-
-        $plusOne                            = $object->plusOne;
-        after_plusOne:        $result['+1'] = $plusOne;
-
-        $minOne                            = $object->minOne;
-        after_minOne:        $result['-1'] = $minOne;
-
-        $confused                                  = $object->confused;
-        after_confused:        $result['confused'] = $confused;
-
-        $eyes                              = $object->eyes;
-        after_eyes:        $result['eyes'] = $eyes;
-
-        $heart                               = $object->heart;
-        after_heart:        $result['heart'] = $heart;
-
-        $hooray                                = $object->hooray;
-        after_hooray:        $result['hooray'] = $hooray;
-
-        $laugh                               = $object->laugh;
-        after_laugh:        $result['laugh'] = $laugh;
-
-        $rocket                                = $object->rocket;
-        after_rocket:        $result['rocket'] = $rocket;
-
-        $totalCount                                     = $object->totalCount;
-        after_totalCount:        $result['total_count'] = $totalCount;
-
-        $url                             = $object->url;
-        after_url:        $result['url'] = $url;
-
-        return $result;
-    }
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnanswered⚡️OldAnswer⚡️User(mixed $object): mixed
-    {
-        assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnanswered\OldAnswer\User);
-        $result = [];
-
-        $avatarUrl = $object->avatarUrl;
-
-        if ($avatarUrl === null) {
-            goto after_avatarUrl;
-        }
-
-        after_avatarUrl:        $result['avatar_url'] = $avatarUrl;
-
-        $deleted = $object->deleted;
-
-        if ($deleted === null) {
-            goto after_deleted;
-        }
-
-        after_deleted:        $result['deleted'] = $deleted;
-
-        $email = $object->email;
-
-        if ($email === null) {
-            goto after_email;
-        }
-
-        after_email:        $result['email'] = $email;
-
-        $eventsUrl = $object->eventsUrl;
-
-        if ($eventsUrl === null) {
-            goto after_eventsUrl;
-        }
-
-        after_eventsUrl:        $result['events_url'] = $eventsUrl;
-
-        $followersUrl = $object->followersUrl;
-
-        if ($followersUrl === null) {
-            goto after_followersUrl;
-        }
-
-        after_followersUrl:        $result['followers_url'] = $followersUrl;
-
-        $followingUrl = $object->followingUrl;
-
-        if ($followingUrl === null) {
-            goto after_followingUrl;
-        }
-
-        after_followingUrl:        $result['following_url'] = $followingUrl;
-
-        $gistsUrl = $object->gistsUrl;
-
-        if ($gistsUrl === null) {
-            goto after_gistsUrl;
-        }
-
-        after_gistsUrl:        $result['gists_url'] = $gistsUrl;
-
-        $gravatarId = $object->gravatarId;
-
-        if ($gravatarId === null) {
-            goto after_gravatarId;
-        }
-
-        after_gravatarId:        $result['gravatar_id'] = $gravatarId;
-
-        $htmlUrl = $object->htmlUrl;
-
-        if ($htmlUrl === null) {
-            goto after_htmlUrl;
-        }
-
-        after_htmlUrl:        $result['html_url'] = $htmlUrl;
-
-        $id                            = $object->id;
-        after_id:        $result['id'] = $id;
-
-        $login                               = $object->login;
-        after_login:        $result['login'] = $login;
-
-        $name = $object->name;
-
-        if ($name === null) {
-            goto after_name;
-        }
-
-        after_name:        $result['name'] = $name;
-
-        $nodeId = $object->nodeId;
-
-        if ($nodeId === null) {
-            goto after_nodeId;
-        }
-
-        after_nodeId:        $result['node_id'] = $nodeId;
-
-        $organizationsUrl = $object->organizationsUrl;
-
-        if ($organizationsUrl === null) {
-            goto after_organizationsUrl;
-        }
-
-        after_organizationsUrl:        $result['organizations_url'] = $organizationsUrl;
-
-        $receivedEventsUrl = $object->receivedEventsUrl;
-
-        if ($receivedEventsUrl === null) {
-            goto after_receivedEventsUrl;
-        }
-
-        after_receivedEventsUrl:        $result['received_events_url'] = $receivedEventsUrl;
-
-        $reposUrl = $object->reposUrl;
-
-        if ($reposUrl === null) {
-            goto after_reposUrl;
-        }
-
-        after_reposUrl:        $result['repos_url'] = $reposUrl;
-
-        $siteAdmin = $object->siteAdmin;
-
-        if ($siteAdmin === null) {
-            goto after_siteAdmin;
-        }
-
-        after_siteAdmin:        $result['site_admin'] = $siteAdmin;
-
-        $starredUrl = $object->starredUrl;
-
-        if ($starredUrl === null) {
-            goto after_starredUrl;
-        }
-
-        after_starredUrl:        $result['starred_url'] = $starredUrl;
-
-        $subscriptionsUrl = $object->subscriptionsUrl;
-
-        if ($subscriptionsUrl === null) {
-            goto after_subscriptionsUrl;
-        }
-
-        after_subscriptionsUrl:        $result['subscriptions_url'] = $subscriptionsUrl;
-
-        $type = $object->type;
-
-        if ($type === null) {
-            goto after_type;
-        }
-
-        after_type:        $result['type'] = $type;
-
-        $url = $object->url;
-
-        if ($url === null) {
-            goto after_url;
-        }
-
-        after_url:        $result['url'] = $url;
 
         return $result;
     }
@@ -12479,7 +11552,7 @@ class Discussion implements ObjectMapper
         after_installation:        $result['installation'] = $installation;
 
         $label                               = $object->label;
-        $label                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled⚡️Label($label);
+        $label                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksLabel($label);
         after_label:        $result['label'] = $label;
 
         $organization = $object->organization;
@@ -12498,40 +11571,6 @@ class Discussion implements ObjectMapper
         $sender                                = $object->sender;
         $sender                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($sender);
         after_sender:        $result['sender'] = $sender;
-
-        return $result;
-    }
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookDiscussionUnlabeled⚡️Label(mixed $object): mixed
-    {
-        assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookDiscussionUnlabeled\Label);
-        $result = [];
-
-        $color                               = $object->color;
-        after_color:        $result['color'] = $color;
-
-        $default                                 = $object->default;
-        after_default:        $result['default'] = $default;
-
-        $description = $object->description;
-
-        if ($description === null) {
-            goto after_description;
-        }
-
-        after_description:        $result['description'] = $description;
-
-        $id                            = $object->id;
-        after_id:        $result['id'] = $id;
-
-        $name                              = $object->name;
-        after_name:        $result['name'] = $name;
-
-        $nodeId                                 = $object->nodeId;
-        after_nodeId:        $result['node_id'] = $nodeId;
-
-        $url                             = $object->url;
-        after_url:        $result['url'] = $url;
 
         return $result;
     }
