@@ -15,9 +15,9 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRe
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1\Parent_;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team\Parent_;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -65,8 +65,8 @@ class TeamAdd implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team⚡️Parent_($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1\Parent_' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1⚡️Parent_($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -187,7 +187,7 @@ class TeamAdd implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'team';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3649,7 +3649,7 @@ class TeamAdd implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team(array $payload): Team
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1(array $payload): WebhooksTeam1
     {
         $properties    = [];
         $missingFields = [];
@@ -3741,7 +3741,7 @@ class TeamAdd implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'parent';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team⚡️Parent_($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1⚡️Parent_($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -3817,21 +3817,21 @@ class TeamAdd implements ObjectMapper
 
             after_url:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Team::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(WebhooksTeam1::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Team(...$properties);
+            return new WebhooksTeam1(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1', $exception, stack: $this->hydrationStack);
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team⚡️Parent_(array $payload): Parent_
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1⚡️Parent_(array $payload): Parent_
     {
         $properties    = [];
         $missingFields = [];
@@ -3968,7 +3968,7 @@ class TeamAdd implements ObjectMapper
 
             after_url:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team\Parent_', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1\Parent_', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
@@ -3978,7 +3978,7 @@ class TeamAdd implements ObjectMapper
         try {
             return new Parent_(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team\Parent_', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1\Parent_', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -4045,8 +4045,8 @@ class TeamAdd implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookTeamAdd\Team\Parent_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team⚡️Parent_($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksTeam1\Parent_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1⚡️Parent_($object),
                 default => throw new LogicException('No serialization defined for $className'),
             };
         } catch (Throwable $exception) {
@@ -4150,7 +4150,7 @@ class TeamAdd implements ObjectMapper
         after_sender:        $result['sender'] = $sender;
 
         $team                              = $object->team;
-        $team                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team($team);
+        $team                              = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1($team);
         after_team:        $result['team'] = $team;
 
         return $result;
@@ -5942,9 +5942,9 @@ class TeamAdd implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1(mixed $object): mixed
     {
-        assert($object instanceof Team);
+        assert($object instanceof WebhooksTeam1);
         $result = [];
 
         $deleted = $object->deleted;
@@ -5999,7 +5999,7 @@ class TeamAdd implements ObjectMapper
             goto after_parent;
         }
 
-        $parent                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team⚡️Parent_($parent);
+        $parent                                = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1⚡️Parent_($parent);
         after_parent:        $result['parent'] = $parent;
 
         $permission = $object->permission;
@@ -6053,7 +6053,7 @@ class TeamAdd implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookTeamAdd⚡️Team⚡️Parent_(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksTeam1⚡️Parent_(mixed $object): mixed
     {
         assert($object instanceof Parent_);
         $result = [];

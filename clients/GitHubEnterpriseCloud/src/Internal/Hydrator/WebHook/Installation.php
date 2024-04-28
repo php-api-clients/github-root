@@ -17,11 +17,11 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRe
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Requester;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationDeleted;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationNewPermissionsAccepted;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationSuspend;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationUnsuspend;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksUser;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -69,7 +69,7 @@ class Installation implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Permissions($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Requester' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Requester($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksUser' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUser($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationDeleted' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationDeleted($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationNewPermissionsAccepted' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationNewPermissionsAccepted($payload),
@@ -197,7 +197,7 @@ class Installation implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'requester';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Requester($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUser($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -4205,7 +4205,7 @@ class Installation implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Requester(array $payload): Requester
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUser(array $payload): WebhooksUser
     {
         $properties    = [];
         $missingFields = [];
@@ -4441,17 +4441,17 @@ class Installation implements ObjectMapper
 
             after_url:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Requester', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksUser', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Requester::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(WebhooksUser::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Requester(...$properties);
+            return new WebhooksUser(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Requester', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksUser', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -5376,7 +5376,7 @@ class Installation implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Permissions($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationCreated\Requester' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Requester($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhooksUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUser($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationDeleted($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookInstallationNewPermissionsAccepted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationNewPermissionsAccepted($object),
@@ -5504,7 +5504,7 @@ class Installation implements ObjectMapper
             goto after_requester;
         }
 
-        $requester                                   = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Requester($requester);
+        $requester                                   = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUser($requester);
         after_requester:        $result['requester'] = $requester;
 
         $sender                                = $object->sender;
@@ -7705,9 +7705,9 @@ class Installation implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookInstallationCreated⚡️Requester(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhooksUser(mixed $object): mixed
     {
-        assert($object instanceof Requester);
+        assert($object instanceof WebhooksUser);
         $result = [];
 
         $avatarUrl = $object->avatarUrl;
