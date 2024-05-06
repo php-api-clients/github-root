@@ -1,5 +1,5 @@
 {
-    "specHash": "7dee5d2ead9376e61cd3400088de433b",
+    "specHash": "bf6e8654f94ff63b74b92d0b0b8e22a8",
     "generatedFiles": {
         "files": [
             {
@@ -5984,7 +5984,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "48d866a354f3d3515521fcf9a9944b16"
+                "hash": "04ed388f4ae2a6d06062fed43a8cdec9"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -22592,7 +22592,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetBranchRules.php",
-                "hash": "0dd32ed5c35d8a7e0fe9dc7ed87e2998"
+                "hash": "ab42bf311fdfea54a1d03a49ed21699e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetBranchRulesTest.php",
@@ -22604,7 +22604,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/GetBranchRulesListing.php",
-                "hash": "3243f2337697eaf6a0b7e67fb2cf9e99"
+                "hash": "97df97bdfa4c561407b1790245e58cbe"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/GetBranchRulesListingTest.php",
@@ -26172,7 +26172,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "b3a2ba7288be7c00b4fb7885430d4108"
+                "hash": "8b937dbc6e2b383be1e23513f5df3807"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Users.php",
@@ -26484,7 +26484,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Repos.php",
-                "hash": "0a452fc57965e8f5207126bb7f11ac66"
+                "hash": "c5558dce469c072e2a90be41c96ed8db"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Activity.php",
@@ -26732,7 +26732,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
-                "hash": "f253fd194804ca87a61ffa7483ec4509"
+                "hash": "930d2d36d5d056526634a917facb3fe9"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Eight.php",
@@ -26836,7 +26836,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Seven.php",
-                "hash": "d5e34c0b7f77e8a5202d5a15ff5ef4de"
+                "hash": "0567184e4701a7f2507aec1a27df909d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/List\/Eight.php",
@@ -29952,11 +29952,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "b3007915e2cb84c8873e281f19394980"
+                "hash": "abc894ae670503ceeffcd04a048c9d93"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "6f057761ba294ea9cd3b9bdc6b0a9aa8"
+                "hash": "0e0b3a11fb53c9ae46958f1bfdd9eeb1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
