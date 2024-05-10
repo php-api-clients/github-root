@@ -45,7 +45,7 @@ final readonly class ApplicationJson
                 "string",
                 "null"
             ],
-            "description": "Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see \\"[Using a custom domain with GitHub Pages](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/articles\\/using-a-custom-domain-with-github-pages\\/).\\""
+            "description": "Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see \\"[Using a custom domain with GitHub Pages](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/pages\\/configuring-a-custom-domain-for-your-github-pages-site).\\""
         },
         "https_enforced": {
             "type": "boolean",
@@ -111,7 +111,7 @@ final readonly class ApplicationJson
 }';
 
     /**
-     * cname: Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see "[Using a custom domain with GitHub Pages](https://docs.github.com/enterprise-cloud@latest//articles/using-a-custom-domain-with-github-pages/)."
+     * cname: Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see "[Using a custom domain with GitHub Pages](https://docs.github.com/enterprise-cloud@latest//pages/configuring-a-custom-domain-for-your-github-pages-site)."
      * httpsEnforced: Specify whether HTTPS should be enforced for the repository.
      * buildType: The process by which the GitHub Pages site will be built. `workflow` means that the site is built by a custom GitHub Actions workflow. `legacy` means that the site is built by GitHub when changes are pushed to a specific branch.
      * public: Configures access controls for the GitHub Pages site. If public is set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site. This includes anyone in your Enterprise if the repository is set to `internal` visibility.
