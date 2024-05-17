@@ -510,6 +510,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['language']);
     }
 
+    /** @return */
     public function getVariantAnalysis(array $params): CodeScanningVariantAnalysis
     {
         $arguments = [];
@@ -536,6 +537,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['codeql_variant_analysis_id']);
     }
 
+    /** @return */
     public function getVariantAnalysisRepoTask(array $params): CodeScanningVariantAnalysisRepoTask
     {
         $arguments = [];
