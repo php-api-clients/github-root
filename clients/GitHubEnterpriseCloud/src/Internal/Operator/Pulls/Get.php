@@ -25,7 +25,6 @@ final readonly class Get
     {
     }
 
-    /** @return */
     public function call(string $owner, string $repo, int $pullNumber): PullRequest|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Pulls\Get($this->responseSchemaValidator, $this->hydrator, $owner, $repo, $pullNumber);
