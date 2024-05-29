@@ -1,5 +1,5 @@
 {
-    "specHash": "d61670a493c4eff3a04ce0deec100fb7",
+    "specHash": "181d82ce3b7753835a4af0989c215e5c",
     "generatedFiles": {
         "files": [
             {
@@ -2144,19 +2144,19 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestApproved.php",
-                "hash": "6f023826b32d92ae76888eb473baed52"
+                "hash": "15b51b80480650d2522d5d4ab55f5694"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestCancelled.php",
-                "hash": "49c24c218a1f16c6265e6b54bce10daf"
+                "hash": "e51bf6c601c23fc507094871af585719"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestCreated.php",
-                "hash": "1da3224015c2bc5143729211d6e42fa9"
+                "hash": "6f87bd3c7c94b69050d8c257962205d7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestDenied.php",
-                "hash": "8fdd4b6cb6377161e95e461028cfa2a1"
+                "hash": "4b54073a69c940ee9324cfb3ddc988ea"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPing.php",
@@ -30396,7 +30396,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/PersonalAccessTokenRequest.php",
-                "hash": "5d25682ab884dd6b8e270e2576c5dcd8"
+                "hash": "68585152c0d68cabab01960f2e94dadd"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Ping.php",
