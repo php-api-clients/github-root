@@ -1,5 +1,5 @@
 {
-    "specHash": "041810bc991810fa97b34eae71cba9ac",
+    "specHash": "d61670a493c4eff3a04ce0deec100fb7",
     "generatedFiles": {
         "files": [
             {
@@ -6008,7 +6008,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Pulls.php",
-                "hash": "de2c25c9cb75e3ac17a7889ad5296a73"
+                "hash": "e28481d1ae839ea433eae30e279e3692"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/SecurityAdvisories.php",
