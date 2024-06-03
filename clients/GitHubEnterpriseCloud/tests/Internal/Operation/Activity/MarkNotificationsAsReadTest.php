@@ -24,7 +24,7 @@ final class MarkNotificationsAsReadTest extends AsyncTestCase
     /** @test */
     public function call_httpCode_202_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);
@@ -40,7 +40,7 @@ final class MarkNotificationsAsReadTest extends AsyncTestCase
     /** @test */
     public function operations_httpCode_202_requestContentType_application_json_responseContentType_application_json_zero(): void
     {
-        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted::SCHEMA_EXAMPLE_DATA, true)));
+        $response = new Response(202, ['Content-Type' => 'application/json'], json_encode(json_decode(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json::SCHEMA_EXAMPLE_DATA, true)));
         $auth     = $this->prophesize(AuthenticationInterface::class);
         $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
         $browser = $this->prophesize(Browser::class);

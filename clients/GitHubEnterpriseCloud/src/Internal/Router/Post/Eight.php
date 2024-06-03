@@ -7,7 +7,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Billing\AddResourceToCostCenter\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\RedeliverWebhookDelivery\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProtectedBranchAdminEnforced;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Reaction;
@@ -21,11 +21,27 @@ final class Eight
     {
     }
 
-    /** @return |Observable<Schema\Deployment> */
-    public function call(string $call, array $params, array $pathChunks): Json|Codespace|WithoutBody|TeamDiscussionComment|Reaction|EmptyObject|Ok|iterable|ProtectedBranchAdminEnforced
+    /** @return Schema\Operations\Billing\AddResourceToCostCenter\Response\ApplicationJson\Ok||Observable<Schema\Deployment> */
+    public function call(string $call, array $params, array $pathChunks): Ok|Json|Codespace|WithoutBody|TeamDiscussionComment|Reaction|EmptyObject|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|iterable|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {
-            if ($pathChunks[1] === 'orgs') {
+            if ($pathChunks[1] === 'enterprises') {
+                if ($pathChunks[2] === '{enterprise}') {
+                    if ($pathChunks[3] === 'settings') {
+                        if ($pathChunks[4] === 'billing') {
+                            if ($pathChunks[5] === 'cost-centers') {
+                                if ($pathChunks[6] === '{cost_center_id}') {
+                                    if ($pathChunks[7] === 'resource') {
+                                        if ($call === 'POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
+                                            return $this->routers->internal🔀Router🔀Post🔀Billing()->addResourceToCostCenter($params);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'orgs') {
                 if ($pathChunks[2] === '{org}') {
                     if ($pathChunks[3] === 'hooks') {
                         if ($pathChunks[4] === '{hook_id}') {

@@ -7,7 +7,9 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\BillingUsageReport;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CombinedBillingUsage;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAllCostCenters;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PackagesBillingUsage;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use InvalidArgumentException;
@@ -64,6 +66,20 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
+    public function getAllCostCenters(array $params): GetAllCostCenters
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\Billing\GetAllCostCenters($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀CostCenters());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
     /** @return */
     public function getGithubPackagesBillingGhe(array $params): PackagesBillingUsage
     {
@@ -92,6 +108,50 @@ final class Billing
         $operator = new Internal\Operator\Billing\GetSharedStorageBillingGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀SharedStorage());
 
         return $operator->call($arguments['enterprise']);
+    }
+
+    public function getGithubBillingUsageReportGhe(array $params): BillingUsageReport
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('year', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: year');
+        }
+
+        $arguments['year'] = $params['year'];
+        unset($params['year']);
+        if (array_key_exists('month', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: month');
+        }
+
+        $arguments['month'] = $params['month'];
+        unset($params['month']);
+        if (array_key_exists('day', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: day');
+        }
+
+        $arguments['day'] = $params['day'];
+        unset($params['day']);
+        if (array_key_exists('hour', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: hour');
+        }
+
+        $arguments['hour'] = $params['hour'];
+        unset($params['hour']);
+        if (array_key_exists('cost_center_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: cost_center_id');
+        }
+
+        $arguments['cost_center_id'] = $params['cost_center_id'];
+        unset($params['cost_center_id']);
+        $operator = new Internal\Operator\Billing\GetGithubBillingUsageReportGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Usage());
+
+        return $operator->call($arguments['enterprise'], $arguments['year'], $arguments['month'], $arguments['day'], $arguments['hour'], $arguments['cost_center_id']);
     }
 
     /** @return */

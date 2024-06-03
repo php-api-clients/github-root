@@ -146,14 +146,6 @@ final class Codespaces
     }
 
     /** @return */
-    public function createForAuthenticatedUser(array $params): Codespace
-    {
-        $operator = new Internal\Operator\Codespaces\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces());
-
-        return $operator->call($params);
-    }
-
-    /** @return */
     public function stopInOrganization(array $params): Codespace|WithoutBody
     {
         $arguments = [];
@@ -178,5 +170,13 @@ final class Codespaces
         $operator = new Internal\Operator\Codespaces\StopInOrganization($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Members🌀Username🌀Codespaces🌀CodespaceName🌀Stop());
 
         return $operator->call($arguments['org'], $arguments['username'], $arguments['codespace_name']);
+    }
+
+    /** @return */
+    public function createForAuthenticatedUser(array $params): Codespace
+    {
+        $operator = new Internal\Operator\Codespaces\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Codespaces());
+
+        return $operator->call($params);
     }
 }

@@ -6,7 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Delete;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok\Application\Json;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Billing\RemoveResourceFromCostCenter\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PullRequestReview;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -18,8 +18,8 @@ final class Eight
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|Json|iterable|BasicError|PullRequestReview
+    /** @return |Schema\Operations\Billing\RemoveResourceFromCostCenter\Response\ApplicationJson\Ok\Application\Json|Observable<Schema\Label>|Schema\BasicError */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok\Application\Json|iterable|BasicError|PullRequestReview
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -47,6 +47,18 @@ final class Eight
                                     if ($pathChunks[7] === '{name}') {
                                         if ($call === 'DELETE /enterprises/{enterprise}/actions/runners/{runner_id}/labels/{name}') {
                                             return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->removeCustomLabelFromSelfHostedRunnerForEnterprise($params);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'settings') {
+                        if ($pathChunks[4] === 'billing') {
+                            if ($pathChunks[5] === 'cost-centers') {
+                                if ($pathChunks[6] === '{cost_center_id}') {
+                                    if ($pathChunks[7] === 'resource') {
+                                        if ($call === 'DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
+                                            return $this->routers->internal🔀Router🔀Delete🔀Billing()->removeResourceFromCostCenter($params);
                                         }
                                     }
                                 }

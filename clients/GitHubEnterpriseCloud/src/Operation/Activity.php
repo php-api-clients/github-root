@@ -8,7 +8,8 @@ use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Feed;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositorySubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser;
@@ -66,8 +67,7 @@ final class Activity
         return $this->operators->activity👷ListNotificationsForAuthenticatedUserListing()->call($since, $before, $all, $participating, $page, $perPage);
     }
 
-    /** @return */
-    public function markNotificationsAsRead(array $params): Accepted|WithoutBody
+    public function markNotificationsAsRead(array $params): Json|WithoutBody
     {
         return $this->operators->activity👷MarkNotificationsAsRead()->call($params);
     }
@@ -145,7 +145,7 @@ final class Activity
     }
 
     /** @return */
-    public function markRepoNotificationsAsRead(string $owner, string $repo, array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted|WithoutBody
+    public function markRepoNotificationsAsRead(string $owner, string $repo, array $params): Accepted|WithoutBody
     {
         return $this->operators->activity👷MarkRepoNotificationsAsRead()->call($owner, $repo, $params);
     }

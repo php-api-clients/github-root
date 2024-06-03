@@ -2136,6 +2136,70 @@ $client->operations()->billing()->getGithubAdvancedSecurityBillingGhe(        en
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#get-github-advanced-security-active-committers-for-an-enterprise).
 
 
+### billing/get-all-cost-centers
+
+Get all cost centers for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/settings/billing/cost-centers', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->billing()->getAllCostCenters(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#get-all-cost-centers-for-an-enterprise).
+
+
+### billing/add-resource-to-cost-center
+
+Add users to a cost center
+
+Using the `call` method:
+```php
+$client->call('POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource', [
+        'enterprise' => 'generated',
+        'cost_center_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->billing()->addResourceToCostCenter(        enterprise: 'generated',
+        cost_center_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#add-users-to-a-cost-center).
+
+
+### billing/remove-resource-from-cost-center
+
+Remove users from a cost center
+
+Using the `call` method:
+```php
+$client->call('DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource', [
+        'enterprise' => 'generated',
+        'cost_center_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->billing()->removeResourceFromCostCenter(        enterprise: 'generated',
+        cost_center_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#remove-users-from-a-cost-center).
+
+
 ### billing/get-github-packages-billing-ghe
 
 Get GitHub Packages billing for an enterprise
@@ -2174,6 +2238,36 @@ $client->operations()->billing()->getSharedStorageBillingGhe(        enterprise:
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#get-shared-storage-billing-for-an-enterprise).
+
+
+### billing/get-github-billing-usage-report-ghe
+
+Get billing usage report for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/settings/billing/usage', [
+        'enterprise' => 'generated',
+        'year' => 4,
+        'month' => 5,
+        'day' => 3,
+        'hour' => 4,
+        'cost_center_id' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->billing()->getGithubBillingUsageReportGhe(        enterprise: 'generated',
+        year: 4,
+        month: 5,
+        day: 3,
+        hour: 4,
+        cost_center_id: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/billing#get-billing-usage-report-for-an-enterprise).
 
 
 ### secret-scanning/post-security-product-enablement-for-enterprise
@@ -23761,7 +23855,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### repos/list-tag-protection
 
-List tag protection states for a repository
+Deprecated - List tag protection states for a repository
 
 Using the `call` method:
 ```php
@@ -23778,12 +23872,12 @@ $client->operations()->repos()->listTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#list-tag-protection-states-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#deprecated---list-tag-protection-states-for-a-repository).
 
 
 ### repos/create-tag-protection
 
-Create a tag protection state for a repository
+Deprecated - Create a tag protection state for a repository
 
 Using the `call` method:
 ```php
@@ -23800,12 +23894,12 @@ $client->operations()->repos()->createTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#create-a-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#deprecated---create-a-tag-protection-state-for-a-repository).
 
 
 ### repos/delete-tag-protection
 
-Delete a tag protection state for a repository
+Deprecated - Delete a tag protection state for a repository
 
 Using the `call` method:
 ```php
@@ -23824,7 +23918,7 @@ $client->operations()->repos()->deleteTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#delete-a-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#deprecated---delete-a-tag-protection-state-for-a-repository).
 
 
 ### repos/download-tarball-archive

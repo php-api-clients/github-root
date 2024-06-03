@@ -103,8 +103,12 @@ final class Operators
     private Internal\Operator\SecretScanning\ListAlertsForEnterprise|null $secretScanning👷ListAlertsForEnterprise                                                                   = null;
     private Internal\Operator\Billing\GetGithubActionsBillingGhe|null $billing👷GetGithubActionsBillingGhe                                                                           = null;
     private Internal\Operator\Billing\GetGithubAdvancedSecurityBillingGhe|null $billing👷GetGithubAdvancedSecurityBillingGhe                                                         = null;
+    private Internal\Operator\Billing\GetAllCostCenters|null $billing👷GetAllCostCenters                                                                                             = null;
+    private Internal\Operator\Billing\AddResourceToCostCenter|null $billing👷AddResourceToCostCenter                                                                                 = null;
+    private Internal\Operator\Billing\RemoveResourceFromCostCenter|null $billing👷RemoveResourceFromCostCenter                                                                       = null;
     private Internal\Operator\Billing\GetGithubPackagesBillingGhe|null $billing👷GetGithubPackagesBillingGhe                                                                         = null;
     private Internal\Operator\Billing\GetSharedStorageBillingGhe|null $billing👷GetSharedStorageBillingGhe                                                                           = null;
+    private Internal\Operator\Billing\GetGithubBillingUsageReportGhe|null $billing👷GetGithubBillingUsageReportGhe                                                                   = null;
     private Internal\Operator\SecretScanning\PostSecurityProductEnablementForEnterprise|null $secretScanning👷PostSecurityProductEnablementForEnterprise                             = null;
     private Internal\Operator\Activity\ListPublicEvents|null $activity👷ListPublicEvents                                                                                             = null;
     private Internal\Operator\Activity\ListPublicEventsListing|null $activity👷ListPublicEventsListing                                                                               = null;
@@ -2071,6 +2075,33 @@ final class Operators
         return $this->billing👷GetGithubAdvancedSecurityBillingGhe;
     }
 
+    public function billing👷GetAllCostCenters(): Internal\Operator\Billing\GetAllCostCenters
+    {
+        if ($this->billing👷GetAllCostCenters instanceof Internal\Operator\Billing\GetAllCostCenters === false) {
+            $this->billing👷GetAllCostCenters = new Internal\Operator\Billing\GetAllCostCenters($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀CostCenters());
+        }
+
+        return $this->billing👷GetAllCostCenters;
+    }
+
+    public function billing👷AddResourceToCostCenter(): Internal\Operator\Billing\AddResourceToCostCenter
+    {
+        if ($this->billing👷AddResourceToCostCenter instanceof Internal\Operator\Billing\AddResourceToCostCenter === false) {
+            $this->billing👷AddResourceToCostCenter = new Internal\Operator\Billing\AddResourceToCostCenter($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀CostCenters🌀CostCenterId🌀Resource());
+        }
+
+        return $this->billing👷AddResourceToCostCenter;
+    }
+
+    public function billing👷RemoveResourceFromCostCenter(): Internal\Operator\Billing\RemoveResourceFromCostCenter
+    {
+        if ($this->billing👷RemoveResourceFromCostCenter instanceof Internal\Operator\Billing\RemoveResourceFromCostCenter === false) {
+            $this->billing👷RemoveResourceFromCostCenter = new Internal\Operator\Billing\RemoveResourceFromCostCenter($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀CostCenters🌀CostCenterId🌀Resource());
+        }
+
+        return $this->billing👷RemoveResourceFromCostCenter;
+    }
+
     public function billing👷GetGithubPackagesBillingGhe(): Internal\Operator\Billing\GetGithubPackagesBillingGhe
     {
         if ($this->billing👷GetGithubPackagesBillingGhe instanceof Internal\Operator\Billing\GetGithubPackagesBillingGhe === false) {
@@ -2087,6 +2118,15 @@ final class Operators
         }
 
         return $this->billing👷GetSharedStorageBillingGhe;
+    }
+
+    public function billing👷GetGithubBillingUsageReportGhe(): Internal\Operator\Billing\GetGithubBillingUsageReportGhe
+    {
+        if ($this->billing👷GetGithubBillingUsageReportGhe instanceof Internal\Operator\Billing\GetGithubBillingUsageReportGhe === false) {
+            $this->billing👷GetGithubBillingUsageReportGhe = new Internal\Operator\Billing\GetGithubBillingUsageReportGhe($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Settings🌀Billing🌀Usage());
+        }
+
+        return $this->billing👷GetGithubBillingUsageReportGhe;
     }
 
     public function secretScanning👷PostSecurityProductEnablementForEnterprise(): Internal\Operator\SecretScanning\PostSecurityProductEnablementForEnterprise

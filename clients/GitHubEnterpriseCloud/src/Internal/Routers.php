@@ -70,6 +70,7 @@ final class Routers
     private Internal\Router\Post\Checks|null $internal🔀Router🔀Post🔀Checks                               = null;
     private Internal\Router\Post\Issues|null $internal🔀Router🔀Post🔀Issues                               = null;
     private Internal\Router\Post\Pulls|null $internal🔀Router🔀Post🔀Pulls                                 = null;
+    private Internal\Router\Post\Billing|null $internal🔀Router🔀Post🔀Billing                             = null;
     private Internal\Router\Post\Markdown|null $internal🔀Router🔀Post🔀Markdown                           = null;
     private Internal\Router\Post\Users|null $internal🔀Router🔀Post🔀Users                                 = null;
     private Internal\Router\Patch\Apps|null $internal🔀Router🔀Patch🔀Apps                                 = null;
@@ -137,6 +138,7 @@ final class Routers
     private Internal\Router\Delete\Pulls|null $internal🔀Router🔀Delete🔀Pulls                             = null;
     private Internal\Router\Delete\Scim|null $internal🔀Router🔀Delete🔀Scim                               = null;
     private Internal\Router\Delete\Copilot|null $internal🔀Router🔀Delete🔀Copilot                         = null;
+    private Internal\Router\Delete\Billing|null $internal🔀Router🔀Delete🔀Billing                         = null;
     private Internal\Router\Delete\Reactions|null $internal🔀Router🔀Delete🔀Reactions                     = null;
     private Internal\Router\Put\Apps|null $internal🔀Router🔀Put🔀Apps                                     = null;
     private Internal\Router\Put\EnterpriseAdmin|null $internal🔀Router🔀Put🔀EnterpriseAdmin               = null;
@@ -693,6 +695,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Post🔀Pulls;
+    }
+
+    public function internal🔀Router🔀Post🔀Billing(): Internal\Router\Post\Billing
+    {
+        if ($this->internal🔀Router🔀Post🔀Billing instanceof Internal\Router\Post\Billing === false) {
+            $this->internal🔀Router🔀Post🔀Billing = new Internal\Router\Post\Billing(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Post🔀Billing;
     }
 
     public function internal🔀Router🔀Post🔀Markdown(): Internal\Router\Post\Markdown
@@ -1296,6 +1307,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Delete🔀Copilot;
+    }
+
+    public function internal🔀Router🔀Delete🔀Billing(): Internal\Router\Delete\Billing
+    {
+        if ($this->internal🔀Router🔀Delete🔀Billing instanceof Internal\Router\Delete\Billing === false) {
+            $this->internal🔀Router🔀Delete🔀Billing = new Internal\Router\Delete\Billing(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Delete🔀Billing;
     }
 
     public function internal🔀Router🔀Delete🔀Reactions(): Internal\Router\Delete\Reactions
