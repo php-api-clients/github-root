@@ -18,7 +18,7 @@ final class Eight
     {
     }
 
-    /** @return |Schema\Operations\Billing\RemoveResourceFromCostCenter\Response\ApplicationJson\Ok\Application\Json|Observable<Schema\Label>|Schema\BasicError */
+    /** @return |Observable<Schema\Label>|Schema\BasicError */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Actions\RemoveAllCustomLabelsFromSelfHostedRunnerForRepo\Response\ApplicationJson\Ok\Application\Json|iterable|BasicError|PullRequestReview
     {
         if ($pathChunks[0] === '') {

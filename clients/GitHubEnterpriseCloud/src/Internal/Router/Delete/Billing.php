@@ -19,6 +19,7 @@ final class Billing
     {
     }
 
+    /** @return */
     public function removeResourceFromCostCenter(array $params): Json
     {
         $arguments = [];

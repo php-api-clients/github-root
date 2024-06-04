@@ -32,16 +32,19 @@ final class Billing
         return $this->operators->billing👷GetGithubAdvancedSecurityBillingGhe()->call($enterprise, $perPage, $page);
     }
 
+    /** @return */
     public function getAllCostCenters(string $enterprise): GetAllCostCenters
     {
         return $this->operators->billing👷GetAllCostCenters()->call($enterprise);
     }
 
+    /** @return */
     public function addResourceToCostCenter(string $enterprise, string $costCenterId, array $params): Ok
     {
         return $this->operators->billing👷AddResourceToCostCenter()->call($enterprise, $costCenterId, $params);
     }
 
+    /** @return */
     public function removeResourceFromCostCenter(string $enterprise, string $costCenterId, array $params): Json
     {
         return $this->operators->billing👷RemoveResourceFromCostCenter()->call($enterprise, $costCenterId, $params);
@@ -59,6 +62,7 @@ final class Billing
         return $this->operators->billing👷GetSharedStorageBillingGhe()->call($enterprise);
     }
 
+    /** @return */
     public function getGithubBillingUsageReportGhe(string $enterprise, int $year, int $month, int $day, int $hour, string $costCenterId): BillingUsageReport
     {
         return $this->operators->billing👷GetGithubBillingUsageReportGhe()->call($enterprise, $year, $month, $day, $hour, $costCenterId);

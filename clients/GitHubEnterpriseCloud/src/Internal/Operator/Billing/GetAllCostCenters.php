@@ -23,6 +23,7 @@ final readonly class GetAllCostCenters
     {
     }
 
+    /** @return */
     public function call(string $enterprise): \ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAllCostCenters
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\GetAllCostCenters($this->responseSchemaValidator, $this->hydrator, $enterprise);

@@ -66,6 +66,7 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getAllCostCenters(array $params): GetAllCostCenters
     {
         $arguments = [];
@@ -110,6 +111,7 @@ final class Billing
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return */
     public function getGithubBillingUsageReportGhe(array $params): BillingUsageReport
     {
         $arguments = [];
