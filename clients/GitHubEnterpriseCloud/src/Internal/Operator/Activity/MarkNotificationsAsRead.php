@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Operator\Activity;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use League\OpenAPIValidation\Schema\SchemaValidator;
@@ -25,12 +25,11 @@ final readonly class MarkNotificationsAsRead
     {
     }
 
-    /** @return */
-    public function call(array $params): Accepted|WithoutBody
+    public function call(array $params): Json|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Activity\MarkNotificationsAsRead($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator);
         $request   = $operation->createRequest($params);
-        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Accepted|WithoutBody {
+        $result    = await($this->browser->request($request->getMethod(), (string) $request->getUri(), $request->withHeader('Authorization', $this->authentication->authHeader())->getHeaders(), (string) $request->getBody())->then(static function (ResponseInterface $response) use ($operation): Json|WithoutBody {
             return $operation->createResponse($response);
         }));
         if ($result instanceof Observable) {

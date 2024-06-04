@@ -687,14 +687,6 @@ final class Repos
     }
 
     /** @return */
-    public function createForAuthenticatedUser(array $params): FullRepository|WithoutBody
-    {
-        $operator = new Internal\Operator\Repos\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Repos());
-
-        return $operator->call($params);
-    }
-
-    /** @return */
     public function setAdminBranchProtection(array $params): ProtectedBranchAdminEnforced
     {
         $arguments = [];
@@ -773,6 +765,14 @@ final class Repos
         $operator = new Internal\Operator\Repos\CancelPagesDeployment($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Pages🌀Deployments🌀PagesDeploymentId🌀Cancel());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['pages_deployment_id']);
+    }
+
+    /** @return */
+    public function createForAuthenticatedUser(array $params): FullRepository|WithoutBody
+    {
+        $operator = new Internal\Operator\Repos\CreateForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Repos());
+
+        return $operator->call($params);
     }
 
     /** @return Observable<string> */

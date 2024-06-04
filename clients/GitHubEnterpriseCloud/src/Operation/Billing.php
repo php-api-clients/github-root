@@ -7,7 +7,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsBillingUsage;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AdvancedSecurityActiveCommitters;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\BillingUsageReport;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CombinedBillingUsage;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAllCostCenters;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Billing\AddResourceToCostCenter\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Billing\RemoveResourceFromCostCenter\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PackagesBillingUsage;
 
 final class Billing
@@ -28,6 +32,21 @@ final class Billing
         return $this->operators->billing👷GetGithubAdvancedSecurityBillingGhe()->call($enterprise, $perPage, $page);
     }
 
+    public function getAllCostCenters(string $enterprise): GetAllCostCenters
+    {
+        return $this->operators->billing👷GetAllCostCenters()->call($enterprise);
+    }
+
+    public function addResourceToCostCenter(string $enterprise, string $costCenterId, array $params): Ok
+    {
+        return $this->operators->billing👷AddResourceToCostCenter()->call($enterprise, $costCenterId, $params);
+    }
+
+    public function removeResourceFromCostCenter(string $enterprise, string $costCenterId, array $params): Json
+    {
+        return $this->operators->billing👷RemoveResourceFromCostCenter()->call($enterprise, $costCenterId, $params);
+    }
+
     /** @return */
     public function getGithubPackagesBillingGhe(string $enterprise): PackagesBillingUsage
     {
@@ -38,6 +57,11 @@ final class Billing
     public function getSharedStorageBillingGhe(string $enterprise): CombinedBillingUsage
     {
         return $this->operators->billing👷GetSharedStorageBillingGhe()->call($enterprise);
+    }
+
+    public function getGithubBillingUsageReportGhe(string $enterprise, int $year, int $month, int $day, int $hour, string $costCenterId): BillingUsageReport
+    {
+        return $this->operators->billing👷GetGithubBillingUsageReportGhe()->call($enterprise, $year, $month, $day, $hour, $costCenterId);
     }
 
     /** @return */

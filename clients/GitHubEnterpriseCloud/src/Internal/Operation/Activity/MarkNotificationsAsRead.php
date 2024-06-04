@@ -36,7 +36,7 @@ final class MarkNotificationsAsRead
         return new Request('PUT', str_replace([], [], '/notifications'), ['Content-Type' => 'application/json'], json_encode($data));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted|WithoutBody
+    public function createResponse(ResponseInterface $response): Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -48,9 +48,9 @@ final class MarkNotificationsAsRead
                      * Response
                      **/
                     case 202:
-                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+                        $this->responseSchemaValidator->validate($body, Reader::readFromJson(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
-                        return $this->hydrator->hydrateObject(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted::class, $body);
+                        return $this->hydrator->hydrateObject(Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json::class, $body);
                     /**
                      * Forbidden
                      **/

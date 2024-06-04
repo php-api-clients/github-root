@@ -1,5 +1,5 @@
 {
-    "specHash": "181d82ce3b7753835a4af0989c215e5c",
+    "specHash": "9ba395332ab1fb03d596ca95c67b1ffc",
     "generatedFiles": {
         "files": [
             {
@@ -1896,7 +1896,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookFork.php",
-                "hash": "4ccaed918f1967ef22a8201b727df73c"
+                "hash": "98fd68f0a0d85620deac18e391e0833b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookGithubAppAuthorizationRevoked.php",
@@ -3720,7 +3720,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookFork\/Forkee.php",
-                "hash": "e9e22471154dd41762341d1602141fb1"
+                "hash": "f4586dbe8dd2b864ac354e8202c8f0c1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookFork\/Forkee\/License.php",
@@ -5872,11 +5872,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "cd60803c0976beefad16954bf80517ee"
+                "hash": "5da0e68d1dd40d89548b6f4809b03e09"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Client.php",
-                "hash": "19ecd0f0366cf05acc5a9d22261b5d59"
+                "hash": "03876d3e002c8aab4cf47d6ffad0f13e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -5924,11 +5924,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
-                "hash": "2f89f8f34c1648063bd254cf117621d1"
+                "hash": "cf8b4b144734e1c6931891d699dca62c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Activity.php",
-                "hash": "af5e182ff0951135ff18a86e9301463d"
+                "hash": "49e8dcd9c0596d243e4b2bbb00ddf45e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Gists.php",
@@ -14236,15 +14236,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Activity\/MarkNotificationsAsRead.php",
-                "hash": "4db1ab80f560e6a24f27ccc8b34996f6"
+                "hash": "affaf325a505b88fc7023f92faffef56"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Activity\/MarkNotificationsAsRead.php",
-                "hash": "5fa42f9d9bb74ae9d06292ae179cf078"
+                "hash": "051d53d39276cf1a988e35d896bd5c88"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Activity\/MarkNotificationsAsReadTest.php",
-                "hash": "0d5cd2a2db82e1d4fc3e6a80470318e2"
+                "hash": "e54ba0a25227f50677d5249e23baaebf"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Activity\/GetThread.php",
@@ -26244,7 +26244,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Billing.php",
-                "hash": "6cd51d86132d2ced5d1933abcaec00c7"
+                "hash": "148b3be24e620476c1799b59d4ae6d3a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Checks.php",
@@ -26292,7 +26292,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Repos.php",
-                "hash": "800127e79acbd6f06bbc9755d0c98a95"
+                "hash": "2f2fc9f6f254c4cbc4549e9743b67023"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Teams.php",
@@ -26308,7 +26308,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Codespaces.php",
-                "hash": "9708b4cb812b998bf45bb68bae605d57"
+                "hash": "fe9e5835d0957c072ca221255e4d570f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Copilot.php",
@@ -26632,7 +26632,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Activity.php",
-                "hash": "e77a4c8ab8d1a602803973f961302aa1"
+                "hash": "92377be49a32c27f4bd8620ca3f3080c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Actions.php",
@@ -26728,7 +26728,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "28c7d64a38f9ae61536e5ff3af0ea112"
+                "hash": "53dfdc1b0c3c44fab4dd5622241d9f0b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -26772,7 +26772,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Eight.php",
-                "hash": "0b8f79abf00d1f2ae247470fe68343b9"
+                "hash": "2085e32a844e058f758ada1413907cff"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Nine.php",
@@ -26868,7 +26868,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Eight.php",
-                "hash": "324ab26d29cc60ea3163cccd4b40a611"
+                "hash": "b11f67fb522c12ce71537d18199a2b39"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Three.php",
@@ -26904,7 +26904,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Two.php",
-                "hash": "dd929665342a8de504463c48693adc0e"
+                "hash": "b18fa3d10261ddf6033c10b30babadf6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Nine.php",
@@ -26928,11 +26928,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Routers.php",
-                "hash": "65c25a576c136f3778d314cf1ee93886"
+                "hash": "c98b4ade0408141bcbcde16efc2bc75b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operators.php",
-                "hash": "4cb2c88d601665f28f838ac46e739af9"
+                "hash": "5259c31f12d1746dbb0dd0ab5f246b6b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Root.php",
@@ -27212,7 +27212,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Notifications.php",
-                "hash": "395c67ac423bb8550bbc369099d9b2c6"
+                "hash": "c68ff4627407b59673877eac60901e80"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Notifications\/Threads\/ThreadId.php",
@@ -29104,7 +29104,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "1af973f24f124a33afda65ea7bbbfe57"
+                "hash": "6ae1cff85d05f6059c812c1c933a8411"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/ListProvisionedGroupsEnterprise.php",
@@ -29867,10 +29867,6 @@
                 "hash": "664757e72f36b6366a0794d983ae822d"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookFork\/Forkee\/CustomProperties.php",
-                "hash": "f923d0ad43604233a0430ff3d4c4cc5a"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookIssuesOpened\/Changes\/OldRepository\/CustomProperties.php",
                 "hash": "95cfec571b242f1748f06bf27fbcaba2"
             },
@@ -29952,11 +29948,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "9804e3abd8d57ebf2ca49444b94a2844"
+                "hash": "10acb3cb2ea6b735b00e51adfcb1a438"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "cc212d9689dac720d02ca8d739e5fbed"
+                "hash": "c455b4374efd02723d47e456cf4a0f53"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -30320,7 +30316,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Fork.php",
-                "hash": "113f04ba76d58308529823118ac5dacc"
+                "hash": "b947b41b74fe460139b16f47bbebcfc8"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/GithubAppAuthorization.php",
@@ -31865,6 +31861,118 @@
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/CodeScanning\/Codeql\/VariantAnalyses\/CodeqlVariantAnalysisId\/Repos\/RepoOwner\/RepoName.php",
                 "hash": "20a8210efef3ace261758ca63e539ada"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetAllCostCenters.php",
+                "hash": "ac8938ca8a7d1d26b11aef897dc2f234"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/GetAllCostCenters.php",
+                "hash": "d1afbbc68821c23d0e044e048e9193c8"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/GetAllCostCentersTest.php",
+                "hash": "8b5e68cd4709ca954ef3b58d4ddcaf04"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/AddResourceToCostCenter.php",
+                "hash": "d6fc3833a11ca195b057de69ba72ea69"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/AddResourceToCostCenter.php",
+                "hash": "ecdfc0fd5fbd74c3681a70ed3a6234da"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/AddResourceToCostCenterTest.php",
+                "hash": "96003b06176f4a4cc50e8b62b1d7d09d"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/RemoveResourceFromCostCenter.php",
+                "hash": "632dbd586410d11b835f1f5ed33c4c6a"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/RemoveResourceFromCostCenter.php",
+                "hash": "0aaadcbaad5ad9e5dc8f15bacbf9dabc"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/RemoveResourceFromCostCenterTest.php",
+                "hash": "8a22c54bb0cfdbeaf5d17a0db75c58a6"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportGhe.php",
+                "hash": "f6299f31da9aa4e8f42d538da845f6d4"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/GetGithubBillingUsageReportGhe.php",
+                "hash": "8d94f4d8a02b18862d0e35e7ea15e7fa"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportGheTest.php",
+                "hash": "1f6a4440e32672223dbaf62bace8517b"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GetAllCostCenters.php",
+                "hash": "aceb6909291d4076a4878f04535450e5"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/BillingUsageReport.php",
+                "hash": "1a57a1e39f70c21bc25e7d2e61ac4f1c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GetAllCostCenters\/CostCenters.php",
+                "hash": "4a192d381cd6a04a47a5519b96c5e427"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GetAllCostCenters\/CostCenters\/Resources.php",
+                "hash": "05c616dfc9ce0b056a0413624eae7cee"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/BillingUsageReport\/UsageItems.php",
+                "hash": "3853687dcf34327798e6bc19504b8c25"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Billing\/AddResourceToCostCenter\/Request\/ApplicationJson.php",
+                "hash": "b38d5c6a50a728405765848e2511f6e0"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Billing\/RemoveResourceFromCostCenter\/Response\/ApplicationJson\/Ok.php",
+                "hash": "ad91dac6154ddf2d9dcc86e37dc8c8bd"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Billing\/RemoveResourceFromCostCenter\/Response\/ApplicationJson\/Ok\/Application\/Json.php",
+                "hash": "d2ccab522acb239420c83e272030889c"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Activity\/MarkNotificationsAsRead\/Response\/ApplicationJson\/Accepted\/Application\/Json.php",
+                "hash": "de955a92812603cdc913f7413c23e5ae"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Billing\/AddResourceToCostCenter\/Response\/ApplicationJson\/Ok.php",
+                "hash": "46c8371d49c13fc83b51269285c2ec29"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Billing\/RemoveResourceFromCostCenter\/Request\/ApplicationJson.php",
+                "hash": "3cd09456a0b3dc78f180ebedf4568138"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Billing.php",
+                "hash": "b57ecab1fa4d0e4b7cdd2364361b38bf"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Billing.php",
+                "hash": "641fe0357820511e02ec67ac38bc5d60"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Settings\/Billing\/CostCenters.php",
+                "hash": "67222d5e6d17eb191e13f06d514ead3a"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Settings\/Billing\/CostCenters\/CostCenterId\/Resource.php",
+                "hash": "9a7606eb0e1a1f35a8d0046928b4be7e"
+            },
+            {
+                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Settings\/Billing\/Usage.php",
+                "hash": "b837e85cc82e059525ccb9251865f8e7"
             }
         ]
     },

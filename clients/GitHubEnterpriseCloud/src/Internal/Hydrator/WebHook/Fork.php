@@ -8,13 +8,13 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\LicenseSimple;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimpleWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\CustomProperties;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\License;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Owner;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\Permissions;
@@ -69,7 +69,6 @@ class Fork implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Owner' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Owner($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\TemplateRepository\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️TemplateRepository⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleUserWebhooks($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️CustomProperties($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -556,26 +555,6 @@ class Fork implements ObjectMapper
             $properties['createdAt'] = $value;
 
             after_createdAt:
-
-            $value = $payload['custom_properties'] ?? null;
-
-            if ($value === null) {
-                $properties['customProperties'] = null;
-                goto after_customProperties;
-            }
-
-            if (is_array($value)) {
-                try {
-                    $this->hydrationStack[] = 'customProperties';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️CustomProperties($value);
-                } finally {
-                    array_pop($this->hydrationStack);
-                }
-            }
-
-            $properties['customProperties'] = $value;
-
-            after_customProperties:
 
             $value = $payload['default_branch'] ?? null;
 
@@ -5106,27 +5085,7 @@ class Fork implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️CustomProperties(array $payload): CustomProperties
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new CustomProperties(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookFork\Forkee\CustomProperties', $exception, stack: $this->hydrationStack);
-        }
-    }
-
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️RepositoryWebhooks⚡️CustomProperties(array $payload): CustomProperties
     {
         $properties    = [];
         $missingFields = [];
@@ -5136,11 +5095,11 @@ class Fork implements ObjectMapper
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(CustomProperties::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties(...$properties);
+            return new CustomProperties(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryWebhooks\CustomProperties', $exception, stack: $this->hydrationStack);
         }
@@ -5451,15 +5410,6 @@ class Fork implements ObjectMapper
 
         $createdAt                                    = $object->createdAt;
         after_createdAt:        $result['created_at'] = $createdAt;
-
-        $customProperties = $object->customProperties;
-
-        if ($customProperties === null) {
-            goto after_customProperties;
-        }
-
-        $customProperties                                           = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookFork⚡️Forkee⚡️CustomProperties($customProperties);
-        after_customProperties:        $result['custom_properties'] = $customProperties;
 
         $defaultBranch                                        = $object->defaultBranch;
         after_defaultBranch:        $result['default_branch'] = $defaultBranch;

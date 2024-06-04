@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkRepoNotificationsAsRead\Response\ApplicationJson\Accepted;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositorySubscription;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ThreadSubscription;
@@ -100,8 +101,7 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
-    /** @return */
-    public function markNotificationsAsRead(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted|WithoutBody
+    public function markNotificationsAsRead(array $params): Json|WithoutBody
     {
         $operator = new Internal\Operator\Activity\MarkNotificationsAsRead($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());
 

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\Operation;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -42,7 +42,7 @@ class Notifications implements ObjectMapper
         return match ($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted⚡️Application⚡️Json($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -162,7 +162,7 @@ class Notifications implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted(array $payload): Accepted
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted⚡️Application⚡️Json(array $payload): Json
     {
         $properties    = [];
         $missingFields = [];
@@ -178,17 +178,17 @@ class Notifications implements ObjectMapper
 
             after_message:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(Accepted::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(Json::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new Accepted(...$properties);
+            return new Json(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -225,7 +225,7 @@ class Notifications implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Activity\MarkNotificationsAsRead\Response\ApplicationJson\Accepted\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted⚡️Application⚡️Json($object),
                 default => throw new LogicException('No serialization defined for $className'),
             };
         } catch (Throwable $exception) {
@@ -357,9 +357,9 @@ class Notifications implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Operations⚡️Activity⚡️MarkNotificationsAsRead⚡️Response⚡️ApplicationJson⚡️Accepted⚡️Application⚡️Json(mixed $object): mixed
     {
-        assert($object instanceof Accepted);
+        assert($object instanceof Json);
         $result = [];
 
         $message = $object->message;

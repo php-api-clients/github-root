@@ -109,8 +109,12 @@ assertType('', $client->call('GET /enterprises/{enterprise}/license-sync-status'
 assertType('Observable<Schema\\OrganizationSecretScanningAlert>', $client->call('GET /enterprises/{enterprise}/secret-scanning/alerts'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/actions'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/advanced-security'));
+assertType('Schema\\GetAllCostCenters', $client->call('GET /enterprises/{enterprise}/settings/billing/cost-centers'));
+assertType('Schema\\Operations\\Billing\\AddResourceToCostCenter\\Response\\ApplicationJson\\Ok', $client->call('POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
+assertType('Schema\\Operations\\Billing\\RemoveResourceFromCostCenter\\Response\\ApplicationJson\\Ok\\Application\\Json', $client->call('DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/packages'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/shared-storage'));
+assertType('Schema\\BillingUsageReport', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
 assertType('', $client->call('POST /enterprises/{enterprise}/{security_product}/{enablement}'));
 assertType('Observable<Schema\\Event>|WithoutBody', $client->call('GET /events'));
 assertType('Observable<Schema\\Event>|WithoutBody', $client->call('LIST /events'));
@@ -166,7 +170,7 @@ assertType('Observable<Schema\\Event>|Schema\\BasicError|WithoutBody', $client->
 assertType('Observable<Schema\\Event>|Schema\\BasicError|WithoutBody', $client->call('LIST /networks/{owner}/{repo}/events'));
 assertType('Observable<Schema\\Thread>|WithoutBody', $client->call('GET /notifications'));
 assertType('Observable<Schema\\Thread>|WithoutBody', $client->call('LIST /notifications'));
-assertType('', $client->call('PUT /notifications'));
+assertType('Schema\\Operations\\Activity\\MarkNotificationsAsRead\\Response\\ApplicationJson\\Accepted\\Application\\Json|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('PUT /notifications'));
 assertType('', $client->call('GET /notifications/threads/{thread_id}'));
 assertType('', $client->call('DELETE /notifications/threads/{thread_id}'));
 assertType('', $client->call('PATCH /notifications/threads/{thread_id}'));

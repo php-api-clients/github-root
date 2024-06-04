@@ -411,12 +411,28 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /enterprises/{enterprise}/settings/billing/cost-centers') {
+            return $this->typeResolver->resolve('Schema\\GetAllCostCenters');
+        }
+
+        if ($call === 'POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Billing\\AddResourceToCostCenter\\Response\\ApplicationJson\\Ok');
+        }
+
+        if ($call === 'DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Billing\\RemoveResourceFromCostCenter\\Response\\ApplicationJson\\Ok\\Application\\Json');
+        }
+
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/packages') {
             return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/shared-storage') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/settings/billing/usage') {
+            return $this->typeResolver->resolve('Schema\\BillingUsageReport');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/{security_product}/{enablement}') {
@@ -640,7 +656,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PUT /notifications') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\Operations\\Activity\\MarkNotificationsAsRead\\Response\\ApplicationJson\\Accepted\\Application\\Json|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /notifications/threads/{thread_id}') {
