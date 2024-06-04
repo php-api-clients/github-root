@@ -24,6 +24,7 @@ final readonly class RemoveResourceFromCostCenter
     {
     }
 
+    /** @return */
     public function call(string $enterprise, string $costCenterId, array $params): Json
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\RemoveResourceFromCostCenter($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise, $costCenterId);

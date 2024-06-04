@@ -101,6 +101,7 @@ final class Activity
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function markNotificationsAsRead(array $params): Json|WithoutBody
     {
         $operator = new Internal\Operator\Activity\MarkNotificationsAsRead($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Notifications());

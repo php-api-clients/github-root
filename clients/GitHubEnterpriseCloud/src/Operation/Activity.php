@@ -67,6 +67,7 @@ final class Activity
         return $this->operators->activity👷ListNotificationsForAuthenticatedUserListing()->call($since, $before, $all, $participating, $page, $perPage);
     }
 
+    /** @return */
     public function markNotificationsAsRead(array $params): Json|WithoutBody
     {
         return $this->operators->activity👷MarkNotificationsAsRead()->call($params);
