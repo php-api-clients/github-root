@@ -5924,11 +5924,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
-                "hash": "5e4c14373b71a269b089cdeccad67f3b"
+                "hash": "966f7db10e65ae9cd5ee44b95c168b21"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Activity.php",
-                "hash": "3a701c2ab7dcc6c1e3adda52ac937bcc"
+                "hash": "52e2d03bf9824b479a8702cf7bb88e27"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Gists.php",
@@ -31992,7 +31992,7 @@
             },
             {
                 "name": "..\/..\/composer.lock",
-                "hash": "896c1363277f60ac64a6288682a2713a"
+                "hash": "87ff545c771fcddd769df42fa210ed40"
             }
         ]
     }
