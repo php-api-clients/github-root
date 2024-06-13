@@ -31,6 +31,13 @@ final class AssigningTeam implements PropertyCaster
                 } catch (Throwable) {
                 }
             }
+
+            if ($signature === 'created_at|group_id|html_url|id|members_url|name|slug|sync_to_organizations|updated_at|url') {
+                try {
+                    return $hydrator->hydrateObject(Schema\EnterpriseTeam::class, $value);
+                } catch (Throwable) {
+                }
+            }
         }
 
         return $value;
