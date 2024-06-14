@@ -1416,19 +1416,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/organization-roles/{role_id}/teams') {
-            return $this->typeResolver->resolve('Observable<Schema\\Team>|WithoutBody');
+            return $this->typeResolver->resolve('iterable<int,Schema\\TeamRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'LIST /orgs/{org}/organization-roles/{role_id}/teams') {
-            return $this->typeResolver->resolve('Observable<Schema\\Team>|WithoutBody');
+            return $this->typeResolver->resolve('iterable<int,Schema\\TeamRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/organization-roles/{role_id}/users') {
-            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
+            return $this->typeResolver->resolve('iterable<int,Schema\\UserRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'LIST /orgs/{org}/organization-roles/{role_id}/users') {
-            return $this->typeResolver->resolve('Observable<Schema\\SimpleUser>|WithoutBody');
+            return $this->typeResolver->resolve('iterable<int,Schema\\UserRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/outside_collaborators') {
@@ -2728,11 +2728,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Commit>');
+            return $this->typeResolver->resolve('Observable<Schema\\Commit>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/commits') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\Commit>');
+            return $this->typeResolver->resolve('Observable<Schema\\Commit>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head') {
