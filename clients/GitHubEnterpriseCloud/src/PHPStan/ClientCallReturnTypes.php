@@ -1416,19 +1416,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/organization-roles/{role_id}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamRoleAssignment>|WithoutBody');
         }
 
         if ($call === 'LIST /orgs/{org}/organization-roles/{role_id}/teams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\TeamRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\TeamRoleAssignment>|WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/organization-roles/{role_id}/users') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\UserRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\UserRoleAssignment>|WithoutBody');
         }
 
         if ($call === 'LIST /orgs/{org}/organization-roles/{role_id}/users') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\UserRoleAssignment>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('Observable<Schema\\UserRoleAssignment>|WithoutBody');
         }
 
         if ($call === 'GET /orgs/{org}/outside_collaborators') {

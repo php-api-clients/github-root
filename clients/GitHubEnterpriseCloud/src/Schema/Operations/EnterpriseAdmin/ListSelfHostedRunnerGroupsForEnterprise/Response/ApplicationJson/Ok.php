@@ -49,6 +49,9 @@ final readonly class Ok
                     "runners_url": {
                         "type": "string"
                     },
+                    "hosted_runners_url": {
+                        "type": "string"
+                    },
                     "allows_public_repositories": {
                         "type": "boolean"
                     },
@@ -90,6 +93,7 @@ final readonly class Ok
             "default": false,
             "selected_organizations_url": "generated",
             "runners_url": "generated",
+            "hosted_runners_url": "generated",
             "allows_public_repositories": false,
             "workflow_restrictions_read_only": false,
             "restricted_to_workflows": false,
@@ -105,6 +109,7 @@ final readonly class Ok
             "default": false,
             "selected_organizations_url": "generated",
             "runners_url": "generated",
+            "hosted_runners_url": "generated",
             "allows_public_repositories": false,
             "workflow_restrictions_read_only": false,
             "restricted_to_workflows": false,
