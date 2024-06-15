@@ -37,6 +37,9 @@ final readonly class RunnerGroupsEnterprise
         "runners_url": {
             "type": "string"
         },
+        "hosted_runners_url": {
+            "type": "string"
+        },
         "allows_public_repositories": {
             "type": "boolean"
         },
@@ -72,6 +75,7 @@ final readonly class RunnerGroupsEnterprise
     "default": false,
     "selected_organizations_url": "generated",
     "runners_url": "generated",
+    "hosted_runners_url": "generated",
     "allows_public_repositories": false,
     "workflow_restrictions_read_only": false,
     "restricted_to_workflows": false,
@@ -88,7 +92,8 @@ final readonly class RunnerGroupsEnterprise
      */
     public function __construct(public int|float $id, public string $name, public string $visibility, public bool $default, #[MapFrom('selected_organizations_url')]
     public string|null $selectedOrganizationsUrl, #[MapFrom('runners_url')]
-    public string $runnersUrl, #[MapFrom('allows_public_repositories')]
+    public string $runnersUrl, #[MapFrom('hosted_runners_url')]
+    public string|null $hostedRunnersUrl, #[MapFrom('allows_public_repositories')]
     public bool $allowsPublicRepositories, #[MapFrom('workflow_restrictions_read_only')]
     public bool|null $workflowRestrictionsReadOnly, #[MapFrom('restricted_to_workflows')]
     public bool|null $restrictedToWorkflows, #[MapFrom('selected_workflows')]

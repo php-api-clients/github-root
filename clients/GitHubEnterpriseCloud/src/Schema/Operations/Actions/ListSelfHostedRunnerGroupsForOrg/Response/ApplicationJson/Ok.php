@@ -51,6 +51,9 @@ final readonly class Ok
                     "runners_url": {
                         "type": "string"
                     },
+                    "hosted_runners_url": {
+                        "type": "string"
+                    },
                     "inherited": {
                         "type": "boolean"
                     },
@@ -98,6 +101,7 @@ final readonly class Ok
             "default": false,
             "selected_repositories_url": "generated",
             "runners_url": "generated",
+            "hosted_runners_url": "generated",
             "inherited": false,
             "inherited_allows_public_repositories": false,
             "allows_public_repositories": false,
@@ -115,6 +119,7 @@ final readonly class Ok
             "default": false,
             "selected_repositories_url": "generated",
             "runners_url": "generated",
+            "hosted_runners_url": "generated",
             "inherited": false,
             "inherited_allows_public_repositories": false,
             "allows_public_repositories": false,

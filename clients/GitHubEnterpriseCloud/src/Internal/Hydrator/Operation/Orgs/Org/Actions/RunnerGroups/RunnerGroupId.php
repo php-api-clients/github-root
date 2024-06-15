@@ -114,6 +114,17 @@ class RunnerGroupId implements ObjectMapper
 
             after_runnersUrl:
 
+            $value = $payload['hosted_runners_url'] ?? null;
+
+            if ($value === null) {
+                $properties['hostedRunnersUrl'] = null;
+                goto after_hostedRunnersUrl;
+            }
+
+            $properties['hostedRunnersUrl'] = $value;
+
+            after_hostedRunnersUrl:
+
             $value = $payload['inherited'] ?? null;
 
             if ($value === null) {
@@ -315,6 +326,14 @@ class RunnerGroupId implements ObjectMapper
 
         $runnersUrl                                     = $object->runnersUrl;
         after_runnersUrl:        $result['runners_url'] = $runnersUrl;
+
+        $hostedRunnersUrl = $object->hostedRunnersUrl;
+
+        if ($hostedRunnersUrl === null) {
+            goto after_hostedRunnersUrl;
+        }
+
+        after_hostedRunnersUrl:        $result['hosted_runners_url'] = $hostedRunnersUrl;
 
         $inherited                                   = $object->inherited;
         after_inherited:        $result['inherited'] = $inherited;
