@@ -383,6 +383,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /enterprises/{enterprise}/copilot/billing/seats') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\ListCopilotSeatsForEnterprise\\Response\\ApplicationJson\\Ok');
+        }
+
         if ($call === 'GET /enterprises/{enterprise}/copilot/usage') {
             return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
@@ -1036,7 +1040,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/copilot/billing/seats') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\ListCopilotSeats\\Response\\ApplicationJson\\Ok\\Application\\Json');
         }
 
         if ($call === 'POST /orgs/{org}/copilot/billing/selected_teams') {
