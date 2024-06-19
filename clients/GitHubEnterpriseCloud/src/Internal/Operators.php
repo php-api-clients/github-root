@@ -96,6 +96,7 @@ final class Operators
     private Internal\Operator\SecretScanning\GetSecurityAnalysisSettingsForEnterprise|null $secretScanning👷GetSecurityAnalysisSettingsForEnterprise                                 = null;
     private Internal\Operator\SecretScanning\PatchSecurityAnalysisSettingsForEnterprise|null $secretScanning👷PatchSecurityAnalysisSettingsForEnterprise                             = null;
     private Internal\Operator\EnterpriseAdmin\GetConsumedLicenses|null $enterpriseAdmin👷GetConsumedLicenses                                                                         = null;
+    private Internal\Operator\Copilot\ListCopilotSeatsForEnterprise|null $copilot👷ListCopilotSeatsForEnterprise                                                                     = null;
     private Internal\Operator\Copilot\UsageMetricsForEnterprise|null $copilot👷UsageMetricsForEnterprise                                                                             = null;
     private Internal\Operator\Copilot\UsageMetricsForEnterpriseListing|null $copilot👷UsageMetricsForEnterpriseListing                                                               = null;
     private Internal\Operator\Dependabot\ListAlertsForEnterprise|null $dependabot👷ListAlertsForEnterprise                                                                           = null;
@@ -2010,6 +2011,15 @@ final class Operators
         }
 
         return $this->enterpriseAdmin👷GetConsumedLicenses;
+    }
+
+    public function copilot👷ListCopilotSeatsForEnterprise(): Internal\Operator\Copilot\ListCopilotSeatsForEnterprise
+    {
+        if ($this->copilot👷ListCopilotSeatsForEnterprise instanceof Internal\Operator\Copilot\ListCopilotSeatsForEnterprise === false) {
+            $this->copilot👷ListCopilotSeatsForEnterprise = new Internal\Operator\Copilot\ListCopilotSeatsForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Copilot🌀Billing🌀Seats());
+        }
+
+        return $this->copilot👷ListCopilotSeatsForEnterprise;
     }
 
     public function copilot👷UsageMetricsForEnterprise(): Internal\Operator\Copilot\UsageMetricsForEnterprise
