@@ -24,8 +24,8 @@ final class Seven
     {
     }
 
-    /** @return |Observable<Schema\Label>|Schema\BasicError */
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|GroupResponse|UserResponse|ScimUser
+    /** @return |Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok|Observable<Schema\Label>|Schema\BasicError */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|GroupResponse|UserResponse|ScimUser
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -122,6 +122,16 @@ final class Seven
                                 if ($pathChunks[6] === 'repositories') {
                                     if ($call === 'PUT /orgs/{org}/actions/variables/{name}/repositories') {
                                         return $this->routers->internal🔀Router🔀Put🔀Actions()->setSelectedReposForOrgVariable($params);
+                                    }
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-security') {
+                        if ($pathChunks[4] === 'configurations') {
+                            if ($pathChunks[5] === '{configuration_id}') {
+                                if ($pathChunks[6] === 'defaults') {
+                                    if ($call === 'PUT /orgs/{org}/code-security/configurations/{configuration_id}/defaults') {
+                                        return $this->routers->internal🔀Router🔀Put🔀CodeSecurity()->setConfigurationAsDefault($params);
                                     }
                                 }
                             }

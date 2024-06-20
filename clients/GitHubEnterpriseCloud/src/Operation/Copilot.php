@@ -19,6 +19,7 @@ final class Copilot
     {
     }
 
+    /** @return */
     public function listCopilotSeatsForEnterprise(string $enterprise, int $page, int $perPage): Ok
     {
         return $this->operators->copilot👷ListCopilotSeatsForEnterprise()->call($enterprise, $page, $perPage);
@@ -42,6 +43,7 @@ final class Copilot
         return $this->operators->copilot👷GetCopilotOrganizationDetails()->call($org);
     }
 
+    /** @return */
     public function listCopilotSeats(string $org, int $page, int $perPage): Json
     {
         return $this->operators->copilot👷ListCopilotSeats()->call($org, $page, $perPage);

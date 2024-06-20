@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CheckRun;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CheckSuitePreference;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeScanningDefaultSetupUpdateResponse;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CommitComment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ExternalGroup;
@@ -33,7 +34,8 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WithoutBody|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
+    /** @return |Schema\CodeSecurityConfiguration|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    public function call(string $call, array $params, array $pathChunks): RunnerGroupsEnterprise|RunnerGroupsOrg|WithoutBody|CodeSecurityConfiguration|WebhookConfig|ExternalGroup|CheckRun|CheckSuitePreference|EmptyObject|CodeScanningDefaultSetupUpdateResponse|CommitComment|Hook|Import|RepositoryInvitation|Issue|BasicError|Label|Milestone|PullRequest|Release|RepositoryAdvisory
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -61,6 +63,14 @@ final class Six
                             if ($pathChunks[5] === '{name}') {
                                 if ($call === 'PATCH /orgs/{org}/actions/variables/{name}') {
                                     return $this->routers->internal🔀Router🔀Patch🔀Actions()->updateOrgVariable($params);
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'code-security') {
+                        if ($pathChunks[4] === 'configurations') {
+                            if ($pathChunks[5] === '{configuration_id}') {
+                                if ($call === 'PATCH /orgs/{org}/code-security/configurations/{configuration_id}') {
+                                    return $this->routers->internal🔀Router🔀Patch🔀CodeSecurity()->updateConfiguration($params);
                                 }
                             }
                         }
