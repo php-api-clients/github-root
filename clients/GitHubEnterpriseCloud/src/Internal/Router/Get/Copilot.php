@@ -117,6 +117,7 @@ final class Copilot
         return $operator->call($arguments['org'], $arguments['since'], $arguments['until'], $arguments['page'], $arguments['per_page']);
     }
 
+    /** @return */
     public function listCopilotSeatsForEnterprise(array $params): Ok
     {
         $arguments = [];
@@ -143,6 +144,7 @@ final class Copilot
         return $operator->call($arguments['enterprise'], $arguments['page'], $arguments['per_page']);
     }
 
+    /** @return */
     public function listCopilotSeats(array $params): Json
     {
         $arguments = [];

@@ -150,6 +150,12 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Orgs\Org\Blocks|null $operation🌀Orgs🌀Org🌀Blocks                                                                                                                                                                             = null;
     private Internal\Hydrator\Operation\Orgs\Org\Blocks\Username|null $operation🌀Orgs🌀Org🌀Blocks🌀Username                                                                                                                                                           = null;
     private Internal\Hydrator\Operation\Orgs\Org\CodeScanning\Alerts|null $operation🌀Orgs🌀Org🌀CodeScanning🌀Alerts                                                                                                                                                   = null;
+    private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations|null $operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations                                                                                                                                   = null;
+    private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\Defaults|null $operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀Defaults                                                                                                                 = null;
+    private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId|null $operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId                                                                                                   = null;
+    private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Attach|null $operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Attach                                                                                     = null;
+    private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Defaults|null $operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Defaults                                                                                 = null;
+    private Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories|null $operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Repositories                                                                         = null;
     private Internal\Hydrator\Operation\Orgs\Org\Codespaces|null $operation🌀Orgs🌀Org🌀Codespaces                                                                                                                                                                     = null;
     private Internal\Hydrator\Operation\Orgs\Org\Codespaces\Access|null $operation🌀Orgs🌀Org🌀Codespaces🌀Access                                                                                                                                                       = null;
     private Internal\Hydrator\Operation\Orgs\Org\Codespaces\Access\SelectedUsers|null $operation🌀Orgs🌀Org🌀Codespaces🌀Access🌀SelectedUsers                                                                                                                           = null;
@@ -841,6 +847,9 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Actions\\ListOrgVariables\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrganizationActionsVariable' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables🌀Name()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Actions\\ListSelectedReposForOrgVariable\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables🌀Name🌀Repositories()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CodeSecurityConfiguration' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\CodeSecurity\\AttachConfiguration\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Attach()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\CodeSecurity\\SetConfigurationAsDefault\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Defaults()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Codespaces\\ListInOrganization\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Codespaces\\ListOrgSecrets\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CodespacesPublicKey' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀PublicKey()->hydrateObject($className, $payload),
@@ -1210,6 +1219,9 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Actions\\ListOrgVariables\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrganizationActionsVariable' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables🌀Name()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Actions\\ListSelectedReposForOrgVariable\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Actions🌀Variables🌀Name🌀Repositories()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CodeSecurityConfiguration' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\CodeSecurity\\AttachConfiguration\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Attach()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\CodeSecurity\\SetConfigurationAsDefault\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Defaults()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Codespaces\\ListInOrganization\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Codespaces\\ListOrgSecrets\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\CodespacesPublicKey' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces🌀Secrets🌀PublicKey()->serializeObject($object),
@@ -2751,6 +2763,60 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Orgs🌀Org🌀CodeScanning🌀Alerts;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations(): Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations
+    {
+        if ($this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations instanceof Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations === false) {
+            $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations = new Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀Defaults(): Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\Defaults
+    {
+        if ($this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀Defaults instanceof Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\Defaults === false) {
+            $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀Defaults = new Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\Defaults();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀Defaults;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId(): Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId
+    {
+        if ($this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId instanceof Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId === false) {
+            $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId = new Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Attach(): Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Attach
+    {
+        if ($this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Attach instanceof Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Attach === false) {
+            $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Attach = new Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Attach();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Attach;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Defaults(): Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Defaults
+    {
+        if ($this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Defaults instanceof Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Defaults === false) {
+            $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Defaults = new Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Defaults();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Defaults;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Repositories(): Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories
+    {
+        if ($this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Repositories instanceof Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories === false) {
+            $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Repositories = new Internal\Hydrator\Operation\Orgs\Org\CodeSecurity\Configurations\ConfigurationId\Repositories();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀CodeSecurity🌀Configurations🌀ConfigurationId🌀Repositories;
     }
 
     public function getObjectMapperOperation🌀Orgs🌀Org🌀Codespaces(): Internal\Hydrator\Operation\Orgs\Org\Codespaces

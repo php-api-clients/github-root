@@ -120,6 +120,11 @@ final readonly class Operations implements OperationsInterface
         return new Operation\Oidc($this->operators);
     }
 
+    public function codeSecurity(): Operation\CodeSecurity
+    {
+        return new Operation\CodeSecurity($this->operators);
+    }
+
     public function codespaces(): Operation\Codespaces
     {
         return new Operation\Codespaces($this->operators);

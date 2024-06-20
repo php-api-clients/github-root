@@ -50,6 +50,8 @@ interface OperationsInterface
 
     public function oidc(): Operation\Oidc;
 
+    public function codeSecurity(): Operation\CodeSecurity;
+
     public function codespaces(): Operation\Codespaces;
 
     public function packages(): Operation\Packages;
