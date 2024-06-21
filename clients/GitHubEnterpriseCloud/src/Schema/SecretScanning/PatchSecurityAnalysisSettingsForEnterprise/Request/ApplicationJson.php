@@ -37,13 +37,6 @@ final readonly class ApplicationJson
                 "null"
             ],
             "description": "The URL that will be displayed to contributors who are blocked from pushing a secret. For more information, see \\"[Protecting pushes with secret scanning](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/code-security\\/secret-scanning\\/protecting-pushes-with-secret-scanning).\\"\\nTo disable this functionality, set this field to `null`."
-        },
-        "secret_scanning_validity_checks_enabled": {
-            "type": [
-                "boolean",
-                "null"
-            ],
-            "description": "Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this enterprise."
         }
     }
 }';
@@ -55,8 +48,7 @@ final readonly class ApplicationJson
     "dependabot_alerts_enabled_for_new_repositories": false,
     "secret_scanning_enabled_for_new_repositories": false,
     "secret_scanning_push_protection_enabled_for_new_repositories": false,
-    "secret_scanning_push_protection_custom_link": "generated",
-    "secret_scanning_validity_checks_enabled": false
+    "secret_scanning_push_protection_custom_link": "generated"
 }';
 
     /**
@@ -67,7 +59,6 @@ final readonly class ApplicationJson
      * secretScanningPushProtectionEnabledForNewRepositories: Whether secret scanning push protection is automatically enabled for new repositories. For more information, see "[Protecting pushes with secret scanning](https://docs.github.com/enterprise-cloud@latest//code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
      * secretScanningPushProtectionCustomLink: The URL that will be displayed to contributors who are blocked from pushing a secret. For more information, see "[Protecting pushes with secret scanning](https://docs.github.com/enterprise-cloud@latest//code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
     To disable this functionality, set this field to `null`.
-     * secretScanningValidityChecksEnabled: Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this enterprise.
      */
     public function __construct(#[MapFrom('advanced_security_enabled_for_new_repositories')]
     public bool|null $advancedSecurityEnabledForNewRepositories, #[MapFrom('advanced_security_enabled_new_user_namespace_repos')]
@@ -75,8 +66,7 @@ final readonly class ApplicationJson
     public bool|null $dependabotAlertsEnabledForNewRepositories, #[MapFrom('secret_scanning_enabled_for_new_repositories')]
     public bool|null $secretScanningEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_enabled_for_new_repositories')]
     public bool|null $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link')]
-    public string|null $secretScanningPushProtectionCustomLink, #[MapFrom('secret_scanning_validity_checks_enabled')]
-    public bool|null $secretScanningValidityChecksEnabled,)
+    public string|null $secretScanningPushProtectionCustomLink,)
     {
     }
 }

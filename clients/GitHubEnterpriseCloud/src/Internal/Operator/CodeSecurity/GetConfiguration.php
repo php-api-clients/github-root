@@ -25,6 +25,7 @@ final readonly class GetConfiguration
     {
     }
 
+    /** @return */
     public function call(string $org, int $configurationId): CodeSecurityConfiguration|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\CodeSecurity\GetConfiguration($this->responseSchemaValidator, $this->hydrator, $org, $configurationId);
