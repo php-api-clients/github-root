@@ -244,6 +244,7 @@ assertType('', $client->call('DELETE /orgs/{org}/actions/variables/{name}/reposi
 assertType('', $client->call('GET /orgs/{org}/announcement'));
 assertType('', $client->call('DELETE /orgs/{org}/announcement'));
 assertType('', $client->call('PATCH /orgs/{org}/announcement'));
+assertType('Schema\\Operations\\Orgs\\ListAttestations\\Response\\ApplicationJson\\Ok', $client->call('GET /orgs/{org}/attestations/{subject_digest}'));
 assertType('Observable<Schema\\AuditLogEvent>', $client->call('GET /orgs/{org}/audit-log'));
 assertType('Observable<Schema\\SimpleUser>', $client->call('GET /orgs/{org}/blocks'));
 assertType('Observable<Schema\\SimpleUser>', $client->call('LIST /orgs/{org}/blocks'));
@@ -275,7 +276,7 @@ assertType('', $client->call('PUT /orgs/{org}/codespaces/secrets/{secret_name}/r
 assertType('', $client->call('PUT /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}'));
 assertType('', $client->call('DELETE /orgs/{org}/codespaces/secrets/{secret_name}/repositories/{repository_id}'));
 assertType('', $client->call('GET /orgs/{org}/copilot/billing'));
-assertType('Schema\\Operations\\Copilot\\ListCopilotSeats\\Response\\ApplicationJson\\Ok', $client->call('GET /orgs/{org}/copilot/billing/seats'));
+assertType('', $client->call('GET /orgs/{org}/copilot/billing/seats'));
 assertType('', $client->call('POST /orgs/{org}/copilot/billing/selected_teams'));
 assertType('', $client->call('DELETE /orgs/{org}/copilot/billing/selected_teams'));
 assertType('', $client->call('POST /orgs/{org}/copilot/billing/selected_users'));
@@ -597,6 +598,8 @@ assertType('Observable<Schema\\Activity>', $client->call('GET /repos/{owner}/{re
 assertType('Observable<Schema\\SimpleUser>', $client->call('GET /repos/{owner}/{repo}/assignees'));
 assertType('Observable<Schema\\SimpleUser>', $client->call('LIST /repos/{owner}/{repo}/assignees'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/assignees/{assignee}'));
+assertType('Schema\\Operations\\Repos\\CreateAttestation\\Response\\ApplicationJson\\Created', $client->call('POST /repos/{owner}/{repo}/attestations'));
+assertType('Schema\\Operations\\Repos\\ListAttestations\\Response\\ApplicationJson\\Ok\\Application\\Json', $client->call('GET /repos/{owner}/{repo}/attestations/{subject_digest}'));
 assertType('Observable<Schema\\Autolink>', $client->call('GET /repos/{owner}/{repo}/autolinks'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/autolinks'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/autolinks/{autolink_id}'));
@@ -1207,6 +1210,7 @@ assertType('Observable<Schema\\TeamFull>|WithoutBody', $client->call('GET /user/
 assertType('Observable<Schema\\TeamFull>|WithoutBody', $client->call('LIST /user/teams'));
 assertType('Observable<Schema\\SimpleUser>|WithoutBody', $client->call('GET /users'));
 assertType('', $client->call('GET /users/{username}'));
+assertType('Schema\\Operations\\Users\\ListAttestations\\Response\\ApplicationJson\\Ok|Schema\\EmptyObject|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /users/{username}/attestations/{subject_digest}'));
 assertType('Observable<Schema\\Package>', $client->call('GET /users/{username}/docker/conflicts'));
 assertType('Observable<Schema\\Event>', $client->call('GET /users/{username}/events'));
 assertType('Observable<Schema\\Event>', $client->call('LIST /users/{username}/events'));

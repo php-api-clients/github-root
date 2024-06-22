@@ -26,6 +26,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\MergedUpstream;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Milestone;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\MinimalRepository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Projects\MoveColumn\Response\ApplicationJson\Created\Application\Json;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateAttestation\Response\ApplicationJson\Created;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Page;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Project;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ProjectCard;
@@ -44,7 +45,8 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|WithoutBody|RunnerGroupsOrg|EmptyObject|CodeSecurityConfiguration|ProjectCard|Json|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
+    /** @return |Schema\Operations\Repos\CreateAttestation\Response\ApplicationJson\Created */
+    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|WithoutBody|RunnerGroupsOrg|EmptyObject|CodeSecurityConfiguration|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -138,7 +140,11 @@ final class Five
             } elseif ($pathChunks[1] === 'repos') {
                 if ($pathChunks[2] === '{owner}') {
                     if ($pathChunks[3] === '{repo}') {
-                        if ($pathChunks[4] === 'autolinks') {
+                        if ($pathChunks[4] === 'attestations') {
+                            if ($call === 'POST /repos/{owner}/{repo}/attestations') {
+                                return $this->routers->internal🔀Router🔀Post🔀Repos()->createAttestation($params);
+                            }
+                        } elseif ($pathChunks[4] === 'autolinks') {
                             if ($call === 'POST /repos/{owner}/{repo}/autolinks') {
                                 return $this->routers->internal🔀Router🔀Post🔀Repos()->createAutolink($params);
                             }

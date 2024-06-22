@@ -37,8 +37,9 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\HookDelivery;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Language;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\MergedUpstream;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\MinimalRepository;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateAttestation\Response\ApplicationJson\Created;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\ListAttestations\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Page;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PageBuild;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PageBuildStatus;
@@ -164,6 +165,16 @@ final class Repos
     public function listActivities(string $owner, string $repo, string $before, string $after, string $ref, string $actor, string $timePeriod, string $activityType, string $direction, int $perPage): iterable
     {
         return $this->operators->repos👷ListActivities()->call($owner, $repo, $before, $after, $ref, $actor, $timePeriod, $activityType, $direction, $perPage);
+    }
+
+    public function createAttestation(string $owner, string $repo, array $params): Created
+    {
+        return $this->operators->repos👷CreateAttestation()->call($owner, $repo, $params);
+    }
+
+    public function listAttestations(string $owner, string $repo, string $before, string $after, string $subjectDigest, int $perPage): Json
+    {
+        return $this->operators->repos👷ListAttestations()->call($owner, $repo, $before, $after, $subjectDigest, $perPage);
     }
 
     /** @return Observable<Schema\Autolink> */
@@ -629,7 +640,7 @@ final class Repos
     }
 
     /** @return */
-    public function createDeployment(string $owner, string $repo, array $params): Deployment|Json|WithoutBody
+    public function createDeployment(string $owner, string $repo, array $params): Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|WithoutBody
     {
         return $this->operators->repos👷CreateDeployment()->call($owner, $repo, $params);
     }

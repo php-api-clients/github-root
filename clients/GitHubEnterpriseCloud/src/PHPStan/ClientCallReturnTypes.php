@@ -951,6 +951,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /orgs/{org}/attestations/{subject_digest}') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Orgs\\ListAttestations\\Response\\ApplicationJson\\Ok');
+        }
+
         if ($call === 'GET /orgs/{org}/audit-log') {
             return $this->typeResolver->resolve('Observable<Schema\\AuditLogEvent>');
         }
@@ -1076,7 +1080,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/copilot/billing/seats') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\ListCopilotSeats\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /orgs/{org}/copilot/billing/selected_teams') {
@@ -2361,6 +2365,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /repos/{owner}/{repo}/assignees/{assignee}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'POST /repos/{owner}/{repo}/attestations') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Repos\\CreateAttestation\\Response\\ApplicationJson\\Created');
+        }
+
+        if ($call === 'GET /repos/{owner}/{repo}/attestations/{subject_digest}') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Repos\\ListAttestations\\Response\\ApplicationJson\\Ok\\Application\\Json');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/autolinks') {
@@ -4801,6 +4813,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /users/{username}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /users/{username}/attestations/{subject_digest}') {
+            return $this->typeResolver->resolve('Schema\\Operations\\Users\\ListAttestations\\Response\\ApplicationJson\\Ok|Schema\\EmptyObject|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /users/{username}/docker/conflicts') {

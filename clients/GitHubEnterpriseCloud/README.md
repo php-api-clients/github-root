@@ -5152,6 +5152,34 @@ $client->operations()->announcementBanners()->setAnnouncementBannerForOrg(      
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/announcement-banners/organizations#set-announcement-banner-for-organization).
 
 
+### orgs/list-attestations
+
+List attestations
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/attestations/{subject_digest}', [
+        'before' => 'generated',
+        'after' => 'generated',
+        'org' => 'generated',
+        'subject_digest' => 'generated',
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->orgs()->listAttestations(        before: 'generated',
+        after: 'generated',
+        org: 'generated',
+        subject_digest: 'generated',
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/orgs#list-attestations).
+
+
 ### orgs/get-audit-log
 
 Get the audit log for an organization
@@ -13765,6 +13793,58 @@ $client->operations()->issues()->checkUserCanBeAssigned(        owner: 'generate
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/issues/assignees#check-if-a-user-can-be-assigned).
+
+
+### repos/create-attestation
+
+Create an attestation
+
+Using the `call` method:
+```php
+$client->call('POST /repos/{owner}/{repo}/attestations', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->createAttestation(        owner: 'generated',
+        repo: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#create-an-attestation).
+
+
+### repos/list-attestations
+
+List attestations
+
+Using the `call` method:
+```php
+$client->call('GET /repos/{owner}/{repo}/attestations/{subject_digest}', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+        'before' => 'generated',
+        'after' => 'generated',
+        'subject_digest' => 'generated',
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->repos()->listAttestations(        owner: 'generated',
+        repo: 'generated',
+        before: 'generated',
+        after: 'generated',
+        subject_digest: 'generated',
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/repos#list-attestations).
 
 
 ### repos/list-autolinks
@@ -28770,6 +28850,34 @@ $client->operations()->users()->getByUsername(        username: 'generated',
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/users#get-a-user).
+
+
+### users/list-attestations
+
+List attestations
+
+Using the `call` method:
+```php
+$client->call('GET /users/{username}/attestations/{subject_digest}', [
+        'before' => 'generated',
+        'after' => 'generated',
+        'username' => 'generated',
+        'subject_digest' => 'generated',
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->users()->listAttestations(        before: 'generated',
+        after: 'generated',
+        username: 'generated',
+        subject_digest: 'generated',
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/users/attestations#list-attestations).
 
 
 ### packages/list-docker-migration-conflicting-packages-for-user
