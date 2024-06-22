@@ -24,7 +24,7 @@ final class Seven
     {
     }
 
-    /** @return |Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok|Observable<Schema\Label>|Schema\BasicError */
+    /** @return |Observable<Schema\Label>|Schema\BasicError */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|EmptyObject|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\CodeSecurity\SetConfigurationAsDefault\Response\ApplicationJson\Ok|TeamMembership|ProtectedBranch|iterable|BasicError|PullRequestMergeResult|Json|GroupResponse|UserResponse|ScimUser
     {
         if ($pathChunks[0] === '') {
