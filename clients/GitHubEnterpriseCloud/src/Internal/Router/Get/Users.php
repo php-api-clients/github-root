@@ -6,9 +6,11 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GpgKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Hovercard;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Key;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PrivateUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\PublicUser;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SshSigningKey;
@@ -521,6 +523,44 @@ final class Users
         $operator = new Internal\Operator\Users\ListSshSigningKeysForUser($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀SshSigningKeys());
 
         return $operator->call($arguments['username'], $arguments['per_page'], $arguments['page']);
+    }
+
+    public function listAttestations(array $params): Ok|EmptyObject|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('before', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: before');
+        }
+
+        $arguments['before'] = $params['before'];
+        unset($params['before']);
+        if (array_key_exists('after', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: after');
+        }
+
+        $arguments['after'] = $params['after'];
+        unset($params['after']);
+        if (array_key_exists('username', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: username');
+        }
+
+        $arguments['username'] = $params['username'];
+        unset($params['username']);
+        if (array_key_exists('subject_digest', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: subject_digest');
+        }
+
+        $arguments['subject_digest'] = $params['subject_digest'];
+        unset($params['subject_digest']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        $operator = new Internal\Operator\Users\ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Attestations🌀SubjectDigest());
+
+        return $operator->call($arguments['before'], $arguments['after'], $arguments['username'], $arguments['subject_digest'], $arguments['per_page']);
     }
 
     /** @return */

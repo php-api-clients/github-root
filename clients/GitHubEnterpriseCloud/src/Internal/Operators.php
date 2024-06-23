@@ -238,6 +238,7 @@ final class Operators
     private Internal\Operator\AnnouncementBanners\GetAnnouncementBannerForOrg|null $announcementBanners👷GetAnnouncementBannerForOrg                                                 = null;
     private Internal\Operator\AnnouncementBanners\RemoveAnnouncementBannerForOrg|null $announcementBanners👷RemoveAnnouncementBannerForOrg                                           = null;
     private Internal\Operator\AnnouncementBanners\SetAnnouncementBannerForOrg|null $announcementBanners👷SetAnnouncementBannerForOrg                                                 = null;
+    private Internal\Operator\Orgs\ListAttestations|null $orgs👷ListAttestations                                                                                                     = null;
     private Internal\Operator\Orgs\GetAuditLog|null $orgs👷GetAuditLog                                                                                                               = null;
     private Internal\Operator\Orgs\ListBlockedUsers|null $orgs👷ListBlockedUsers                                                                                                     = null;
     private Internal\Operator\Orgs\ListBlockedUsersListing|null $orgs👷ListBlockedUsersListing                                                                                       = null;
@@ -591,6 +592,8 @@ final class Operators
     private Internal\Operator\Issues\ListAssignees|null $issues👷ListAssignees                                                                                                       = null;
     private Internal\Operator\Issues\ListAssigneesListing|null $issues👷ListAssigneesListing                                                                                         = null;
     private Internal\Operator\Issues\CheckUserCanBeAssigned|null $issues👷CheckUserCanBeAssigned                                                                                     = null;
+    private Internal\Operator\Repos\CreateAttestation|null $repos👷CreateAttestation                                                                                                 = null;
+    private Internal\Operator\Repos\ListAttestations|null $repos👷ListAttestations                                                                                                   = null;
     private Internal\Operator\Repos\ListAutolinks|null $repos👷ListAutolinks                                                                                                         = null;
     private Internal\Operator\Repos\CreateAutolink|null $repos👷CreateAutolink                                                                                                       = null;
     private Internal\Operator\Repos\GetAutolink|null $repos👷GetAutolink                                                                                                             = null;
@@ -1201,6 +1204,7 @@ final class Operators
     private Internal\Operator\Teams\ListForAuthenticatedUserListing|null $teams👷ListForAuthenticatedUserListing                                                                     = null;
     private Internal\Operator\Users\List_|null $users👷List_                                                                                                                         = null;
     private Internal\Operator\Users\GetByUsername|null $users👷GetByUsername                                                                                                         = null;
+    private Internal\Operator\Users\ListAttestations|null $users👷ListAttestations                                                                                                   = null;
     private Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForUser|null $packages👷ListDockerMigrationConflictingPackagesForUser                                   = null;
     private Internal\Operator\Activity\ListEventsForAuthenticatedUser|null $activity👷ListEventsForAuthenticatedUser                                                                 = null;
     private Internal\Operator\Activity\ListEventsForAuthenticatedUserListing|null $activity👷ListEventsForAuthenticatedUserListing                                                   = null;
@@ -3298,6 +3302,15 @@ final class Operators
         }
 
         return $this->announcementBanners👷SetAnnouncementBannerForOrg;
+    }
+
+    public function orgs👷ListAttestations(): Internal\Operator\Orgs\ListAttestations
+    {
+        if ($this->orgs👷ListAttestations instanceof Internal\Operator\Orgs\ListAttestations === false) {
+            $this->orgs👷ListAttestations = new Internal\Operator\Orgs\ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀Attestations🌀SubjectDigest());
+        }
+
+        return $this->orgs👷ListAttestations;
     }
 
     public function orgs👷GetAuditLog(): Internal\Operator\Orgs\GetAuditLog
@@ -6475,6 +6488,24 @@ final class Operators
         }
 
         return $this->issues👷CheckUserCanBeAssigned;
+    }
+
+    public function repos👷CreateAttestation(): Internal\Operator\Repos\CreateAttestation
+    {
+        if ($this->repos👷CreateAttestation instanceof Internal\Operator\Repos\CreateAttestation === false) {
+            $this->repos👷CreateAttestation = new Internal\Operator\Repos\CreateAttestation($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Attestations());
+        }
+
+        return $this->repos👷CreateAttestation;
+    }
+
+    public function repos👷ListAttestations(): Internal\Operator\Repos\ListAttestations
+    {
+        if ($this->repos👷ListAttestations instanceof Internal\Operator\Repos\ListAttestations === false) {
+            $this->repos👷ListAttestations = new Internal\Operator\Repos\ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀Attestations🌀SubjectDigest());
+        }
+
+        return $this->repos👷ListAttestations;
     }
 
     public function repos👷ListAutolinks(): Internal\Operator\Repos\ListAutolinks
@@ -11965,6 +11996,15 @@ final class Operators
         }
 
         return $this->users👷GetByUsername;
+    }
+
+    public function users👷ListAttestations(): Internal\Operator\Users\ListAttestations
+    {
+        if ($this->users👷ListAttestations instanceof Internal\Operator\Users\ListAttestations === false) {
+            $this->users👷ListAttestations = new Internal\Operator\Users\ListAttestations($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Users🌀Username🌀Attestations🌀SubjectDigest());
+        }
+
+        return $this->users👷ListAttestations;
     }
 
     public function packages👷ListDockerMigrationConflictingPackagesForUser(): Internal\Operator\Packages\ListDockerMigrationConflictingPackagesForUser
