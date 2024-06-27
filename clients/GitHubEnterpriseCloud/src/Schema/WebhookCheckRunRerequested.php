@@ -797,7 +797,8 @@ final readonly class WebhookCheckRunRerequested
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "format": "int64"
                                     },
                                     "number": {
                                         "type": "integer"
@@ -828,7 +829,8 @@ final readonly class WebhookCheckRunRerequested
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "type": "integer"
+                                                        "type": "integer",
+                                                        "format": "int64"
                                                     },
                                                     "url": {
                                                         "type": "string"
@@ -863,7 +865,8 @@ final readonly class WebhookCheckRunRerequested
                                                 "type": "object",
                                                 "properties": {
                                                     "id": {
-                                                        "type": "integer"
+                                                        "type": "integer",
+                                                        "format": "int64"
                                                     },
                                                     "url": {
                                                         "type": "string"
@@ -2294,7 +2297,8 @@ final readonly class WebhookCheckRunRerequested
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "integer"
+                                "type": "integer",
+                                "format": "int64"
                             },
                             "number": {
                                 "type": "integer"
@@ -2325,7 +2329,8 @@ final readonly class WebhookCheckRunRerequested
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "type": "integer"
+                                                "type": "integer",
+                                                "format": "int64"
                                             },
                                             "url": {
                                                 "type": "string"
@@ -2360,7 +2365,8 @@ final readonly class WebhookCheckRunRerequested
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "type": "integer"
+                                                "type": "integer",
+                                                "format": "int64"
                                             },
                                             "url": {
                                                 "type": "string"
