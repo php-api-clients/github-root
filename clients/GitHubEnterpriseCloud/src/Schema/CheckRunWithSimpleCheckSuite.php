@@ -782,7 +782,8 @@ final readonly class CheckRunWithSimpleCheckSuite
                         "type": "object",
                         "properties": {
                             "id": {
-                                "type": "integer"
+                                "type": "integer",
+                                "format": "int64"
                             },
                             "number": {
                                 "type": "integer"
@@ -813,7 +814,8 @@ final readonly class CheckRunWithSimpleCheckSuite
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "type": "integer"
+                                                "type": "integer",
+                                                "format": "int64"
                                             },
                                             "url": {
                                                 "type": "string"
@@ -848,7 +850,8 @@ final readonly class CheckRunWithSimpleCheckSuite
                                         "type": "object",
                                         "properties": {
                                             "id": {
-                                                "type": "integer"
+                                                "type": "integer",
+                                                "format": "int64"
                                             },
                                             "url": {
                                                 "type": "string"
@@ -2279,7 +2282,8 @@ final readonly class CheckRunWithSimpleCheckSuite
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "integer"
+                        "type": "integer",
+                        "format": "int64"
                     },
                     "number": {
                         "type": "integer"
@@ -2310,7 +2314,8 @@ final readonly class CheckRunWithSimpleCheckSuite
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "format": "int64"
                                     },
                                     "url": {
                                         "type": "string"
@@ -2345,7 +2350,8 @@ final readonly class CheckRunWithSimpleCheckSuite
                                 "type": "object",
                                 "properties": {
                                     "id": {
-                                        "type": "integer"
+                                        "type": "integer",
+                                        "format": "int64"
                                     },
                                     "url": {
                                         "type": "string"
