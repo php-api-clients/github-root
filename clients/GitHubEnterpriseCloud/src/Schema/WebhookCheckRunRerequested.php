@@ -937,6 +937,7 @@ final readonly class WebhookCheckRunRerequested
                             "properties": {
                                 "id": {
                                     "type": "integer",
+                                    "format": "int64",
                                     "examples": [
                                         1296269
                                     ]
@@ -2620,6 +2621,7 @@ final readonly class WebhookCheckRunRerequested
                 "id": {
                     "type": "integer",
                     "description": "Unique identifier of the repository",
+                    "format": "int64",
                     "examples": [
                         42
                     ]
