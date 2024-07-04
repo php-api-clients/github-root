@@ -1,5 +1,5 @@
 {
-    "specHash": "4fef0f9e03cf11aed96c1dfc31630f25",
+    "specHash": "a64005d8253466da5566a833f48e8713",
     "generatedFiles": {
         "files": [
             {
@@ -4976,7 +4976,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Teams\/AddOrUpdateRepoPermissionsInOrg\/Request\/ApplicationJson.php",
-                "hash": "b70adabc6ddfc0ac4e9c2b70274585de"
+                "hash": "1bb3f932e5c0e3c302221694249d0154"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Teams\/CreateOrUpdateIdpGroupConnectionsInOrg\/Request\/ApplicationJson.php",
@@ -5948,7 +5948,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "81c433e68c1b12a3319d411b17dcbc39"
+                "hash": "9a93d9aa406ccbbe614cafde1188f2ea"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -16672,7 +16672,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Orgs\/AddSecurityManagerTeam.php",
-                "hash": "31009d08df387284e07148fda5ff10e0"
+                "hash": "17f82d441ecc7d250849d4406db81c4e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Orgs\/RemoveSecurityManagerTeam.php",
@@ -26572,7 +26572,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Orgs.php",
-                "hash": "3660de9e7e30c96c607d0939dc1c2d5a"
+                "hash": "a135b174133165f7bc7d942f2c7d11ce"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Codespaces.php",
@@ -26824,7 +26824,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Six.php",
-                "hash": "f668b3e92266043081391c184157b062"
+                "hash": "3576153c2e0e06663de2723fc31d948c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Eight.php",
@@ -29872,11 +29872,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "1c7d61859ae5740aa03b87e2aee417ab"
+                "hash": "8c7f8e1a0105b2d7f1b6584917827fe6"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "995c5db408fc8b14c01a2e3fb980e5a8"
+                "hash": "99a2844d0f28bf7cd062b18aee15340a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
