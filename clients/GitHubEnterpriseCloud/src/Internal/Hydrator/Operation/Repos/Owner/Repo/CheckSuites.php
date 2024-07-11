@@ -14,6 +14,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\AdvancedSecurity;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\DependabotSecurityUpdates;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningValidityChecks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit;
@@ -68,6 +69,7 @@ class CheckSuites implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\DependabotSecurityUpdates' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️DependabotSecurityUpdates($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningValidityChecks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Author($payload),
@@ -2207,6 +2209,26 @@ class CheckSuites implements ObjectMapper
 
             after_secretScanningPushProtection:
 
+            $value = $payload['secret_scanning_non_provider_patterns'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningNonProviderPatterns'] = null;
+                goto after_secretScanningNonProviderPatterns;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'secretScanningNonProviderPatterns';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['secretScanningNonProviderPatterns'] = $value;
+
+            after_secretScanningNonProviderPatterns:
+
             $value = $payload['secret_scanning_validity_checks'] ?? null;
 
             if ($value === null) {
@@ -2358,6 +2380,36 @@ class CheckSuites implements ObjectMapper
             return new SecretScanningPushProtection(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns(array $payload): SecretScanningNonProviderPatterns
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(SecretScanningNonProviderPatterns::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new SecretScanningNonProviderPatterns(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -2620,6 +2672,7 @@ class CheckSuites implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\DependabotSecurityUpdates' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️DependabotSecurityUpdates($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningValidityChecks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Author($object),
@@ -3729,6 +3782,15 @@ class CheckSuites implements ObjectMapper
         $secretScanningPushProtection                                                         = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($secretScanningPushProtection);
         after_secretScanningPushProtection:        $result['secret_scanning_push_protection'] = $secretScanningPushProtection;
 
+        $secretScanningNonProviderPatterns = $object->secretScanningNonProviderPatterns;
+
+        if ($secretScanningNonProviderPatterns === null) {
+            goto after_secretScanningNonProviderPatterns;
+        }
+
+        $secretScanningNonProviderPatterns                                                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns($secretScanningNonProviderPatterns);
+        after_secretScanningNonProviderPatterns:        $result['secret_scanning_non_provider_patterns'] = $secretScanningNonProviderPatterns;
+
         $secretScanningValidityChecks = $object->secretScanningValidityChecks;
 
         if ($secretScanningValidityChecks === null) {
@@ -3792,6 +3854,22 @@ class CheckSuites implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection(mixed $object): mixed
     {
         assert($object instanceof SecretScanningPushProtection);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+
+        after_status:        $result['status'] = $status;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns(mixed $object): mixed
+    {
+        assert($object instanceof SecretScanningNonProviderPatterns);
         $result = [];
 
         $status = $object->status;

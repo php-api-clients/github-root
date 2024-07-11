@@ -74,6 +74,16 @@ final readonly class ApplicationJson
                     },
                     "description": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \\"[Protecting pushes with secret scanning](\\/code-security\\/secret-scanning\\/protecting-pushes-with-secret-scanning).\\""
                 },
+                "secret_scanning_non_provider_patterns": {
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "string",
+                            "description": "Can be `enabled` or `disabled`."
+                        }
+                    },
+                    "description": "Use the `status` property to enable or disable secret scanning non-provider patterns for this repository. For more information, see \\"[Secret scanning supported secrets](\\/code-security\\/secret-scanning\\/secret-scanning-patterns#supported-secrets).\\""
+                },
                 "secret_scanning_validity_checks": {
                     "type": "object",
                     "properties": {
@@ -214,6 +224,9 @@ final readonly class ApplicationJson
             "status": "generated"
         },
         "secret_scanning_push_protection": {
+            "status": "generated"
+        },
+        "secret_scanning_non_provider_patterns": {
             "status": "generated"
         },
         "secret_scanning_validity_checks": {

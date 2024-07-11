@@ -1196,6 +1196,18 @@ final readonly class Ok
                                             }
                                         }
                                     },
+                                    "secret_scanning_non_provider_patterns": {
+                                        "type": "object",
+                                        "properties": {
+                                            "status": {
+                                                "enum": [
+                                                    "enabled",
+                                                    "disabled"
+                                                ],
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
                                     "secret_scanning_validity_checks": {
                                         "type": "object",
                                         "properties": {
@@ -1485,6 +1497,9 @@ final readonly class Ok
                     "secret_scanning_push_protection": {
                         "status": "disabled"
                     },
+                    "secret_scanning_non_provider_patterns": {
+                        "status": "disabled"
+                    },
                     "secret_scanning_validity_checks": {
                         "status": "disabled"
                     }
@@ -1750,6 +1765,9 @@ final readonly class Ok
                         "status": "disabled"
                     },
                     "secret_scanning_push_protection": {
+                        "status": "disabled"
+                    },
+                    "secret_scanning_non_provider_patterns": {
                         "status": "disabled"
                     },
                     "secret_scanning_validity_checks": {
