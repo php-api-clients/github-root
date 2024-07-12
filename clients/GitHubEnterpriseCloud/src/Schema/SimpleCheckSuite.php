@@ -1311,6 +1311,18 @@ final readonly class SimpleCheckSuite
                                 }
                             }
                         },
+                        "secret_scanning_non_provider_patterns": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "enum": [
+                                        "enabled",
+                                        "disabled"
+                                    ],
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "secret_scanning_validity_checks": {
                             "type": "object",
                             "properties": {
@@ -1604,6 +1616,9 @@ final readonly class SimpleCheckSuite
                 "status": "disabled"
             },
             "secret_scanning_push_protection": {
+                "status": "disabled"
+            },
+            "secret_scanning_non_provider_patterns": {
                 "status": "disabled"
             },
             "secret_scanning_validity_checks": {
