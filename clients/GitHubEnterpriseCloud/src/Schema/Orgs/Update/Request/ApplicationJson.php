@@ -117,27 +117,33 @@ final readonly class ApplicationJson
         },
         "advanced_security_enabled_for_new_repositories": {
             "type": "boolean",
-            "description": "Whether GitHub Advanced Security is automatically enabled for new repositories.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request."
+            "description": "**Deprecated.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether GitHub Advanced Security is automatically enabled for new repositories and repositories transferred to this organization.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request.",
+            "deprecated": true
         },
         "dependabot_alerts_enabled_for_new_repositories": {
             "type": "boolean",
-            "description": "Whether Dependabot alerts is automatically enabled for new repositories.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request."
+            "description": "**Deprecated.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request.",
+            "deprecated": true
         },
         "dependabot_security_updates_enabled_for_new_repositories": {
             "type": "boolean",
-            "description": "Whether Dependabot security updates is automatically enabled for new repositories.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request."
+            "description": "**Deprecated.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request.",
+            "deprecated": true
         },
         "dependency_graph_enabled_for_new_repositories": {
             "type": "boolean",
-            "description": "Whether dependency graph is automatically enabled for new repositories.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request."
+            "description": "**Deprecated.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request.",
+            "deprecated": true
         },
         "secret_scanning_enabled_for_new_repositories": {
             "type": "boolean",
-            "description": "Whether secret scanning is automatically enabled for new repositories.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request."
+            "description": "**Deprecated.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request.",
+            "deprecated": true
         },
         "secret_scanning_push_protection_enabled_for_new_repositories": {
             "type": "boolean",
-            "description": "Whether secret scanning push protection is automatically enabled for new repositories.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request."
+            "description": "**Deprecated.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.\\n\\nTo use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see \\"[Managing security managers in your organization](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/organizations\\/managing-peoples-access-to-your-organization-with-roles\\/managing-security-managers-in-your-organization).\\"\\n\\nYou can check which security and analysis features are currently enabled by using a `GET \\/orgs\\/{org}` request.",
+            "deprecated": true
         },
         "secret_scanning_push_protection_custom_link_enabled": {
             "type": "boolean",
@@ -149,7 +155,8 @@ final readonly class ApplicationJson
         },
         "secret_scanning_validity_checks_enabled": {
             "type": "boolean",
-            "description": "Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization."
+            "description": "**Deprecated.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
+            "deprecated": true
         }
     }
 }';
@@ -210,39 +217,53 @@ final readonly class ApplicationJson
      * membersCanCreatePrivatePages: Whether organization members can create private GitHub Pages sites. Existing published sites will not be impacted.
      * membersCanForkPrivateRepositories: Whether organization members can fork private organization repositories.
      * webCommitSignoffRequired: Whether contributors to organization repositories are required to sign off on commits they make through GitHub's web interface.
-     * advancedSecurityEnabledForNewRepositories: Whether GitHub Advanced Security is automatically enabled for new repositories.
+     * advancedSecurityEnabledForNewRepositories: **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
+
+    Whether GitHub Advanced Security is automatically enabled for new repositories and repositories transferred to this organization.
 
     To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.
-     * dependabotAlertsEnabledForNewRepositories: Whether Dependabot alerts is automatically enabled for new repositories.
+     * dependabotAlertsEnabledForNewRepositories: **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
+
+    Whether Dependabot alerts are automatically enabled for new repositories and repositories transferred to this organization.
 
     To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.
-     * dependabotSecurityUpdatesEnabledForNewRepositories: Whether Dependabot security updates is automatically enabled for new repositories.
+     * dependabotSecurityUpdatesEnabledForNewRepositories: **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
+
+    Whether Dependabot security updates are automatically enabled for new repositories and repositories transferred to this organization.
 
     To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.
-     * dependencyGraphEnabledForNewRepositories: Whether dependency graph is automatically enabled for new repositories.
+     * dependencyGraphEnabledForNewRepositories: **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
+
+    Whether dependency graph is automatically enabled for new repositories and repositories transferred to this organization.
 
     To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.
-     * secretScanningEnabledForNewRepositories: Whether secret scanning is automatically enabled for new repositories.
+     * secretScanningEnabledForNewRepositories: **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
+
+    Whether secret scanning is automatically enabled for new repositories and repositories transferred to this organization.
 
     To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.
-     * secretScanningPushProtectionEnabledForNewRepositories: Whether secret scanning push protection is automatically enabled for new repositories.
+     * secretScanningPushProtectionEnabledForNewRepositories: **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
+
+    Whether secret scanning push protection is automatically enabled for new repositories and repositories transferred to this organization.
 
     To use this parameter, you must have admin permissions for the repository or be an owner or security manager for the organization that owns the repository. For more information, see "[Managing security managers in your organization](https://docs.github.com/enterprise-cloud@latest//organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 
     You can check which security and analysis features are currently enabled by using a `GET /orgs/{org}` request.
      * secretScanningPushProtectionCustomLinkEnabled: Whether a custom link is shown to contributors who are blocked from pushing a secret by push protection.
      * secretScanningPushProtectionCustomLink: If `secret_scanning_push_protection_custom_link_enabled` is true, the URL that will be displayed to contributors who are blocked from pushing a secret.
-     * secretScanningValidityChecksEnabled: Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.
+     * secretScanningValidityChecksEnabled: **Deprecated.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
+
+    Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.
      */
     public function __construct(#[MapFrom('billing_email')]
     public string|null $billingEmail, public string|null $company, public string|null $email, #[MapFrom('twitter_username')]
