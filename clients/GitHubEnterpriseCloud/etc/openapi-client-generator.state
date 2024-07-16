@@ -1,5 +1,5 @@
 {
-    "specHash": "a9a79e364b853c47d43f74efabc55fe4",
+    "specHash": "01b3a10116bf0a1ac4be25bb7b236bf7",
     "generatedFiles": {
         "files": [
             {
@@ -5980,7 +5980,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "5b5f19b3c039398b0a5622bd76a37f7f"
+                "hash": "4f3071168359ed0a3ef18f2fae801b7e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -18540,7 +18540,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Repos\/CheckAutomatedSecurityFixes.php",
-                "hash": "860fb6312909e0a99434b82421262ca6"
+                "hash": "fc0bb88c9ed5537e68c448e23541ae85"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Repos\/CheckAutomatedSecurityFixesTest.php",
@@ -26104,7 +26104,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Repos.php",
-                "hash": "71c3f0d7eb9950e64ba78b7dea9c28bd"
+                "hash": "0c373aa912b020d5fcbb54c060aff63b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Users.php",
@@ -26656,7 +26656,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Five.php",
-                "hash": "dbaa988cd9f5e2e6c27c250b8a97abea"
+                "hash": "e4ece915c3acb049dcaeb3656b2fcd3c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
@@ -26796,7 +26796,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Six.php",
-                "hash": "b4412ecd1e12199e999030fd32b8cadb"
+                "hash": "043862d61eb9ae45dbc140a1ce4cdb62"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Eight.php",
@@ -29872,11 +29872,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "c3ffa66ddb514fb2471b37b74c438116"
+                "hash": "49546035c0a7670ec430f965eafae199"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "e7d4d37a03cc854e085980121cd43a4d"
+                "hash": "040c8ce72f7c03b1243c63c2b5fa4b6f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -32160,7 +32160,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/CodeSecurity.php",
-                "hash": "5ecabdbfe502463d6759ef56c4ca3b6f"
+                "hash": "f07878f5d3d22ca65580699078f0e16e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/CodeSecurity.php",
@@ -32168,7 +32168,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/CodeSecurity.php",
-                "hash": "505f359429cf9e06b99e23994acf0466"
+                "hash": "0e461717d44ef16ea952e30ea30466e8"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/CodeSecurity\/Configurations.php",
@@ -32604,7 +32604,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/CodeSecurity\/DetachConfiguration.php",
-                "hash": "29d92ebee0d04a8fdeff42aec5f48d44"
+                "hash": "e265e137d0decec7db13816e8acabd83"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/CodeSecurity\/DetachConfigurationTest.php",
