@@ -465,6 +465,7 @@ final class Repos
         return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
+    /** @return */
     public function checkAutomatedSecurityFixes(array $params): CheckAutomatedSecurityFixes|WithoutBody
     {
         $arguments = [];
