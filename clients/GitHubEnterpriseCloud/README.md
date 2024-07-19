@@ -9520,6 +9520,7 @@ Using the `call` method:
 ```php
 $client->call('GET /orgs/{org}/rulesets/rule-suites', [
         'org' => 'generated',
+        'ref' => 'generated',
         'repository_name' => 15,
         'actor_name' => 'generated',
         'time_period' => 'generated',
@@ -9532,6 +9533,7 @@ $client->call('GET /orgs/{org}/rulesets/rule-suites', [
 Operations method:
 ```php
 $client->operations()->repos()->getOrgRuleSuites(        org: 'generated',
+        ref: 'generated',
         repository_name: 15,
         actor_name: 'generated',
         time_period: 'generated',
@@ -9552,6 +9554,7 @@ Using the `call` method:
 ```php
 $client->call('LIST /orgs/{org}/rulesets/rule-suites', [
         'org' => 'generated',
+        'ref' => 'generated',
         'repository_name' => 15,
         'actor_name' => 'generated',
         'time_period' => 'generated',
@@ -9564,6 +9567,7 @@ $client->call('LIST /orgs/{org}/rulesets/rule-suites', [
 Operations method:
 ```php
 $client->operations()->repos()->getOrgRuleSuitesListing(        org: 'generated',
+        ref: 'generated',
         repository_name: 15,
         actor_name: 'generated',
         time_period: 'generated',

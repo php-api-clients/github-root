@@ -1676,11 +1676,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/rulesets/rule-suites') {
-            return $this->typeResolver->resolve('Observable<Schema\\RuleSuites>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\RuleSuites>');
         }
 
         if ($call === 'LIST /orgs/{org}/rulesets/rule-suites') {
-            return $this->typeResolver->resolve('Observable<Schema\\RuleSuites>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\RuleSuites>');
         }
 
         if ($call === 'GET /orgs/{org}/rulesets/rule-suites/{rule_suite_id}') {
@@ -3852,11 +3852,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/rulesets/rule-suites') {
-            return $this->typeResolver->resolve('Observable<Schema\\RuleSuites>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\RuleSuites>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/rulesets/rule-suites') {
-            return $this->typeResolver->resolve('Observable<Schema\\RuleSuites>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\RuleSuites>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}') {
