@@ -1024,7 +1024,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/code-security/configurations/{configuration_id}/repositories') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CodeSecurityConfigurationRepositories>');
+            return $this->typeResolver->resolve('Observable<Schema\\CodeSecurityConfigurationRepositories>');
         }
 
         if ($call === 'GET /orgs/{org}/codespaces') {
@@ -3832,11 +3832,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/rules/branches/{branch}') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryRuleCreation|Schema\\RepositoryRuleUpdate|Schema\\RepositoryRuleDeletion|Schema\\RepositoryRuleRequiredLinearHistory|Schema\\RepositoryRuleMergeQueue|Schema\\RepositoryRuleRequiredDeployments|Schema\\RepositoryRuleRequiredSignatures|Schema\\RepositoryRulePullRequest|Schema\\RepositoryRuleRequiredStatusChecks|Schema\\RepositoryRuleNonFastForward|Schema\\RepositoryRuleCommitMessagePattern|Schema\\RepositoryRuleCommitAuthorEmailPattern|Schema\\RepositoryRuleCommitterEmailPattern|Schema\\RepositoryRuleBranchNamePattern|Schema\\RepositoryRuleTagNamePattern|Schema\\RepositoryRuleWorkflows|Schema\\RepositoryRuleCodeScanning>');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryRuleCreation|Schema\\RepositoryRuleUpdate|Schema\\RepositoryRuleDeletion|Schema\\RepositoryRuleRequiredLinearHistory|Schema\\RepositoryRuleMergeQueue|Schema\\RepositoryRuleRequiredDeployments|Schema\\RepositoryRuleRequiredSignatures|Schema\\RepositoryRulePullRequest|Schema\\RepositoryRuleRequiredStatusChecks|Schema\\RepositoryRuleNonFastForward|Schema\\RepositoryRuleCommitMessagePattern|Schema\\RepositoryRuleCommitAuthorEmailPattern|Schema\\RepositoryRuleCommitterEmailPattern|Schema\\RepositoryRuleBranchNamePattern|Schema\\RepositoryRuleTagNamePattern|Schema\\RepositoryRuleWorkflows|Schema\\RepositoryRuleCodeScanning>');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/rules/branches/{branch}') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\RepositoryRuleCreation|Schema\\RepositoryRuleUpdate|Schema\\RepositoryRuleDeletion|Schema\\RepositoryRuleRequiredLinearHistory|Schema\\RepositoryRuleMergeQueue|Schema\\RepositoryRuleRequiredDeployments|Schema\\RepositoryRuleRequiredSignatures|Schema\\RepositoryRulePullRequest|Schema\\RepositoryRuleRequiredStatusChecks|Schema\\RepositoryRuleNonFastForward|Schema\\RepositoryRuleCommitMessagePattern|Schema\\RepositoryRuleCommitAuthorEmailPattern|Schema\\RepositoryRuleCommitterEmailPattern|Schema\\RepositoryRuleBranchNamePattern|Schema\\RepositoryRuleTagNamePattern|Schema\\RepositoryRuleWorkflows|Schema\\RepositoryRuleCodeScanning>');
+            return $this->typeResolver->resolve('Observable<Schema\\RepositoryRuleCreation|Schema\\RepositoryRuleUpdate|Schema\\RepositoryRuleDeletion|Schema\\RepositoryRuleRequiredLinearHistory|Schema\\RepositoryRuleMergeQueue|Schema\\RepositoryRuleRequiredDeployments|Schema\\RepositoryRuleRequiredSignatures|Schema\\RepositoryRulePullRequest|Schema\\RepositoryRuleRequiredStatusChecks|Schema\\RepositoryRuleNonFastForward|Schema\\RepositoryRuleCommitMessagePattern|Schema\\RepositoryRuleCommitAuthorEmailPattern|Schema\\RepositoryRuleCommitterEmailPattern|Schema\\RepositoryRuleBranchNamePattern|Schema\\RepositoryRuleTagNamePattern|Schema\\RepositoryRuleWorkflows|Schema\\RepositoryRuleCodeScanning>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/rulesets') {
