@@ -1,5 +1,5 @@
 {
-    "specHash": "5ebfc5c2a69a8e68eadbe18dfa04e5f0",
+    "specHash": "b27c55fe8bd2fdd9a35c169d7fc9ddf7",
     "generatedFiles": {
         "files": [
             {
@@ -308,7 +308,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CodeScanningOrganizationAlertItems.php",
-                "hash": "0608eacaed858dc89ae368785590e06c"
+                "hash": "a6c528927db9a2f80f2c3abef839d742"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/EnterpriseSecurityAnalysisSettings.php",
@@ -948,11 +948,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertRuleSummary.php",
-                "hash": "9f9e0ecb5585fc172d0c0202843cd1cf"
+                "hash": "7eb5db688e3e77c8ff28b8795fdee346"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CodeScanningAlertItems.php",
-                "hash": "be10971a0cba9644e38d8635d5962da9"
+                "hash": "1f104b153a76541dfec1986d268150cb"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CodeScanningAlert.php",
@@ -1412,7 +1412,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/PullRequestReview.php",
-                "hash": "6c07acc5f100e7509e6bbee385c255b8"
+                "hash": "a60aa17f28ab6a8d57ff8cbac64260dd"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ReviewComment.php",
@@ -5980,7 +5980,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "4f5d7fef37bd2120a1780f62f55955d4"
+                "hash": "ee379c7bf3e8c92f7c9bd9cf18e84d63"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -32160,7 +32160,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/CodeSecurity.php",
-                "hash": "fde1258be104d6d06536f578b6fa8c18"
+                "hash": "604ee98b68512191da9e8d433c401be0"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/CodeSecurity\/Configurations.php",
