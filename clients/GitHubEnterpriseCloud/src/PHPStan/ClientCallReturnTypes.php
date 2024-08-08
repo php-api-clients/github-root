@@ -420,7 +420,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\Operations\\Billing\\AddResourceToCostCenter\\Response\\ApplicationJson\\Ok');
         }
 
         if ($call === 'DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
@@ -437,6 +437,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/usage') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+        }
+
+        if ($call === 'LIST /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/{security_product}/{enablement}') {

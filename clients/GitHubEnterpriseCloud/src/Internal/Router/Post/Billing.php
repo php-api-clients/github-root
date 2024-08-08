@@ -19,7 +19,6 @@ final class Billing
     {
     }
 
-    /** @return */
     public function addResourceToCostCenter(array $params): Ok
     {
         $arguments = [];
