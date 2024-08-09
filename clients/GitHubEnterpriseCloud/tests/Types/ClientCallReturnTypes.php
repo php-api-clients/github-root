@@ -111,11 +111,13 @@ assertType('Observable<Schema\\OrganizationSecretScanningAlert>', $client->call(
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/actions'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/advanced-security'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/cost-centers'));
-assertType('', $client->call('POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
+assertType('Schema\\Operations\\Billing\\AddResourceToCostCenter\\Response\\ApplicationJson\\Ok', $client->call('POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
 assertType('', $client->call('DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/packages'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/shared-storage'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage'));
+assertType('iterable<int,Schema\\CopilotUsageMetrics>', $client->call('LIST /enterprises/{enterprise}/team/{team_slug}/copilot/usage'));
 assertType('', $client->call('POST /enterprises/{enterprise}/{security_product}/{enablement}'));
 assertType('Observable<Schema\\Event>|WithoutBody', $client->call('GET /events'));
 assertType('Observable<Schema\\Event>|WithoutBody', $client->call('LIST /events'));
