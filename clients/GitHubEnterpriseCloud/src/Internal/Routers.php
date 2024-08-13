@@ -63,11 +63,11 @@ final class Routers
     private Internal\Router\Post\CodeScanning|null $internal🔀Router🔀Post🔀CodeScanning                   = null;
     private Internal\Router\Post\DependencyGraph|null $internal🔀Router🔀Post🔀DependencyGraph             = null;
     private Internal\Router\Post\Git|null $internal🔀Router🔀Post🔀Git                                     = null;
+    private Internal\Router\Post\SecretScanning|null $internal🔀Router🔀Post🔀SecretScanning               = null;
     private Internal\Router\Post\SecurityAdvisories|null $internal🔀Router🔀Post🔀SecurityAdvisories       = null;
     private Internal\Router\Post\Scim|null $internal🔀Router🔀Post🔀Scim                                   = null;
     private Internal\Router\Post\Reactions|null $internal🔀Router🔀Post🔀Reactions                         = null;
     private Internal\Router\Post\Packages|null $internal🔀Router🔀Post🔀Packages                           = null;
-    private Internal\Router\Post\SecretScanning|null $internal🔀Router🔀Post🔀SecretScanning               = null;
     private Internal\Router\Post\CodeSecurity|null $internal🔀Router🔀Post🔀CodeSecurity                   = null;
     private Internal\Router\Post\Checks|null $internal🔀Router🔀Post🔀Checks                               = null;
     private Internal\Router\Post\Issues|null $internal🔀Router🔀Post🔀Issues                               = null;
@@ -639,6 +639,15 @@ final class Routers
         return $this->internal🔀Router🔀Post🔀Git;
     }
 
+    public function internal🔀Router🔀Post🔀SecretScanning(): Internal\Router\Post\SecretScanning
+    {
+        if ($this->internal🔀Router🔀Post🔀SecretScanning instanceof Internal\Router\Post\SecretScanning === false) {
+            $this->internal🔀Router🔀Post🔀SecretScanning = new Internal\Router\Post\SecretScanning(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Post🔀SecretScanning;
+    }
+
     public function internal🔀Router🔀Post🔀SecurityAdvisories(): Internal\Router\Post\SecurityAdvisories
     {
         if ($this->internal🔀Router🔀Post🔀SecurityAdvisories instanceof Internal\Router\Post\SecurityAdvisories === false) {
@@ -673,15 +682,6 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Post🔀Packages;
-    }
-
-    public function internal🔀Router🔀Post🔀SecretScanning(): Internal\Router\Post\SecretScanning
-    {
-        if ($this->internal🔀Router🔀Post🔀SecretScanning instanceof Internal\Router\Post\SecretScanning === false) {
-            $this->internal🔀Router🔀Post🔀SecretScanning = new Internal\Router\Post\SecretScanning(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
-        }
-
-        return $this->internal🔀Router🔀Post🔀SecretScanning;
     }
 
     public function internal🔀Router🔀Post🔀CodeSecurity(): Internal\Router\Post\CodeSecurity

@@ -420,7 +420,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Billing\\AddResourceToCostCenter\\Response\\ApplicationJson\\Ok');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource') {
@@ -440,11 +440,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'LIST /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/{security_product}/{enablement}') {
@@ -1604,19 +1604,19 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/properties/schema') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrgCustomProperty>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\CustomProperty>');
         }
 
         if ($call === 'PATCH /orgs/{org}/properties/schema') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrgCustomProperty>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\CustomProperty>');
         }
 
         if ($call === 'GET /orgs/{org}/properties/schema/{custom_property_name}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\CustomProperty');
         }
 
         if ($call === 'PUT /orgs/{org}/properties/schema/{custom_property_name}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\CustomProperty');
         }
 
         if ($call === 'DELETE /orgs/{org}/properties/schema/{custom_property_name}') {
@@ -1749,6 +1749,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /orgs/{org}/team-sync/groups') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /orgs/{org}/team/{team_slug}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/team/{team_slug}/copilot/usage') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetrics>');
         }
 
         if ($call === 'GET /orgs/{org}/teams') {
@@ -3905,6 +3913,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'LIST /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}/locations') {
             return $this->typeResolver->resolve('Observable<Schema\\SecretScanningLocation>|WithoutBody');
+        }
+
+        if ($call === 'POST /repos/{owner}/{repo}/secret-scanning/push-protection-bypasses') {
+            return $this->typeResolver->resolve('Schema\\SecretScanningPushProtectionBypass|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/security-advisories') {

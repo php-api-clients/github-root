@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal\Routers;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Environment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FileCommit;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryInvitation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
@@ -20,7 +20,8 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|EmptyObject|OrgCustomProperty|RepositoryInvitation|FileCommit|Environment|RepositoryRuleset
+    /** @return |Schema\CustomProperty */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|EmptyObject|CustomProperty|RepositoryInvitation|FileCommit|Environment|RepositoryRuleset
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {

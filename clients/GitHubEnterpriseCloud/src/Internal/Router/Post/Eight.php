@@ -21,7 +21,7 @@ final class Eight
     {
     }
 
-    /** @return Schema\Operations\Billing\AddResourceToCostCenter\Response\ApplicationJson\Ok||Observable<Schema\Deployment> */
+    /** @return |Observable<Schema\Deployment> */
     public function call(string $call, array $params, array $pathChunks): Ok|Json|Codespace|WithoutBody|TeamDiscussionComment|Reaction|EmptyObject|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok|iterable|ProtectedBranchAdminEnforced
     {
         if ($pathChunks[0] === '') {

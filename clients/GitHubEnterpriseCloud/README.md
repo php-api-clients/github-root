@@ -10014,6 +10014,66 @@ $client->operations()->teams()->listIdpGroupsForOrg(        org: 'generated',
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/teams/team-sync#list-idp-groups-for-an-organization).
 
 
+### copilot/usage-metrics-for-team
+
+Get a summary of Copilot usage for a team
+
+Using the `call` method:
+```php
+$client->call('GET /orgs/{org}/team/{team_slug}/copilot/usage', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForTeam(        org: 'generated',
+        team_slug: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-a-team).
+
+
+### copilot/usage-metrics-for-team
+
+Get a summary of Copilot usage for a team
+
+Using the `call` method:
+```php
+$client->call('LIST /orgs/{org}/team/{team_slug}/copilot/usage', [
+        'org' => 'generated',
+        'team_slug' => 'generated',
+        'since' => 'generated',
+        'until' => 'generated',
+        'page' => 1,
+        'per_page' => 8,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->copilot()->usageMetricsForTeamListing(        org: 'generated',
+        team_slug: 'generated',
+        since: 'generated',
+        until: 'generated',
+        page: 1,
+        per_page: 8,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/copilot/copilot-usage#get-a-summary-of-copilot-usage-for-a-team).
+
+
 ### teams/list
 
 List teams
@@ -23743,6 +23803,28 @@ $client->operations()->secretScanning()->listLocationsForAlertListing(        ow
 ```
 
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/secret-scanning#list-locations-for-a-secret-scanning-alert).
+
+
+### secret-scanning/create-push-protection-bypass
+
+Create a push protection bypass
+
+Using the `call` method:
+```php
+$client->call('POST /repos/{owner}/{repo}/secret-scanning/push-protection-bypasses', [
+        'owner' => 'generated',
+        'repo' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->secretScanning()->createPushProtectionBypass(        owner: 'generated',
+        repo: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/secret-scanning/secret-scanning#create-a-push-protection-bypass).
 
 
 ### security-advisories/list-repository-advisories
