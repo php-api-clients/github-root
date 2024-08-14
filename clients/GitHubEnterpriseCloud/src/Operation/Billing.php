@@ -38,6 +38,7 @@ final class Billing
         return $this->operators->billing👷GetAllCostCenters()->call($enterprise);
     }
 
+    /** @return */
     public function addResourceToCostCenter(string $enterprise, string $costCenterId, array $params): Ok
     {
         return $this->operators->billing👷AddResourceToCostCenter()->call($enterprise, $costCenterId, $params);

@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\HookDelivery;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\Delete\Response\ApplicationJson\Accepted\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\ListCustomRoles\Response\ApplicationJson\Ok;
@@ -13,7 +14,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationCustomRepositoryR
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationFull;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationInvitation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationRole;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgHook;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgMembership;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookConfig;
@@ -535,26 +535,24 @@ final class Orgs
         return $this->operators->orgs👷ListPatGrantRepositoriesListing()->call($org, $patId, $perPage, $page);
     }
 
-    /** @return Observable<Schema\OrgCustomProperty> */
+    /** @return iterable<int,Schema\CustomProperty> */
     public function getAllCustomProperties(string $org): iterable
     {
         return $this->operators->orgs👷GetAllCustomProperties()->call($org);
     }
 
-    /** @return Observable<Schema\OrgCustomProperty> */
+    /** @return iterable<int,Schema\CustomProperty> */
     public function createOrUpdateCustomProperties(string $org, array $params): iterable
     {
         return $this->operators->orgs👷CreateOrUpdateCustomProperties()->call($org, $params);
     }
 
-    /** @return */
-    public function getCustomProperty(string $org, string $customPropertyName): OrgCustomProperty
+    public function getCustomProperty(string $org, string $customPropertyName): CustomProperty
     {
         return $this->operators->orgs👷GetCustomProperty()->call($org, $customPropertyName);
     }
 
-    /** @return */
-    public function createOrUpdateCustomProperty(string $org, string $customPropertyName, array $params): OrgCustomProperty
+    public function createOrUpdateCustomProperty(string $org, string $customPropertyName, array $params): CustomProperty
     {
         return $this->operators->orgs👷CreateOrUpdateCustomProperty()->call($org, $customPropertyName, $params);
     }

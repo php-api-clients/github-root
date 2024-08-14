@@ -21,6 +21,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\Reaction;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReleaseNotesContent;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryAdvisory;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ScimUser;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningPushProtectionBypass;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ShortBlob;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Status;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\TagProtection;
@@ -36,7 +37,8 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): Json|Created|AuthenticationToken|WithoutBody|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson\Created|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created\Application\Json|TeamDiscussion|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|RepositoryAdvisory|Status|TagProtection|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment|Reaction
+    /** @return |Schema\SecretScanningPushProtectionBypass|\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
+    public function call(string $call, array $params, array $pathChunks): Json|Created|AuthenticationToken|WithoutBody|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson\Created|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created\Application\Json|TeamDiscussion|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Created\Application\Json|EmptyObject|CodeScanningSarifsReceipt|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\DependencyGraph\CreateRepositorySnapshot\Response\ApplicationJson\Created|ShortBlob|GitCommit|GitRef|GitTag|GitTree|PageBuildStatus|PageDeployment|ReleaseNotesContent|SecretScanningPushProtectionBypass|RepositoryAdvisory|Status|TagProtection|GroupResponse|UserResponse|ScimUser|TeamDiscussionComment|Reaction
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -196,6 +198,12 @@ final class Six
                             if ($pathChunks[5] === 'generate-notes') {
                                 if ($call === 'POST /repos/{owner}/{repo}/releases/generate-notes') {
                                     return $this->routers->internal🔀Router🔀Post🔀Repos()->generateReleaseNotes($params);
+                                }
+                            }
+                        } elseif ($pathChunks[4] === 'secret-scanning') {
+                            if ($pathChunks[5] === 'push-protection-bypasses') {
+                                if ($call === 'POST /repos/{owner}/{repo}/secret-scanning/push-protection-bypasses') {
+                                    return $this->routers->internal🔀Router🔀Post🔀SecretScanning()->createPushProtectionBypass($params);
                                 }
                             }
                         } elseif ($pathChunks[4] === 'security-advisories') {

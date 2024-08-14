@@ -6,7 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\WebHook;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimpleWebhooks;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUserWebhooks;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCustomPropertyCreated;
@@ -49,7 +48,7 @@ class CustomProperty implements ObjectMapper
     {
         return match ($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCustomPropertyCreated' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCustomPropertyCreated($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseWebhooks($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimpleWebhooks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimpleWebhooks($payload),
@@ -87,7 +86,7 @@ class CustomProperty implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'definition';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -191,7 +190,7 @@ class CustomProperty implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty(array $payload): OrgCustomProperty
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty(array $payload): \ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty
     {
         $properties    = [];
         $missingFields = [];
@@ -206,6 +205,17 @@ class CustomProperty implements ObjectMapper
             $properties['propertyName'] = $value;
 
             after_propertyName:
+
+            $value = $payload['url'] ?? null;
+
+            if ($value === null) {
+                $properties['url'] = null;
+                goto after_url;
+            }
+
+            $properties['url'] = $value;
+
+            after_url:
 
             $value = $payload['value_type'] ?? null;
 
@@ -273,17 +283,17 @@ class CustomProperty implements ObjectMapper
 
             after_valuesEditableBy:
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(OrgCustomProperty::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new OrgCustomProperty(...$properties);
+            return new \ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty(...$properties);
         } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty', $exception, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -1044,7 +1054,7 @@ class CustomProperty implements ObjectMapper
             if (is_array($value)) {
                 try {
                     $this->hydrationStack[] = 'definition';
-                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty($value);
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty($value);
                 } finally {
                     array_pop($this->hydrationStack);
                 }
@@ -1180,7 +1190,7 @@ class CustomProperty implements ObjectMapper
                 'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCustomPropertyCreated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCustomPropertyCreated($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrgCustomProperty' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️EnterpriseWebhooks($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleInstallation' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleInstallation($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\OrganizationSimpleWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrganizationSimpleWebhooks($object),
@@ -1259,7 +1269,7 @@ class CustomProperty implements ObjectMapper
         after_action:        $result['action'] = $action;
 
         $definition                                    = $object->definition;
-        $definition                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty($definition);
+        $definition                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty($definition);
         after_definition:        $result['definition'] = $definition;
 
         $enterprise = $object->enterprise;
@@ -1301,13 +1311,21 @@ class CustomProperty implements ObjectMapper
         return $result;
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty(mixed $object): mixed
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty(mixed $object): mixed
     {
-        assert($object instanceof OrgCustomProperty);
+        assert($object instanceof \ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty);
         $result = [];
 
         $propertyName                                       = $object->propertyName;
         after_propertyName:        $result['property_name'] = $propertyName;
+
+        $url = $object->url;
+
+        if ($url === null) {
+            goto after_url;
+        }
+
+        after_url:        $result['url'] = $url;
 
         $valueType                                    = $object->valueType;
         after_valueType:        $result['value_type'] = $valueType;
@@ -1652,7 +1670,7 @@ class CustomProperty implements ObjectMapper
         after_action:        $result['action'] = $action;
 
         $definition                                    = $object->definition;
-        $definition                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️OrgCustomProperty($definition);
+        $definition                                    = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CustomProperty($definition);
         after_definition:        $result['definition'] = $definition;
 
         $enterprise = $object->enterprise;

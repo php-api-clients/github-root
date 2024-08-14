@@ -24,6 +24,7 @@ final readonly class AddResourceToCostCenter
     {
     }
 
+    /** @return */
     public function call(string $enterprise, string $costCenterId, array $params): Ok
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\AddResourceToCostCenter($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise, $costCenterId);
