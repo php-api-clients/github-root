@@ -7,6 +7,7 @@ namespace ApiClients\Client\GitHub\Internal\Operation\Repos;
 use ApiClients\Client\GitHub\Error as ErrorSchemas;
 use ApiClients\Client\GitHub\Internal;
 use ApiClients\Client\GitHub\Schema;
+use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use cebe\openapi\Reader;
 use League\OpenAPIValidation\Schema\SchemaValidator;
 use Psr\Http\Message\RequestInterface;
@@ -41,7 +42,7 @@ final class GetReadme
         return new Request('GET', str_replace(['{owner}', '{repo}', '{ref}'], [$this->owner, $this->repo, $this->ref], '/repos/{owner}/{repo}/readme' . '?ref={ref}'));
     }
 
-    public function createResponse(ResponseInterface $response): Schema\ContentFile
+    public function createResponse(ResponseInterface $response): Schema\ContentFile|WithoutBody
     {
         $code          = $response->getStatusCode();
         [$contentType] = explode(';', $response->getHeaderLine('Content-Type'));
@@ -75,6 +76,14 @@ final class GetReadme
                 }
 
                 break;
+        }
+
+        switch ($code) {
+            /**
+             * Not modified
+             **/
+            case 304:
+                return new WithoutBody(304, []);
         }
 
         throw new RuntimeException('Unable to find matching response code and content type');

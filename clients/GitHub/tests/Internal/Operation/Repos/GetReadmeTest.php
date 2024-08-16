@@ -126,4 +126,40 @@ final class GetReadmeTest extends AsyncTestCase
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->operations()->repos()->getReadme('generated', 'generated', 'generated');
     }
+
+    /** @test */
+    public function call_httpCode_304_empty(): void
+    {
+        $response = new Response(304, []);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/readme?ref=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = $client->call(Internal\Operation\Repos\GetReadme::OPERATION_MATCH, (static function (array $data): array {
+            $data['owner'] = 'generated';
+            $data['repo']  = 'generated';
+            $data['ref']   = 'generated';
+
+            return $data;
+        })([]));
+    }
+
+    /** @test */
+    public function operations_httpCode_304_empty(): void
+    {
+        $response = new Response(304, []);
+        $auth     = $this->prophesize(AuthenticationInterface::class);
+        $auth->authHeader(Argument::any())->willReturn('Bearer beer')->shouldBeCalled();
+        $browser = $this->prophesize(Browser::class);
+        $browser->withBase(Argument::any())->willReturn($browser->reveal());
+        $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
+        $browser->request('GET', '/repos/generated/generated/readme?ref=generated', Argument::type('array'), Argument::any())->willReturn(resolve($response))->shouldBeCalled();
+        $client = new Client($auth->reveal(), $browser->reveal());
+        $result = $client->operations()->repos()->getReadme('generated', 'generated', 'generated');
+        self::assertArrayHasKey('code', $result);
+        self::assertSame(304, $result['code']);
+    }
 }
