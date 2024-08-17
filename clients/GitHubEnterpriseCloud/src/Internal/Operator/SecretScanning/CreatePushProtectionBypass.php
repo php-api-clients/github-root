@@ -25,6 +25,7 @@ final readonly class CreatePushProtectionBypass
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo, array $params): SecretScanningPushProtectionBypass|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\CreatePushProtectionBypass($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $owner, $repo);

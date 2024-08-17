@@ -900,7 +900,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['role_id']);
     }
 
-    /** @return iterable<int,Schema\CustomProperty> */
+    /** @return Observable<Schema\CustomProperty> */
     public function getAllCustomProperties(array $params): iterable
     {
         $arguments = [];
@@ -1209,6 +1209,7 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['pat_id'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getCustomProperty(array $params): CustomProperty
     {
         $arguments = [];
