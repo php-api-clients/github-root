@@ -4650,7 +4650,7 @@ class Label implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Description' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Description($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Changes\Name' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Changes⚡️Name($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookLabelEdited\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookLabelEdited⚡️Label($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

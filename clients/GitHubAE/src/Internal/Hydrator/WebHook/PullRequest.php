@@ -83470,7 +83470,7 @@ class PullRequest implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestUnlocked\PullRequest\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestUnlocked⚡️PullRequest⚡️Milestone($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestUnlocked\PullRequest\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestUnlocked⚡️PullRequest⚡️Milestone⚡️Creator($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestUnlocked\PullRequest\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestUnlocked⚡️PullRequest⚡️User($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

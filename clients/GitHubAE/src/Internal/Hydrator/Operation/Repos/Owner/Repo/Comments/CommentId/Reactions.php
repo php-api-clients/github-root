@@ -578,7 +578,7 @@ class Reactions implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
                 'ApiClients\Client\GitHubAE\Schema\Operations\Reactions\CreateForCommitComment\Response\ApplicationJson\UnsupportedMediaType' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Operations⚡️Reactions⚡️CreateForCommitComment⚡️Response⚡️ApplicationJson⚡️UnsupportedMediaType($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

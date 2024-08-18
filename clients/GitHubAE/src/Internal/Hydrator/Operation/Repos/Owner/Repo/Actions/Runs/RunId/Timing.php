@@ -374,7 +374,7 @@ class Timing implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Ubuntu' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Ubuntu($object),
                 'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Macos' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Macos($object),
                 'ApiClients\Client\GitHubAE\Schema\WorkflowRunUsage\Billable\Windows' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WorkflowRunUsage⚡️Billable⚡️Windows($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

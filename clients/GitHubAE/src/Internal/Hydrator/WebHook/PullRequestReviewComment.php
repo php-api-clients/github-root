@@ -27974,7 +27974,7 @@ class PullRequestReviewComment implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestReviewCommentEdited\PullRequest\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestReviewCommentEdited⚡️PullRequest⚡️Milestone($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestReviewCommentEdited\PullRequest\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestReviewCommentEdited⚡️PullRequest⚡️Milestone⚡️Creator($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPullRequestReviewCommentEdited\PullRequest\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPullRequestReviewCommentEdited⚡️PullRequest⚡️User($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

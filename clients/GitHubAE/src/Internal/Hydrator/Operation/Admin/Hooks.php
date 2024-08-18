@@ -281,7 +281,7 @@ class Hooks implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\GlobalHook' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook($object),
                 'ApiClients\Client\GitHubAE\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GlobalHook⚡️Config($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

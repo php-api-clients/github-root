@@ -1963,7 +1963,7 @@ class Preferences implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
                 'ApiClients\Client\GitHubAE\Schema\SecurityAndAnalysis\SecretScanningValidityChecks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

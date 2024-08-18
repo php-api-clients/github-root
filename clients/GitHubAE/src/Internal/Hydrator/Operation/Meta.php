@@ -400,7 +400,7 @@ class Meta implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\ApiOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ApiOverview($object),
                 'ApiClients\Client\GitHubAE\Schema\ApiOverview\SshKeyFingerprints' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ApiOverview⚡️SshKeyFingerprints($object),
                 'ApiClients\Client\GitHubAE\Schema\ApiOverview\Domains' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ApiOverview⚡️Domains($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

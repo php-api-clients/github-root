@@ -3135,7 +3135,7 @@ class Push implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Owner($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookPush\Repository\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookPush⚡️Repository⚡️Permissions($object),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUserWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUserWebhooks($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

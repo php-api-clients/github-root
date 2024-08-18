@@ -13520,7 +13520,7 @@ class IssueComment implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookIssueCommentEdited\Issue\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

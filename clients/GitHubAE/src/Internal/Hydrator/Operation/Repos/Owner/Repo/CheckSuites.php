@@ -2624,7 +2624,7 @@ class CheckSuites implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\SimpleCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit($object),
                 'ApiClients\Client\GitHubAE\Schema\SimpleCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Author($object),
                 'ApiClients\Client\GitHubAE\Schema\SimpleCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleCommit⚡️Committer($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

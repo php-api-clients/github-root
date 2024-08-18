@@ -4920,7 +4920,7 @@ class Pulls implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\Link' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Link($object),
                 'ApiClients\Client\GitHubAE\Schema\AutoMerge' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️AutoMerge($object),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

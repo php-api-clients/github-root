@@ -7204,7 +7204,7 @@ class Milestone implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMilestoneOpened\Milestone\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMilestoneOpened⚡️Milestone⚡️Creator($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

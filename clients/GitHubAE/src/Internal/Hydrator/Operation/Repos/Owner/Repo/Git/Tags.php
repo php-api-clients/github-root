@@ -442,7 +442,7 @@ class Tags implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\GitTag\Object_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️GitTag⚡️Object_($object),
                 'ApiClients\Client\GitHubAE\Schema\Verification' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Verification($object),
                 'ApiClients\Client\GitHubAE\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

@@ -7817,7 +7817,7 @@ class Deployment implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\WorkflowRun\Repository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️Repository($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\WorkflowRun\Repository\Owner' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️Repository⚡️Owner($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDeploymentCreated\WorkflowRun\TriggeringActor' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDeploymentCreated⚡️WorkflowRun⚡️TriggeringActor($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
