@@ -270,7 +270,7 @@ class PreReceiveEnvironments implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment($object),
                 'ApiClients\Client\GitHubAE\Schema\PreReceiveEnvironment\Download' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PreReceiveEnvironment⚡️Download($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

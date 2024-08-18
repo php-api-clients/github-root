@@ -5163,7 +5163,7 @@ class Member implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookMemberEdited\Member' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMemberEdited⚡️Member($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMemberRemoved' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMemberRemoved($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookMemberRemoved\Member' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookMemberRemoved⚡️Member($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

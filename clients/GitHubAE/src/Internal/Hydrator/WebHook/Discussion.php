@@ -9640,7 +9640,7 @@ class Discussion implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionUnlabeled\Label' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionUnlabeled⚡️Label($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionUnlocked' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionUnlocked($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookDiscussionUnpinned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookDiscussionUnpinned($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

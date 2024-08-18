@@ -226,7 +226,7 @@ class Commits implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubAE\Schema\ScimError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ScimError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

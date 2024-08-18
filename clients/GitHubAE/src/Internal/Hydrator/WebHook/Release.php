@@ -9411,7 +9411,7 @@ class Release implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\WebhookReleaseUnpublished\Release' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookReleaseUnpublished⚡️Release($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookReleaseUnpublished\Release\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookReleaseUnpublished⚡️Release⚡️Author($object),
                 'ApiClients\Client\GitHubAE\Schema\WebhookReleaseUnpublished\Release\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️WebhookReleaseUnpublished⚡️Release⚡️Reactions($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

@@ -314,7 +314,7 @@ class EnvironmentName implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\Environment' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️Environment($object),
                 'ApiClients\Client\GitHubAE\Schema\DeploymentBranchPolicySettings' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️DeploymentBranchPolicySettings($object),
                 'ApiClients\Client\GitHubAE\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️BasicError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

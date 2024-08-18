@@ -488,7 +488,7 @@ class BuildId implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\PageBuild' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild($object),
                 'ApiClients\Client\GitHubAE\Schema\PageBuild\Error' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️PageBuild⚡️Error($object),
                 'ApiClients\Client\GitHubAE\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️SimpleUser($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

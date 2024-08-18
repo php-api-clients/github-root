@@ -1954,7 +1954,7 @@ class Protection implements ObjectMapper
                 'ApiClients\Client\GitHubAE\Schema\ProtectedBranch\RequiredConversationResolution' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranch⚡️RequiredConversationResolution($object),
                 'ApiClients\Client\GitHubAE\Schema\ProtectedBranch\BlockCreations' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ProtectedBranch⚡️BlockCreations($object),
                 'ApiClients\Client\GitHubAE\Schema\ValidationErrorSimple' => $this->serializeObjectApiClients⚡️Client⚡️GitHubAE⚡️Schema⚡️ValidationErrorSimple($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
