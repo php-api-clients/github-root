@@ -171,7 +171,7 @@ class Topics implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\Search\Topics\Response\ApplicationJson\Ok' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Search⚡️Topics⚡️Response⚡️ApplicationJson⚡️Ok($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\Apps\GetInstallation\Response\ApplicationJson\UnsupportedMediaType' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Apps⚡️GetInstallation⚡️Response⚡️ApplicationJson⚡️UnsupportedMediaType($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
