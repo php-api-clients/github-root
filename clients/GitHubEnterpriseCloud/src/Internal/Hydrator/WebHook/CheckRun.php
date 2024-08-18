@@ -6749,7 +6749,7 @@ class CheckRun implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckRunRequestedActionFormEncoded' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckRunRequestedActionFormEncoded($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckRunRerequested' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckRunRerequested($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckRunRerequestedFormEncoded' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckRunRerequestedFormEncoded($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

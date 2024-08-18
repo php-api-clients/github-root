@@ -7932,7 +7932,7 @@ class CheckSuite implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteRerequested\CheckSuite\HeadCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteRerequested⚡️CheckSuite⚡️HeadCommit($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteRerequested\CheckSuite\HeadCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteRerequested⚡️CheckSuite⚡️HeadCommit⚡️Author($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookCheckSuiteRerequested\CheckSuite\HeadCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookCheckSuiteRerequested⚡️CheckSuite⚡️HeadCommit⚡️Committer($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

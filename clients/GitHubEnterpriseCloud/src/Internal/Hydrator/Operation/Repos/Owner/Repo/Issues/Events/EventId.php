@@ -3930,7 +3930,7 @@ class EventId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueEventProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueEventProjectCard($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\IssueEventRename' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️IssueEventRename($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

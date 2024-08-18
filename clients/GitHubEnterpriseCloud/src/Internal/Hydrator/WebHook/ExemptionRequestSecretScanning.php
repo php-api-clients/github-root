@@ -4716,7 +4716,7 @@ class ExemptionRequestSecretScanning implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookExemptionRequestResponseDismissed' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookExemptionRequestResponseDismissed($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ExemptionResponse' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ExemptionResponse($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookExemptionRequestResponseSubmitted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookExemptionRequestResponseSubmitted($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

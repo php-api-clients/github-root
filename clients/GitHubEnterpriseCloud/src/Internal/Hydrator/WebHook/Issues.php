@@ -44173,7 +44173,7 @@ class Issues implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlocked\Issue\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlocked⚡️Issue⚡️Reactions($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnlocked\Issue\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnlocked⚡️Issue⚡️User($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookIssuesUnpinned' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookIssuesUnpinned($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

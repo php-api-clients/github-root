@@ -2677,7 +2677,7 @@ class CheckSuiteId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Author($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleCommit\Committer' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SimpleCommit⚡️Committer($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

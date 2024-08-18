@@ -6051,7 +6051,7 @@ class MarketplacePurchase implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase\Account' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookMarketplacePurchasePendingChangeCancelled⚡️MarketplacePurchase⚡️Account($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase\Plan' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookMarketplacePurchasePendingChangeCancelled⚡️MarketplacePurchase⚡️Plan($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookMarketplacePurchasePurchased' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookMarketplacePurchasePurchased($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

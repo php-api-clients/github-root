@@ -4394,7 +4394,7 @@ class SecretScanningAlert implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookSecretScanningAlertReopened' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookSecretScanningAlertReopened($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookSecretScanningAlertResolved' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookSecretScanningAlertResolved($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookSecretScanningAlertValidated' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookSecretScanningAlertValidated($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
