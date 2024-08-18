@@ -431,7 +431,7 @@ class PackageVersionId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\PackageVersion\Metadata\Container' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PackageVersion⚡️Metadata⚡️Container($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\PackageVersion\Metadata\Docker' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️PackageVersion⚡️Metadata⚡️Docker($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

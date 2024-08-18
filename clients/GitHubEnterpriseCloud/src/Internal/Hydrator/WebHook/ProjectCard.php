@@ -5890,7 +5890,7 @@ class ProjectCard implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectCardMoved\Changes\ColumnId' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectCardMoved⚡️Changes⚡️ColumnId($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectCardMoved\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectCardMoved\ProjectCard\Creator' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectCardMoved⚡️ProjectCard⚡️Creator($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

@@ -5734,7 +5734,7 @@ class Repository implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryTransferred\Changes\Owner\From\Organization' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookRepositoryTransferred⚡️Changes⚡️Owner⚡️From⚡️Organization($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryTransferred\Changes\Owner\From\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookRepositoryTransferred⚡️Changes⚡️Owner⚡️From⚡️User($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookRepositoryUnarchived' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookRepositoryUnarchived($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

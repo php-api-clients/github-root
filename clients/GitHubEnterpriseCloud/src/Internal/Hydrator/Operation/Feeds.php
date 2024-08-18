@@ -483,7 +483,7 @@ class Feeds implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Feed' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Feed($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Feed\Links' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Feed⚡️Links($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\LinkWithType' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️LinkWithType($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

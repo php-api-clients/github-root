@@ -1555,7 +1555,7 @@ class ProjectsV2StatusUpdate implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2StatusUpdateEdited\Changes\Status' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2StatusUpdateEdited⚡️Changes⚡️Status($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2StatusUpdateEdited\Changes\StartDate' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2StatusUpdateEdited⚡️Changes⚡️StartDate($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookProjectsV2StatusUpdateEdited\Changes\TargetDate' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️WebhookProjectsV2StatusUpdateEdited⚡️Changes⚡️TargetDate($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
