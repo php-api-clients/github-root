@@ -890,7 +890,7 @@ class All implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseMilestoneOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseMilestoneOverview($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseGistOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseGistOverview($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseCommentOverview' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseCommentOverview($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
