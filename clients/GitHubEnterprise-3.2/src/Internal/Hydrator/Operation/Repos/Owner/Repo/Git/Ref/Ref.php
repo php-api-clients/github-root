@@ -270,7 +270,7 @@ class Ref implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\GitRef' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitRef($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\GitRef\Object_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GitRef⚡️Object_($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
