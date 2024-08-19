@@ -1952,7 +1952,7 @@ class Settings implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Pages' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Pages($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Collectd' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Collectd($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\EnterpriseSettings\Enterprise\Mapping' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️EnterpriseSettings⚡️Enterprise⚡️Mapping($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
