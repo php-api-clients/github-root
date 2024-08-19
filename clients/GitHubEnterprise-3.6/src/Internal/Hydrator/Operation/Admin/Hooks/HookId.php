@@ -476,7 +476,7 @@ class HookId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\GlobalHook\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook⚡️Config($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\GlobalHook2' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook2($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\GlobalHook2\Config' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️GlobalHook2⚡️Config($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

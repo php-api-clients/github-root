@@ -633,7 +633,7 @@ class Cards implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\ProjectCard' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ProjectCard($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\Projects\CreateCard\Response\ApplicationJson\ServiceUnavailable\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Projects⚡️CreateCard⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable⚡️Application⚡️Json($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
