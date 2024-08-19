@@ -578,7 +578,7 @@ class Reactions implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\Reaction' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Reaction($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUser' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUser($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️ValidationError($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
