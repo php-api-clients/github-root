@@ -225,7 +225,7 @@ class Downloads implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironmentDownloadStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironmentDownloadStatus($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownload\Response\ApplicationJson\UnprocessableEntity\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownload⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\StartPreReceiveEnvironmentDownloadStreaming\Response\ApplicationJson\UnprocessableEntity\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️StartPreReceiveEnvironmentDownloadStreaming⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
