@@ -631,7 +631,7 @@ class CommentId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\Gists\Get\Response\ApplicationJson\Forbidden' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Gists⚡️Get⚡️Response⚡️ApplicationJson⚡️Forbidden($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\Gists\Get\Response\ApplicationJson\Forbidden\Block' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️Gists⚡️Get⚡️Response⚡️ApplicationJson⚡️Forbidden⚡️Block($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
