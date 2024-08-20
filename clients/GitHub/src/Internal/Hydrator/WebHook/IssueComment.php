@@ -522,6 +522,17 @@ class IssueComment implements ObjectMapper
 
             after_nodeId:
 
+            $value = $payload['client_id'] ?? null;
+
+            if ($value === null) {
+                $properties['clientId'] = null;
+                goto after_clientId;
+            }
+
+            $properties['clientId'] = $value;
+
+            after_clientId:
+
             $value = $payload['owner'] ?? null;
 
             if ($value === null) {
@@ -649,17 +660,6 @@ class IssueComment implements ObjectMapper
             $properties['installationsCount'] = $value;
 
             after_installationsCount:
-
-            $value = $payload['client_id'] ?? null;
-
-            if ($value === null) {
-                $properties['clientId'] = null;
-                goto after_clientId;
-            }
-
-            $properties['clientId'] = $value;
-
-            after_clientId:
 
             $value = $payload['client_secret'] ?? null;
 
@@ -15473,7 +15473,7 @@ class IssueComment implements ObjectMapper
                 'ApiClients\Client\GitHub\Schema\WebhookIssueCommentEdited\Issue\PullRequest' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️PullRequest($object),
                 'ApiClients\Client\GitHub\Schema\WebhookIssueCommentEdited\Issue\Reactions' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️Reactions($object),
                 'ApiClients\Client\GitHub\Schema\WebhookIssueCommentEdited\Issue\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️WebhookIssueCommentEdited⚡️Issue⚡️User($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
@@ -15665,6 +15665,14 @@ class IssueComment implements ObjectMapper
         $nodeId                                 = $object->nodeId;
         after_nodeId:        $result['node_id'] = $nodeId;
 
+        $clientId = $object->clientId;
+
+        if ($clientId === null) {
+            goto after_clientId;
+        }
+
+        after_clientId:        $result['client_id'] = $clientId;
+
         $owner = $object->owner;
 
         if ($owner === null) {
@@ -15718,14 +15726,6 @@ class IssueComment implements ObjectMapper
         }
 
         after_installationsCount:        $result['installations_count'] = $installationsCount;
-
-        $clientId = $object->clientId;
-
-        if ($clientId === null) {
-            goto after_clientId;
-        }
-
-        after_clientId:        $result['client_id'] = $clientId;
 
         $clientSecret = $object->clientSecret;
 

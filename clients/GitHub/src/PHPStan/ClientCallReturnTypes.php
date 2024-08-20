@@ -208,7 +208,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
@@ -1324,11 +1324,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'LIST /orgs/{org}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('Observable<Schema\\OrganizationSecretScanningAlert>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\OrganizationSecretScanningAlert>');
         }
 
         if ($call === 'GET /orgs/{org}/security-advisories') {
@@ -2280,7 +2280,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/code-security-configuration') {
-            return $this->typeResolver->resolve('Schema\\CodeSecurityConfigurationForRepository|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/codeowners/errors') {
@@ -3348,7 +3348,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/readme') {
-            return $this->typeResolver->resolve('Schema\\ContentFile|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/readme/{dir}') {
@@ -3476,11 +3476,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningAlert>|WithoutBody');
+            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'LIST /repos/{owner}/{repo}/secret-scanning/alerts') {
-            return $this->typeResolver->resolve('Observable<Schema\\SecretScanningAlert>|WithoutBody');
+            return $this->typeResolver->resolve('iterable<int,Schema\\SecretScanningAlert>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/secret-scanning/alerts/{alert_number}') {

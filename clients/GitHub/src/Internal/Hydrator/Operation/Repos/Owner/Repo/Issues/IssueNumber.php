@@ -2349,6 +2349,17 @@ class IssueNumber implements ObjectMapper
 
             after_nodeId:
 
+            $value = $payload['client_id'] ?? null;
+
+            if ($value === null) {
+                $properties['clientId'] = null;
+                goto after_clientId;
+            }
+
+            $properties['clientId'] = $value;
+
+            after_clientId:
+
             $value = $payload['owner'] ?? null;
 
             if ($value === null) {
@@ -2476,17 +2487,6 @@ class IssueNumber implements ObjectMapper
             $properties['installationsCount'] = $value;
 
             after_installationsCount:
-
-            $value = $payload['client_id'] ?? null;
-
-            if ($value === null) {
-                $properties['clientId'] = null;
-                goto after_clientId;
-            }
-
-            $properties['clientId'] = $value;
-
-            after_clientId:
 
             $value = $payload['client_secret'] ?? null;
 
@@ -2949,7 +2949,7 @@ class IssueNumber implements ObjectMapper
                 'ApiClients\Client\GitHub\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️BasicError($object),
                 'ApiClients\Client\GitHub\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️ValidationError($object),
                 'ApiClients\Client\GitHub\Schema\Operations\SecretScanning\ListAlertsForEnterprise\Response\ApplicationJson\ServiceUnavailable' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Operations⚡️SecretScanning⚡️ListAlertsForEnterprise⚡️Response⚡️ApplicationJson⚡️ServiceUnavailable($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
@@ -3990,6 +3990,14 @@ class IssueNumber implements ObjectMapper
         $nodeId                                 = $object->nodeId;
         after_nodeId:        $result['node_id'] = $nodeId;
 
+        $clientId = $object->clientId;
+
+        if ($clientId === null) {
+            goto after_clientId;
+        }
+
+        after_clientId:        $result['client_id'] = $clientId;
+
         $owner = $object->owner;
 
         if ($owner === null) {
@@ -4043,14 +4051,6 @@ class IssueNumber implements ObjectMapper
         }
 
         after_installationsCount:        $result['installations_count'] = $installationsCount;
-
-        $clientId = $object->clientId;
-
-        if ($clientId === null) {
-            goto after_clientId;
-        }
-
-        after_clientId:        $result['client_id'] = $clientId;
 
         $clientSecret = $object->clientSecret;
 
