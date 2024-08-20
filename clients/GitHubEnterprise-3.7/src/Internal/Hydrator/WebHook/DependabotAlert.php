@@ -5247,7 +5247,7 @@ class DependabotAlert implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDependabotAlertFixed' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDependabotAlertFixed($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDependabotAlertReintroduced' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDependabotAlertReintroduced($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDependabotAlertReopened' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDependabotAlertReopened($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

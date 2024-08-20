@@ -7788,7 +7788,7 @@ class RegistryPackage implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookRegistryPackageUpdated⚡️RegistryPackage⚡️PackageVersion⚡️Author($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookRegistryPackageUpdated⚡️RegistryPackage⚡️PackageVersion⚡️Release($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookRegistryPackageUpdated⚡️RegistryPackage⚡️PackageVersion⚡️Release⚡️Author($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

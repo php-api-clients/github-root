@@ -8148,7 +8148,7 @@ class Package implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\Release' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️Release($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\PackageVersion\Release\Author' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️PackageVersion⚡️Release⚡️Author($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookPackageUpdated\Package\Registry' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookPackageUpdated⚡️Package⚡️Registry($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

@@ -5578,7 +5578,7 @@ class BranchProtectionRule implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookBranchProtectionRuleEdited\Changes\RequiredStatusChecks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookBranchProtectionRuleEdited⚡️Changes⚡️RequiredStatusChecks($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookBranchProtectionRuleEdited\Changes\RequiredStatusChecksEnforcementLevel' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookBranchProtectionRuleEdited⚡️Changes⚡️RequiredStatusChecksEnforcementLevel($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookBranchProtectionRuleEdited\Rule' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookBranchProtectionRuleEdited⚡️Rule($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
