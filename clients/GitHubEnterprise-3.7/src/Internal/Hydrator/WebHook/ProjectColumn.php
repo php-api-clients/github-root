@@ -5004,7 +5004,7 @@ class ProjectColumn implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookProjectColumnEdited\ProjectColumn' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookProjectColumnEdited⚡️ProjectColumn($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookProjectColumnMoved' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookProjectColumnMoved($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookProjectColumnMoved\ProjectColumn' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookProjectColumnMoved⚡️ProjectColumn($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

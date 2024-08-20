@@ -358,7 +358,7 @@ class PreReceiveEnvironmentId implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\PreReceiveEnvironment\Download' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️PreReceiveEnvironment⚡️Download($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\DeletePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️DeletePreReceiveEnvironment⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\Operations\EnterpriseAdmin\UpdatePreReceiveEnvironment\Response\ApplicationJson\UnprocessableEntity\Application\Json' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️Operations⚡️EnterpriseAdmin⚡️UpdatePreReceiveEnvironment⚡️Response⚡️ApplicationJson⚡️UnprocessableEntity⚡️Application⚡️Json($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

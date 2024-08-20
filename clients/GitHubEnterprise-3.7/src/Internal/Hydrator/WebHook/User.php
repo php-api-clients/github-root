@@ -4627,7 +4627,7 @@ class User implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookUserCreated\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookUserCreated⚡️User($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookUserDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookUserDeleted($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookUserDeleted\User' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookUserDeleted⚡️User($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

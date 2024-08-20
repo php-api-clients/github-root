@@ -4417,7 +4417,7 @@ class TeamAdd implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUserWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUserWebhooks($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAdd\Team' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAdd⚡️Team($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookTeamAdd\Team\Parent_' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookTeamAdd⚡️Team⚡️Parent_($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

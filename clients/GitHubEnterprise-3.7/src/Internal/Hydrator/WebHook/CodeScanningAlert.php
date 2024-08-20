@@ -9078,7 +9078,7 @@ class CodeScanningAlert implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopenedByUser\Alert\MostRecentInstance\Message' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCodeScanningAlertReopenedByUser⚡️Alert⚡️MostRecentInstance⚡️Message($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopenedByUser\Alert\Rule' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCodeScanningAlertReopenedByUser⚡️Alert⚡️Rule($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookCodeScanningAlertReopenedByUser\Alert\Tool' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookCodeScanningAlertReopenedByUser⚡️Alert⚡️Tool($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

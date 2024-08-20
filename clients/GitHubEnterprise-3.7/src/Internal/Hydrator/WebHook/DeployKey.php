@@ -4364,7 +4364,7 @@ class DeployKey implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUserWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUserWebhooks($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDeployKeyDeleted' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDeployKeyDeleted($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookDeployKeyDeleted\Key' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookDeployKeyDeleted⚡️Key($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);

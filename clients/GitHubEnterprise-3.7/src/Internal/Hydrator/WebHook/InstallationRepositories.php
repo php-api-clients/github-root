@@ -5419,7 +5419,7 @@ class InstallationRepositories implements ObjectMapper
                 'ApiClients\Client\GitHubEnterprise\Schema\SimpleUserWebhooks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️SimpleUserWebhooks($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookInstallationRepositoriesRemoved' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookInstallationRepositoriesRemoved($object),
                 'ApiClients\Client\GitHubEnterprise\Schema\WebhookInstallationRepositoriesRemoved\Requester' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterprise⚡️Schema⚡️WebhookInstallationRepositoriesRemoved⚡️Requester($object),
-                default => throw new LogicException('No serialization defined for $className'),
+                default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
