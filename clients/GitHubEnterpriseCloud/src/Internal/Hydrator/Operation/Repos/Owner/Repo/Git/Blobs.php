@@ -6,7 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\Operation\Re
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ShortBlob;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -42,7 +41,6 @@ class Blobs implements ObjectMapper
         return match ($className) {
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\ShortBlob' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ShortBlob($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -151,58 +149,6 @@ class Blobs implements ObjectMapper
         }
     }
 
-    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError(array $payload): ValidationError
-    {
-        $properties    = [];
-        $missingFields = [];
-        try {
-            $value = $payload['message'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'message';
-                goto after_message;
-            }
-
-            $properties['message'] = $value;
-
-            after_message:
-
-            $value = $payload['documentation_url'] ?? null;
-
-            if ($value === null) {
-                $missingFields[] = 'documentation_url';
-                goto after_documentationUrl;
-            }
-
-            $properties['documentationUrl'] = $value;
-
-            after_documentationUrl:
-
-            $value = $payload['errors'] ?? null;
-
-            if ($value === null) {
-                $properties['errors'] = null;
-                goto after_errors;
-            }
-
-            $properties['errors'] = $value;
-
-            after_errors:
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError', $exception, stack: $this->hydrationStack);
-        }
-
-        if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(ValidationError::class, $missingFields, stack: $this->hydrationStack);
-        }
-
-        try {
-            return new ValidationError(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError', $exception, stack: $this->hydrationStack);
-        }
-    }
-
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
         foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
@@ -236,7 +182,6 @@ class Blobs implements ObjectMapper
                 'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ShortBlob' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ShortBlob($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
-                'ApiClients\Client\GitHubEnterpriseCloud\Schema\ValidationError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError($object),
                 default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
@@ -349,35 +294,6 @@ class Blobs implements ObjectMapper
         }
 
         after_status:        $result['status'] = $status;
-
-        return $result;
-    }
-
-    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ValidationError(mixed $object): mixed
-    {
-        assert($object instanceof ValidationError);
-        $result = [];
-
-        $message                                 = $object->message;
-        after_message:        $result['message'] = $message;
-
-        $documentationUrl                                           = $object->documentationUrl;
-        after_documentationUrl:        $result['documentation_url'] = $documentationUrl;
-
-        $errors = $object->errors;
-
-        if ($errors === null) {
-            goto after_errors;
-        }
-
-        static $errorsSerializer0;
-
-        if ($errorsSerializer0 === null) {
-            $errorsSerializer0 = new SerializeArrayItems(...[]);
-        }
-
-        $errors                                = $errorsSerializer0->serialize($errors, $this);
-        after_errors:        $result['errors'] = $errors;
 
         return $result;
     }
