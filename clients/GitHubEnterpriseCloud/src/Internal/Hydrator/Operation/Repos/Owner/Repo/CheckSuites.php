@@ -371,6 +371,17 @@ class CheckSuites implements ObjectMapper
 
             after_nodeId:
 
+            $value = $payload['client_id'] ?? null;
+
+            if ($value === null) {
+                $properties['clientId'] = null;
+                goto after_clientId;
+            }
+
+            $properties['clientId'] = $value;
+
+            after_clientId:
+
             $value = $payload['owner'] ?? null;
 
             if ($value === null) {
@@ -498,17 +509,6 @@ class CheckSuites implements ObjectMapper
             $properties['installationsCount'] = $value;
 
             after_installationsCount:
-
-            $value = $payload['client_id'] ?? null;
-
-            if ($value === null) {
-                $properties['clientId'] = null;
-                goto after_clientId;
-            }
-
-            $properties['clientId'] = $value;
-
-            after_clientId:
 
             $value = $payload['client_secret'] ?? null;
 
@@ -2893,6 +2893,14 @@ class CheckSuites implements ObjectMapper
         $nodeId                                 = $object->nodeId;
         after_nodeId:        $result['node_id'] = $nodeId;
 
+        $clientId = $object->clientId;
+
+        if ($clientId === null) {
+            goto after_clientId;
+        }
+
+        after_clientId:        $result['client_id'] = $clientId;
+
         $owner = $object->owner;
 
         if ($owner === null) {
@@ -2946,14 +2954,6 @@ class CheckSuites implements ObjectMapper
         }
 
         after_installationsCount:        $result['installations_count'] = $installationsCount;
-
-        $clientId = $object->clientId;
-
-        if ($clientId === null) {
-            goto after_clientId;
-        }
-
-        after_clientId:        $result['client_id'] = $clientId;
 
         $clientSecret = $object->clientSecret;
 
