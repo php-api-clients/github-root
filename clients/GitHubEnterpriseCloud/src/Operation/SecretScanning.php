@@ -29,7 +29,7 @@ final class SecretScanning
         return $this->operators->secretScanning👷PatchSecurityAnalysisSettingsForEnterprise()->call($enterprise, $params);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForEnterprise(string $enterprise, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort, string $direction, int $perPage): iterable
     {
         return $this->operators->secretScanning👷ListAlertsForEnterprise()->call($enterprise, $state, $secretType, $resolution, $before, $after, $validity, $sort, $direction, $perPage);
@@ -41,25 +41,25 @@ final class SecretScanning
         return $this->operators->secretScanning👷PostSecurityProductEnablementForEnterprise()->call($enterprise, $securityProduct, $enablement);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrg(string $org, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort, string $direction, int $page, int $perPage): iterable
     {
         return $this->operators->secretScanning👷ListAlertsForOrg()->call($org, $state, $secretType, $resolution, $before, $after, $validity, $sort, $direction, $page, $perPage);
     }
 
-    /** @return iterable<int,Schema\OrganizationSecretScanningAlert> */
+    /** @return Observable<Schema\OrganizationSecretScanningAlert> */
     public function listAlertsForOrgListing(string $org, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort, string $direction, int $page, int $perPage): iterable
     {
         return $this->operators->secretScanning👷ListAlertsForOrgListing()->call($org, $state, $secretType, $resolution, $before, $after, $validity, $sort, $direction, $page, $perPage);
     }
 
-    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */
     public function listAlertsForRepo(string $owner, string $repo, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort, string $direction, int $page, int $perPage): iterable|WithoutBody
     {
         return $this->operators->secretScanning👷ListAlertsForRepo()->call($owner, $repo, $state, $secretType, $resolution, $before, $after, $validity, $sort, $direction, $page, $perPage);
     }
 
-    /** @return iterable<int,Schema\SecretScanningAlert>|WithoutBody */
+    /** @return Observable<Schema\SecretScanningAlert>|WithoutBody */
     public function listAlertsForRepoListing(string $owner, string $repo, string $state, string $secretType, string $resolution, string $before, string $after, string $validity, string $sort, string $direction, int $page, int $perPage): iterable|WithoutBody
     {
         return $this->operators->secretScanning👷ListAlertsForRepoListing()->call($owner, $repo, $state, $secretType, $resolution, $before, $after, $validity, $sort, $direction, $page, $perPage);

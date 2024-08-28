@@ -29,7 +29,7 @@ final readonly class CredentialAuthorization
         },
         "credential_id": {
             "type": "integer",
-            "description": "Unique identifier for the credential.",
+            "description": "Unique identifier for the authorization of the credential. Use this to revoke authorization of the underlying token or key.",
             "examples": [
                 1
             ]
@@ -90,6 +90,7 @@ final readonly class CredentialAuthorization
                 "integer",
                 "null"
             ],
+            "description": "The ID of the underlying token that was authorized by the user. This will remain unchanged across authorizations of the token.",
             "examples": [
                 12345678
             ]
@@ -147,13 +148,14 @@ final readonly class CredentialAuthorization
 
     /**
      * login: User login that owns the underlying credential.
-     * credentialId: Unique identifier for the credential.
+     * credentialId: Unique identifier for the authorization of the credential. Use this to revoke authorization of the underlying token or key.
      * credentialType: Human-readable description of the credential type.
      * tokenLastEight: Last eight characters of the credential. Only included in responses with credential_type of personal access token.
      * credentialAuthorizedAt: Date when the credential was authorized for use.
      * scopes: List of oauth scopes the token has been granted.
      * fingerprint: Unique string to distinguish the credential. Only included in responses with credential_type of SSH Key.
      * credentialAccessedAt: Date when the credential was last accessed. May be null if it was never accessed
+     * authorizedCredentialId: The ID of the underlying token that was authorized by the user. This will remain unchanged across authorizations of the token.
      * authorizedCredentialTitle: The title given to the ssh key. This will only be present when the credential is an ssh key.
      * authorizedCredentialNote: The note given to the token. This will only be present when the credential is a token.
      * authorizedCredentialExpiresAt: The expiry for the token. This will only be present when the credential is a token.
