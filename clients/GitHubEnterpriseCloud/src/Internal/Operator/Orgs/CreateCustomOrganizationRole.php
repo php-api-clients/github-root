@@ -24,7 +24,6 @@ final readonly class CreateCustomOrganizationRole
     {
     }
 
-    /** @return */
     public function call(string $org, array $params): OrganizationRole
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Orgs\CreateCustomOrganizationRole($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $org);

@@ -36,7 +36,7 @@ final class PatchCustomOrganizationRole
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request('PATCH', str_replace(['{org}', '{role_id}'], [$this->org, $this->roleId], '/orgs/{org}/organization-roles/{role_id}'), ['Content-Type' => 'application/json'], json_encode($data));
     }

@@ -30,14 +30,14 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\PatchCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org']     = 'generated';
             $data['role_id'] = 7;
 
             return $data;
-        })(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -49,9 +49,9 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -64,14 +64,14 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\PatchCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org']     = 'generated';
             $data['role_id'] = 7;
 
             return $data;
-        })(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -84,9 +84,9 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -99,14 +99,14 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\PatchCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org']     = 'generated';
             $data['role_id'] = 7;
 
             return $data;
-        })(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -119,9 +119,9 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -134,14 +134,14 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\PatchCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org']     = 'generated';
             $data['role_id'] = 7;
 
             return $data;
-        })(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -154,8 +154,8 @@ final class PatchCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('PATCH', '/orgs/generated/organization-roles/7', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\Orgs\PatchCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->patchCustomOrganizationRole('generated', 7, json_decode(Schema\OrganizationCustomOrganizationRoleUpdateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 }

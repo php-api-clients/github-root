@@ -48,7 +48,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /advisories') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GlobalAdvisory>');
+            return $this->typeResolver->resolve('Observable<Schema\\GlobalAdvisory>');
         }
 
         if ($call === 'GET /advisories/{ghsa_id}') {
@@ -1432,7 +1432,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /orgs/{org}/organization-roles') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\OrganizationRole');
         }
 
         if ($call === 'DELETE /orgs/{org}/organization-roles/teams/{team_slug}') {
@@ -1468,7 +1468,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'PATCH /orgs/{org}/organization-roles/{role_id}') {
-            return $this->typeResolver->resolve('');
+            return $this->typeResolver->resolve('Schema\\OrganizationRole');
         }
 
         if ($call === 'GET /orgs/{org}/organization-roles/{role_id}/teams') {

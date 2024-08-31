@@ -18,7 +18,7 @@ $client = new Client(new class implements AuthenticationInterface
     }
 }, new Browser());
 assertType('', $client->call('GET /'));
-assertType('iterable<int,Schema\\GlobalAdvisory>', $client->call('GET /advisories'));
+assertType('Observable<Schema\\GlobalAdvisory>', $client->call('GET /advisories'));
 assertType('', $client->call('GET /advisories/{ghsa_id}'));
 assertType('', $client->call('GET /app'));
 assertType('', $client->call('POST /app-manifests/{code}/conversions'));
@@ -364,7 +364,7 @@ assertType('Observable<Schema\\MinimalRepository>', $client->call('GET /orgs/{or
 assertType('Observable<Schema\\MinimalRepository>', $client->call('LIST /orgs/{org}/migrations/{migration_id}/repositories'));
 assertType('Observable<Schema\\OrganizationFineGrainedPermission>', $client->call('GET /orgs/{org}/organization-fine-grained-permissions'));
 assertType('', $client->call('GET /orgs/{org}/organization-roles'));
-assertType('', $client->call('POST /orgs/{org}/organization-roles'));
+assertType('Schema\\OrganizationRole', $client->call('POST /orgs/{org}/organization-roles'));
 assertType('', $client->call('DELETE /orgs/{org}/organization-roles/teams/{team_slug}'));
 assertType('', $client->call('PUT /orgs/{org}/organization-roles/teams/{team_slug}/{role_id}'));
 assertType('', $client->call('DELETE /orgs/{org}/organization-roles/teams/{team_slug}/{role_id}'));
@@ -373,7 +373,7 @@ assertType('', $client->call('PUT /orgs/{org}/organization-roles/users/{username
 assertType('', $client->call('DELETE /orgs/{org}/organization-roles/users/{username}/{role_id}'));
 assertType('', $client->call('GET /orgs/{org}/organization-roles/{role_id}'));
 assertType('', $client->call('DELETE /orgs/{org}/organization-roles/{role_id}'));
-assertType('', $client->call('PATCH /orgs/{org}/organization-roles/{role_id}'));
+assertType('Schema\\OrganizationRole', $client->call('PATCH /orgs/{org}/organization-roles/{role_id}'));
 assertType('Observable<Schema\\TeamRoleAssignment>|WithoutBody', $client->call('GET /orgs/{org}/organization-roles/{role_id}/teams'));
 assertType('Observable<Schema\\TeamRoleAssignment>|WithoutBody', $client->call('LIST /orgs/{org}/organization-roles/{role_id}/teams'));
 assertType('Observable<Schema\\UserRoleAssignment>|WithoutBody', $client->call('GET /orgs/{org}/organization-roles/{role_id}/users'));
