@@ -30,6 +30,7 @@ final class Four
     {
     }
 
+    /** @return |Schema\OrganizationRole */
     public function call(string $call, array $params, array $pathChunks): Integration|Authorization|GistComment|WithoutBody|BaseGist|OrganizationCustomRepositoryRole|OrgHook|OrganizationInvitation|Migration|OrganizationRole|Json|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Orgs\UpdatePatAccesses\Response\ApplicationJson\Accepted\Application\Json|Project|FullRepository|RepositoryRuleset|TeamFull|ProjectColumn|TeamDiscussion
     {
         if ($pathChunks[0] === '') {

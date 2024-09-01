@@ -33,7 +33,7 @@ final class CreateCustomOrganizationRole
 
     public function createRequest(array $data): RequestInterface
     {
-        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
+        $this->requestSchemaValidator->validate($data, Reader::readFromJson(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_JSON, \cebe\openapi\spec\Schema::class));
 
         return new Request('POST', str_replace(['{org}'], [$this->org], '/orgs/{org}/organization-roles'), ['Content-Type' => 'application/json'], json_encode($data));
     }

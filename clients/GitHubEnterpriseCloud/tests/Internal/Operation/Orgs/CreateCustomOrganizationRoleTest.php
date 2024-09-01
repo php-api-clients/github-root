@@ -30,13 +30,13 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\CreateCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org'] = 'generated';
 
             return $data;
-        })(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -48,9 +48,9 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -63,13 +63,13 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\CreateCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org'] = 'generated';
 
             return $data;
-        })(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -82,9 +82,9 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -97,13 +97,13 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\CreateCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org'] = 'generated';
 
             return $data;
-        })(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -116,9 +116,9 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 
     /** @test */
@@ -131,13 +131,13 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
         $result = $client->call(Internal\Operation\Orgs\CreateCustomOrganizationRole::OPERATION_MATCH, (static function (array $data): array {
             $data['org'] = 'generated';
 
             return $data;
-        })(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)));
+        })(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)));
     }
 
     /** @test */
@@ -150,8 +150,8 @@ final class CreateCustomOrganizationRoleTest extends AsyncTestCase
         $browser = $this->prophesize(Browser::class);
         $browser->withBase(Argument::any())->willReturn($browser->reveal());
         $browser->withFollowRedirects(Argument::any())->willReturn($browser->reveal());
-        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
+        $browser->request('POST', '/orgs/generated/organization-roles', Argument::type('array'), json_encode(json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true)))->willReturn(resolve($response))->shouldBeCalled();
         $client = new Client($auth->reveal(), $browser->reveal());
-        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\Orgs\CreateCustomOrganizationRole\Request\ApplicationJson::SCHEMA_EXAMPLE_DATA, true));
+        $result = $client->operations()->orgs()->createCustomOrganizationRole('generated', json_decode(Schema\OrganizationCustomOrganizationRoleCreateSchema::SCHEMA_EXAMPLE_DATA, true));
     }
 }

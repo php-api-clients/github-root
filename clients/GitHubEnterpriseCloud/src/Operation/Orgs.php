@@ -355,7 +355,6 @@ final class Orgs
         return $this->operators->orgs👷ListOrgRoles()->call($org);
     }
 
-    /** @return */
     public function createCustomOrganizationRole(string $org, array $params): OrganizationRole
     {
         return $this->operators->orgs👷CreateCustomOrganizationRole()->call($org, $params);
@@ -409,7 +408,6 @@ final class Orgs
         return $this->operators->orgs👷DeleteCustomOrganizationRole()->call($org, $roleId);
     }
 
-    /** @return */
     public function patchCustomOrganizationRole(string $org, int $roleId, array $params): OrganizationRole
     {
         return $this->operators->orgs👷PatchCustomOrganizationRole()->call($org, $roleId, $params);
