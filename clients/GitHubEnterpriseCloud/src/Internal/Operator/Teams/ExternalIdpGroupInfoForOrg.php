@@ -24,6 +24,7 @@ final readonly class ExternalIdpGroupInfoForOrg
     {
     }
 
+    /** @return */
     public function call(string $org, int $groupId, int $perPage = 30, int $page = 1): ExternalGroup
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Teams\ExternalIdpGroupInfoForOrg($this->responseSchemaValidator, $this->hydrator, $org, $groupId, $perPage, $page);

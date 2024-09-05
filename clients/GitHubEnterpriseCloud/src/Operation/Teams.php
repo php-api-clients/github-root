@@ -23,6 +23,7 @@ final class Teams
     {
     }
 
+    /** @return */
     public function externalIdpGroupInfoForOrg(string $org, int $groupId, int $perPage, int $page): ExternalGroup
     {
         return $this->operators->teams👷ExternalIdpGroupInfoForOrg()->call($org, $groupId, $perPage, $page);
