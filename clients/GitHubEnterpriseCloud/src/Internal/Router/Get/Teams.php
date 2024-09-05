@@ -299,6 +299,7 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function externalIdpGroupInfoForOrg(array $params): ExternalGroup
     {
         $arguments = [];

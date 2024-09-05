@@ -311,7 +311,7 @@ assertType('', $client->call('DELETE /orgs/{org}/dependabot/secrets/{secret_name
 assertType('Observable<Schema\\Package>', $client->call('GET /orgs/{org}/docker/conflicts'));
 assertType('Observable<Schema\\Event>', $client->call('GET /orgs/{org}/events'));
 assertType('Observable<Schema\\Event>', $client->call('LIST /orgs/{org}/events'));
-assertType('Schema\\ExternalGroup', $client->call('GET /orgs/{org}/external-group/{group_id}'));
+assertType('', $client->call('GET /orgs/{org}/external-group/{group_id}'));
 assertType('', $client->call('GET /orgs/{org}/external-groups'));
 assertType('Observable<Schema\\OrganizationInvitation>', $client->call('GET /orgs/{org}/failed_invitations'));
 assertType('Observable<Schema\\OrganizationInvitation>', $client->call('LIST /orgs/{org}/failed_invitations'));
@@ -427,8 +427,8 @@ assertType('Observable<Schema\\RepositoryFineGrainedPermission>', $client->call(
 assertType('Observable<Schema\\RepositoryRuleset>', $client->call('GET /orgs/{org}/rulesets'));
 assertType('Observable<Schema\\RepositoryRuleset>', $client->call('LIST /orgs/{org}/rulesets'));
 assertType('', $client->call('POST /orgs/{org}/rulesets'));
-assertType('iterable<int,Schema\\RuleSuites>', $client->call('GET /orgs/{org}/rulesets/rule-suites'));
-assertType('iterable<int,Schema\\RuleSuites>', $client->call('LIST /orgs/{org}/rulesets/rule-suites'));
+assertType('Observable<Schema\\RuleSuites>', $client->call('GET /orgs/{org}/rulesets/rule-suites'));
+assertType('Observable<Schema\\RuleSuites>', $client->call('LIST /orgs/{org}/rulesets/rule-suites'));
 assertType('', $client->call('GET /orgs/{org}/rulesets/rule-suites/{rule_suite_id}'));
 assertType('', $client->call('GET /orgs/{org}/rulesets/{ruleset_id}'));
 assertType('', $client->call('PUT /orgs/{org}/rulesets/{ruleset_id}'));
@@ -974,8 +974,8 @@ assertType('Observable<Schema\\RepositoryRuleCreation|Schema\\RepositoryRuleUpda
 assertType('Observable<Schema\\RepositoryRuleset>', $client->call('GET /repos/{owner}/{repo}/rulesets'));
 assertType('Observable<Schema\\RepositoryRuleset>', $client->call('LIST /repos/{owner}/{repo}/rulesets'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/rulesets'));
-assertType('iterable<int,Schema\\RuleSuites>', $client->call('GET /repos/{owner}/{repo}/rulesets/rule-suites'));
-assertType('iterable<int,Schema\\RuleSuites>', $client->call('LIST /repos/{owner}/{repo}/rulesets/rule-suites'));
+assertType('Observable<Schema\\RuleSuites>', $client->call('GET /repos/{owner}/{repo}/rulesets/rule-suites'));
+assertType('Observable<Schema\\RuleSuites>', $client->call('LIST /repos/{owner}/{repo}/rulesets/rule-suites'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/rulesets/rule-suites/{rule_suite_id}'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/rulesets/{ruleset_id}'));
 assertType('', $client->call('PUT /repos/{owner}/{repo}/rulesets/{ruleset_id}'));
