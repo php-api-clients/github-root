@@ -299,7 +299,6 @@ final class Teams
         return $operator->call($arguments['team_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function externalIdpGroupInfoForOrg(array $params): ExternalGroup
     {
         $arguments = [];
@@ -315,9 +314,21 @@ final class Teams
 
         $arguments['group_id'] = $params['group_id'];
         unset($params['group_id']);
+        if (array_key_exists('per_page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: per_page');
+        }
+
+        $arguments['per_page'] = $params['per_page'];
+        unset($params['per_page']);
+        if (array_key_exists('page', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: page');
+        }
+
+        $arguments['page'] = $params['page'];
+        unset($params['page']);
         $operator = new Internal\Operator\Teams\ExternalIdpGroupInfoForOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org🌀ExternalGroup🌀GroupId());
 
-        return $operator->call($arguments['org'], $arguments['group_id']);
+        return $operator->call($arguments['org'], $arguments['group_id'], $arguments['per_page'], $arguments['page']);
     }
 
     /** @return */
