@@ -6761,6 +6761,8 @@ Using the `call` method:
 $client->call('GET /orgs/{org}/external-group/{group_id}', [
         'org' => 'generated',
         'group_id' => 8,
+        'per_page' => 8,
+        'page' => 1,
 ]);
 ```
 
@@ -6768,6 +6770,8 @@ Operations method:
 ```php
 $client->operations()->teams()->externalIdpGroupInfoForOrg(        org: 'generated',
         group_id: 8,
+        per_page: 8,
+        page: 1,
 );
 ```
 
