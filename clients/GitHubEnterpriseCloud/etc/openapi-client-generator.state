@@ -1,5 +1,5 @@
 {
-    "specHash": "d447e3d393f86b8bab369d6928d9de52",
+    "specHash": "95df4267202b432fe4f72cf542eb28c8",
     "generatedFiles": {
         "files": [
             {
@@ -456,7 +456,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ApiOverview.php",
-                "hash": "5d297743d7e6782e30ffb35d8d3ed603"
+                "hash": "43502739bba053f2d341869e9194d097"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/SecurityAndAnalysis.php",
@@ -27128,7 +27128,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Meta.php",
-                "hash": "9aa3f630d5cde4763ddb43d6e5531fb4"
+                "hash": "6ec80e627a4899f39a12108aa03d83f7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Networks\/Owner\/Repo\/Events.php",
@@ -29544,15 +29544,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RuleSuites.php",
-                "hash": "d8ad8c7092514c13051ed6db1d102c04"
+                "hash": "b2bdac08877d79f008bae29d0b0ca95c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RuleSuite.php",
-                "hash": "b8861991862d8a0ac436432e08cd7410"
+                "hash": "558d0bc8106ca50c91ee349ff36e1f65"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RuleSuite\/RuleEvaluations.php",
-                "hash": "b8f11e925ff57747f921705a8ced1cbb"
+                "hash": "46d340746559f7bfcc6ebf21eb277214"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/RuleSuite\/RuleEvaluations\/RuleSource.php",
