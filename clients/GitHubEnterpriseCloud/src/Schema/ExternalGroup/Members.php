@@ -12,6 +12,7 @@ final readonly class Members
     "required": [
         "member_id",
         "member_login",
+        "member_name",
         "member_email"
     ],
     "type": "object",
@@ -31,10 +32,7 @@ final readonly class Members
             ]
         },
         "member_name": {
-            "type": [
-                "string",
-                "null"
-            ],
+            "type": "string",
             "description": "The user display name\\/profile name",
             "examples": [
                 "Mona Lisa"
@@ -67,7 +65,7 @@ final readonly class Members
     public function __construct(#[MapFrom('member_id')]
     public int $memberId, #[MapFrom('member_login')]
     public string $memberLogin, #[MapFrom('member_name')]
-    public string|null $memberName, #[MapFrom('member_email')]
+    public string $memberName, #[MapFrom('member_email')]
     public string $memberEmail,)
     {
     }

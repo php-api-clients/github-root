@@ -116,6 +116,17 @@ class CodeSecurityAndAnalysis implements ObjectMapper
 
             after_secretScanningPushProtectionCustomLink:
 
+            $value = $payload['secret_scanning_non_provider_patterns_enabled_for_new_repositories'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningNonProviderPatternsEnabledForNewRepositories'] = null;
+                goto after_secretScanningNonProviderPatternsEnabledForNewRepositories;
+            }
+
+            $properties['secretScanningNonProviderPatternsEnabledForNewRepositories'] = $value;
+
+            after_secretScanningNonProviderPatternsEnabledForNewRepositories:
+
             $value = $payload['secret_scanning_validity_checks_enabled'] ?? null;
 
             if ($value === null) {
@@ -331,6 +342,14 @@ class CodeSecurityAndAnalysis implements ObjectMapper
         }
 
         after_secretScanningPushProtectionCustomLink:        $result['secret_scanning_push_protection_custom_link'] = $secretScanningPushProtectionCustomLink;
+
+        $secretScanningNonProviderPatternsEnabledForNewRepositories = $object->secretScanningNonProviderPatternsEnabledForNewRepositories;
+
+        if ($secretScanningNonProviderPatternsEnabledForNewRepositories === null) {
+            goto after_secretScanningNonProviderPatternsEnabledForNewRepositories;
+        }
+
+        after_secretScanningNonProviderPatternsEnabledForNewRepositories:        $result['secret_scanning_non_provider_patterns_enabled_for_new_repositories'] = $secretScanningNonProviderPatternsEnabledForNewRepositories;
 
         $secretScanningValidityChecksEnabled = $object->secretScanningValidityChecksEnabled;
 
