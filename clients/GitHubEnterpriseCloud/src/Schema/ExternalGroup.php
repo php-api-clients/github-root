@@ -82,6 +82,7 @@ final readonly class ExternalGroup
                 "required": [
                     "member_id",
                     "member_login",
+                    "member_name",
                     "member_email"
                 ],
                 "type": "object",
@@ -101,10 +102,7 @@ final readonly class ExternalGroup
                         ]
                     },
                     "member_name": {
-                        "type": [
-                            "string",
-                            "null"
-                        ],
+                        "type": "string",
                         "description": "The user display name\\/profile name",
                         "examples": [
                             "Mona Lisa"

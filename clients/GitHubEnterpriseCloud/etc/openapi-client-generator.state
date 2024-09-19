@@ -1,5 +1,5 @@
 {
-    "specHash": "95df4267202b432fe4f72cf542eb28c8",
+    "specHash": "bb053ea7f78df19d2e4d4872d9eed9c7",
     "generatedFiles": {
         "files": [
             {
@@ -312,7 +312,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/EnterpriseSecurityAnalysisSettings.php",
-                "hash": "fa55f13a444ba977099d0bfd3158c1d8"
+                "hash": "a75152065f60b36da8b303139762d15e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/GetConsumedLicenses.php",
@@ -572,7 +572,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ExternalGroup.php",
-                "hash": "cebbab02e23621517b4aca34ba476df4"
+                "hash": "0512e75d753ee10ea8578ea10188a2dd"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ExternalGroups.php",
@@ -2876,7 +2876,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ExternalGroup\/Members.php",
-                "hash": "9bd3d378bed94d8f19e46429ae1ecc83"
+                "hash": "48eee34ca95087dab3972109c20c3379"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ExternalGroups\/Groups.php",
@@ -4672,7 +4672,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/SecretScanning\/PatchSecurityAnalysisSettingsForEnterprise\/Request\/ApplicationJson.php",
-                "hash": "78aed89e2889f054803c520c35e36e4e"
+                "hash": "a521f4f54420aeb0e2cf46ac934cbcae"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Gists\/Create\/Request\/ApplicationJson.php",
@@ -27008,7 +27008,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/CodeSecurityAndAnalysis.php",
-                "hash": "0e44529ca73fa31f83b0647c27e0a9d6"
+                "hash": "537d8a3eaa539ad3acb231fe2e853fbc"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Dependabot\/Alerts.php",
