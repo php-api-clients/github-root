@@ -1,5 +1,5 @@
 {
-    "specHash": "105708433ef2827723e57d66a0f7645f",
+    "specHash": "9490e41553676ba8db2a5129723d9e63",
     "generatedFiles": {
         "files": [
             {
@@ -488,7 +488,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/OrganizationFull.php",
-                "hash": "49c8f7f273407b67bf2e23bb320e8a77"
+                "hash": "04d76489e932f9f7b21ed78c22f5880a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ActionsCacheUsageByRepository.php",

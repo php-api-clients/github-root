@@ -459,10 +459,14 @@ final readonly class OrganizationFull
             "format": "date-time"
         }
     },
-    "description": "Organization Full"
+    "description": "Prevents users in the organization from using insecure methods of two-factor authentication to fulfill a two-factor requirement.\\n\\nGitHub currently defines SMS as an insecure method of two-factor authentication.\\n\\nIf your users are managed by the enterprise this policy will not affect them. The first admin account of the enterprise will still be affected."
 }';
     public const SCHEMA_TITLE        = 'Organization Full';
-    public const SCHEMA_DESCRIPTION  = 'Organization Full';
+    public const SCHEMA_DESCRIPTION  = 'Prevents users in the organization from using insecure methods of two-factor authentication to fulfill a two-factor requirement.
+
+GitHub currently defines SMS as an insecure method of two-factor authentication.
+
+If your users are managed by the enterprise this policy will not affect them. The first admin account of the enterprise will still be affected.';
     public const SCHEMA_EXAMPLE_DATA = '{
     "login": "github",
     "id": 1,
