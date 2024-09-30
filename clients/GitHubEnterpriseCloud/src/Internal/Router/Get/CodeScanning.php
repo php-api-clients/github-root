@@ -171,7 +171,7 @@ final class CodeScanning
         return $operator->call($arguments['org'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['before'], $arguments['after'], $arguments['state'], $arguments['severity'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\CodeScanningAlertItems>|WithoutBody */
+    /** @return iterable<int,Schema\CodeScanningAlertItems>|WithoutBody */
     public function listAlertsForRepo(array $params): iterable|WithoutBody
     {
         $arguments = [];
@@ -205,6 +205,12 @@ final class CodeScanning
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
+        if (array_key_exists('pr', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: pr');
+        }
+
+        $arguments['pr'] = $params['pr'];
+        unset($params['pr']);
         if (array_key_exists('state', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: state');
         }
@@ -243,10 +249,10 @@ final class CodeScanning
         unset($params['sort']);
         $operator = new Internal\Operator\CodeScanning\ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Alerts());
 
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['state'], $arguments['severity'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['pr'], $arguments['state'], $arguments['severity'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
-    /** @return Observable<Schema\CodeScanningAnalysis> */
+    /** @return iterable<int,Schema\CodeScanningAnalysis> */
     public function listRecentAnalyses(array $params): iterable
     {
         $arguments = [];
@@ -274,6 +280,12 @@ final class CodeScanning
 
         $arguments['tool_guid'] = $params['tool_guid'];
         unset($params['tool_guid']);
+        if (array_key_exists('pr', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: pr');
+        }
+
+        $arguments['pr'] = $params['pr'];
+        unset($params['pr']);
         if (array_key_exists('ref', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: ref');
         }
@@ -312,7 +324,7 @@ final class CodeScanning
         unset($params['sort']);
         $operator = new Internal\Operator\CodeScanning\ListRecentAnalyses($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Analyses());
 
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['tool_name'], $arguments['tool_guid'], $arguments['pr'], $arguments['ref'], $arguments['sarif_id'], $arguments['page'], $arguments['per_page'], $arguments['direction'], $arguments['sort']);
     }
 
     /** @return */
@@ -438,7 +450,7 @@ final class CodeScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['sarif_id']);
     }
 
-    /** @return Observable<Schema\CodeScanningAlertInstance> */
+    /** @return iterable<int,Schema\CodeScanningAlertInstance> */
     public function listAlertInstances(array $params): iterable
     {
         $arguments = [];
@@ -466,6 +478,12 @@ final class CodeScanning
 
         $arguments['ref'] = $params['ref'];
         unset($params['ref']);
+        if (array_key_exists('pr', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: pr');
+        }
+
+        $arguments['pr'] = $params['pr'];
+        unset($params['pr']);
         if (array_key_exists('page', $params) === false) {
             throw new InvalidArgumentException('Missing mandatory field: page');
         }
@@ -480,7 +498,7 @@ final class CodeScanning
         unset($params['per_page']);
         $operator = new Internal\Operator\CodeScanning\ListAlertInstances($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀CodeScanning🌀Alerts🌀AlertNumber🌀Instances());
 
-        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number'], $arguments['ref'], $arguments['page'], $arguments['per_page']);
+        return $operator->call($arguments['owner'], $arguments['repo'], $arguments['alert_number'], $arguments['ref'], $arguments['pr'], $arguments['page'], $arguments['per_page']);
     }
 
     /** @return */

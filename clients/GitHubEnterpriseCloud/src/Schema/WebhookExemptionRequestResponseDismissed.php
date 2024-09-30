@@ -2016,6 +2016,7 @@ final readonly class WebhookExemptionRequestResponseDismissed
                 },
                 "id": {
                     "type": "integer",
+                    "format": "int64",
                     "examples": [
                         1
                     ]
@@ -2131,7 +2132,7 @@ final readonly class WebhookExemptionRequestResponseDismissed
                     ]
                 }
             },
-            "description": "The GitHub user that triggered the event. This property is included in every webhook payload."
+            "description": "A GitHub user."
         }
     }
 }';
@@ -2509,11 +2510,11 @@ final readonly class WebhookExemptionRequestResponseDismissed
     when the event occurs from activity in a repository.
      * exemptionRequest: A request from a user to be exempted from a set of rules.
      * exemptionResponse: A response to an exemption request by a delegated bypasser.
-     * sender: The GitHub user that triggered the event. This property is included in every webhook payload.
+     * sender: A GitHub user.
      */
     public function __construct(public string $action, public Schema\EnterpriseWebhooks|null $enterprise, public Schema\SimpleInstallation|null $installation, public Schema\OrganizationSimpleWebhooks|null $organization, public Schema\RepositoryWebhooks|null $repository, #[MapFrom('exemption_request')]
     public Schema\ExemptionRequest $exemptionRequest, #[MapFrom('exemption_response')]
-    public Schema\ExemptionResponse $exemptionResponse, public Schema\SimpleUserWebhooks $sender,)
+    public Schema\ExemptionResponse $exemptionResponse, public Schema\SimpleUser $sender,)
     {
     }
 }
