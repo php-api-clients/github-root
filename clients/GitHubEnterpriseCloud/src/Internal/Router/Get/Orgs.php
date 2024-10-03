@@ -1209,7 +1209,6 @@ final class Orgs
         return $operator->call($arguments['org'], $arguments['pat_id'], $arguments['per_page'], $arguments['page']);
     }
 
-    /** @return */
     public function getCustomProperty(array $params): CustomProperty
     {
         $arguments = [];

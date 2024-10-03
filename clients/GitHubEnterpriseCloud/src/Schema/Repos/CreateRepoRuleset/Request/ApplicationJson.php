@@ -53,7 +53,7 @@ final readonly class ApplicationJson
                             "integer",
                             "null"
                         ],
-                        "description": "The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories."
+                        "description": "The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. If `actor_type` is `EnterpriseOwner`, `actor_id` is ignored. `OrganizationAdmin` and `EnterpriseOwner` are not applicable for personal repositories."
                     },
                     "actor_type": {
                         "enum": [
@@ -61,10 +61,11 @@ final readonly class ApplicationJson
                             "OrganizationAdmin",
                             "RepositoryRole",
                             "Team",
-                            "DeployKey"
+                            "DeployKey",
+                            "EnterpriseOwner"
                         ],
                         "type": "string",
-                        "description": "The type of actor that can bypass a ruleset."
+                        "description": "The type of actor that can bypass a ruleset"
                     },
                     "bypass_mode": {
                         "enum": [
@@ -930,12 +931,12 @@ final readonly class ApplicationJson
     "bypass_actors": [
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "EnterpriseOwner",
             "bypass_mode": "always"
         },
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "EnterpriseOwner",
             "bypass_mode": "always"
         }
     ],
