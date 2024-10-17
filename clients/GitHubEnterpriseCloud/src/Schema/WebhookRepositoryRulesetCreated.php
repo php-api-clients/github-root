@@ -1830,7 +1830,10 @@ final readonly class WebhookRepositoryRulesetCreated
                             }
                         },
                         "html": {
-                            "type": "object",
+                            "type": [
+                                "object",
+                                "null"
+                            ],
                             "properties": {
                                 "href": {
                                     "type": "string",

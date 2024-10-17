@@ -125,7 +125,10 @@ final readonly class RepositoryRuleset
                     }
                 },
                 "html": {
-                    "type": "object",
+                    "type": [
+                        "object",
+                        "null"
+                    ],
                     "properties": {
                         "href": {
                             "type": "string",

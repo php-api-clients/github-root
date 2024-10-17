@@ -424,8 +424,8 @@ assertType('Observable<Schema\\MinimalRepository>', $client->call('GET /orgs/{or
 assertType('Observable<Schema\\MinimalRepository>', $client->call('LIST /orgs/{org}/repos'));
 assertType('', $client->call('POST /orgs/{org}/repos'));
 assertType('Observable<Schema\\RepositoryFineGrainedPermission>', $client->call('GET /orgs/{org}/repository-fine-grained-permissions'));
-assertType('iterable<int,Schema\\RepositoryRuleset>', $client->call('GET /orgs/{org}/rulesets'));
-assertType('iterable<int,Schema\\RepositoryRuleset>', $client->call('LIST /orgs/{org}/rulesets'));
+assertType('Observable<Schema\\RepositoryRuleset>', $client->call('GET /orgs/{org}/rulesets'));
+assertType('Observable<Schema\\RepositoryRuleset>', $client->call('LIST /orgs/{org}/rulesets'));
 assertType('', $client->call('POST /orgs/{org}/rulesets'));
 assertType('Observable<Schema\\RuleSuites>', $client->call('GET /orgs/{org}/rulesets/rule-suites'));
 assertType('Observable<Schema\\RuleSuites>', $client->call('LIST /orgs/{org}/rulesets/rule-suites'));
@@ -660,8 +660,8 @@ assertType('', $client->call('PATCH /repos/{owner}/{repo}/check-suites/preferenc
 assertType('', $client->call('GET /repos/{owner}/{repo}/check-suites/{check_suite_id}'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest'));
-assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts'));
-assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts'));
+assertType('iterable<int,Schema\\CodeScanningAlertItems>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts'));
+assertType('iterable<int,Schema\\CodeScanningAlertItems>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
 assertType('Observable<Schema\\CodeScanningAlertInstance>', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances'));
@@ -971,8 +971,8 @@ assertType('', $client->call('POST /repos/{owner}/{repo}/releases/{release_id}/r
 assertType('', $client->call('DELETE /repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}'));
 assertType('Observable<Schema\\RepositoryRuleCreation|Schema\\RepositoryRuleUpdate|Schema\\RepositoryRuleDeletion|Schema\\RepositoryRuleRequiredLinearHistory|Schema\\RepositoryRuleMergeQueue|Schema\\RepositoryRuleRequiredDeployments|Schema\\RepositoryRuleRequiredSignatures|Schema\\RepositoryRulePullRequest|Schema\\RepositoryRuleRequiredStatusChecks|Schema\\RepositoryRuleNonFastForward|Schema\\RepositoryRuleCommitMessagePattern|Schema\\RepositoryRuleCommitAuthorEmailPattern|Schema\\RepositoryRuleCommitterEmailPattern|Schema\\RepositoryRuleBranchNamePattern|Schema\\RepositoryRuleTagNamePattern|Schema\\RepositoryRuleWorkflows|Schema\\RepositoryRuleCodeScanning>', $client->call('GET /repos/{owner}/{repo}/rules/branches/{branch}'));
 assertType('Observable<Schema\\RepositoryRuleCreation|Schema\\RepositoryRuleUpdate|Schema\\RepositoryRuleDeletion|Schema\\RepositoryRuleRequiredLinearHistory|Schema\\RepositoryRuleMergeQueue|Schema\\RepositoryRuleRequiredDeployments|Schema\\RepositoryRuleRequiredSignatures|Schema\\RepositoryRulePullRequest|Schema\\RepositoryRuleRequiredStatusChecks|Schema\\RepositoryRuleNonFastForward|Schema\\RepositoryRuleCommitMessagePattern|Schema\\RepositoryRuleCommitAuthorEmailPattern|Schema\\RepositoryRuleCommitterEmailPattern|Schema\\RepositoryRuleBranchNamePattern|Schema\\RepositoryRuleTagNamePattern|Schema\\RepositoryRuleWorkflows|Schema\\RepositoryRuleCodeScanning>', $client->call('LIST /repos/{owner}/{repo}/rules/branches/{branch}'));
-assertType('iterable<int,Schema\\RepositoryRuleset>', $client->call('GET /repos/{owner}/{repo}/rulesets'));
-assertType('iterable<int,Schema\\RepositoryRuleset>', $client->call('LIST /repos/{owner}/{repo}/rulesets'));
+assertType('Observable<Schema\\RepositoryRuleset>', $client->call('GET /repos/{owner}/{repo}/rulesets'));
+assertType('Observable<Schema\\RepositoryRuleset>', $client->call('LIST /repos/{owner}/{repo}/rulesets'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/rulesets'));
 assertType('Observable<Schema\\RuleSuites>', $client->call('GET /repos/{owner}/{repo}/rulesets/rule-suites'));
 assertType('Observable<Schema\\RuleSuites>', $client->call('LIST /repos/{owner}/{repo}/rulesets/rule-suites'));
