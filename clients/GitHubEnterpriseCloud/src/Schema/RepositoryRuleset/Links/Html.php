@@ -7,7 +7,10 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\RepositoryRuleset\Links
 final readonly class Html
 {
     public const SCHEMA_JSON         = '{
-    "type": "object",
+    "type": [
+        "object",
+        "null"
+    ],
     "properties": {
         "href": {
             "type": "string",
