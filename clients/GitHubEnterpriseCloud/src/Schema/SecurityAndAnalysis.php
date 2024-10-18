@@ -77,6 +77,18 @@ final readonly class SecurityAndAnalysis
                 }
             }
         },
+        "secret_scanning_ai_detection": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "enum": [
+                        "enabled",
+                        "disabled"
+                    ],
+                    "type": "string"
+                }
+            }
+        },
         "secret_scanning_validity_checks": {
             "type": "object",
             "properties": {
@@ -109,6 +121,9 @@ final readonly class SecurityAndAnalysis
     "secret_scanning_non_provider_patterns": {
         "status": "disabled"
     },
+    "secret_scanning_ai_detection": {
+        "status": "disabled"
+    },
     "secret_scanning_validity_checks": {
         "status": "disabled"
     }
@@ -122,7 +137,8 @@ final readonly class SecurityAndAnalysis
     public Schema\SecurityAndAnalysis\DependabotSecurityUpdates|null $dependabotSecurityUpdates, #[MapFrom('secret_scanning')]
     public Schema\SecurityAndAnalysis\SecretScanning|null $secretScanning, #[MapFrom('secret_scanning_push_protection')]
     public Schema\SecurityAndAnalysis\SecretScanningPushProtection|null $secretScanningPushProtection, #[MapFrom('secret_scanning_non_provider_patterns')]
-    public Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns|null $secretScanningNonProviderPatterns, #[MapFrom('secret_scanning_validity_checks')]
+    public Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns|null $secretScanningNonProviderPatterns, #[MapFrom('secret_scanning_ai_detection')]
+    public Schema\SecurityAndAnalysis\SecretScanningAiDetection|null $secretScanningAiDetection, #[MapFrom('secret_scanning_validity_checks')]
     public Schema\SecurityAndAnalysis\SecretScanningValidityChecks|null $secretScanningValidityChecks,)
     {
     }

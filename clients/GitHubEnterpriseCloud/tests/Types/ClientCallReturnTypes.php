@@ -660,8 +660,8 @@ assertType('', $client->call('PATCH /repos/{owner}/{repo}/check-suites/preferenc
 assertType('', $client->call('GET /repos/{owner}/{repo}/check-suites/{check_suite_id}'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/check-suites/{check_suite_id}/check-runs'));
 assertType('', $client->call('POST /repos/{owner}/{repo}/check-suites/{check_suite_id}/rerequest'));
-assertType('iterable<int,Schema\\CodeScanningAlertItems>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts'));
-assertType('iterable<int,Schema\\CodeScanningAlertItems>|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts'));
+assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts'));
+assertType('Observable<Schema\\CodeScanningAlertItems>|WithoutBody', $client->call('LIST /repos/{owner}/{repo}/code-scanning/alerts'));
 assertType('', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
 assertType('', $client->call('PATCH /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}'));
 assertType('Observable<Schema\\CodeScanningAlertInstance>', $client->call('GET /repos/{owner}/{repo}/code-scanning/alerts/{alert_number}/instances'));
