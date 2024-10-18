@@ -1600,6 +1600,18 @@ final readonly class WorkflowRun
                                 }
                             }
                         },
+                        "secret_scanning_ai_detection": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "enum": [
+                                        "enabled",
+                                        "disabled"
+                                    ],
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "secret_scanning_validity_checks": {
                             "type": "object",
                             "properties": {
@@ -2430,6 +2442,18 @@ final readonly class WorkflowRun
                                 }
                             }
                         },
+                        "secret_scanning_ai_detection": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "enum": [
+                                        "enabled",
+                                        "disabled"
+                                    ],
+                                    "type": "string"
+                                }
+                            }
+                        },
                         "secret_scanning_validity_checks": {
                             "type": "object",
                             "properties": {
@@ -2701,6 +2725,9 @@ final readonly class WorkflowRun
             "secret_scanning_non_provider_patterns": {
                 "status": "disabled"
             },
+            "secret_scanning_ai_detection": {
+                "status": "disabled"
+            },
             "secret_scanning_validity_checks": {
                 "status": "disabled"
             }
@@ -2850,6 +2877,9 @@ final readonly class WorkflowRun
                 "status": "disabled"
             },
             "secret_scanning_non_provider_patterns": {
+                "status": "disabled"
+            },
+            "secret_scanning_ai_detection": {
                 "status": "disabled"
             },
             "secret_scanning_validity_checks": {

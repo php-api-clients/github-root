@@ -19,6 +19,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\AdvancedSecurity;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\DependabotSecurityUpdates;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningAiDetection;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningValidityChecks;
@@ -72,6 +73,7 @@ class Codespaces implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningAiDetection' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningAiDetection($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningValidityChecks' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace\GitStatus' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Codespace⚡️GitStatus($payload),
@@ -2208,6 +2210,26 @@ class Codespaces implements ObjectMapper
 
             after_secretScanningNonProviderPatterns:
 
+            $value = $payload['secret_scanning_ai_detection'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningAiDetection'] = null;
+                goto after_secretScanningAiDetection;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'secretScanningAiDetection';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningAiDetection($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['secretScanningAiDetection'] = $value;
+
+            after_secretScanningAiDetection:
+
             $value = $payload['secret_scanning_validity_checks'] ?? null;
 
             if ($value === null) {
@@ -2389,6 +2411,36 @@ class Codespaces implements ObjectMapper
             return new SecretScanningNonProviderPatterns(...$properties);
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns', $exception, stack: $this->hydrationStack);
+        }
+    }
+
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningAiDetection(array $payload): SecretScanningAiDetection
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['status'] ?? null;
+
+            if ($value === null) {
+                $properties['status'] = null;
+                goto after_status;
+            }
+
+            $properties['status'] = $value;
+
+            after_status:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningAiDetection', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(SecretScanningAiDetection::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new SecretScanningAiDetection(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningAiDetection', $exception, stack: $this->hydrationStack);
         }
     }
 
@@ -2719,6 +2771,7 @@ class Codespaces implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanning' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanning($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningPushProtection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningPushProtection($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningNonProviderPatterns' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningAiDetection' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningAiDetection($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\SecurityAndAnalysis\SecretScanningValidityChecks' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningValidityChecks($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodespaceMachine' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodespaceMachine($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Codespace\GitStatus' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Codespace⚡️GitStatus($object),
@@ -3800,6 +3853,15 @@ class Codespaces implements ObjectMapper
         $secretScanningNonProviderPatterns                                                               = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns($secretScanningNonProviderPatterns);
         after_secretScanningNonProviderPatterns:        $result['secret_scanning_non_provider_patterns'] = $secretScanningNonProviderPatterns;
 
+        $secretScanningAiDetection = $object->secretScanningAiDetection;
+
+        if ($secretScanningAiDetection === null) {
+            goto after_secretScanningAiDetection;
+        }
+
+        $secretScanningAiDetection                                                      = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningAiDetection($secretScanningAiDetection);
+        after_secretScanningAiDetection:        $result['secret_scanning_ai_detection'] = $secretScanningAiDetection;
+
         $secretScanningValidityChecks = $object->secretScanningValidityChecks;
 
         if ($secretScanningValidityChecks === null) {
@@ -3879,6 +3941,22 @@ class Codespaces implements ObjectMapper
     private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningNonProviderPatterns(mixed $object): mixed
     {
         assert($object instanceof SecretScanningNonProviderPatterns);
+        $result = [];
+
+        $status = $object->status;
+
+        if ($status === null) {
+            goto after_status;
+        }
+
+        after_status:        $result['status'] = $status;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SecurityAndAnalysis⚡️SecretScanningAiDetection(mixed $object): mixed
+    {
+        assert($object instanceof SecretScanningAiDetection);
         $result = [];
 
         $status = $object->status;
