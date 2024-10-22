@@ -2099,6 +2099,8 @@ $client->call('GET /enterprises/{enterprise}/secret-scanning/alerts', [
         'sort' => 'generated',
         'direction' => 'generated',
         'per_page' => 8,
+        'is_publicly_leaked' => ,
+        'is_multi_repo' => ,
 ]);
 ```
 
@@ -2114,6 +2116,8 @@ $client->operations()->secretScanning()->listAlertsForEnterprise(        enterpr
         sort: 'generated',
         direction: 'generated',
         per_page: 8,
+        is_publicly_leaked: ,
+        is_multi_repo: ,
 );
 ```
 
@@ -3808,7 +3812,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### orgs/list-custom-roles
 
-Deprecated - List custom repository roles in an organization
+Closing down - List custom repository roles in an organization
 
 Using the `call` method:
 ```php
@@ -3823,7 +3827,7 @@ $client->operations()->orgs()->listCustomRoles(        organization_id: 'generat
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---list-custom-repository-roles-in-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#closing-down---list-custom-repository-roles-in-an-organization).
 
 
 ### orgs/get
@@ -6350,7 +6354,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### orgs/create-custom-role
 
-Deprecated - Create a custom role
+Closing down - Create a custom role
 
 Using the `call` method:
 ```php
@@ -6365,12 +6369,12 @@ $client->operations()->orgs()->createCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---create-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#closing-down---create-a-custom-role).
 
 
 ### orgs/get-custom-role
 
-Deprecated - Get a custom role
+Closing down - Get a custom role
 
 Using the `call` method:
 ```php
@@ -6387,12 +6391,12 @@ $client->operations()->orgs()->getCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---get-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#closing-down---get-a-custom-role).
 
 
 ### orgs/delete-custom-role
 
-Deprecated - Delete a custom role
+Closing down - Delete a custom role
 
 Using the `call` method:
 ```php
@@ -6409,12 +6413,12 @@ $client->operations()->orgs()->deleteCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---delete-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#closing-down---delete-a-custom-role).
 
 
 ### orgs/update-custom-role
 
-Deprecated - Update a custom role
+Closing down - Update a custom role
 
 Using the `call` method:
 ```php
@@ -6431,7 +6435,7 @@ $client->operations()->orgs()->updateCustomRole(        org: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---update-a-custom-role).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#closing-down---update-a-custom-role).
 
 
 ### dependabot/list-alerts-for-org
@@ -6854,7 +6858,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### orgs/list-fine-grained-permissions
 
-Deprecated - List fine-grained permissions for an organization
+Closing down - List fine-grained permissions for an organization
 
 Using the `call` method:
 ```php
@@ -6869,7 +6873,7 @@ $client->operations()->orgs()->listFineGrainedPermissions(        org: 'generate
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#deprecated---list-fine-grained-permissions-for-an-organization).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#closing-down---list-fine-grained-permissions-for-an-organization).
 
 
 ### orgs/list-webhooks
@@ -9758,6 +9762,8 @@ $client->call('GET /orgs/{org}/secret-scanning/alerts', [
         'direction' => 'generated',
         'page' => 1,
         'per_page' => 8,
+        'is_publicly_leaked' => ,
+        'is_multi_repo' => ,
 ]);
 ```
 
@@ -9774,6 +9780,8 @@ $client->operations()->secretScanning()->listAlertsForOrg(        org: 'generate
         direction: 'generated',
         page: 1,
         per_page: 8,
+        is_publicly_leaked: ,
+        is_multi_repo: ,
 );
 ```
 
@@ -9798,6 +9806,8 @@ $client->call('LIST /orgs/{org}/secret-scanning/alerts', [
         'direction' => 'generated',
         'page' => 1,
         'per_page' => 8,
+        'is_publicly_leaked' => ,
+        'is_multi_repo' => ,
 ]);
 ```
 
@@ -9814,6 +9824,8 @@ $client->operations()->secretScanning()->listAlertsForOrgListing(        org: 'g
         direction: 'generated',
         page: 1,
         per_page: 8,
+        is_publicly_leaked: ,
+        is_multi_repo: ,
 );
 ```
 
@@ -23694,6 +23706,8 @@ $client->call('GET /repos/{owner}/{repo}/secret-scanning/alerts', [
         'direction' => 'generated',
         'page' => 1,
         'per_page' => 8,
+        'is_publicly_leaked' => ,
+        'is_multi_repo' => ,
 ]);
 ```
 
@@ -23711,6 +23725,8 @@ $client->operations()->secretScanning()->listAlertsForRepo(        owner: 'gener
         direction: 'generated',
         page: 1,
         per_page: 8,
+        is_publicly_leaked: ,
+        is_multi_repo: ,
 );
 ```
 
@@ -23736,6 +23752,8 @@ $client->call('LIST /repos/{owner}/{repo}/secret-scanning/alerts', [
         'direction' => 'generated',
         'page' => 1,
         'per_page' => 8,
+        'is_publicly_leaked' => ,
+        'is_multi_repo' => ,
 ]);
 ```
 
@@ -23753,6 +23771,8 @@ $client->operations()->secretScanning()->listAlertsForRepoListing(        owner:
         direction: 'generated',
         page: 1,
         per_page: 8,
+        is_publicly_leaked: ,
+        is_multi_repo: ,
 );
 ```
 
@@ -24391,7 +24411,7 @@ You can find more about this operation over at the [API method documentation](ht
 
 ### repos/list-tag-protection
 
-Deprecated - List tag protection states for a repository
+Closing down - List tag protection states for a repository
 
 Using the `call` method:
 ```php
@@ -24408,12 +24428,12 @@ $client->operations()->repos()->listTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#deprecated---list-tag-protection-states-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#closing-down---list-tag-protection-states-for-a-repository).
 
 
 ### repos/create-tag-protection
 
-Deprecated - Create a tag protection state for a repository
+Closing down - Create a tag protection state for a repository
 
 Using the `call` method:
 ```php
@@ -24430,12 +24450,12 @@ $client->operations()->repos()->createTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#deprecated---create-a-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#closing-down---create-a-tag-protection-state-for-a-repository).
 
 
 ### repos/delete-tag-protection
 
-Deprecated - Delete a tag protection state for a repository
+Closing down - Delete a tag protection state for a repository
 
 Using the `call` method:
 ```php
@@ -24454,7 +24474,7 @@ $client->operations()->repos()->deleteTagProtection(        owner: 'generated',
 );
 ```
 
-You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#deprecated---delete-a-tag-protection-state-for-a-repository).
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/repos/tags#closing-down---delete-a-tag-protection-state-for-a-repository).
 
 
 ### repos/download-tarball-archive

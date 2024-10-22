@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Codespaces\L
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class Json extends Schema\AliasAbstract\Tiet08EF8947\Tiet136B9CCF\Tiet8D61F6BF\Tiet7B7DC09C
+final readonly class Json extends Schema\AliasAbstract\Tiet29079B92\Tiet92F1916E\TietBFF93EA5\Tiet7B2A3E78
 {
 }

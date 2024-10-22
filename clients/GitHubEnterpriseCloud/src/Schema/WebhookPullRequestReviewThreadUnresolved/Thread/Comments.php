@@ -6,6 +6,6 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Schema\WebhookPullRequestRevie
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 
-final readonly class Comments extends Schema\AliasAbstract\TietB194120A\TietB22ECFCE\TietE138646B\Tiet764000C9
+final readonly class Comments extends Schema\AliasAbstract\Tiet16FC249D\Tiet1DD1539A\TietB903CABB\TietD5E82E26
 {
 }
