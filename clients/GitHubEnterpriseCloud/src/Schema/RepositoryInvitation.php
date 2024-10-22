@@ -267,6 +267,12 @@ final readonly class RepositoryInvitation
                             "examples": [
                                 "\\"2020-07-09T00:17:55Z\\""
                             ]
+                        },
+                        "user_view_type": {
+                            "type": "string",
+                            "examples": [
+                                "public"
+                            ]
                         }
                     },
                     "description": "A GitHub user."
@@ -1037,6 +1043,12 @@ final readonly class RepositoryInvitation
                             "examples": [
                                 "\\"2020-07-09T00:17:55Z\\""
                             ]
+                        },
+                        "user_view_type": {
+                            "type": "string",
+                            "examples": [
+                                "public"
+                            ]
                         }
                     },
                     "description": "A GitHub user."
@@ -1206,6 +1218,12 @@ final readonly class RepositoryInvitation
                             "examples": [
                                 "\\"2020-07-09T00:17:55Z\\""
                             ]
+                        },
+                        "user_view_type": {
+                            "type": "string",
+                            "examples": [
+                                "public"
+                            ]
                         }
                     },
                     "description": "A GitHub user."
@@ -1286,7 +1304,8 @@ final readonly class RepositoryInvitation
             "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
             "type": "User",
             "site_admin": false,
-            "starred_at": "\\"2020-07-09T00:17:55Z\\""
+            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
+            "user_view_type": "public"
         },
         "private": false,
         "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
@@ -1435,7 +1454,8 @@ final readonly class RepositoryInvitation
         "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
         "type": "User",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\""
+        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
+        "user_view_type": "public"
     },
     "inviter": {
         "name": "generated",
@@ -1458,7 +1478,8 @@ final readonly class RepositoryInvitation
         "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
         "type": "User",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\""
+        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
+        "user_view_type": "public"
     },
     "permissions": "read",
     "created_at": "2016-06-13T14:52:50-05:00",
