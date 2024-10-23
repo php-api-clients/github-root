@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Hydrator\Operation\Re
 
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfigurationForRepository;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
@@ -45,6 +46,7 @@ class CodeSecurityConfiguration implements ObjectMapper
             'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfigurationForRepository' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfigurationForRepository($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️DependencyGraphAutosubmitActionOptions($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️SecretScanningDelegatedBypassOptions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
@@ -257,6 +259,37 @@ class CodeSecurityConfiguration implements ObjectMapper
 
             after_secretScanningPushProtection:
 
+            $value = $payload['secret_scanning_delegated_bypass'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningDelegatedBypass'] = null;
+                goto after_secretScanningDelegatedBypass;
+            }
+
+            $properties['secretScanningDelegatedBypass'] = $value;
+
+            after_secretScanningDelegatedBypass:
+
+            $value = $payload['secret_scanning_delegated_bypass_options'] ?? null;
+
+            if ($value === null) {
+                $properties['secretScanningDelegatedBypassOptions'] = null;
+                goto after_secretScanningDelegatedBypassOptions;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'secretScanningDelegatedBypassOptions';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️SecretScanningDelegatedBypassOptions($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['secretScanningDelegatedBypassOptions'] = $value;
+
+            after_secretScanningDelegatedBypassOptions:
+
             $value = $payload['secret_scanning_validity_checks'] ?? null;
 
             if ($value === null) {
@@ -389,6 +422,36 @@ class CodeSecurityConfiguration implements ObjectMapper
         }
     }
 
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️SecretScanningDelegatedBypassOptions(array $payload): SecretScanningDelegatedBypassOptions
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['reviewers'] ?? null;
+
+            if ($value === null) {
+                $properties['reviewers'] = null;
+                goto after_reviewers;
+            }
+
+            $properties['reviewers'] = $value;
+
+            after_reviewers:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(SecretScanningDelegatedBypassOptions::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new SecretScanningDelegatedBypassOptions(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions', $exception, stack: $this->hydrationStack);
+        }
+    }
+
     private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError(array $payload): BasicError
     {
         $properties    = [];
@@ -486,6 +549,7 @@ class CodeSecurityConfiguration implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfigurationForRepository' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfigurationForRepository($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️DependencyGraphAutosubmitActionOptions($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️SecretScanningDelegatedBypassOptions($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\BasicError' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️BasicError($object),
                 default => throw new LogicException("No serialization defined for $className"),
             };
@@ -684,6 +748,23 @@ class CodeSecurityConfiguration implements ObjectMapper
 
         after_secretScanningPushProtection:        $result['secret_scanning_push_protection'] = $secretScanningPushProtection;
 
+        $secretScanningDelegatedBypass = $object->secretScanningDelegatedBypass;
+
+        if ($secretScanningDelegatedBypass === null) {
+            goto after_secretScanningDelegatedBypass;
+        }
+
+        after_secretScanningDelegatedBypass:        $result['secret_scanning_delegated_bypass'] = $secretScanningDelegatedBypass;
+
+        $secretScanningDelegatedBypassOptions = $object->secretScanningDelegatedBypassOptions;
+
+        if ($secretScanningDelegatedBypassOptions === null) {
+            goto after_secretScanningDelegatedBypassOptions;
+        }
+
+        $secretScanningDelegatedBypassOptions                                                                  = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️SecretScanningDelegatedBypassOptions($secretScanningDelegatedBypassOptions);
+        after_secretScanningDelegatedBypassOptions:        $result['secret_scanning_delegated_bypass_options'] = $secretScanningDelegatedBypassOptions;
+
         $secretScanningValidityChecks = $object->secretScanningValidityChecks;
 
         if ($secretScanningValidityChecks === null) {
@@ -763,6 +844,29 @@ class CodeSecurityConfiguration implements ObjectMapper
         }
 
         after_labeledRunners:        $result['labeled_runners'] = $labeledRunners;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️CodeSecurityConfiguration⚡️SecretScanningDelegatedBypassOptions(mixed $object): mixed
+    {
+        assert($object instanceof SecretScanningDelegatedBypassOptions);
+        $result = [];
+
+        $reviewers = $object->reviewers;
+
+        if ($reviewers === null) {
+            goto after_reviewers;
+        }
+
+        static $reviewersSerializer0;
+
+        if ($reviewersSerializer0 === null) {
+            $reviewersSerializer0 = new SerializeArrayItems(...[]);
+        }
+
+        $reviewers                                   = $reviewersSerializer0->serialize($reviewers, $this);
+        after_reviewers:        $result['reviewers'] = $reviewers;
 
         return $result;
     }
