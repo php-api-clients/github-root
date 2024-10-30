@@ -387,6 +387,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /enterprises/{enterprise}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+        }
+
+        if ($call === 'LIST /enterprises/{enterprise}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+        }
+
         if ($call === 'GET /enterprises/{enterprise}/copilot/usage') {
             return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
@@ -437,6 +445,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/usage') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+        }
+
+        if ($call === 'LIST /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
@@ -1111,6 +1127,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
             return $this->typeResolver->resolve('');
         }
 
+        if ($call === 'GET /orgs/{org}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+        }
+
         if ($call === 'GET /orgs/{org}/copilot/usage') {
             return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetrics>');
         }
@@ -1749,6 +1773,14 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /orgs/{org}/team-sync/groups') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /orgs/{org}/team/{team_slug}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/team/{team_slug}/copilot/metrics') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'GET /orgs/{org}/team/{team_slug}/copilot/usage') {
