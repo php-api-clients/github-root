@@ -388,11 +388,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'LIST /enterprises/{enterprise}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/copilot/usage') {
@@ -448,11 +448,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'LIST /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage') {
@@ -1128,11 +1128,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'LIST /orgs/{org}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'GET /orgs/{org}/copilot/usage') {
@@ -1776,11 +1776,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/team/{team_slug}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'LIST /orgs/{org}/team/{team_slug}/copilot/metrics') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\CopilotUsageMetricsDay>');
+            return $this->typeResolver->resolve('Observable<Schema\\CopilotUsageMetricsDay>');
         }
 
         if ($call === 'GET /orgs/{org}/team/{team_slug}/copilot/usage') {
@@ -2693,6 +2693,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'DELETE /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}') {
+            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/code-scanning/codeql/variant-analyses') {
