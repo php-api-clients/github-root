@@ -2617,16 +2617,16 @@
         },
         {
             "name": "eventsauce/object-hydrator",
-            "version": "1.5.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EventSaucePHP/ObjectHydrator.git",
-                "reference": "abbe6d2ccde8d5c6bbb92311ccf136133985a056"
+                "reference": "98941783b5d2373f02295707ece60275d3ecb89a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EventSaucePHP/ObjectHydrator/zipball/abbe6d2ccde8d5c6bbb92311ccf136133985a056",
-                "reference": "abbe6d2ccde8d5c6bbb92311ccf136133985a056",
+                "url": "https://api.github.com/repos/EventSaucePHP/ObjectHydrator/zipball/98941783b5d2373f02295707ece60275d3ecb89a",
+                "reference": "98941783b5d2373f02295707ece60275d3ecb89a",
                 "shasum": ""
             },
             "require": {
@@ -2669,7 +2669,7 @@
             ],
             "support": {
                 "issues": "https://github.com/EventSaucePHP/ObjectHydrator/issues",
-                "source": "https://github.com/EventSaucePHP/ObjectHydrator/tree/1.5.0"
+                "source": "https://github.com/EventSaucePHP/ObjectHydrator/tree/1.6.0"
             },
             "funding": [
                 {
@@ -2677,7 +2677,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-17T12:23:19+00:00"
+            "time": "2024-10-30T18:48:59+00:00"
         },
         {
             "name": "felixfbecker/advanced-json-rpc",
