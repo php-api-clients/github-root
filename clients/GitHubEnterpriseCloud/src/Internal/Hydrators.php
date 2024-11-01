@@ -200,6 +200,15 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries\DeliveryId|null $operation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId                                                                                                                     = null;
     private Internal\Hydrator\Operation\Orgs\Org\Hooks\HookId\Deliveries\DeliveryId\Attempts|null $operation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId🌀Attempts                                                                                                   = null;
     private Internal\Hydrator\Operation\Orgs\Org\Hooks\HookId\Pings|null $operation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Pings                                                                                                                                                     = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀RouteStats🌀ActorType🌀ActorId                                                                                                       = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SubjectStats|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀SubjectStats                                                                                                                                       = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats                                                                                                                                       = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\Users\UserId|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀Users🌀UserId                                                                                                             = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\ActorType\ActorId|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀ActorType🌀ActorId                                                                                                   = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats                                                                                                                                             = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\Users\UserId|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀Users🌀UserId                                                                                                                   = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\ActorType\ActorId|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀ActorType🌀ActorId                                                                                                         = null;
+    private Internal\Hydrator\Operation\Orgs\Org\Insights\Api\UserStats\UserId|null $operation🌀Orgs🌀Org🌀Insights🌀Api🌀UserStats🌀UserId                                                                                                                               = null;
     private Internal\Hydrator\Operation\Orgs\Org\Installation|null $operation🌀Orgs🌀Org🌀Installation                                                                                                                                                                 = null;
     private Internal\Hydrator\Operation\Orgs\Org\Installations|null $operation🌀Orgs🌀Org🌀Installations                                                                                                                                                               = null;
     private Internal\Hydrator\Operation\Orgs\Org\InteractionLimits|null $operation🌀Orgs🌀Org🌀InteractionLimits                                                                                                                                                       = null;
@@ -885,6 +894,7 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ExternalGroups' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀ExternalGroups()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrgHook', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrgHook\\Config' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\RedeliverWebhookDelivery\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId🌀Attempts()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ApiInsightsSummaryStats' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\ListAppInstallations\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Installations()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\InteractionLimitResponse' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀InteractionLimits()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrganizationInvitation' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations()->hydrateObject($className, $payload),
@@ -1265,6 +1275,7 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ExternalGroups' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀ExternalGroups()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrgHook', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrgHook\\Config' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\RedeliverWebhookDelivery\\Response\\ApplicationJson\\Accepted\\Application\\Json' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Deliveries🌀DeliveryId🌀Attempts()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\ApiInsightsSummaryStats' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Orgs\\ListAppInstallations\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Installations()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\InteractionLimitResponse' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀InteractionLimits()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\OrganizationInvitation' => $this->getObjectMapperOperation🌀Orgs🌀Org🌀Invitations()->serializeObject($object),
@@ -3245,6 +3256,87 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Orgs🌀Org🌀Hooks🌀HookId🌀Pings;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀RouteStats🌀ActorType🌀ActorId(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀RouteStats🌀ActorType🌀ActorId instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀RouteStats🌀ActorType🌀ActorId = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\RouteStats\ActorType\ActorId();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀RouteStats🌀ActorType🌀ActorId;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SubjectStats(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SubjectStats
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SubjectStats instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SubjectStats === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SubjectStats = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SubjectStats();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SubjectStats;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀Users🌀UserId(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\Users\UserId
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀Users🌀UserId instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\Users\UserId === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀Users🌀UserId = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\Users\UserId();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀Users🌀UserId;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀ActorType🌀ActorId(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\ActorType\ActorId
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀ActorType🌀ActorId instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\ActorType\ActorId === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀ActorType🌀ActorId = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\SummaryStats\ActorType\ActorId();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀SummaryStats🌀ActorType🌀ActorId;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀Users🌀UserId(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\Users\UserId
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀Users🌀UserId instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\Users\UserId === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀Users🌀UserId = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\Users\UserId();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀Users🌀UserId;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀ActorType🌀ActorId(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\ActorType\ActorId
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀ActorType🌀ActorId instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\ActorType\ActorId === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀ActorType🌀ActorId = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\TimeStats\ActorType\ActorId();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀TimeStats🌀ActorType🌀ActorId;
+    }
+
+    public function getObjectMapperOperation🌀Orgs🌀Org🌀Insights🌀Api🌀UserStats🌀UserId(): Internal\Hydrator\Operation\Orgs\Org\Insights\Api\UserStats\UserId
+    {
+        if ($this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀UserStats🌀UserId instanceof Internal\Hydrator\Operation\Orgs\Org\Insights\Api\UserStats\UserId === false) {
+            $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀UserStats🌀UserId = new Internal\Hydrator\Operation\Orgs\Org\Insights\Api\UserStats\UserId();
+        }
+
+        return $this->operation🌀Orgs🌀Org🌀Insights🌀Api🌀UserStats🌀UserId;
     }
 
     public function getObjectMapperOperation🌀Orgs🌀Org🌀Installation(): Internal\Hydrator\Operation\Orgs\Org\Installation

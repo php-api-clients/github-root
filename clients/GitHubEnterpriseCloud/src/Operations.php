@@ -140,6 +140,11 @@ final readonly class Operations implements OperationsInterface
         return new Operation\Teams($this->operators);
     }
 
+    public function apiInsights(): Operation\ApiInsights
+    {
+        return new Operation\ApiInsights($this->operators);
+    }
+
     public function interactions(): Operation\Interactions
     {
         return new Operation\Interactions($this->operators);

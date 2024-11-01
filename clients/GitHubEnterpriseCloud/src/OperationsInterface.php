@@ -58,6 +58,8 @@ interface OperationsInterface
 
     public function teams(): Operation\Teams;
 
+    public function apiInsights(): Operation\ApiInsights;
+
     public function interactions(): Operation\Interactions;
 
     public function migrations(): Operation\Migrations;

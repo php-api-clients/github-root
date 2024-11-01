@@ -43,6 +43,7 @@ final class Routers
     private Internal\Router\Get\CodeSecurity|null $internal🔀Router🔀Get🔀CodeSecurity                     = null;
     private Internal\Router\Get\Pulls|null $internal🔀Router🔀Get🔀Pulls                                   = null;
     private Internal\Router\Get\Billing|null $internal🔀Router🔀Get🔀Billing                               = null;
+    private Internal\Router\Get\ApiInsights|null $internal🔀Router🔀Get🔀ApiInsights                       = null;
     private Internal\Router\Get\Checks|null $internal🔀Router🔀Get🔀Checks                                 = null;
     private Internal\Router\Get\DependencyGraph|null $internal🔀Router🔀Get🔀DependencyGraph               = null;
     private Internal\Router\Get\Scim|null $internal🔀Router🔀Get🔀Scim                                     = null;
@@ -116,6 +117,7 @@ final class Routers
     private Internal\Router\List\Copilot|null $internal🔀Router🔀List🔀Copilot                             = null;
     private Internal\Router\List\SecretScanning|null $internal🔀Router🔀List🔀SecretScanning               = null;
     private Internal\Router\List\Pulls|null $internal🔀Router🔀List🔀Pulls                                 = null;
+    private Internal\Router\List\ApiInsights|null $internal🔀Router🔀List🔀ApiInsights                     = null;
     private Internal\Router\List\Checks|null $internal🔀Router🔀List🔀Checks                               = null;
     private Internal\Router\List\Reactions|null $internal🔀Router🔀List🔀Reactions                         = null;
     private Internal\Router\List\Dependabot|null $internal🔀Router🔀List🔀Dependabot                       = null;
@@ -457,6 +459,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀Get🔀Billing;
+    }
+
+    public function internal🔀Router🔀Get🔀ApiInsights(): Internal\Router\Get\ApiInsights
+    {
+        if ($this->internal🔀Router🔀Get🔀ApiInsights instanceof Internal\Router\Get\ApiInsights === false) {
+            $this->internal🔀Router🔀Get🔀ApiInsights = new Internal\Router\Get\ApiInsights(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀Get🔀ApiInsights;
     }
 
     public function internal🔀Router🔀Get🔀Checks(): Internal\Router\Get\Checks
@@ -1114,6 +1125,15 @@ final class Routers
         }
 
         return $this->internal🔀Router🔀List🔀Pulls;
+    }
+
+    public function internal🔀Router🔀List🔀ApiInsights(): Internal\Router\List\ApiInsights
+    {
+        if ($this->internal🔀Router🔀List🔀ApiInsights instanceof Internal\Router\List\ApiInsights === false) {
+            $this->internal🔀Router🔀List🔀ApiInsights = new Internal\Router\List\ApiInsights(browser: $this->browser, authentication: $this->authentication, requestSchemaValidator: $this->requestSchemaValidator, responseSchemaValidator: $this->responseSchemaValidator, hydrators: $this->hydrators);
+        }
+
+        return $this->internal🔀Router🔀List🔀ApiInsights;
     }
 
     public function internal🔀Router🔀List🔀Checks(): Internal\Router\List\Checks
