@@ -72,7 +72,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /app/hook/deliveries') {
-            return $this->typeResolver->resolve('Observable<Schema\\HookDeliveryItem>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\HookDeliveryItem>');
         }
 
         if ($call === 'GET /app/hook/deliveries/{delivery_id}') {
@@ -1296,7 +1296,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /orgs/{org}/hooks/{hook_id}/deliveries') {
-            return $this->typeResolver->resolve('Observable<Schema\\HookDeliveryItem>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\HookDeliveryItem>');
         }
 
         if ($call === 'GET /orgs/{org}/hooks/{hook_id}/deliveries/{delivery_id}') {
@@ -1309,6 +1309,54 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'POST /orgs/{org}/hooks/{hook_id}/pings') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsRouteStats>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsRouteStats>');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/subject-stats') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsSubjectStats>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/insights/api/subject-stats') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsSubjectStats>');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/summary-stats') {
+            return $this->typeResolver->resolve('Schema\\ApiInsightsSummaryStats');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/summary-stats/users/{user_id}') {
+            return $this->typeResolver->resolve('Schema\\ApiInsightsSummaryStats');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/summary-stats/{actor_type}/{actor_id}') {
+            return $this->typeResolver->resolve('Schema\\ApiInsightsSummaryStats');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/time-stats') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsTimeStats>');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/time-stats/users/{user_id}') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsTimeStats>');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/time-stats/{actor_type}/{actor_id}') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsTimeStats>');
+        }
+
+        if ($call === 'GET /orgs/{org}/insights/api/user-stats/{user_id}') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsUserStats>');
+        }
+
+        if ($call === 'LIST /orgs/{org}/insights/api/user-stats/{user_id}') {
+            return $this->typeResolver->resolve('iterable<int,Schema\\ApiInsightsUserStats>');
         }
 
         if ($call === 'GET /orgs/{org}/installation') {
@@ -2696,7 +2744,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'DELETE /repos/{owner}/{repo}/code-scanning/codeql/databases/{language}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'POST /repos/{owner}/{repo}/code-scanning/codeql/variant-analyses') {
@@ -3212,7 +3260,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries') {
-            return $this->typeResolver->resolve('Observable<Schema\\HookDeliveryItem>');
+            return $this->typeResolver->resolve('iterable<int,Schema\\HookDeliveryItem>');
         }
 
         if ($call === 'GET /repos/{owner}/{repo}/hooks/{hook_id}/deliveries/{delivery_id}') {
