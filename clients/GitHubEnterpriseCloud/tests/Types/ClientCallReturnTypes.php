@@ -117,7 +117,7 @@ assertType('', $client->call('POST /enterprises/{enterprise}/settings/billing/co
 assertType('', $client->call('DELETE /enterprises/{enterprise}/settings/billing/cost-centers/{cost_center_id}/resource'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/packages'));
 assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/shared-storage'));
-assertType('', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
+assertType('Schema\\BillingUsageReport', $client->call('GET /enterprises/{enterprise}/settings/billing/usage'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('LIST /enterprises/{enterprise}/team/{team_slug}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetrics>', $client->call('GET /enterprises/{enterprise}/team/{team_slug}/copilot/usage'));
@@ -286,8 +286,8 @@ assertType('', $client->call('GET /orgs/{org}/copilot/billing'));
 assertType('', $client->call('GET /orgs/{org}/copilot/billing/seats'));
 assertType('', $client->call('POST /orgs/{org}/copilot/billing/selected_teams'));
 assertType('', $client->call('DELETE /orgs/{org}/copilot/billing/selected_teams'));
-assertType('', $client->call('POST /orgs/{org}/copilot/billing/selected_users'));
-assertType('', $client->call('DELETE /orgs/{org}/copilot/billing/selected_users'));
+assertType('Schema\\Operations\\Copilot\\AddCopilotSeatsForUsers\\Response\\ApplicationJson\\Created|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('POST /orgs/{org}/copilot/billing/selected_users'));
+assertType('Schema\\Operations\\Copilot\\CancelCopilotSeatAssignmentForUsers\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('DELETE /orgs/{org}/copilot/billing/selected_users'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('GET /orgs/{org}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetricsDay>', $client->call('LIST /orgs/{org}/copilot/metrics'));
 assertType('Observable<Schema\\CopilotUsageMetrics>', $client->call('GET /orgs/{org}/copilot/usage'));
@@ -1158,7 +1158,7 @@ assertType('Observable<Schema\\SimpleUser>|WithoutBody', $client->call('LIST /us
 assertType('Observable<Schema\\SimpleUser>|WithoutBody', $client->call('GET /user/following'));
 assertType('Observable<Schema\\SimpleUser>|WithoutBody', $client->call('LIST /user/following'));
 assertType('', $client->call('GET /user/following/{username}'));
-assertType('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody', $client->call('PUT /user/following/{username}'));
+assertType('', $client->call('PUT /user/following/{username}'));
 assertType('', $client->call('DELETE /user/following/{username}'));
 assertType('Observable<Schema\\GpgKey>|WithoutBody', $client->call('GET /user/gpg_keys'));
 assertType('Observable<Schema\\GpgKey>|WithoutBody', $client->call('LIST /user/gpg_keys'));
