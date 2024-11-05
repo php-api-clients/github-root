@@ -24,7 +24,7 @@ final class GetGithubBillingUsageReportGhe
     public const OPERATION_MATCH = 'GET /enterprises/{enterprise}/settings/billing/usage';
     /**The slug version of the enterprise name. You can also substitute this value with the enterprise id. **/
     private string $enterprise;
-    /**If specified, only return results for a single year. The value of `year` is an integer with four digits representing a year. For example, `2023`. **/
+    /**If specified, only return results for a single year. The value of `year` is an integer with four digits representing a year. For example, `2024`. Default value is the current year. **/
     private int $year;
     /**If specified, only return results for a single month. The value of `month` is an integer between `1` and `12`. **/
     private int $month;
@@ -32,7 +32,7 @@ final class GetGithubBillingUsageReportGhe
     private int $day;
     /**If specified, only return results for a single hour. The value of `hour` is an integer between `0` and `23`. **/
     private int $hour;
-    /**The ID corresponding to a cost center. **/
+    /**The ID corresponding to a cost center. The default value is no cost center. **/
     private string $costCenterId;
 
     public function __construct(private readonly SchemaValidator $responseSchemaValidator, private readonly Internal\Hydrator\Operation\Enterprises\Enterprise\Settings\Billing\Usage $hydrator, string $enterprise, int $year, int $month, int $day, int $hour, string $costCenterId)

@@ -458,6 +458,13 @@ final readonly class OrganizationFull
                 "null"
             ],
             "format": "date-time"
+        },
+        "deploy_keys_enabled_for_repositories": {
+            "type": "boolean",
+            "description": "Controls whether or not deploy keys may be added and used for repositories in the organization.",
+            "examples": [
+                false
+            ]
         }
     },
     "description": "Prevents users in the organization from using insecure methods of two-factor authentication to fulfill a two-factor requirement.\\n\\nGitHub currently defines SMS as an insecure method of two-factor authentication.\\n\\nIf your users are managed by the enterprise this policy will not affect them. The first admin account of the enterprise will still be affected."
@@ -532,7 +539,8 @@ If your users are managed by the enterprise this policy will not affect them. Th
     "secret_scanning_validity_checks_enabled": false,
     "created_at": "2008-01-14T04:33:35Z",
     "updated_at": "1970-01-01T00:00:00+00:00",
-    "archived_at": "1970-01-01T00:00:00+00:00"
+    "archived_at": "1970-01-01T00:00:00+00:00",
+    "deploy_keys_enabled_for_repositories": false
 }';
 
     /**
@@ -574,6 +582,7 @@ If your users are managed by the enterprise this policy will not affect them. Th
      * secretScanningValidityChecksEnabled: **Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
 
     Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.
+     * deployKeysEnabledForRepositories: Controls whether or not deploy keys may be added and used for repositories in the organization.
      */
     public function __construct(public string $login, public int $id, #[MapFrom('node_id')]
     public string $nodeId, public string $url, #[MapFrom('repos_url')]
@@ -619,7 +628,8 @@ If your users are managed by the enterprise this policy will not affect them. Th
     public bool|null $secretScanningValidityChecksEnabled, #[MapFrom('created_at')]
     public string $createdAt, #[MapFrom('updated_at')]
     public string $updatedAt, #[MapFrom('archived_at')]
-    public string|null $archivedAt,)
+    public string|null $archivedAt, #[MapFrom('deploy_keys_enabled_for_repositories')]
+    public bool|null $deployKeysEnabledForRepositories,)
     {
     }
 }

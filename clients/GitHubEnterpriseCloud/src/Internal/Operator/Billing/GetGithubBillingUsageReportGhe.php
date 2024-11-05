@@ -24,7 +24,6 @@ final readonly class GetGithubBillingUsageReportGhe
     {
     }
 
-    /** @return */
     public function call(string $enterprise, int $year, int $month, int $day, int $hour, string $costCenterId): BillingUsageReport
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\Billing\GetGithubBillingUsageReportGhe($this->responseSchemaValidator, $this->hydrator, $enterprise, $year, $month, $day, $hour, $costCenterId);

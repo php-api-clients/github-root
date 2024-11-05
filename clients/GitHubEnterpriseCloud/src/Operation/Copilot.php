@@ -9,7 +9,6 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotOrganizationDetails;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\CopilotSeatDetails;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson\Created;
-use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\ListCopilotSeatsForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
@@ -97,14 +96,12 @@ final class Copilot
         return $this->operators->copilot👷CancelCopilotSeatAssignmentForTeams()->call($org, $params);
     }
 
-    /** @return */
-    public function addCopilotSeatsForUsers(string $org, array $params): Json|WithoutBody
+    public function addCopilotSeatsForUsers(string $org, array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created|WithoutBody
     {
         return $this->operators->copilot👷AddCopilotSeatsForUsers()->call($org, $params);
     }
 
-    /** @return */
-    public function cancelCopilotSeatAssignmentForUsers(string $org, array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok\Application\Json|WithoutBody
+    public function cancelCopilotSeatAssignmentForUsers(string $org, array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok|WithoutBody
     {
         return $this->operators->copilot👷CancelCopilotSeatAssignmentForUsers()->call($org, $params);
     }

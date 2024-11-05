@@ -1,5 +1,5 @@
 {
-    "specHash": "5f54bfdb58787ab413cf25bfacf31354",
+    "specHash": "839d5f0f58bc2153b682361fcde32827",
     "generatedFiles": {
         "files": [
             {
@@ -480,15 +480,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/OrganizationProgrammaticAccessGrantRequest.php",
-                "hash": "d463e514c83f5dff17a597a9b42683e0"
+                "hash": "5099067bae2f36aa44a3d7924a3b0b88"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/OrganizationProgrammaticAccessGrant.php",
-                "hash": "70da3171e3c8daee4449f2ed62fafbe4"
+                "hash": "d6a8a262e656904f22a4339891c758a3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/OrganizationFull.php",
-                "hash": "01fcbf12b4707e5471e6cf6bef95cd6c"
+                "hash": "cba78a7408353efb7fc0c9011557a11d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ActionsCacheUsageByRepository.php",
@@ -1356,7 +1356,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/DeployKey.php",
-                "hash": "eae8a5b611f269211756638a69c1c5e4"
+                "hash": "ac49ee4c541e587cbbfcaa7c60d7274d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Language.php",
@@ -1668,7 +1668,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/PersonalAccessTokenRequest.php",
-                "hash": "5bb6bad892f0b541cc1e1266911d633d"
+                "hash": "d56837ca377988533695160dbdc5b793"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/ProjectsV2.php",
@@ -1804,11 +1804,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookDeployKeyCreated.php",
-                "hash": "ffacffc113b7bdd88a91a8b372ceb38b"
+                "hash": "f45ba3ee8c2bd15edab8dde160e47ee5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookDeployKeyDeleted.php",
-                "hash": "d12c46dfdde84b50750a17a2e54c10eb"
+                "hash": "eede380528075154afe9c399e45d2251"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookDeploymentCreated.php",
@@ -2144,19 +2144,19 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestApproved.php",
-                "hash": "94b0fe67fff3172c29a2c0bfd0fba3e6"
+                "hash": "a7c09b0f80ffbd6de8d1c6db45d0ed49"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestCancelled.php",
-                "hash": "b3c4329843bfdca315894ab885418cb7"
+                "hash": "2cc8dde02f13a262feda7c463394061a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestCreated.php",
-                "hash": "46f33f78a9672b8eb18fc35ba94b70e5"
+                "hash": "475379f521c33d7ad7556e90b9448a2c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPersonalAccessTokenRequestDenied.php",
-                "hash": "286e7f8ed0adf91f7201715195c52994"
+                "hash": "d09ecc688e5a84c8b7dccebc85b1ff79"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhookPing.php",
@@ -4744,7 +4744,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Orgs\/Update\/Request\/ApplicationJson.php",
-                "hash": "3d281d844c3bd1f16dc2d1c2721fc65d"
+                "hash": "3c9533f7653e4f303e85d01f742a12ab"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Orgs\/Update\/Response\/ApplicationJson\/UnprocessableEntity.php",
@@ -5852,11 +5852,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/ClientInterface.php",
-                "hash": "cc93265fcc2aa2fea52acdaa957555f5"
+                "hash": "ad166e963625772c629f0b6140adb84f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Client.php",
-                "hash": "365044b9ed0b9d79de90f92f9cdd28d0"
+                "hash": "1cbec2495100fd637e52685da2bfefd4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/OperationsInterface.php",
@@ -5868,7 +5868,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Apps.php",
-                "hash": "77fd3427bad81c4c2adb8ec49eca9838"
+                "hash": "31f8f2061025491718777ec1dc16c115"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/CodesOfConduct.php",
@@ -5904,7 +5904,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
-                "hash": "966f7db10e65ae9cd5ee44b95c168b21"
+                "hash": "6a532beb011b14a6efb066165d36c980"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Activity.php",
@@ -5932,7 +5932,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Orgs.php",
-                "hash": "7172da03a92678d25c1e11dcedaa20f1"
+                "hash": "6ac1659d98f782954827c854f4dff7ae"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Oidc.php",
@@ -5964,7 +5964,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Repos.php",
-                "hash": "89aad1c132a5bfa42cb54db968c42316"
+                "hash": "b8f9d5d4f3c0afb3e62a576d2209de8b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Reactions.php",
@@ -6004,7 +6004,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Users.php",
-                "hash": "8505746dd6bc80a1da4d4273e39e758d"
+                "hash": "488d0b15a78784861f52cbaeff31c902"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operations.php",
@@ -12075,28 +12075,16 @@
                 "hash": "40158d79ea9b90313c07dc25cbe02610"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/TietF5944C0A\/TietAA99D7D8\/Tiet9AE1F544\/TietA28F869C.php",
-                "hash": "6df78246dee0734b666ca7726dd2f05a"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/CancelCopilotSeatAssignmentForTeams\/Request\/ApplicationJson.php",
                 "hash": "1289f4ac3a452a4f25838e6780868faa"
             },
             {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/AliasAbstract\/Tiet2460918D\/Tiet655452CF\/Tiet135E03E4\/TietBEF8748A.php",
-                "hash": "8db685084da41a29a3213bc8aad5df34"
-            },
-            {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/CancelCopilotSeatAssignmentForUsers\/Response\/ApplicationJson\/Ok.php",
-                "hash": "9055b7aecd1afaf3440af9b94333b8a6"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/CancelCopilotSeatAssignmentForUsers\/Response\/ApplicationJson\/Ok\/Application\/Json.php",
-                "hash": "6cf36b09974693c5db7031676de22cab"
+                "hash": "64cc92004a8634a2b84b1e6cdace1d68"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/CancelCopilotSeatAssignmentForTeams\/Response\/ApplicationJson\/Ok.php",
-                "hash": "80abff17f768e9fb1f8e0621ef1c382b"
+                "hash": "4fb4c7a7510385bc7651e9fd6c35a2d7"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/CancelCopilotSeatAssignmentForUsers\/Request\/ApplicationJson.php",
@@ -12104,7 +12092,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Copilot.php",
-                "hash": "a30e638e2d897cd5af7bfec50948c4e8"
+                "hash": "aeb5781fbe65b8a42dacd27ae38ec737"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CheckAutomatedSecurityFixes.php",
@@ -15124,15 +15112,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/CancelCopilotSeatAssignmentForUsers.php",
-                "hash": "a9beb916855ead661cdcff78e153dd0a"
+                "hash": "ed35343005053cca43fa449e502739e4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/CancelCopilotSeatAssignmentForUsers.php",
-                "hash": "844adbaaa99ba7265c228b6a12c877a0"
+                "hash": "e5e139767d9c7670424ecf6b997f32b9"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/CancelCopilotSeatAssignmentForUsersTest.php",
-                "hash": "a9c15895a0ff981e3c4b46e297e8cc61"
+                "hash": "2a60d7dd0306a26a357afd8f1cf554a1"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Orgs\/ListSamlSsoAuthorizations.php",
@@ -24288,7 +24276,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Users\/Follow.php",
-                "hash": "4316a51ffb5d53cd7df4ade2b70c1641"
+                "hash": "c57e9b9f75af8449bdb29d7fc74d1264"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Users\/FollowTest.php",
@@ -26080,7 +26068,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Billing.php",
-                "hash": "6b5a2c95d462af3827ec30bc276e4a06"
+                "hash": "c847903e592558bc2ad744fccb12046e"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Checks.php",
@@ -26148,7 +26136,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Copilot.php",
-                "hash": "4e865e3b179c511c4e02749355e400cf"
+                "hash": "4c677a6d546cef14e6d6836adccb0d3f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/CodeScanning.php",
@@ -26452,7 +26440,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Copilot.php",
-                "hash": "609f735cdcfe90d3cebf8c5026976e66"
+                "hash": "32492e0e477312c5403077d6d179258c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Reactions.php",
@@ -26528,7 +26516,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Users.php",
-                "hash": "f504855ecc60d249bd64e85f1f3b2e13"
+                "hash": "c55c7fb2722f90e1bdd887e2a76985ba"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Stream\/Migrations.php",
@@ -26564,7 +26552,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Six.php",
-                "hash": "0d399c08389b5a4ea5021a61a72dc039"
+                "hash": "c4516734c87beffacff09e29f313df28"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Get\/Seven.php",
@@ -26588,7 +26576,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Six.php",
-                "hash": "73ad385cb40c9d7186aabd6a6dab1529"
+                "hash": "6b93d4f6ee8061b9f0a4afd51689526a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Post\/Five.php",
@@ -26700,7 +26688,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Six.php",
-                "hash": "043862d61eb9ae45dbc140a1ce4cdb62"
+                "hash": "3fe000d851b1bb2390c63a1a700b7e8c"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Delete\/Eight.php",
@@ -26736,7 +26724,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Four.php",
-                "hash": "3463e01e94f27c8d94c4004f86d110bb"
+                "hash": "c9b2729091d172e535d12b3c8b4ca8d5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Router\/Put\/Two.php",
@@ -27064,7 +27052,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org.php",
-                "hash": "b70c69ec5194dc0b1f71240b4854c487"
+                "hash": "5133660e4dd270de551ca666ff5b7d7f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Actions\/Cache\/Usage.php",
@@ -27224,7 +27212,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Copilot\/Billing\/SelectedUsers.php",
-                "hash": "5246107e7f957e5a285628769d41a910"
+                "hash": "1d4d3654a78531fcfc95cd904e25556b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/CredentialAuthorizations\/CredentialId.php",
@@ -28260,11 +28248,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Keys.php",
-                "hash": "c86ad1d6c24590f1a298ba34b9404f18"
+                "hash": "c07437c996ca9caf925578eaa2e9f361"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Keys\/KeyId.php",
-                "hash": "676c03e5affbaaae4f52939e013c8529"
+                "hash": "c8b229ff85e837f81a8ae24d9c3d63b8"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Repos\/Owner\/Repo\/Labels.php",
@@ -28940,7 +28928,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrators.php",
-                "hash": "aefbfc28479754a3ec83e3adae5e57cb"
+                "hash": "1cff9eceb90abce4046e0add7730b369"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/EnterpriseAdmin\/ListProvisionedGroupsEnterprise.php",
@@ -29740,11 +29728,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/PHPStan\/ClientCallReturnTypes.php",
-                "hash": "9f74745a46a5bfdc49be45130468c99b"
+                "hash": "3734158e8c489df8d1a84d20e99234e4"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Types\/ClientCallReturnTypes.php",
-                "hash": "9ed4951d6a7ef353c3886b8c631792ff"
+                "hash": "b3105d9bc330dd2099ca4b45d1eb295f"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/..\/etc\/phpstan-extension.neon",
@@ -30080,7 +30068,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/DeployKey.php",
-                "hash": "059ac50d4cdeffc625147e257ef5cf97"
+                "hash": "014d7ae0b189ce3eedad0b97cdbec2e5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Deployment.php",
@@ -30184,7 +30172,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/PersonalAccessTokenRequest.php",
-                "hash": "54b2f6bd8bdb18768de208706950adfa"
+                "hash": "a9970e07b20fd04d1e32c6a7bbb006ab"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/WebHook\/Ping.php",
@@ -30668,15 +30656,15 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Copilot\/AddCopilotSeatsForUsers.php",
-                "hash": "67929ab9f47c2993ccb4b4f22cd45896"
+                "hash": "8335acc90fa631fe5214cc69ea144798"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Copilot\/AddCopilotSeatsForUsers.php",
-                "hash": "5dee0e6c20cf6cd79d88f20b3c6fd9a0"
+                "hash": "a16c1d69501782b3b6fba58f5a183f6d"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Copilot\/AddCopilotSeatsForUsersTest.php",
-                "hash": "789301cfdd11607d92dac88f8ad372e1"
+                "hash": "9b5c8fd200a693d3827869f013238d00"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/AddCopilotSeatsForTeams\/Request\/ApplicationJson.php",
@@ -30684,15 +30672,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotSeatsForUsers\/Response\/ApplicationJson\/Created.php",
-                "hash": "b6f04e9b4feadfca07ad9e47ef932945"
-            },
-            {
-                "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotSeatsForUsers\/Response\/ApplicationJson\/Created\/Application\/Json.php",
-                "hash": "9078040927bd6b23f14338a2a9937669"
+                "hash": "cb8a3f2d5e5be94fe9b3a72b6dc3ad81"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/AddCopilotSeatsForTeams\/Response\/ApplicationJson\/Created.php",
-                "hash": "6eba6a75043802ddc9bbd4dbc348711c"
+                "hash": "908b5d8f84ee6e2cf28dfd3f0eb3a6e5"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/AddCopilotSeatsForUsers\/Request\/ApplicationJson.php",
@@ -30888,7 +30872,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhooksDeployKey.php",
-                "hash": "49c2ad649f6f24dbc10ac9f6f859c827"
+                "hash": "b7be975f896acadf95bda0054befc587"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/WebhooksWorkflow.php",
@@ -31644,11 +31628,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportGhe.php",
-                "hash": "f6299f31da9aa4e8f42d538da845f6d4"
+                "hash": "650d79a2b42e5852190facaeef619649"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Operator\/Billing\/GetGithubBillingUsageReportGhe.php",
-                "hash": "42e26155a339cbc53a66ef10cad95085"
+                "hash": "8d94f4d8a02b18862d0e35e7ea15e7fa"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/tests\/\/Internal\/Operation\/Billing\/GetGithubBillingUsageReportGheTest.php",
@@ -33176,7 +33160,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/ApiInsights.php",
-                "hash": "58d77b9a9227372d7aec3f26aacb87b9"
+                "hash": "6bf9f7829121dba63588c95d05aaf1c3"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Orgs\/Org\/Insights\/Api\/SummaryStats.php",

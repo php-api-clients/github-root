@@ -157,6 +157,10 @@ final readonly class ApplicationJson
             "type": "boolean",
             "description": "**Endpoint closing down notice.** Please use [code security configurations](https:\\/\\/docs.github.com\\/enterprise-cloud@latest\\/\\/rest\\/code-security\\/configurations) instead.\\n\\nWhether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.",
             "deprecated": true
+        },
+        "deploy_keys_enabled_for_repositories": {
+            "type": "boolean",
+            "description": "Controls whether or not deploy keys may be added and used for repositories in the organization."
         }
     }
 }';
@@ -192,7 +196,8 @@ final readonly class ApplicationJson
     "secret_scanning_push_protection_enabled_for_new_repositories": false,
     "secret_scanning_push_protection_custom_link_enabled": false,
     "secret_scanning_push_protection_custom_link": "generated",
-    "secret_scanning_validity_checks_enabled": false
+    "secret_scanning_validity_checks_enabled": false,
+    "deploy_keys_enabled_for_repositories": false
 }';
 
     /**
@@ -264,6 +269,7 @@ final readonly class ApplicationJson
      * secretScanningValidityChecksEnabled: **Endpoint closing down notice.** Please use [code security configurations](https://docs.github.com/enterprise-cloud@latest//rest/code-security/configurations) instead.
 
     Whether secret scanning automatic validity checks on supported partner tokens is enabled for all repositories under this organization.
+     * deployKeysEnabledForRepositories: Controls whether or not deploy keys may be added and used for repositories in the organization.
      */
     public function __construct(#[MapFrom('billing_email')]
     public string|null $billingEmail, public string|null $company, public string|null $email, #[MapFrom('twitter_username')]
@@ -289,7 +295,8 @@ final readonly class ApplicationJson
     public bool|null $secretScanningPushProtectionEnabledForNewRepositories, #[MapFrom('secret_scanning_push_protection_custom_link_enabled')]
     public bool|null $secretScanningPushProtectionCustomLinkEnabled, #[MapFrom('secret_scanning_push_protection_custom_link')]
     public string|null $secretScanningPushProtectionCustomLink, #[MapFrom('secret_scanning_validity_checks_enabled')]
-    public bool|null $secretScanningValidityChecksEnabled,)
+    public bool|null $secretScanningValidityChecksEnabled, #[MapFrom('deploy_keys_enabled_for_repositories')]
+    public bool|null $deployKeysEnabledForRepositories,)
     {
     }
 }
