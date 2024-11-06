@@ -35,6 +35,7 @@ final class Copilot
         return $operator->call($arguments['org'], $params);
     }
 
+    /** @return */
     public function addCopilotSeatsForUsers(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\AddCopilotSeatsForUsers\Response\ApplicationJson\Created|WithoutBody
     {
         $arguments = [];

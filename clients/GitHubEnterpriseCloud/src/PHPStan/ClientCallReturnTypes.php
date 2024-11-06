@@ -444,7 +444,7 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/settings/billing/usage') {
-            return $this->typeResolver->resolve('Schema\\BillingUsageReport');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/team/{team_slug}/copilot/metrics') {
@@ -1120,11 +1120,11 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'POST /orgs/{org}/copilot/billing/selected_users') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\AddCopilotSeatsForUsers\\Response\\ApplicationJson\\Created|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /orgs/{org}/copilot/billing/selected_users') {
-            return $this->typeResolver->resolve('Schema\\Operations\\Copilot\\CancelCopilotSeatAssignmentForUsers\\Response\\ApplicationJson\\Ok|\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /orgs/{org}/copilot/metrics') {
