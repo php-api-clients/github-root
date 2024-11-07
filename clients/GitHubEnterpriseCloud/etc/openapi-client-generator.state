@@ -1,5 +1,5 @@
 {
-    "specHash": "3bee8f8a9cc37e411844e8fe2563c09d",
+    "specHash": "09a2c0e8c9ee8840c63e9f1e2f55d269",
     "generatedFiles": {
         "files": [
             {
@@ -5904,7 +5904,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Billing.php",
-                "hash": "ac559a2f8f3ce24368653b39056048e1"
+                "hash": "966f7db10e65ae9cd5ee44b95c168b21"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Activity.php",
@@ -12064,11 +12064,11 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CopilotSeatDetails.php",
-                "hash": "5093cebb707a039783c942dcb8af8832"
+                "hash": "62fe1debec57d1ae51883f6c133b93bf"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/ListCopilotSeats\/Response\/ApplicationJson\/Ok.php",
-                "hash": "40158d79ea9b90313c07dc25cbe02610"
+                "hash": "d54f08d39e7240c8d57ed5dc7d8e6d0b"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Copilot\/CancelCopilotSeatAssignmentForTeams\/Request\/ApplicationJson.php",
@@ -12088,7 +12088,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Copilot.php",
-                "hash": "b0f6f3329758c7879df6ac278c094aed"
+                "hash": "2716c4d5aacb311dd68c363af1075741"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/CheckAutomatedSecurityFixes.php",
@@ -31764,7 +31764,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/EnterpriseTeam.php",
-                "hash": "c9c02687fc4e8c51e415d22567f18c3b"
+                "hash": "f703d7ca5bae5e6742dc096e1e8ca8ba"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/WebHook\/ExemptionRequestPushRuleset.php",
@@ -31820,7 +31820,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Schema\/Operations\/Copilot\/ListCopilotSeatsForEnterprise\/Response\/ApplicationJson\/Ok.php",
-                "hash": "55cb9e560c15c6b5cde4e9e85eb8a0b6"
+                "hash": "ccd74f78581d757b26e0fe3750b1296a"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Internal\/Hydrator\/Operation\/Enterprises\/Enterprise\/Copilot\/Billing\/Seats.php",
