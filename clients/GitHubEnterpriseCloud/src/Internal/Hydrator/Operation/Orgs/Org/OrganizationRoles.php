@@ -247,6 +247,28 @@ class OrganizationRoles implements ObjectMapper
 
             after_description:
 
+            $value = $payload['base_role'] ?? null;
+
+            if ($value === null) {
+                $properties['baseRole'] = null;
+                goto after_baseRole;
+            }
+
+            $properties['baseRole'] = $value;
+
+            after_baseRole:
+
+            $value = $payload['source'] ?? null;
+
+            if ($value === null) {
+                $properties['source'] = null;
+                goto after_source;
+            }
+
+            $properties['source'] = $value;
+
+            after_source:
+
             $value = $payload['permissions'] ?? null;
 
             if ($value === null) {
@@ -791,6 +813,22 @@ class OrganizationRoles implements ObjectMapper
         }
 
         after_description:        $result['description'] = $description;
+
+        $baseRole = $object->baseRole;
+
+        if ($baseRole === null) {
+            goto after_baseRole;
+        }
+
+        after_baseRole:        $result['base_role'] = $baseRole;
+
+        $source = $object->source;
+
+        if ($source === null) {
+            goto after_source;
+        }
+
+        after_source:        $result['source'] = $source;
 
         $permissions = $object->permissions;
         static $permissionsSerializer0;
