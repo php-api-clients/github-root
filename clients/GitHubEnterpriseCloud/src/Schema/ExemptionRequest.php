@@ -104,12 +104,26 @@ final readonly class ExemptionRequest
                                         "type": "string",
                                         "description": "The type of secret that was detected"
                                     },
-                                    "commits": {
+                                    "locations": {
                                         "type": "array",
                                         "items": {
-                                            "type": "string"
+                                            "type": "object",
+                                            "properties": {
+                                                "commit": {
+                                                    "type": "string",
+                                                    "description": "The commit SHA where the secret was detected"
+                                                },
+                                                "branch": {
+                                                    "type": "string",
+                                                    "description": "The branch where the secret was detected"
+                                                },
+                                                "path": {
+                                                    "type": "string",
+                                                    "description": "The path of the file where the secret was detected"
+                                                }
+                                            }
                                         },
-                                        "description": "The commits that introduced the secret"
+                                        "description": "The location data of the secret that was detected"
                                     }
                                 }
                             },

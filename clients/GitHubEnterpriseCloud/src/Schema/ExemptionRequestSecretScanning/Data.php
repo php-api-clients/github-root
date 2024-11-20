@@ -15,12 +15,26 @@ final readonly class Data
             "type": "string",
             "description": "The type of secret that was detected"
         },
-        "commits": {
+        "locations": {
             "type": "array",
             "items": {
-                "type": "string"
+                "type": "object",
+                "properties": {
+                    "commit": {
+                        "type": "string",
+                        "description": "The commit SHA where the secret was detected"
+                    },
+                    "branch": {
+                        "type": "string",
+                        "description": "The branch where the secret was detected"
+                    },
+                    "path": {
+                        "type": "string",
+                        "description": "The path of the file where the secret was detected"
+                    }
+                }
             },
-            "description": "The commits that introduced the secret"
+            "description": "The location data of the secret that was detected"
         }
     }
 }';
@@ -28,18 +42,26 @@ final readonly class Data
     public const SCHEMA_DESCRIPTION  = '';
     public const SCHEMA_EXAMPLE_DATA = '{
     "secret_type": "generated",
-    "commits": [
-        "generated",
-        "generated"
+    "locations": [
+        {
+            "commit": "generated",
+            "branch": "generated",
+            "path": "generated"
+        },
+        {
+            "commit": "generated",
+            "branch": "generated",
+            "path": "generated"
+        }
     ]
 }';
 
     /**
      * secretType: The type of secret that was detected
-     * commits: The commits that introduced the secret
+     * locations: The location data of the secret that was detected
      */
     public function __construct(#[MapFrom('secret_type')]
-    public string|null $secretType, public array|null $commits,)
+    public string|null $secretType, public array|null $locations,)
     {
     }
 }
