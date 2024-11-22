@@ -1796,6 +1796,132 @@ $client->operations()->enterpriseAdmin()->getAuditLogListing(        enterprise:
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#get-the-audit-log-for-an-enterprise).
 
 
+### enterprise-admin/get-audit-log-stream-key
+
+Get the audit log stream key for encrypting secrets
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/audit-log/stream-key', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getAuditLogStreamKey(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#get-the-audit-log-stream-key-for-encrypting-secrets).
+
+
+### enterprise-admin/get-audit-log-streams
+
+List audit log stream configurations for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/audit-log/streams', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getAuditLogStreams(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#list-audit-log-stream-configurations-for-an-enterprise).
+
+
+### enterprise-admin/create-audit-log-stream
+
+Create an audit log streaming configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('POST /enterprises/{enterprise}/audit-log/streams', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->createAuditLogStream(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#create-an-audit-log-streaming-configuration-for-an-enterprise).
+
+
+### enterprise-admin/get-one-audit-log-stream
+
+List one audit log streaming configuration via a stream ID
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/audit-log/streams/{stream_id}', [
+        'enterprise' => 'generated',
+        'stream_id' => 9,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getOneAuditLogStream(        enterprise: 'generated',
+        stream_id: 9,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#list-one-audit-log-streaming-configuration-via-a-stream-id).
+
+
+### enterprise-admin/update-audit-log-stream
+
+Update an existing audit log stream configuration
+
+Using the `call` method:
+```php
+$client->call('PUT /enterprises/{enterprise}/audit-log/streams/{stream_id}', [
+        'enterprise' => 'generated',
+        'stream_id' => 9,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->updateAuditLogStream(        enterprise: 'generated',
+        stream_id: 9,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#update-an-existing-audit-log-stream-configuration).
+
+
+### enterprise-admin/delete-audit-log-stream
+
+Delete an audit log streaming configuration for an enterprise
+
+Using the `call` method:
+```php
+$client->call('DELETE /enterprises/{enterprise}/audit-log/streams/{stream_id}', [
+        'enterprise' => 'generated',
+        'stream_id' => 9,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->deleteAuditLogStream(        enterprise: 'generated',
+        stream_id: 9,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/audit-log#delete-an-audit-log-streaming-configuration-for-an-enterprise).
+
+
 ### code-scanning/list-alerts-for-enterprise
 
 List code scanning alerts for an enterprise

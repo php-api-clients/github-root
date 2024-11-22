@@ -147,6 +147,26 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    public function deleteAuditLogStream(array $params): WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('stream_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: stream_id');
+        }
+
+        $arguments['stream_id'] = $params['stream_id'];
+        unset($params['stream_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\DeleteAuditLogStream($this->browser, $this->authentication);
+
+        return $operator->call($arguments['enterprise'], $arguments['stream_id']);
+    }
+
     /** @return */
     public function removeOrgAccessToSelfHostedRunnerGroupInEnterprise(array $params): WithoutBody
     {
