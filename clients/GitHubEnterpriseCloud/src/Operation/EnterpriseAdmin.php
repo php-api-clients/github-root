@@ -7,7 +7,9 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Operation;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogStreamKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuthenticationToken;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok;
@@ -233,6 +235,37 @@ final class EnterpriseAdmin
     public function getAuditLogListing(string $enterprise, string $phrase, string $include, string $after, string $before, string $order, int $page, int $perPage): iterable
     {
         return $this->operators->enterpriseAdmin👷GetAuditLogListing()->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
+    }
+
+    public function getAuditLogStreamKey(string $enterprise): AuditLogStreamKey
+    {
+        return $this->operators->enterpriseAdmin👷GetAuditLogStreamKey()->call($enterprise);
+    }
+
+    /** @return iterable<int,Schema\GetAuditLogStreamConfigs> */
+    public function getAuditLogStreams(string $enterprise): iterable
+    {
+        return $this->operators->enterpriseAdmin👷GetAuditLogStreams()->call($enterprise);
+    }
+
+    public function createAuditLogStream(string $enterprise, array $params): GetAuditLogStreamConfig
+    {
+        return $this->operators->enterpriseAdmin👷CreateAuditLogStream()->call($enterprise, $params);
+    }
+
+    public function getOneAuditLogStream(string $enterprise, int $streamId): GetAuditLogStreamConfig
+    {
+        return $this->operators->enterpriseAdmin👷GetOneAuditLogStream()->call($enterprise, $streamId);
+    }
+
+    public function updateAuditLogStream(string $enterprise, int $streamId, array $params): GetAuditLogStreamConfig
+    {
+        return $this->operators->enterpriseAdmin👷UpdateAuditLogStream()->call($enterprise, $streamId, $params);
+    }
+
+    public function deleteAuditLogStream(string $enterprise, int $streamId): WithoutBody
+    {
+        return $this->operators->enterpriseAdmin👷DeleteAuditLogStream()->call($enterprise, $streamId);
     }
 
     /** @return */

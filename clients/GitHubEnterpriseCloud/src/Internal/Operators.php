@@ -91,6 +91,12 @@ final class Operators
     private Internal\Operator\AnnouncementBanners\SetAnnouncementBannerForEnterprise|null $announcementBanners👷SetAnnouncementBannerForEnterprise                                   = null;
     private Internal\Operator\EnterpriseAdmin\GetAuditLog|null $enterpriseAdmin👷GetAuditLog                                                                                         = null;
     private Internal\Operator\EnterpriseAdmin\GetAuditLogListing|null $enterpriseAdmin👷GetAuditLogListing                                                                           = null;
+    private Internal\Operator\EnterpriseAdmin\GetAuditLogStreamKey|null $enterpriseAdmin👷GetAuditLogStreamKey                                                                       = null;
+    private Internal\Operator\EnterpriseAdmin\GetAuditLogStreams|null $enterpriseAdmin👷GetAuditLogStreams                                                                           = null;
+    private Internal\Operator\EnterpriseAdmin\CreateAuditLogStream|null $enterpriseAdmin👷CreateAuditLogStream                                                                       = null;
+    private Internal\Operator\EnterpriseAdmin\GetOneAuditLogStream|null $enterpriseAdmin👷GetOneAuditLogStream                                                                       = null;
+    private Internal\Operator\EnterpriseAdmin\UpdateAuditLogStream|null $enterpriseAdmin👷UpdateAuditLogStream                                                                       = null;
+    private Internal\Operator\EnterpriseAdmin\DeleteAuditLogStream|null $enterpriseAdmin👷DeleteAuditLogStream                                                                       = null;
     private Internal\Operator\CodeScanning\ListAlertsForEnterprise|null $codeScanning👷ListAlertsForEnterprise                                                                       = null;
     private Internal\Operator\CodeScanning\ListAlertsForEnterpriseListing|null $codeScanning👷ListAlertsForEnterpriseListing                                                         = null;
     private Internal\Operator\SecretScanning\GetSecurityAnalysisSettingsForEnterprise|null $secretScanning👷GetSecurityAnalysisSettingsForEnterprise                                 = null;
@@ -2008,6 +2014,60 @@ final class Operators
         }
 
         return $this->enterpriseAdmin👷GetAuditLogListing;
+    }
+
+    public function enterpriseAdmin👷GetAuditLogStreamKey(): Internal\Operator\EnterpriseAdmin\GetAuditLogStreamKey
+    {
+        if ($this->enterpriseAdmin👷GetAuditLogStreamKey instanceof Internal\Operator\EnterpriseAdmin\GetAuditLogStreamKey === false) {
+            $this->enterpriseAdmin👷GetAuditLogStreamKey = new Internal\Operator\EnterpriseAdmin\GetAuditLogStreamKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey());
+        }
+
+        return $this->enterpriseAdmin👷GetAuditLogStreamKey;
+    }
+
+    public function enterpriseAdmin👷GetAuditLogStreams(): Internal\Operator\EnterpriseAdmin\GetAuditLogStreams
+    {
+        if ($this->enterpriseAdmin👷GetAuditLogStreams instanceof Internal\Operator\EnterpriseAdmin\GetAuditLogStreams === false) {
+            $this->enterpriseAdmin👷GetAuditLogStreams = new Internal\Operator\EnterpriseAdmin\GetAuditLogStreams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams());
+        }
+
+        return $this->enterpriseAdmin👷GetAuditLogStreams;
+    }
+
+    public function enterpriseAdmin👷CreateAuditLogStream(): Internal\Operator\EnterpriseAdmin\CreateAuditLogStream
+    {
+        if ($this->enterpriseAdmin👷CreateAuditLogStream instanceof Internal\Operator\EnterpriseAdmin\CreateAuditLogStream === false) {
+            $this->enterpriseAdmin👷CreateAuditLogStream = new Internal\Operator\EnterpriseAdmin\CreateAuditLogStream($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams());
+        }
+
+        return $this->enterpriseAdmin👷CreateAuditLogStream;
+    }
+
+    public function enterpriseAdmin👷GetOneAuditLogStream(): Internal\Operator\EnterpriseAdmin\GetOneAuditLogStream
+    {
+        if ($this->enterpriseAdmin👷GetOneAuditLogStream instanceof Internal\Operator\EnterpriseAdmin\GetOneAuditLogStream === false) {
+            $this->enterpriseAdmin👷GetOneAuditLogStream = new Internal\Operator\EnterpriseAdmin\GetOneAuditLogStream($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId());
+        }
+
+        return $this->enterpriseAdmin👷GetOneAuditLogStream;
+    }
+
+    public function enterpriseAdmin👷UpdateAuditLogStream(): Internal\Operator\EnterpriseAdmin\UpdateAuditLogStream
+    {
+        if ($this->enterpriseAdmin👷UpdateAuditLogStream instanceof Internal\Operator\EnterpriseAdmin\UpdateAuditLogStream === false) {
+            $this->enterpriseAdmin👷UpdateAuditLogStream = new Internal\Operator\EnterpriseAdmin\UpdateAuditLogStream($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId());
+        }
+
+        return $this->enterpriseAdmin👷UpdateAuditLogStream;
+    }
+
+    public function enterpriseAdmin👷DeleteAuditLogStream(): Internal\Operator\EnterpriseAdmin\DeleteAuditLogStream
+    {
+        if ($this->enterpriseAdmin👷DeleteAuditLogStream instanceof Internal\Operator\EnterpriseAdmin\DeleteAuditLogStream === false) {
+            $this->enterpriseAdmin👷DeleteAuditLogStream = new Internal\Operator\EnterpriseAdmin\DeleteAuditLogStream($this->browser, $this->authentication);
+        }
+
+        return $this->enterpriseAdmin👷DeleteAuditLogStream;
     }
 
     public function codeScanning👷ListAlertsForEnterprise(): Internal\Operator\CodeScanning\ListAlertsForEnterprise

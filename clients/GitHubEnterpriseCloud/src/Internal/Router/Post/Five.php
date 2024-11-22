@@ -18,6 +18,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\DeployKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Deployment;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EmptyObject;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\FullRepository;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Hook;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\InstallationToken;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue;
@@ -45,7 +46,8 @@ final class Five
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|WithoutBody|RunnerGroupsOrg|EmptyObject|CodeSecurityConfiguration|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
+    /** @return |Schema\GetAuditLogStreamConfig */
+    public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|GetAuditLogStreamConfig|WithoutBody|RunnerGroupsOrg|EmptyObject|CodeSecurityConfiguration|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'app') {
@@ -74,6 +76,12 @@ final class Five
                         if ($pathChunks[4] === 'runner-groups') {
                             if ($call === 'POST /enterprises/{enterprise}/actions/runner-groups') {
                                 return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->createSelfHostedRunnerGroupForEnterprise($params);
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'audit-log') {
+                        if ($pathChunks[4] === 'streams') {
+                            if ($call === 'POST /enterprises/{enterprise}/audit-log/streams') {
+                                return $this->routers->internal🔀Router🔀Post🔀EnterpriseAdmin()->createAuditLogStream($params);
                             }
                         }
                     } elseif ($pathChunks[3] === '{security_product}') {

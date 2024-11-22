@@ -6,6 +6,7 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Post;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuthenticationToken;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\RunnerGroupsEnterprise;
@@ -95,6 +96,20 @@ final class EnterpriseAdmin
         $arguments['enterprise'] = $params['enterprise'];
         unset($params['enterprise']);
         $operator = new Internal\Operator\EnterpriseAdmin\CreateSelfHostedRunnerGroupForEnterprise($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀RunnerGroups());
+
+        return $operator->call($arguments['enterprise'], $params);
+    }
+
+    public function createAuditLogStream(array $params): GetAuditLogStreamConfig
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\CreateAuditLogStream($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams());
 
         return $operator->call($arguments['enterprise'], $params);
     }

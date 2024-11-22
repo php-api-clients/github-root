@@ -62,6 +62,9 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Enterprises\Enterprise\Actions\Runners\RunnerId\Labels\Name|null $operation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels🌀Name                                                                                     = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\Announcement|null $operation🌀Enterprises🌀Enterprise🌀Announcement                                                                                                                                     = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog|null $operation🌀Enterprises🌀Enterprise🌀AuditLog                                                                                                                                             = null;
+    private Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\StreamKey|null $operation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey                                                                                                                         = null;
+    private Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams|null $operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams                                                                                                                             = null;
+    private Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams\StreamId|null $operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId                                                                                                           = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\CodeScanning\Alerts|null $operation🌀Enterprises🌀Enterprise🌀CodeScanning🌀Alerts                                                                                                                       = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\CodeSecurityAndAnalysis|null $operation🌀Enterprises🌀Enterprise🌀CodeSecurityAndAnalysis                                                                                                               = null;
     private Internal\Hydrator\Operation\Enterprises\Enterprise\ConsumedLicenses|null $operation🌀Enterprises🌀Enterprise🌀ConsumedLicenses                                                                                                                             = null;
@@ -830,6 +833,9 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuthenticationToken', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuthenticationToken\\Permissions' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RegistrationToken()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\EnterpriseAdmin\\ListLabelsForSelfHostedRunnerForEnterprise\\Response\\ApplicationJson\\Ok', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\EnterpriseAdmin\\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AnnouncementBanner' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Announcement()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogStreamKey' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetAuditLogStreamConfig' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams()->hydrateObject($className, $payload),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\EnterpriseAdmin\\UpdateAuditLogStream\\Response\\ApplicationJson\\UnprocessableEntity' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\CodeScanning\\ListAlertsForEnterprise\\Response\\ApplicationJson\\ServiceUnavailable' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeScanning🌀Alerts()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\EnterpriseSecurityAnalysisSettings' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeSecurityAndAnalysis()->hydrateObject($className, $payload),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Copilot\\ListCopilotSeatsForEnterprise\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Copilot🌀Billing🌀Seats()->hydrateObject($className, $payload),
@@ -1211,6 +1217,9 @@ final class Hydrators implements ObjectMapper
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuthenticationToken', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuthenticationToken\\Permissions' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RegistrationToken()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\EnterpriseAdmin\\ListLabelsForSelfHostedRunnerForEnterprise\\Response\\ApplicationJson\\Ok', '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\EnterpriseAdmin\\RemoveAllCustomLabelsFromSelfHostedRunnerForEnterprise\\Response\\ApplicationJson\\Ok\\Application\\Json' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId🌀Labels()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AnnouncementBanner' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Announcement()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\AuditLogStreamKey' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\GetAuditLogStreamConfig' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams()->serializeObject($object),
+            '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\EnterpriseAdmin\\UpdateAuditLogStream\\Response\\ApplicationJson\\UnprocessableEntity' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\CodeScanning\\ListAlertsForEnterprise\\Response\\ApplicationJson\\ServiceUnavailable' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeScanning🌀Alerts()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\EnterpriseSecurityAnalysisSettings' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeSecurityAndAnalysis()->serializeObject($object),
             '\\ApiClients\\Client\\GitHubEnterpriseCloud\\Schema\\Operations\\Copilot\\ListCopilotSeatsForEnterprise\\Response\\ApplicationJson\\Ok' => $this->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Copilot🌀Billing🌀Seats()->serializeObject($object),
@@ -2014,6 +2023,33 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Enterprises🌀Enterprise🌀AuditLog;
+    }
+
+    public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey(): Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\StreamKey
+    {
+        if ($this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey instanceof Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\StreamKey === false) {
+            $this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey = new Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\StreamKey();
+        }
+
+        return $this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey;
+    }
+
+    public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams(): Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams
+    {
+        if ($this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams instanceof Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams === false) {
+            $this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams = new Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams();
+        }
+
+        return $this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams;
+    }
+
+    public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId(): Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams\StreamId
+    {
+        if ($this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId instanceof Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams\StreamId === false) {
+            $this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId = new Internal\Hydrator\Operation\Enterprises\Enterprise\AuditLog\Streams\StreamId();
+        }
+
+        return $this->operation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId;
     }
 
     public function getObjectMapperOperation🌀Enterprises🌀Enterprise🌀CodeScanning🌀Alerts(): Internal\Hydrator\Operation\Enterprises\Enterprise\CodeScanning\Alerts

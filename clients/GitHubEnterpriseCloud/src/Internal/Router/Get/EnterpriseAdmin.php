@@ -7,6 +7,8 @@ namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Get;
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogStreamKey;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelfHostedRunnerGroupsForEnterprise\Response\ApplicationJson\Ok;
@@ -237,6 +239,35 @@ final class EnterpriseAdmin
         return $operator->call($arguments['name'], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
+    public function getAuditLogStreamKey(array $params): AuditLogStreamKey
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetAuditLogStreamKey($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀StreamKey());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
+    /** @return iterable<int,Schema\GetAuditLogStreamConfigs> */
+    public function getAuditLogStreams(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetAuditLogStreams($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
     /** @return */
     public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok
     {
@@ -334,6 +365,26 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\GetSelfHostedRunnerForEnterprise($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Actions🌀Runners🌀RunnerId());
 
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
+    }
+
+    public function getOneAuditLogStream(array $params): GetAuditLogStreamConfig
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('stream_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: stream_id');
+        }
+
+        $arguments['stream_id'] = $params['stream_id'];
+        unset($params['stream_id']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetOneAuditLogStream($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId());
+
+        return $operator->call($arguments['enterprise'], $arguments['stream_id']);
     }
 
     /** @return */
