@@ -46,7 +46,6 @@ final class Five
     {
     }
 
-    /** @return |Schema\GetAuditLogStreamConfig */
     public function call(string $call, array $params, array $pathChunks): InstallationToken|Authorization|RunnerGroupsEnterprise|GetAuditLogStreamConfig|WithoutBody|RunnerGroupsOrg|EmptyObject|CodeSecurityConfiguration|ProjectCard|Json|Created|Autolink|CheckRun|CheckSuite|Codespace|Deployment|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Repos\CreateDeployment\Response\ApplicationJson\Accepted\Application\Json|FullRepository|Hook|Issue|DeployKey|Label|MergedUpstream|Commit|Milestone|Page|Project|PullRequest|Release|RepositoryRuleset|RepositoryAdvisory|MinimalRepository|CodespaceExportDetails|CodespaceWithFullRepository
     {
         if ($pathChunks[0] === '') {

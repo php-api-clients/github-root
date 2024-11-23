@@ -4070,6 +4070,34 @@ $client->operations()->orgs()->listCustomRoles(        organization_id: 'generat
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/orgs/custom-roles#closing-down---list-custom-repository-roles-in-an-organization).
 
 
+### billing/get-github-billing-usage-report-org
+
+Get billing usage report for an organization
+
+Using the `call` method:
+```php
+$client->call('GET /organizations/{org}/settings/billing/usage', [
+        'org' => 'generated',
+        'year' => 4,
+        'month' => 5,
+        'day' => 3,
+        'hour' => 4,
+]);
+```
+
+Operations method:
+```php
+$client->operations()->billing()->getGithubBillingUsageReportOrg(        org: 'generated',
+        year: 4,
+        month: 5,
+        day: 3,
+        hour: 4,
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/billing/enhanced-billing#get-billing-usage-report-for-an-organization).
+
+
 ### orgs/get
 
 Get an organization

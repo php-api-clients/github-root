@@ -100,6 +100,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $params);
     }
 
+    /** @return */
     public function createAuditLogStream(array $params): GetAuditLogStreamConfig
     {
         $arguments = [];

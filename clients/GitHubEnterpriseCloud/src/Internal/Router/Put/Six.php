@@ -21,7 +21,6 @@ final class Six
     {
     }
 
-    /** @return |Schema\GetAuditLogStreamConfig */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|GetAuditLogStreamConfig|EmptyObject|CustomProperty|RepositoryInvitation|FileCommit|Environment|RepositoryRuleset
     {
         if ($pathChunks[0] === '') {

@@ -24,6 +24,7 @@ final readonly class GetAuditLogStreamKey
     {
     }
 
+    /** @return */
     public function call(string $enterprise): AuditLogStreamKey
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetAuditLogStreamKey($this->responseSchemaValidator, $this->hydrator, $enterprise);

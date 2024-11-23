@@ -119,6 +119,7 @@ final class Hydrators implements ObjectMapper
     private Internal\Hydrator\Operation\Octocat|null $operation🌀Octocat                                                                                                                                                                                             = null;
     private Internal\Hydrator\Operation\Organizations|null $operation🌀Organizations                                                                                                                                                                                 = null;
     private Internal\Hydrator\Operation\Organizations\OrganizationId\CustomRoles|null $operation🌀Organizations🌀OrganizationId🌀CustomRoles                                                                                                                           = null;
+    private Internal\Hydrator\Operation\Organizations\Org\Settings\Billing\Usage|null $operation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage                                                                                                                           = null;
     private Internal\Hydrator\Operation\Orgs\Org|null $operation🌀Orgs🌀Org                                                                                                                                                                                           = null;
     private Internal\Hydrator\Operation\Orgs\Org\Actions\Cache\Usage|null $operation🌀Orgs🌀Org🌀Actions🌀Cache🌀Usage                                                                                                                                                   = null;
     private Internal\Hydrator\Operation\Orgs\Org\Actions\Cache\UsageByRepository|null $operation🌀Orgs🌀Org🌀Actions🌀Cache🌀UsageByRepository                                                                                                                           = null;
@@ -2536,6 +2537,15 @@ final class Hydrators implements ObjectMapper
         }
 
         return $this->operation🌀Organizations🌀OrganizationId🌀CustomRoles;
+    }
+
+    public function getObjectMapperOperation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage(): Internal\Hydrator\Operation\Organizations\Org\Settings\Billing\Usage
+    {
+        if ($this->operation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage instanceof Internal\Hydrator\Operation\Organizations\Org\Settings\Billing\Usage === false) {
+            $this->operation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage = new Internal\Hydrator\Operation\Organizations\Org\Settings\Billing\Usage();
+        }
+
+        return $this->operation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage;
     }
 
     public function getObjectMapperOperation🌀Orgs🌀Org(): Internal\Hydrator\Operation\Orgs\Org

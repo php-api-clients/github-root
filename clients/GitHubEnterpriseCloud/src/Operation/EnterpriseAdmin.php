@@ -237,32 +237,37 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷GetAuditLogListing()->call($enterprise, $phrase, $include, $after, $before, $order, $page, $perPage);
     }
 
+    /** @return */
     public function getAuditLogStreamKey(string $enterprise): AuditLogStreamKey
     {
         return $this->operators->enterpriseAdmin👷GetAuditLogStreamKey()->call($enterprise);
     }
 
-    /** @return iterable<int,Schema\GetAuditLogStreamConfigs> */
+    /** @return Observable<Schema\GetAuditLogStreamConfigs> */
     public function getAuditLogStreams(string $enterprise): iterable
     {
         return $this->operators->enterpriseAdmin👷GetAuditLogStreams()->call($enterprise);
     }
 
+    /** @return */
     public function createAuditLogStream(string $enterprise, array $params): GetAuditLogStreamConfig
     {
         return $this->operators->enterpriseAdmin👷CreateAuditLogStream()->call($enterprise, $params);
     }
 
+    /** @return */
     public function getOneAuditLogStream(string $enterprise, int $streamId): GetAuditLogStreamConfig
     {
         return $this->operators->enterpriseAdmin👷GetOneAuditLogStream()->call($enterprise, $streamId);
     }
 
+    /** @return */
     public function updateAuditLogStream(string $enterprise, int $streamId, array $params): GetAuditLogStreamConfig
     {
         return $this->operators->enterpriseAdmin👷UpdateAuditLogStream()->call($enterprise, $streamId, $params);
     }
 
+    /** @return */
     public function deleteAuditLogStream(string $enterprise, int $streamId): WithoutBody
     {
         return $this->operators->enterpriseAdmin👷DeleteAuditLogStream()->call($enterprise, $streamId);
