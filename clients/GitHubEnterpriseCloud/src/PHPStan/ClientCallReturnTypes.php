@@ -364,27 +364,27 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
         }
 
         if ($call === 'GET /enterprises/{enterprise}/audit-log/stream-key') {
-            return $this->typeResolver->resolve('Schema\\AuditLogStreamKey');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/audit-log/streams') {
-            return $this->typeResolver->resolve('iterable<int,Schema\\GetAuditLogStreamConfigs>');
+            return $this->typeResolver->resolve('Observable<Schema\\GetAuditLogStreamConfigs>');
         }
 
         if ($call === 'POST /enterprises/{enterprise}/audit-log/streams') {
-            return $this->typeResolver->resolve('Schema\\GetAuditLogStreamConfig');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/audit-log/streams/{stream_id}') {
-            return $this->typeResolver->resolve('Schema\\GetAuditLogStreamConfig');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'PUT /enterprises/{enterprise}/audit-log/streams/{stream_id}') {
-            return $this->typeResolver->resolve('Schema\\GetAuditLogStreamConfig');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'DELETE /enterprises/{enterprise}/audit-log/streams/{stream_id}') {
-            return $this->typeResolver->resolve('\\ApiClients\\Tools\\OpenApiClient\\Utils\\Response\\WithoutBody');
+            return $this->typeResolver->resolve('');
         }
 
         if ($call === 'GET /enterprises/{enterprise}/code-scanning/alerts') {
@@ -745,6 +745,10 @@ final readonly class ClientCallReturnTypes implements DynamicMethodReturnTypeExt
 
         if ($call === 'GET /organizations/{organization_id}/custom_roles') {
             return $this->typeResolver->resolve('');
+        }
+
+        if ($call === 'GET /organizations/{org}/settings/billing/usage') {
+            return $this->typeResolver->resolve('Schema\\BillingUsageReport');
         }
 
         if ($call === 'GET /orgs/{org}') {

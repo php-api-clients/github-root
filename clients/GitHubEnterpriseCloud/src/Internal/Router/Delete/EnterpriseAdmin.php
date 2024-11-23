@@ -147,6 +147,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function deleteAuditLogStream(array $params): WithoutBody
     {
         $arguments = [];

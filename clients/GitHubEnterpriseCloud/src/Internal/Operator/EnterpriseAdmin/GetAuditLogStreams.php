@@ -24,7 +24,7 @@ final readonly class GetAuditLogStreams
     {
     }
 
-    /** @return iterable<int,Schema\GetAuditLogStreamConfigs> */
+    /** @return Observable<Schema\GetAuditLogStreamConfigs> */
     public function call(string $enterprise): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetAuditLogStreams($this->responseSchemaValidator, $this->hydrator, $enterprise);

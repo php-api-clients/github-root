@@ -22,6 +22,7 @@ final readonly class DeleteAuditLogStream
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $streamId): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\DeleteAuditLogStream($enterprise, $streamId);

@@ -239,6 +239,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['name'], $arguments['enterprise'], $arguments['per_page'], $arguments['page']);
     }
 
+    /** @return */
     public function getAuditLogStreamKey(array $params): AuditLogStreamKey
     {
         $arguments = [];
@@ -253,7 +254,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return iterable<int,Schema\GetAuditLogStreamConfigs> */
+    /** @return Observable<Schema\GetAuditLogStreamConfigs> */
     public function getAuditLogStreams(array $params): iterable
     {
         $arguments = [];
@@ -367,6 +368,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_id']);
     }
 
+    /** @return */
     public function getOneAuditLogStream(array $params): GetAuditLogStreamConfig
     {
         $arguments = [];

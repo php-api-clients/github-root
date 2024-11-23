@@ -24,6 +24,7 @@ final readonly class GetOneAuditLogStream
     {
     }
 
+    /** @return */
     public function call(string $enterprise, int $streamId): GetAuditLogStreamConfig
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetOneAuditLogStream($this->responseSchemaValidator, $this->hydrator, $enterprise, $streamId);

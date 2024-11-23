@@ -156,6 +156,44 @@ final class Billing
         return $operator->call($arguments['enterprise'], $arguments['year'], $arguments['month'], $arguments['day'], $arguments['hour'], $arguments['cost_center_id']);
     }
 
+    public function getGithubBillingUsageReportOrg(array $params): BillingUsageReport
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        if (array_key_exists('year', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: year');
+        }
+
+        $arguments['year'] = $params['year'];
+        unset($params['year']);
+        if (array_key_exists('month', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: month');
+        }
+
+        $arguments['month'] = $params['month'];
+        unset($params['month']);
+        if (array_key_exists('day', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: day');
+        }
+
+        $arguments['day'] = $params['day'];
+        unset($params['day']);
+        if (array_key_exists('hour', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: hour');
+        }
+
+        $arguments['hour'] = $params['hour'];
+        unset($params['hour']);
+        $operator = new Internal\Operator\Billing\GetGithubBillingUsageReportOrg($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Organizations🌀Org🌀Settings🌀Billing🌀Usage());
+
+        return $operator->call($arguments['org'], $arguments['year'], $arguments['month'], $arguments['day'], $arguments['hour']);
+    }
+
     /** @return */
     public function getGithubActionsBillingOrg(array $params): ActionsBillingUsage
     {
