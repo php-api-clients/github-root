@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningAlert;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningPushProtectionBypass;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningScanHistory;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 
 final class SecretScanning
@@ -93,5 +94,10 @@ final class SecretScanning
     public function createPushProtectionBypass(string $owner, string $repo, array $params): SecretScanningPushProtectionBypass|WithoutBody
     {
         return $this->operators->secretScanning👷CreatePushProtectionBypass()->call($owner, $repo, $params);
+    }
+
+    public function getScanHistory(string $owner, string $repo): SecretScanningScanHistory|WithoutBody
+    {
+        return $this->operators->secretScanning👷GetScanHistory()->call($owner, $repo);
     }
 }
