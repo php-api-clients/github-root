@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\EnterpriseSecurityAnalysisSettings;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningAlert;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SecretScanningScanHistory;
 use ApiClients\Contracts\HTTP\Headers\AuthenticationInterface;
 use ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody;
 use InvalidArgumentException;
@@ -296,6 +297,26 @@ final class SecretScanning
         $operator = new Internal\Operator\SecretScanning\ListAlertsForRepo($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀Alerts());
 
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page'], $arguments['is_publicly_leaked'], $arguments['is_multi_repo']);
+    }
+
+    public function getScanHistory(array $params): SecretScanningScanHistory|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('owner', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: owner');
+        }
+
+        $arguments['owner'] = $params['owner'];
+        unset($params['owner']);
+        if (array_key_exists('repo', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: repo');
+        }
+
+        $arguments['repo'] = $params['repo'];
+        unset($params['repo']);
+        $operator = new Internal\Operator\SecretScanning\GetScanHistory($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Repos🌀Owner🌀Repo🌀SecretScanning🌀ScanHistory());
+
+        return $operator->call($arguments['owner'], $arguments['repo']);
     }
 
     /** @return */
