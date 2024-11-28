@@ -13,6 +13,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema\ReactionRollup;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Repository\Permissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\SimpleUser;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\SubIssuesSummary;
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
 use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
@@ -58,6 +59,7 @@ class Assignees implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Integration($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration\Permissions' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Integration⚡️Permissions($payload),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ReactionRollup' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ReactionRollup($payload),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SubIssuesSummary' => $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SubIssuesSummary($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
@@ -512,6 +514,26 @@ class Assignees implements ObjectMapper
             $properties['reactions'] = $value;
 
             after_reactions:
+
+            $value = $payload['sub_issues_summary'] ?? null;
+
+            if ($value === null) {
+                $properties['subIssuesSummary'] = null;
+                goto after_subIssuesSummary;
+            }
+
+            if (is_array($value)) {
+                try {
+                    $this->hydrationStack[] = 'subIssuesSummary';
+                    $value                  = $this->hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SubIssuesSummary($value);
+                } finally {
+                    array_pop($this->hydrationStack);
+                }
+            }
+
+            $properties['subIssuesSummary'] = $value;
+
+            after_subIssuesSummary:
         } catch (Throwable $exception) {
             throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\Issue', $exception, stack: $this->hydrationStack);
         }
@@ -2743,6 +2765,58 @@ class Assignees implements ObjectMapper
         }
     }
 
+    private function hydrateApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SubIssuesSummary(array $payload): SubIssuesSummary
+    {
+        $properties    = [];
+        $missingFields = [];
+        try {
+            $value = $payload['total'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'total';
+                goto after_total;
+            }
+
+            $properties['total'] = $value;
+
+            after_total:
+
+            $value = $payload['completed'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'completed';
+                goto after_completed;
+            }
+
+            $properties['completed'] = $value;
+
+            after_completed:
+
+            $value = $payload['percent_completed'] ?? null;
+
+            if ($value === null) {
+                $missingFields[] = 'percent_completed';
+                goto after_percentCompleted;
+            }
+
+            $properties['percentCompleted'] = $value;
+
+            after_percentCompleted:
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SubIssuesSummary', $exception, stack: $this->hydrationStack);
+        }
+
+        if (count($missingFields) > 0) {
+            throw UnableToHydrateObject::dueToMissingFields(SubIssuesSummary::class, $missingFields, stack: $this->hydrationStack);
+        }
+
+        try {
+            return new SubIssuesSummary(...$properties);
+        } catch (Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHubEnterpriseCloud\Schema\SubIssuesSummary', $exception, stack: $this->hydrationStack);
+        }
+    }
+
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
         foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
@@ -2784,6 +2858,7 @@ class Assignees implements ObjectMapper
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Integration($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\Integration\Permissions' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️Integration⚡️Permissions($object),
                 'ApiClients\Client\GitHubEnterpriseCloud\Schema\ReactionRollup' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ReactionRollup($object),
+                'ApiClients\Client\GitHubEnterpriseCloud\Schema\SubIssuesSummary' => $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SubIssuesSummary($object),
                 default => throw new LogicException("No serialization defined for $className"),
             };
         } catch (Throwable $exception) {
@@ -3059,6 +3134,15 @@ class Assignees implements ObjectMapper
 
         $reactions                                   = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️ReactionRollup($reactions);
         after_reactions:        $result['reactions'] = $reactions;
+
+        $subIssuesSummary = $object->subIssuesSummary;
+
+        if ($subIssuesSummary === null) {
+            goto after_subIssuesSummary;
+        }
+
+        $subIssuesSummary                                            = $this->serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SubIssuesSummary($subIssuesSummary);
+        after_subIssuesSummary:        $result['sub_issues_summary'] = $subIssuesSummary;
 
         return $result;
     }
@@ -4004,6 +4088,23 @@ class Assignees implements ObjectMapper
 
         $rocket                                = $object->rocket;
         after_rocket:        $result['rocket'] = $rocket;
+
+        return $result;
+    }
+
+    private function serializeObjectApiClients⚡️Client⚡️GitHubEnterpriseCloud⚡️Schema⚡️SubIssuesSummary(mixed $object): mixed
+    {
+        assert($object instanceof SubIssuesSummary);
+        $result = [];
+
+        $total                               = $object->total;
+        after_total:        $result['total'] = $total;
+
+        $completed                                   = $object->completed;
+        after_completed:        $result['completed'] = $completed;
+
+        $percentCompleted                                           = $object->percentCompleted;
+        after_percentCompleted:        $result['percent_completed'] = $percentCompleted;
 
         return $result;
     }

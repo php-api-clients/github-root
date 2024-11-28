@@ -25,6 +25,7 @@ final readonly class GetScanHistory
     {
     }
 
+    /** @return */
     public function call(string $owner, string $repo): SecretScanningScanHistory|WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\SecretScanning\GetScanHistory($this->responseSchemaValidator, $this->hydrator, $owner, $repo);

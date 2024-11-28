@@ -299,6 +299,7 @@ final class SecretScanning
         return $operator->call($arguments['owner'], $arguments['repo'], $arguments['state'], $arguments['secret_type'], $arguments['resolution'], $arguments['before'], $arguments['after'], $arguments['validity'], $arguments['sort'], $arguments['direction'], $arguments['page'], $arguments['per_page'], $arguments['is_publicly_leaked'], $arguments['is_multi_repo']);
     }
 
+    /** @return */
     public function getScanHistory(array $params): SecretScanningScanHistory|WithoutBody
     {
         $arguments = [];
