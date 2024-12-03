@@ -1,5 +1,5 @@
 {
-    "specHash": "40f7495bbfb76a67ec180340807d94b8",
+    "specHash": "a247d04d83e33358686d7fa8ff2bbf1c",
     "generatedFiles": {
         "files": [
             {
@@ -5920,7 +5920,7 @@
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Issues.php",
-                "hash": "e1ee990ebfb7ef25d38ad7c4a4d7b2ad"
+                "hash": "b4191035e2fce2587aa3fdae047b4d13"
             },
             {
                 "name": ".\/clients\/GitHubEnterpriseCloud\/etc\/..\/\/src\/\/Operation\/Licenses.php",
