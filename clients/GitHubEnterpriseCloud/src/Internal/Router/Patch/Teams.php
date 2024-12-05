@@ -45,21 +45,6 @@ final class Teams
     }
 
     /** @return */
-    public function updateLegacy(array $params): TeamFull
-    {
-        $arguments = [];
-        if (array_key_exists('team_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: team_id');
-        }
-
-        $arguments['team_id'] = $params['team_id'];
-        unset($params['team_id']);
-        $operator = new Internal\Operator\Teams\UpdateLegacy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId());
-
-        return $operator->call($arguments['team_id'], $params);
-    }
-
-    /** @return */
     public function updateInOrg(array $params): TeamFull
     {
         $arguments = [];
@@ -112,6 +97,21 @@ final class Teams
         $arguments['team_id'] = $params['team_id'];
         unset($params['team_id']);
         $operator = new Internal\Operator\Teams\CreateOrUpdateIdpGroupConnectionsLegacy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId🌀TeamSync🌀GroupMappings());
+
+        return $operator->call($arguments['team_id'], $params);
+    }
+
+    /** @return */
+    public function updateLegacy(array $params): TeamFull
+    {
+        $arguments = [];
+        if (array_key_exists('team_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: team_id');
+        }
+
+        $arguments['team_id'] = $params['team_id'];
+        unset($params['team_id']);
+        $operator = new Internal\Operator\Teams\UpdateLegacy($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Teams🌀TeamId());
 
         return $operator->call($arguments['team_id'], $params);
     }

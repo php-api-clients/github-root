@@ -109,6 +109,11 @@ final class Operators
     private Internal\Operator\Copilot\UsageMetricsForEnterpriseListing|null $copilot👷UsageMetricsForEnterpriseListing                                                               = null;
     private Internal\Operator\Dependabot\ListAlertsForEnterprise|null $dependabot👷ListAlertsForEnterprise                                                                           = null;
     private Internal\Operator\EnterpriseAdmin\GetLicenseSyncStatus|null $enterpriseAdmin👷GetLicenseSyncStatus                                                                       = null;
+    private Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties|null $enterpriseAdmin👷GetEnterpriseCustomProperties                                                     = null;
+    private Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperties|null $enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties                               = null;
+    private Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty|null $enterpriseAdmin👷GetEnterpriseCustomProperty                                                         = null;
+    private Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty|null $enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty                                   = null;
+    private Internal\Operator\EnterpriseAdmin\RemoveEnterpriseCustomProperty|null $enterpriseAdmin👷RemoveEnterpriseCustomProperty                                                   = null;
     private Internal\Operator\SecretScanning\ListAlertsForEnterprise|null $secretScanning👷ListAlertsForEnterprise                                                                   = null;
     private Internal\Operator\Billing\GetGithubActionsBillingGhe|null $billing👷GetGithubActionsBillingGhe                                                                           = null;
     private Internal\Operator\Billing\GetGithubAdvancedSecurityBillingGhe|null $billing👷GetGithubAdvancedSecurityBillingGhe                                                         = null;
@@ -2183,6 +2188,51 @@ final class Operators
         }
 
         return $this->enterpriseAdmin👷GetLicenseSyncStatus;
+    }
+
+    public function enterpriseAdmin👷GetEnterpriseCustomProperties(): Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties
+    {
+        if ($this->enterpriseAdmin👷GetEnterpriseCustomProperties instanceof Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties === false) {
+            $this->enterpriseAdmin👷GetEnterpriseCustomProperties = new Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema());
+        }
+
+        return $this->enterpriseAdmin👷GetEnterpriseCustomProperties;
+    }
+
+    public function enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties(): Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperties
+    {
+        if ($this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties instanceof Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperties === false) {
+            $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties = new Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperties($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema());
+        }
+
+        return $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties;
+    }
+
+    public function enterpriseAdmin👷GetEnterpriseCustomProperty(): Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty
+    {
+        if ($this->enterpriseAdmin👷GetEnterpriseCustomProperty instanceof Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty === false) {
+            $this->enterpriseAdmin👷GetEnterpriseCustomProperty = new Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
+        }
+
+        return $this->enterpriseAdmin👷GetEnterpriseCustomProperty;
+    }
+
+    public function enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty(): Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty
+    {
+        if ($this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty instanceof Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty === false) {
+            $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty = new Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
+        }
+
+        return $this->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty;
+    }
+
+    public function enterpriseAdmin👷RemoveEnterpriseCustomProperty(): Internal\Operator\EnterpriseAdmin\RemoveEnterpriseCustomProperty
+    {
+        if ($this->enterpriseAdmin👷RemoveEnterpriseCustomProperty instanceof Internal\Operator\EnterpriseAdmin\RemoveEnterpriseCustomProperty === false) {
+            $this->enterpriseAdmin👷RemoveEnterpriseCustomProperty = new Internal\Operator\EnterpriseAdmin\RemoveEnterpriseCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
+        }
+
+        return $this->enterpriseAdmin👷RemoveEnterpriseCustomProperty;
     }
 
     public function secretScanning👷ListAlertsForEnterprise(): Internal\Operator\SecretScanning\ListAlertsForEnterprise

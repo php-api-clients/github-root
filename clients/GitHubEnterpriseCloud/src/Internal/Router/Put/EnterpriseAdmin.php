@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ApiClients\Client\GitHubEnterpriseCloud\Internal\Router\Put;
 
 use ApiClients\Client\GitHubEnterpriseCloud\Internal;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListLabelsForSelfHostedRunnerForEnterprise\Response\ApplicationJson\Ok;
@@ -213,6 +214,26 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\UpdateAuditLogStream($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId());
 
         return $operator->call($arguments['enterprise'], $arguments['stream_id'], $params);
+    }
+
+    public function createOrUpdateEnterpriseCustomProperty(array $params): CustomProperty
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('custom_property_name', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: custom_property_name');
+        }
+
+        $arguments['custom_property_name'] = $params['custom_property_name'];
+        unset($params['custom_property_name']);
+        $operator = new Internal\Operator\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
+
+        return $operator->call($arguments['enterprise'], $arguments['custom_property_name']);
     }
 
     /** @return */

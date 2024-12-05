@@ -8,6 +8,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Internal;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogStreamKey;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
@@ -269,6 +270,21 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
+    /** @return iterable<int,Schema\CustomProperty> */
+    public function getEnterpriseCustomProperties(array $params): iterable
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperties($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema());
+
+        return $operator->call($arguments['enterprise']);
+    }
+
     /** @return */
     public function listSelectedOrganizationsEnabledGithubActionsEnterprise(array $params): \ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListSelectedOrganizationsEnabledGithubActionsEnterprise\Response\ApplicationJson\Ok
     {
@@ -387,6 +403,26 @@ final class EnterpriseAdmin
         $operator = new Internal\Operator\EnterpriseAdmin\GetOneAuditLogStream($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀AuditLog🌀Streams🌀StreamId());
 
         return $operator->call($arguments['enterprise'], $arguments['stream_id']);
+    }
+
+    public function getEnterpriseCustomProperty(array $params): CustomProperty
+    {
+        $arguments = [];
+        if (array_key_exists('enterprise', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: enterprise');
+        }
+
+        $arguments['enterprise'] = $params['enterprise'];
+        unset($params['enterprise']);
+        if (array_key_exists('custom_property_name', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: custom_property_name');
+        }
+
+        $arguments['custom_property_name'] = $params['custom_property_name'];
+        unset($params['custom_property_name']);
+        $operator = new Internal\Operator\EnterpriseAdmin\GetEnterpriseCustomProperty($this->browser, $this->authentication, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Enterprises🌀Enterprise🌀Properties🌀Schema🌀CustomPropertyName());
+
+        return $operator->call($arguments['enterprise'], $arguments['custom_property_name']);
     }
 
     /** @return */

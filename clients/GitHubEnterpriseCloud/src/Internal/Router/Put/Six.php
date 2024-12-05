@@ -21,7 +21,8 @@ final class Six
     {
     }
 
-    public function call(string $call, array $params, array $pathChunks): WithoutBody|GetAuditLogStreamConfig|EmptyObject|CustomProperty|RepositoryInvitation|FileCommit|Environment|RepositoryRuleset
+    /** @return |Schema\CustomProperty */
+    public function call(string $call, array $params, array $pathChunks): WithoutBody|GetAuditLogStreamConfig|CustomProperty|EmptyObject|RepositoryInvitation|FileCommit|Environment|RepositoryRuleset
     {
         if ($pathChunks[0] === '') {
             if ($pathChunks[1] === 'enterprises') {
@@ -47,6 +48,14 @@ final class Six
                             if ($pathChunks[5] === '{stream_id}') {
                                 if ($call === 'PUT /enterprises/{enterprise}/audit-log/streams/{stream_id}') {
                                     return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->updateAuditLogStream($params);
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'properties') {
+                        if ($pathChunks[4] === 'schema') {
+                            if ($pathChunks[5] === '{custom_property_name}') {
+                                if ($call === 'PUT /enterprises/{enterprise}/properties/schema/{custom_property_name}') {
+                                    return $this->routers->internal🔀Router🔀Put🔀EnterpriseAdmin()->createOrUpdateEnterpriseCustomProperty($params);
                                 }
                             }
                         }
