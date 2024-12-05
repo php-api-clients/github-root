@@ -48,21 +48,6 @@ final class Orgs
     }
 
     /** @return */
-    public function update(array $params): OrganizationFull
-    {
-        $arguments = [];
-        if (array_key_exists('org', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: org');
-        }
-
-        $arguments['org'] = $params['org'];
-        unset($params['org']);
-        $operator = new Internal\Operator\Orgs\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
-
-        return $operator->call($arguments['org'], $params);
-    }
-
-    /** @return */
     public function updateCustomRepoRole(array $params): OrganizationCustomRepositoryRole
     {
         $arguments = [];
@@ -187,6 +172,21 @@ final class Orgs
         $arguments['org'] = $params['org'];
         unset($params['org']);
         $operator = new Internal\Operator\Orgs\UpdateMembershipForAuthenticatedUser($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀User🌀Memberships🌀Orgs🌀Org());
+
+        return $operator->call($arguments['org'], $params);
+    }
+
+    /** @return */
+    public function update(array $params): OrganizationFull
+    {
+        $arguments = [];
+        if (array_key_exists('org', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: org');
+        }
+
+        $arguments['org'] = $params['org'];
+        unset($params['org']);
+        $operator = new Internal\Operator\Orgs\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Orgs🌀Org());
 
         return $operator->call($arguments['org'], $params);
     }

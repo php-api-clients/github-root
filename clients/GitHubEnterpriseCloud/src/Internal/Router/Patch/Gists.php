@@ -21,21 +21,6 @@ final class Gists
     }
 
     /** @return */
-    public function update(array $params): GistSimple
-    {
-        $arguments = [];
-        if (array_key_exists('gist_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: gist_id');
-        }
-
-        $arguments['gist_id'] = $params['gist_id'];
-        unset($params['gist_id']);
-        $operator = new Internal\Operator\Gists\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId());
-
-        return $operator->call($arguments['gist_id'], $params);
-    }
-
-    /** @return */
     public function updateComment(array $params): GistComment
     {
         $arguments = [];
@@ -54,5 +39,20 @@ final class Gists
         $operator = new Internal\Operator\Gists\UpdateComment($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId🌀Comments🌀CommentId());
 
         return $operator->call($arguments['gist_id'], $arguments['comment_id'], $params);
+    }
+
+    /** @return */
+    public function update(array $params): GistSimple
+    {
+        $arguments = [];
+        if (array_key_exists('gist_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: gist_id');
+        }
+
+        $arguments['gist_id'] = $params['gist_id'];
+        unset($params['gist_id']);
+        $operator = new Internal\Operator\Gists\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Gists🌀GistId());
+
+        return $operator->call($arguments['gist_id'], $params);
     }
 }

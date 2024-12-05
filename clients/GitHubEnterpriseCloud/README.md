@@ -2262,6 +2262,112 @@ $client->operations()->enterpriseAdmin()->getLicenseSyncStatus(        enterpris
 You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/license#get-a-license-sync-status).
 
 
+### enterprise-admin/get-enterprise-custom-properties
+
+Get custom properties for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/properties/schema', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getEnterpriseCustomProperties(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#get-custom-properties-for-an-enterprise).
+
+
+### enterprise-admin/create-or-update-enterprise-custom-properties
+
+Create or update custom properties for an enterprise
+
+Using the `call` method:
+```php
+$client->call('PATCH /enterprises/{enterprise}/properties/schema', [
+        'enterprise' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->createOrUpdateEnterpriseCustomProperties(        enterprise: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#create-or-update-custom-properties-for-an-enterprise).
+
+
+### enterprise-admin/get-enterprise-custom-property
+
+Get a custom property for an enterprise
+
+Using the `call` method:
+```php
+$client->call('GET /enterprises/{enterprise}/properties/schema/{custom_property_name}', [
+        'enterprise' => 'generated',
+        'custom_property_name' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->getEnterpriseCustomProperty(        enterprise: 'generated',
+        custom_property_name: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#get-a-custom-property-for-an-enterprise).
+
+
+### enterprise-admin/create-or-update-enterprise-custom-property
+
+Create or update a custom property for an enterprise
+
+Using the `call` method:
+```php
+$client->call('PUT /enterprises/{enterprise}/properties/schema/{custom_property_name}', [
+        'enterprise' => 'generated',
+        'custom_property_name' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->createOrUpdateEnterpriseCustomProperty(        enterprise: 'generated',
+        custom_property_name: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#create-or-update-a-custom-property-for-an-enterprise).
+
+
+### enterprise-admin/remove-enterprise-custom-property
+
+Remove a custom property for an enterprise
+
+Using the `call` method:
+```php
+$client->call('DELETE /enterprises/{enterprise}/properties/schema/{custom_property_name}', [
+        'enterprise' => 'generated',
+        'custom_property_name' => 'generated',
+]);
+```
+
+Operations method:
+```php
+$client->operations()->enterpriseAdmin()->removeEnterpriseCustomProperty(        enterprise: 'generated',
+        custom_property_name: 'generated',
+);
+```
+
+You can find more about this operation over at the [API method documentation](https://docs.github.com/enterprise-cloud@latest//rest/enterprise-admin/custom-properties#remove-a-custom-property-for-an-enterprise).
+
+
 ### secret-scanning/list-alerts-for-enterprise
 
 List secret scanning alerts for an enterprise
@@ -7487,6 +7593,7 @@ $client->call('GET /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}'
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
         'sort' => ,
+        'api_route_substring' => 'generated',
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -7501,6 +7608,7 @@ $client->operations()->apiInsights()->getRouteStatsByActor(        org: 'generat
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         sort: ,
+        api_route_substring: 'generated',
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -7523,6 +7631,7 @@ $client->call('LIST /orgs/{org}/insights/api/route-stats/{actor_type}/{actor_id}
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
         'sort' => ,
+        'api_route_substring' => 'generated',
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -7537,6 +7646,7 @@ $client->operations()->apiInsights()->getRouteStatsByActorListing(        org: '
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         sort: ,
+        api_route_substring: 'generated',
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -7557,6 +7667,7 @@ $client->call('GET /orgs/{org}/insights/api/subject-stats', [
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
         'sort' => ,
+        'subject_name_substring' => 'generated',
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -7569,6 +7680,7 @@ $client->operations()->apiInsights()->getSubjectStats(        org: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         sort: ,
+        subject_name_substring: 'generated',
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -7589,6 +7701,7 @@ $client->call('LIST /orgs/{org}/insights/api/subject-stats', [
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
         'sort' => ,
+        'subject_name_substring' => 'generated',
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -7601,6 +7714,7 @@ $client->operations()->apiInsights()->getSubjectStatsListing(        org: 'gener
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         sort: ,
+        subject_name_substring: 'generated',
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -7784,6 +7898,7 @@ $client->call('GET /orgs/{org}/insights/api/user-stats/{user_id}', [
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
         'sort' => ,
+        'actor_name_substring' => 'generated',
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -7797,6 +7912,7 @@ $client->operations()->apiInsights()->getUserStats(        org: 'generated',
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         sort: ,
+        actor_name_substring: 'generated',
         page: 1,
         per_page: 8,
         direction: 'generated',
@@ -7818,6 +7934,7 @@ $client->call('LIST /orgs/{org}/insights/api/user-stats/{user_id}', [
         'min_timestamp' => 'generated',
         'max_timestamp' => 'generated',
         'sort' => ,
+        'actor_name_substring' => 'generated',
         'page' => 1,
         'per_page' => 8,
         'direction' => 'generated',
@@ -7831,6 +7948,7 @@ $client->operations()->apiInsights()->getUserStatsListing(        org: 'generate
         min_timestamp: 'generated',
         max_timestamp: 'generated',
         sort: ,
+        actor_name_substring: 'generated',
         page: 1,
         per_page: 8,
         direction: 'generated',

@@ -24,11 +24,21 @@ final class Five
     {
     }
 
-    /** @return |Observable<Schema\CustomProperty> */
-    public function call(string $call, array $params, array $pathChunks): GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|iterable|WithoutBody|TeamFull|ProjectCard|Import|TeamDiscussion|GroupMapping|OrgMembership
+    /** @return iterable<int,Schema\CustomProperty>||Observable<Schema\CustomProperty> */
+    public function call(string $call, array $params, array $pathChunks): iterable|GistComment|OrganizationCustomRepositoryRole|OrgHook|OrganizationRole|WithoutBody|TeamFull|ProjectCard|Import|TeamDiscussion|GroupMapping|OrgMembership
     {
         if ($pathChunks[0] === '') {
-            if ($pathChunks[1] === 'gists') {
+            if ($pathChunks[1] === 'enterprises') {
+                if ($pathChunks[2] === '{enterprise}') {
+                    if ($pathChunks[3] === 'properties') {
+                        if ($pathChunks[4] === 'schema') {
+                            if ($call === 'PATCH /enterprises/{enterprise}/properties/schema') {
+                                return $this->routers->internal🔀Router🔀Patch🔀EnterpriseAdmin()->createOrUpdateEnterpriseCustomProperties($params);
+                            }
+                        }
+                    }
+                }
+            } elseif ($pathChunks[1] === 'gists') {
                 if ($pathChunks[2] === '{gist_id}') {
                     if ($pathChunks[3] === 'comments') {
                         if ($pathChunks[4] === '{comment_id}') {

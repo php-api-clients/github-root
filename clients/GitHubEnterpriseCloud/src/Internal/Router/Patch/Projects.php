@@ -38,21 +38,6 @@ final class Projects
     }
 
     /** @return */
-    public function update(array $params): Project|WithoutBody
-    {
-        $arguments = [];
-        if (array_key_exists('project_id', $params) === false) {
-            throw new InvalidArgumentException('Missing mandatory field: project_id');
-        }
-
-        $arguments['project_id'] = $params['project_id'];
-        unset($params['project_id']);
-        $operator = new Internal\Operator\Projects\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId());
-
-        return $operator->call($arguments['project_id'], $params);
-    }
-
-    /** @return */
     public function updateCard(array $params): ProjectCard|WithoutBody
     {
         $arguments = [];
@@ -65,5 +50,20 @@ final class Projects
         $operator = new Internal\Operator\Projects\UpdateCard($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀Columns🌀Cards🌀CardId());
 
         return $operator->call($arguments['card_id'], $params);
+    }
+
+    /** @return */
+    public function update(array $params): Project|WithoutBody
+    {
+        $arguments = [];
+        if (array_key_exists('project_id', $params) === false) {
+            throw new InvalidArgumentException('Missing mandatory field: project_id');
+        }
+
+        $arguments['project_id'] = $params['project_id'];
+        unset($params['project_id']);
+        $operator = new Internal\Operator\Projects\Update($this->browser, $this->authentication, $this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrators->getObjectMapperOperation🌀Projects🌀ProjectId());
+
+        return $operator->call($arguments['project_id'], $params);
     }
 }

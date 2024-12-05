@@ -17,6 +17,7 @@ final class Six
     {
     }
 
+    /** @return |\ApiClients\Tools\OpenApiClient\Utils\Response\WithoutBody */
     public function call(string $call, array $params, array $pathChunks): WithoutBody|Ok|\ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\Copilot\CancelCopilotSeatAssignmentForUsers\Response\ApplicationJson\Ok|ActionsCacheList|FileCommit
     {
         if ($pathChunks[0] === '') {
@@ -41,6 +42,14 @@ final class Six
                             if ($pathChunks[5] === '{stream_id}') {
                                 if ($call === 'DELETE /enterprises/{enterprise}/audit-log/streams/{stream_id}') {
                                     return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->deleteAuditLogStream($params);
+                                }
+                            }
+                        }
+                    } elseif ($pathChunks[3] === 'properties') {
+                        if ($pathChunks[4] === 'schema') {
+                            if ($pathChunks[5] === '{custom_property_name}') {
+                                if ($call === 'DELETE /enterprises/{enterprise}/properties/schema/{custom_property_name}') {
+                                    return $this->routers->internal🔀Router🔀Delete🔀EnterpriseAdmin()->removeEnterpriseCustomProperty($params);
                                 }
                             }
                         }

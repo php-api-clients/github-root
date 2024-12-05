@@ -9,6 +9,7 @@ use ApiClients\Client\GitHubEnterpriseCloud\Schema;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\ActionsEnterprisePermissions;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuditLogStreamKey;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\AuthenticationToken;
+use ApiClients\Client\GitHubEnterpriseCloud\Schema\CustomProperty;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GetAuditLogStreamConfig;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\GroupResponse;
 use ApiClients\Client\GitHubEnterpriseCloud\Schema\Operations\EnterpriseAdmin\ListOrgAccessToSelfHostedRunnerGroupInEnterprise\Response\ApplicationJson\Ok\Application\Json;
@@ -283,6 +284,33 @@ final class EnterpriseAdmin
     public function getLicenseSyncStatus(string $enterprise): string
     {
         return $this->operators->enterpriseAdmin👷GetLicenseSyncStatus()->call($enterprise);
+    }
+
+    /** @return iterable<int,Schema\CustomProperty> */
+    public function getEnterpriseCustomProperties(string $enterprise): iterable
+    {
+        return $this->operators->enterpriseAdmin👷GetEnterpriseCustomProperties()->call($enterprise);
+    }
+
+    /** @return iterable<int,Schema\CustomProperty> */
+    public function createOrUpdateEnterpriseCustomProperties(string $enterprise, array $params): iterable
+    {
+        return $this->operators->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties()->call($enterprise, $params);
+    }
+
+    public function getEnterpriseCustomProperty(string $enterprise, string $customPropertyName): CustomProperty
+    {
+        return $this->operators->enterpriseAdmin👷GetEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
+    }
+
+    public function createOrUpdateEnterpriseCustomProperty(string $enterprise, string $customPropertyName): CustomProperty
+    {
+        return $this->operators->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
+    }
+
+    public function removeEnterpriseCustomProperty(string $enterprise, string $customPropertyName): WithoutBody
+    {
+        return $this->operators->enterpriseAdmin👷RemoveEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
     }
 
     /** @return */
