@@ -270,7 +270,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise']);
     }
 
-    /** @return iterable<int,Schema\CustomProperty> */
+    /** @return Observable<Schema\CustomProperty> */
     public function getEnterpriseCustomProperties(array $params): iterable
     {
         $arguments = [];
@@ -405,6 +405,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['stream_id']);
     }
 
+    /** @return */
     public function getEnterpriseCustomProperty(array $params): CustomProperty
     {
         $arguments = [];

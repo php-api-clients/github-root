@@ -24,7 +24,7 @@ final readonly class GetEnterpriseCustomProperties
     {
     }
 
-    /** @return iterable<int,Schema\CustomProperty> */
+    /** @return Observable<Schema\CustomProperty> */
     public function call(string $enterprise): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\GetEnterpriseCustomProperties($this->responseSchemaValidator, $this->hydrator, $enterprise);

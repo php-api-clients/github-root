@@ -24,6 +24,7 @@ final readonly class CreateOrUpdateEnterpriseCustomProperty
     {
     }
 
+    /** @return */
     public function call(string $enterprise, string $customPropertyName): CustomProperty
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperty($this->responseSchemaValidator, $this->hydrator, $enterprise, $customPropertyName);

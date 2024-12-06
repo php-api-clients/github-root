@@ -286,28 +286,31 @@ final class EnterpriseAdmin
         return $this->operators->enterpriseAdmin👷GetLicenseSyncStatus()->call($enterprise);
     }
 
-    /** @return iterable<int,Schema\CustomProperty> */
+    /** @return Observable<Schema\CustomProperty> */
     public function getEnterpriseCustomProperties(string $enterprise): iterable
     {
         return $this->operators->enterpriseAdmin👷GetEnterpriseCustomProperties()->call($enterprise);
     }
 
-    /** @return iterable<int,Schema\CustomProperty> */
+    /** @return Observable<Schema\CustomProperty> */
     public function createOrUpdateEnterpriseCustomProperties(string $enterprise, array $params): iterable
     {
         return $this->operators->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperties()->call($enterprise, $params);
     }
 
+    /** @return */
     public function getEnterpriseCustomProperty(string $enterprise, string $customPropertyName): CustomProperty
     {
         return $this->operators->enterpriseAdmin👷GetEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
     }
 
+    /** @return */
     public function createOrUpdateEnterpriseCustomProperty(string $enterprise, string $customPropertyName): CustomProperty
     {
         return $this->operators->enterpriseAdmin👷CreateOrUpdateEnterpriseCustomProperty()->call($enterprise, $customPropertyName);
     }
 
+    /** @return */
     public function removeEnterpriseCustomProperty(string $enterprise, string $customPropertyName): WithoutBody
     {
         return $this->operators->enterpriseAdmin👷RemoveEnterpriseCustomProperty()->call($enterprise, $customPropertyName);

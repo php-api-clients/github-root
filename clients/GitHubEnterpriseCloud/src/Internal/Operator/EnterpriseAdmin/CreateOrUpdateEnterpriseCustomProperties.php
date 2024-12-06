@@ -24,7 +24,7 @@ final readonly class CreateOrUpdateEnterpriseCustomProperties
     {
     }
 
-    /** @return iterable<int,Schema\CustomProperty> */
+    /** @return Observable<Schema\CustomProperty> */
     public function call(string $enterprise, array $params): iterable
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\CreateOrUpdateEnterpriseCustomProperties($this->requestSchemaValidator, $this->responseSchemaValidator, $this->hydrator, $enterprise);
