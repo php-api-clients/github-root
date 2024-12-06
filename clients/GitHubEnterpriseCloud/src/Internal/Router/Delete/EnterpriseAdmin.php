@@ -168,6 +168,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['stream_id']);
     }
 
+    /** @return */
     public function removeEnterpriseCustomProperty(array $params): WithoutBody
     {
         $arguments = [];

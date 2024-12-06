@@ -24,6 +24,7 @@ final readonly class RemoveEnterpriseCustomProperty
     {
     }
 
+    /** @return */
     public function call(string $enterprise, string $customPropertyName): WithoutBody
     {
         $operation = new \ApiClients\Client\GitHubEnterpriseCloud\Internal\Operation\EnterpriseAdmin\RemoveEnterpriseCustomProperty($this->responseSchemaValidator, $this->hydrator, $enterprise, $customPropertyName);

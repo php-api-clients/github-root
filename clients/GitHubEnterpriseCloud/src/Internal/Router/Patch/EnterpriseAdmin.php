@@ -44,7 +44,7 @@ final class EnterpriseAdmin
         return $operator->call($arguments['enterprise'], $arguments['runner_group_id'], $params);
     }
 
-    /** @return iterable<int,Schema\CustomProperty> */
+    /** @return Observable<Schema\CustomProperty> */
     public function createOrUpdateEnterpriseCustomProperties(array $params): iterable
     {
         $arguments = [];
