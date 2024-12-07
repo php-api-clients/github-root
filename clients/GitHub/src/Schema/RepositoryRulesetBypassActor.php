@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRulesetBypassActor
+final readonly class RepositoryRulesetBypassActor implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetBypassActor
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository Ruleset Bypass Actor",
     "required": [
         "actor_type"
@@ -45,23 +42,19 @@ final readonly class RepositoryRulesetBypassActor
     },
     "description": "An actor that can bypass rules in a ruleset"
 }';
-    public const SCHEMA_TITLE        = 'Repository Ruleset Bypass Actor';
-    public const SCHEMA_DESCRIPTION  = 'An actor that can bypass rules in a ruleset';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository Ruleset Bypass Actor';
+    public const SCHEMA_DESCRIPTION = 'An actor that can bypass rules in a ruleset';
+    const SCHEMA_EXAMPLE_DATA = '{
     "actor_id": 8,
-    "actor_type": "DeployKey",
+    "actor_type": "Integration",
     "bypass_mode": "always"
 }';
-
     /**
      * actorId: The ID of the actor that can bypass a ruleset. If `actor_type` is `OrganizationAdmin`, this should be `1`. If `actor_type` is `DeployKey`, this should be null. `OrganizationAdmin` is not applicable for personal repositories.
      * actorType: The type of actor that can bypass a ruleset.
      * bypassMode: When the specified actor can bypass the ruleset. `pull_request` means that an actor can only bypass rules on pull requests. `pull_request` is not applicable for the `DeployKey` actor type. Also, `pull_request` is only applicable to branch rulesets.
      */
-    public function __construct(#[MapFrom('actor_id')]
-    public int|null $actorId, #[MapFrom('actor_type')]
-    public string $actorType, #[MapFrom('bypass_mode')]
-    public string|null $bypassMode,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('actor_id')] public ?int $actorId, #[\EventSauce\ObjectHydrator\MapFrom('actor_type')] public string $actorType, #[\EventSauce\ObjectHydrator\MapFrom('bypass_mode')] public ?string $bypassMode)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis;
 
-final readonly class SecretScanningPushProtection
+final readonly class SecretScanningPushProtection implements \ApiClients\Client\GitHub\Contract\Repos\Update\Request\ApplicationJson\SecurityAndAnalysis\SecretScanningPushProtection
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "status": {
@@ -16,16 +15,15 @@ final readonly class SecretScanningPushProtection
     },
     "description": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \\"[Protecting pushes with secret scanning](\\/code-security\\/secret-scanning\\/protecting-pushes-with-secret-scanning).\\""
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."';
+    const SCHEMA_EXAMPLE_DATA = '{
     "status": "generated"
 }';
-
     /**
      * status: Can be `enabled` or `disabled`.
      */
-    public function __construct(public string|null $status)
+    public function __construct(public ?string $status)
     {
     }
 }

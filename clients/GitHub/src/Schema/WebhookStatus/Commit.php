@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Commit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "sha",
         "node_id",
@@ -443,9 +439,9 @@ final readonly class Commit
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "author": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -466,21 +462,21 @@ final readonly class Commit
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "comments_url": "https:\\/\\/example.com\\/",
     "commit": {
         "author": {
-            "date": "1970-01-01T00:00:00+00:00",
-            "email": "hi@example.com",
+            "date": "generated",
+            "email": "generated",
             "name": "generated",
             "username": "generated"
         },
         "comment_count": 13,
         "committer": {
-            "date": "1970-01-01T00:00:00+00:00",
-            "email": "hi@example.com",
+            "date": "generated",
+            "email": "generated",
             "name": "generated",
             "username": "generated"
         },
@@ -492,7 +488,7 @@ final readonly class Commit
         "url": "https:\\/\\/example.com\\/",
         "verification": {
             "payload": "generated",
-            "reason": "ocsp_pending",
+            "reason": "expired_key",
             "signature": "generated",
             "verified": false,
             "verified_at": "generated"
@@ -518,7 +514,7 @@ final readonly class Commit
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "html_url": "https:\\/\\/example.com\\/",
@@ -538,11 +534,7 @@ final readonly class Commit
     "sha": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public Schema\WebhookStatus\Commit\Author|null $author, #[MapFrom('comments_url')]
-    public string $commentsUrl, public Schema\WebhookStatus\Commit\Commit $commit, public Schema\WebhookStatus\Commit\Committer|null $committer, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('node_id')]
-    public string $nodeId, public array $parents, public string $sha, public string $url,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Author $author, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, public \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit $commit, public ?\ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Committer $committer, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public array $parents, public string $sha, public string $url)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SocialAccount
+final readonly class SocialAccount implements \ApiClients\Client\GitHub\Contract\SocialAccount
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Social account",
     "required": [
         "provider",
@@ -29,13 +28,12 @@ final readonly class SocialAccount
     },
     "description": "Social media account"
 }';
-    public const SCHEMA_TITLE        = 'Social account';
-    public const SCHEMA_DESCRIPTION  = 'Social media account';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "provider": "linkedin",
-    "url": "https:\\/\\/www.linkedin.com\\/company\\/github\\/"
+    public const SCHEMA_TITLE = 'Social account';
+    public const SCHEMA_DESCRIPTION = 'Social media account';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "provider": "generated",
+    "url": "generated"
 }';
-
     public function __construct(public string $provider, public string $url)
     {
     }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\GitTag;
 
-final readonly class Tagger
+final readonly class Tagger implements \ApiClients\Client\GitHub\Contract\GitTag\Tagger
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "date",
         "email",
@@ -25,14 +24,13 @@ final readonly class Tagger
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "date": "generated",
     "email": "generated",
     "name": "generated"
 }';
-
     public function __construct(public string $date, public string $email, public string $name)
     {
     }

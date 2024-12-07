@@ -1,22 +1,20 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class EmptyObject
+final readonly class EmptyObject implements \ApiClients\Client\GitHub\Contract\EmptyObject
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Empty Object",
     "type": "object",
     "properties": {},
     "description": "An object without any properties.",
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = 'Empty Object';
-    public const SCHEMA_DESCRIPTION  = 'An object without any properties.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'Empty Object';
+    public const SCHEMA_DESCRIPTION = 'An object without any properties.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

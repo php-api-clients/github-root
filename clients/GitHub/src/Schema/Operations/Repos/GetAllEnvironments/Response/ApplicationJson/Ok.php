@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Repos\GetAllEnvironments\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Repos\GetAllEnvironments\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "total_count": {
@@ -617,22 +614,112 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 5,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "total_count": 11,
     "environments": [
         {
-            "id": 56780428,
-            "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-            "name": "staging",
-            "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-            "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging",
-            "created_at": "2020-11-23T22:00:40Z",
-            "updated_at": "2020-11-23T22:00:40Z",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "url": "generated",
+            "html_url": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
             "protection_rules": [
-                null,
-                null
+                {
+                    "id": 2,
+                    "node_id": "generated",
+                    "type": "generated",
+                    "wait_timer": 10
+                },
+                {
+                    "id": 2,
+                    "node_id": "generated",
+                    "prevent_self_review": false,
+                    "type": "generated",
+                    "reviewers": [
+                        {
+                            "type": "User",
+                            "reviewer": {
+                                "id": 2,
+                                "node_id": "generated",
+                                "name": "generated",
+                                "slug": "generated",
+                                "description": "generated",
+                                "privacy": "generated",
+                                "notification_setting": "generated",
+                                "permission": "generated",
+                                "permissions": {
+                                    "pull": false,
+                                    "triage": false,
+                                    "push": false,
+                                    "maintain": false,
+                                    "admin": false
+                                },
+                                "url": "https:\\/\\/example.com\\/",
+                                "html_url": "https:\\/\\/example.com\\/",
+                                "members_url": "generated",
+                                "repositories_url": "https:\\/\\/example.com\\/",
+                                "parent": {
+                                    "id": 2,
+                                    "node_id": "generated",
+                                    "url": "https:\\/\\/example.com\\/",
+                                    "members_url": "generated",
+                                    "name": "generated",
+                                    "description": "generated",
+                                    "permission": "generated",
+                                    "privacy": "generated",
+                                    "notification_setting": "generated",
+                                    "html_url": "https:\\/\\/example.com\\/",
+                                    "repositories_url": "https:\\/\\/example.com\\/",
+                                    "slug": "generated",
+                                    "ldap_dn": "generated"
+                                }
+                            }
+                        },
+                        {
+                            "type": "User",
+                            "reviewer": {
+                                "id": 2,
+                                "node_id": "generated",
+                                "name": "generated",
+                                "slug": "generated",
+                                "description": "generated",
+                                "privacy": "generated",
+                                "notification_setting": "generated",
+                                "permission": "generated",
+                                "permissions": {
+                                    "pull": false,
+                                    "triage": false,
+                                    "push": false,
+                                    "maintain": false,
+                                    "admin": false
+                                },
+                                "url": "https:\\/\\/example.com\\/",
+                                "html_url": "https:\\/\\/example.com\\/",
+                                "members_url": "generated",
+                                "repositories_url": "https:\\/\\/example.com\\/",
+                                "parent": {
+                                    "id": 2,
+                                    "node_id": "generated",
+                                    "url": "https:\\/\\/example.com\\/",
+                                    "members_url": "generated",
+                                    "name": "generated",
+                                    "description": "generated",
+                                    "permission": "generated",
+                                    "privacy": "generated",
+                                    "notification_setting": "generated",
+                                    "html_url": "https:\\/\\/example.com\\/",
+                                    "repositories_url": "https:\\/\\/example.com\\/",
+                                    "slug": "generated",
+                                    "ldap_dn": "generated"
+                                }
+                            }
+                        }
+                    ]
+                }
             ],
             "deployment_branch_policy": {
                 "protected_branches": false,
@@ -640,16 +727,106 @@ final readonly class Ok
             }
         },
         {
-            "id": 56780428,
-            "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-            "name": "staging",
-            "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-            "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging",
-            "created_at": "2020-11-23T22:00:40Z",
-            "updated_at": "2020-11-23T22:00:40Z",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "url": "generated",
+            "html_url": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
             "protection_rules": [
-                null,
-                null
+                {
+                    "id": 2,
+                    "node_id": "generated",
+                    "type": "generated",
+                    "wait_timer": 10
+                },
+                {
+                    "id": 2,
+                    "node_id": "generated",
+                    "prevent_self_review": false,
+                    "type": "generated",
+                    "reviewers": [
+                        {
+                            "type": "User",
+                            "reviewer": {
+                                "id": 2,
+                                "node_id": "generated",
+                                "name": "generated",
+                                "slug": "generated",
+                                "description": "generated",
+                                "privacy": "generated",
+                                "notification_setting": "generated",
+                                "permission": "generated",
+                                "permissions": {
+                                    "pull": false,
+                                    "triage": false,
+                                    "push": false,
+                                    "maintain": false,
+                                    "admin": false
+                                },
+                                "url": "https:\\/\\/example.com\\/",
+                                "html_url": "https:\\/\\/example.com\\/",
+                                "members_url": "generated",
+                                "repositories_url": "https:\\/\\/example.com\\/",
+                                "parent": {
+                                    "id": 2,
+                                    "node_id": "generated",
+                                    "url": "https:\\/\\/example.com\\/",
+                                    "members_url": "generated",
+                                    "name": "generated",
+                                    "description": "generated",
+                                    "permission": "generated",
+                                    "privacy": "generated",
+                                    "notification_setting": "generated",
+                                    "html_url": "https:\\/\\/example.com\\/",
+                                    "repositories_url": "https:\\/\\/example.com\\/",
+                                    "slug": "generated",
+                                    "ldap_dn": "generated"
+                                }
+                            }
+                        },
+                        {
+                            "type": "User",
+                            "reviewer": {
+                                "id": 2,
+                                "node_id": "generated",
+                                "name": "generated",
+                                "slug": "generated",
+                                "description": "generated",
+                                "privacy": "generated",
+                                "notification_setting": "generated",
+                                "permission": "generated",
+                                "permissions": {
+                                    "pull": false,
+                                    "triage": false,
+                                    "push": false,
+                                    "maintain": false,
+                                    "admin": false
+                                },
+                                "url": "https:\\/\\/example.com\\/",
+                                "html_url": "https:\\/\\/example.com\\/",
+                                "members_url": "generated",
+                                "repositories_url": "https:\\/\\/example.com\\/",
+                                "parent": {
+                                    "id": 2,
+                                    "node_id": "generated",
+                                    "url": "https:\\/\\/example.com\\/",
+                                    "members_url": "generated",
+                                    "name": "generated",
+                                    "description": "generated",
+                                    "permission": "generated",
+                                    "privacy": "generated",
+                                    "notification_setting": "generated",
+                                    "html_url": "https:\\/\\/example.com\\/",
+                                    "repositories_url": "https:\\/\\/example.com\\/",
+                                    "slug": "generated",
+                                    "ldap_dn": "generated"
+                                }
+                            }
+                        }
+                    ]
+                }
             ],
             "deployment_branch_policy": {
                 "protected_branches": false,
@@ -658,12 +835,10 @@ final readonly class Ok
         }
     ]
 }';
-
     /**
      * totalCount: The number of environments in this repository
      */
-    public function __construct(#[MapFrom('total_count')]
-    public int|null $totalCount, public array|null $environments,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public ?int $totalCount, public ?array $environments)
     {
     }
 }

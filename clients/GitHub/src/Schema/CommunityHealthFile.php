@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CommunityHealthFile
+final readonly class CommunityHealthFile implements \ApiClients\Client\GitHub\Contract\CommunityHealthFile
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Community Health File",
     "required": [
         "url",
@@ -26,15 +23,13 @@ final readonly class CommunityHealthFile
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Community Health File';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Community Health File';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/",
     "html_url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl,)
+    public function __construct(public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl)
     {
     }
 }

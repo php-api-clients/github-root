@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0\DsseEnvelope;
 
-final readonly class Signatures
+final readonly class Signatures implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\DsseEnvelope\Signatures
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "sig": {
@@ -17,14 +16,13 @@ final readonly class Signatures
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "sig": "generated",
     "keyid": "generated"
 }';
-
-    public function __construct(public string|null $sig, public string|null $keyid)
+    public function __construct(public ?string $sig, public ?string $keyid)
     {
     }
 }

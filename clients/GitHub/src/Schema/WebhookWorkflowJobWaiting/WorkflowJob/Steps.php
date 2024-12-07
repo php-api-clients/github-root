@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowJobWaiting\WorkflowJob;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Steps
+final readonly class Steps implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowJobWaiting\WorkflowJob\Steps
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Workflow Step",
     "required": [
         "name",
@@ -63,20 +60,17 @@ final readonly class Steps
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Workflow Step';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Workflow Step';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "completed_at": "generated",
-    "conclusion": "cancelled",
+    "conclusion": "failure",
     "name": "generated",
     "number": 6,
     "started_at": "generated",
-    "status": "waiting"
+    "status": "completed"
 }';
-
-    public function __construct(#[MapFrom('completed_at')]
-    public string|null $completedAt, public string|null $conclusion, public string $name, public int $number, #[MapFrom('started_at')]
-    public string|null $startedAt, public string $status,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('completed_at')] public ?string $completedAt, public ?string $conclusion, public string $name, public int $number, #[\EventSauce\ObjectHydrator\MapFrom('started_at')] public ?string $startedAt, public string $status)
     {
     }
 }

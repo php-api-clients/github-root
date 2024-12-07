@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\BranchRestrictionPolicy;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Teams
+final readonly class Teams implements \ApiClients\Client\GitHub\Contract\BranchRestrictionPolicy\Teams
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -58,9 +55,9 @@ final readonly class Teams
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "node_id": "generated",
     "url": "generated",
@@ -75,13 +72,7 @@ final readonly class Teams
     "repositories_url": "generated",
     "parent": "generated"
 }';
-
-    public function __construct(public int|null $id, #[MapFrom('node_id')]
-    public string|null $nodeId, public string|null $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public string|null $name, public string|null $slug, public string|null $description, public string|null $privacy, #[MapFrom('notification_setting')]
-    public string|null $notificationSetting, public string|null $permission, #[MapFrom('members_url')]
-    public string|null $membersUrl, #[MapFrom('repositories_url')]
-    public string|null $repositoriesUrl, public string|null $parent,)
+    public function __construct(public ?int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public ?string $name, public ?string $slug, public ?string $description, public ?string $privacy, #[\EventSauce\ObjectHydrator\MapFrom('notification_setting')] public ?string $notificationSetting, public ?string $permission, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public ?string $membersUrl, #[\EventSauce\ObjectHydrator\MapFrom('repositories_url')] public ?string $repositoriesUrl, public ?string $parent)
     {
     }
 }

@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Codespaces\ListForAuthenticatedUser\Response\ApplicationJson;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Ok extends Schema\AliasAbstract\Tiet3360D974\Tiet0A1EBE3C\TietCBE4EB4F\TietC368D360
+final readonly class Ok extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T3360D974\T0A1EBE3C\TCBE4EB4F\TC368D360
 {
 }

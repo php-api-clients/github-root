@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes;
 
-final readonly class Rules
+final readonly class Rules implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Rules
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "added": {
@@ -2481,20 +2480,50 @@ final readonly class Rules
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "added": [
-        null,
-        null
+        {
+            "type": "creation"
+        },
+        {
+            "type": "update",
+            "parameters": {
+                "update_allows_fetch_and_merge": false
+            }
+        }
     ],
     "deleted": [
-        null,
-        null
+        {
+            "type": "creation"
+        },
+        {
+            "type": "update",
+            "parameters": {
+                "update_allows_fetch_and_merge": false
+            }
+        }
     ],
     "updated": [
         {
-            "rule": null,
+            "rule": {
+                "type": "code_scanning",
+                "parameters": {
+                    "code_scanning_tools": [
+                        {
+                            "alerts_threshold": "none",
+                            "security_alerts_threshold": "none",
+                            "tool": "generated"
+                        },
+                        {
+                            "alerts_threshold": "none",
+                            "security_alerts_threshold": "none",
+                            "tool": "generated"
+                        }
+                    ]
+                }
+            },
             "changes": {
                 "configuration": {
                     "from": "generated"
@@ -2508,7 +2537,23 @@ final readonly class Rules
             }
         },
         {
-            "rule": null,
+            "rule": {
+                "type": "code_scanning",
+                "parameters": {
+                    "code_scanning_tools": [
+                        {
+                            "alerts_threshold": "none",
+                            "security_alerts_threshold": "none",
+                            "tool": "generated"
+                        },
+                        {
+                            "alerts_threshold": "none",
+                            "security_alerts_threshold": "none",
+                            "tool": "generated"
+                        }
+                    ]
+                }
+            },
             "changes": {
                 "configuration": {
                     "from": "generated"
@@ -2523,8 +2568,11 @@ final readonly class Rules
         }
     ]
 }';
-
-    public function __construct(public array|null $added, public array|null $deleted, public array|null $updated)
+    /**
+     * @param ?array<\ApiClients\Client\GitHub\Schema\RepositoryRuleCreation|\ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate|\ApiClients\Client\GitHub\Schema\RepositoryRuleDeletion|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredLinearHistory|\ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredSignatures|\ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks|\ApiClients\Client\GitHub\Schema\RepositoryRuleNonFastForward|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitterEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows|\ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning> $added
+     * @param ?array<\ApiClients\Client\GitHub\Schema\RepositoryRuleCreation|\ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate|\ApiClients\Client\GitHub\Schema\RepositoryRuleDeletion|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredLinearHistory|\ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredSignatures|\ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks|\ApiClients\Client\GitHub\Schema\RepositoryRuleNonFastForward|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitterEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows|\ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning> $deleted
+     */
+    public function __construct(#[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Added] public ?array $added, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Deleted] public ?array $deleted, public ?array $updated)
     {
     }
 }

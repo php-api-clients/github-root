@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class GitRef
+final readonly class GitRef implements \ApiClients\Client\GitHub\Contract\GitRef
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Git Reference",
     "required": [
         "ref",
@@ -58,21 +54,19 @@ final readonly class GitRef
     },
     "description": "Git references within a repository"
 }';
-    public const SCHEMA_TITLE        = 'Git Reference';
-    public const SCHEMA_DESCRIPTION  = 'Git references within a repository';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Git Reference';
+    public const SCHEMA_DESCRIPTION = 'Git references within a repository';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ref": "generated",
     "node_id": "generated",
     "url": "https:\\/\\/example.com\\/",
     "object": {
         "type": "generated",
-        "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+        "sha": "generated",
         "url": "https:\\/\\/example.com\\/"
     }
 }';
-
-    public function __construct(public string $ref, #[MapFrom('node_id')]
-    public string $nodeId, public string $url, public Schema\GitRef\Object_ $object,)
+    public function __construct(public string $ref, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $url, public \ApiClients\Client\GitHub\Schema\GitRef\Object_ $object)
     {
     }
 }

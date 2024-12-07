@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class MarketplaceAccount
+final readonly class MarketplaceAccount implements \ApiClients\Client\GitHub\Contract\MarketplaceAccount
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Marketplace Account",
     "required": [
         "url",
@@ -50,9 +47,9 @@ final readonly class MarketplaceAccount
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Marketplace Account';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Marketplace Account';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/",
     "id": 2,
     "type": "generated",
@@ -61,10 +58,7 @@ final readonly class MarketplaceAccount
     "email": "hi@example.com",
     "organization_billing_email": "hi@example.com"
 }';
-
-    public function __construct(public string $url, public int $id, public string $type, #[MapFrom('node_id')]
-    public string|null $nodeId, public string $login, public string|null $email, #[MapFrom('organization_billing_email')]
-    public string|null $organizationBillingEmail,)
+    public function __construct(public string $url, public int $id, public string $type, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, public string $login, public ?string $email, #[\EventSauce\ObjectHydrator\MapFrom('organization_billing_email')] public ?string $organizationBillingEmail)
     {
     }
 }

@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Description extends Schema\AliasAbstract\Tiet90B64BAD\TietF15E2FA0\Tiet4430BD5A\Tiet9EE541ED
+final readonly class Description extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T90B64BAD\TF15E2FA0\T4430BD5A\T9EE541ED
 {
 }

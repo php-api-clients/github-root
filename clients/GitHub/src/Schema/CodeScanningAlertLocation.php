@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningAlertLocation
+final readonly class CodeScanningAlertLocation implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertLocation
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "path": {
@@ -29,21 +26,16 @@ final readonly class CodeScanningAlertLocation
     },
     "description": "Describe a region within a file for the alert."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Describe a region within a file for the alert.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Describe a region within a file for the alert.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "path": "generated",
     "start_line": 10,
     "end_line": 8,
     "start_column": 12,
     "end_column": 10
 }';
-
-    public function __construct(public string|null $path, #[MapFrom('start_line')]
-    public int|null $startLine, #[MapFrom('end_line')]
-    public int|null $endLine, #[MapFrom('start_column')]
-    public int|null $startColumn, #[MapFrom('end_column')]
-    public int|null $endColumn,)
+    public function __construct(public ?string $path, #[\EventSauce\ObjectHydrator\MapFrom('start_line')] public ?int $startLine, #[\EventSauce\ObjectHydrator\MapFrom('end_line')] public ?int $endLine, #[\EventSauce\ObjectHydrator\MapFrom('start_column')] public ?int $startColumn, #[\EventSauce\ObjectHydrator\MapFrom('end_column')] public ?int $endColumn)
     {
     }
 }

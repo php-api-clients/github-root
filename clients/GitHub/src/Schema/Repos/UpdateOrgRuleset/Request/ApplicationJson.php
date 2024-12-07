@@ -1,16 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateOrgRuleset\Request;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Repos\UpdateOrgRuleset\Request\ApplicationJson\Conditions;
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateOrgRuleset\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -1135,44 +1130,98 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
-    "target": "push",
+    "target": "branch",
     "enforcement": "disabled",
     "bypass_actors": [
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         },
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         }
     ],
-    "conditions": null,
+    "conditions": {
+        "ref_name": {
+            "include": [
+                "generated",
+                "generated"
+            ],
+            "exclude": [
+                "generated",
+                "generated"
+            ]
+        },
+        "repository_property": {
+            "include": [
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                },
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                }
+            ],
+            "exclude": [
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                },
+                {
+                    "name": "generated",
+                    "property_values": [
+                        "generated",
+                        "generated"
+                    ],
+                    "source": "custom"
+                }
+            ]
+        }
+    },
     "rules": [
-        null,
-        null
+        {
+            "type": "creation"
+        },
+        {
+            "type": "update",
+            "parameters": {
+                "update_allows_fetch_and_merge": false
+            }
+        }
     ]
 }';
-
     /**
-     * name: The name of the ruleset.
-     * target: The target of the ruleset
-     * enforcement: The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise).
-     * bypassActors: The actors that can bypass the rules in this ruleset
-     * conditions: Conditions for an organization ruleset.
+    * name: The name of the ruleset.
+    * target: The target of the ruleset
+    * enforcement: The enforcement level of the ruleset. `evaluate` allows admins to test rules before enforcing them. Admins can view insights on the Rule Insights page (`evaluate` is only available with GitHub Enterprise).
+    * bypassActors: The actors that can bypass the rules in this ruleset
+    * conditions: Conditions for an organization ruleset.
     The branch and tag rulesets conditions object should contain both `repository_name` and `ref_name` properties, or both `repository_id` and `ref_name` properties, or both `repository_property` and `ref_name` properties.
     The push rulesets conditions object does not require the `ref_name` property.
-     * rules: An array of rules within the ruleset.
-     */
-    public function __construct(public string|null $name, public string|null $target, public string|null $enforcement, #[MapFrom('bypass_actors')]
-    public array|null $bypassActors, #[Conditions]
-    public Schema\RepositoryRulesetConditions|null $conditions, public array|null $rules,)
+    * rules: An array of rules within the ruleset.
+    * @param ?array<\ApiClients\Client\GitHub\Schema\RepositoryRuleCreation|\ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate|\ApiClients\Client\GitHub\Schema\RepositoryRuleDeletion|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredLinearHistory|\ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredSignatures|\ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks|\ApiClients\Client\GitHub\Schema\RepositoryRuleNonFastForward|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitterEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows|\ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning> $rules
+    */
+    public function __construct(public ?string $name, public ?string $target, public ?string $enforcement, #[\EventSauce\ObjectHydrator\MapFrom('bypass_actors')] public ?array $bypassActors, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Repos\UpdateOrgRuleset\Request\ApplicationJson\Conditions] public null|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Conditions\One\Zero|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Conditions\One\One|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Conditions\One\Two $conditions, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Repos\UpdateOrgRuleset\Request\ApplicationJson\Rules] public ?array $rules)
     {
     }
 }

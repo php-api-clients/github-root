@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRenamed;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRenamed\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "repository"
     ],
@@ -35,17 +32,16 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "repository": {
         "name": {
             "from": "generated"
         }
     }
 }';
-
-    public function __construct(public Schema\WebhookRepositoryRenamed\Changes\Repository $repository)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhookRepositoryRenamed\Changes\Repository $repository)
     {
     }
 }

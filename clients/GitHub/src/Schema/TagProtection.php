@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class TagProtection
+final readonly class TagProtection implements \ApiClients\Client\GitHub\Contract\TagProtection
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Tag protection",
     "required": [
         "pattern"
@@ -48,19 +45,16 @@ final readonly class TagProtection
     },
     "description": "Tag protection"
 }';
-    public const SCHEMA_TITLE        = 'Tag protection';
-    public const SCHEMA_DESCRIPTION  = 'Tag protection';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Tag protection';
+    public const SCHEMA_DESCRIPTION = 'Tag protection';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
-    "created_at": "2011-01-26T19:01:12Z",
-    "updated_at": "2011-01-26T19:01:12Z",
-    "enabled": true,
-    "pattern": "v1.*"
+    "created_at": "generated",
+    "updated_at": "generated",
+    "enabled": false,
+    "pattern": "generated"
 }';
-
-    public function __construct(public int|null $id, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public bool|null $enabled, public string $pattern,)
+    public function __construct(public ?int $id, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?bool $enabled, public string $pattern)
     {
     }
 }

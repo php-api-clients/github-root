@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Manifest;
 
-final readonly class Resolved
+final readonly class Resolved implements \ApiClients\Client\GitHub\Contract\Manifest\Resolved
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "description": "A collection of resolved package dependencies.",
     "additionalProperties": {
@@ -81,10 +80,9 @@ final readonly class Resolved
         "additionalProperties": false
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'A collection of resolved package dependencies.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'A collection of resolved package dependencies.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

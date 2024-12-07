@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class OrganizationActionsVariable
+final readonly class OrganizationActionsVariable implements \ApiClients\Client\GitHub\Contract\OrganizationActionsVariable
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Actions Variable for an Organization",
     "required": [
         "name",
@@ -68,17 +65,16 @@ final readonly class OrganizationActionsVariable
     },
     "description": "Organization variable for GitHub Actions."
 }';
-    public const SCHEMA_TITLE        = 'Actions Variable for an Organization';
-    public const SCHEMA_DESCRIPTION  = 'Organization variable for GitHub Actions.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "USERNAME",
-    "value": "octocat",
-    "created_at": "2019-01-24T22:45:36.000Z",
-    "updated_at": "2019-01-24T22:45:36.000Z",
-    "visibility": "selected",
-    "selected_repositories_url": "https:\\/\\/api.github.com\\/organizations\\/org\\/variables\\/USERNAME\\/repositories"
+    public const SCHEMA_TITLE = 'Actions Variable for an Organization';
+    public const SCHEMA_DESCRIPTION = 'Organization variable for GitHub Actions.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
+    "value": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "visibility": "all",
+    "selected_repositories_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * name: The name of the variable.
      * value: The value of the variable.
@@ -86,10 +82,7 @@ final readonly class OrganizationActionsVariable
      * updatedAt: The date and time at which the variable was last updated, in ISO 8601 format':' YYYY-MM-DDTHH:MM:SSZ.
      * visibility: Visibility of a variable
      */
-    public function __construct(public string $name, public string $value, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $visibility, #[MapFrom('selected_repositories_url')]
-    public string|null $selectedRepositoriesUrl,)
+    public function __construct(public string $name, public string $value, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $visibility, #[\EventSauce\ObjectHydrator\MapFrom('selected_repositories_url')] public ?string $selectedRepositoriesUrl)
     {
     }
 }

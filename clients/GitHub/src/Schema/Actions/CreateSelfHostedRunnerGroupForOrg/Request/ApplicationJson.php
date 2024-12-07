@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Actions\CreateSelfHostedRunnerGroupForOrg\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\CreateSelfHostedRunnerGroupForOrg\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name"
     ],
@@ -67,11 +64,11 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
-    "visibility": "private",
+    "visibility": "selected",
     "selected_repository_ids": [
         24,
         25
@@ -87,7 +84,6 @@ final readonly class ApplicationJson
         "generated"
     ]
 }';
-
     /**
      * name: Name of the runner group.
      * visibility: Visibility of a runner group. You can select all repositories, select individual repositories, or limit access to private repositories.
@@ -97,11 +93,7 @@ final readonly class ApplicationJson
      * restrictedToWorkflows: If `true`, the runner group will be restricted to running only the workflows specified in the `selected_workflows` array.
      * selectedWorkflows: List of workflows the runner group should be allowed to run. This setting will be ignored unless `restricted_to_workflows` is set to `true`.
      */
-    public function __construct(public string $name, public string|null $visibility, #[MapFrom('selected_repository_ids')]
-    public array|null $selectedRepositoryIds, public array|null $runners, #[MapFrom('allows_public_repositories')]
-    public bool|null $allowsPublicRepositories, #[MapFrom('restricted_to_workflows')]
-    public bool|null $restrictedToWorkflows, #[MapFrom('selected_workflows')]
-    public array|null $selectedWorkflows,)
+    public function __construct(public string $name, public ?string $visibility, #[\EventSauce\ObjectHydrator\MapFrom('selected_repository_ids')] public ?array $selectedRepositoryIds, public ?array $runners, #[\EventSauce\ObjectHydrator\MapFrom('allows_public_repositories')] public ?bool $allowsPublicRepositories, #[\EventSauce\ObjectHydrator\MapFrom('restricted_to_workflows')] public ?bool $restrictedToWorkflows, #[\EventSauce\ObjectHydrator\MapFrom('selected_workflows')] public ?array $selectedWorkflows)
     {
     }
 }

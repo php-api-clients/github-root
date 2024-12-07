@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RegistryPackage
+final readonly class RegistryPackage implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "name",
@@ -860,9 +856,9 @@ final readonly class RegistryPackage
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "created_at": "generated",
     "description": "generated",
     "ecosystem": "generated",
@@ -914,7 +910,7 @@ final readonly class RegistryPackage
             "url": "generated",
             "user_view_type": "generated"
         },
-        "body": null,
+        "body": [],
         "body_html": "generated",
         "container_metadata": {
             "labels": [],
@@ -954,19 +950,19 @@ final readonly class RegistryPackage
             "name": "generated",
             "version": "generated",
             "npm_user": "generated",
-            "author": null,
-            "bugs": null,
+            "author": [],
+            "bugs": [],
             "dependencies": [],
             "dev_dependencies": [],
             "peer_dependencies": [],
             "optional_dependencies": [],
             "description": "generated",
-            "dist": null,
+            "dist": [],
             "git_head": "generated",
             "homepage": "generated",
             "license": "generated",
             "main": "generated",
-            "repository": null,
+            "repository": [],
             "scripts": [],
             "id": "generated",
             "node_version": "generated",
@@ -991,7 +987,7 @@ final readonly class RegistryPackage
             ],
             "bin": [],
             "man": [],
-            "directories": null,
+            "directories": [],
             "os": [
                 "generated",
                 "generated"
@@ -1007,7 +1003,6 @@ final readonly class RegistryPackage
             "published_via_actions": false,
             "deleted_by_id": 13
         },
-        "nuget_metadata": null,
         "package_files": [
             {
                 "content_type": "generated",
@@ -1123,13 +1118,7 @@ final readonly class RegistryPackage
     },
     "updated_at": "generated"
 }';
-
-    public function __construct(#[MapFrom('created_at')]
-    public string|null $createdAt, public string|null $description, public string $ecosystem, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string $name, public string $namespace, public Schema\WebhookRegistryPackagePublished\RegistryPackage\Owner $owner, #[MapFrom('package_type')]
-    public string $packageType, #[MapFrom('package_version')]
-    public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion|null $packageVersion, public Schema\WebhookRegistryPackagePublished\RegistryPackage\Registry|null $registry, #[MapFrom('updated_at')]
-    public string|null $updatedAt,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, public ?string $description, public string $ecosystem, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public string $name, public string $namespace, public \ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\Owner $owner, #[\EventSauce\ObjectHydrator\MapFrom('package_type')] public string $packageType, #[\EventSauce\ObjectHydrator\MapFrom('package_version')] public ?\ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion $packageVersion, public ?\ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\Registry $registry, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt)
     {
     }
 }

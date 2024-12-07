@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodespacesUserPublicKey
+final readonly class CodespacesUserPublicKey implements \ApiClients\Client\GitHub\Contract\CodespacesUserPublicKey
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "CodespacesUserPublicKey",
     "required": [
         "key_id",
@@ -33,19 +30,17 @@ final readonly class CodespacesUserPublicKey
     },
     "description": "The public key used for setting user Codespaces\' Secrets."
 }';
-    public const SCHEMA_TITLE        = 'CodespacesUserPublicKey';
-    public const SCHEMA_DESCRIPTION  = 'The public key used for setting user Codespaces\' Secrets.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "key_id": "1234567",
-    "key": "hBT5WZEj8ZoOv6TYJsfWq7MxTEQopZO5\\/IT3ZCVQPzs="
+    public const SCHEMA_TITLE = 'CodespacesUserPublicKey';
+    public const SCHEMA_DESCRIPTION = 'The public key used for setting user Codespaces\' Secrets.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "key_id": "generated",
+    "key": "generated"
 }';
-
     /**
      * keyId: The identifier for the key.
      * key: The Base64 encoded public key.
      */
-    public function __construct(#[MapFrom('key_id')]
-    public string $keyId, public string $key,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('key_id')] public string $keyId, public string $key)
     {
     }
 }

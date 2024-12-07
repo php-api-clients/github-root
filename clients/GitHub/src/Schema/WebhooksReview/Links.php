@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhooksReview;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Links extends Schema\AliasAbstract\Tiet3725E255\Tiet9D780678\Tiet2692985E\TietE129B0E5
+final readonly class Links extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T3725E255\T9D780678\T2692985E\TE129B0E5
 {
 }

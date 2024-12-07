@@ -1,16 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookPackagePublished\Package\PackageVersion\Body;
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PackageVersion
+final readonly class PackageVersion implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "version",
@@ -723,9 +718,9 @@ final readonly class PackageVersion
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "author": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -746,11 +741,11 @@ final readonly class PackageVersion
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
-    "body": null,
+    "body": [],
     "body_html": "generated",
     "container_metadata": {
         "labels": [],
@@ -843,7 +838,6 @@ final readonly class PackageVersion
         "published_via_actions": false,
         "deleted_by_id": 13
     },
-    "nuget_metadata": null,
     "package_files": [
         {
             "content_type": "generated",
@@ -895,7 +889,7 @@ final readonly class PackageVersion
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -954,25 +948,7 @@ final readonly class PackageVersion
     "updated_at": "generated",
     "version": "generated"
 }';
-
-    public function __construct(public Schema\WebhookPackagePublished\Package\PackageVersion\Author|null $author, #[Body]
-    public string|Schema\WebhookPackagePublished\Package\PackageVersion\Body\One|null $body, #[MapFrom('body_html')]
-    public string|null $bodyHtml, #[MapFrom('container_metadata')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata|null $containerMetadata, #[MapFrom('created_at')]
-    public string|null $createdAt, public string $description, #[MapFrom('docker_metadata')]
-    public array|null $dockerMetadata, public bool|null $draft, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('installation_command')]
-    public string $installationCommand, public string|null $manifest, public array $metadata, public string $name, #[MapFrom('npm_metadata')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata|null $npmMetadata, #[MapFrom('nuget_metadata')]
-    public array|null $nugetMetadata, #[MapFrom('package_files')]
-    public array $packageFiles, #[MapFrom('package_url')]
-    public string|null $packageUrl, public bool|null $prerelease, public Schema\WebhookPackagePublished\Package\PackageVersion\Release|null $release, #[MapFrom('rubygems_metadata')]
-    public array|null $rubygemsMetadata, #[MapFrom('source_url')]
-    public string|null $sourceUrl, public string $summary, #[MapFrom('tag_name')]
-    public string|null $tagName, #[MapFrom('target_commitish')]
-    public string|null $targetCommitish, #[MapFrom('target_oid')]
-    public string|null $targetOid, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string $version,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\Author $author, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookPackagePublished\Package\PackageVersion\Body] public null|string|\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\Body\One $body, #[\EventSauce\ObjectHydrator\MapFrom('body_html')] public ?string $bodyHtml, #[\EventSauce\ObjectHydrator\MapFrom('container_metadata')] public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata $containerMetadata, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, public string $description, #[\EventSauce\ObjectHydrator\MapFrom('docker_metadata')] public ?array $dockerMetadata, public ?bool $draft, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('installation_command')] public string $installationCommand, public ?string $manifest, public array $metadata, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('npm_metadata')] public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata $npmMetadata, #[\EventSauce\ObjectHydrator\MapFrom('nuget_metadata')] public ?array $nugetMetadata, #[\EventSauce\ObjectHydrator\MapFrom('package_files')] public array $packageFiles, #[\EventSauce\ObjectHydrator\MapFrom('package_url')] public ?string $packageUrl, public ?bool $prerelease, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\Release $release, #[\EventSauce\ObjectHydrator\MapFrom('rubygems_metadata')] public ?array $rubygemsMetadata, #[\EventSauce\ObjectHydrator\MapFrom('source_url')] public ?string $sourceUrl, public string $summary, #[\EventSauce\ObjectHydrator\MapFrom('tag_name')] public ?string $tagName, #[\EventSauce\ObjectHydrator\MapFrom('target_commitish')] public ?string $targetCommitish, #[\EventSauce\ObjectHydrator\MapFrom('target_oid')] public ?string $targetOid, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public string $version)
     {
     }
 }

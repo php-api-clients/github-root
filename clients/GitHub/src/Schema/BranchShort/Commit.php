@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\BranchShort;
 
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\BranchShort\Commit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "sha",
         "url"
@@ -21,13 +20,12 @@ final readonly class Commit
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "sha": "generated",
     "url": "generated"
 }';
-
     public function __construct(public string $sha, public string $url)
     {
     }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookCommitCommentCreated;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Comment
+final readonly class Comment implements \ApiClients\Client\GitHub\Contract\WebhookCommitCommentCreated\Comment
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "url",
         "html_url",
@@ -245,10 +241,10 @@ final readonly class Comment
     },
     "description": "The [commit comment](${externalDocsUpapp\\/api\\/description\\/components\\/schemas\\/webhooks\\/issue-comment-created.yamlrl}\\/rest\\/commits\\/comments#get-a-commit-comment) resource."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The [commit comment](${externalDocsUpapp/api/description/components/schemas/webhooks/issue-comment-created.yamlrl}/rest/commits/comments#get-a-commit-comment) resource.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "author_association": "OWNER",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The [commit comment](${externalDocsUpapp/api/description/components/schemas/webhooks/issue-comment-created.yamlrl}/rest/commits/comments#get-a-commit-comment) resource.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "commit_id": "generated",
     "created_at": "generated",
@@ -292,12 +288,11 @@ final readonly class Comment
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
     /**
      * authorAssociation: How the author is associated with the repository.
      * body: The text of the comment.
@@ -308,13 +303,7 @@ final readonly class Comment
      * path: The relative path of the file to which the comment applies.
      * position: The line index in the diff to which the comment applies.
      */
-    public function __construct(#[MapFrom('author_association')]
-    public string $authorAssociation, public string $body, #[MapFrom('commit_id')]
-    public string $commitId, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public int|null $line, #[MapFrom('node_id')]
-    public string $nodeId, public string|null $path, public int|null $position, public Schema\WebhookCommitCommentCreated\Comment\Reactions|null $reactions, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, public Schema\WebhookCommitCommentCreated\Comment\User|null $user,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, public string $body, #[\EventSauce\ObjectHydrator\MapFrom('commit_id')] public string $commitId, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public ?int $line, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public ?string $path, public ?int $position, public ?\ApiClients\Client\GitHub\Schema\WebhookCommitCommentCreated\Comment\Reactions $reactions, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url, public ?\ApiClients\Client\GitHub\Schema\WebhookCommitCommentCreated\Comment\User $user)
     {
     }
 }

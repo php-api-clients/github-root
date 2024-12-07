@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhookRubygemsMetadata
+final readonly class WebhookRubygemsMetadata implements \ApiClients\Client\GitHub\Contract\WebhookRubygemsMetadata
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Ruby Gems metadata",
     "type": "object",
     "properties": {
@@ -59,9 +55,9 @@ final readonly class WebhookRubygemsMetadata
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Ruby Gems metadata';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Ruby Gems metadata';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "description": "generated",
     "readme": "generated",
@@ -78,10 +74,7 @@ final readonly class WebhookRubygemsMetadata
     ],
     "commit_oid": "generated"
 }';
-
-    public function __construct(public string|null $name, public string|null $description, public string|null $readme, public string|null $homepage, #[MapFrom('version_info')]
-    public Schema\WebhookRubygemsMetadata\VersionInfo|null $versionInfo, public string|null $platform, public Schema\WebhookRubygemsMetadata\Metadata|null $metadata, public string|null $repo, public array|null $dependencies, #[MapFrom('commit_oid')]
-    public string|null $commitOid,)
+    public function __construct(public ?string $name, public ?string $description, public ?string $readme, public ?string $homepage, #[\EventSauce\ObjectHydrator\MapFrom('version_info')] public ?\ApiClients\Client\GitHub\Schema\WebhookRubygemsMetadata\VersionInfo $versionInfo, public ?string $platform, public ?\ApiClients\Client\GitHub\Schema\WebhookRubygemsMetadata\Metadata $metadata, public ?string $repo, public ?array $dependencies, #[\EventSauce\ObjectHydrator\MapFrom('commit_oid')] public ?string $commitOid)
     {
     }
 }

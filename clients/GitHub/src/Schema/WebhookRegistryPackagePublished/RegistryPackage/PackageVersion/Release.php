@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Release
+final readonly class Release implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "author": {
@@ -109,9 +105,9 @@ final readonly class Release
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "author": {
         "avatar_url": "generated",
         "events_url": "generated",
@@ -144,13 +140,7 @@ final readonly class Release
     "target_commitish": "generated",
     "url": "generated"
 }';
-
-    public function __construct(public Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release\Author|null $author, #[MapFrom('created_at')]
-    public string|null $createdAt, public bool|null $draft, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public int|null $id, public string|null $name, public bool|null $prerelease, #[MapFrom('published_at')]
-    public string|null $publishedAt, #[MapFrom('tag_name')]
-    public string|null $tagName, #[MapFrom('target_commitish')]
-    public string|null $targetCommitish, public string|null $url,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage\PackageVersion\Release\Author $author, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, public ?bool $draft, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public ?int $id, public ?string $name, public ?bool $prerelease, #[\EventSauce\ObjectHydrator\MapFrom('published_at')] public ?string $publishedAt, #[\EventSauce\ObjectHydrator\MapFrom('tag_name')] public ?string $tagName, #[\EventSauce\ObjectHydrator\MapFrom('target_commitish')] public ?string $targetCommitish, public ?string $url)
     {
     }
 }

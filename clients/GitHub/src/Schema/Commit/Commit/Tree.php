@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Commit\Commit;
 
-final readonly class Tree
+final readonly class Tree implements \ApiClients\Client\GitHub\Contract\Commit\Commit\Tree
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "sha",
         "url"
@@ -28,13 +27,12 @@ final readonly class Tree
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "sha": "827efc6d56897b048c772eb4087f854f46256132",
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "sha": "generated",
+    "url": "https:\\/\\/example.com\\/"
 }';
-
     public function __construct(public string $sha, public string $url)
     {
     }

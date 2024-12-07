@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\HookDelivery\Request;
 
-final readonly class Payload
+final readonly class Payload implements \ApiClients\Client\GitHub\Contract\HookDelivery\Request\Payload
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -14,10 +13,9 @@ final readonly class Payload
     "description": "The webhook payload.",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The webhook payload.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The webhook payload.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Projects\MoveCard\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Projects\MoveCard\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "position"
     ],
@@ -31,19 +28,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "position": "bottom",
-    "column_id": 42
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "position": "after:99999999999999999999999999",
+    "column_id": 9
 }';
-
     /**
      * position: The position of the card in a column. Can be one of: `top`, `bottom`, or `after:<card_id>` to place after the specified card.
      * columnId: The unique identifier of the column the card should be moved to
      */
-    public function __construct(public string $position, #[MapFrom('column_id')]
-    public int|null $columnId,)
+    public function __construct(public string $position, #[\EventSauce\ObjectHydrator\MapFrom('column_id')] public ?int $columnId)
     {
     }
 }

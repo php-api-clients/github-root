@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Actions\ListRepoWorkflows\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "total_count",
         "workflows"
@@ -118,42 +115,40 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_count": 11,
     "workflows": [
         {
-            "id": 5,
-            "node_id": "MDg6V29ya2Zsb3cxMg==",
-            "name": "CI",
-            "path": "ruby.yaml",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "path": "generated",
             "state": "active",
-            "created_at": "2019-12-06T14:20:20.000Z",
-            "updated_at": "2019-12-06T14:20:20.000Z",
-            "url": "https:\\/\\/api.github.com\\/repos\\/actions\\/setup-ruby\\/workflows\\/5",
-            "html_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/blob\\/master\\/.github\\/workflows\\/ruby.yaml",
-            "badge_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/workflows\\/CI\\/badge.svg",
-            "deleted_at": "2019-12-06T14:20:20.000Z"
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "url": "generated",
+            "html_url": "generated",
+            "badge_url": "generated",
+            "deleted_at": "1970-01-01T00:00:00+00:00"
         },
         {
-            "id": 5,
-            "node_id": "MDg6V29ya2Zsb3cxMg==",
-            "name": "CI",
-            "path": "ruby.yaml",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "path": "generated",
             "state": "active",
-            "created_at": "2019-12-06T14:20:20.000Z",
-            "updated_at": "2019-12-06T14:20:20.000Z",
-            "url": "https:\\/\\/api.github.com\\/repos\\/actions\\/setup-ruby\\/workflows\\/5",
-            "html_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/blob\\/master\\/.github\\/workflows\\/ruby.yaml",
-            "badge_url": "https:\\/\\/github.com\\/actions\\/setup-ruby\\/workflows\\/CI\\/badge.svg",
-            "deleted_at": "2019-12-06T14:20:20.000Z"
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "url": "generated",
+            "html_url": "generated",
+            "badge_url": "generated",
+            "deleted_at": "1970-01-01T00:00:00+00:00"
         }
     ]
 }';
-
-    public function __construct(#[MapFrom('total_count')]
-    public int $totalCount, public array $workflows,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int $totalCount, public array $workflows)
     {
     }
 }

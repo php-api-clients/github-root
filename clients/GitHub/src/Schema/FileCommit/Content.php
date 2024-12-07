@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\FileCommit;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Content
+final readonly class Content implements \ApiClients\Client\GitHub\Contract\FileCommit\Content
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -58,9 +54,9 @@ final readonly class Content
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "path": "generated",
     "sha": "generated",
@@ -76,12 +72,7 @@ final readonly class Content
         "html": "generated"
     }
 }';
-
-    public function __construct(public string|null $name, public string|null $path, public string|null $sha, public int|null $size, public string|null $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('git_url')]
-    public string|null $gitUrl, #[MapFrom('download_url')]
-    public string|null $downloadUrl, public string|null $type, #[MapFrom('_links')]
-    public Schema\FileCommit\Content\Links|null $links,)
+    public function __construct(public ?string $name, public ?string $path, public ?string $sha, public ?int $size, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public ?string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('download_url')] public ?string $downloadUrl, public ?string $type, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public ?\ApiClients\Client\GitHub\Schema\FileCommit\Content\Links $links)
     {
     }
 }

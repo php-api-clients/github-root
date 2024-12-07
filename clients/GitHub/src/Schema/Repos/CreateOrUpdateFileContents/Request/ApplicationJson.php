@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateOrUpdateFileContents\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "message",
         "content"
@@ -81,9 +78,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
     "content": "generated",
     "sha": "generated",
@@ -91,15 +88,14 @@ final readonly class ApplicationJson
     "committer": {
         "name": "generated",
         "email": "generated",
-        "date": "\\"2013-01-05T13:13:22+05:00\\""
+        "date": "generated"
     },
     "author": {
         "name": "generated",
         "email": "generated",
-        "date": "\\"2013-01-15T17:13:22+05:00\\""
+        "date": "generated"
     }
 }';
-
     /**
      * message: The commit message.
      * content: The new file content, using Base64 encoding.
@@ -108,7 +104,7 @@ final readonly class ApplicationJson
      * committer: The person that committed the file. Default: the authenticated user.
      * author: The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.
      */
-    public function __construct(public string $message, public string $content, public string|null $sha, public string|null $branch, public Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Committer|null $committer, public Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Author|null $author)
+    public function __construct(public string $message, public string $content, public ?string $sha, public ?string $branch, public ?\ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Committer $committer, public ?\ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Author $author)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Cvss
+final readonly class Cvss implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\Cvss
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "score",
         "vector_string"
@@ -35,19 +32,17 @@ final readonly class Cvss
     "readOnly": true,
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Details for the advisory pertaining to the Common Vulnerability Scoring System.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "score": 0.5,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Details for the advisory pertaining to the Common Vulnerability Scoring System.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "score": 5,
     "vector_string": "generated"
 }';
-
     /**
      * score: The overall CVSS score of the advisory.
      * vectorString: The full CVSS vector string for the advisory.
      */
-    public function __construct(public int|float $score, #[MapFrom('vector_string')]
-    public string|null $vectorString,)
+    public function __construct(public int|float $score, #[\EventSauce\ObjectHydrator\MapFrom('vector_string')] public ?string $vectorString)
     {
     }
 }

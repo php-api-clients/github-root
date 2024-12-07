@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateReleaseAsset\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateReleaseAsset\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -25,19 +24,18 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "label": "generated",
-    "state": "\\"uploaded\\""
+    "state": "generated"
 }';
-
     /**
      * name: The file name of the asset.
      * label: An alternate short description of the asset. Used in place of the filename.
      */
-    public function __construct(public string|null $name, public string|null $label, public string|null $state)
+    public function __construct(public ?string $name, public ?string $label, public ?string $state)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CopilotDotcomChat
+final readonly class CopilotDotcomChat implements \ApiClients\Client\GitHub\Contract\CopilotDotcomChat
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -54,9 +51,9 @@ final readonly class CopilotDotcomChat
     "description": "Usage metrics for Copilot Chat in github.com",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Usage metrics for Copilot Chat in github.com';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Usage metrics for Copilot Chat in github.com';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_engaged_users": 19,
     "models": [
         {
@@ -75,13 +72,11 @@ final readonly class CopilotDotcomChat
         }
     ]
 }';
-
     /**
      * totalEngagedUsers: Total number of users who prompted Copilot Chat on github.com at least once.
      * models: List of model metrics for a custom models and the default model.
      */
-    public function __construct(#[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, public array|null $models,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, public ?array $models)
     {
     }
 }

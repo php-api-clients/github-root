@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WorkflowRun
+final readonly class WorkflowRun implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowRunRequested\WorkflowRun
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Workflow Run",
     "required": [
         "artifacts_url",
@@ -1249,9 +1245,9 @@ final readonly class WorkflowRun
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Workflow Run';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Workflow Run';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "actor": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -1272,7 +1268,7 @@ final readonly class WorkflowRun
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -1281,7 +1277,7 @@ final readonly class WorkflowRun
     "check_suite_id": 14,
     "check_suite_node_id": "generated",
     "check_suite_url": "https:\\/\\/example.com\\/",
-    "conclusion": "startup_failure",
+    "conclusion": "success",
     "created_at": "1970-01-01T00:00:00+00:00",
     "event": "generated",
     "head_branch": "generated",
@@ -1358,7 +1354,7 @@ final readonly class WorkflowRun
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -1403,8 +1399,8 @@ final readonly class WorkflowRun
                 },
                 "sha": "generated"
             },
-            "id": 0.2,
-            "number": 0.6,
+            "id": 2,
+            "number": 6,
             "url": "https:\\/\\/example.com\\/"
         },
         {
@@ -1426,12 +1422,11 @@ final readonly class WorkflowRun
                 },
                 "sha": "generated"
             },
-            "id": 0.2,
-            "number": 0.6,
+            "id": 2,
+            "number": 6,
             "url": "https:\\/\\/example.com\\/"
         }
     ],
-    "referenced_workflows": null,
     "repository": {
         "archive_url": "generated",
         "assignees_url": "generated",
@@ -1487,7 +1482,7 @@ final readonly class WorkflowRun
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -1507,7 +1502,7 @@ final readonly class WorkflowRun
     "run_attempt": 11,
     "run_number": 10,
     "run_started_at": "1970-01-01T00:00:00+00:00",
-    "status": "waiting",
+    "status": "requested",
     "triggering_actor": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -1528,7 +1523,7 @@ final readonly class WorkflowRun
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -1538,34 +1533,7 @@ final readonly class WorkflowRun
     "workflow_url": "https:\\/\\/example.com\\/",
     "display_title": "generated"
 }';
-
-    public function __construct(public Schema\WebhookWorkflowRunRequested\WorkflowRun\Actor|null $actor, #[MapFrom('artifacts_url')]
-    public string $artifactsUrl, #[MapFrom('cancel_url')]
-    public string $cancelUrl, #[MapFrom('check_suite_id')]
-    public int $checkSuiteId, #[MapFrom('check_suite_node_id')]
-    public string $checkSuiteNodeId, #[MapFrom('check_suite_url')]
-    public string $checkSuiteUrl, public string|null $conclusion, #[MapFrom('created_at')]
-    public string $createdAt, public string $event, #[MapFrom('head_branch')]
-    public string|null $headBranch, #[MapFrom('head_commit')]
-    public Schema\WebhookWorkflowRunRequested\WorkflowRun\HeadCommit $headCommit, #[MapFrom('head_repository')]
-    public Schema\WebhookWorkflowRunRequested\WorkflowRun\HeadRepository $headRepository, #[MapFrom('head_sha')]
-    public string $headSha, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('jobs_url')]
-    public string $jobsUrl, #[MapFrom('logs_url')]
-    public string $logsUrl, public string|null $name, #[MapFrom('node_id')]
-    public string $nodeId, public string $path, #[MapFrom('previous_attempt_url')]
-    public string|null $previousAttemptUrl, #[MapFrom('pull_requests')]
-    public array $pullRequests, #[MapFrom('referenced_workflows')]
-    public array|null $referencedWorkflows, public Schema\WebhookWorkflowRunRequested\WorkflowRun\Repository $repository, #[MapFrom('rerun_url')]
-    public string $rerunUrl, #[MapFrom('run_attempt')]
-    public int $runAttempt, #[MapFrom('run_number')]
-    public int $runNumber, #[MapFrom('run_started_at')]
-    public string $runStartedAt, public string $status, #[MapFrom('triggering_actor')]
-    public Schema\WebhookWorkflowRunRequested\WorkflowRun\TriggeringActor|null $triggeringActor, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, #[MapFrom('workflow_id')]
-    public int $workflowId, #[MapFrom('workflow_url')]
-    public string $workflowUrl, #[MapFrom('display_title')]
-    public string $displayTitle,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun\Actor $actor, #[\EventSauce\ObjectHydrator\MapFrom('artifacts_url')] public string $artifactsUrl, #[\EventSauce\ObjectHydrator\MapFrom('cancel_url')] public string $cancelUrl, #[\EventSauce\ObjectHydrator\MapFrom('check_suite_id')] public int $checkSuiteId, #[\EventSauce\ObjectHydrator\MapFrom('check_suite_node_id')] public string $checkSuiteNodeId, #[\EventSauce\ObjectHydrator\MapFrom('check_suite_url')] public string $checkSuiteUrl, public ?string $conclusion, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public string $event, #[\EventSauce\ObjectHydrator\MapFrom('head_branch')] public ?string $headBranch, #[\EventSauce\ObjectHydrator\MapFrom('head_commit')] public \ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun\HeadCommit $headCommit, #[\EventSauce\ObjectHydrator\MapFrom('head_repository')] public \ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun\HeadRepository $headRepository, #[\EventSauce\ObjectHydrator\MapFrom('head_sha')] public string $headSha, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('jobs_url')] public string $jobsUrl, #[\EventSauce\ObjectHydrator\MapFrom('logs_url')] public string $logsUrl, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $path, #[\EventSauce\ObjectHydrator\MapFrom('previous_attempt_url')] public ?string $previousAttemptUrl, #[\EventSauce\ObjectHydrator\MapFrom('pull_requests')] public array $pullRequests, #[\EventSauce\ObjectHydrator\MapFrom('referenced_workflows')] public ?array $referencedWorkflows, public \ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun\Repository $repository, #[\EventSauce\ObjectHydrator\MapFrom('rerun_url')] public string $rerunUrl, #[\EventSauce\ObjectHydrator\MapFrom('run_attempt')] public int $runAttempt, #[\EventSauce\ObjectHydrator\MapFrom('run_number')] public int $runNumber, #[\EventSauce\ObjectHydrator\MapFrom('run_started_at')] public string $runStartedAt, public string $status, #[\EventSauce\ObjectHydrator\MapFrom('triggering_actor')] public ?\ApiClients\Client\GitHub\Schema\WebhookWorkflowRunRequested\WorkflowRun\TriggeringActor $triggeringActor, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('workflow_id')] public int $workflowId, #[\EventSauce\ObjectHydrator\MapFrom('workflow_url')] public string $workflowUrl, #[\EventSauce\ObjectHydrator\MapFrom('display_title')] public string $displayTitle)
     {
     }
 }

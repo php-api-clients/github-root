@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhooksSecurityAdvisory;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Cvss extends Schema\AliasAbstract\TietA304CE1D\Tiet51CDBA42\Tiet045AA15C\Tiet0E7CC885
+final readonly class Cvss extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TA304CE1D\T51CDBA42\T045AA15C\T0E7CC885
 {
 }

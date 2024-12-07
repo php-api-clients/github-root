@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Pulls\CreateReview\Request\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Comments
+final readonly class Comments implements \ApiClients\Client\GitHub\Contract\Pulls\CreateReview\Request\ApplicationJson\Comments
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "path",
         "body"
@@ -53,26 +50,23 @@ final readonly class Comments
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "path": "generated",
     "position": 8,
     "body": "generated",
-    "line": 28,
-    "side": "RIGHT",
-    "start_line": 26,
-    "start_side": "LEFT"
+    "line": 4,
+    "side": "generated",
+    "start_line": 10,
+    "start_side": "generated"
 }';
-
     /**
      * path: The relative path to the file that necessitates a review comment.
      * position: The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. The `position` value equals the number of lines down from the first "@@" hunk header in the file you want to add a comment. The line just below the "@@" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.
      * body: Text of the review comment.
      */
-    public function __construct(public string $path, public int|null $position, public string $body, public int|null $line, public string|null $side, #[MapFrom('start_line')]
-    public int|null $startLine, #[MapFrom('start_side')]
-    public string|null $startSide,)
+    public function __construct(public string $path, public ?int $position, public string $body, public ?int $line, public ?string $side, #[\EventSauce\ObjectHydrator\MapFrom('start_line')] public ?int $startLine, #[\EventSauce\ObjectHydrator\MapFrom('start_side')] public ?string $startSide)
     {
     }
 }

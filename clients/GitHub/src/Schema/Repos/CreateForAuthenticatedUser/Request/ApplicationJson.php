@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateForAuthenticatedUser\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateForAuthenticatedUser\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name"
     ],
@@ -181,97 +178,77 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Team Environment",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
     "description": "generated",
     "homepage": "generated",
     "private": false,
-    "has_issues": true,
-    "has_projects": true,
-    "has_wiki": true,
-    "has_discussions": true,
+    "has_issues": false,
+    "has_projects": false,
+    "has_wiki": false,
+    "has_discussions": false,
     "team_id": 7,
     "auto_init": false,
-    "gitignore_template": "Haskell",
-    "license_template": "mit",
-    "allow_squash_merge": true,
-    "allow_merge_commit": true,
-    "allow_rebase_merge": true,
+    "gitignore_template": "generated",
+    "license_template": "generated",
+    "allow_squash_merge": false,
+    "allow_merge_commit": false,
+    "allow_rebase_merge": false,
     "allow_auto_merge": false,
     "delete_branch_on_merge": false,
     "squash_merge_commit_title": "PR_TITLE",
     "squash_merge_commit_message": "PR_BODY",
-    "merge_commit_title": "MERGE_MESSAGE",
-    "merge_commit_message": "BLANK",
-    "has_downloads": true,
-    "is_template": true
+    "merge_commit_title": "PR_TITLE",
+    "merge_commit_message": "PR_BODY",
+    "has_downloads": false,
+    "is_template": false
 }';
-
     /**
-     * name: The name of the repository.
-     * description: A short description of the repository.
-     * homepage: A URL with more information about the repository.
-     * private: Whether the repository is private.
-     * hasIssues: Whether issues are enabled.
-     * hasProjects: Whether projects are enabled.
-     * hasWiki: Whether the wiki is enabled.
-     * hasDiscussions: Whether discussions are enabled.
-     * teamId: The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.
-     * autoInit: Whether the repository is initialized with a minimal README.
-     * gitignoreTemplate: The desired language or platform to apply to the .gitignore.
-     * licenseTemplate: The license keyword of the open source license for this repository.
-     * allowSquashMerge: Whether to allow squash merges for pull requests.
-     * allowMergeCommit: Whether to allow merge commits for pull requests.
-     * allowRebaseMerge: Whether to allow rebase merges for pull requests.
-     * allowAutoMerge: Whether to allow Auto-merge to be used on pull requests.
-     * deleteBranchOnMerge: Whether to delete head branches when pull requests are merged
-     * squashMergeCommitTitle: Required when using `squash_merge_commit_message`.
-
+    * name: The name of the repository.
+    * description: A short description of the repository.
+    * homepage: A URL with more information about the repository.
+    * private: Whether the repository is private.
+    * hasIssues: Whether issues are enabled.
+    * hasProjects: Whether projects are enabled.
+    * hasWiki: Whether the wiki is enabled.
+    * hasDiscussions: Whether discussions are enabled.
+    * teamId: The id of the team that will be granted access to this repository. This is only valid when creating a repository in an organization.
+    * autoInit: Whether the repository is initialized with a minimal README.
+    * gitignoreTemplate: The desired language or platform to apply to the .gitignore.
+    * licenseTemplate: The license keyword of the open source license for this repository.
+    * allowSquashMerge: Whether to allow squash merges for pull requests.
+    * allowMergeCommit: Whether to allow merge commits for pull requests.
+    * allowRebaseMerge: Whether to allow rebase merges for pull requests.
+    * allowAutoMerge: Whether to allow Auto-merge to be used on pull requests.
+    * deleteBranchOnMerge: Whether to delete head branches when pull requests are merged
+    * squashMergeCommitTitle: Required when using `squash_merge_commit_message`.
+    
     The default value for a squash merge commit title:
-
+    
     - `PR_TITLE` - default to the pull request's title.
     - `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
-     * squashMergeCommitMessage: The default value for a squash merge commit message:
-
+    * squashMergeCommitMessage: The default value for a squash merge commit message:
+    
     - `PR_BODY` - default to the pull request's body.
     - `COMMIT_MESSAGES` - default to the branch's commit messages.
     - `BLANK` - default to a blank commit message.
-     * mergeCommitTitle: Required when using `merge_commit_message`.
-
+    * mergeCommitTitle: Required when using `merge_commit_message`.
+    
     The default value for a merge commit title.
-
+    
     - `PR_TITLE` - default to the pull request's title.
     - `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., Merge pull request #123 from branch-name).
-     * mergeCommitMessage: The default value for a merge commit message.
-
+    * mergeCommitMessage: The default value for a merge commit message.
+    
     - `PR_TITLE` - default to the pull request's title.
     - `PR_BODY` - default to the pull request's body.
     - `BLANK` - default to a blank commit message.
-     * hasDownloads: Whether downloads are enabled.
-     * isTemplate: Whether this repository acts as a template that can be used to generate new repositories.
-     */
-    public function __construct(public string $name, public string|null $description, public string|null $homepage, public bool|null $private, #[MapFrom('has_issues')]
-    public bool|null $hasIssues, #[MapFrom('has_projects')]
-    public bool|null $hasProjects, #[MapFrom('has_wiki')]
-    public bool|null $hasWiki, #[MapFrom('has_discussions')]
-    public bool|null $hasDiscussions, #[MapFrom('team_id')]
-    public int|null $teamId, #[MapFrom('auto_init')]
-    public bool|null $autoInit, #[MapFrom('gitignore_template')]
-    public string|null $gitignoreTemplate, #[MapFrom('license_template')]
-    public string|null $licenseTemplate, #[MapFrom('allow_squash_merge')]
-    public bool|null $allowSquashMerge, #[MapFrom('allow_merge_commit')]
-    public bool|null $allowMergeCommit, #[MapFrom('allow_rebase_merge')]
-    public bool|null $allowRebaseMerge, #[MapFrom('allow_auto_merge')]
-    public bool|null $allowAutoMerge, #[MapFrom('delete_branch_on_merge')]
-    public bool|null $deleteBranchOnMerge, #[MapFrom('squash_merge_commit_title')]
-    public string|null $squashMergeCommitTitle, #[MapFrom('squash_merge_commit_message')]
-    public string|null $squashMergeCommitMessage, #[MapFrom('merge_commit_title')]
-    public string|null $mergeCommitTitle, #[MapFrom('merge_commit_message')]
-    public string|null $mergeCommitMessage, #[MapFrom('has_downloads')]
-    public bool|null $hasDownloads, #[MapFrom('is_template')]
-    public bool|null $isTemplate,)
+    * hasDownloads: Whether downloads are enabled.
+    * isTemplate: Whether this repository acts as a template that can be used to generate new repositories.
+    */
+    public function __construct(public string $name, public ?string $description, public ?string $homepage, public ?bool $private, #[\EventSauce\ObjectHydrator\MapFrom('has_issues')] public ?bool $hasIssues, #[\EventSauce\ObjectHydrator\MapFrom('has_projects')] public ?bool $hasProjects, #[\EventSauce\ObjectHydrator\MapFrom('has_wiki')] public ?bool $hasWiki, #[\EventSauce\ObjectHydrator\MapFrom('has_discussions')] public ?bool $hasDiscussions, #[\EventSauce\ObjectHydrator\MapFrom('team_id')] public ?int $teamId, #[\EventSauce\ObjectHydrator\MapFrom('auto_init')] public ?bool $autoInit, #[\EventSauce\ObjectHydrator\MapFrom('gitignore_template')] public ?string $gitignoreTemplate, #[\EventSauce\ObjectHydrator\MapFrom('license_template')] public ?string $licenseTemplate, #[\EventSauce\ObjectHydrator\MapFrom('allow_squash_merge')] public ?bool $allowSquashMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_merge_commit')] public ?bool $allowMergeCommit, #[\EventSauce\ObjectHydrator\MapFrom('allow_rebase_merge')] public ?bool $allowRebaseMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_auto_merge')] public ?bool $allowAutoMerge, #[\EventSauce\ObjectHydrator\MapFrom('delete_branch_on_merge')] public ?bool $deleteBranchOnMerge, #[\EventSauce\ObjectHydrator\MapFrom('squash_merge_commit_title')] public ?string $squashMergeCommitTitle, #[\EventSauce\ObjectHydrator\MapFrom('squash_merge_commit_message')] public ?string $squashMergeCommitMessage, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_title')] public ?string $mergeCommitTitle, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_message')] public ?string $mergeCommitMessage, #[\EventSauce\ObjectHydrator\MapFrom('has_downloads')] public ?bool $hasDownloads, #[\EventSauce\ObjectHydrator\MapFrom('is_template')] public ?bool $isTemplate)
     {
     }
 }

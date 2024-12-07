@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\SecurityAndAnalysis;
 
-final readonly class DependabotSecurityUpdates
+final readonly class DependabotSecurityUpdates implements \ApiClients\Client\GitHub\Contract\SecurityAndAnalysis\DependabotSecurityUpdates
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "status": {
@@ -20,16 +19,15 @@ final readonly class DependabotSecurityUpdates
     },
     "description": "Enable or disable Dependabot security updates for the repository."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Enable or disable Dependabot security updates for the repository.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "status": "disabled"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Enable or disable Dependabot security updates for the repository.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "status": "enabled"
 }';
-
     /**
      * status: The enablement status of Dependabot security updates for the repository.
      */
-    public function __construct(public string|null $status)
+    public function __construct(public ?string $status)
     {
     }
 }

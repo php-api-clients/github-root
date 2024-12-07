@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class EnterpriseTeam
+final readonly class EnterpriseTeam implements \ApiClients\Client\GitHub\Contract\EnterpriseTeam
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Enterprise Team",
     "required": [
         "id",
@@ -73,28 +70,21 @@ final readonly class EnterpriseTeam
     },
     "description": "Group of enterprise owners and\\/or members"
 }';
-    public const SCHEMA_TITLE        = 'Enterprise Team';
-    public const SCHEMA_DESCRIPTION  = 'Group of enterprise owners and/or members';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Enterprise Team';
+    public const SCHEMA_DESCRIPTION = 'Group of enterprise owners and/or members';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "name": "generated",
     "slug": "generated",
     "url": "https:\\/\\/example.com\\/",
-    "sync_to_organizations": "disabled | all",
-    "group_id": "62ab9291-fae2-468e-974b-7e45096d5021",
-    "html_url": "https:\\/\\/github.com\\/enterprises\\/dc\\/teams\\/justice-league",
+    "sync_to_organizations": "generated",
+    "group_id": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
     "members_url": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"
 }';
-
-    public function __construct(public int $id, public string $name, public string $slug, public string $url, #[MapFrom('sync_to_organizations')]
-    public string $syncToOrganizations, #[MapFrom('group_id')]
-    public string|null $groupId, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('members_url')]
-    public string $membersUrl, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt,)
+    public function __construct(public int $id, public string $name, public string $slug, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('sync_to_organizations')] public string $syncToOrganizations, #[\EventSauce\ObjectHydrator\MapFrom('group_id')] public ?string $groupId, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public string $membersUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookSecurityAndAnalysis;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookSecurityAndAnalysis\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "from": {
@@ -100,34 +97,33 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": {
         "security_and_analysis": {
             "advanced_security": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "dependabot_security_updates": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning_push_protection": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning_non_provider_patterns": {
-                "status": "disabled"
+                "status": "enabled"
             },
             "secret_scanning_ai_detection": {
-                "status": "disabled"
+                "status": "enabled"
             }
         }
     }
 }';
-
-    public function __construct(public Schema\WebhookSecurityAndAnalysis\Changes\From|null $from)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookSecurityAndAnalysis\Changes\From $from)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Updated
+final readonly class Updated implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "condition": {
@@ -82,9 +79,9 @@ final readonly class Updated
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "condition": {
         "ref_name": {
             "include": [
@@ -118,11 +115,10 @@ final readonly class Updated
         }
     }
 }';
-
     /**
      * condition: Parameters for a repository ruleset ref name condition
      */
-    public function __construct(public Schema\RepositoryRulesetConditions|null $condition, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes|null $changes)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\RepositoryRulesetConditions $condition, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes $changes)
     {
     }
 }

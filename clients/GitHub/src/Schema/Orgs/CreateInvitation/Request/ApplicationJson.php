@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\CreateInvitation\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\CreateInvitation\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "invitee_id": {
@@ -39,31 +36,28 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "invitee_id": 10,
     "email": "generated",
-    "role": "reinstate",
+    "role": "admin",
     "team_ids": [
         9,
         10
     ]
 }';
-
     /**
      * inviteeId: **Required unless you provide `email`**. GitHub user ID for the person you are inviting.
      * email: **Required unless you provide `invitee_id`**. Email address of the person you are inviting, which can be an existing GitHub user.
-     * role: The role for the new member.
-     * `admin` - Organization owners with full administrative rights to the organization and complete access to all repositories and teams.
-     * `direct_member` - Non-owner organization members with ability to see other members and join teams by invitation.
-     * `billing_manager` - Non-owner organization members with ability to manage the billing settings of your organization.
+     * role: The role for the new member. 
+     * `admin` - Organization owners with full administrative rights to the organization and complete access to all repositories and teams.  
+     * `direct_member` - Non-owner organization members with ability to see other members and join teams by invitation.  
+     * `billing_manager` - Non-owner organization members with ability to manage the billing settings of your organization. 
      * `reinstate` - The previous role assigned to the invitee before they were removed from your organization. Can be one of the roles listed above. Only works if the invitee was previously part of your organization.
      * teamIds: Specify IDs for the teams you want to invite new members to.
      */
-    public function __construct(#[MapFrom('invitee_id')]
-    public int|null $inviteeId, public string|null $email, public string|null $role, #[MapFrom('team_ids')]
-    public array|null $teamIds,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('invitee_id')] public ?int $inviteeId, public ?string $email, public ?string $role, #[\EventSauce\ObjectHydrator\MapFrom('team_ids')] public ?array $teamIds)
     {
     }
 }

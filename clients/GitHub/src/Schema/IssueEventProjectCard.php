@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class IssueEventProjectCard
+final readonly class IssueEventProjectCard implements \ApiClients\Client\GitHub\Contract\IssueEventProjectCard
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Issue Event Project Card",
     "required": [
         "url",
@@ -42,9 +39,9 @@ final readonly class IssueEventProjectCard
     },
     "description": "Issue Event Project Card"
 }';
-    public const SCHEMA_TITLE        = 'Issue Event Project Card';
-    public const SCHEMA_DESCRIPTION  = 'Issue Event Project Card';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Issue Event Project Card';
+    public const SCHEMA_DESCRIPTION = 'Issue Event Project Card';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/",
     "id": 2,
     "project_url": "https:\\/\\/example.com\\/",
@@ -52,12 +49,7 @@ final readonly class IssueEventProjectCard
     "column_name": "generated",
     "previous_column_name": "generated"
 }';
-
-    public function __construct(public string $url, public int $id, #[MapFrom('project_url')]
-    public string $projectUrl, #[MapFrom('project_id')]
-    public int $projectId, #[MapFrom('column_name')]
-    public string $columnName, #[MapFrom('previous_column_name')]
-    public string|null $previousColumnName,)
+    public function __construct(public string $url, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('project_url')] public string $projectUrl, #[\EventSauce\ObjectHydrator\MapFrom('project_id')] public int $projectId, #[\EventSauce\ObjectHydrator\MapFrom('column_name')] public string $columnName, #[\EventSauce\ObjectHydrator\MapFrom('previous_column_name')] public ?string $previousColumnName)
     {
     }
 }

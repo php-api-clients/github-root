@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleDetailed
+final readonly class RepositoryRuleDetailed implements \ApiClients\Client\GitHub\Contract\RepositoryRuleDetailed
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository Rule",
     "type": "object",
     "oneOf": [
@@ -1135,10 +1134,9 @@ final readonly class RepositoryRuleDetailed
     ],
     "description": "A repository rule with ruleset details."
 }';
-    public const SCHEMA_TITLE        = 'Repository Rule';
-    public const SCHEMA_DESCRIPTION  = 'A repository rule with ruleset details.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'Repository Rule';
+    public const SCHEMA_DESCRIPTION = 'A repository rule with ruleset details.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

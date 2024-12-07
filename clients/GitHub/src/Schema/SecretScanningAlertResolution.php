@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SecretScanningAlertResolution
+final readonly class SecretScanningAlertResolution implements \ApiClients\Client\GitHub\Contract\SecretScanningAlertResolution
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "false_positive",
         "wont_fix",
@@ -20,10 +19,9 @@ final readonly class SecretScanningAlertResolution
     ],
     "description": "**Required when the `state` is `resolved`.** The reason for resolving the alert."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '**Required when the `state` is `resolved`.** The reason for resolving the alert.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '**Required when the `state` is `resolved`.** The reason for resolving the alert.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

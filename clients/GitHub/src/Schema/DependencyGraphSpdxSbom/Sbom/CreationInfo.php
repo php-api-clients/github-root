@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom\Sbom;
 
-final readonly class CreationInfo
+final readonly class CreationInfo implements \ApiClients\Client\GitHub\Contract\DependencyGraphSpdxSbom\Sbom\CreationInfo
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "created",
         "creators"
@@ -32,16 +31,15 @@ final readonly class CreationInfo
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "created": "2021-11-03T00:00:00Z",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "created": "generated",
     "creators": [
         "generated",
         "generated"
     ]
 }';
-
     /**
      * created: The date and time the SPDX document was created.
      * creators: The tools that were used to generate the SPDX document.

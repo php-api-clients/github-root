@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class MinimalRepository
+final readonly class MinimalRepository implements \ApiClients\Client\GitHub\Contract\MinimalRepository
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Minimal Repository",
     "required": [
         "archive_url",
@@ -845,82 +841,82 @@ final readonly class MinimalRepository
     },
     "description": "Minimal Repository"
 }';
-    public const SCHEMA_TITLE        = 'Minimal Repository';
-    public const SCHEMA_DESCRIPTION  = 'Minimal Repository';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1296269,
-    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-    "name": "Hello-World",
-    "full_name": "octocat\\/Hello-World",
+    public const SCHEMA_TITLE = 'Minimal Repository';
+    public const SCHEMA_DESCRIPTION = 'Minimal Repository';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "full_name": "generated",
     "owner": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "private": false,
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
-    "description": "This your first repo!",
+    "html_url": "https:\\/\\/example.com\\/",
+    "description": "generated",
     "fork": false,
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World",
-    "archive_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}",
-    "assignees_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}",
-    "blobs_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}",
-    "branches_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}",
-    "collaborators_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}",
-    "comments_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}",
-    "commits_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}",
-    "compare_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}",
-    "contents_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}",
-    "contributors_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors",
-    "deployments_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments",
-    "downloads_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads",
-    "events_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events",
-    "forks_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks",
-    "git_commits_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}",
-    "git_refs_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}",
-    "git_tags_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}",
+    "url": "https:\\/\\/example.com\\/",
+    "archive_url": "generated",
+    "assignees_url": "generated",
+    "blobs_url": "generated",
+    "branches_url": "generated",
+    "collaborators_url": "generated",
+    "comments_url": "generated",
+    "commits_url": "generated",
+    "compare_url": "generated",
+    "contents_url": "generated",
+    "contributors_url": "https:\\/\\/example.com\\/",
+    "deployments_url": "https:\\/\\/example.com\\/",
+    "downloads_url": "https:\\/\\/example.com\\/",
+    "events_url": "https:\\/\\/example.com\\/",
+    "forks_url": "https:\\/\\/example.com\\/",
+    "git_commits_url": "generated",
+    "git_refs_url": "generated",
+    "git_tags_url": "generated",
     "git_url": "generated",
-    "issue_comment_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}",
-    "issue_events_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}",
-    "issues_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}",
-    "keys_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}",
-    "labels_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}",
-    "languages_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages",
-    "merges_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges",
-    "milestones_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}",
-    "notifications_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}",
-    "pulls_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}",
-    "releases_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}",
+    "issue_comment_url": "generated",
+    "issue_events_url": "generated",
+    "issues_url": "generated",
+    "keys_url": "generated",
+    "labels_url": "generated",
+    "languages_url": "https:\\/\\/example.com\\/",
+    "merges_url": "https:\\/\\/example.com\\/",
+    "milestones_url": "generated",
+    "notifications_url": "generated",
+    "pulls_url": "generated",
+    "releases_url": "generated",
     "ssh_url": "generated",
-    "stargazers_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers",
-    "statuses_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}",
-    "subscribers_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers",
-    "subscription_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription",
-    "tags_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags",
-    "teams_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams",
-    "trees_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}",
+    "stargazers_url": "https:\\/\\/example.com\\/",
+    "statuses_url": "generated",
+    "subscribers_url": "https:\\/\\/example.com\\/",
+    "subscription_url": "https:\\/\\/example.com\\/",
+    "tags_url": "https:\\/\\/example.com\\/",
+    "teams_url": "https:\\/\\/example.com\\/",
+    "trees_url": "generated",
     "clone_url": "generated",
     "mirror_url": "generated",
-    "hooks_url": "http:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks",
+    "hooks_url": "https:\\/\\/example.com\\/",
     "svn_url": "generated",
     "homepage": "generated",
     "language": "generated",
@@ -944,9 +940,9 @@ final readonly class MinimalRepository
     "archived": false,
     "disabled": false,
     "visibility": "generated",
-    "pushed_at": "2011-01-26T19:06:43Z",
-    "created_at": "2011-01-26T19:01:12Z",
-    "updated_at": "2011-01-26T19:14:43Z",
+    "pushed_at": "1970-01-01T00:00:00+00:00",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "permissions": {
         "admin": false,
         "maintain": false,
@@ -954,16 +950,16 @@ final readonly class MinimalRepository
         "triage": false,
         "pull": false
     },
-    "role_name": "admin",
+    "role_name": "generated",
     "temp_clone_token": "generated",
     "delete_branch_on_merge": false,
     "subscribers_count": 17,
     "network_count": 13,
     "code_of_conduct": {
-        "key": "contributor_covenant",
-        "name": "Contributor Covenant",
-        "url": "https:\\/\\/api.github.com\\/codes_of_conduct\\/contributor_covenant",
-        "body": "# Contributor Covenant Code of Conduct\\n\\n## Our Pledge\\n\\nIn the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.\\n\\n## Our Standards\\n\\nExamples of behavior that contributes to creating a positive environment include:\\n\\n* Using welcoming and inclusive language\\n* Being respectful of differing viewpoints and experiences\\n* Gracefully accepting constructive criticism\\n* Focusing on what is best for the community\\n* Showing empathy towards other community members\\n\\nExamples of unacceptable behavior by participants include:\\n\\n* The use of sexualized language or imagery and unwelcome sexual attention or advances\\n* Trolling, insulting\\/derogatory comments, and personal or political attacks\\n* Public or private harassment\\n* Publishing others\' private information, such as a physical or electronic address, without explicit permission\\n* Other conduct which could reasonably be considered inappropriate in a professional setting\\n\\n## Our Responsibilities\\n\\nProject maintainers are responsible for clarifying the standards of acceptable behavior and are expected to take appropriate and fair corrective action in response\\n                  to any instances of unacceptable behavior.\\n\\nProject maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, or to ban temporarily or permanently any contributor for other behaviors that they deem inappropriate, threatening, offensive, or harmful.\\n\\n## Scope\\n\\nThis Code of Conduct applies both within project spaces and in public spaces when an individual is representing the project or its community. Examples of representing a project or community include using an official project e-mail address,\\n                  posting via an official social media account, or acting as an appointed representative at an online or offline event. Representation of a project may be further defined and clarified by project maintainers.\\n\\n## Enforcement\\n\\nInstances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [EMAIL]. The project team will review and investigate all complaints, and will respond in a way that it deems appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.\\n\\nProject maintainers who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project\'s leadership.\\n\\n## Attribution\\n\\nThis Code of Conduct is adapted from the [Contributor Covenant](http:\\/\\/contributor-covenant.org), version 1.4, available at [http:\\/\\/contributor-covenant.org\\/version\\/1\\/4](http:\\/\\/contributor-covenant.org\\/version\\/1\\/4\\/).\\n",
+        "key": "generated",
+        "name": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "body": "generated",
         "html_url": "https:\\/\\/example.com\\/"
     },
     "license": {
@@ -973,108 +969,38 @@ final readonly class MinimalRepository
         "url": "generated",
         "node_id": "generated"
     },
-    "forks": 0,
-    "open_issues": 0,
-    "watchers": 0,
+    "forks": 5,
+    "open_issues": 11,
+    "watchers": 8,
     "allow_forking": false,
     "web_commit_signoff_required": false,
     "security_and_analysis": {
         "advanced_security": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "dependabot_security_updates": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning_push_protection": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning_non_provider_patterns": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning_ai_detection": {
-            "status": "disabled"
+            "status": "enabled"
         }
     }
 }';
-
     /**
      * owner: A GitHub user.
      * size: The size of the repository, in kilobytes. Size is calculated hourly. When a repository is initially created, the size is 0.
      * codeOfConduct: Code Of Conduct
      */
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $name, #[MapFrom('full_name')]
-    public string $fullName, public Schema\SimpleUser $owner, public bool $private, #[MapFrom('html_url')]
-    public string $htmlUrl, public string|null $description, public bool $fork, public string $url, #[MapFrom('archive_url')]
-    public string $archiveUrl, #[MapFrom('assignees_url')]
-    public string $assigneesUrl, #[MapFrom('blobs_url')]
-    public string $blobsUrl, #[MapFrom('branches_url')]
-    public string $branchesUrl, #[MapFrom('collaborators_url')]
-    public string $collaboratorsUrl, #[MapFrom('comments_url')]
-    public string $commentsUrl, #[MapFrom('commits_url')]
-    public string $commitsUrl, #[MapFrom('compare_url')]
-    public string $compareUrl, #[MapFrom('contents_url')]
-    public string $contentsUrl, #[MapFrom('contributors_url')]
-    public string $contributorsUrl, #[MapFrom('deployments_url')]
-    public string $deploymentsUrl, #[MapFrom('downloads_url')]
-    public string $downloadsUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('forks_url')]
-    public string $forksUrl, #[MapFrom('git_commits_url')]
-    public string $gitCommitsUrl, #[MapFrom('git_refs_url')]
-    public string $gitRefsUrl, #[MapFrom('git_tags_url')]
-    public string $gitTagsUrl, #[MapFrom('git_url')]
-    public string|null $gitUrl, #[MapFrom('issue_comment_url')]
-    public string $issueCommentUrl, #[MapFrom('issue_events_url')]
-    public string $issueEventsUrl, #[MapFrom('issues_url')]
-    public string $issuesUrl, #[MapFrom('keys_url')]
-    public string $keysUrl, #[MapFrom('labels_url')]
-    public string $labelsUrl, #[MapFrom('languages_url')]
-    public string $languagesUrl, #[MapFrom('merges_url')]
-    public string $mergesUrl, #[MapFrom('milestones_url')]
-    public string $milestonesUrl, #[MapFrom('notifications_url')]
-    public string $notificationsUrl, #[MapFrom('pulls_url')]
-    public string $pullsUrl, #[MapFrom('releases_url')]
-    public string $releasesUrl, #[MapFrom('ssh_url')]
-    public string|null $sshUrl, #[MapFrom('stargazers_url')]
-    public string $stargazersUrl, #[MapFrom('statuses_url')]
-    public string $statusesUrl, #[MapFrom('subscribers_url')]
-    public string $subscribersUrl, #[MapFrom('subscription_url')]
-    public string $subscriptionUrl, #[MapFrom('tags_url')]
-    public string $tagsUrl, #[MapFrom('teams_url')]
-    public string $teamsUrl, #[MapFrom('trees_url')]
-    public string $treesUrl, #[MapFrom('clone_url')]
-    public string|null $cloneUrl, #[MapFrom('mirror_url')]
-    public string|null $mirrorUrl, #[MapFrom('hooks_url')]
-    public string $hooksUrl, #[MapFrom('svn_url')]
-    public string|null $svnUrl, public string|null $homepage, public string|null $language, #[MapFrom('forks_count')]
-    public int|null $forksCount, #[MapFrom('stargazers_count')]
-    public int|null $stargazersCount, #[MapFrom('watchers_count')]
-    public int|null $watchersCount, public int|null $size, #[MapFrom('default_branch')]
-    public string|null $defaultBranch, #[MapFrom('open_issues_count')]
-    public int|null $openIssuesCount, #[MapFrom('is_template')]
-    public bool|null $isTemplate, public array|null $topics, #[MapFrom('has_issues')]
-    public bool|null $hasIssues, #[MapFrom('has_projects')]
-    public bool|null $hasProjects, #[MapFrom('has_wiki')]
-    public bool|null $hasWiki, #[MapFrom('has_pages')]
-    public bool|null $hasPages, #[MapFrom('has_downloads')]
-    public bool|null $hasDownloads, #[MapFrom('has_discussions')]
-    public bool|null $hasDiscussions, public bool|null $archived, public bool|null $disabled, public string|null $visibility, #[MapFrom('pushed_at')]
-    public string|null $pushedAt, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public Schema\MinimalRepository\Permissions|null $permissions, #[MapFrom('role_name')]
-    public string|null $roleName, #[MapFrom('temp_clone_token')]
-    public string|null $tempCloneToken, #[MapFrom('delete_branch_on_merge')]
-    public bool|null $deleteBranchOnMerge, #[MapFrom('subscribers_count')]
-    public int|null $subscribersCount, #[MapFrom('network_count')]
-    public int|null $networkCount, #[MapFrom('code_of_conduct')]
-    public Schema\CodeOfConduct|null $codeOfConduct, public Schema\MinimalRepository\License|null $license, public int|null $forks, #[MapFrom('open_issues')]
-    public int|null $openIssues, public int|null $watchers, #[MapFrom('allow_forking')]
-    public bool|null $allowForking, #[MapFrom('web_commit_signoff_required')]
-    public bool|null $webCommitSignoffRequired, #[MapFrom('security_and_analysis')]
-    public Schema\SecurityAndAnalysis|null $securityAndAnalysis,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('full_name')] public string $fullName, public \ApiClients\Client\GitHub\Schema\SimpleUser $owner, public bool $private, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public ?string $description, public bool $fork, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('archive_url')] public string $archiveUrl, #[\EventSauce\ObjectHydrator\MapFrom('assignees_url')] public string $assigneesUrl, #[\EventSauce\ObjectHydrator\MapFrom('blobs_url')] public string $blobsUrl, #[\EventSauce\ObjectHydrator\MapFrom('branches_url')] public string $branchesUrl, #[\EventSauce\ObjectHydrator\MapFrom('collaborators_url')] public string $collaboratorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public string $commitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('compare_url')] public string $compareUrl, #[\EventSauce\ObjectHydrator\MapFrom('contents_url')] public string $contentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('contributors_url')] public string $contributorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('deployments_url')] public string $deploymentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('downloads_url')] public string $downloadsUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('forks_url')] public string $forksUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_commits_url')] public string $gitCommitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_refs_url')] public string $gitRefsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_tags_url')] public string $gitTagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public ?string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_comment_url')] public string $issueCommentUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_events_url')] public string $issueEventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public string $issuesUrl, #[\EventSauce\ObjectHydrator\MapFrom('keys_url')] public string $keysUrl, #[\EventSauce\ObjectHydrator\MapFrom('labels_url')] public string $labelsUrl, #[\EventSauce\ObjectHydrator\MapFrom('languages_url')] public string $languagesUrl, #[\EventSauce\ObjectHydrator\MapFrom('merges_url')] public string $mergesUrl, #[\EventSauce\ObjectHydrator\MapFrom('milestones_url')] public string $milestonesUrl, #[\EventSauce\ObjectHydrator\MapFrom('notifications_url')] public string $notificationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('pulls_url')] public string $pullsUrl, #[\EventSauce\ObjectHydrator\MapFrom('releases_url')] public string $releasesUrl, #[\EventSauce\ObjectHydrator\MapFrom('ssh_url')] public ?string $sshUrl, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_url')] public string $stargazersUrl, #[\EventSauce\ObjectHydrator\MapFrom('statuses_url')] public string $statusesUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscribers_url')] public string $subscribersUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscription_url')] public string $subscriptionUrl, #[\EventSauce\ObjectHydrator\MapFrom('tags_url')] public string $tagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('teams_url')] public string $teamsUrl, #[\EventSauce\ObjectHydrator\MapFrom('trees_url')] public string $treesUrl, #[\EventSauce\ObjectHydrator\MapFrom('clone_url')] public ?string $cloneUrl, #[\EventSauce\ObjectHydrator\MapFrom('mirror_url')] public ?string $mirrorUrl, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('svn_url')] public ?string $svnUrl, public ?string $homepage, public ?string $language, #[\EventSauce\ObjectHydrator\MapFrom('forks_count')] public ?int $forksCount, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_count')] public ?int $stargazersCount, #[\EventSauce\ObjectHydrator\MapFrom('watchers_count')] public ?int $watchersCount, public ?int $size, #[\EventSauce\ObjectHydrator\MapFrom('default_branch')] public ?string $defaultBranch, #[\EventSauce\ObjectHydrator\MapFrom('open_issues_count')] public ?int $openIssuesCount, #[\EventSauce\ObjectHydrator\MapFrom('is_template')] public ?bool $isTemplate, public ?array $topics, #[\EventSauce\ObjectHydrator\MapFrom('has_issues')] public ?bool $hasIssues, #[\EventSauce\ObjectHydrator\MapFrom('has_projects')] public ?bool $hasProjects, #[\EventSauce\ObjectHydrator\MapFrom('has_wiki')] public ?bool $hasWiki, #[\EventSauce\ObjectHydrator\MapFrom('has_pages')] public ?bool $hasPages, #[\EventSauce\ObjectHydrator\MapFrom('has_downloads')] public ?bool $hasDownloads, #[\EventSauce\ObjectHydrator\MapFrom('has_discussions')] public ?bool $hasDiscussions, public ?bool $archived, public ?bool $disabled, public ?string $visibility, #[\EventSauce\ObjectHydrator\MapFrom('pushed_at')] public ?string $pushedAt, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?\ApiClients\Client\GitHub\Schema\MinimalRepository\Permissions $permissions, #[\EventSauce\ObjectHydrator\MapFrom('role_name')] public ?string $roleName, #[\EventSauce\ObjectHydrator\MapFrom('temp_clone_token')] public ?string $tempCloneToken, #[\EventSauce\ObjectHydrator\MapFrom('delete_branch_on_merge')] public ?bool $deleteBranchOnMerge, #[\EventSauce\ObjectHydrator\MapFrom('subscribers_count')] public ?int $subscribersCount, #[\EventSauce\ObjectHydrator\MapFrom('network_count')] public ?int $networkCount, #[\EventSauce\ObjectHydrator\MapFrom('code_of_conduct')] public ?\ApiClients\Client\GitHub\Schema\CodeOfConduct $codeOfConduct, public ?\ApiClients\Client\GitHub\Schema\MinimalRepository\License $license, public ?int $forks, #[\EventSauce\ObjectHydrator\MapFrom('open_issues')] public ?int $openIssues, public ?int $watchers, #[\EventSauce\ObjectHydrator\MapFrom('allow_forking')] public ?bool $allowForking, #[\EventSauce\ObjectHydrator\MapFrom('web_commit_signoff_required')] public ?bool $webCommitSignoffRequired, #[\EventSauce\ObjectHydrator\MapFrom('security_and_analysis')] public ?\ApiClients\Client\GitHub\Schema\SecurityAndAnalysis $securityAndAnalysis)
     {
     }
 }

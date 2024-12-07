@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "condition_type": {
@@ -52,9 +48,9 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "condition_type": {
         "from": "generated"
     },
@@ -74,9 +70,7 @@ final readonly class Changes
         ]
     }
 }';
-
-    public function __construct(#[MapFrom('condition_type')]
-    public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\ConditionType|null $conditionType, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Target|null $target, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Include_|null $include, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Exclude|null $exclude,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('condition_type')] public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\ConditionType $conditionType, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Target $target, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Include_ $include, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions\Updated\Changes\Exclude $exclude)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CopilotIdeChat;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Editors
+final readonly class Editors implements \ApiClients\Client\GitHub\Contract\CopilotIdeChat\Editors
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -62,9 +59,9 @@ final readonly class Editors
     },
     "description": "Copilot Chat metrics, for active editors."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Copilot Chat metrics, for active editors.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Copilot Chat metrics, for active editors.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "total_engaged_users": 19,
     "models": [
@@ -88,14 +85,12 @@ final readonly class Editors
         }
     ]
 }';
-
     /**
      * name: Name of the given editor.
      * totalEngagedUsers: The number of users who prompted Copilot Chat in the specified editor.
      * models: List of model metrics for custom models and the default model.
      */
-    public function __construct(public string|null $name, #[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, public array|null $models,)
+    public function __construct(public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, public ?array $models)
     {
     }
 }

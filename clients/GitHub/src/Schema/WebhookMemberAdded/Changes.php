@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMemberAdded;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookMemberAdded\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "permission": {
@@ -43,26 +39,24 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "permission": {
-        "to": "read"
+        "to": "write"
     },
     "role_name": {
         "to": "generated"
     }
 }';
-
     /**
-     * permission: This field is included for legacy purposes; use the `role_name` field instead. The `maintain`
+    * permission: This field is included for legacy purposes; use the `role_name` field instead. The `maintain`
     role is mapped to `write` and the `triage` role is mapped to `read`. To determine the role
     assigned to the collaborator, use the `role_name` field instead, which will provide the full
     role name, including custom roles.
-     * roleName: The role assigned to the collaborator.
-     */
-    public function __construct(public Schema\WebhookMemberAdded\Changes\Permission|null $permission, #[MapFrom('role_name')]
-    public Schema\WebhookMemberAdded\Changes\RoleName|null $roleName,)
+    * roleName: The role assigned to the collaborator.
+    */
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookMemberAdded\Changes\Permission $permission, #[\EventSauce\ObjectHydrator\MapFrom('role_name')] public ?\ApiClients\Client\GitHub\Schema\WebhookMemberAdded\Changes\RoleName $roleName)
     {
     }
 }

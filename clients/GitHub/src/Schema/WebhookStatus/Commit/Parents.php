@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus\Commit;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parents
+final readonly class Parents implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Commit\Parents
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "sha",
         "url",
@@ -29,16 +26,14 @@ final readonly class Parents
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "html_url": "https:\\/\\/example.com\\/",
     "sha": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(#[MapFrom('html_url')]
-    public string $htmlUrl, public string $sha, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public string $sha, public string $url)
     {
     }
 }

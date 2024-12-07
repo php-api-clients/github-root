@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\ReviewPatGrantRequestsInBulk\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\ReviewPatGrantRequestsInBulk\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "action"
     ],
@@ -41,9 +38,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "pat_request_ids": [
         16,
         17,
@@ -146,17 +143,15 @@ final readonly class ApplicationJson
         114,
         115
     ],
-    "action": "deny",
+    "action": "approve",
     "reason": "generated"
 }';
-
     /**
      * patRequestIds: Unique identifiers of the requests for access via fine-grained personal access token. Must be formed of between 1 and 100 `pat_request_id` values.
      * action: Action to apply to the requests.
      * reason: Reason for approving or denying the requests. Max 1024 characters.
      */
-    public function __construct(#[MapFrom('pat_request_ids')]
-    public array|null $patRequestIds, public string $action, public string|null $reason,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('pat_request_ids')] public ?array $patRequestIds, public string $action, public ?string $reason)
     {
     }
 }

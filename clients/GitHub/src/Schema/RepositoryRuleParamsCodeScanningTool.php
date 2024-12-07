@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRuleParamsCodeScanningTool
+final readonly class RepositoryRuleParamsCodeScanningTool implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsCodeScanningTool
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "CodeScanningTool",
     "required": [
         "alerts_threshold",
@@ -45,22 +42,19 @@ final readonly class RepositoryRuleParamsCodeScanningTool
     },
     "description": "A tool that must provide code scanning results for this rule to pass."
 }';
-    public const SCHEMA_TITLE        = 'CodeScanningTool';
-    public const SCHEMA_DESCRIPTION  = 'A tool that must provide code scanning results for this rule to pass.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "alerts_threshold": "all",
+    public const SCHEMA_TITLE = 'CodeScanningTool';
+    public const SCHEMA_DESCRIPTION = 'A tool that must provide code scanning results for this rule to pass.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "alerts_threshold": "none",
     "security_alerts_threshold": "none",
     "tool": "generated"
 }';
-
     /**
      * alertsThreshold: The severity level at which code scanning results that raise alerts block a reference update. For more information on alert severity levels, see "[About code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
      * securityAlertsThreshold: The severity level at which code scanning results that raise security alerts block a reference update. For more information on security severity levels, see "[About code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
      * tool: The name of a code scanning tool
      */
-    public function __construct(#[MapFrom('alerts_threshold')]
-    public string $alertsThreshold, #[MapFrom('security_alerts_threshold')]
-    public string $securityAlertsThreshold, public string $tool,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('alerts_threshold')] public string $alertsThreshold, #[\EventSauce\ObjectHydrator\MapFrom('security_alerts_threshold')] public string $securityAlertsThreshold, public string $tool)
     {
     }
 }

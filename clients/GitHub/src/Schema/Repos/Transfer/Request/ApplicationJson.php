@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\Transfer\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\Transfer\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "new_owner"
     ],
@@ -31,9 +28,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "new_owner": "generated",
     "new_name": "generated",
     "team_ids": [
@@ -41,16 +38,12 @@ final readonly class ApplicationJson
         10
     ]
 }';
-
     /**
      * newOwner: The username or organization name the repository will be transferred to.
      * newName: The new name to be given to the repository.
      * teamIds: ID of the team or teams to add to the repository. Teams can only be added to organization-owned repositories.
      */
-    public function __construct(#[MapFrom('new_owner')]
-    public string $newOwner, #[MapFrom('new_name')]
-    public string|null $newName, #[MapFrom('team_ids')]
-    public array|null $teamIds,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('new_owner')] public string $newOwner, #[\EventSauce\ObjectHydrator\MapFrom('new_name')] public ?string $newName, #[\EventSauce\ObjectHydrator\MapFrom('team_ids')] public ?array $teamIds)
     {
     }
 }

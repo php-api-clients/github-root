@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationIssueBody
+final readonly class SecretScanningLocationIssueBody implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationIssueBody
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "issue_body_url"
     ],
@@ -25,17 +22,15 @@ final readonly class SecretScanningLocationIssueBody
     },
     "description": "Represents an \'issue_body\' secret scanning location type. This location type shows that a secret was detected in the body of an issue."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents an \'issue_body\' secret scanning location type. This location type shows that a secret was detected in the body of an issue.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "issue_body_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/1347"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents an \'issue_body\' secret scanning location type. This location type shows that a secret was detected in the body of an issue.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "issue_body_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * issueBodyUrl: The API URL to get the issue where the secret was detected.
      */
-    public function __construct(#[MapFrom('issue_body_url')]
-    public string $issueBodyUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('issue_body_url')] public string $issueBodyUrl)
     {
     }
 }

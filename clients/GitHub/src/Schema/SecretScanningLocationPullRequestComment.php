@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationPullRequestComment
+final readonly class SecretScanningLocationPullRequestComment implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationPullRequestComment
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "pull_request_comment_url"
     ],
@@ -25,17 +22,15 @@ final readonly class SecretScanningLocationPullRequestComment
     },
     "description": "Represents a \'pull_request_comment\' secret scanning location type. This location type shows that a secret was detected in a comment on a pull request."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents a \'pull_request_comment\' secret scanning location type. This location type shows that a secret was detected in a comment on a pull request.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "pull_request_comment_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments\\/1081119451"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents a \'pull_request_comment\' secret scanning location type. This location type shows that a secret was detected in a comment on a pull request.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "pull_request_comment_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * pullRequestCommentUrl: The API URL to get the pull request comment where the secret was detected.
      */
-    public function __construct(#[MapFrom('pull_request_comment_url')]
-    public string $pullRequestCommentUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('pull_request_comment_url')] public string $pullRequestCommentUrl)
     {
     }
 }

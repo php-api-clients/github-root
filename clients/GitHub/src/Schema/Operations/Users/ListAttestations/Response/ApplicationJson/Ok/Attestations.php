@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Users\ListAttestations\Response\ApplicationJson\Ok;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Attestations
+final readonly class Attestations implements \ApiClients\Client\GitHub\Contract\Operations\Users\ListAttestations\Response\ApplicationJson\Ok\Attestations
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "bundle": {
@@ -129,9 +125,9 @@ final readonly class Attestations
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "bundle": {
         "mediaType": "generated",
         "verificationMaterial": {
@@ -198,12 +194,10 @@ final readonly class Attestations
     },
     "repository_id": 13
 }';
-
     /**
      * bundle: Sigstore Bundle v0.1
      */
-    public function __construct(public Schema\SigstoreBundle0|null $bundle, #[MapFrom('repository_id')]
-    public int|null $repositoryId,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\SigstoreBundle0 $bundle, #[\EventSauce\ObjectHydrator\MapFrom('repository_id')] public ?int $repositoryId)
     {
     }
 }

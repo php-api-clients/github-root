@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CombinedBillingUsage
+final readonly class CombinedBillingUsage implements \ApiClients\Client\GitHub\Contract\CombinedBillingUsage
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "days_left_in_billing_cycle",
         "estimated_paid_storage_for_month",
@@ -30,23 +27,19 @@ final readonly class CombinedBillingUsage
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "days_left_in_billing_cycle": 26,
     "estimated_paid_storage_for_month": 32,
     "estimated_storage_for_month": 27
 }';
-
     /**
      * daysLeftInBillingCycle: Numbers of days left in billing cycle.
      * estimatedPaidStorageForMonth: Estimated storage space (GB) used in billing cycle.
      * estimatedStorageForMonth: Estimated sum of free and paid storage space (GB) used in billing cycle.
      */
-    public function __construct(#[MapFrom('days_left_in_billing_cycle')]
-    public int $daysLeftInBillingCycle, #[MapFrom('estimated_paid_storage_for_month')]
-    public int $estimatedPaidStorageForMonth, #[MapFrom('estimated_storage_for_month')]
-    public int $estimatedStorageForMonth,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('days_left_in_billing_cycle')] public int $daysLeftInBillingCycle, #[\EventSauce\ObjectHydrator\MapFrom('estimated_paid_storage_for_month')] public int $estimatedPaidStorageForMonth, #[\EventSauce\ObjectHydrator\MapFrom('estimated_storage_for_month')] public int $estimatedStorageForMonth)
     {
     }
 }

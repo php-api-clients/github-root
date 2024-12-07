@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Feed;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\Feed\Links
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "timeline",
         "user"
@@ -191,9 +187,9 @@ final readonly class Links
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "timeline": {
         "href": "generated",
         "type": "generated"
@@ -241,7 +237,6 @@ final readonly class Links
         "type": "generated"
     }
 }';
-
     /**
      * timeline: Hypermedia Link with Type
      * user: Hypermedia Link with Type
@@ -253,15 +248,7 @@ final readonly class Links
      * repositoryDiscussions: Hypermedia Link with Type
      * repositoryDiscussionsCategory: Hypermedia Link with Type
      */
-    public function __construct(public Schema\LinkWithType $timeline, public Schema\LinkWithType $user, #[MapFrom('security_advisories')]
-    public Schema\LinkWithType|null $securityAdvisories, #[MapFrom('current_user')]
-    public Schema\LinkWithType|null $currentUser, #[MapFrom('current_user_public')]
-    public Schema\LinkWithType|null $currentUserPublic, #[MapFrom('current_user_actor')]
-    public Schema\LinkWithType|null $currentUserActor, #[MapFrom('current_user_organization')]
-    public Schema\LinkWithType|null $currentUserOrganization, #[MapFrom('current_user_organizations')]
-    public array|null $currentUserOrganizations, #[MapFrom('repository_discussions')]
-    public Schema\LinkWithType|null $repositoryDiscussions, #[MapFrom('repository_discussions_category')]
-    public Schema\LinkWithType|null $repositoryDiscussionsCategory,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\LinkWithType $timeline, public \ApiClients\Client\GitHub\Schema\LinkWithType $user, #[\EventSauce\ObjectHydrator\MapFrom('security_advisories')] public ?\ApiClients\Client\GitHub\Schema\LinkWithType $securityAdvisories, #[\EventSauce\ObjectHydrator\MapFrom('current_user')] public ?\ApiClients\Client\GitHub\Schema\LinkWithType $currentUser, #[\EventSauce\ObjectHydrator\MapFrom('current_user_public')] public ?\ApiClients\Client\GitHub\Schema\LinkWithType $currentUserPublic, #[\EventSauce\ObjectHydrator\MapFrom('current_user_actor')] public ?\ApiClients\Client\GitHub\Schema\LinkWithType $currentUserActor, #[\EventSauce\ObjectHydrator\MapFrom('current_user_organization')] public ?\ApiClients\Client\GitHub\Schema\LinkWithType $currentUserOrganization, #[\EventSauce\ObjectHydrator\MapFrom('current_user_organizations')] public ?array $currentUserOrganizations, #[\EventSauce\ObjectHydrator\MapFrom('repository_discussions')] public ?\ApiClients\Client\GitHub\Schema\LinkWithType $repositoryDiscussions, #[\EventSauce\ObjectHydrator\MapFrom('repository_discussions_category')] public ?\ApiClients\Client\GitHub\Schema\LinkWithType $repositoryDiscussionsCategory)
     {
     }
 }

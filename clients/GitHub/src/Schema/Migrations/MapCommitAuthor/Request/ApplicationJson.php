@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Migrations\MapCommitAuthor\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Migrations\MapCommitAuthor\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "email": {
@@ -20,18 +19,17 @@ final readonly class ApplicationJson
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "email": "generated",
     "name": "generated"
 }';
-
     /**
      * email: The new Git author email.
      * name: The new Git author name.
      */
-    public function __construct(public string|null $email, public string|null $name)
+    public function __construct(public ?string $email, public ?string $name)
     {
     }
 }

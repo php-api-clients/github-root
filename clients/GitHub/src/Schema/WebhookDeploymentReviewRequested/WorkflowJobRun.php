@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentReviewRequested;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WorkflowJobRun
+final readonly class WorkflowJobRun implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentReviewRequested\WorkflowJobRun
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "name",
@@ -52,9 +49,9 @@ final readonly class WorkflowJobRun
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "conclusion": "generated",
     "created_at": "generated",
     "environment": "generated",
@@ -64,11 +61,7 @@ final readonly class WorkflowJobRun
     "status": "generated",
     "updated_at": "generated"
 }';
-
-    public function __construct(public string $conclusion, #[MapFrom('created_at')]
-    public string $createdAt, public string $environment, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string|null $name, public string $status, #[MapFrom('updated_at')]
-    public string $updatedAt,)
+    public function __construct(public string $conclusion, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public string $environment, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public ?string $name, public string $status, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt)
     {
     }
 }

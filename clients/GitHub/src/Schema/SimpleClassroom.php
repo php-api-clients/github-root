@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SimpleClassroom
+final readonly class SimpleClassroom implements \ApiClients\Client\GitHub\Contract\SimpleClassroom
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Simple Classroom",
     "required": [
         "id",
@@ -47,15 +46,14 @@ final readonly class SimpleClassroom
     },
     "description": "A GitHub Classroom classroom"
 }';
-    public const SCHEMA_TITLE        = 'Simple Classroom';
-    public const SCHEMA_DESCRIPTION  = 'A GitHub Classroom classroom';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "name": "Programming Elixir",
+    public const SCHEMA_TITLE = 'Simple Classroom';
+    public const SCHEMA_DESCRIPTION = 'A GitHub Classroom classroom';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "name": "generated",
     "archived": false,
-    "url": "https:\\/\\/classroom.github.com\\/classrooms\\/1-programming-elixir"
+    "url": "generated"
 }';
-
     /**
      * id: Unique identifier of the classroom.
      * name: The name of the classroom.

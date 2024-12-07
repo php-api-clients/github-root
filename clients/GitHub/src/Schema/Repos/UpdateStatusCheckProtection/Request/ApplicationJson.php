@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateStatusCheckProtection\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateStatusCheckProtection\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "strict": {
@@ -43,9 +42,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "strict": false,
     "contexts": [
         "generated",
@@ -62,13 +61,12 @@ final readonly class ApplicationJson
         }
     ]
 }';
-
     /**
      * strict: Require branches to be up to date before merging.
      * contexts: **Closing down notice**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.
      * checks: The list of status checks to require in order to merge into this branch.
      */
-    public function __construct(public bool|null $strict, public array|null $contexts, public array|null $checks)
+    public function __construct(public ?bool $strict, public ?array $contexts, public ?array $checks)
     {
     }
 }

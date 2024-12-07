@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SecurityAdvisoryCreditTypes
+final readonly class SecurityAdvisoryCreditTypes implements \ApiClients\Client\GitHub\Contract\SecurityAdvisoryCreditTypes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "analyst",
         "finder",
@@ -22,10 +21,9 @@ final readonly class SecurityAdvisoryCreditTypes
     "type": "string",
     "description": "The type of credit the user is receiving."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The type of credit the user is receiving.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The type of credit the user is receiving.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

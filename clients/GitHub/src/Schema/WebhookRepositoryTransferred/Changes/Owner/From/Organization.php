@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner\From;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Organization
+final readonly class Organization implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryTransferred\Changes\Owner\From\Organization
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Organization",
     "required": [
         "login",
@@ -79,9 +76,9 @@ final readonly class Organization
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Organization';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Organization';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "avatar_url": "https:\\/\\/example.com\\/",
     "description": "generated",
     "events_url": "https:\\/\\/example.com\\/",
@@ -96,17 +93,7 @@ final readonly class Organization
     "repos_url": "https:\\/\\/example.com\\/",
     "url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(#[MapFrom('avatar_url')]
-    public string $avatarUrl, public string|null $description, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('hooks_url')]
-    public string $hooksUrl, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public int $id, #[MapFrom('issues_url')]
-    public string $issuesUrl, public string $login, #[MapFrom('members_url')]
-    public string $membersUrl, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('public_members_url')]
-    public string $publicMembersUrl, #[MapFrom('repos_url')]
-    public string $reposUrl, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public string $issuesUrl, public string $login, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public string $membersUrl, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('public_members_url')] public string $publicMembersUrl, #[\EventSauce\ObjectHydrator\MapFrom('repos_url')] public string $reposUrl, public string $url)
     {
     }
 }

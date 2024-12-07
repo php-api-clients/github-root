@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\EnvironmentApprovals;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Environments
+final readonly class Environments implements \ApiClients\Client\GitHub\Contract\EnvironmentApprovals\Environments
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -61,29 +58,24 @@ final readonly class Environments
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 56780428,
-    "node_id": "MDExOkVudmlyb25tZW50NTY3ODA0Mjg=",
-    "name": "staging",
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/environments\\/staging",
-    "html_url": "https:\\/\\/github.com\\/github\\/hello-world\\/deployments\\/activity_log?environments_filter=staging",
-    "created_at": "2020-11-23T22:00:40Z",
-    "updated_at": "2020-11-23T22:00:40Z"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "url": "generated",
+    "html_url": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * id: The id of the environment.
      * name: The name of the environment.
      * createdAt: The time that the environment was created, in ISO 8601 format.
      * updatedAt: The time that the environment was last updated, in ISO 8601 format.
      */
-    public function __construct(public int|null $id, #[MapFrom('node_id')]
-    public string|null $nodeId, public string|null $name, public string|null $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt,)
+    public function __construct(public ?int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, public ?string $name, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt)
     {
     }
 }

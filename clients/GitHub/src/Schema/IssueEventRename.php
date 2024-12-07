@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class IssueEventRename
+final readonly class IssueEventRename implements \ApiClients\Client\GitHub\Contract\IssueEventRename
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Issue Event Rename",
     "required": [
         "from",
@@ -23,13 +22,12 @@ final readonly class IssueEventRename
     },
     "description": "Issue Event Rename"
 }';
-    public const SCHEMA_TITLE        = 'Issue Event Rename';
-    public const SCHEMA_DESCRIPTION  = 'Issue Event Rename';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Issue Event Rename';
+    public const SCHEMA_DESCRIPTION = 'Issue Event Rename';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": "generated",
     "to": "generated"
 }';
-
     public function __construct(public string $from, public string $to)
     {
     }

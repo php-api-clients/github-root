@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksAnswer
+final readonly class WebhooksAnswer implements \ApiClients\Client\GitHub\Contract\WebhooksAnswer
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "node_id",
@@ -226,10 +222,10 @@ final readonly class WebhooksAnswer
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "author_association": "OWNER",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "child_comment_count": 19,
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -272,25 +268,15 @@ final readonly class WebhooksAnswer
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
     /**
      * authorAssociation: How the author is associated with the repository.
      */
-    public function __construct(#[MapFrom('author_association')]
-    public string $authorAssociation, public string $body, #[MapFrom('child_comment_count')]
-    public int $childCommentCount, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('discussion_id')]
-    public int $discussionId, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('parent_id')]
-    public string $parentId, public Schema\WebhooksAnswer\Reactions|null $reactions, #[MapFrom('repository_url')]
-    public string $repositoryUrl, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\WebhooksAnswer\User|null $user,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, public string $body, #[\EventSauce\ObjectHydrator\MapFrom('child_comment_count')] public int $childCommentCount, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('discussion_id')] public int $discussionId, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('parent_id')] public string $parentId, public ?\ApiClients\Client\GitHub\Schema\WebhooksAnswer\Reactions $reactions, #[\EventSauce\ObjectHydrator\MapFrom('repository_url')] public string $repositoryUrl, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public ?\ApiClients\Client\GitHub\Schema\WebhooksAnswer\User $user)
     {
     }
 }

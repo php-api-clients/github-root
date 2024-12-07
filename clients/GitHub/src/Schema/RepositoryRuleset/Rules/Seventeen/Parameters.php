@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Seventeen\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "restricted_file_extensions"
     ],
@@ -23,20 +20,18 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "restricted_file_extensions": [
         "generated",
         "generated"
     ]
 }';
-
     /**
      * restrictedFileExtensions: The file extensions that are restricted from being pushed to the commit graph.
      */
-    public function __construct(#[MapFrom('restricted_file_extensions')]
-    public array $restrictedFileExtensions,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('restricted_file_extensions')] public array $restrictedFileExtensions)
     {
     }
 }

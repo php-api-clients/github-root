@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesEdited;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookIssuesEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "body": {
@@ -38,9 +35,9 @@ final readonly class Changes
     },
     "description": "The changes to the issue."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The changes to the issue.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The changes to the issue.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "body": {
         "from": "generated"
     },
@@ -48,8 +45,7 @@ final readonly class Changes
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookIssuesEdited\Changes\Body|null $body, public Schema\WebhookIssuesEdited\Changes\Title|null $title)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesEdited\Changes\Body $body, public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesEdited\Changes\Title $title)
     {
     }
 }

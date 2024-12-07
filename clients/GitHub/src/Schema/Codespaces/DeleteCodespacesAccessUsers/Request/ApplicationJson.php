@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Codespaces\DeleteCodespacesAccessUsers\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\DeleteCodespacesAccessUsers\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "selected_usernames"
     ],
@@ -24,9 +21,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "selected_usernames": [
         "generated",
         "generated",
@@ -130,12 +127,10 @@ final readonly class ApplicationJson
         "generated"
     ]
 }';
-
     /**
      * selectedUsernames: The usernames of the organization members whose codespaces should not be billed to the organization.
      */
-    public function __construct(#[MapFrom('selected_usernames')]
-    public array $selectedUsernames,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('selected_usernames')] public array $selectedUsernames)
     {
     }
 }

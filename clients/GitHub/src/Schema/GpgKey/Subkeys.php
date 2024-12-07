@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\GpgKey;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Subkeys
+final readonly class Subkeys implements \ApiClients\Client\GitHub\Contract\GpgKey\Subkeys
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -74,9 +71,9 @@ final readonly class Subkeys
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "primary_key_id": 14,
     "key_id": "generated",
@@ -104,18 +101,7 @@ final readonly class Subkeys
     "raw_key": "generated",
     "revoked": false
 }';
-
-    public function __construct(public int|null $id, #[MapFrom('primary_key_id')]
-    public int|null $primaryKeyId, #[MapFrom('key_id')]
-    public string|null $keyId, #[MapFrom('public_key')]
-    public string|null $publicKey, public array|null $emails, public array|null $subkeys, #[MapFrom('can_sign')]
-    public bool|null $canSign, #[MapFrom('can_encrypt_comms')]
-    public bool|null $canEncryptComms, #[MapFrom('can_encrypt_storage')]
-    public bool|null $canEncryptStorage, #[MapFrom('can_certify')]
-    public bool|null $canCertify, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('expires_at')]
-    public string|null $expiresAt, #[MapFrom('raw_key')]
-    public string|null $rawKey, public bool|null $revoked,)
+    public function __construct(public ?int $id, #[\EventSauce\ObjectHydrator\MapFrom('primary_key_id')] public ?int $primaryKeyId, #[\EventSauce\ObjectHydrator\MapFrom('key_id')] public ?string $keyId, #[\EventSauce\ObjectHydrator\MapFrom('public_key')] public ?string $publicKey, public ?array $emails, public ?array $subkeys, #[\EventSauce\ObjectHydrator\MapFrom('can_sign')] public ?bool $canSign, #[\EventSauce\ObjectHydrator\MapFrom('can_encrypt_comms')] public ?bool $canEncryptComms, #[\EventSauce\ObjectHydrator\MapFrom('can_encrypt_storage')] public ?bool $canEncryptStorage, #[\EventSauce\ObjectHydrator\MapFrom('can_certify')] public ?bool $canCertify, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('expires_at')] public ?string $expiresAt, #[\EventSauce\ObjectHydrator\MapFrom('raw_key')] public ?string $rawKey, public ?bool $revoked)
     {
     }
 }

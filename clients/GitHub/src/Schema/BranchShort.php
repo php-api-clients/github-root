@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class BranchShort
+final readonly class BranchShort implements \ApiClients\Client\GitHub\Contract\BranchShort
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Branch Short",
     "required": [
         "name",
@@ -41,9 +38,9 @@ final readonly class BranchShort
     },
     "description": "Branch Short"
 }';
-    public const SCHEMA_TITLE        = 'Branch Short';
-    public const SCHEMA_DESCRIPTION  = 'Branch Short';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Branch Short';
+    public const SCHEMA_DESCRIPTION = 'Branch Short';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "commit": {
         "sha": "generated",
@@ -51,8 +48,7 @@ final readonly class BranchShort
     },
     "protected": false
 }';
-
-    public function __construct(public string $name, public Schema\BranchShort\Commit $commit, public bool $protected)
+    public function __construct(public string $name, public \ApiClients\Client\GitHub\Schema\BranchShort\Commit $commit, public bool $protected)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Users\CreatePublicSshKeyForAuthenticatedUser\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Users\CreatePublicSshKeyForAuthenticatedUser\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "key"
     ],
@@ -26,18 +25,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "title": "Personal MacBook Air",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "title": "generated",
     "key": "ecdsa-sha2-nistp521 "
 }';
-
     /**
      * title: A descriptive name for the new key.
      * key: The public SSH key to add to your GitHub account.
      */
-    public function __construct(public string|null $title, public string $key)
+    public function __construct(public ?string $title, public string $key)
     {
     }
 }

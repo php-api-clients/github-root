@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Pulls\Update\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\Update\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "title": {
@@ -37,16 +34,15 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "title": "generated",
     "body": "generated",
     "state": "open",
     "base": "generated",
     "maintainer_can_modify": false
 }';
-
     /**
      * title: The title of the pull request.
      * body: The contents of the pull request.
@@ -54,8 +50,7 @@ final readonly class ApplicationJson
      * base: The name of the branch you want your changes pulled into. This should be an existing branch on the current repository. You cannot update the base branch on a pull request to point to another repository.
      * maintainerCanModify: Indicates whether [maintainers can modify](https://docs.github.com/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork/) the pull request.
      */
-    public function __construct(public string|null $title, public string|null $body, public string|null $state, public string|null $base, #[MapFrom('maintainer_can_modify')]
-    public bool|null $maintainerCanModify,)
+    public function __construct(public ?string $title, public ?string $body, public ?string $state, public ?string $base, #[\EventSauce\ObjectHydrator\MapFrom('maintainer_can_modify')] public ?bool $maintainerCanModify)
     {
     }
 }

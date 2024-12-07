@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class DeploymentBranchPolicyNamePatternWithType
+final readonly class DeploymentBranchPolicyNamePatternWithType implements \ApiClients\Client\GitHub\Contract\DeploymentBranchPolicyNamePatternWithType
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Deployment branch and tag policy name pattern",
     "required": [
         "name"
@@ -33,21 +32,20 @@ final readonly class DeploymentBranchPolicyNamePatternWithType
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Deployment branch and tag policy name pattern';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "release\\/*",
+    public const SCHEMA_TITLE = 'Deployment branch and tag policy name pattern';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
     "type": "branch"
 }';
-
     /**
-     * name: The name pattern that branches or tags must match in order to deploy to the environment.
-
+    * name: The name pattern that branches or tags must match in order to deploy to the environment.
+    
     Wildcard characters will not match `/`. For example, to match branches that begin with `release/` and contain an additional single slash, use `release/*`.
     For more information about pattern matching syntax, see the [Ruby File.fnmatch documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
-     * type: Whether this rule targets a branch or tag
-     */
-    public function __construct(public string $name, public string|null $type)
+    * type: Whether this rule targets a branch or tag
+    */
+    public function __construct(public string $name, public ?string $type)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Commit;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parents
+final readonly class Parents implements \ApiClients\Client\GitHub\Contract\Commit\Parents
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "sha",
         "url"
@@ -37,16 +34,14 @@ final readonly class Parents
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "sha": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public string $sha, public string $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl,)
+    public function __construct(public string $sha, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Actions\ListOrgVariables\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Actions\ListOrgVariables\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "total_count",
         "variables"
@@ -83,32 +80,30 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_count": 11,
     "variables": [
         {
-            "name": "USERNAME",
-            "value": "octocat",
-            "created_at": "2019-01-24T22:45:36.000Z",
-            "updated_at": "2019-01-24T22:45:36.000Z",
-            "visibility": "selected",
-            "selected_repositories_url": "https:\\/\\/api.github.com\\/organizations\\/org\\/variables\\/USERNAME\\/repositories"
+            "name": "generated",
+            "value": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "visibility": "all",
+            "selected_repositories_url": "https:\\/\\/example.com\\/"
         },
         {
-            "name": "USERNAME",
-            "value": "octocat",
-            "created_at": "2019-01-24T22:45:36.000Z",
-            "updated_at": "2019-01-24T22:45:36.000Z",
-            "visibility": "selected",
-            "selected_repositories_url": "https:\\/\\/api.github.com\\/organizations\\/org\\/variables\\/USERNAME\\/repositories"
+            "name": "generated",
+            "value": "generated",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "visibility": "all",
+            "selected_repositories_url": "https:\\/\\/example.com\\/"
         }
     ]
 }';
-
-    public function __construct(#[MapFrom('total_count')]
-    public int $totalCount, public array $variables,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int $totalCount, public array $variables)
     {
     }
 }

@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\TopicSearchResultItem;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Related extends Schema\AliasAbstract\TietD9DFA38E\TietD9136D28\TietD1296A44\TietA1883F7A
+final readonly class Related extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TD9DFA38E\TD9136D28\TD1296A44\TA1883F7A
 {
 }

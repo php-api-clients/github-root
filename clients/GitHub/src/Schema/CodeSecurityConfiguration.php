@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeSecurityConfiguration
+final readonly class CodeSecurityConfiguration implements \ApiClients\Client\GitHub\Contract\CodeSecurityConfiguration
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -210,16 +206,16 @@ final readonly class CodeSecurityConfiguration
     },
     "description": "A code security configuration"
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'A code security configuration';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'A code security configuration';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "name": "generated",
     "target_type": "global",
     "description": "generated",
     "advanced_security": "enabled",
-    "dependency_graph": "not_set",
-    "dependency_graph_autosubmit_action": "not_set",
+    "dependency_graph": "enabled",
+    "dependency_graph_autosubmit_action": "enabled",
     "dependency_graph_autosubmit_action_options": {
         "labeled_runners": false
     },
@@ -228,7 +224,7 @@ final readonly class CodeSecurityConfiguration
     "code_scanning_default_setup": "enabled",
     "secret_scanning": "enabled",
     "secret_scanning_push_protection": "enabled",
-    "secret_scanning_delegated_bypass": "not_set",
+    "secret_scanning_delegated_bypass": "enabled",
     "secret_scanning_delegated_bypass_options": {
         "reviewers": [
             {
@@ -250,7 +246,6 @@ final readonly class CodeSecurityConfiguration
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * id: The ID of the code security configuration
      * name: The name of the code security configuration. Must be unique within the organization.
@@ -274,25 +269,7 @@ final readonly class CodeSecurityConfiguration
      * url: The URL of the configuration
      * htmlUrl: The URL of the configuration
      */
-    public function __construct(public int|null $id, public string|null $name, #[MapFrom('target_type')]
-    public string|null $targetType, public string|null $description, #[MapFrom('advanced_security')]
-    public string|null $advancedSecurity, #[MapFrom('dependency_graph')]
-    public string|null $dependencyGraph, #[MapFrom('dependency_graph_autosubmit_action')]
-    public string|null $dependencyGraphAutosubmitAction, #[MapFrom('dependency_graph_autosubmit_action_options')]
-    public Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions|null $dependencyGraphAutosubmitActionOptions, #[MapFrom('dependabot_alerts')]
-    public string|null $dependabotAlerts, #[MapFrom('dependabot_security_updates')]
-    public string|null $dependabotSecurityUpdates, #[MapFrom('code_scanning_default_setup')]
-    public string|null $codeScanningDefaultSetup, #[MapFrom('secret_scanning')]
-    public string|null $secretScanning, #[MapFrom('secret_scanning_push_protection')]
-    public string|null $secretScanningPushProtection, #[MapFrom('secret_scanning_delegated_bypass')]
-    public string|null $secretScanningDelegatedBypass, #[MapFrom('secret_scanning_delegated_bypass_options')]
-    public Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions|null $secretScanningDelegatedBypassOptions, #[MapFrom('secret_scanning_validity_checks')]
-    public string|null $secretScanningValidityChecks, #[MapFrom('secret_scanning_non_provider_patterns')]
-    public string|null $secretScanningNonProviderPatterns, #[MapFrom('private_vulnerability_reporting')]
-    public string|null $privateVulnerabilityReporting, public string|null $enforcement, public string|null $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt,)
+    public function __construct(public ?int $id, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('target_type')] public ?string $targetType, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('advanced_security')] public ?string $advancedSecurity, #[\EventSauce\ObjectHydrator\MapFrom('dependency_graph')] public ?string $dependencyGraph, #[\EventSauce\ObjectHydrator\MapFrom('dependency_graph_autosubmit_action')] public ?string $dependencyGraphAutosubmitAction, #[\EventSauce\ObjectHydrator\MapFrom('dependency_graph_autosubmit_action_options')] public ?\ApiClients\Client\GitHub\Schema\CodeSecurityConfiguration\DependencyGraphAutosubmitActionOptions $dependencyGraphAutosubmitActionOptions, #[\EventSauce\ObjectHydrator\MapFrom('dependabot_alerts')] public ?string $dependabotAlerts, #[\EventSauce\ObjectHydrator\MapFrom('dependabot_security_updates')] public ?string $dependabotSecurityUpdates, #[\EventSauce\ObjectHydrator\MapFrom('code_scanning_default_setup')] public ?string $codeScanningDefaultSetup, #[\EventSauce\ObjectHydrator\MapFrom('secret_scanning')] public ?string $secretScanning, #[\EventSauce\ObjectHydrator\MapFrom('secret_scanning_push_protection')] public ?string $secretScanningPushProtection, #[\EventSauce\ObjectHydrator\MapFrom('secret_scanning_delegated_bypass')] public ?string $secretScanningDelegatedBypass, #[\EventSauce\ObjectHydrator\MapFrom('secret_scanning_delegated_bypass_options')] public ?\ApiClients\Client\GitHub\Schema\CodeSecurityConfiguration\SecretScanningDelegatedBypassOptions $secretScanningDelegatedBypassOptions, #[\EventSauce\ObjectHydrator\MapFrom('secret_scanning_validity_checks')] public ?string $secretScanningValidityChecks, #[\EventSauce\ObjectHydrator\MapFrom('secret_scanning_non_provider_patterns')] public ?string $secretScanningNonProviderPatterns, #[\EventSauce\ObjectHydrator\MapFrom('private_vulnerability_reporting')] public ?string $privateVulnerabilityReporting, public ?string $enforcement, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt)
     {
     }
 }

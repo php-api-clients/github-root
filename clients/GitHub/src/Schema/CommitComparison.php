@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CommitComparison
+final readonly class CommitComparison implements \ApiClients\Client\GitHub\Contract\CommitComparison
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Commit Comparison",
     "required": [
         "url",
@@ -2345,37 +2341,37 @@ final readonly class CommitComparison
     },
     "description": "Commit Comparison"
 }';
-    public const SCHEMA_TITLE        = 'Commit Comparison';
-    public const SCHEMA_DESCRIPTION  = 'Commit Comparison';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/master...topic",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/compare\\/master...topic",
-    "permalink_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/compare\\/octocat:bbcd538c8e72b8c175046e27cc8f907076331401...octocat:0328041d1152db8ae77652d1618a02e57f745f17",
-    "diff_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/compare\\/master...topic.diff",
-    "patch_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/compare\\/master...topic.patch",
+    public const SCHEMA_TITLE = 'Commit Comparison';
+    public const SCHEMA_DESCRIPTION = 'Commit Comparison';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/",
+    "permalink_url": "https:\\/\\/example.com\\/",
+    "diff_url": "https:\\/\\/example.com\\/",
+    "patch_url": "https:\\/\\/example.com\\/",
     "base_commit": {
-        "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
-        "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "comments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/comments",
+        "url": "https:\\/\\/example.com\\/",
+        "sha": "generated",
+        "node_id": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "comments_url": "https:\\/\\/example.com\\/",
         "commit": {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "url": "https:\\/\\/example.com\\/",
             "author": {
-                "name": "\\"Chris Wanstrath\\"",
-                "email": "\\"chris@ozmm.org\\"",
-                "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                "name": "generated",
+                "email": "generated",
+                "date": "generated"
             },
             "committer": {
-                "name": "\\"Chris Wanstrath\\"",
-                "email": "\\"chris@ozmm.org\\"",
-                "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                "name": "generated",
+                "email": "generated",
+                "date": "generated"
             },
-            "message": "Fix all the bugs",
-            "comment_count": 0,
+            "message": "generated",
+            "comment_count": 13,
             "tree": {
-                "sha": "827efc6d56897b048c772eb4087f854f46256132",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/"
             },
             "verification": {
                 "verified": false,
@@ -2385,18 +2381,18 @@ final readonly class CommitComparison
                 "verified_at": "generated"
             }
         },
-        "author": null,
-        "committer": null,
+        "author": [],
+        "committer": [],
         "parents": [
             {
-                "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/"
             },
             {
-                "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/"
             }
         ],
         "stats": {
@@ -2406,56 +2402,56 @@ final readonly class CommitComparison
         },
         "files": [
             {
-                "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                "filename": "file1.txt",
+                "sha": "generated",
+                "filename": "generated",
                 "status": "added",
-                "additions": 103,
-                "deletions": 21,
-                "changes": 124,
-                "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                "previous_filename": "file.txt"
+                "additions": 9,
+                "deletions": 9,
+                "changes": 7,
+                "blob_url": "https:\\/\\/example.com\\/",
+                "raw_url": "https:\\/\\/example.com\\/",
+                "contents_url": "https:\\/\\/example.com\\/",
+                "patch": "generated",
+                "previous_filename": "generated"
             },
             {
-                "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                "filename": "file1.txt",
+                "sha": "generated",
+                "filename": "generated",
                 "status": "added",
-                "additions": 103,
-                "deletions": 21,
-                "changes": 124,
-                "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                "previous_filename": "file.txt"
+                "additions": 9,
+                "deletions": 9,
+                "changes": 7,
+                "blob_url": "https:\\/\\/example.com\\/",
+                "raw_url": "https:\\/\\/example.com\\/",
+                "contents_url": "https:\\/\\/example.com\\/",
+                "patch": "generated",
+                "previous_filename": "generated"
             }
         ]
     },
     "merge_base_commit": {
-        "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
-        "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-        "comments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/comments",
+        "url": "https:\\/\\/example.com\\/",
+        "sha": "generated",
+        "node_id": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "comments_url": "https:\\/\\/example.com\\/",
         "commit": {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+            "url": "https:\\/\\/example.com\\/",
             "author": {
-                "name": "\\"Chris Wanstrath\\"",
-                "email": "\\"chris@ozmm.org\\"",
-                "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                "name": "generated",
+                "email": "generated",
+                "date": "generated"
             },
             "committer": {
-                "name": "\\"Chris Wanstrath\\"",
-                "email": "\\"chris@ozmm.org\\"",
-                "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                "name": "generated",
+                "email": "generated",
+                "date": "generated"
             },
-            "message": "Fix all the bugs",
-            "comment_count": 0,
+            "message": "generated",
+            "comment_count": 13,
             "tree": {
-                "sha": "827efc6d56897b048c772eb4087f854f46256132",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/"
             },
             "verification": {
                 "verified": false,
@@ -2465,18 +2461,18 @@ final readonly class CommitComparison
                 "verified_at": "generated"
             }
         },
-        "author": null,
-        "committer": null,
+        "author": [],
+        "committer": [],
         "parents": [
             {
-                "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/"
             },
             {
-                "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                "sha": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/"
             }
         ],
         "stats": {
@@ -2486,61 +2482,61 @@ final readonly class CommitComparison
         },
         "files": [
             {
-                "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                "filename": "file1.txt",
+                "sha": "generated",
+                "filename": "generated",
                 "status": "added",
-                "additions": 103,
-                "deletions": 21,
-                "changes": 124,
-                "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                "previous_filename": "file.txt"
+                "additions": 9,
+                "deletions": 9,
+                "changes": 7,
+                "blob_url": "https:\\/\\/example.com\\/",
+                "raw_url": "https:\\/\\/example.com\\/",
+                "contents_url": "https:\\/\\/example.com\\/",
+                "patch": "generated",
+                "previous_filename": "generated"
             },
             {
-                "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                "filename": "file1.txt",
+                "sha": "generated",
+                "filename": "generated",
                 "status": "added",
-                "additions": 103,
-                "deletions": 21,
-                "changes": 124,
-                "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                "previous_filename": "file.txt"
+                "additions": 9,
+                "deletions": 9,
+                "changes": 7,
+                "blob_url": "https:\\/\\/example.com\\/",
+                "raw_url": "https:\\/\\/example.com\\/",
+                "contents_url": "https:\\/\\/example.com\\/",
+                "patch": "generated",
+                "previous_filename": "generated"
             }
         ]
     },
-    "status": "ahead",
-    "ahead_by": 4,
-    "behind_by": 5,
-    "total_commits": 6,
+    "status": "diverged",
+    "ahead_by": 8,
+    "behind_by": 9,
+    "total_commits": 13,
     "commits": [
         {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
-            "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "comments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/comments",
+            "url": "https:\\/\\/example.com\\/",
+            "sha": "generated",
+            "node_id": "generated",
+            "html_url": "https:\\/\\/example.com\\/",
+            "comments_url": "https:\\/\\/example.com\\/",
             "commit": {
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                "url": "https:\\/\\/example.com\\/",
                 "author": {
-                    "name": "\\"Chris Wanstrath\\"",
-                    "email": "\\"chris@ozmm.org\\"",
-                    "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                    "name": "generated",
+                    "email": "generated",
+                    "date": "generated"
                 },
                 "committer": {
-                    "name": "\\"Chris Wanstrath\\"",
-                    "email": "\\"chris@ozmm.org\\"",
-                    "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                    "name": "generated",
+                    "email": "generated",
+                    "date": "generated"
                 },
-                "message": "Fix all the bugs",
-                "comment_count": 0,
+                "message": "generated",
+                "comment_count": 13,
                 "tree": {
-                    "sha": "827efc6d56897b048c772eb4087f854f46256132",
-                    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"
+                    "sha": "generated",
+                    "url": "https:\\/\\/example.com\\/"
                 },
                 "verification": {
                     "verified": false,
@@ -2550,18 +2546,18 @@ final readonly class CommitComparison
                     "verified_at": "generated"
                 }
             },
-            "author": null,
-            "committer": null,
+            "author": [],
+            "committer": [],
             "parents": [
                 {
-                    "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                    "sha": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "html_url": "https:\\/\\/example.com\\/"
                 },
                 {
-                    "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                    "sha": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "html_url": "https:\\/\\/example.com\\/"
                 }
             ],
             "stats": {
@@ -2571,56 +2567,56 @@ final readonly class CommitComparison
             },
             "files": [
                 {
-                    "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                    "filename": "file1.txt",
+                    "sha": "generated",
+                    "filename": "generated",
                     "status": "added",
-                    "additions": 103,
-                    "deletions": 21,
-                    "changes": 124,
-                    "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                    "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                    "previous_filename": "file.txt"
+                    "additions": 9,
+                    "deletions": 9,
+                    "changes": 7,
+                    "blob_url": "https:\\/\\/example.com\\/",
+                    "raw_url": "https:\\/\\/example.com\\/",
+                    "contents_url": "https:\\/\\/example.com\\/",
+                    "patch": "generated",
+                    "previous_filename": "generated"
                 },
                 {
-                    "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                    "filename": "file1.txt",
+                    "sha": "generated",
+                    "filename": "generated",
                     "status": "added",
-                    "additions": 103,
-                    "deletions": 21,
-                    "changes": 124,
-                    "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                    "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                    "previous_filename": "file.txt"
+                    "additions": 9,
+                    "deletions": 9,
+                    "changes": 7,
+                    "blob_url": "https:\\/\\/example.com\\/",
+                    "raw_url": "https:\\/\\/example.com\\/",
+                    "contents_url": "https:\\/\\/example.com\\/",
+                    "patch": "generated",
+                    "previous_filename": "generated"
                 }
             ]
         },
         {
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
-            "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "comments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/comments",
+            "url": "https:\\/\\/example.com\\/",
+            "sha": "generated",
+            "node_id": "generated",
+            "html_url": "https:\\/\\/example.com\\/",
+            "comments_url": "https:\\/\\/example.com\\/",
             "commit": {
-                "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+                "url": "https:\\/\\/example.com\\/",
                 "author": {
-                    "name": "\\"Chris Wanstrath\\"",
-                    "email": "\\"chris@ozmm.org\\"",
-                    "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                    "name": "generated",
+                    "email": "generated",
+                    "date": "generated"
                 },
                 "committer": {
-                    "name": "\\"Chris Wanstrath\\"",
-                    "email": "\\"chris@ozmm.org\\"",
-                    "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+                    "name": "generated",
+                    "email": "generated",
+                    "date": "generated"
                 },
-                "message": "Fix all the bugs",
-                "comment_count": 0,
+                "message": "generated",
+                "comment_count": 13,
                 "tree": {
-                    "sha": "827efc6d56897b048c772eb4087f854f46256132",
-                    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tree\\/827efc6d56897b048c772eb4087f854f46256132"
+                    "sha": "generated",
+                    "url": "https:\\/\\/example.com\\/"
                 },
                 "verification": {
                     "verified": false,
@@ -2630,18 +2626,18 @@ final readonly class CommitComparison
                     "verified_at": "generated"
                 }
             },
-            "author": null,
-            "committer": null,
+            "author": [],
+            "committer": [],
             "parents": [
                 {
-                    "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                    "sha": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "html_url": "https:\\/\\/example.com\\/"
                 },
                 {
-                    "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits\\/7638417db6d59f3c431d3e1f261cc637155684cd",
-                    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/commit\\/7638417db6d59f3c431d3e1f261cc637155684cd"
+                    "sha": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "html_url": "https:\\/\\/example.com\\/"
                 }
             ],
             "stats": {
@@ -2651,78 +2647,68 @@ final readonly class CommitComparison
             },
             "files": [
                 {
-                    "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                    "filename": "file1.txt",
+                    "sha": "generated",
+                    "filename": "generated",
                     "status": "added",
-                    "additions": 103,
-                    "deletions": 21,
-                    "changes": 124,
-                    "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                    "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                    "previous_filename": "file.txt"
+                    "additions": 9,
+                    "deletions": 9,
+                    "changes": 7,
+                    "blob_url": "https:\\/\\/example.com\\/",
+                    "raw_url": "https:\\/\\/example.com\\/",
+                    "contents_url": "https:\\/\\/example.com\\/",
+                    "patch": "generated",
+                    "previous_filename": "generated"
                 },
                 {
-                    "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-                    "filename": "file1.txt",
+                    "sha": "generated",
+                    "filename": "generated",
                     "status": "added",
-                    "additions": 103,
-                    "deletions": 21,
-                    "changes": 124,
-                    "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-                    "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-                    "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-                    "previous_filename": "file.txt"
+                    "additions": 9,
+                    "deletions": 9,
+                    "changes": 7,
+                    "blob_url": "https:\\/\\/example.com\\/",
+                    "raw_url": "https:\\/\\/example.com\\/",
+                    "contents_url": "https:\\/\\/example.com\\/",
+                    "patch": "generated",
+                    "previous_filename": "generated"
                 }
             ]
         }
     ],
     "files": [
         {
-            "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-            "filename": "file1.txt",
+            "sha": "generated",
+            "filename": "generated",
             "status": "added",
-            "additions": 103,
-            "deletions": 21,
-            "changes": 124,
-            "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-            "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-            "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-            "previous_filename": "file.txt"
+            "additions": 9,
+            "deletions": 9,
+            "changes": 7,
+            "blob_url": "https:\\/\\/example.com\\/",
+            "raw_url": "https:\\/\\/example.com\\/",
+            "contents_url": "https:\\/\\/example.com\\/",
+            "patch": "generated",
+            "previous_filename": "generated"
         },
         {
-            "sha": "bbcd538c8e72b8c175046e27cc8f907076331401",
-            "filename": "file1.txt",
+            "sha": "generated",
+            "filename": "generated",
             "status": "added",
-            "additions": 103,
-            "deletions": 21,
-            "changes": 124,
-            "blob_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/blob\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-            "raw_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/raw\\/6dcb09b5b57875f334f61aebed695e2e4193db5e\\/file1.txt",
-            "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/file1.txt?ref=6dcb09b5b57875f334f61aebed695e2e4193db5e",
-            "patch": "@@ -132,7 +132,7 @@ module Test @@ -1000,7 +1000,7 @@ module Test",
-            "previous_filename": "file.txt"
+            "additions": 9,
+            "deletions": 9,
+            "changes": 7,
+            "blob_url": "https:\\/\\/example.com\\/",
+            "raw_url": "https:\\/\\/example.com\\/",
+            "contents_url": "https:\\/\\/example.com\\/",
+            "patch": "generated",
+            "previous_filename": "generated"
         }
     ]
 }';
-
     /**
      * baseCommit: Commit
      * mergeBaseCommit: Commit
      */
-    public function __construct(public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('permalink_url')]
-    public string $permalinkUrl, #[MapFrom('diff_url')]
-    public string $diffUrl, #[MapFrom('patch_url')]
-    public string $patchUrl, #[MapFrom('base_commit')]
-    public Schema\Commit $baseCommit, #[MapFrom('merge_base_commit')]
-    public Schema\Commit $mergeBaseCommit, public string $status, #[MapFrom('ahead_by')]
-    public int $aheadBy, #[MapFrom('behind_by')]
-    public int $behindBy, #[MapFrom('total_commits')]
-    public int $totalCommits, public array $commits, public array|null $files,)
+    public function __construct(public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('permalink_url')] public string $permalinkUrl, #[\EventSauce\ObjectHydrator\MapFrom('diff_url')] public string $diffUrl, #[\EventSauce\ObjectHydrator\MapFrom('patch_url')] public string $patchUrl, #[\EventSauce\ObjectHydrator\MapFrom('base_commit')] public \ApiClients\Client\GitHub\Schema\Commit $baseCommit, #[\EventSauce\ObjectHydrator\MapFrom('merge_base_commit')] public \ApiClients\Client\GitHub\Schema\Commit $mergeBaseCommit, public string $status, #[\EventSauce\ObjectHydrator\MapFrom('ahead_by')] public int $aheadBy, #[\EventSauce\ObjectHydrator\MapFrom('behind_by')] public int $behindBy, #[\EventSauce\ObjectHydrator\MapFrom('total_commits')] public int $totalCommits, public array $commits, public ?array $files)
     {
     }
 }

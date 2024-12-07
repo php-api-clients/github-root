@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes;
 
-final readonly class Privacy
+final readonly class Privacy implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\Privacy
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "from"
     ],
@@ -18,12 +17,11 @@ final readonly class Privacy
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": "generated"
 }';
-
     /**
      * from: The previous version of the team's privacy if the action was `edited`.
      */

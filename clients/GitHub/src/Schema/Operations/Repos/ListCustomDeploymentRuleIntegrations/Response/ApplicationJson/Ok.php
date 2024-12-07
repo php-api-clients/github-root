@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Repos\ListCustomDeploymentRuleIntegrations\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Repos\ListCustomDeploymentRuleIntegrations\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "total_count": {
@@ -64,32 +61,29 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 35,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "total_count": 11,
     "available_custom_deployment_protection_rule_integrations": [
         {
-            "id": 3515,
-            "slug": "my-custom-app",
-            "integration_url": "https:\\/\\/api.github.com\\/apps\\/custom-app-slug",
-            "node_id": "MDQ6R2F0ZTM1MTU="
+            "id": 2,
+            "slug": "generated",
+            "integration_url": "generated",
+            "node_id": "generated"
         },
         {
-            "id": 3515,
-            "slug": "my-custom-app",
-            "integration_url": "https:\\/\\/api.github.com\\/apps\\/custom-app-slug",
-            "node_id": "MDQ6R2F0ZTM1MTU="
+            "id": 2,
+            "slug": "generated",
+            "integration_url": "generated",
+            "node_id": "generated"
         }
     ]
 }';
-
     /**
      * totalCount: The total number of custom deployment protection rule integrations available for this environment.
      */
-    public function __construct(#[MapFrom('total_count')]
-    public int|null $totalCount, #[MapFrom('available_custom_deployment_protection_rule_integrations')]
-    public array|null $availableCustomDeploymentProtectionRuleIntegrations,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public ?int $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('available_custom_deployment_protection_rule_integrations')] public ?array $availableCustomDeploymentProtectionRuleIntegrations)
     {
     }
 }

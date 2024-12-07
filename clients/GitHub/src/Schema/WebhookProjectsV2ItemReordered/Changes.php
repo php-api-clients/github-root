@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemReordered;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemReordered\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "previous_projects_v2_item_node_id": {
@@ -31,17 +27,15 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "previous_projects_v2_item_node_id": {
         "from": "generated",
         "to": "generated"
     }
 }';
-
-    public function __construct(#[MapFrom('previous_projects_v2_item_node_id')]
-    public Schema\WebhookProjectsV2ItemReordered\Changes\PreviousProjectsVTwoItemNodeId|null $previousProjectsVTwoItemNodeId,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('previous_projects_v2_item_node_id')] public ?\ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemReordered\Changes\PreviousProjectsVTwoItemNodeId $previousProjectsVTwoItemNodeId)
     {
     }
 }

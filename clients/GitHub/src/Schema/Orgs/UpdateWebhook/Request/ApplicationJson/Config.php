@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\UpdateWebhook\Request\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Config
+final readonly class Config implements \ApiClients\Client\GitHub\Contract\Orgs\UpdateWebhook\Request\ApplicationJson\Config
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "url"
     ],
@@ -53,23 +50,20 @@ final readonly class Config
     },
     "description": "Key\\/value pairs to provide settings for this webhook."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Key/value pairs to provide settings for this webhook.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/example.com\\/webhook",
-    "content_type": "\\"json\\"",
-    "secret": "\\"********\\"",
-    "insecure_ssl": null
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Key/value pairs to provide settings for this webhook.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "url": "https:\\/\\/example.com\\/",
+    "content_type": "generated",
+    "secret": "generated",
+    "insecure_ssl": 14
 }';
-
     /**
      * url: The URL to which the payloads will be delivered.
      * contentType: The media type used to serialize the payloads. Supported values include `json` and `form`. The default is `form`.
      * secret: If provided, the `secret` will be used as the `key` to generate the HMAC hex digest value for [delivery signature headers](https://docs.github.com/webhooks/event-payloads/#delivery-headers).
      */
-    public function __construct(public string $url, #[MapFrom('content_type')]
-    public string|null $contentType, public string|null $secret, #[MapFrom('insecure_ssl')]
-    public string|int|float|null $insecureSsl,)
+    public function __construct(public string $url, #[\EventSauce\ObjectHydrator\MapFrom('content_type')] public ?string $contentType, public ?string $secret, #[\EventSauce\ObjectHydrator\MapFrom('insecure_ssl')] public null|string|int|float $insecureSsl)
     {
     }
 }

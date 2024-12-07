@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class PullRequestMergeResult
+final readonly class PullRequestMergeResult implements \ApiClients\Client\GitHub\Contract\PullRequestMergeResult
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Pull Request Merge Result",
     "required": [
         "merged",
@@ -27,14 +26,13 @@ final readonly class PullRequestMergeResult
     },
     "description": "Pull Request Merge Result"
 }';
-    public const SCHEMA_TITLE        = 'Pull Request Merge Result';
-    public const SCHEMA_DESCRIPTION  = 'Pull Request Merge Result';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Pull Request Merge Result';
+    public const SCHEMA_DESCRIPTION = 'Pull Request Merge Result';
+    const SCHEMA_EXAMPLE_DATA = '{
     "sha": "generated",
     "merged": false,
     "message": "generated"
 }';
-
     public function __construct(public string $sha, public bool $merged, public string $message)
     {
     }

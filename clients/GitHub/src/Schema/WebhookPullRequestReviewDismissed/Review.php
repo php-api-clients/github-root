@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewDismissed;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Review
+final readonly class Review implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewDismissed\Review
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "node_id",
@@ -217,9 +213,9 @@ final readonly class Review
     },
     "description": "The review that was affected."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The review that was affected.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The review that was affected.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "_links": {
         "html": {
             "href": "generated"
@@ -228,7 +224,7 @@ final readonly class Review
             "href": "generated"
         }
     },
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "commit_id": "generated",
     "html_url": "https:\\/\\/example.com\\/",
@@ -257,26 +253,18 @@ final readonly class Review
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Mannequin",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
     /**
      * authorAssociation: How the author is associated with the repository.
      * body: The text of the review.
      * commitId: A commit SHA for the review.
      * id: Unique identifier of the review
      */
-    public function __construct(#[MapFrom('_links')]
-    public Schema\WebhookPullRequestReviewDismissed\Review\Links $links, #[MapFrom('author_association')]
-    public string $authorAssociation, public string|null $body, #[MapFrom('commit_id')]
-    public string $commitId, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('pull_request_url')]
-    public string $pullRequestUrl, public string $state, #[MapFrom('submitted_at')]
-    public string $submittedAt, public Schema\WebhookPullRequestReviewDismissed\Review\User|null $user,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewDismissed\Review\Links $links, #[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, public ?string $body, #[\EventSauce\ObjectHydrator\MapFrom('commit_id')] public string $commitId, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('pull_request_url')] public string $pullRequestUrl, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('submitted_at')] public string $submittedAt, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewDismissed\Review\User $user)
     {
     }
 }

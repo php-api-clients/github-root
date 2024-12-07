@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertSeverity
+final readonly class CodeScanningAlertSeverity implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertSeverity
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "critical",
         "high",
@@ -19,10 +18,9 @@ final readonly class CodeScanningAlertSeverity
     "type": "string",
     "description": "Severity of a code scanning alert."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Severity of a code scanning alert.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Severity of a code scanning alert.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

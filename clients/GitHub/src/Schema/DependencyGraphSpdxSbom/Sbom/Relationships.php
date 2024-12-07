@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom\Sbom;
 
-final readonly class Relationships
+final readonly class Relationships implements \ApiClients\Client\GitHub\Contract\DependencyGraphSpdxSbom\Sbom\Relationships
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "relationshipType": {
@@ -26,20 +25,19 @@ final readonly class Relationships
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "relationshipType": "DEPENDS_ON",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "relationshipType": "generated",
     "spdxElementId": "generated",
     "relatedSpdxElement": "generated"
 }';
-
     /**
      * relationshipType: The type of relationship between the two SPDX elements.
      * spdxElementId: The SPDX identifier of the package that is the source of the relationship.
      * relatedSpdxElement: The SPDX identifier of the package that is the target of the relationship.
      */
-    public function __construct(public string|null $relationshipType, public string|null $spdxElementId, public string|null $relatedSpdxElement)
+    public function __construct(public ?string $relationshipType, public ?string $spdxElementId, public ?string $relatedSpdxElement)
     {
     }
 }

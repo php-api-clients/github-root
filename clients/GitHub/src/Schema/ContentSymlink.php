@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ContentSymlink
+final readonly class ContentSymlink implements \ApiClients\Client\GitHub\Contract\ContentSymlink
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Symlink Content",
     "required": [
         "_links",
@@ -103,9 +99,9 @@ final readonly class ContentSymlink
     },
     "description": "An object describing a symlink"
 }';
-    public const SCHEMA_TITLE        = 'Symlink Content';
-    public const SCHEMA_DESCRIPTION  = 'An object describing a symlink';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Symlink Content';
+    public const SCHEMA_DESCRIPTION = 'An object describing a symlink';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "symlink",
     "target": "generated",
     "size": 4,
@@ -122,12 +118,7 @@ final readonly class ContentSymlink
         "self": "https:\\/\\/example.com\\/"
     }
 }';
-
-    public function __construct(public string $type, public string $target, public int $size, public string $name, public string $path, public string $sha, public string $url, #[MapFrom('git_url')]
-    public string|null $gitUrl, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('download_url')]
-    public string|null $downloadUrl, #[MapFrom('_links')]
-    public Schema\ContentSymlink\Links $links,)
+    public function __construct(public string $type, public string $target, public int $size, public string $name, public string $path, public string $sha, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public ?string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('download_url')] public ?string $downloadUrl, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\ContentSymlink\Links $links)
     {
     }
 }

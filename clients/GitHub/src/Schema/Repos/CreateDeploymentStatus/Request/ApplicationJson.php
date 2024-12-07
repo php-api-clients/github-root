@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateDeploymentStatus\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateDeploymentStatus\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "state"
     ],
@@ -57,9 +54,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "state": "error",
     "target_url": "generated",
     "log_url": "generated",
@@ -68,24 +65,19 @@ final readonly class ApplicationJson
     "environment_url": "generated",
     "auto_inactive": false
 }';
-
     /**
-     * state: The state of the status. When you set a transient deployment to `inactive`, the deployment will be shown as `destroyed` in GitHub.
-     * targetUrl: The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.
-
+    * state: The state of the status. When you set a transient deployment to `inactive`, the deployment will be shown as `destroyed` in GitHub.
+    * targetUrl: The target URL to associate with this status. This URL should contain output to keep the user updated while the task is running or serve as historical information for what happened in the deployment.
+    
     > [!NOTE]
     > It's recommended to use the `log_url` parameter, which replaces `target_url`.
-     * logUrl: The full URL of the deployment's output. This parameter replaces `target_url`. We will continue to accept `target_url` to support legacy uses, but we recommend replacing `target_url` with `log_url`. Setting `log_url` will automatically set `target_url` to the same value. Default: `""`
-     * description: A short description of the status. The maximum description length is 140 characters.
-     * environment: Name for the target deployment environment, which can be changed when setting a deploy status. For example, `production`, `staging`, or `qa`. If not defined, the environment of the previous status on the deployment will be used, if it exists. Otherwise, the environment of the deployment will be used.
-     * environmentUrl: Sets the URL for accessing your environment. Default: `""`
-     * autoInactive: Adds a new `inactive` status to all prior non-transient, non-production environment deployments with the same repository and `environment` name as the created status's deployment. An `inactive` status is only added to deployments that had a `success` state. Default: `true`
-     */
-    public function __construct(public string $state, #[MapFrom('target_url')]
-    public string|null $targetUrl, #[MapFrom('log_url')]
-    public string|null $logUrl, public string|null $description, public string|null $environment, #[MapFrom('environment_url')]
-    public string|null $environmentUrl, #[MapFrom('auto_inactive')]
-    public bool|null $autoInactive,)
+    * logUrl: The full URL of the deployment's output. This parameter replaces `target_url`. We will continue to accept `target_url` to support legacy uses, but we recommend replacing `target_url` with `log_url`. Setting `log_url` will automatically set `target_url` to the same value. Default: `""`
+    * description: A short description of the status. The maximum description length is 140 characters.
+    * environment: Name for the target deployment environment, which can be changed when setting a deploy status. For example, `production`, `staging`, or `qa`. If not defined, the environment of the previous status on the deployment will be used, if it exists. Otherwise, the environment of the deployment will be used.
+    * environmentUrl: Sets the URL for accessing your environment. Default: `""`
+    * autoInactive: Adds a new `inactive` status to all prior non-transient, non-production environment deployments with the same repository and `environment` name as the created status's deployment. An `inactive` status is only added to deployments that had a `success` state. Default: `true`
+    */
+    public function __construct(public string $state, #[\EventSauce\ObjectHydrator\MapFrom('target_url')] public ?string $targetUrl, #[\EventSauce\ObjectHydrator\MapFrom('log_url')] public ?string $logUrl, public ?string $description, public ?string $environment, #[\EventSauce\ObjectHydrator\MapFrom('environment_url')] public ?string $environmentUrl, #[\EventSauce\ObjectHydrator\MapFrom('auto_inactive')] public ?bool $autoInactive)
     {
     }
 }

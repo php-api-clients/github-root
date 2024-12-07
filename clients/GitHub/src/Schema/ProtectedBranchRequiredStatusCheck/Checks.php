@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\ProtectedBranchRequiredStatusCheck;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Checks
+final readonly class Checks implements \ApiClients\Client\GitHub\Contract\ProtectedBranchRequiredStatusCheck\Checks
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "context",
         "app_id"
@@ -26,15 +23,13 @@ final readonly class Checks
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "context": "generated",
     "app_id": 6
 }';
-
-    public function __construct(public string $context, #[MapFrom('app_id')]
-    public int|null $appId,)
+    public function __construct(public string $context, #[\EventSauce\ObjectHydrator\MapFrom('app_id')] public ?int $appId)
     {
     }
 }

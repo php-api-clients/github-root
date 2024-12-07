@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMarketplacePurchasePendingChangeCancelled;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class MarketplacePurchase
+final readonly class MarketplacePurchase implements \ApiClients\Client\GitHub\Contract\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Marketplace Purchase",
     "required": [
         "account",
@@ -128,9 +124,9 @@ final readonly class MarketplacePurchase
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Marketplace Purchase';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Marketplace Purchase';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "account": {
         "id": 2,
         "login": "generated",
@@ -158,13 +154,7 @@ final readonly class MarketplacePurchase
     },
     "unit_count": 10
 }';
-
-    public function __construct(public Schema\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase\Account $account, #[MapFrom('billing_cycle')]
-    public string $billingCycle, #[MapFrom('free_trial_ends_on')]
-    public string $freeTrialEndsOn, #[MapFrom('next_billing_date')]
-    public string|null $nextBillingDate, #[MapFrom('on_free_trial')]
-    public bool $onFreeTrial, public Schema\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase\Plan $plan, #[MapFrom('unit_count')]
-    public int $unitCount,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase\Account $account, #[\EventSauce\ObjectHydrator\MapFrom('billing_cycle')] public string $billingCycle, #[\EventSauce\ObjectHydrator\MapFrom('free_trial_ends_on')] public string $freeTrialEndsOn, #[\EventSauce\ObjectHydrator\MapFrom('next_billing_date')] public ?string $nextBillingDate, #[\EventSauce\ObjectHydrator\MapFrom('on_free_trial')] public bool $onFreeTrial, public \ApiClients\Client\GitHub\Schema\WebhookMarketplacePurchasePendingChangeCancelled\MarketplacePurchase\Plan $plan, #[\EventSauce\ObjectHydrator\MapFrom('unit_count')] public int $unitCount)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookInstallationRepositoriesAdded;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoriesRemoved
+final readonly class RepositoriesRemoved implements \ApiClients\Client\GitHub\Contract\WebhookInstallationRepositoriesAdded\RepositoriesRemoved
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "full_name": {
@@ -31,24 +28,21 @@ final readonly class RepositoriesRemoved
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "full_name": "generated",
     "id": 2,
     "name": "generated",
     "node_id": "generated",
     "private": false
 }';
-
     /**
      * id: Unique identifier of the repository
      * name: The name of the repository.
      * private: Whether the repository is private or public.
      */
-    public function __construct(#[MapFrom('full_name')]
-    public string|null $fullName, public int|null $id, public string|null $name, #[MapFrom('node_id')]
-    public string|null $nodeId, public bool|null $private,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('full_name')] public ?string $fullName, public ?int $id, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, public ?bool $private)
     {
     }
 }

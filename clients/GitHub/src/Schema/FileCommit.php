@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class FileCommit
+final readonly class FileCommit implements \ApiClients\Client\GitHub\Contract\FileCommit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "File Commit",
     "required": [
         "content",
@@ -173,9 +170,9 @@ final readonly class FileCommit
     },
     "description": "File Commit"
 }';
-    public const SCHEMA_TITLE        = 'File Commit';
-    public const SCHEMA_DESCRIPTION  = 'File Commit';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'File Commit';
+    public const SCHEMA_DESCRIPTION = 'File Commit';
+    const SCHEMA_EXAMPLE_DATA = '{
     "content": {
         "name": "generated",
         "path": "generated",
@@ -233,8 +230,7 @@ final readonly class FileCommit
         }
     }
 }';
-
-    public function __construct(public Schema\FileCommit\Content|null $content, public Schema\FileCommit\Commit $commit)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\FileCommit\Content $content, public \ApiClients\Client\GitHub\Schema\FileCommit\Commit $commit)
     {
     }
 }

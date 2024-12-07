@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Team
+final readonly class Team implements \ApiClients\Client\GitHub\Contract\Team
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Team",
     "required": [
         "id",
@@ -219,9 +215,9 @@ final readonly class Team
     },
     "description": "Groups of organization members that gives permissions on specified repositories."
 }';
-    public const SCHEMA_TITLE        = 'Team';
-    public const SCHEMA_DESCRIPTION  = 'Groups of organization members that gives permissions on specified repositories.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Team';
+    public const SCHEMA_DESCRIPTION = 'Groups of organization members that gives permissions on specified repositories.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "node_id": "generated",
     "name": "generated",
@@ -238,32 +234,26 @@ final readonly class Team
         "admin": false
     },
     "url": "https:\\/\\/example.com\\/",
-    "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
+    "html_url": "https:\\/\\/example.com\\/",
     "members_url": "generated",
     "repositories_url": "https:\\/\\/example.com\\/",
     "parent": {
-        "id": 1,
-        "node_id": "MDQ6VGVhbTE=",
-        "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-        "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-        "name": "Justice League",
-        "description": "A great team.",
-        "permission": "admin",
-        "privacy": "closed",
-        "notification_setting": "notifications_enabled",
-        "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-        "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-        "slug": "justice-league",
-        "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+        "id": 2,
+        "node_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "members_url": "generated",
+        "name": "generated",
+        "description": "generated",
+        "permission": "generated",
+        "privacy": "generated",
+        "notification_setting": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "repositories_url": "https:\\/\\/example.com\\/",
+        "slug": "generated",
+        "ldap_dn": "generated"
     }
 }';
-
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $name, public string $slug, public string|null $description, public string|null $privacy, #[MapFrom('notification_setting')]
-    public string|null $notificationSetting, public string $permission, public Schema\Team\Permissions|null $permissions, public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('members_url')]
-    public string $membersUrl, #[MapFrom('repositories_url')]
-    public string $repositoriesUrl, public Schema\TeamSimple|null $parent,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $name, public string $slug, public ?string $description, public ?string $privacy, #[\EventSauce\ObjectHydrator\MapFrom('notification_setting')] public ?string $notificationSetting, public string $permission, public ?\ApiClients\Client\GitHub\Schema\Team\Permissions $permissions, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public string $membersUrl, #[\EventSauce\ObjectHydrator\MapFrom('repositories_url')] public string $repositoriesUrl, public ?\ApiClients\Client\GitHub\Schema\TeamSimple $parent)
     {
     }
 }

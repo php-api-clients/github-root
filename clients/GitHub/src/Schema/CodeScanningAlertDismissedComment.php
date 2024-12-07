@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertDismissedComment
+final readonly class CodeScanningAlertDismissedComment implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertDismissedComment
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "maxLength": 280,
     "type": [
         "string",
@@ -14,10 +13,9 @@ final readonly class CodeScanningAlertDismissedComment
     ],
     "description": "The dismissal comment associated with the dismissal of the alert."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The dismissal comment associated with the dismissal of the alert.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The dismissal comment associated with the dismissal of the alert.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

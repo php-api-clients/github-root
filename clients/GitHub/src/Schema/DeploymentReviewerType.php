@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class DeploymentReviewerType
+final readonly class DeploymentReviewerType implements \ApiClients\Client\GitHub\Contract\DeploymentReviewerType
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "User",
         "Team"
@@ -17,10 +16,9 @@ final readonly class DeploymentReviewerType
         "User"
     ]
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The type of reviewer.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The type of reviewer.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

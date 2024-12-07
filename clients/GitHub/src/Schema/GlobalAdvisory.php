@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class GlobalAdvisory
+final readonly class GlobalAdvisory implements \ApiClients\Client\GitHub\Contract\GlobalAdvisory
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "ghsa_id",
         "cve_id",
@@ -608,9 +604,9 @@ final readonly class GlobalAdvisory
     "description": "A GitHub Security Advisory.",
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'A GitHub Security Advisory.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'A GitHub Security Advisory.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ghsa_id": "generated",
     "cve_id": "generated",
     "url": "generated",
@@ -618,8 +614,8 @@ final readonly class GlobalAdvisory
     "repository_advisory_url": "https:\\/\\/example.com\\/",
     "summary": "generated",
     "description": "generated",
-    "type": "malware",
-    "severity": "unknown",
+    "type": "reviewed",
+    "severity": "critical",
     "source_code_location": "https:\\/\\/example.com\\/",
     "identifiers": null,
     "references": null,
@@ -631,58 +627,46 @@ final readonly class GlobalAdvisory
     "vulnerabilities": null,
     "cvss": {
         "vector_string": "generated",
-        "score": 0.5
+        "score": 5
     },
     "cvss_severities": {
         "cvss_v3": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         },
         "cvss_v4": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         }
     },
     "cwes": null,
     "epss": {
-        "percentage": 1,
-        "percentile": 1
+        "percentage": 10,
+        "percentile": 10
     },
     "credits": null
 }';
-
     /**
-     * ghsaId: The GitHub Security Advisory ID.
-     * cveId: The Common Vulnerabilities and Exposures (CVE) ID.
-     * url: The API URL for the advisory.
-     * htmlUrl: The URL for the advisory.
-     * repositoryAdvisoryUrl: The API URL for the repository advisory.
-     * summary: A short summary of the advisory.
-     * description: A detailed description of what the advisory entails.
-     * type: The type of advisory.
-     * severity: The severity of the advisory.
-     * sourceCodeLocation: The URL of the advisory's source code.
-     * publishedAt: The date and time of when the advisory was published, in ISO 8601 format.
-     * updatedAt: The date and time of when the advisory was last updated, in ISO 8601 format.
-     * githubReviewedAt: The date and time of when the advisory was reviewed by GitHub, in ISO 8601 format.
-     * nvdPublishedAt: The date and time when the advisory was published in the National Vulnerability Database, in ISO 8601 format.
+    * ghsaId: The GitHub Security Advisory ID.
+    * cveId: The Common Vulnerabilities and Exposures (CVE) ID.
+    * url: The API URL for the advisory.
+    * htmlUrl: The URL for the advisory.
+    * repositoryAdvisoryUrl: The API URL for the repository advisory.
+    * summary: A short summary of the advisory.
+    * description: A detailed description of what the advisory entails.
+    * type: The type of advisory.
+    * severity: The severity of the advisory.
+    * sourceCodeLocation: The URL of the advisory's source code.
+    * publishedAt: The date and time of when the advisory was published, in ISO 8601 format.
+    * updatedAt: The date and time of when the advisory was last updated, in ISO 8601 format.
+    * githubReviewedAt: The date and time of when the advisory was reviewed by GitHub, in ISO 8601 format.
+    * nvdPublishedAt: The date and time when the advisory was published in the National Vulnerability Database, in ISO 8601 format.
     This field is only populated when the advisory is imported from the National Vulnerability Database.
-     * withdrawnAt: The date and time of when the advisory was withdrawn, in ISO 8601 format.
-     * vulnerabilities: The products and respective version ranges affected by the advisory.
-     * credits: The users who contributed to the advisory.
-     */
-    public function __construct(#[MapFrom('ghsa_id')]
-    public string $ghsaId, #[MapFrom('cve_id')]
-    public string|null $cveId, public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('repository_advisory_url')]
-    public string|null $repositoryAdvisoryUrl, public string $summary, public string|null $description, public string $type, public string $severity, #[MapFrom('source_code_location')]
-    public string|null $sourceCodeLocation, public array|null $identifiers, public array|null $references, #[MapFrom('published_at')]
-    public string $publishedAt, #[MapFrom('updated_at')]
-    public string $updatedAt, #[MapFrom('github_reviewed_at')]
-    public string|null $githubReviewedAt, #[MapFrom('nvd_published_at')]
-    public string|null $nvdPublishedAt, #[MapFrom('withdrawn_at')]
-    public string|null $withdrawnAt, public array|null $vulnerabilities, public Schema\GlobalAdvisory\Cvss|null $cvss, #[MapFrom('cvss_severities')]
-    public Schema\CvssSeverities|null $cvssSeverities, public array|null $cwes, public Schema\GlobalAdvisory\Epss|null $epss, public array|null $credits,)
+    * withdrawnAt: The date and time of when the advisory was withdrawn, in ISO 8601 format.
+    * vulnerabilities: The products and respective version ranges affected by the advisory.
+    * credits: The users who contributed to the advisory.
+    */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('ghsa_id')] public string $ghsaId, #[\EventSauce\ObjectHydrator\MapFrom('cve_id')] public ?string $cveId, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('repository_advisory_url')] public ?string $repositoryAdvisoryUrl, public string $summary, public ?string $description, public string $type, public string $severity, #[\EventSauce\ObjectHydrator\MapFrom('source_code_location')] public ?string $sourceCodeLocation, public ?array $identifiers, public ?array $references, #[\EventSauce\ObjectHydrator\MapFrom('published_at')] public string $publishedAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, #[\EventSauce\ObjectHydrator\MapFrom('github_reviewed_at')] public ?string $githubReviewedAt, #[\EventSauce\ObjectHydrator\MapFrom('nvd_published_at')] public ?string $nvdPublishedAt, #[\EventSauce\ObjectHydrator\MapFrom('withdrawn_at')] public ?string $withdrawnAt, public ?array $vulnerabilities, public ?\ApiClients\Client\GitHub\Schema\GlobalAdvisory\Cvss $cvss, #[\EventSauce\ObjectHydrator\MapFrom('cvss_severities')] public ?\ApiClients\Client\GitHub\Schema\CvssSeverities $cvssSeverities, public ?array $cwes, public ?\ApiClients\Client\GitHub\Schema\GlobalAdvisory\Epss $epss, public ?array $credits)
     {
     }
 }

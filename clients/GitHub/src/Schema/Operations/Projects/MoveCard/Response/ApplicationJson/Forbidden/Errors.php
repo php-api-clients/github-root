@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Projects\MoveCard\Response\ApplicationJson\Forbidden;
 
-final readonly class Errors
+final readonly class Errors implements \ApiClients\Client\GitHub\Contract\Operations\Projects\MoveCard\Response\ApplicationJson\Forbidden\Errors
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "code": {
@@ -23,16 +22,15 @@ final readonly class Errors
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "code": "generated",
     "message": "generated",
     "resource": "generated",
     "field": "generated"
 }';
-
-    public function __construct(public string|null $code, public string|null $message, public string|null $resource, public string|null $field)
+    public function __construct(public ?string $code, public ?string $message, public ?string $resource, public ?string $field)
     {
     }
 }

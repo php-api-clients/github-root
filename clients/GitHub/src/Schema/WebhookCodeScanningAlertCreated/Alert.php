@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Alert
+final readonly class Alert implements \ApiClients\Client\GitHub\Contract\WebhookCodeScanningAlertCreated\Alert
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "number",
         "created_at",
@@ -265,9 +261,9 @@ final readonly class Alert
     },
     "description": "The code scanning alert involved in the event."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The code scanning alert involved in the event.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The code scanning alert involved in the event.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "created_at": "1970-01-01T00:00:00+00:00",
     "dismissed_at": "generated",
     "dismissed_by": "generated",
@@ -306,8 +302,7 @@ final readonly class Alert
         "help_uri": "generated",
         "id": "generated",
         "name": "generated",
-        "severity": "error",
-        "tags": null
+        "severity": "none"
     },
     "state": "open",
     "tool": {
@@ -318,7 +313,6 @@ final readonly class Alert
     "updated_at": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * createdAt: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
      * dismissedAt: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -328,17 +322,7 @@ final readonly class Alert
      * number: The code scanning alert number.
      * state: State of a code scanning alert.
      */
-    public function __construct(#[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('dismissed_at')]
-    public string $dismissedAt, #[MapFrom('dismissed_by')]
-    public string $dismissedBy, #[MapFrom('dismissed_comment')]
-    public string|null $dismissedComment, #[MapFrom('dismissed_reason')]
-    public string $dismissedReason, #[MapFrom('fixed_at')]
-    public string $fixedAt, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('instances_url')]
-    public string|null $instancesUrl, #[MapFrom('most_recent_instance')]
-    public Schema\WebhookCodeScanningAlertCreated\Alert\MostRecentInstance|null $mostRecentInstance, public int $number, public Schema\WebhookCodeScanningAlertCreated\Alert\Rule $rule, public string|null $state, public Schema\WebhookCodeScanningAlertCreated\Alert\Tool|null $tool, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_at')] public string $dismissedAt, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_by')] public string $dismissedBy, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_comment')] public ?string $dismissedComment, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_reason')] public string $dismissedReason, #[\EventSauce\ObjectHydrator\MapFrom('fixed_at')] public string $fixedAt, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('instances_url')] public ?string $instancesUrl, #[\EventSauce\ObjectHydrator\MapFrom('most_recent_instance')] public ?\ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated\Alert\MostRecentInstance $mostRecentInstance, public int $number, public \ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated\Alert\Rule $rule, public ?string $state, public ?\ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertCreated\Alert\Tool $tool, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public string $url)
     {
     }
 }

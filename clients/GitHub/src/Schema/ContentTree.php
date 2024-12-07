@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ContentTree
+final readonly class ContentTree implements \ApiClients\Client\GitHub\Contract\ContentTree
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Content Tree",
     "required": [
         "_links",
@@ -187,9 +183,9 @@ final readonly class ContentTree
     },
     "description": "Content Tree"
 }';
-    public const SCHEMA_TITLE        = 'Content Tree';
-    public const SCHEMA_DESCRIPTION  = 'Content Tree';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Content Tree';
+    public const SCHEMA_DESCRIPTION = 'Content Tree';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "generated",
     "size": 4,
     "name": "generated",
@@ -240,12 +236,7 @@ final readonly class ContentTree
         "self": "https:\\/\\/example.com\\/"
     }
 }';
-
-    public function __construct(public string $type, public int $size, public string $name, public string $path, public string $sha, public string|null $content, public string $url, #[MapFrom('git_url')]
-    public string|null $gitUrl, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('download_url')]
-    public string|null $downloadUrl, public array|null $entries, #[MapFrom('_links')]
-    public Schema\ContentTree\Links $links,)
+    public function __construct(public string $type, public int $size, public string $name, public string $path, public string $sha, public ?string $content, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public ?string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('download_url')] public ?string $downloadUrl, public ?array $entries, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\ContentTree\Links $links)
     {
     }
 }

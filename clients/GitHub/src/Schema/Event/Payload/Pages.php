@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Event\Payload;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Pages
+final readonly class Pages implements \ApiClients\Client\GitHub\Contract\Event\Payload\Pages
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "page_name": {
@@ -34,9 +31,9 @@ final readonly class Pages
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "page_name": "generated",
     "title": "generated",
     "summary": "generated",
@@ -44,10 +41,7 @@ final readonly class Pages
     "sha": "generated",
     "html_url": "generated"
 }';
-
-    public function __construct(#[MapFrom('page_name')]
-    public string|null $pageName, public string|null $title, public string|null $summary, public string|null $action, public string|null $sha, #[MapFrom('html_url')]
-    public string|null $htmlUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('page_name')] public ?string $pageName, public ?string $title, public ?string $summary, public ?string $action, public ?string $sha, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl)
     {
     }
 }

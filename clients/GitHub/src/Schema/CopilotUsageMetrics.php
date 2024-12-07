@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CopilotUsageMetrics
+final readonly class CopilotUsageMetrics implements \ApiClients\Client\GitHub\Contract\CopilotUsageMetrics
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Copilot Usage Metrics",
     "required": [
         "day",
@@ -99,9 +96,9 @@ final readonly class CopilotUsageMetrics
     "description": "Summary of Copilot usage.",
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = 'Copilot Usage Metrics';
-    public const SCHEMA_DESCRIPTION  = 'Summary of Copilot usage.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Copilot Usage Metrics';
+    public const SCHEMA_DESCRIPTION = 'Summary of Copilot usage.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "day": "generated",
     "total_suggestions_count": 23,
     "total_acceptances_count": 23,
@@ -113,7 +110,6 @@ final readonly class CopilotUsageMetrics
     "total_active_chat_users": 23,
     "breakdown": null
 }';
-
     /**
      * day: The date for which the usage metrics are reported, in `YYYY-MM-DD` format.
      * totalSuggestionsCount: The total number of Copilot code completion suggestions shown to users.
@@ -126,15 +122,7 @@ final readonly class CopilotUsageMetrics
      * totalActiveChatUsers: The total number of users who interacted with Copilot Chat in the IDE during the day specified.
      * breakdown: Breakdown of Copilot code completions usage by language and editor
      */
-    public function __construct(public string $day, #[MapFrom('total_suggestions_count')]
-    public int|null $totalSuggestionsCount, #[MapFrom('total_acceptances_count')]
-    public int|null $totalAcceptancesCount, #[MapFrom('total_lines_suggested')]
-    public int|null $totalLinesSuggested, #[MapFrom('total_lines_accepted')]
-    public int|null $totalLinesAccepted, #[MapFrom('total_active_users')]
-    public int|null $totalActiveUsers, #[MapFrom('total_chat_acceptances')]
-    public int|null $totalChatAcceptances, #[MapFrom('total_chat_turns')]
-    public int|null $totalChatTurns, #[MapFrom('total_active_chat_users')]
-    public int|null $totalActiveChatUsers, public array|null $breakdown,)
+    public function __construct(public string $day, #[\EventSauce\ObjectHydrator\MapFrom('total_suggestions_count')] public ?int $totalSuggestionsCount, #[\EventSauce\ObjectHydrator\MapFrom('total_acceptances_count')] public ?int $totalAcceptancesCount, #[\EventSauce\ObjectHydrator\MapFrom('total_lines_suggested')] public ?int $totalLinesSuggested, #[\EventSauce\ObjectHydrator\MapFrom('total_lines_accepted')] public ?int $totalLinesAccepted, #[\EventSauce\ObjectHydrator\MapFrom('total_active_users')] public ?int $totalActiveUsers, #[\EventSauce\ObjectHydrator\MapFrom('total_chat_acceptances')] public ?int $totalChatAcceptances, #[\EventSauce\ObjectHydrator\MapFrom('total_chat_turns')] public ?int $totalChatTurns, #[\EventSauce\ObjectHydrator\MapFrom('total_active_chat_users')] public ?int $totalActiveChatUsers, public ?array $breakdown)
     {
     }
 }

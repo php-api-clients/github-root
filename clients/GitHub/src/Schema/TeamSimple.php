@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class TeamSimple
+final readonly class TeamSimple implements \ApiClients\Client\GitHub\Contract\TeamSimple
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Team Simple",
     "required": [
         "id",
@@ -119,24 +116,23 @@ final readonly class TeamSimple
     },
     "description": "Groups of organization members that gives permissions on specified repositories."
 }';
-    public const SCHEMA_TITLE        = 'Team Simple';
-    public const SCHEMA_DESCRIPTION  = 'Groups of organization members that gives permissions on specified repositories.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1,
-    "node_id": "MDQ6VGVhbTE=",
-    "url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1",
-    "members_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/members{\\/member}",
-    "name": "Justice League",
-    "description": "A great team.",
-    "permission": "admin",
-    "privacy": "closed",
-    "notification_setting": "notifications_enabled",
-    "html_url": "https:\\/\\/github.com\\/orgs\\/rails\\/teams\\/core",
-    "repositories_url": "https:\\/\\/api.github.com\\/organizations\\/1\\/team\\/1\\/repos",
-    "slug": "justice-league",
-    "ldap_dn": "uid=example,ou=users,dc=github,dc=com"
+    public const SCHEMA_TITLE = 'Team Simple';
+    public const SCHEMA_DESCRIPTION = 'Groups of organization members that gives permissions on specified repositories.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "members_url": "generated",
+    "name": "generated",
+    "description": "generated",
+    "permission": "generated",
+    "privacy": "generated",
+    "notification_setting": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "repositories_url": "https:\\/\\/example.com\\/",
+    "slug": "generated",
+    "ldap_dn": "generated"
 }';
-
     /**
      * id: Unique identifier of the team
      * url: URL for the team
@@ -147,13 +143,7 @@ final readonly class TeamSimple
      * notificationSetting: The notification setting the team has set
      * ldapDn: Distinguished Name (DN) that team maps to within LDAP environment
      */
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $url, #[MapFrom('members_url')]
-    public string $membersUrl, public string $name, public string|null $description, public string $permission, public string|null $privacy, #[MapFrom('notification_setting')]
-    public string|null $notificationSetting, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('repositories_url')]
-    public string $repositoriesUrl, public string $slug, #[MapFrom('ldap_dn')]
-    public string|null $ldapDn,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public string $membersUrl, public string $name, public ?string $description, public string $permission, public ?string $privacy, #[\EventSauce\ObjectHydrator\MapFrom('notification_setting')] public ?string $notificationSetting, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('repositories_url')] public string $repositoriesUrl, public string $slug, #[\EventSauce\ObjectHydrator\MapFrom('ldap_dn')] public ?string $ldapDn)
     {
     }
 }

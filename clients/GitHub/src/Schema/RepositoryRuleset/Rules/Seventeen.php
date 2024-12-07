@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Seventeen
+final readonly class Seventeen implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Seventeen
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "file_extension_restriction",
     "required": [
         "type"
@@ -39,9 +36,9 @@ final readonly class Seventeen
     },
     "description": "Prevent commits that include files with specified file extensions from being pushed to the commit graph."
 }';
-    public const SCHEMA_TITLE        = 'file_extension_restriction';
-    public const SCHEMA_DESCRIPTION  = 'Prevent commits that include files with specified file extensions from being pushed to the commit graph.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'file_extension_restriction';
+    public const SCHEMA_DESCRIPTION = 'Prevent commits that include files with specified file extensions from being pushed to the commit graph.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "file_extension_restriction",
     "parameters": {
         "restricted_file_extensions": [
@@ -50,8 +47,7 @@ final readonly class Seventeen
         ]
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleset\Rules\Seventeen\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen\Parameters $parameters)
     {
     }
 }

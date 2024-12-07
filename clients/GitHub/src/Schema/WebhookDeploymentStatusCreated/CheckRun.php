@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CheckRun
+final readonly class CheckRun implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentStatusCreated\CheckRun
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "name",
@@ -100,11 +97,11 @@ final readonly class CheckRun
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "completed_at": "1970-01-01T00:00:00+00:00",
-    "conclusion": "skipped",
+    "conclusion": "success",
     "details_url": "https:\\/\\/example.com\\/",
     "external_id": "generated",
     "head_sha": "generated",
@@ -113,10 +110,9 @@ final readonly class CheckRun
     "name": "generated",
     "node_id": "generated",
     "started_at": "1970-01-01T00:00:00+00:00",
-    "status": "pending",
+    "status": "queued",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * conclusion: The result of the completed check run. This value will be `null` until the check run has completed.
      * headSha: The SHA of the commit that is being checked.
@@ -124,14 +120,7 @@ final readonly class CheckRun
      * name: The name of the check run.
      * status: The current status of the check run. Can be `queued`, `in_progress`, or `completed`.
      */
-    public function __construct(#[MapFrom('completed_at')]
-    public string|null $completedAt, public string|null $conclusion, #[MapFrom('details_url')]
-    public string $detailsUrl, #[MapFrom('external_id')]
-    public string $externalId, #[MapFrom('head_sha')]
-    public string $headSha, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('started_at')]
-    public string $startedAt, public string $status, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('completed_at')] public ?string $completedAt, public ?string $conclusion, #[\EventSauce\ObjectHydrator\MapFrom('details_url')] public string $detailsUrl, #[\EventSauce\ObjectHydrator\MapFrom('external_id')] public string $externalId, #[\EventSauce\ObjectHydrator\MapFrom('head_sha')] public string $headSha, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('started_at')] public string $startedAt, public string $status, public string $url)
     {
     }
 }

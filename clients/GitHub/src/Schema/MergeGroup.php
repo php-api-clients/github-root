@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class MergeGroup
+final readonly class MergeGroup implements \ApiClients\Client\GitHub\Contract\MergeGroup
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Merge Group",
     "required": [
         "head_sha",
@@ -136,29 +132,28 @@ final readonly class MergeGroup
     },
     "description": "A group of pull requests that the merge queue has grouped together to be merged."
 }';
-    public const SCHEMA_TITLE        = 'Merge Group';
-    public const SCHEMA_DESCRIPTION  = 'A group of pull requests that the merge queue has grouped together to be merged.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Merge Group';
+    public const SCHEMA_DESCRIPTION = 'A group of pull requests that the merge queue has grouped together to be merged.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "head_sha": "generated",
     "head_ref": "generated",
     "base_sha": "generated",
     "base_ref": "generated",
     "head_commit": {
-        "id": "7638417db6d59f3c431d3e1f261cc637155684cd",
+        "id": "generated",
         "tree_id": "generated",
-        "message": "Fix #42",
-        "timestamp": "2014-08-09T08:02:04+12:00",
+        "message": "generated",
+        "timestamp": "1970-01-01T00:00:00+00:00",
         "author": {
-            "name": "Monalisa Octocat",
-            "email": "monalisa.octocat@example.com"
+            "name": "generated",
+            "email": "hi@example.com"
         },
         "committer": {
-            "name": "Monalisa Octocat",
-            "email": "monalisa.octocat@example.com"
+            "name": "generated",
+            "email": "hi@example.com"
         }
     }
 }';
-
     /**
      * headSha: The SHA of the merge group.
      * headRef: The full ref of the merge group.
@@ -166,12 +161,7 @@ final readonly class MergeGroup
      * baseRef: The full ref of the branch the merge group will be merged into.
      * headCommit: A commit.
      */
-    public function __construct(#[MapFrom('head_sha')]
-    public string $headSha, #[MapFrom('head_ref')]
-    public string $headRef, #[MapFrom('base_sha')]
-    public string $baseSha, #[MapFrom('base_ref')]
-    public string $baseRef, #[MapFrom('head_commit')]
-    public Schema\SimpleCommit $headCommit,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('head_sha')] public string $headSha, #[\EventSauce\ObjectHydrator\MapFrom('head_ref')] public string $headRef, #[\EventSauce\ObjectHydrator\MapFrom('base_sha')] public string $baseSha, #[\EventSauce\ObjectHydrator\MapFrom('base_ref')] public string $baseRef, #[\EventSauce\ObjectHydrator\MapFrom('head_commit')] public \ApiClients\Client\GitHub\Schema\SimpleCommit $headCommit)
     {
     }
 }

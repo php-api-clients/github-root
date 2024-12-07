@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMemberAdded\Changes;
 
-final readonly class Permission
+final readonly class Permission implements \ApiClients\Client\GitHub\Contract\WebhookMemberAdded\Changes\Permission
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "to"
     ],
@@ -23,15 +22,14 @@ final readonly class Permission
     },
     "description": "This field is included for legacy purposes; use the `role_name` field instead. The `maintain`\\nrole is mapped to `write` and the `triage` role is mapped to `read`. To determine the role\\nassigned to the collaborator, use the `role_name` field instead, which will provide the full\\nrole name, including custom roles."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'This field is included for legacy purposes; use the `role_name` field instead. The `maintain`
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'This field is included for legacy purposes; use the `role_name` field instead. The `maintain`
 role is mapped to `write` and the `triage` role is mapped to `read`. To determine the role
 assigned to the collaborator, use the `role_name` field instead, which will provide the full
 role name, including custom roles.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "to": "read"
+    const SCHEMA_EXAMPLE_DATA = '{
+    "to": "write"
 }';
-
     public function __construct(public string $to)
     {
     }

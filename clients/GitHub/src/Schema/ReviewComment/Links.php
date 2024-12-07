@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\ReviewComment;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\ReviewComment\Links
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "self",
         "html",
@@ -58,9 +54,9 @@ final readonly class Links
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "self": {
         "href": "generated"
     },
@@ -71,14 +67,12 @@ final readonly class Links
         "href": "generated"
     }
 }';
-
     /**
      * self: Hypermedia Link
      * html: Hypermedia Link
      * pullRequest: Hypermedia Link
      */
-    public function __construct(public Schema\Link $self, public Schema\Link $html, #[MapFrom('pull_request')]
-    public Schema\Link $pullRequest,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\Link $self, public \ApiClients\Client\GitHub\Schema\Link $html, #[\EventSauce\ObjectHydrator\MapFrom('pull_request')] public \ApiClients\Client\GitHub\Schema\Link $pullRequest)
     {
     }
 }

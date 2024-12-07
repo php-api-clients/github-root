@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookSecretScanningAlertLocationCreatedFormEncoded
+final readonly class WebhookSecretScanningAlertLocationCreatedFormEncoded implements \ApiClients\Client\GitHub\Contract\WebhookSecretScanningAlertLocationCreatedFormEncoded
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Secret Scanning Alert Location Created Event",
     "required": [
         "payload"
@@ -19,12 +18,11 @@ final readonly class WebhookSecretScanningAlertLocationCreatedFormEncoded
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Secret Scanning Alert Location Created Event';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Secret Scanning Alert Location Created Event';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "payload": "generated"
 }';
-
     /**
      * payload: A URL-encoded string of the secret_scanning_alert_location.created JSON payload. The decoded payload is a JSON object.
      */

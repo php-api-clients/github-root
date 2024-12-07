@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRulesetConditionsRepositoryPropertyTarget;
 
-final readonly class RepositoryProperty
+final readonly class RepositoryProperty implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryPropertyTarget\RepositoryProperty
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "include": {
@@ -79,9 +78,9 @@ final readonly class RepositoryProperty
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "include": [
         {
             "name": "generated",
@@ -89,7 +88,7 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         },
         {
             "name": "generated",
@@ -97,7 +96,7 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         }
     ],
     "exclude": [
@@ -107,7 +106,7 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         },
         {
             "name": "generated",
@@ -115,16 +114,15 @@ final readonly class RepositoryProperty
                 "generated",
                 "generated"
             ],
-            "source": "system"
+            "source": "custom"
         }
     ]
 }';
-
     /**
      * include: The repository properties and values to include. All of these properties must match for the condition to pass.
      * exclude: The repository properties and values to exclude. The condition will not pass if any of these properties match.
      */
-    public function __construct(public array|null $include, public array|null $exclude)
+    public function __construct(public ?array $include, public ?array $exclude)
     {
     }
 }

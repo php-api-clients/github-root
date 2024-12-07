@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\FileCommit\Commit;
 
-final readonly class Tree
+final readonly class Tree implements \ApiClients\Client\GitHub\Contract\FileCommit\Commit\Tree
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "url": {
@@ -17,14 +16,13 @@ final readonly class Tree
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "generated",
     "sha": "generated"
 }';
-
-    public function __construct(public string|null $url, public string|null $sha)
+    public function __construct(public ?string $url, public ?string $sha)
     {
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksTeam1
+final readonly class WebhooksTeam1 implements \ApiClients\Client\GitHub\Contract\WebhooksTeam1
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Team",
     "required": [
         "name",
@@ -161,9 +157,9 @@ final readonly class WebhooksTeam1
     },
     "description": "Groups of organization members that gives permissions on specified repositories."
 }';
-    public const SCHEMA_TITLE        = 'Team';
-    public const SCHEMA_DESCRIPTION  = 'Groups of organization members that gives permissions on specified repositories.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Team';
+    public const SCHEMA_DESCRIPTION = 'Groups of organization members that gives permissions on specified repositories.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "deleted": false,
     "description": "generated",
     "html_url": "https:\\/\\/example.com\\/",
@@ -180,19 +176,18 @@ final readonly class WebhooksTeam1
         "node_id": "generated",
         "permission": "generated",
         "privacy": "open",
-        "notification_setting": "notifications_disabled",
+        "notification_setting": "notifications_enabled",
         "repositories_url": "https:\\/\\/example.com\\/",
         "slug": "generated",
         "url": "https:\\/\\/example.com\\/"
     },
     "permission": "generated",
     "privacy": "open",
-    "notification_setting": "notifications_disabled",
+    "notification_setting": "notifications_enabled",
     "repositories_url": "https:\\/\\/example.com\\/",
     "slug": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * description: Description of the team
      * id: Unique identifier of the team
@@ -201,12 +196,7 @@ final readonly class WebhooksTeam1
      * notificationSetting: Whether team members will receive notifications when their team is @mentioned
      * url: URL for the team
      */
-    public function __construct(public bool|null $deleted, public string|null $description, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public int $id, #[MapFrom('members_url')]
-    public string|null $membersUrl, public string $name, #[MapFrom('node_id')]
-    public string|null $nodeId, public Schema\WebhooksTeam1\Parent_|null $parent, public string|null $permission, public string|null $privacy, #[MapFrom('notification_setting')]
-    public string|null $notificationSetting, #[MapFrom('repositories_url')]
-    public string|null $repositoriesUrl, public string|null $slug, public string|null $url,)
+    public function __construct(public ?bool $deleted, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public ?string $membersUrl, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, public ?\ApiClients\Client\GitHub\Schema\WebhooksTeam1\Parent_ $parent, public ?string $permission, public ?string $privacy, #[\EventSauce\ObjectHydrator\MapFrom('notification_setting')] public ?string $notificationSetting, #[\EventSauce\ObjectHydrator\MapFrom('repositories_url')] public ?string $repositoriesUrl, public ?string $slug, public ?string $url)
     {
     }
 }

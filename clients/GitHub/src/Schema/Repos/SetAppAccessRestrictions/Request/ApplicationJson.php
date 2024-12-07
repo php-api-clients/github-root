@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\SetAppAccessRestrictions\Request;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class ApplicationJson extends Schema\AliasAbstract\Tiet98658574\TietA85321D0\Tiet6D8839E8\TietDC0C852E
+final readonly class ApplicationJson extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T98658574\TA85321D0\T6D8839E8\TDC0C852E
 {
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\BillingUsageReport;
 
-final readonly class UsageItems
+final readonly class UsageItems implements \ApiClients\Client\GitHub\Contract\BillingUsageReport\UsageItems
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "date",
         "product",
@@ -67,22 +66,21 @@ final readonly class UsageItems
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "date": "generated",
     "product": "generated",
     "sku": "generated",
     "quantity": 8,
     "unitType": "generated",
-    "pricePerUnit": 1.2,
-    "grossAmount": 1.1,
-    "discountAmount": 1.4,
-    "netAmount": 0.9,
+    "pricePerUnit": 12,
+    "grossAmount": 11,
+    "discountAmount": 14,
+    "netAmount": 9,
     "organizationName": "generated",
     "repositoryName": "generated"
 }';
-
     /**
      * date: Date of the usage line item.
      * product: Product name.
@@ -96,7 +94,7 @@ final readonly class UsageItems
      * organizationName: Name of the organization.
      * repositoryName: Name of the repository.
      */
-    public function __construct(public string $date, public string $product, public string $sku, public int $quantity, public string $unitType, public int|float $pricePerUnit, public int|float $grossAmount, public int|float $discountAmount, public int|float $netAmount, public string $organizationName, public string|null $repositoryName)
+    public function __construct(public string $date, public string $product, public string $sku, public int $quantity, public string $unitType, public int|float $pricePerUnit, public int|float $grossAmount, public int|float $discountAmount, public int|float $netAmount, public string $organizationName, public ?string $repositoryName)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class IssueEventLabel
+final readonly class IssueEventLabel implements \ApiClients\Client\GitHub\Contract\IssueEventLabel
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Issue Event Label",
     "required": [
         "name",
@@ -29,14 +28,13 @@ final readonly class IssueEventLabel
     },
     "description": "Issue Event Label"
 }';
-    public const SCHEMA_TITLE        = 'Issue Event Label';
-    public const SCHEMA_DESCRIPTION  = 'Issue Event Label';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Issue Event Label';
+    public const SCHEMA_DESCRIPTION = 'Issue Event Label';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "color": "generated"
 }';
-
-    public function __construct(public string|null $name, public string|null $color)
+    public function __construct(public ?string $name, public ?string $color)
     {
     }
 }

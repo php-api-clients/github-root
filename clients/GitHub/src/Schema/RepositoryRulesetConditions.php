@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRulesetConditions
+final readonly class RepositoryRulesetConditions implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository ruleset conditions for ref names",
     "type": "object",
     "properties": {
@@ -35,9 +31,9 @@ final readonly class RepositoryRulesetConditions
     },
     "description": "Parameters for a repository ruleset ref name condition"
 }';
-    public const SCHEMA_TITLE        = 'Repository ruleset conditions for ref names';
-    public const SCHEMA_DESCRIPTION  = 'Parameters for a repository ruleset ref name condition';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository ruleset conditions for ref names';
+    public const SCHEMA_DESCRIPTION = 'Parameters for a repository ruleset ref name condition';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ref_name": {
         "include": [
             "generated",
@@ -49,9 +45,7 @@ final readonly class RepositoryRulesetConditions
         ]
     }
 }';
-
-    public function __construct(#[MapFrom('ref_name')]
-    public Schema\RepositoryRulesetConditions\RefName|null $refName,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('ref_name')] public ?\ApiClients\Client\GitHub\Schema\RepositoryRulesetConditions\RefName $refName)
     {
     }
 }

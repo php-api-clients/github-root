@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewEdited;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "body": {
@@ -25,15 +22,14 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "body": {
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookPullRequestReviewEdited\Changes\Body|null $body)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewEdited\Changes\Body $body)
     {
     }
 }

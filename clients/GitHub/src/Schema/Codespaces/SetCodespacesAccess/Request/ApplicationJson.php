@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Codespaces\SetCodespacesAccess\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\SetCodespacesAccess\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "visibility"
     ],
@@ -34,10 +31,10 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "visibility": "all_members_and_outside_collaborators",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "visibility": "disabled",
     "selected_usernames": [
         "generated",
         "generated",
@@ -141,13 +138,11 @@ final readonly class ApplicationJson
         "generated"
     ]
 }';
-
     /**
      * visibility: Which users can access codespaces in the organization. `disabled` means that no users can access codespaces in the organization.
      * selectedUsernames: The usernames of the organization members who should have access to codespaces in the organization. Required when `visibility` is `selected_members`. The provided list of usernames will replace any existing value.
      */
-    public function __construct(public string $visibility, #[MapFrom('selected_usernames')]
-    public array|null $selectedUsernames,)
+    public function __construct(public string $visibility, #[\EventSauce\ObjectHydrator\MapFrom('selected_usernames')] public ?array $selectedUsernames)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CopilotIdeChat
+final readonly class CopilotIdeChat implements \ApiClients\Client\GitHub\Contract\CopilotIdeChat
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -79,9 +76,9 @@ final readonly class CopilotIdeChat
     "description": "Usage metrics for Copilot Chat in the IDE.",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Usage metrics for Copilot Chat in the IDE.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Usage metrics for Copilot Chat in the IDE.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_engaged_users": 19,
     "editors": [
         {
@@ -134,12 +131,10 @@ final readonly class CopilotIdeChat
         }
     ]
 }';
-
     /**
      * totalEngagedUsers: Total number of users who prompted Copilot Chat in the IDE.
      */
-    public function __construct(#[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, public array|null $editors,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, public ?array $editors)
     {
     }
 }

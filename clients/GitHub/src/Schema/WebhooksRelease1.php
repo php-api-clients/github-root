@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksRelease1
+final readonly class WebhooksRelease1 implements \ApiClients\Client\GitHub\Contract\WebhooksRelease1
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Release",
     "required": [
         "assets",
@@ -437,9 +433,9 @@ final readonly class WebhooksRelease1
     },
     "description": "The [release](https:\\/\\/docs.github.com\\/rest\\/releases\\/releases\\/#get-a-release) object."
 }';
-    public const SCHEMA_TITLE        = 'Release';
-    public const SCHEMA_DESCRIPTION  = 'The [release](https://docs.github.com/rest/releases/releases/#get-a-release) object.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Release';
+    public const SCHEMA_DESCRIPTION = 'The [release](https://docs.github.com/rest/releases/releases/#get-a-release) object.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "assets": [
         {
             "browser_download_url": "https:\\/\\/example.com\\/",
@@ -473,7 +469,7 @@ final readonly class WebhooksRelease1
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/"
             },
             "url": "https:\\/\\/example.com\\/"
@@ -510,7 +506,7 @@ final readonly class WebhooksRelease1
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/"
             },
             "url": "https:\\/\\/example.com\\/"
@@ -537,7 +533,7 @@ final readonly class WebhooksRelease1
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -570,25 +566,13 @@ final readonly class WebhooksRelease1
     "url": "https:\\/\\/example.com\\/",
     "zipball_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * draft: Whether the release is a draft or published
      * prerelease: Whether the release is identified as a prerelease or a full release.
      * tagName: The name of the tag.
      * targetCommitish: Specifies the commitish value that determines where the Git tag is created from.
      */
-    public function __construct(public array $assets, #[MapFrom('assets_url')]
-    public string $assetsUrl, public Schema\WebhooksRelease1\Author|null $author, public string|null $body, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('discussion_url')]
-    public string|null $discussionUrl, public bool $draft, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string|null $name, #[MapFrom('node_id')]
-    public string $nodeId, public bool $prerelease, #[MapFrom('published_at')]
-    public string|null $publishedAt, public Schema\WebhooksRelease1\Reactions|null $reactions, #[MapFrom('tag_name')]
-    public string $tagName, #[MapFrom('tarball_url')]
-    public string|null $tarballUrl, #[MapFrom('target_commitish')]
-    public string $targetCommitish, #[MapFrom('upload_url')]
-    public string $uploadUrl, public string $url, #[MapFrom('zipball_url')]
-    public string|null $zipballUrl,)
+    public function __construct(public array $assets, #[\EventSauce\ObjectHydrator\MapFrom('assets_url')] public string $assetsUrl, public ?\ApiClients\Client\GitHub\Schema\WebhooksRelease1\Author $author, public ?string $body, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('discussion_url')] public ?string $discussionUrl, public bool $draft, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public bool $prerelease, #[\EventSauce\ObjectHydrator\MapFrom('published_at')] public ?string $publishedAt, public ?\ApiClients\Client\GitHub\Schema\WebhooksRelease1\Reactions $reactions, #[\EventSauce\ObjectHydrator\MapFrom('tag_name')] public string $tagName, #[\EventSauce\ObjectHydrator\MapFrom('tarball_url')] public ?string $tarballUrl, #[\EventSauce\ObjectHydrator\MapFrom('target_commitish')] public string $targetCommitish, #[\EventSauce\ObjectHydrator\MapFrom('upload_url')] public string $uploadUrl, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('zipball_url')] public ?string $zipballUrl)
     {
     }
 }

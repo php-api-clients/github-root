@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowRunInProgress\WorkflowRun;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Repository
+final readonly class Repository implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowRunInProgress\WorkflowRun\Repository
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository Lite",
     "required": [
         "archive_url",
@@ -338,9 +334,9 @@ final readonly class Repository
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Repository Lite';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository Lite';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "archive_url": "generated",
     "assignees_url": "generated",
     "blobs_url": "generated",
@@ -395,7 +391,7 @@ final readonly class Repository
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "private": false,
@@ -410,52 +406,12 @@ final readonly class Repository
     "trees_url": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * id: Unique identifier of the repository
      * name: The name of the repository.
      * private: Whether the repository is private or public.
      */
-    public function __construct(#[MapFrom('archive_url')]
-    public string $archiveUrl, #[MapFrom('assignees_url')]
-    public string $assigneesUrl, #[MapFrom('blobs_url')]
-    public string $blobsUrl, #[MapFrom('branches_url')]
-    public string $branchesUrl, #[MapFrom('collaborators_url')]
-    public string $collaboratorsUrl, #[MapFrom('comments_url')]
-    public string $commentsUrl, #[MapFrom('commits_url')]
-    public string $commitsUrl, #[MapFrom('compare_url')]
-    public string $compareUrl, #[MapFrom('contents_url')]
-    public string $contentsUrl, #[MapFrom('contributors_url')]
-    public string $contributorsUrl, #[MapFrom('deployments_url')]
-    public string $deploymentsUrl, public string|null $description, #[MapFrom('downloads_url')]
-    public string $downloadsUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, public bool $fork, #[MapFrom('forks_url')]
-    public string $forksUrl, #[MapFrom('full_name')]
-    public string $fullName, #[MapFrom('git_commits_url')]
-    public string $gitCommitsUrl, #[MapFrom('git_refs_url')]
-    public string $gitRefsUrl, #[MapFrom('git_tags_url')]
-    public string $gitTagsUrl, #[MapFrom('hooks_url')]
-    public string $hooksUrl, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('issue_comment_url')]
-    public string $issueCommentUrl, #[MapFrom('issue_events_url')]
-    public string $issueEventsUrl, #[MapFrom('issues_url')]
-    public string $issuesUrl, #[MapFrom('keys_url')]
-    public string $keysUrl, #[MapFrom('labels_url')]
-    public string $labelsUrl, #[MapFrom('languages_url')]
-    public string $languagesUrl, #[MapFrom('merges_url')]
-    public string $mergesUrl, #[MapFrom('milestones_url')]
-    public string $milestonesUrl, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('notifications_url')]
-    public string $notificationsUrl, public Schema\WebhookWorkflowRunInProgress\WorkflowRun\Repository\Owner|null $owner, public bool $private, #[MapFrom('pulls_url')]
-    public string $pullsUrl, #[MapFrom('releases_url')]
-    public string $releasesUrl, #[MapFrom('stargazers_url')]
-    public string $stargazersUrl, #[MapFrom('statuses_url')]
-    public string $statusesUrl, #[MapFrom('subscribers_url')]
-    public string $subscribersUrl, #[MapFrom('subscription_url')]
-    public string $subscriptionUrl, #[MapFrom('tags_url')]
-    public string $tagsUrl, #[MapFrom('teams_url')]
-    public string $teamsUrl, #[MapFrom('trees_url')]
-    public string $treesUrl, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('archive_url')] public string $archiveUrl, #[\EventSauce\ObjectHydrator\MapFrom('assignees_url')] public string $assigneesUrl, #[\EventSauce\ObjectHydrator\MapFrom('blobs_url')] public string $blobsUrl, #[\EventSauce\ObjectHydrator\MapFrom('branches_url')] public string $branchesUrl, #[\EventSauce\ObjectHydrator\MapFrom('collaborators_url')] public string $collaboratorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public string $commitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('compare_url')] public string $compareUrl, #[\EventSauce\ObjectHydrator\MapFrom('contents_url')] public string $contentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('contributors_url')] public string $contributorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('deployments_url')] public string $deploymentsUrl, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('downloads_url')] public string $downloadsUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, public bool $fork, #[\EventSauce\ObjectHydrator\MapFrom('forks_url')] public string $forksUrl, #[\EventSauce\ObjectHydrator\MapFrom('full_name')] public string $fullName, #[\EventSauce\ObjectHydrator\MapFrom('git_commits_url')] public string $gitCommitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_refs_url')] public string $gitRefsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_tags_url')] public string $gitTagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('issue_comment_url')] public string $issueCommentUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_events_url')] public string $issueEventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public string $issuesUrl, #[\EventSauce\ObjectHydrator\MapFrom('keys_url')] public string $keysUrl, #[\EventSauce\ObjectHydrator\MapFrom('labels_url')] public string $labelsUrl, #[\EventSauce\ObjectHydrator\MapFrom('languages_url')] public string $languagesUrl, #[\EventSauce\ObjectHydrator\MapFrom('merges_url')] public string $mergesUrl, #[\EventSauce\ObjectHydrator\MapFrom('milestones_url')] public string $milestonesUrl, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('notifications_url')] public string $notificationsUrl, public ?\ApiClients\Client\GitHub\Schema\WebhookWorkflowRunInProgress\WorkflowRun\Repository\Owner $owner, public bool $private, #[\EventSauce\ObjectHydrator\MapFrom('pulls_url')] public string $pullsUrl, #[\EventSauce\ObjectHydrator\MapFrom('releases_url')] public string $releasesUrl, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_url')] public string $stargazersUrl, #[\EventSauce\ObjectHydrator\MapFrom('statuses_url')] public string $statusesUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscribers_url')] public string $subscribersUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscription_url')] public string $subscriptionUrl, #[\EventSauce\ObjectHydrator\MapFrom('tags_url')] public string $tagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('teams_url')] public string $teamsUrl, #[\EventSauce\ObjectHydrator\MapFrom('trees_url')] public string $treesUrl, public string $url)
     {
     }
 }

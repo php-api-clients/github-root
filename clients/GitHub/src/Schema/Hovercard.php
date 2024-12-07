@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Hovercard
+final readonly class Hovercard implements \ApiClients\Client\GitHub\Contract\Hovercard
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Hovercard",
     "required": [
         "contexts"
@@ -34,9 +33,9 @@ final readonly class Hovercard
     },
     "description": "Hovercard"
 }';
-    public const SCHEMA_TITLE        = 'Hovercard';
-    public const SCHEMA_DESCRIPTION  = 'Hovercard';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Hovercard';
+    public const SCHEMA_DESCRIPTION = 'Hovercard';
+    const SCHEMA_EXAMPLE_DATA = '{
     "contexts": [
         {
             "message": "generated",
@@ -48,7 +47,6 @@ final readonly class Hovercard
         }
     ]
 }';
-
     public function __construct(public array $contexts)
     {
     }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationWikiCommit
+final readonly class SecretScanningLocationWikiCommit implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationWikiCommit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "path",
         "start_line",
@@ -76,20 +73,19 @@ final readonly class SecretScanningLocationWikiCommit
     },
     "description": "Represents a \'wiki_commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository wiki."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents a \'wiki_commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository wiki.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "path": "\\/example\\/Home.md",
-    "start_line": 1,
-    "end_line": 0.8,
-    "start_column": 1.2,
-    "end_column": 1,
-    "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
-    "page_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/wiki\\/Home\\/302c0b7e200761c9dd9b57e57db540ee0b4293a5",
-    "commit_sha": "302c0b7e200761c9dd9b57e57db540ee0b4293a5",
-    "commit_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/wiki\\/_compare\\/302c0b7e200761c9dd9b57e57db540ee0b4293a5"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents a \'wiki_commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository wiki.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "path": "generated",
+    "start_line": 10,
+    "end_line": 8,
+    "start_column": 12,
+    "end_column": 10,
+    "blob_sha": "generated",
+    "page_url": "generated",
+    "commit_sha": "generated",
+    "commit_url": "generated"
 }';
-
     /**
      * path: The file path of the wiki page
      * startLine: Line number at which the secret starts in the file
@@ -101,15 +97,7 @@ final readonly class SecretScanningLocationWikiCommit
      * commitSha: SHA-1 hash ID of the associated commit
      * commitUrl: The GitHub URL to get the associated wiki commit
      */
-    public function __construct(public string $path, #[MapFrom('start_line')]
-    public int|float $startLine, #[MapFrom('end_line')]
-    public int|float $endLine, #[MapFrom('start_column')]
-    public int|float $startColumn, #[MapFrom('end_column')]
-    public int|float $endColumn, #[MapFrom('blob_sha')]
-    public string $blobSha, #[MapFrom('page_url')]
-    public string $pageUrl, #[MapFrom('commit_sha')]
-    public string $commitSha, #[MapFrom('commit_url')]
-    public string $commitUrl,)
+    public function __construct(public string $path, #[\EventSauce\ObjectHydrator\MapFrom('start_line')] public int|float $startLine, #[\EventSauce\ObjectHydrator\MapFrom('end_line')] public int|float $endLine, #[\EventSauce\ObjectHydrator\MapFrom('start_column')] public int|float $startColumn, #[\EventSauce\ObjectHydrator\MapFrom('end_column')] public int|float $endColumn, #[\EventSauce\ObjectHydrator\MapFrom('blob_sha')] public string $blobSha, #[\EventSauce\ObjectHydrator\MapFrom('page_url')] public string $pageUrl, #[\EventSauce\ObjectHydrator\MapFrom('commit_sha')] public string $commitSha, #[\EventSauce\ObjectHydrator\MapFrom('commit_url')] public string $commitUrl)
     {
     }
 }

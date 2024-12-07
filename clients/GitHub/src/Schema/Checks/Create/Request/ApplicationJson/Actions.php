@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Checks\Create\Request\ApplicationJson;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Actions extends Schema\AliasAbstract\Tiet2669D512\TietB3E1915C\TietA7A5B92E\Tiet0B91B77E
+final readonly class Actions extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T2669D512\TB3E1915C\TA7A5B92E\T0B91B77E
 {
 }

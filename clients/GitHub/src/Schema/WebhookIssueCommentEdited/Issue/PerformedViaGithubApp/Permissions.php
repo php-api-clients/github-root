@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookIssueCommentEdited\Issue\PerformedViaGithubApp;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Permissions extends Schema\AliasAbstract\TietDC57B05B\Tiet43E2E854\TietF0DEE07A\TietA1A61505
+final readonly class Permissions extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TDC57B05B\T43E2E854\TF0DEE07A\TA1A61505
 {
 }

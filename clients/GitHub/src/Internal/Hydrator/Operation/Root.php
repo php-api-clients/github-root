@@ -6,45 +6,32 @@ namespace ApiClients\Client\GitHub\Internal\Hydrator\Operation;
 
 use EventSauce\ObjectHydrator\IterableList;
 use EventSauce\ObjectHydrator\ObjectMapper;
-use EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems;
-use EventSauce\ObjectHydrator\PropertySerializers\SerializeDateTime;
-use EventSauce\ObjectHydrator\PropertySerializers\SerializeUuidToString;
 use EventSauce\ObjectHydrator\UnableToHydrateObject;
 use EventSauce\ObjectHydrator\UnableToSerializeObject;
 use Generator;
-use LogicException;
-use Throwable;
-
-use function assert;
-use function count;
-use function is_a;
 
 class Root implements ObjectMapper
 {
     private array $hydrationStack = [];
-
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
-     * @param class-string<T> $className
-     *
-     * @return T
-     *
      * @template T of object
+     * @param class-string<T> $className
+     * @return T
      */
     public function hydrateObject(string $className, array $payload): object
     {
-        return match ($className) {
-            'ApiClients\Client\GitHub\Schema\Root' => $this->hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root($payload),
+        return match($className) {
+            '\ApiClients\Client\GitHub\Schema\Root' => $this->hydrate⚡️ApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root($payload),
             default => throw UnableToHydrateObject::noHydrationDefined($className, $this->hydrationStack),
         };
     }
-
-    private function hydrateApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root(array $payload): \ApiClients\Client\GitHub\Schema\Root
+    
+            
+    private function hydrate⚡️ApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root(array $payload): \ApiClients\Client\GitHub\Schema\Root
     {
-        $properties    = [];
+        $properties = []; 
         $missingFields = [];
         try {
             $value = $payload['current_user_url'] ?? null;
@@ -409,21 +396,22 @@ class Root implements ObjectMapper
             $properties['userSearchUrl'] = $value;
 
             after_userSearchUrl:
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Root', $exception, stack: $this->hydrationStack);
+
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('\ApiClients\Client\GitHub\Schema\Root', $exception, stack: $this->hydrationStack);
         }
 
         if (count($missingFields) > 0) {
-            throw UnableToHydrateObject::dueToMissingFields(\ApiClients\Client\GitHub\Schema\Root::class, $missingFields, stack: $this->hydrationStack);
+            throw UnableToHydrateObject::dueToMissingFields(\\ApiClients\Client\GitHub\Schema\Root::class, $missingFields, stack: $this->hydrationStack);
         }
 
         try {
-            return new \ApiClients\Client\GitHub\Schema\Root(...$properties);
-        } catch (Throwable $exception) {
-            throw UnableToHydrateObject::dueToError('ApiClients\Client\GitHub\Schema\Root', $exception, stack: $this->hydrationStack);
+            return new \\ApiClients\Client\GitHub\Schema\Root(...$properties);
+        } catch (\Throwable $exception) {
+            throw UnableToHydrateObject::dueToError('\ApiClients\Client\GitHub\Schema\Root', $exception, stack: $this->hydrationStack);
         }
     }
-
+    
     private function serializeViaTypeMap(string $accessor, object $object, array $payloadToTypeMap): array
     {
         foreach ($payloadToTypeMap as $payloadType => [$valueType, $method]) {
@@ -432,218 +420,262 @@ class Root implements ObjectMapper
             }
         }
 
-        throw new LogicException('No type mapped for object of class: ' . $object::class);
+        throw new \LogicException('No type mapped for object of class: ' . get_class($object));
     }
 
     public function serializeObject(object $object): mixed
     {
-        return $this->serializeObjectOfType($object, $object::class);
+        return $this->serializeObjectOfType($object, get_class($object));
     }
 
     /**
+     * @template T
+     *
      * @param T               $object
      * @param class-string<T> $className
-     *
-     * @template T
      */
     public function serializeObjectOfType(object $object, string $className): mixed
     {
         try {
-            return match ($className) {
+            return match($className) {
                 'array' => $this->serializeValuearray($object),
-                'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
-                'DateTime' => $this->serializeValueDateTime($object),
-                'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
-                'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
-                'ApiClients\Client\GitHub\Schema\Root' => $this->serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root($object),
-                default => throw new LogicException("No serialization defined for $className"),
+            'Ramsey\Uuid\UuidInterface' => $this->serializeValueRamsey⚡️Uuid⚡️UuidInterface($object),
+            'DateTime' => $this->serializeValueDateTime($object),
+            'DateTimeImmutable' => $this->serializeValueDateTimeImmutable($object),
+            'DateTimeInterface' => $this->serializeValueDateTimeInterface($object),
+            '\ApiClients\Client\GitHub\Schema\Root' => $this->serializeObject⚡️ApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root($object),
+                default => throw new \LogicException("No serialization defined for $className"),
             };
-        } catch (Throwable $exception) {
+        } catch (\Throwable $exception) {
             throw UnableToSerializeObject::dueToError($className, $exception);
         }
     }
-
+    
+    
     private function serializeValuearray(mixed $value): mixed
     {
         static $serializer;
-
+        
         if ($serializer === null) {
-            $serializer = new SerializeArrayItems(...[]);
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeArrayItems(...array (
+));
         }
-
+        
         return $serializer->serialize($value, $this);
     }
+
 
     private function serializeValueRamsey⚡️Uuid⚡️UuidInterface(mixed $value): mixed
     {
         static $serializer;
-
+        
         if ($serializer === null) {
-            $serializer = new SerializeUuidToString(...[]);
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeUuidToString(...array (
+));
         }
-
+        
         return $serializer->serialize($value, $this);
     }
+
 
     private function serializeValueDateTime(mixed $value): mixed
     {
         static $serializer;
-
+        
         if ($serializer === null) {
-            $serializer = new SerializeDateTime(...[]);
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeDateTime(...array (
+));
         }
-
+        
         return $serializer->serialize($value, $this);
     }
+
 
     private function serializeValueDateTimeImmutable(mixed $value): mixed
     {
         static $serializer;
-
+        
         if ($serializer === null) {
-            $serializer = new SerializeDateTime(...[]);
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeDateTime(...array (
+));
         }
-
+        
         return $serializer->serialize($value, $this);
     }
+
 
     private function serializeValueDateTimeInterface(mixed $value): mixed
     {
         static $serializer;
-
+        
         if ($serializer === null) {
-            $serializer = new SerializeDateTime(...[]);
+            $serializer = new \EventSauce\ObjectHydrator\PropertySerializers\SerializeDateTime(...array (
+));
         }
-
+        
         return $serializer->serialize($value, $this);
     }
 
-    private function serializeObjectApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root(mixed $object): mixed
+
+    private function serializeObject⚡️ApiClients⚡️Client⚡️GitHub⚡️Schema⚡️Root(mixed $object): mixed
     {
-        assert($object instanceof \ApiClients\Client\GitHub\Schema\Root);
+        \assert($object instanceof \\ApiClients\Client\GitHub\Schema\Root);
         $result = [];
 
-        $currentUserUrl                                          = $object->currentUserUrl;
+        $currentUserUrl = $object->currentUserUrl;
         after_currentUserUrl:        $result['current_user_url'] = $currentUserUrl;
 
-        $currentUserAuthorizationsHtmlUrl                                                              = $object->currentUserAuthorizationsHtmlUrl;
+        
+        $currentUserAuthorizationsHtmlUrl = $object->currentUserAuthorizationsHtmlUrl;
         after_currentUserAuthorizationsHtmlUrl:        $result['current_user_authorizations_html_url'] = $currentUserAuthorizationsHtmlUrl;
 
-        $authorizationsUrl                                            = $object->authorizationsUrl;
+        
+        $authorizationsUrl = $object->authorizationsUrl;
         after_authorizationsUrl:        $result['authorizations_url'] = $authorizationsUrl;
 
-        $codeSearchUrl                                         = $object->codeSearchUrl;
+        
+        $codeSearchUrl = $object->codeSearchUrl;
         after_codeSearchUrl:        $result['code_search_url'] = $codeSearchUrl;
 
-        $commitSearchUrl                                           = $object->commitSearchUrl;
+        
+        $commitSearchUrl = $object->commitSearchUrl;
         after_commitSearchUrl:        $result['commit_search_url'] = $commitSearchUrl;
 
-        $emailsUrl                                    = $object->emailsUrl;
+        
+        $emailsUrl = $object->emailsUrl;
         after_emailsUrl:        $result['emails_url'] = $emailsUrl;
 
-        $emojisUrl                                    = $object->emojisUrl;
+        
+        $emojisUrl = $object->emojisUrl;
         after_emojisUrl:        $result['emojis_url'] = $emojisUrl;
 
-        $eventsUrl                                    = $object->eventsUrl;
+        
+        $eventsUrl = $object->eventsUrl;
         after_eventsUrl:        $result['events_url'] = $eventsUrl;
 
-        $feedsUrl                                   = $object->feedsUrl;
+        
+        $feedsUrl = $object->feedsUrl;
         after_feedsUrl:        $result['feeds_url'] = $feedsUrl;
 
-        $followersUrl                                       = $object->followersUrl;
+        
+        $followersUrl = $object->followersUrl;
         after_followersUrl:        $result['followers_url'] = $followersUrl;
 
-        $followingUrl                                       = $object->followingUrl;
+        
+        $followingUrl = $object->followingUrl;
         after_followingUrl:        $result['following_url'] = $followingUrl;
 
-        $gistsUrl                                   = $object->gistsUrl;
+        
+        $gistsUrl = $object->gistsUrl;
         after_gistsUrl:        $result['gists_url'] = $gistsUrl;
 
+        
         $hubUrl = $object->hubUrl;
 
         if ($hubUrl === null) {
             goto after_hubUrl;
         }
-
         after_hubUrl:        $result['hub_url'] = $hubUrl;
 
-        $issueSearchUrl                                          = $object->issueSearchUrl;
+        
+        $issueSearchUrl = $object->issueSearchUrl;
         after_issueSearchUrl:        $result['issue_search_url'] = $issueSearchUrl;
 
-        $issuesUrl                                    = $object->issuesUrl;
+        
+        $issuesUrl = $object->issuesUrl;
         after_issuesUrl:        $result['issues_url'] = $issuesUrl;
 
-        $keysUrl                                  = $object->keysUrl;
+        
+        $keysUrl = $object->keysUrl;
         after_keysUrl:        $result['keys_url'] = $keysUrl;
 
-        $labelSearchUrl                                          = $object->labelSearchUrl;
+        
+        $labelSearchUrl = $object->labelSearchUrl;
         after_labelSearchUrl:        $result['label_search_url'] = $labelSearchUrl;
 
-        $notificationsUrl                                           = $object->notificationsUrl;
+        
+        $notificationsUrl = $object->notificationsUrl;
         after_notificationsUrl:        $result['notifications_url'] = $notificationsUrl;
 
-        $organizationUrl                                          = $object->organizationUrl;
+        
+        $organizationUrl = $object->organizationUrl;
         after_organizationUrl:        $result['organization_url'] = $organizationUrl;
 
-        $organizationRepositoriesUrl                                                       = $object->organizationRepositoriesUrl;
+        
+        $organizationRepositoriesUrl = $object->organizationRepositoriesUrl;
         after_organizationRepositoriesUrl:        $result['organization_repositories_url'] = $organizationRepositoriesUrl;
 
-        $organizationTeamsUrl                                                = $object->organizationTeamsUrl;
+        
+        $organizationTeamsUrl = $object->organizationTeamsUrl;
         after_organizationTeamsUrl:        $result['organization_teams_url'] = $organizationTeamsUrl;
 
-        $publicGistsUrl                                          = $object->publicGistsUrl;
+        
+        $publicGistsUrl = $object->publicGistsUrl;
         after_publicGistsUrl:        $result['public_gists_url'] = $publicGistsUrl;
 
-        $rateLimitUrl                                        = $object->rateLimitUrl;
+        
+        $rateLimitUrl = $object->rateLimitUrl;
         after_rateLimitUrl:        $result['rate_limit_url'] = $rateLimitUrl;
 
-        $repositoryUrl                                        = $object->repositoryUrl;
+        
+        $repositoryUrl = $object->repositoryUrl;
         after_repositoryUrl:        $result['repository_url'] = $repositoryUrl;
 
-        $repositorySearchUrl                                               = $object->repositorySearchUrl;
+        
+        $repositorySearchUrl = $object->repositorySearchUrl;
         after_repositorySearchUrl:        $result['repository_search_url'] = $repositorySearchUrl;
 
-        $currentUserRepositoriesUrl                                                       = $object->currentUserRepositoriesUrl;
+        
+        $currentUserRepositoriesUrl = $object->currentUserRepositoriesUrl;
         after_currentUserRepositoriesUrl:        $result['current_user_repositories_url'] = $currentUserRepositoriesUrl;
 
-        $starredUrl                                     = $object->starredUrl;
+        
+        $starredUrl = $object->starredUrl;
         after_starredUrl:        $result['starred_url'] = $starredUrl;
 
-        $starredGistsUrl                                           = $object->starredGistsUrl;
+        
+        $starredGistsUrl = $object->starredGistsUrl;
         after_starredGistsUrl:        $result['starred_gists_url'] = $starredGistsUrl;
 
+        
         $topicSearchUrl = $object->topicSearchUrl;
 
         if ($topicSearchUrl === null) {
             goto after_topicSearchUrl;
         }
-
         after_topicSearchUrl:        $result['topic_search_url'] = $topicSearchUrl;
 
-        $userUrl                                  = $object->userUrl;
+        
+        $userUrl = $object->userUrl;
         after_userUrl:        $result['user_url'] = $userUrl;
 
-        $userOrganizationsUrl                                                = $object->userOrganizationsUrl;
+        
+        $userOrganizationsUrl = $object->userOrganizationsUrl;
         after_userOrganizationsUrl:        $result['user_organizations_url'] = $userOrganizationsUrl;
 
-        $userRepositoriesUrl                                               = $object->userRepositoriesUrl;
+        
+        $userRepositoriesUrl = $object->userRepositoriesUrl;
         after_userRepositoriesUrl:        $result['user_repositories_url'] = $userRepositoriesUrl;
 
-        $userSearchUrl                                         = $object->userSearchUrl;
+        
+        $userSearchUrl = $object->userSearchUrl;
         after_userSearchUrl:        $result['user_search_url'] = $userSearchUrl;
+
 
         return $result;
     }
+    
+    
 
     /**
+     * @template T
+     *
      * @param class-string<T> $className
      * @param iterable<array> $payloads;
      *
      * @return IterableList<T>
      *
      * @throws UnableToHydrateObject
-     *
-     * @template T
      */
     public function hydrateObjects(string $className, iterable $payloads): IterableList
     {
@@ -658,14 +690,14 @@ class Root implements ObjectMapper
     }
 
     /**
+     * @template T
+     *
      * @param class-string<T> $className
      * @param iterable<array> $payloads;
      *
      * @return IterableList<T>
      *
      * @throws UnableToSerializeObject
-     *
-     * @template T
      */
     public function serializeObjects(iterable $payloads): IterableList
     {

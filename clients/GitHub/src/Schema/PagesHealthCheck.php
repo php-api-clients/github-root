@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PagesHealthCheck
+final readonly class PagesHealthCheck implements \ApiClients\Client\GitHub\Contract\PagesHealthCheck
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Pages Health Check Status",
     "type": "object",
     "properties": {
@@ -305,9 +301,9 @@ final readonly class PagesHealthCheck
     },
     "description": "Pages Health Check Status"
 }';
-    public const SCHEMA_TITLE        = 'Pages Health Check Status';
-    public const SCHEMA_DESCRIPTION  = 'Pages Health Check Status';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Pages Health Check Status';
+    public const SCHEMA_DESCRIPTION = 'Pages Health Check Status';
+    const SCHEMA_EXAMPLE_DATA = '{
     "domain": {
         "host": "generated",
         "uri": "generated",
@@ -369,9 +365,7 @@ final readonly class PagesHealthCheck
         "caa_error": "generated"
     }
 }';
-
-    public function __construct(public Schema\PagesHealthCheck\Domain|null $domain, #[MapFrom('alt_domain')]
-    public Schema\PagesHealthCheck\AltDomain|null $altDomain,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\PagesHealthCheck\Domain $domain, #[\EventSauce\ObjectHydrator\MapFrom('alt_domain')] public ?\ApiClients\Client\GitHub\Schema\PagesHealthCheck\AltDomain $altDomain)
     {
     }
 }

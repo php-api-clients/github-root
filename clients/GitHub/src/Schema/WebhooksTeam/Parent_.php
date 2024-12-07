@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhooksTeam;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Parent_ extends Schema\AliasAbstract\Tiet1713FA54\Tiet8228D0EF\TietCFE14802\Tiet29E22580
+final readonly class Parent_ extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T1713FA54\T8228D0EF\TCFE14802\T29E22580
 {
 }

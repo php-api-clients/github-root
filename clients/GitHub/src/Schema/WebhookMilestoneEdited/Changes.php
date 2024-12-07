@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookMilestoneEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "description": {
@@ -51,9 +47,9 @@ final readonly class Changes
     },
     "description": "The changes to the milestone if the action was `edited`."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The changes to the milestone if the action was `edited`.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The changes to the milestone if the action was `edited`.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "description": {
         "from": "generated"
     },
@@ -64,9 +60,7 @@ final readonly class Changes
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookMilestoneEdited\Changes\Description|null $description, #[MapFrom('due_on')]
-    public Schema\WebhookMilestoneEdited\Changes\DueOn|null $dueOn, public Schema\WebhookMilestoneEdited\Changes\Title|null $title,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes\Description $description, #[\EventSauce\ObjectHydrator\MapFrom('due_on')] public ?\ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes\DueOn $dueOn, public ?\ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes\Title $title)
     {
     }
 }

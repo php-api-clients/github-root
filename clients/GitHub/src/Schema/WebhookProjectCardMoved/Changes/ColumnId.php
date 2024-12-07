@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectCardMoved\Changes;
 
-final readonly class ColumnId
+final readonly class ColumnId implements \ApiClients\Client\GitHub\Contract\WebhookProjectCardMoved\Changes\ColumnId
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "from"
     ],
@@ -17,12 +16,11 @@ final readonly class ColumnId
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": 4
 }';
-
     public function __construct(public int $from)
     {
     }

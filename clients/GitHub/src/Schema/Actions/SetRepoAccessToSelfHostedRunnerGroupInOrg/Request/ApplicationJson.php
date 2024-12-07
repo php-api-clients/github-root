@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\SetRepoAccessToSelfHostedRunnerGroupInOrg\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "selected_repository_ids"
     ],
@@ -24,20 +21,18 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "selected_repository_ids": [
         24,
         25
     ]
 }';
-
     /**
      * selectedRepositoryIds: List of repository IDs that can access the runner group.
      */
-    public function __construct(#[MapFrom('selected_repository_ids')]
-    public array $selectedRepositoryIds,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('selected_repository_ids')] public array $selectedRepositoryIds)
     {
     }
 }

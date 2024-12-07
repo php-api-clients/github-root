@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleRequiredSignatures
+final readonly class RepositoryRuleRequiredSignatures implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredSignatures
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "required_signatures",
     "required": [
         "type"
@@ -22,12 +21,11 @@ final readonly class RepositoryRuleRequiredSignatures
     },
     "description": "Commits pushed to matching refs must have verified signatures."
 }';
-    public const SCHEMA_TITLE        = 'required_signatures';
-    public const SCHEMA_DESCRIPTION  = 'Commits pushed to matching refs must have verified signatures.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'required_signatures';
+    public const SCHEMA_DESCRIPTION = 'Commits pushed to matching refs must have verified signatures.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "required_signatures"
 }';
-
     public function __construct(public string $type)
     {
     }

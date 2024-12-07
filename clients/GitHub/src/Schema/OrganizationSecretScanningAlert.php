@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class OrganizationSecretScanningAlert
+final readonly class OrganizationSecretScanningAlert implements \ApiClients\Client\GitHub\Contract\OrganizationSecretScanningAlert
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "number": {
@@ -1233,9 +1229,9 @@ final readonly class OrganizationSecretScanningAlert
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "number": 6,
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00",
@@ -1243,205 +1239,187 @@ final readonly class OrganizationSecretScanningAlert
     "html_url": "https:\\/\\/example.com\\/",
     "locations_url": "https:\\/\\/example.com\\/",
     "state": "open",
-    "resolution": "used_in_tests",
+    "resolution": "false_positive",
     "resolved_at": "1970-01-01T00:00:00+00:00",
     "resolved_by": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "secret_type": "generated",
     "secret_type_display_name": "generated",
     "secret": "generated",
     "repository": {
-        "id": 1296269,
-        "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-        "name": "Hello-World",
-        "full_name": "octocat\\/Hello-World",
+        "id": 2,
+        "node_id": "generated",
+        "name": "generated",
+        "full_name": "generated",
         "owner": {
             "name": "generated",
             "email": "generated",
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-            "html_url": "https:\\/\\/github.com\\/octocat",
-            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-            "type": "User",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
             "site_admin": false,
-            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-            "user_view_type": "public"
+            "starred_at": "generated",
+            "user_view_type": "generated"
         },
         "private": false,
-        "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
-        "description": "This your first repo!",
+        "html_url": "https:\\/\\/example.com\\/",
+        "description": "generated",
         "fork": false,
-        "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World",
-        "archive_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/{archive_format}{\\/ref}",
-        "assignees_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/assignees{\\/user}",
-        "blobs_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs{\\/sha}",
-        "branches_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches{\\/branch}",
-        "collaborators_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/collaborators{\\/collaborator}",
-        "comments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/comments{\\/number}",
-        "commits_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/commits{\\/sha}",
-        "compare_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/compare\\/{base}...{head}",
-        "contents_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contents\\/{+path}",
-        "contributors_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/contributors",
-        "deployments_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/deployments",
-        "downloads_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/downloads",
-        "events_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/events",
-        "forks_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/forks",
-        "git_commits_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/commits{\\/sha}",
-        "git_refs_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/refs{\\/sha}",
-        "git_tags_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/tags{\\/sha}",
-        "issue_comment_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/comments{\\/number}",
-        "issue_events_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/events{\\/number}",
-        "issues_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues{\\/number}",
-        "keys_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/keys{\\/key_id}",
-        "labels_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/labels{\\/name}",
-        "languages_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/languages",
-        "merges_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/merges",
-        "milestones_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/milestones{\\/number}",
-        "notifications_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/notifications{?since,all,participating}",
-        "pulls_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls{\\/number}",
-        "releases_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/releases{\\/id}",
-        "stargazers_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/stargazers",
-        "statuses_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/statuses\\/{sha}",
-        "subscribers_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscribers",
-        "subscription_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/subscription",
-        "tags_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/tags",
-        "teams_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/teams",
-        "trees_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/trees{\\/sha}",
-        "hooks_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/hooks"
+        "url": "https:\\/\\/example.com\\/",
+        "archive_url": "generated",
+        "assignees_url": "generated",
+        "blobs_url": "generated",
+        "branches_url": "generated",
+        "collaborators_url": "generated",
+        "comments_url": "generated",
+        "commits_url": "generated",
+        "compare_url": "generated",
+        "contents_url": "generated",
+        "contributors_url": "https:\\/\\/example.com\\/",
+        "deployments_url": "https:\\/\\/example.com\\/",
+        "downloads_url": "https:\\/\\/example.com\\/",
+        "events_url": "https:\\/\\/example.com\\/",
+        "forks_url": "https:\\/\\/example.com\\/",
+        "git_commits_url": "generated",
+        "git_refs_url": "generated",
+        "git_tags_url": "generated",
+        "issue_comment_url": "generated",
+        "issue_events_url": "generated",
+        "issues_url": "generated",
+        "keys_url": "generated",
+        "labels_url": "generated",
+        "languages_url": "https:\\/\\/example.com\\/",
+        "merges_url": "https:\\/\\/example.com\\/",
+        "milestones_url": "generated",
+        "notifications_url": "generated",
+        "pulls_url": "generated",
+        "releases_url": "generated",
+        "stargazers_url": "https:\\/\\/example.com\\/",
+        "statuses_url": "generated",
+        "subscribers_url": "https:\\/\\/example.com\\/",
+        "subscription_url": "https:\\/\\/example.com\\/",
+        "tags_url": "https:\\/\\/example.com\\/",
+        "teams_url": "https:\\/\\/example.com\\/",
+        "trees_url": "generated",
+        "hooks_url": "https:\\/\\/example.com\\/"
     },
     "push_protection_bypassed": false,
     "push_protection_bypassed_by": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "push_protection_bypassed_at": "1970-01-01T00:00:00+00:00",
     "push_protection_bypass_request_reviewer": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "push_protection_bypass_request_comment": "generated",
     "push_protection_bypass_request_html_url": "https:\\/\\/example.com\\/",
     "resolution_comment": "generated",
-    "validity": "unknown",
+    "validity": "active",
     "publicly_leaked": false,
     "multi_repo": false
 }';
-
     /**
-     * number: The security alert number.
-     * createdAt: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     * url: The REST API URL of the alert resource.
-     * htmlUrl: The GitHub URL of the alert resource.
-     * locationsUrl: The REST API URL of the code locations for this alert.
-     * state: Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.
-     * resolution: **Required when the `state` is `resolved`.** The reason for resolving the alert.
-     * resolvedAt: The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     * secretType: The type of secret that secret scanning detected.
-     * secretTypeDisplayName: User-friendly name for the detected secret, matching the `secret_type`.
+    * number: The security alert number.
+    * createdAt: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * url: The REST API URL of the alert resource.
+    * htmlUrl: The GitHub URL of the alert resource.
+    * locationsUrl: The REST API URL of the code locations for this alert.
+    * state: Sets the state of the secret scanning alert. You must provide `resolution` when you set the state to `resolved`.
+    * resolution: **Required when the `state` is `resolved`.** The reason for resolving the alert.
+    * resolvedAt: The time that the alert was resolved in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * secretType: The type of secret that secret scanning detected.
+    * secretTypeDisplayName: User-friendly name for the detected secret, matching the `secret_type`.
     For a list of built-in patterns, see "[Supported secret scanning patterns](https://docs.github.com/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
-     * secret: The secret that was detected.
-     * repository: A GitHub repository.
-     * pushProtectionBypassed: Whether push protection was bypassed for the detected secret.
-     * pushProtectionBypassedAt: The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
-     * pushProtectionBypassRequestComment: An optional comment when requesting a push protection bypass.
-     * pushProtectionBypassRequestHtmlUrl: The URL to a push protection bypass request.
-     * resolutionComment: The comment that was optionally added when this alert was closed
-     * validity: The token status as of the latest validity check.
-     * publiclyLeaked: Whether the secret was publicly leaked.
-     * multiRepo: Whether the detected secret was found in multiple repositories in the same organization or enterprise.
-     */
-    public function __construct(public int|null $number, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string|null $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('locations_url')]
-    public string|null $locationsUrl, public string|null $state, public string|null $resolution, #[MapFrom('resolved_at')]
-    public string|null $resolvedAt, #[MapFrom('resolved_by')]
-    public Schema\SimpleUser|null $resolvedBy, #[MapFrom('secret_type')]
-    public string|null $secretType, #[MapFrom('secret_type_display_name')]
-    public string|null $secretTypeDisplayName, public string|null $secret, public Schema\SimpleRepository|null $repository, #[MapFrom('push_protection_bypassed')]
-    public bool|null $pushProtectionBypassed, #[MapFrom('push_protection_bypassed_by')]
-    public Schema\SimpleUser|null $pushProtectionBypassedBy, #[MapFrom('push_protection_bypassed_at')]
-    public string|null $pushProtectionBypassedAt, #[MapFrom('push_protection_bypass_request_reviewer')]
-    public Schema\SimpleUser|null $pushProtectionBypassRequestReviewer, #[MapFrom('push_protection_bypass_request_comment')]
-    public string|null $pushProtectionBypassRequestComment, #[MapFrom('push_protection_bypass_request_html_url')]
-    public string|null $pushProtectionBypassRequestHtmlUrl, #[MapFrom('resolution_comment')]
-    public string|null $resolutionComment, public string|null $validity, #[MapFrom('publicly_leaked')]
-    public bool|null $publiclyLeaked, #[MapFrom('multi_repo')]
-    public bool|null $multiRepo,)
+    * secret: The secret that was detected.
+    * repository: A GitHub repository.
+    * pushProtectionBypassed: Whether push protection was bypassed for the detected secret.
+    * pushProtectionBypassedAt: The time that push protection was bypassed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
+    * pushProtectionBypassRequestComment: An optional comment when requesting a push protection bypass.
+    * pushProtectionBypassRequestHtmlUrl: The URL to a push protection bypass request.
+    * resolutionComment: The comment that was optionally added when this alert was closed
+    * validity: The token status as of the latest validity check.
+    * publiclyLeaked: Whether the secret was publicly leaked.
+    * multiRepo: Whether the detected secret was found in multiple repositories in the same organization or enterprise.
+    */
+    public function __construct(public ?int $number, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('locations_url')] public ?string $locationsUrl, public ?string $state, public ?string $resolution, #[\EventSauce\ObjectHydrator\MapFrom('resolved_at')] public ?string $resolvedAt, #[\EventSauce\ObjectHydrator\MapFrom('resolved_by')] public ?\ApiClients\Client\GitHub\Schema\SimpleUser $resolvedBy, #[\EventSauce\ObjectHydrator\MapFrom('secret_type')] public ?string $secretType, #[\EventSauce\ObjectHydrator\MapFrom('secret_type_display_name')] public ?string $secretTypeDisplayName, public ?string $secret, public ?\ApiClients\Client\GitHub\Schema\SimpleRepository $repository, #[\EventSauce\ObjectHydrator\MapFrom('push_protection_bypassed')] public ?bool $pushProtectionBypassed, #[\EventSauce\ObjectHydrator\MapFrom('push_protection_bypassed_by')] public ?\ApiClients\Client\GitHub\Schema\SimpleUser $pushProtectionBypassedBy, #[\EventSauce\ObjectHydrator\MapFrom('push_protection_bypassed_at')] public ?string $pushProtectionBypassedAt, #[\EventSauce\ObjectHydrator\MapFrom('push_protection_bypass_request_reviewer')] public ?\ApiClients\Client\GitHub\Schema\SimpleUser $pushProtectionBypassRequestReviewer, #[\EventSauce\ObjectHydrator\MapFrom('push_protection_bypass_request_comment')] public ?string $pushProtectionBypassRequestComment, #[\EventSauce\ObjectHydrator\MapFrom('push_protection_bypass_request_html_url')] public ?string $pushProtectionBypassRequestHtmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('resolution_comment')] public ?string $resolutionComment, public ?string $validity, #[\EventSauce\ObjectHydrator\MapFrom('publicly_leaked')] public ?bool $publiclyLeaked, #[\EventSauce\ObjectHydrator\MapFrom('multi_repo')] public ?bool $multiRepo)
     {
     }
 }

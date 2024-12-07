@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateFileContents\Request\ApplicationJson;
 
-final readonly class Author
+final readonly class Author implements \ApiClients\Client\GitHub\Contract\Repos\CreateOrUpdateFileContents\Request\ApplicationJson\Author
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name",
         "email"
@@ -30,19 +29,18 @@ final readonly class Author
     },
     "description": "The author of the file. Default: The `committer` or the authenticated user if you omit `committer`."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The author of the file. Default: The `committer` or the authenticated user if you omit `committer`.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "email": "generated",
-    "date": "\\"2013-01-15T17:13:22+05:00\\""
+    "date": "generated"
 }';
-
     /**
      * name: The name of the author or committer of the commit. You'll receive a `422` status code if `name` is omitted.
      * email: The email of the author or committer of the commit. You'll receive a `422` status code if `email` is omitted.
      */
-    public function __construct(public string $name, public string $email, public string|null $date)
+    public function __construct(public string $name, public string $email, public ?string $date)
     {
     }
 }

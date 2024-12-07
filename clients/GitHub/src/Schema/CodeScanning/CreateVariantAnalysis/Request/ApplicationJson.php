@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CodeScanning\CreateVariantAnalysis\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeScanning\CreateVariantAnalysis\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "language",
         "query_pack"
@@ -76,10 +73,10 @@ final readonly class ApplicationJson
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "language": "swift",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "language": "cpp",
     "query_pack": "generated",
     "repositories": [
         "generated",
@@ -92,7 +89,6 @@ final readonly class ApplicationJson
         "generated"
     ]
 }';
-
     /**
      * language: The language targeted by the CodeQL query
      * queryPack: A Base64-encoded tarball containing a CodeQL query and all its dependencies
@@ -100,10 +96,7 @@ final readonly class ApplicationJson
      * repositoryLists: List of repository lists to run the query against. Precisely one property from `repositories`, `repository_lists` and `repository_owners` is required.
      * repositoryOwners: List of organization or user names whose repositories the query should be run against. Precisely one property from `repositories`, `repository_lists` and `repository_owners` is required.
      */
-    public function __construct(public string $language, #[MapFrom('query_pack')]
-    public string $queryPack, public array|null $repositories, #[MapFrom('repository_lists')]
-    public array|null $repositoryLists, #[MapFrom('repository_owners')]
-    public array|null $repositoryOwners,)
+    public function __construct(public string $language, #[\EventSauce\ObjectHydrator\MapFrom('query_pack')] public string $queryPack, public ?array $repositories, #[\EventSauce\ObjectHydrator\MapFrom('repository_lists')] public ?array $repositoryLists, #[\EventSauce\ObjectHydrator\MapFrom('repository_owners')] public ?array $repositoryOwners)
     {
     }
 }

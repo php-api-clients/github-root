@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestAutoMergeEnabled\PullRequest;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Head
+final readonly class Head implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestAutoMergeEnabled\PullRequest\Head
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "label",
         "ref",
@@ -791,9 +788,9 @@ final readonly class Head
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "label": "generated",
     "ref": "generated",
     "repo": {
@@ -815,7 +812,7 @@ final readonly class Head
         "compare_url": "generated",
         "contents_url": "generated",
         "contributors_url": "https:\\/\\/example.com\\/",
-        "created_at": null,
+        "created_at": "1970-01-01T00:00:00+00:00",
         "default_branch": "generated",
         "delete_branch_on_merge": false,
         "deployments_url": "https:\\/\\/example.com\\/",
@@ -858,8 +855,8 @@ final readonly class Head
             "url": "https:\\/\\/example.com\\/"
         },
         "master_branch": "generated",
-        "merge_commit_message": "BLANK",
-        "merge_commit_title": "MERGE_MESSAGE",
+        "merge_commit_message": "PR_BODY",
+        "merge_commit_title": "PR_TITLE",
         "merges_url": "https:\\/\\/example.com\\/",
         "milestones_url": "generated",
         "mirror_url": "https:\\/\\/example.com\\/",
@@ -889,7 +886,7 @@ final readonly class Head
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -903,7 +900,7 @@ final readonly class Head
         "private": false,
         "public": false,
         "pulls_url": "generated",
-        "pushed_at": null,
+        "pushed_at": "1970-01-01T00:00:00+00:00",
         "releases_url": "generated",
         "role_name": "generated",
         "size": 4,
@@ -927,7 +924,7 @@ final readonly class Head
         "updated_at": "1970-01-01T00:00:00+00:00",
         "url": "https:\\/\\/example.com\\/",
         "use_squash_pr_title_as_default": false,
-        "visibility": "internal",
+        "visibility": "public",
         "watchers": 8,
         "watchers_count": 14,
         "web_commit_signoff_required": false
@@ -953,16 +950,15 @@ final readonly class Head
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
     /**
      * repo: A git repository
      */
-    public function __construct(public string $label, public string $ref, public Schema\WebhookPullRequestAutoMergeEnabled\PullRequest\Head\Repo $repo, public string $sha, public Schema\WebhookPullRequestAutoMergeEnabled\PullRequest\Head\User|null $user)
+    public function __construct(public string $label, public string $ref, public \ApiClients\Client\GitHub\Schema\WebhookPullRequestAutoMergeEnabled\PullRequest\Head\Repo $repo, public string $sha, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestAutoMergeEnabled\PullRequest\Head\User $user)
     {
     }
 }

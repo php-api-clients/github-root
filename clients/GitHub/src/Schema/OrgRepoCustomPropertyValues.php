@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class OrgRepoCustomPropertyValues
+final readonly class OrgRepoCustomPropertyValues implements \ApiClients\Client\GitHub\Contract\OrgRepoCustomPropertyValues
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Organization Repository Custom Property Values",
     "required": [
         "repository_id",
@@ -77,12 +74,12 @@ final readonly class OrgRepoCustomPropertyValues
     },
     "description": "List of custom property values for a repository"
 }';
-    public const SCHEMA_TITLE        = 'Organization Repository Custom Property Values';
-    public const SCHEMA_DESCRIPTION  = 'List of custom property values for a repository';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "repository_id": 1296269,
-    "repository_name": "Hello-World",
-    "repository_full_name": "octocat\\/Hello-World",
+    public const SCHEMA_TITLE = 'Organization Repository Custom Property Values';
+    public const SCHEMA_DESCRIPTION = 'List of custom property values for a repository';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "repository_id": 13,
+    "repository_name": "generated",
+    "repository_full_name": "generated",
     "properties": [
         {
             "property_name": "generated",
@@ -94,14 +91,10 @@ final readonly class OrgRepoCustomPropertyValues
         }
     ]
 }';
-
     /**
      * properties: List of custom property names and associated values
      */
-    public function __construct(#[MapFrom('repository_id')]
-    public int $repositoryId, #[MapFrom('repository_name')]
-    public string $repositoryName, #[MapFrom('repository_full_name')]
-    public string $repositoryFullName, public array $properties,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('repository_id')] public int $repositoryId, #[\EventSauce\ObjectHydrator\MapFrom('repository_name')] public string $repositoryName, #[\EventSauce\ObjectHydrator\MapFrom('repository_full_name')] public string $repositoryFullName, public array $properties)
     {
     }
 }

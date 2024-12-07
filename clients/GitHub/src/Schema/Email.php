@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Email
+final readonly class Email implements \ApiClients\Client\GitHub\Contract\Email
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Email",
     "required": [
         "email",
@@ -47,16 +46,15 @@ final readonly class Email
     },
     "description": "Email"
 }';
-    public const SCHEMA_TITLE        = 'Email';
-    public const SCHEMA_DESCRIPTION  = 'Email';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "email": "octocat@github.com",
-    "primary": true,
-    "verified": true,
-    "visibility": "public"
+    public const SCHEMA_TITLE = 'Email';
+    public const SCHEMA_DESCRIPTION = 'Email';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "email": "hi@example.com",
+    "primary": false,
+    "verified": false,
+    "visibility": "generated"
 }';
-
-    public function __construct(public string $email, public bool $primary, public bool $verified, public string|null $visibility)
+    public function __construct(public string $email, public bool $primary, public bool $verified, public ?string $visibility)
     {
     }
 }

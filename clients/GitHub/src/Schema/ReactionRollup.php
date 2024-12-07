@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ReactionRollup
+final readonly class ReactionRollup implements \ApiClients\Client\GitHub\Contract\ReactionRollup
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Reaction Rollup",
     "required": [
         "url",
@@ -57,9 +54,9 @@ final readonly class ReactionRollup
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Reaction Rollup';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Reaction Rollup';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/",
     "total_count": 11,
     "+1": 11,
@@ -71,11 +68,7 @@ final readonly class ReactionRollup
     "eyes": 4,
     "rocket": 6
 }';
-
-    public function __construct(public string $url, #[MapFrom('total_count')]
-    public int $totalCount, #[MapFrom('+1')]
-    public int $plusOne, #[MapFrom('-1')]
-    public int $minOne, public int $laugh, public int $confused, public int $heart, public int $hooray, public int $eyes, public int $rocket,)
+    public function __construct(public string $url, #[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('+1')] public int $plusOne, #[\EventSauce\ObjectHydrator\MapFrom('-1')] public int $minOne, public int $laugh, public int $confused, public int $heart, public int $hooray, public int $eyes, public int $rocket)
     {
     }
 }

@@ -1,0 +1,281 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Schema\AliasAbstract\TB93BCA5E\TE4DA40E4\T6DC94A0B;
+
+abstract readonly class T72FA76AA implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentCreated\WorkflowRun\HeadRepository
+{
+    const SCHEMA_JSON = '{
+    "type": "object",
+    "properties": {
+        "archive_url": {
+            "type": "string"
+        },
+        "assignees_url": {
+            "type": "string"
+        },
+        "blobs_url": {
+            "type": "string"
+        },
+        "branches_url": {
+            "type": "string"
+        },
+        "collaborators_url": {
+            "type": "string"
+        },
+        "comments_url": {
+            "type": "string"
+        },
+        "commits_url": {
+            "type": "string"
+        },
+        "compare_url": {
+            "type": "string"
+        },
+        "contents_url": {
+            "type": "string"
+        },
+        "contributors_url": {
+            "type": "string"
+        },
+        "deployments_url": {
+            "type": "string"
+        },
+        "description": {
+            "type": [
+                "null"
+            ]
+        },
+        "downloads_url": {
+            "type": "string"
+        },
+        "events_url": {
+            "type": "string"
+        },
+        "fork": {
+            "type": "boolean"
+        },
+        "forks_url": {
+            "type": "string"
+        },
+        "full_name": {
+            "type": "string"
+        },
+        "git_commits_url": {
+            "type": "string"
+        },
+        "git_refs_url": {
+            "type": "string"
+        },
+        "git_tags_url": {
+            "type": "string"
+        },
+        "hooks_url": {
+            "type": "string"
+        },
+        "html_url": {
+            "type": "string"
+        },
+        "id": {
+            "type": "integer"
+        },
+        "issue_comment_url": {
+            "type": "string"
+        },
+        "issue_events_url": {
+            "type": "string"
+        },
+        "issues_url": {
+            "type": "string"
+        },
+        "keys_url": {
+            "type": "string"
+        },
+        "labels_url": {
+            "type": "string"
+        },
+        "languages_url": {
+            "type": "string"
+        },
+        "merges_url": {
+            "type": "string"
+        },
+        "milestones_url": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "node_id": {
+            "type": "string"
+        },
+        "notifications_url": {
+            "type": "string"
+        },
+        "owner": {
+            "type": "object",
+            "properties": {
+                "avatar_url": {
+                    "type": "string"
+                },
+                "events_url": {
+                    "type": "string"
+                },
+                "followers_url": {
+                    "type": "string"
+                },
+                "following_url": {
+                    "type": "string"
+                },
+                "gists_url": {
+                    "type": "string"
+                },
+                "gravatar_id": {
+                    "type": "string"
+                },
+                "html_url": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "login": {
+                    "type": "string"
+                },
+                "node_id": {
+                    "type": "string"
+                },
+                "organizations_url": {
+                    "type": "string"
+                },
+                "received_events_url": {
+                    "type": "string"
+                },
+                "repos_url": {
+                    "type": "string"
+                },
+                "site_admin": {
+                    "type": "boolean"
+                },
+                "starred_url": {
+                    "type": "string"
+                },
+                "subscriptions_url": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "private": {
+            "type": "boolean"
+        },
+        "pulls_url": {
+            "type": "string"
+        },
+        "releases_url": {
+            "type": "string"
+        },
+        "stargazers_url": {
+            "type": "string"
+        },
+        "statuses_url": {
+            "type": "string"
+        },
+        "subscribers_url": {
+            "type": "string"
+        },
+        "subscription_url": {
+            "type": "string"
+        },
+        "tags_url": {
+            "type": "string"
+        },
+        "teams_url": {
+            "type": "string"
+        },
+        "trees_url": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string"
+        }
+    }
+}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "archive_url": "generated",
+    "assignees_url": "generated",
+    "blobs_url": "generated",
+    "branches_url": "generated",
+    "collaborators_url": "generated",
+    "comments_url": "generated",
+    "commits_url": "generated",
+    "compare_url": "generated",
+    "contents_url": "generated",
+    "contributors_url": "generated",
+    "deployments_url": "generated",
+    "description": "generated",
+    "downloads_url": "generated",
+    "events_url": "generated",
+    "fork": false,
+    "forks_url": "generated",
+    "full_name": "generated",
+    "git_commits_url": "generated",
+    "git_refs_url": "generated",
+    "git_tags_url": "generated",
+    "hooks_url": "generated",
+    "html_url": "generated",
+    "id": 2,
+    "issue_comment_url": "generated",
+    "issue_events_url": "generated",
+    "issues_url": "generated",
+    "keys_url": "generated",
+    "labels_url": "generated",
+    "languages_url": "generated",
+    "merges_url": "generated",
+    "milestones_url": "generated",
+    "name": "generated",
+    "node_id": "generated",
+    "notifications_url": "generated",
+    "owner": {
+        "avatar_url": "generated",
+        "events_url": "generated",
+        "followers_url": "generated",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "gravatar_id": "generated",
+        "html_url": "generated",
+        "id": 2,
+        "login": "generated",
+        "node_id": "generated",
+        "organizations_url": "generated",
+        "received_events_url": "generated",
+        "repos_url": "generated",
+        "site_admin": false,
+        "starred_url": "generated",
+        "subscriptions_url": "generated",
+        "type": "generated",
+        "url": "generated"
+    },
+    "private": false,
+    "pulls_url": "generated",
+    "releases_url": "generated",
+    "stargazers_url": "generated",
+    "statuses_url": "generated",
+    "subscribers_url": "generated",
+    "subscription_url": "generated",
+    "tags_url": "generated",
+    "teams_url": "generated",
+    "trees_url": "generated",
+    "url": "generated"
+}';
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('archive_url')] public ?string $archiveUrl, #[\EventSauce\ObjectHydrator\MapFrom('assignees_url')] public ?string $assigneesUrl, #[\EventSauce\ObjectHydrator\MapFrom('blobs_url')] public ?string $blobsUrl, #[\EventSauce\ObjectHydrator\MapFrom('branches_url')] public ?string $branchesUrl, #[\EventSauce\ObjectHydrator\MapFrom('collaborators_url')] public ?string $collaboratorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public ?string $commentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public ?string $commitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('compare_url')] public ?string $compareUrl, #[\EventSauce\ObjectHydrator\MapFrom('contents_url')] public ?string $contentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('contributors_url')] public ?string $contributorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('deployments_url')] public ?string $deploymentsUrl, public string $description, #[\EventSauce\ObjectHydrator\MapFrom('downloads_url')] public ?string $downloadsUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public ?string $eventsUrl, public ?bool $fork, #[\EventSauce\ObjectHydrator\MapFrom('forks_url')] public ?string $forksUrl, #[\EventSauce\ObjectHydrator\MapFrom('full_name')] public ?string $fullName, #[\EventSauce\ObjectHydrator\MapFrom('git_commits_url')] public ?string $gitCommitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_refs_url')] public ?string $gitRefsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_tags_url')] public ?string $gitTagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public ?string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public ?int $id, #[\EventSauce\ObjectHydrator\MapFrom('issue_comment_url')] public ?string $issueCommentUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_events_url')] public ?string $issueEventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public ?string $issuesUrl, #[\EventSauce\ObjectHydrator\MapFrom('keys_url')] public ?string $keysUrl, #[\EventSauce\ObjectHydrator\MapFrom('labels_url')] public ?string $labelsUrl, #[\EventSauce\ObjectHydrator\MapFrom('languages_url')] public ?string $languagesUrl, #[\EventSauce\ObjectHydrator\MapFrom('merges_url')] public ?string $mergesUrl, #[\EventSauce\ObjectHydrator\MapFrom('milestones_url')] public ?string $milestonesUrl, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('notifications_url')] public ?string $notificationsUrl, public ?\ApiClients\Client\GitHub\Schema\WebhookDeploymentCreated\WorkflowRun\HeadRepository\Owner $owner, public ?bool $private, #[\EventSauce\ObjectHydrator\MapFrom('pulls_url')] public ?string $pullsUrl, #[\EventSauce\ObjectHydrator\MapFrom('releases_url')] public ?string $releasesUrl, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_url')] public ?string $stargazersUrl, #[\EventSauce\ObjectHydrator\MapFrom('statuses_url')] public ?string $statusesUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscribers_url')] public ?string $subscribersUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscription_url')] public ?string $subscriptionUrl, #[\EventSauce\ObjectHydrator\MapFrom('tags_url')] public ?string $tagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('teams_url')] public ?string $teamsUrl, #[\EventSauce\ObjectHydrator\MapFrom('trees_url')] public ?string $treesUrl, public ?string $url)
+    {
+    }
+}

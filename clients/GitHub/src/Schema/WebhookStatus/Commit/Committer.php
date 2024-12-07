@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus\Commit;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Committer extends Schema\AliasAbstract\Tiet97BBA23D\TietACCE0A37\Tiet771D92AD\TietB50B3D33
+final readonly class Committer extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T97BBA23D\TACCE0A37\T771D92AD\TB50B3D33
 {
 }

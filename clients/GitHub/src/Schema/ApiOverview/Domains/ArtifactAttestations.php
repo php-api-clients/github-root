@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\ApiOverview\Domains;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ArtifactAttestations
+final readonly class ArtifactAttestations implements \ApiClients\Client\GitHub\Contract\ApiOverview\Domains\ArtifactAttestations
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "trust_domain": {
@@ -28,18 +25,16 @@ final readonly class ArtifactAttestations
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "trust_domain": "example",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "trust_domain": "generated",
     "services": [
         "generated",
         "generated"
     ]
 }';
-
-    public function __construct(#[MapFrom('trust_domain')]
-    public string|null $trustDomain, public array|null $services,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('trust_domain')] public ?string $trustDomain, public ?array $services)
     {
     }
 }

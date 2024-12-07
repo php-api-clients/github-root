@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleRequiredStatusChecks
+final readonly class RepositoryRuleRequiredStatusChecks implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredStatusChecks
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "required_status_checks",
     "required": [
         "type"
@@ -63,9 +60,9 @@ final readonly class RepositoryRuleRequiredStatusChecks
     },
     "description": "Choose which status checks must pass before the ref is updated. When enabled, commits must first be pushed to another ref where the checks pass."
 }';
-    public const SCHEMA_TITLE        = 'required_status_checks';
-    public const SCHEMA_DESCRIPTION  = 'Choose which status checks must pass before the ref is updated. When enabled, commits must first be pushed to another ref where the checks pass.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'required_status_checks';
+    public const SCHEMA_DESCRIPTION = 'Choose which status checks must pass before the ref is updated. When enabled, commits must first be pushed to another ref where the checks pass.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "required_status_checks",
     "parameters": {
         "do_not_enforce_on_create": false,
@@ -82,8 +79,7 @@ final readonly class RepositoryRuleRequiredStatusChecks
         "strict_required_status_checks_policy": false
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleRequiredStatusChecks\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks\Parameters $parameters)
     {
     }
 }

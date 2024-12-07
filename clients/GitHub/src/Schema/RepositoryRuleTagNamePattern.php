@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleTagNamePattern
+final readonly class RepositoryRuleTagNamePattern implements \ApiClients\Client\GitHub\Contract\RepositoryRuleTagNamePattern
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "tag_name_pattern",
     "required": [
         "type"
@@ -55,19 +52,18 @@ final readonly class RepositoryRuleTagNamePattern
     },
     "description": "Parameters to be used for the tag_name_pattern rule"
 }';
-    public const SCHEMA_TITLE        = 'tag_name_pattern';
-    public const SCHEMA_DESCRIPTION  = 'Parameters to be used for the tag_name_pattern rule';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'tag_name_pattern';
+    public const SCHEMA_DESCRIPTION = 'Parameters to be used for the tag_name_pattern rule';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "tag_name_pattern",
     "parameters": {
         "name": "generated",
         "negate": false,
-        "operator": "regex",
+        "operator": "starts_with",
         "pattern": "generated"
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleTagNamePattern\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern\Parameters $parameters)
     {
     }
 }

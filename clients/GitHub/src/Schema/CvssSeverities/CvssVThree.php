@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CvssSeverities;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CvssVThree
+final readonly class CvssVThree implements \ApiClients\Client\GitHub\Contract\CvssSeverities\CvssVThree
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "vector_string",
         "score"
@@ -37,19 +34,17 @@ final readonly class CvssVThree
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "vector_string": "generated",
-    "score": 0.5
+    "score": 5
 }';
-
     /**
      * vectorString: The CVSS 3 vector string.
      * score: The CVSS 3 score.
      */
-    public function __construct(#[MapFrom('vector_string')]
-    public string|null $vectorString, public int|float|null $score,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('vector_string')] public ?string $vectorString, public null|int|float $score)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class IssueEventMilestone
+final readonly class IssueEventMilestone implements \ApiClients\Client\GitHub\Contract\IssueEventMilestone
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Issue Event Milestone",
     "required": [
         "title"
@@ -19,12 +18,11 @@ final readonly class IssueEventMilestone
     },
     "description": "Issue Event Milestone"
 }';
-    public const SCHEMA_TITLE        = 'Issue Event Milestone';
-    public const SCHEMA_DESCRIPTION  = 'Issue Event Milestone';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Issue Event Milestone';
+    public const SCHEMA_DESCRIPTION = 'Issue Event Milestone';
+    const SCHEMA_EXAMPLE_DATA = '{
     "title": "generated"
 }';
-
     public function __construct(public string $title)
     {
     }

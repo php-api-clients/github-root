@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\FileCommit;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\FileCommit\Commit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "sha": {
@@ -114,9 +110,9 @@ final readonly class Commit
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "sha": "generated",
     "node_id": "generated",
     "url": "generated",
@@ -156,10 +152,7 @@ final readonly class Commit
         "verified_at": "generated"
     }
 }';
-
-    public function __construct(public string|null $sha, #[MapFrom('node_id')]
-    public string|null $nodeId, public string|null $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public Schema\FileCommit\Commit\Author|null $author, public Schema\FileCommit\Commit\Committer|null $committer, public string|null $message, public Schema\FileCommit\Commit\Tree|null $tree, public array|null $parents, public Schema\FileCommit\Commit\Verification|null $verification,)
+    public function __construct(public ?string $sha, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public ?\ApiClients\Client\GitHub\Schema\FileCommit\Commit\Author $author, public ?\ApiClients\Client\GitHub\Schema\FileCommit\Commit\Committer $committer, public ?string $message, public ?\ApiClients\Client\GitHub\Schema\FileCommit\Commit\Tree $tree, public ?array $parents, public ?\ApiClients\Client\GitHub\Schema\FileCommit\Commit\Verification $verification)
     {
     }
 }

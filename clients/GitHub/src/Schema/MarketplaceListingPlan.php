@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class MarketplaceListingPlan
+final readonly class MarketplaceListingPlan implements \ApiClients\Client\GitHub\Contract\MarketplaceListingPlan
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Marketplace Listing Plan",
     "required": [
         "url",
@@ -119,34 +116,27 @@ final readonly class MarketplaceListingPlan
     },
     "description": "Marketplace Listing Plan"
 }';
-    public const SCHEMA_TITLE        = 'Marketplace Listing Plan';
-    public const SCHEMA_DESCRIPTION  = 'Marketplace Listing Plan';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313",
-    "accounts_url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts",
-    "id": 1313,
-    "number": 3,
-    "name": "Pro",
-    "description": "A professional-grade CI solution",
-    "monthly_price_in_cents": 1099,
-    "yearly_price_in_cents": 11870,
-    "price_model": "FLAT_RATE",
-    "has_free_trial": true,
+    public const SCHEMA_TITLE = 'Marketplace Listing Plan';
+    public const SCHEMA_DESCRIPTION = 'Marketplace Listing Plan';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "url": "https:\\/\\/example.com\\/",
+    "accounts_url": "https:\\/\\/example.com\\/",
+    "id": 2,
+    "number": 6,
+    "name": "generated",
+    "description": "generated",
+    "monthly_price_in_cents": 22,
+    "yearly_price_in_cents": 21,
+    "price_model": "FREE",
+    "has_free_trial": false,
     "unit_name": "generated",
-    "state": "published",
+    "state": "generated",
     "bullets": [
-        "Up to 25 private repositories",
-        "Up to 25 private repositories"
+        "generated",
+        "generated"
     ]
 }';
-
-    public function __construct(public string $url, #[MapFrom('accounts_url')]
-    public string $accountsUrl, public int $id, public int $number, public string $name, public string $description, #[MapFrom('monthly_price_in_cents')]
-    public int $monthlyPriceInCents, #[MapFrom('yearly_price_in_cents')]
-    public int $yearlyPriceInCents, #[MapFrom('price_model')]
-    public string $priceModel, #[MapFrom('has_free_trial')]
-    public bool $hasFreeTrial, #[MapFrom('unit_name')]
-    public string|null $unitName, public string $state, public array $bullets,)
+    public function __construct(public string $url, #[\EventSauce\ObjectHydrator\MapFrom('accounts_url')] public string $accountsUrl, public int $id, public int $number, public string $name, public string $description, #[\EventSauce\ObjectHydrator\MapFrom('monthly_price_in_cents')] public int $monthlyPriceInCents, #[\EventSauce\ObjectHydrator\MapFrom('yearly_price_in_cents')] public int $yearlyPriceInCents, #[\EventSauce\ObjectHydrator\MapFrom('price_model')] public string $priceModel, #[\EventSauce\ObjectHydrator\MapFrom('has_free_trial')] public bool $hasFreeTrial, #[\EventSauce\ObjectHydrator\MapFrom('unit_name')] public ?string $unitName, public string $state, public array $bullets)
     {
     }
 }

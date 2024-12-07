@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\PackageVersion\Metadata;
 
-final readonly class Docker
+final readonly class Docker implements \ApiClients\Client\GitHub\Contract\PackageVersion\Metadata\Docker
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Docker Metadata",
     "required": [
         "tags"
@@ -21,16 +20,15 @@ final readonly class Docker
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Docker Metadata';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Docker Metadata';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "tag": [
         "generated",
         "generated"
     ]
 }';
-
-    public function __construct(public array|null $tag)
+    public function __construct(public ?array $tag)
     {
     }
 }

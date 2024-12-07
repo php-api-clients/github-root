@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Language
+final readonly class Language implements \ApiClients\Client\GitHub\Contract\Language
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Language",
     "type": "object",
     "description": "Language",
@@ -14,10 +13,9 @@ final readonly class Language
         "type": "integer"
     }
 }';
-    public const SCHEMA_TITLE        = 'Language';
-    public const SCHEMA_DESCRIPTION  = 'Language';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'Language';
+    public const SCHEMA_DESCRIPTION = 'Language';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

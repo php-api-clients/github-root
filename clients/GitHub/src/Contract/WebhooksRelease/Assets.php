@@ -1,0 +1,23 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Contract\WebhooksRelease;
+
+/**
+ * @property string $browserDownloadUrl
+ * @property string $contentType
+ * @property string $createdAt
+ * @property int $downloadCount
+ * @property int $id
+ * @property ?string $label
+ * @property string $name
+ * @property string $nodeId
+ * @property int $size
+ * @property string $state
+ * @property string $updatedAt
+ * @property ?\ApiClients\Client\GitHub\Schema\WebhooksRelease\Assets\Uploader $uploader
+ * @property string $url
+ */
+interface Assets
+{
+}

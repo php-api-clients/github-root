@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Key
+final readonly class Key implements \ApiClients\Client\GitHub\Contract\Key
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Key",
     "required": [
         "key",
@@ -47,9 +44,9 @@ final readonly class Key
     },
     "description": "Key"
 }';
-    public const SCHEMA_TITLE        = 'Key';
-    public const SCHEMA_DESCRIPTION  = 'Key';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Key';
+    public const SCHEMA_DESCRIPTION = 'Key';
+    const SCHEMA_EXAMPLE_DATA = '{
     "key": "generated",
     "id": 2,
     "url": "generated",
@@ -58,10 +55,7 @@ final readonly class Key
     "verified": false,
     "read_only": false
 }';
-
-    public function __construct(public string $key, public int $id, public string $url, public string $title, #[MapFrom('created_at')]
-    public string $createdAt, public bool $verified, #[MapFrom('read_only')]
-    public bool $readOnly,)
+    public function __construct(public string $key, public int $id, public string $url, public string $title, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public bool $verified, #[\EventSauce\ObjectHydrator\MapFrom('read_only')] public bool $readOnly)
     {
     }
 }

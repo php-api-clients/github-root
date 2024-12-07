@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryAdvisoryCreate
+final readonly class RepositoryAdvisoryCreate implements \ApiClients\Client\GitHub\Contract\RepositoryAdvisoryCreate
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "summary",
         "description",
@@ -181,9 +178,9 @@ final readonly class RepositoryAdvisoryCreate
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "summary": "generated",
     "description": "generated",
     "cve_id": "generated",
@@ -194,8 +191,7 @@ final readonly class RepositoryAdvisoryCreate
                 "name": "generated"
             },
             "vulnerable_version_range": "generated",
-            "patched_versions": "generated",
-            "vulnerable_functions": null
+            "patched_versions": "generated"
         },
         {
             "package": {
@@ -203,17 +199,13 @@ final readonly class RepositoryAdvisoryCreate
                 "name": "generated"
             },
             "vulnerable_version_range": "generated",
-            "patched_versions": "generated",
-            "vulnerable_functions": null
+            "patched_versions": "generated"
         }
     ],
-    "cwe_ids": null,
-    "credits": null,
-    "severity": "low",
+    "severity": "critical",
     "cvss_vector_string": "generated",
     "start_private_fork": false
 }';
-
     /**
      * summary: A short summary of the advisory.
      * description: A detailed description of what the advisory impacts.
@@ -225,11 +217,7 @@ final readonly class RepositoryAdvisoryCreate
      * cvssVectorString: The CVSS vector that calculates the severity of the advisory. You must choose between setting this field or `severity`.
      * startPrivateFork: Whether to create a temporary private fork of the repository to collaborate on a fix.
      */
-    public function __construct(public string $summary, public string $description, #[MapFrom('cve_id')]
-    public string|null $cveId, public array $vulnerabilities, #[MapFrom('cwe_ids')]
-    public array|null $cweIds, public array|null $credits, public string|null $severity, #[MapFrom('cvss_vector_string')]
-    public string|null $cvssVectorString, #[MapFrom('start_private_fork')]
-    public bool|null $startPrivateFork,)
+    public function __construct(public string $summary, public string $description, #[\EventSauce\ObjectHydrator\MapFrom('cve_id')] public ?string $cveId, public array $vulnerabilities, #[\EventSauce\ObjectHydrator\MapFrom('cwe_ids')] public ?array $cweIds, public ?array $credits, public ?string $severity, #[\EventSauce\ObjectHydrator\MapFrom('cvss_vector_string')] public ?string $cvssVectorString, #[\EventSauce\ObjectHydrator\MapFrom('start_private_fork')] public ?bool $startPrivateFork)
     {
     }
 }

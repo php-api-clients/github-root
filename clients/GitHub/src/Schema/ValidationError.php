@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ValidationError
+final readonly class ValidationError implements \ApiClients\Client\GitHub\Contract\ValidationError
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Validation Error",
     "required": [
         "message",
@@ -76,9 +73,9 @@ final readonly class ValidationError
     },
     "description": "Validation Error"
 }';
-    public const SCHEMA_TITLE        = 'Validation Error';
-    public const SCHEMA_DESCRIPTION  = 'Validation Error';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Validation Error';
+    public const SCHEMA_DESCRIPTION = 'Validation Error';
+    const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
     "documentation_url": "generated",
     "errors": [
@@ -87,22 +84,18 @@ final readonly class ValidationError
             "field": "generated",
             "message": "generated",
             "code": "generated",
-            "index": 5,
-            "value": null
+            "index": 5
         },
         {
             "resource": "generated",
             "field": "generated",
             "message": "generated",
             "code": "generated",
-            "index": 5,
-            "value": null
+            "index": 5
         }
     ]
 }';
-
-    public function __construct(public string $message, #[MapFrom('documentation_url')]
-    public string $documentationUrl, public array|null $errors,)
+    public function __construct(public string $message, #[\EventSauce\ObjectHydrator\MapFrom('documentation_url')] public string $documentationUrl, public ?array $errors)
     {
     }
 }

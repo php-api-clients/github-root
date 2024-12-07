@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleParamsRestrictedCommits
+final readonly class RepositoryRuleParamsRestrictedCommits implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsRestrictedCommits
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "RestrictedCommits",
     "required": [
         "oid"
@@ -24,18 +23,17 @@ final readonly class RepositoryRuleParamsRestrictedCommits
     },
     "description": "Restricted commit"
 }';
-    public const SCHEMA_TITLE        = 'RestrictedCommits';
-    public const SCHEMA_DESCRIPTION  = 'Restricted commit';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'RestrictedCommits';
+    public const SCHEMA_DESCRIPTION = 'Restricted commit';
+    const SCHEMA_EXAMPLE_DATA = '{
     "oid": "generated",
     "reason": "generated"
 }';
-
     /**
      * oid: Full or abbreviated commit hash to reject
      * reason: Reason for restriction
      */
-    public function __construct(public string $oid, public string|null $reason)
+    public function __construct(public string $oid, public ?string $reason)
     {
     }
 }

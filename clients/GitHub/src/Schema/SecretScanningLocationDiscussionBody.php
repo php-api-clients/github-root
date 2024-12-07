@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationDiscussionBody
+final readonly class SecretScanningLocationDiscussionBody implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationDiscussionBody
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "discussion_body_url"
     ],
@@ -25,17 +22,15 @@ final readonly class SecretScanningLocationDiscussionBody
     },
     "description": "Represents a \'discussion_body\' secret scanning location type. This location type shows that a secret was detected in the body of a discussion."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents a \'discussion_body\' secret scanning location type. This location type shows that a secret was detected in the body of a discussion.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "discussion_body_url": "https:\\/\\/github.com\\/community\\/community\\/discussions\\/39082#discussion-4566270"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents a \'discussion_body\' secret scanning location type. This location type shows that a secret was detected in the body of a discussion.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "discussion_body_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * discussionBodyUrl: The URL to the discussion where the secret was detected.
      */
-    public function __construct(#[MapFrom('discussion_body_url')]
-    public string $discussionBodyUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('discussion_body_url')] public string $discussionBodyUrl)
     {
     }
 }

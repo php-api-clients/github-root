@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CopilotIdeChat\Editors;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Models
+final readonly class Models implements \ApiClients\Client\GitHub\Contract\CopilotIdeChat\Editors\Models
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -44,9 +41,9 @@ final readonly class Models
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "is_custom_model": false,
     "custom_model_training_date": "generated",
@@ -55,7 +52,6 @@ final readonly class Models
     "total_chat_insertion_events": 27,
     "total_chat_copy_events": 22
 }';
-
     /**
      * name: Name of the model used for Copilot code completion suggestions. If the default model is used will appear as 'default'.
      * isCustomModel: Indicates whether a model is custom or default.
@@ -65,13 +61,7 @@ final readonly class Models
      * totalChatInsertionEvents: The number of times users accepted a code suggestion from Copilot Chat using the 'Insert Code' UI element, for the given editor.
      * totalChatCopyEvents: The number of times users copied a code suggestion from Copilot Chat using the keyboard, or the 'Copy' UI element, for the given editor.
      */
-    public function __construct(public string|null $name, #[MapFrom('is_custom_model')]
-    public bool|null $isCustomModel, #[MapFrom('custom_model_training_date')]
-    public string|null $customModelTrainingDate, #[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, #[MapFrom('total_chats')]
-    public int|null $totalChats, #[MapFrom('total_chat_insertion_events')]
-    public int|null $totalChatInsertionEvents, #[MapFrom('total_chat_copy_events')]
-    public int|null $totalChatCopyEvents,)
+    public function __construct(public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('is_custom_model')] public ?bool $isCustomModel, #[\EventSauce\ObjectHydrator\MapFrom('custom_model_training_date')] public ?string $customModelTrainingDate, #[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, #[\EventSauce\ObjectHydrator\MapFrom('total_chats')] public ?int $totalChats, #[\EventSauce\ObjectHydrator\MapFrom('total_chat_insertion_events')] public ?int $totalChatInsertionEvents, #[\EventSauce\ObjectHydrator\MapFrom('total_chat_copy_events')] public ?int $totalChatCopyEvents)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Gists\Create\Request\ApplicationJson;
 
-final readonly class Files
+final readonly class Files implements \ApiClients\Client\GitHub\Contract\Gists\Create\Request\ApplicationJson\Files
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "description": "Names and content for the files that make up the gist",
     "additionalProperties": {
@@ -30,10 +29,9 @@ final readonly class Files
         }
     ]
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Names and content for the files that make up the gist';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Names and content for the files that make up the gist';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

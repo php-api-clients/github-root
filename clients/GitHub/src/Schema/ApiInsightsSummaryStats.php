@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApiInsightsSummaryStats
+final readonly class ApiInsightsSummaryStats implements \ApiClients\Client\GitHub\Contract\ApiInsightsSummaryStats
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Summary Stats",
     "type": "object",
     "properties": {
@@ -25,20 +22,17 @@ final readonly class ApiInsightsSummaryStats
     },
     "description": "API Insights usage summary stats for an organization"
 }';
-    public const SCHEMA_TITLE        = 'Summary Stats';
-    public const SCHEMA_DESCRIPTION  = 'API Insights usage summary stats for an organization';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Summary Stats';
+    public const SCHEMA_DESCRIPTION = 'API Insights usage summary stats for an organization';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_request_count": 19,
     "rate_limited_request_count": 26
 }';
-
     /**
      * totalRequestCount: The total number of requests within the queried time period
      * rateLimitedRequestCount: The total number of requests that were rate limited within the queried time period
      */
-    public function __construct(#[MapFrom('total_request_count')]
-    public int|null $totalRequestCount, #[MapFrom('rate_limited_request_count')]
-    public int|null $rateLimitedRequestCount,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_request_count')] public ?int $totalRequestCount, #[\EventSauce\ObjectHydrator\MapFrom('rate_limited_request_count')] public ?int $rateLimitedRequestCount)
     {
     }
 }

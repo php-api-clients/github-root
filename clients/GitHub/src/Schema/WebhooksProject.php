@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksProject
+final readonly class WebhooksProject implements \ApiClients\Client\GitHub\Contract\WebhooksProject
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Project",
     "required": [
         "owner_url",
@@ -181,9 +177,9 @@ final readonly class WebhooksProject
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Project';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Project';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "body": "generated",
     "columns_url": "https:\\/\\/example.com\\/",
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -207,7 +203,7 @@ final readonly class WebhooksProject
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -221,19 +217,12 @@ final readonly class WebhooksProject
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * body: Body of the project
      * name: Name of the project
      * state: State of the project; either 'open' or 'closed'
      */
-    public function __construct(public string|null $body, #[MapFrom('columns_url')]
-    public string $columnsUrl, #[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhooksProject\Creator|null $creator, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, public int $number, #[MapFrom('owner_url')]
-    public string $ownerUrl, public string $state, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url,)
+    public function __construct(public ?string $body, #[\EventSauce\ObjectHydrator\MapFrom('columns_url')] public string $columnsUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public ?\ApiClients\Client\GitHub\Schema\WebhooksProject\Creator $creator, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public int $number, #[\EventSauce\ObjectHydrator\MapFrom('owner_url')] public string $ownerUrl, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url)
     {
     }
 }

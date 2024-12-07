@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PullRequest
+final readonly class PullRequest implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestUnlabeled\PullRequest
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Pull Request",
     "required": [
         "url",
@@ -3089,9 +3085,9 @@ final readonly class PullRequest
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Pull Request';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Pull Request';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "_links": {
         "comments": {
             "href": "generated"
@@ -3118,7 +3114,7 @@ final readonly class PullRequest
             "href": "generated"
         }
     },
-    "active_lock_reason": "spam",
+    "active_lock_reason": "resolved",
     "additions": 9,
     "assignee": {
         "avatar_url": "https:\\/\\/example.com\\/",
@@ -3140,7 +3136,7 @@ final readonly class PullRequest
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Mannequin",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -3165,7 +3161,7 @@ final readonly class PullRequest
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Mannequin",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/"
         },
         {
@@ -3188,11 +3184,11 @@ final readonly class PullRequest
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Mannequin",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/"
         }
     ],
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "auto_merge": {
         "commit_message": "generated",
         "commit_title": "generated",
@@ -3216,11 +3212,11 @@ final readonly class PullRequest
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
-        "merge_method": "rebase"
+        "merge_method": "merge"
     },
     "base": {
         "label": "generated",
@@ -3244,7 +3240,7 @@ final readonly class PullRequest
             "compare_url": "generated",
             "contents_url": "generated",
             "contributors_url": "https:\\/\\/example.com\\/",
-            "created_at": null,
+            "created_at": "1970-01-01T00:00:00+00:00",
             "default_branch": "generated",
             "delete_branch_on_merge": false,
             "deployments_url": "https:\\/\\/example.com\\/",
@@ -3287,8 +3283,8 @@ final readonly class PullRequest
                 "url": "https:\\/\\/example.com\\/"
             },
             "master_branch": "generated",
-            "merge_commit_message": "BLANK",
-            "merge_commit_title": "MERGE_MESSAGE",
+            "merge_commit_message": "PR_BODY",
+            "merge_commit_title": "PR_TITLE",
             "merges_url": "https:\\/\\/example.com\\/",
             "milestones_url": "generated",
             "mirror_url": "https:\\/\\/example.com\\/",
@@ -3318,7 +3314,7 @@ final readonly class PullRequest
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             },
@@ -3332,7 +3328,7 @@ final readonly class PullRequest
             "private": false,
             "public": false,
             "pulls_url": "generated",
-            "pushed_at": null,
+            "pushed_at": "1970-01-01T00:00:00+00:00",
             "releases_url": "generated",
             "role_name": "generated",
             "size": 4,
@@ -3356,7 +3352,7 @@ final readonly class PullRequest
             "updated_at": "1970-01-01T00:00:00+00:00",
             "url": "https:\\/\\/example.com\\/",
             "use_squash_pr_title_as_default": false,
-            "visibility": "internal",
+            "visibility": "public",
             "watchers": 8,
             "watchers_count": 14,
             "web_commit_signoff_required": false
@@ -3382,7 +3378,7 @@ final readonly class PullRequest
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         }
@@ -3420,7 +3416,7 @@ final readonly class PullRequest
             "compare_url": "generated",
             "contents_url": "generated",
             "contributors_url": "https:\\/\\/example.com\\/",
-            "created_at": null,
+            "created_at": "1970-01-01T00:00:00+00:00",
             "default_branch": "generated",
             "delete_branch_on_merge": false,
             "deployments_url": "https:\\/\\/example.com\\/",
@@ -3463,8 +3459,8 @@ final readonly class PullRequest
                 "url": "https:\\/\\/example.com\\/"
             },
             "master_branch": "generated",
-            "merge_commit_message": "BLANK",
-            "merge_commit_title": "MERGE_MESSAGE",
+            "merge_commit_message": "PR_BODY",
+            "merge_commit_title": "PR_TITLE",
             "merges_url": "https:\\/\\/example.com\\/",
             "milestones_url": "generated",
             "mirror_url": "https:\\/\\/example.com\\/",
@@ -3494,7 +3490,7 @@ final readonly class PullRequest
                 "site_admin": false,
                 "starred_url": "generated",
                 "subscriptions_url": "https:\\/\\/example.com\\/",
-                "type": "Organization",
+                "type": "Bot",
                 "url": "https:\\/\\/example.com\\/",
                 "user_view_type": "generated"
             },
@@ -3508,7 +3504,7 @@ final readonly class PullRequest
             "private": false,
             "public": false,
             "pulls_url": "generated",
-            "pushed_at": null,
+            "pushed_at": "1970-01-01T00:00:00+00:00",
             "releases_url": "generated",
             "role_name": "generated",
             "size": 4,
@@ -3532,7 +3528,7 @@ final readonly class PullRequest
             "updated_at": "1970-01-01T00:00:00+00:00",
             "url": "https:\\/\\/example.com\\/",
             "use_squash_pr_title_as_default": false,
-            "visibility": "internal",
+            "visibility": "public",
             "watchers": 8,
             "watchers_count": 14,
             "web_commit_signoff_required": false
@@ -3558,7 +3554,7 @@ final readonly class PullRequest
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         }
@@ -3613,7 +3609,7 @@ final readonly class PullRequest
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -3641,7 +3637,7 @@ final readonly class PullRequest
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Mannequin",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -3663,8 +3659,57 @@ final readonly class PullRequest
     "patch_url": "https:\\/\\/example.com\\/",
     "rebaseable": false,
     "requested_reviewers": [
-        null,
-        null
+        {
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "deleted": false,
+            "email": "generated",
+            "events_url": "generated",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "gravatar_id": "generated",
+            "html_url": "https:\\/\\/example.com\\/",
+            "id": 2,
+            "login": "generated",
+            "name": "generated",
+            "node_id": "generated",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "site_admin": false,
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "type": "Bot",
+            "url": "https:\\/\\/example.com\\/",
+            "user_view_type": "generated"
+        },
+        {
+            "deleted": false,
+            "description": "generated",
+            "html_url": "https:\\/\\/example.com\\/",
+            "id": 2,
+            "members_url": "generated",
+            "name": "generated",
+            "node_id": "generated",
+            "parent": {
+                "description": "generated",
+                "html_url": "https:\\/\\/example.com\\/",
+                "id": 2,
+                "members_url": "generated",
+                "name": "generated",
+                "node_id": "generated",
+                "permission": "generated",
+                "privacy": "open",
+                "repositories_url": "https:\\/\\/example.com\\/",
+                "slug": "generated",
+                "url": "https:\\/\\/example.com\\/"
+            },
+            "permission": "generated",
+            "privacy": "open",
+            "repositories_url": "https:\\/\\/example.com\\/",
+            "slug": "generated",
+            "url": "https:\\/\\/example.com\\/"
+        }
     ],
     "requested_teams": [
         {
@@ -3750,12 +3795,11 @@ final readonly class PullRequest
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Mannequin",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
     /**
      * authorAssociation: How the author is associated with the repository.
      * autoMerge: The status of auto merging a pull request.
@@ -3763,36 +3807,11 @@ final readonly class PullRequest
      * maintainerCanModify: Indicates whether maintainers can modify the pull request.
      * milestone: A collection of related issues and pull requests.
      * number: Number uniquely identifying the pull request within its repository.
+     * @param array<\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\RequestedReviewers\Zero|\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\RequestedReviewers\One> $requestedReviewers
      * state: State of this Pull Request. Either `open` or `closed`.
      * title: The title of the pull request.
      */
-    public function __construct(#[MapFrom('_links')]
-    public Schema\WebhookPullRequestUnlabeled\PullRequest\Links $links, #[MapFrom('active_lock_reason')]
-    public string|null $activeLockReason, public int|null $additions, public Schema\WebhookPullRequestUnlabeled\PullRequest\Assignee|null $assignee, public array $assignees, #[MapFrom('author_association')]
-    public string $authorAssociation, #[MapFrom('auto_merge')]
-    public Schema\WebhookPullRequestUnlabeled\PullRequest\AutoMerge|null $autoMerge, public Schema\WebhookPullRequestUnlabeled\PullRequest\Base $base, public string|null $body, #[MapFrom('changed_files')]
-    public int|null $changedFiles, #[MapFrom('closed_at')]
-    public string|null $closedAt, public int|null $comments, #[MapFrom('comments_url')]
-    public string $commentsUrl, public int|null $commits, #[MapFrom('commits_url')]
-    public string $commitsUrl, #[MapFrom('created_at')]
-    public string $createdAt, public int|null $deletions, #[MapFrom('diff_url')]
-    public string $diffUrl, public bool $draft, public Schema\WebhookPullRequestUnlabeled\PullRequest\Head $head, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('issue_url')]
-    public string $issueUrl, public array $labels, public bool $locked, #[MapFrom('maintainer_can_modify')]
-    public bool|null $maintainerCanModify, #[MapFrom('merge_commit_sha')]
-    public string|null $mergeCommitSha, public bool|null $mergeable, #[MapFrom('mergeable_state')]
-    public string|null $mergeableState, public bool|null $merged, #[MapFrom('merged_at')]
-    public string|null $mergedAt, #[MapFrom('merged_by')]
-    public Schema\WebhookPullRequestUnlabeled\PullRequest\MergedBy|null $mergedBy, public Schema\WebhookPullRequestUnlabeled\PullRequest\Milestone|null $milestone, #[MapFrom('node_id')]
-    public string $nodeId, public int $number, #[MapFrom('patch_url')]
-    public string $patchUrl, public bool|null $rebaseable, #[MapFrom('requested_reviewers')]
-    public array $requestedReviewers, #[MapFrom('requested_teams')]
-    public array $requestedTeams, #[MapFrom('review_comment_url')]
-    public string $reviewCommentUrl, #[MapFrom('review_comments')]
-    public int|null $reviewComments, #[MapFrom('review_comments_url')]
-    public string $reviewCommentsUrl, public string $state, #[MapFrom('statuses_url')]
-    public string $statusesUrl, public string $title, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, public Schema\WebhookPullRequestUnlabeled\PullRequest\User|null $user,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Links $links, #[\EventSauce\ObjectHydrator\MapFrom('active_lock_reason')] public ?string $activeLockReason, public ?int $additions, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Assignee $assignee, public array $assignees, #[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, #[\EventSauce\ObjectHydrator\MapFrom('auto_merge')] public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\AutoMerge $autoMerge, public \ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Base $base, public ?string $body, #[\EventSauce\ObjectHydrator\MapFrom('changed_files')] public ?int $changedFiles, #[\EventSauce\ObjectHydrator\MapFrom('closed_at')] public ?string $closedAt, public ?int $comments, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, public ?int $commits, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public string $commitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public ?int $deletions, #[\EventSauce\ObjectHydrator\MapFrom('diff_url')] public string $diffUrl, public bool $draft, public \ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head $head, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('issue_url')] public string $issueUrl, public array $labels, public bool $locked, #[\EventSauce\ObjectHydrator\MapFrom('maintainer_can_modify')] public ?bool $maintainerCanModify, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_sha')] public ?string $mergeCommitSha, public ?bool $mergeable, #[\EventSauce\ObjectHydrator\MapFrom('mergeable_state')] public ?string $mergeableState, public ?bool $merged, #[\EventSauce\ObjectHydrator\MapFrom('merged_at')] public ?string $mergedAt, #[\EventSauce\ObjectHydrator\MapFrom('merged_by')] public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\MergedBy $mergedBy, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Milestone $milestone, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public int $number, #[\EventSauce\ObjectHydrator\MapFrom('patch_url')] public string $patchUrl, public ?bool $rebaseable, #[\EventSauce\ObjectHydrator\MapFrom('requested_reviewers')] #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\WebhookPullRequestUnlabeled\PullRequest\RequestedReviewers] public array $requestedReviewers, #[\EventSauce\ObjectHydrator\MapFrom('requested_teams')] public array $requestedTeams, #[\EventSauce\ObjectHydrator\MapFrom('review_comment_url')] public string $reviewCommentUrl, #[\EventSauce\ObjectHydrator\MapFrom('review_comments')] public ?int $reviewComments, #[\EventSauce\ObjectHydrator\MapFrom('review_comments_url')] public string $reviewCommentsUrl, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('statuses_url')] public string $statusesUrl, public string $title, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\User $user)
     {
     }
 }

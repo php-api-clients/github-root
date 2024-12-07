@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningAnalysisDeletion
+final readonly class CodeScanningAnalysisDeletion implements \ApiClients\Client\GitHub\Contract\CodeScanningAnalysisDeletion
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Analysis deletion",
     "required": [
         "next_analysis_url",
@@ -37,20 +34,17 @@ final readonly class CodeScanningAnalysisDeletion
     },
     "description": "Successful deletion of a code scanning analysis"
 }';
-    public const SCHEMA_TITLE        = 'Analysis deletion';
-    public const SCHEMA_DESCRIPTION  = 'Successful deletion of a code scanning analysis';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Analysis deletion';
+    public const SCHEMA_DESCRIPTION = 'Successful deletion of a code scanning analysis';
+    const SCHEMA_EXAMPLE_DATA = '{
     "next_analysis_url": "https:\\/\\/example.com\\/",
     "confirm_delete_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * nextAnalysisUrl: Next deletable analysis in chain, without last analysis deletion confirmation
      * confirmDeleteUrl: Next deletable analysis in chain, with last analysis deletion confirmation
      */
-    public function __construct(#[MapFrom('next_analysis_url')]
-    public string|null $nextAnalysisUrl, #[MapFrom('confirm_delete_url')]
-    public string|null $confirmDeleteUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('next_analysis_url')] public ?string $nextAnalysisUrl, #[\EventSauce\ObjectHydrator\MapFrom('confirm_delete_url')] public ?string $confirmDeleteUrl)
     {
     }
 }

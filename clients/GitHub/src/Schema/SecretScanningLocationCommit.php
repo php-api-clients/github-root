@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationCommit
+final readonly class SecretScanningLocationCommit implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationCommit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "path",
         "start_line",
@@ -70,20 +67,19 @@ final readonly class SecretScanningLocationCommit
     },
     "description": "Represents a \'commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents a \'commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "path": "\\/example\\/secrets.txt",
-    "start_line": 1,
-    "end_line": 0.8,
-    "start_column": 1.2,
-    "end_column": 1,
-    "blob_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents a \'commit\' secret scanning location type. This location type shows that a secret was detected inside a commit to a repository.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "path": "generated",
+    "start_line": 10,
+    "end_line": 8,
+    "start_column": 12,
+    "end_column": 10,
+    "blob_sha": "generated",
     "blob_url": "generated",
-    "commit_sha": "af5626b4a114abcb82d63db7c8082c3c4756e51b",
+    "commit_sha": "generated",
     "commit_url": "generated"
 }';
-
     /**
      * path: The file path in the repository
      * startLine: Line number at which the secret starts in the file
@@ -95,15 +91,7 @@ final readonly class SecretScanningLocationCommit
      * commitSha: SHA-1 hash ID of the associated commit
      * commitUrl: The API URL to get the associated commit resource
      */
-    public function __construct(public string $path, #[MapFrom('start_line')]
-    public int|float $startLine, #[MapFrom('end_line')]
-    public int|float $endLine, #[MapFrom('start_column')]
-    public int|float $startColumn, #[MapFrom('end_column')]
-    public int|float $endColumn, #[MapFrom('blob_sha')]
-    public string $blobSha, #[MapFrom('blob_url')]
-    public string $blobUrl, #[MapFrom('commit_sha')]
-    public string $commitSha, #[MapFrom('commit_url')]
-    public string $commitUrl,)
+    public function __construct(public string $path, #[\EventSauce\ObjectHydrator\MapFrom('start_line')] public int|float $startLine, #[\EventSauce\ObjectHydrator\MapFrom('end_line')] public int|float $endLine, #[\EventSauce\ObjectHydrator\MapFrom('start_column')] public int|float $startColumn, #[\EventSauce\ObjectHydrator\MapFrom('end_column')] public int|float $endColumn, #[\EventSauce\ObjectHydrator\MapFrom('blob_sha')] public string $blobSha, #[\EventSauce\ObjectHydrator\MapFrom('blob_url')] public string $blobUrl, #[\EventSauce\ObjectHydrator\MapFrom('commit_sha')] public string $commitSha, #[\EventSauce\ObjectHydrator\MapFrom('commit_url')] public string $commitUrl)
     {
     }
 }

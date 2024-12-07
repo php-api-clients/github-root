@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request\ApplicationJson;
 
-final readonly class Author
+final readonly class Author implements \ApiClients\Client\GitHub\Contract\Repos\DeleteFile\Request\ApplicationJson\Author
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -20,18 +19,17 @@ final readonly class Author
     },
     "description": "object containing information about the author."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'object containing information about the author.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'object containing information about the author.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "email": "generated"
 }';
-
     /**
      * name: The name of the author (or committer) of the commit
      * email: The email of the author (or committer) of the commit
      */
-    public function __construct(public string|null $name, public string|null $email)
+    public function __construct(public ?string $name, public ?string $email)
     {
     }
 }

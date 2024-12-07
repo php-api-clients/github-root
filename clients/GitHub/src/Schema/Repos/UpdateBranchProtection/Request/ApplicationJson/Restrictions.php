@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateBranchProtection\Request\ApplicationJson;
 
-final readonly class Restrictions
+final readonly class Restrictions implements \ApiClients\Client\GitHub\Contract\Repos\UpdateBranchProtection\Request\ApplicationJson\Restrictions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "users",
         "teams"
@@ -40,9 +39,9 @@ final readonly class Restrictions
     },
     "description": "Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "users": [
         "generated",
         "generated"
@@ -56,13 +55,12 @@ final readonly class Restrictions
         "generated"
     ]
 }';
-
     /**
      * users: The list of user `login`s with push access
      * teams: The list of team `slug`s with push access
      * apps: The list of app `slug`s with push access
      */
-    public function __construct(public array $users, public array $teams, public array|null $apps)
+    public function __construct(public array $users, public array $teams, public ?array $apps)
     {
     }
 }

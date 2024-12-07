@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateWebhook\Request;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateWebhook\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "config": {
@@ -86,14 +82,14 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "config": {
-        "url": "https:\\/\\/example.com\\/webhook",
-        "content_type": "\\"json\\"",
-        "secret": "\\"********\\"",
-        "insecure_ssl": null
+        "url": "https:\\/\\/example.com\\/",
+        "content_type": "generated",
+        "secret": "generated",
+        "insecure_ssl": 14
     },
     "events": [
         "generated",
@@ -109,7 +105,6 @@ final readonly class ApplicationJson
     ],
     "active": false
 }';
-
     /**
      * config: Configuration object of the webhook
      * events: Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for. This replaces the entire array of events.
@@ -117,9 +112,7 @@ final readonly class ApplicationJson
      * removeEvents: Determines a list of events to be removed from the list of events that the Hook triggers for.
      * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public function __construct(public Schema\WebhookConfig|null $config, public array|null $events, #[MapFrom('add_events')]
-    public array|null $addEvents, #[MapFrom('remove_events')]
-    public array|null $removeEvents, public bool|null $active,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookConfig $config, public ?array $events, #[\EventSauce\ObjectHydrator\MapFrom('add_events')] public ?array $addEvents, #[\EventSauce\ObjectHydrator\MapFrom('remove_events')] public ?array $removeEvents, public ?bool $active)
     {
     }
 }

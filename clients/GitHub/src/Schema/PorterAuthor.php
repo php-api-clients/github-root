@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PorterAuthor
+final readonly class PorterAuthor implements \ApiClients\Client\GitHub\Contract\PorterAuthor
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Porter Author",
     "required": [
         "id",
@@ -47,9 +44,9 @@ final readonly class PorterAuthor
     },
     "description": "Porter Author"
 }';
-    public const SCHEMA_TITLE        = 'Porter Author';
-    public const SCHEMA_DESCRIPTION  = 'Porter Author';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Porter Author';
+    public const SCHEMA_DESCRIPTION = 'Porter Author';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "remote_id": "generated",
     "remote_name": "generated",
@@ -58,11 +55,7 @@ final readonly class PorterAuthor
     "url": "https:\\/\\/example.com\\/",
     "import_url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public int $id, #[MapFrom('remote_id')]
-    public string $remoteId, #[MapFrom('remote_name')]
-    public string $remoteName, public string $email, public string $name, public string $url, #[MapFrom('import_url')]
-    public string $importUrl,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('remote_id')] public string $remoteId, #[\EventSauce\ObjectHydrator\MapFrom('remote_name')] public string $remoteName, public string $email, public string $name, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('import_url')] public string $importUrl)
     {
     }
 }

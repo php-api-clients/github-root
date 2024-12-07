@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApiInsightsSubjectStats
+final readonly class ApiInsightsSubjectStats implements \ApiClients\Client\GitHub\Contract\ApiInsightsSubjectStats
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "subject_type": {
@@ -38,9 +35,9 @@ final readonly class ApiInsightsSubjectStats
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "subject_type": "generated",
     "subject_name": "generated",
     "subject_id": 10,
@@ -49,15 +46,7 @@ final readonly class ApiInsightsSubjectStats
     "last_rate_limited_timestamp": "generated",
     "last_request_timestamp": "generated"
 }';
-
-    public function __construct(#[MapFrom('subject_type')]
-    public string|null $subjectType, #[MapFrom('subject_name')]
-    public string|null $subjectName, #[MapFrom('subject_id')]
-    public int|null $subjectId, #[MapFrom('total_request_count')]
-    public int|null $totalRequestCount, #[MapFrom('rate_limited_request_count')]
-    public int|null $rateLimitedRequestCount, #[MapFrom('last_rate_limited_timestamp')]
-    public string|null $lastRateLimitedTimestamp, #[MapFrom('last_request_timestamp')]
-    public string|null $lastRequestTimestamp,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('subject_type')] public ?string $subjectType, #[\EventSauce\ObjectHydrator\MapFrom('subject_name')] public ?string $subjectName, #[\EventSauce\ObjectHydrator\MapFrom('subject_id')] public ?int $subjectId, #[\EventSauce\ObjectHydrator\MapFrom('total_request_count')] public ?int $totalRequestCount, #[\EventSauce\ObjectHydrator\MapFrom('rate_limited_request_count')] public ?int $rateLimitedRequestCount, #[\EventSauce\ObjectHydrator\MapFrom('last_rate_limited_timestamp')] public ?string $lastRateLimitedTimestamp, #[\EventSauce\ObjectHydrator\MapFrom('last_request_timestamp')] public ?string $lastRequestTimestamp)
     {
     }
 }

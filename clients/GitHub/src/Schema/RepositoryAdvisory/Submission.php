@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryAdvisory;
 
-final readonly class Submission
+final readonly class Submission implements \ApiClients\Client\GitHub\Contract\RepositoryAdvisory\Submission
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "accepted"
     ],
@@ -23,12 +22,11 @@ final readonly class Submission
     },
     "readOnly": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "accepted": false
 }';
-
     /**
      * accepted: Whether a private vulnerability report was accepted by the repository's administrators.
      */

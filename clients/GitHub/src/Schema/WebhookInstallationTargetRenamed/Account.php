@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookInstallationTargetRenamed;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Account
+final readonly class Account implements \ApiClients\Client\GitHub\Contract\WebhookInstallationTargetRenamed\Account
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "node_id",
@@ -137,9 +134,9 @@ final readonly class Account
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "archived_at": "generated",
     "avatar_url": "generated",
     "created_at": "generated",
@@ -178,36 +175,7 @@ final readonly class Account
     "website_url": "generated",
     "user_view_type": "generated"
 }';
-
-    public function __construct(#[MapFrom('archived_at')]
-    public string|null $archivedAt, #[MapFrom('avatar_url')]
-    public string $avatarUrl, #[MapFrom('created_at')]
-    public string|null $createdAt, public string $description, #[MapFrom('events_url')]
-    public string|null $eventsUrl, public int|null $followers, #[MapFrom('followers_url')]
-    public string|null $followersUrl, public int|null $following, #[MapFrom('following_url')]
-    public string|null $followingUrl, #[MapFrom('gists_url')]
-    public string|null $gistsUrl, #[MapFrom('gravatar_id')]
-    public string|null $gravatarId, #[MapFrom('has_organization_projects')]
-    public bool|null $hasOrganizationProjects, #[MapFrom('has_repository_projects')]
-    public bool|null $hasRepositoryProjects, #[MapFrom('hooks_url')]
-    public string|null $hooksUrl, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('is_verified')]
-    public bool|null $isVerified, #[MapFrom('issues_url')]
-    public string|null $issuesUrl, public string|null $login, #[MapFrom('members_url')]
-    public string|null $membersUrl, public string|null $name, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('organizations_url')]
-    public string|null $organizationsUrl, #[MapFrom('public_gists')]
-    public int|null $publicGists, #[MapFrom('public_members_url')]
-    public string|null $publicMembersUrl, #[MapFrom('public_repos')]
-    public int|null $publicRepos, #[MapFrom('received_events_url')]
-    public string|null $receivedEventsUrl, #[MapFrom('repos_url')]
-    public string|null $reposUrl, #[MapFrom('site_admin')]
-    public bool|null $siteAdmin, public string|null $slug, #[MapFrom('starred_url')]
-    public string|null $starredUrl, #[MapFrom('subscriptions_url')]
-    public string|null $subscriptionsUrl, public string|null $type, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string|null $url, #[MapFrom('website_url')]
-    public string $websiteUrl, #[MapFrom('user_view_type')]
-    public string|null $userViewType,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('archived_at')] public ?string $archivedAt, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, public string $description, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public ?string $eventsUrl, public ?int $followers, #[\EventSauce\ObjectHydrator\MapFrom('followers_url')] public ?string $followersUrl, public ?int $following, #[\EventSauce\ObjectHydrator\MapFrom('following_url')] public ?string $followingUrl, #[\EventSauce\ObjectHydrator\MapFrom('gists_url')] public ?string $gistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('gravatar_id')] public ?string $gravatarId, #[\EventSauce\ObjectHydrator\MapFrom('has_organization_projects')] public ?bool $hasOrganizationProjects, #[\EventSauce\ObjectHydrator\MapFrom('has_repository_projects')] public ?bool $hasRepositoryProjects, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public ?string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('is_verified')] public ?bool $isVerified, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public ?string $issuesUrl, public ?string $login, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public ?string $membersUrl, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('organizations_url')] public ?string $organizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('public_gists')] public ?int $publicGists, #[\EventSauce\ObjectHydrator\MapFrom('public_members_url')] public ?string $publicMembersUrl, #[\EventSauce\ObjectHydrator\MapFrom('public_repos')] public ?int $publicRepos, #[\EventSauce\ObjectHydrator\MapFrom('received_events_url')] public ?string $receivedEventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('repos_url')] public ?string $reposUrl, #[\EventSauce\ObjectHydrator\MapFrom('site_admin')] public ?bool $siteAdmin, public ?string $slug, #[\EventSauce\ObjectHydrator\MapFrom('starred_url')] public ?string $starredUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscriptions_url')] public ?string $subscriptionsUrl, public ?string $type, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('website_url')] public string $websiteUrl, #[\EventSauce\ObjectHydrator\MapFrom('user_view_type')] public ?string $userViewType)
     {
     }
 }

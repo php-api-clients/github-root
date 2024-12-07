@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookCustomPropertyDeleted;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Definition
+final readonly class Definition implements \ApiClients\Client\GitHub\Contract\WebhookCustomPropertyDeleted\Definition
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "property_name"
     ],
@@ -20,17 +17,15 @@ final readonly class Definition
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "property_name": "generated"
 }';
-
     /**
      * propertyName: The name of the property that was deleted.
      */
-    public function __construct(#[MapFrom('property_name')]
-    public string $propertyName,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('property_name')] public string $propertyName)
     {
     }
 }

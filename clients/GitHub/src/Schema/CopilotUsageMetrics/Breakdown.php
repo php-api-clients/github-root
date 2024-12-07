@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CopilotUsageMetrics;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Breakdown
+final readonly class Breakdown implements \ApiClients\Client\GitHub\Contract\CopilotUsageMetrics\Breakdown
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "language": {
@@ -43,9 +40,9 @@ final readonly class Breakdown
     "description": "Breakdown of Copilot usage by editor for this language",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Breakdown of Copilot usage by editor for this language';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Breakdown of Copilot usage by editor for this language';
+    const SCHEMA_EXAMPLE_DATA = '{
     "language": "generated",
     "editor": "generated",
     "suggestions_count": 17,
@@ -54,7 +51,6 @@ final readonly class Breakdown
     "lines_accepted": 14,
     "active_users": 12
 }';
-
     /**
      * language: The language in which Copilot suggestions were shown to users in the specified editor.
      * editor: The editor in which Copilot suggestions were shown to users for the specified language.
@@ -64,12 +60,7 @@ final readonly class Breakdown
      * linesAccepted: The number of lines of code accepted by users in the editor specified during the day specified.
      * activeUsers: The number of users who were shown Copilot completion suggestions in the editor specified during the day specified.
      */
-    public function __construct(public string|null $language, public string|null $editor, #[MapFrom('suggestions_count')]
-    public int|null $suggestionsCount, #[MapFrom('acceptances_count')]
-    public int|null $acceptancesCount, #[MapFrom('lines_suggested')]
-    public int|null $linesSuggested, #[MapFrom('lines_accepted')]
-    public int|null $linesAccepted, #[MapFrom('active_users')]
-    public int|null $activeUsers,)
+    public function __construct(public ?string $language, public ?string $editor, #[\EventSauce\ObjectHydrator\MapFrom('suggestions_count')] public ?int $suggestionsCount, #[\EventSauce\ObjectHydrator\MapFrom('acceptances_count')] public ?int $acceptancesCount, #[\EventSauce\ObjectHydrator\MapFrom('lines_suggested')] public ?int $linesSuggested, #[\EventSauce\ObjectHydrator\MapFrom('lines_accepted')] public ?int $linesAccepted, #[\EventSauce\ObjectHydrator\MapFrom('active_users')] public ?int $activeUsers)
     {
     }
 }

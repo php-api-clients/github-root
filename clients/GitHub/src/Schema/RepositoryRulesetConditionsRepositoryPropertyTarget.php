@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
+final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryPropertyTarget
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository ruleset conditions for repository properties",
     "required": [
         "repository_property"
@@ -92,9 +88,9 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
     },
     "description": "Parameters for a repository property condition"
 }';
-    public const SCHEMA_TITLE        = 'Repository ruleset conditions for repository properties';
-    public const SCHEMA_DESCRIPTION  = 'Parameters for a repository property condition';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository ruleset conditions for repository properties';
+    public const SCHEMA_DESCRIPTION = 'Parameters for a repository property condition';
+    const SCHEMA_EXAMPLE_DATA = '{
     "repository_property": {
         "include": [
             {
@@ -103,7 +99,7 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             },
             {
                 "name": "generated",
@@ -111,7 +107,7 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             }
         ],
         "exclude": [
@@ -121,7 +117,7 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             },
             {
                 "name": "generated",
@@ -129,14 +125,12 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertyTarget
                     "generated",
                     "generated"
                 ],
-                "source": "system"
+                "source": "custom"
             }
         ]
     }
 }';
-
-    public function __construct(#[MapFrom('repository_property')]
-    public Schema\RepositoryRulesetConditionsRepositoryPropertyTarget\RepositoryProperty $repositoryProperty,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('repository_property')] public \ApiClients\Client\GitHub\Schema\RepositoryRulesetConditionsRepositoryPropertyTarget\RepositoryProperty $repositoryProperty)
     {
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Feed
+final readonly class Feed implements \ApiClients\Client\GitHub\Contract\Feed
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Feed",
     "required": [
         "_links",
@@ -269,22 +265,22 @@ final readonly class Feed
     },
     "description": "Feed"
 }';
-    public const SCHEMA_TITLE        = 'Feed';
-    public const SCHEMA_DESCRIPTION  = 'Feed';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "timeline_url": "https:\\/\\/github.com\\/timeline",
-    "user_url": "https:\\/\\/github.com\\/{user}",
-    "current_user_public_url": "https:\\/\\/github.com\\/octocat",
-    "current_user_url": "https:\\/\\/github.com\\/octocat.private?token=abc123",
-    "current_user_actor_url": "https:\\/\\/github.com\\/octocat.private.actor?token=abc123",
-    "current_user_organization_url": "https:\\/\\/github.com\\/octocat-org",
+    public const SCHEMA_TITLE = 'Feed';
+    public const SCHEMA_DESCRIPTION = 'Feed';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "timeline_url": "generated",
+    "user_url": "generated",
+    "current_user_public_url": "generated",
+    "current_user_url": "generated",
+    "current_user_actor_url": "generated",
+    "current_user_organization_url": "generated",
     "current_user_organization_urls": [
-        "https:\\/\\/github.com\\/organizations\\/github\\/octocat.private.atom?token=abc123",
-        "https:\\/\\/github.com\\/organizations\\/github\\/octocat.private.atom?token=abc123"
+        "https:\\/\\/example.com\\/",
+        "https:\\/\\/example.com\\/"
     ],
-    "security_advisories_url": "https:\\/\\/github.com\\/security-advisories",
-    "repository_discussions_url": "https:\\/\\/github.com\\/{user}\\/{repo}\\/discussions",
-    "repository_discussions_category_url": "https:\\/\\/github.com\\/{user}\\/{repo}\\/discussions\\/categories\\/{category}",
+    "security_advisories_url": "generated",
+    "repository_discussions_url": "generated",
+    "repository_discussions_category_url": "generated",
     "_links": {
         "timeline": {
             "href": "generated",
@@ -334,23 +330,11 @@ final readonly class Feed
         }
     }
 }';
-
     /**
      * repositoryDiscussionsUrl: A feed of discussions for a given repository.
      * repositoryDiscussionsCategoryUrl: A feed of discussions for a given repository and category.
      */
-    public function __construct(#[MapFrom('timeline_url')]
-    public string $timelineUrl, #[MapFrom('user_url')]
-    public string $userUrl, #[MapFrom('current_user_public_url')]
-    public string|null $currentUserPublicUrl, #[MapFrom('current_user_url')]
-    public string|null $currentUserUrl, #[MapFrom('current_user_actor_url')]
-    public string|null $currentUserActorUrl, #[MapFrom('current_user_organization_url')]
-    public string|null $currentUserOrganizationUrl, #[MapFrom('current_user_organization_urls')]
-    public array|null $currentUserOrganizationUrls, #[MapFrom('security_advisories_url')]
-    public string|null $securityAdvisoriesUrl, #[MapFrom('repository_discussions_url')]
-    public string|null $repositoryDiscussionsUrl, #[MapFrom('repository_discussions_category_url')]
-    public string|null $repositoryDiscussionsCategoryUrl, #[MapFrom('_links')]
-    public Schema\Feed\Links $links,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('timeline_url')] public string $timelineUrl, #[\EventSauce\ObjectHydrator\MapFrom('user_url')] public string $userUrl, #[\EventSauce\ObjectHydrator\MapFrom('current_user_public_url')] public ?string $currentUserPublicUrl, #[\EventSauce\ObjectHydrator\MapFrom('current_user_url')] public ?string $currentUserUrl, #[\EventSauce\ObjectHydrator\MapFrom('current_user_actor_url')] public ?string $currentUserActorUrl, #[\EventSauce\ObjectHydrator\MapFrom('current_user_organization_url')] public ?string $currentUserOrganizationUrl, #[\EventSauce\ObjectHydrator\MapFrom('current_user_organization_urls')] public ?array $currentUserOrganizationUrls, #[\EventSauce\ObjectHydrator\MapFrom('security_advisories_url')] public ?string $securityAdvisoriesUrl, #[\EventSauce\ObjectHydrator\MapFrom('repository_discussions_url')] public ?string $repositoryDiscussionsUrl, #[\EventSauce\ObjectHydrator\MapFrom('repository_discussions_category_url')] public ?string $repositoryDiscussionsCategoryUrl, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\Feed\Links $links)
     {
     }
 }

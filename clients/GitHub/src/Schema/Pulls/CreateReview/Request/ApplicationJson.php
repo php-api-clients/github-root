@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Pulls\CreateReview\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\CreateReview\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "commit_id": {
@@ -79,9 +76,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "commit_id": "generated",
     "body": "generated",
     "event": "APPROVE",
@@ -90,31 +87,29 @@ final readonly class ApplicationJson
             "path": "generated",
             "position": 8,
             "body": "generated",
-            "line": 28,
-            "side": "RIGHT",
-            "start_line": 26,
-            "start_side": "LEFT"
+            "line": 4,
+            "side": "generated",
+            "start_line": 10,
+            "start_side": "generated"
         },
         {
             "path": "generated",
             "position": 8,
             "body": "generated",
-            "line": 28,
-            "side": "RIGHT",
-            "start_line": 26,
-            "start_side": "LEFT"
+            "line": 4,
+            "side": "generated",
+            "start_line": 10,
+            "start_side": "generated"
         }
     ]
 }';
-
     /**
      * commitId: The SHA of the commit that needs a review. Not using the latest commit SHA may render your review comment outdated if a subsequent commit modifies the line you specify as the `position`. Defaults to the most recent commit in the pull request when you do not specify a value.
      * body: **Required** when using `REQUEST_CHANGES` or `COMMENT` for the `event` parameter. The body text of the pull request review.
      * event: The review action you want to perform. The review actions include: `APPROVE`, `REQUEST_CHANGES`, or `COMMENT`. By leaving this blank, you set the review action state to `PENDING`, which means you will need to [submit the pull request review](https://docs.github.com/rest/pulls/reviews#submit-a-review-for-a-pull-request) when you are ready.
      * comments: Use the following table to specify the location, destination, and contents of the draft review comment.
      */
-    public function __construct(#[MapFrom('commit_id')]
-    public string|null $commitId, public string|null $body, public string|null $event, public array|null $comments,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('commit_id')] public ?string $commitId, public ?string $body, public ?string $event, public ?array $comments)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningScanHistory
+final readonly class SecretScanningScanHistory implements \ApiClients\Client\GitHub\Contract\SecretScanningScanHistory
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "incremental_scans": {
@@ -150,9 +147,9 @@ final readonly class SecretScanningScanHistory
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "incremental_scans": [
         {
             "type": "generated",
@@ -200,22 +197,21 @@ final readonly class SecretScanningScanHistory
             "type": "generated",
             "status": "generated",
             "completed_at": "1970-01-01T00:00:00+00:00",
-            "started_at": "1970-01-01T00:00:00+00:00"
+            "started_at": "1970-01-01T00:00:00+00:00",
+            "pattern_name": "generated",
+            "pattern_scope": "generated"
         },
         {
             "type": "generated",
             "status": "generated",
             "completed_at": "1970-01-01T00:00:00+00:00",
-            "started_at": "1970-01-01T00:00:00+00:00"
+            "started_at": "1970-01-01T00:00:00+00:00",
+            "pattern_name": "generated",
+            "pattern_scope": "generated"
         }
     ]
 }';
-
-    public function __construct(#[MapFrom('incremental_scans')]
-    public array|null $incrementalScans, #[MapFrom('pattern_update_scans')]
-    public array|null $patternUpdateScans, #[MapFrom('backfill_scans')]
-    public array|null $backfillScans, #[MapFrom('custom_pattern_backfill_scans')]
-    public array|null $customPatternBackfillScans,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('incremental_scans')] public ?array $incrementalScans, #[\EventSauce\ObjectHydrator\MapFrom('pattern_update_scans')] public ?array $patternUpdateScans, #[\EventSauce\ObjectHydrator\MapFrom('backfill_scans')] public ?array $backfillScans, #[\EventSauce\ObjectHydrator\MapFrom('custom_pattern_backfill_scans')] public ?array $customPatternBackfillScans)
     {
     }
 }

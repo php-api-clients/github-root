@@ -1,0 +1,50 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Schema\AliasAbstract\T8F563A59\T87B65946\TB1731FB8;
+
+abstract readonly class T3CD786E5 implements \ApiClients\Client\GitHub\Contract\GlobalAdvisory\Cvss
+{
+    const SCHEMA_JSON = '{
+    "required": [
+        "vector_string",
+        "score"
+    ],
+    "type": [
+        "object",
+        "null"
+    ],
+    "properties": {
+        "vector_string": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "The CVSS vector."
+        },
+        "score": {
+            "maximum": 10,
+            "minimum": 0,
+            "type": [
+                "number",
+                "null"
+            ],
+            "description": "The CVSS score.",
+            "readOnly": true
+        }
+    }
+}';
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "vector_string": "generated",
+    "score": 5
+}';
+    /**
+     * vectorString: The CVSS vector.
+     * score: The CVSS score.
+     */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('vector_string')] public ?string $vectorString, public null|int|float $score)
+    {
+    }
+}

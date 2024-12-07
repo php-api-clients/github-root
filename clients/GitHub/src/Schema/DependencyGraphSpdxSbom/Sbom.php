@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Sbom
+final readonly class Sbom implements \ApiClients\Client\GitHub\Contract\DependencyGraphSpdxSbom\Sbom
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "SPDXID",
         "spdxVersion",
@@ -231,84 +227,83 @@ final readonly class Sbom
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "SPDXID": "SPDXRef-DOCUMENT",
-    "spdxVersion": "SPDX-2.3",
-    "comment": "Exact versions could not be resolved for some packages. For more information: https:\\/\\/docs.github.com\\/en\\/code-security\\/supply-chain-security\\/understanding-your-software-supply-chain\\/",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "SPDXID": "generated",
+    "spdxVersion": "generated",
+    "comment": "generated",
     "creationInfo": {
-        "created": "2021-11-03T00:00:00Z",
+        "created": "generated",
         "creators": [
             "generated",
             "generated"
         ]
     },
-    "name": "github\\/github",
-    "dataLicense": "CC0-1.0",
-    "documentNamespace": "https:\\/\\/spdx.org\\/spdxdocs\\/protobom\\/15e41dd2-f961-4f4d-b8dc-f8f57ad70d57",
+    "name": "generated",
+    "dataLicense": "generated",
+    "documentNamespace": "generated",
     "packages": [
         {
-            "SPDXID": "SPDXRef-Package",
-            "name": "github\\/github",
-            "versionInfo": "1.0.0",
-            "downloadLocation": "NOASSERTION",
+            "SPDXID": "generated",
+            "name": "generated",
+            "versionInfo": "generated",
+            "downloadLocation": "generated",
             "filesAnalyzed": false,
-            "licenseConcluded": "MIT",
-            "licenseDeclared": "NOASSERTION",
-            "supplier": "NOASSERTION",
-            "copyrightText": "Copyright (c) 1985 GitHub.com",
+            "licenseConcluded": "generated",
+            "licenseDeclared": "generated",
+            "supplier": "generated",
+            "copyrightText": "generated",
             "externalRefs": [
                 {
-                    "referenceCategory": "PACKAGE-MANAGER",
-                    "referenceLocator": "pkg:gem\\/rails@6.0.1",
-                    "referenceType": "purl"
+                    "referenceCategory": "generated",
+                    "referenceLocator": "generated",
+                    "referenceType": "generated"
                 },
                 {
-                    "referenceCategory": "PACKAGE-MANAGER",
-                    "referenceLocator": "pkg:gem\\/rails@6.0.1",
-                    "referenceType": "purl"
+                    "referenceCategory": "generated",
+                    "referenceLocator": "generated",
+                    "referenceType": "generated"
                 }
             ]
         },
         {
-            "SPDXID": "SPDXRef-Package",
-            "name": "github\\/github",
-            "versionInfo": "1.0.0",
-            "downloadLocation": "NOASSERTION",
+            "SPDXID": "generated",
+            "name": "generated",
+            "versionInfo": "generated",
+            "downloadLocation": "generated",
             "filesAnalyzed": false,
-            "licenseConcluded": "MIT",
-            "licenseDeclared": "NOASSERTION",
-            "supplier": "NOASSERTION",
-            "copyrightText": "Copyright (c) 1985 GitHub.com",
+            "licenseConcluded": "generated",
+            "licenseDeclared": "generated",
+            "supplier": "generated",
+            "copyrightText": "generated",
             "externalRefs": [
                 {
-                    "referenceCategory": "PACKAGE-MANAGER",
-                    "referenceLocator": "pkg:gem\\/rails@6.0.1",
-                    "referenceType": "purl"
+                    "referenceCategory": "generated",
+                    "referenceLocator": "generated",
+                    "referenceType": "generated"
                 },
                 {
-                    "referenceCategory": "PACKAGE-MANAGER",
-                    "referenceLocator": "pkg:gem\\/rails@6.0.1",
-                    "referenceType": "purl"
+                    "referenceCategory": "generated",
+                    "referenceLocator": "generated",
+                    "referenceType": "generated"
                 }
             ]
         }
     ],
     "relationships": [
         {
-            "relationshipType": "DEPENDS_ON",
+            "relationshipType": "generated",
             "spdxElementId": "generated",
             "relatedSpdxElement": "generated"
         },
         {
-            "relationshipType": "DEPENDS_ON",
+            "relationshipType": "generated",
             "spdxElementId": "generated",
             "relatedSpdxElement": "generated"
         }
     ]
 }';
-
     /**
      * spdxid: The SPDX identifier for the SPDX document.
      * spdxVersion: The version of the SPDX specification that this document conforms to.
@@ -317,8 +312,7 @@ final readonly class Sbom
      * dataLicense: The license under which the SPDX document is licensed.
      * documentNamespace: The namespace for the SPDX document.
      */
-    public function __construct(#[MapFrom('SPDXID')]
-    public string $spdxid, public string $spdxVersion, public string|null $comment, public Schema\DependencyGraphSpdxSbom\Sbom\CreationInfo $creationInfo, public string $name, public string $dataLicense, public string $documentNamespace, public array $packages, public array|null $relationships,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('SPDXID')] public string $spdxid, public string $spdxVersion, public ?string $comment, public \ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom\Sbom\CreationInfo $creationInfo, public string $name, public string $dataLicense, public string $documentNamespace, public array $packages, public ?array $relationships)
     {
     }
 }

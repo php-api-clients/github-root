@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Codespaces\UpdateForAuthenticatedUser\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\UpdateForAuthenticatedUser\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "machine": {
@@ -28,9 +25,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "machine": "generated",
     "display_name": "generated",
     "recent_folders": [
@@ -38,15 +35,12 @@ final readonly class ApplicationJson
         "generated"
     ]
 }';
-
     /**
      * machine: A valid machine to transition this codespace to.
      * displayName: Display name for this codespace
      * recentFolders: Recently opened folders inside the codespace. It is currently used by the clients to determine the folder path to load the codespace in.
      */
-    public function __construct(public string|null $machine, #[MapFrom('display_name')]
-    public string|null $displayName, #[MapFrom('recent_folders')]
-    public array|null $recentFolders,)
+    public function __construct(public ?string $machine, #[\EventSauce\ObjectHydrator\MapFrom('display_name')] public ?string $displayName, #[\EventSauce\ObjectHydrator\MapFrom('recent_folders')] public ?array $recentFolders)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class ContainerMetadata
+final readonly class ContainerMetadata implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -39,9 +36,9 @@ final readonly class ContainerMetadata
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "labels": [],
     "manifest": [],
     "tag": {
@@ -49,8 +46,7 @@ final readonly class ContainerMetadata
         "name": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Labels|null $labels, public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Manifest|null $manifest, public Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag|null $tag)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Labels $labels, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Manifest $manifest, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\ContainerMetadata\Tag $tag)
     {
     }
 }

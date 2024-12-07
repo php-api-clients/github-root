@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningDefaultSetupUpdate
+final readonly class CodeScanningDefaultSetupUpdate implements \ApiClients\Client\GitHub\Contract\CodeScanningDefaultSetupUpdate
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "state": {
@@ -48,9 +45,9 @@ final readonly class CodeScanningDefaultSetupUpdate
     "description": "Configuration for code scanning default setup.",
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Configuration for code scanning default setup.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Configuration for code scanning default setup.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "state": "configured",
     "query_suite": "default",
     "languages": [
@@ -58,14 +55,12 @@ final readonly class CodeScanningDefaultSetupUpdate
         "generated"
     ]
 }';
-
     /**
      * state: The desired state of code scanning default setup.
      * querySuite: CodeQL query suite to be used.
      * languages: CodeQL languages to be analyzed.
      */
-    public function __construct(public string|null $state, #[MapFrom('query_suite')]
-    public string|null $querySuite, public array|null $languages,)
+    public function __construct(public ?string $state, #[\EventSauce\ObjectHydrator\MapFrom('query_suite')] public ?string $querySuite, public ?array $languages)
     {
     }
 }

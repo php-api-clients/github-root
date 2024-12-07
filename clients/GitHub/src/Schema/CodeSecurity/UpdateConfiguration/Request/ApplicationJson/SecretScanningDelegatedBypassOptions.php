@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CodeSecurity\UpdateConfiguration\Request\ApplicationJson;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class SecretScanningDelegatedBypassOptions extends Schema\AliasAbstract\TietF800B58D\TietE457AE55\TietB6D6702A\Tiet18FEC578
+final readonly class SecretScanningDelegatedBypassOptions extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TF800B58D\TE457AE55\TB6D6702A\T18FEC578
 {
 }

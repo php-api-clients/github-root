@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ProjectEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "description": {
@@ -70,9 +66,9 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "description": {
         "from": "generated",
         "to": "generated"
@@ -90,9 +86,7 @@ final readonly class Changes
         "to": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookProjectsV2ProjectEdited\Changes\Description|null $description, public Schema\WebhookProjectsV2ProjectEdited\Changes\Public_|null $public, #[MapFrom('short_description')]
-    public Schema\WebhookProjectsV2ProjectEdited\Changes\ShortDescription|null $shortDescription, public Schema\WebhookProjectsV2ProjectEdited\Changes\Title|null $title,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\Description $description, public ?\ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\Public_ $public, #[\EventSauce\ObjectHydrator\MapFrom('short_description')] public ?\ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\ShortDescription $shortDescription, public ?\ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes\Title $title)
     {
     }
 }

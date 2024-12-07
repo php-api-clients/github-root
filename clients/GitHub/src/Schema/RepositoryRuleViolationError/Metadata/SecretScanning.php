@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleViolationError\Metadata;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanning
+final readonly class SecretScanning implements \ApiClients\Client\GitHub\Contract\RepositoryRuleViolationError\Metadata\SecretScanning
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "bypass_placeholders": {
@@ -28,9 +25,9 @@ final readonly class SecretScanning
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "bypass_placeholders": [
         {
             "placeholder_id": "generated",
@@ -42,9 +39,7 @@ final readonly class SecretScanning
         }
     ]
 }';
-
-    public function __construct(#[MapFrom('bypass_placeholders')]
-    public array|null $bypassPlaceholders,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('bypass_placeholders')] public ?array $bypassPlaceholders)
     {
     }
 }

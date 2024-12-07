@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ReviewCustomGatesStateRequired
+final readonly class ReviewCustomGatesStateRequired implements \ApiClients\Client\GitHub\Contract\ReviewCustomGatesStateRequired
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "environment_name",
         "state"
@@ -33,21 +30,19 @@ final readonly class ReviewCustomGatesStateRequired
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "environment_name": "generated",
     "state": "approved",
     "comment": "generated"
 }';
-
     /**
      * environmentName: The name of the environment to approve or reject.
      * state: Whether to approve or reject deployment to the specified environments.
      * comment: Optional comment to include with the review.
      */
-    public function __construct(#[MapFrom('environment_name')]
-    public string $environmentName, public string $state, public string|null $comment,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('environment_name')] public string $environmentName, public string $state, public ?string $comment)
     {
     }
 }

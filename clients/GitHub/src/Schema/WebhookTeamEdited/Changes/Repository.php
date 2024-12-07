@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Repository
+final readonly class Repository implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\Repository
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "permissions"
     ],
@@ -41,9 +38,9 @@ final readonly class Repository
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "permissions": {
         "from": {
             "admin": false,
@@ -52,8 +49,7 @@ final readonly class Repository
         }
     }
 }';
-
-    public function __construct(public Schema\WebhookTeamEdited\Changes\Repository\Permissions $permissions)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Repository\Permissions $permissions)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Thread;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Subject
+final readonly class Subject implements \ApiClients\Client\GitHub\Contract\Thread\Subject
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "title",
         "url",
@@ -31,17 +28,15 @@ final readonly class Subject
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "title": "generated",
     "url": "generated",
     "latest_comment_url": "generated",
     "type": "generated"
 }';
-
-    public function __construct(public string $title, public string $url, #[MapFrom('latest_comment_url')]
-    public string $latestCommentUrl, public string $type,)
+    public function __construct(public string $title, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('latest_comment_url')] public string $latestCommentUrl, public string $type)
     {
     }
 }

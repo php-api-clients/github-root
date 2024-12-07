@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookIssueCommentCreated\Issue;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Milestone extends Schema\AliasAbstract\Tiet5150331D\Tiet0C67EF90\Tiet96830B1A\Tiet3716614D
+final readonly class Milestone extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TDB3B0EA7\T7D168182\T903938E3\T5938F560
 {
 }

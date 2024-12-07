@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleUpdate
+final readonly class RepositoryRuleUpdate implements \ApiClients\Client\GitHub\Contract\RepositoryRuleUpdate
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "update",
     "required": [
         "type"
@@ -36,16 +33,15 @@ final readonly class RepositoryRuleUpdate
     },
     "description": "Only allow users with bypass permission to update matching refs."
 }';
-    public const SCHEMA_TITLE        = 'update';
-    public const SCHEMA_DESCRIPTION  = 'Only allow users with bypass permission to update matching refs.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'update';
+    public const SCHEMA_DESCRIPTION = 'Only allow users with bypass permission to update matching refs.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "update",
     "parameters": {
         "update_allows_fetch_and_merge": false
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleUpdate\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate\Parameters $parameters)
     {
     }
 }

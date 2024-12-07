@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMetaDeleted;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Hook
+final readonly class Hook implements \ApiClients\Client\GitHub\Contract\WebhookMetaDeleted\Hook
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "type",
         "id",
@@ -131,12 +127,12 @@ final readonly class Hook
     },
     "description": "The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "active": false,
     "config": {
-        "content_type": "form",
+        "content_type": "json",
         "insecure_ssl": "generated",
         "secret": "generated",
         "url": "https:\\/\\/example.com\\/"
@@ -151,10 +147,7 @@ final readonly class Hook
     "type": "generated",
     "updated_at": "generated"
 }';
-
-    public function __construct(public bool $active, public Schema\WebhookMetaDeleted\Hook\Config $config, #[MapFrom('created_at')]
-    public string $createdAt, public array $events, public int $id, public string $name, public string $type, #[MapFrom('updated_at')]
-    public string $updatedAt,)
+    public function __construct(public bool $active, public \ApiClients\Client\GitHub\Schema\WebhookMetaDeleted\Hook\Config $config, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public array $events, public int $id, public string $name, public string $type, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt)
     {
     }
 }

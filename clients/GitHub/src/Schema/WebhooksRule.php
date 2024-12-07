@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksRule
+final readonly class WebhooksRule implements \ApiClients\Client\GitHub\Contract\WebhooksRule
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "branch protection rule",
     "required": [
         "id",
@@ -187,12 +184,12 @@ final readonly class WebhooksRule
     },
     "description": "The branch protection rule. Includes a `name` and all the [branch protection settings](https:\\/\\/docs.github.com\\/github\\/administering-a-repository\\/defining-the-mergeability-of-pull-requests\\/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings."
 }';
-    public const SCHEMA_TITLE        = 'branch protection rule';
-    public const SCHEMA_DESCRIPTION  = 'The branch protection rule. Includes a `name` and all the [branch protection settings](https://docs.github.com/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'branch protection rule';
+    public const SCHEMA_DESCRIPTION = 'The branch protection rule. Includes a `name` and all the [branch protection settings](https://docs.github.com/github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#about-branch-protection-settings) applied to branches that match the name. Binary settings are boolean. Multi-level configurations are one of `off`, `non_admins`, or `everyone`. Actor and build lists are arrays of strings.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "admin_enforced": false,
     "allow_deletions_enforcement_level": "off",
-    "allow_force_pushes_enforcement_level": "everyone",
+    "allow_force_pushes_enforcement_level": "off",
     "authorized_actor_names": [
         "generated",
         "generated"
@@ -204,60 +201,33 @@ final readonly class WebhooksRule
     "dismiss_stale_reviews_on_push": false,
     "id": 2,
     "ignore_approvals_from_contributors": false,
-    "linear_history_requirement_enforcement_level": "everyone",
+    "linear_history_requirement_enforcement_level": "off",
     "lock_branch_enforcement_level": "off",
     "lock_allows_fork_sync": false,
     "merge_queue_enforcement_level": "off",
     "name": "generated",
-    "pull_request_reviews_enforcement_level": "everyone",
+    "pull_request_reviews_enforcement_level": "off",
     "repository_id": 13,
     "require_code_owner_review": false,
     "require_last_push_approval": false,
     "required_approving_review_count": 31,
-    "required_conversation_resolution_level": "everyone",
-    "required_deployments_enforcement_level": "everyone",
+    "required_conversation_resolution_level": "off",
+    "required_deployments_enforcement_level": "off",
     "required_status_checks": [
         "generated",
         "generated"
     ],
-    "required_status_checks_enforcement_level": "everyone",
+    "required_status_checks_enforcement_level": "off",
     "signature_requirement_enforcement_level": "off",
     "strict_required_status_checks_policy": false,
     "updated_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * lockBranchEnforcementLevel: The enforcement level of the branch lock setting. `off` means the branch is not locked, `non_admins` means the branch is read-only for non_admins, and `everyone` means the branch is read-only for everyone.
      * lockAllowsForkSync: Whether users can pull changes from upstream when the branch is locked. Set to `true` to allow users to pull changes from upstream when the branch is locked. This setting is only applicable for forks.
      * requireLastPushApproval: Whether the most recent push must be approved by someone other than the person who pushed it
      */
-    public function __construct(#[MapFrom('admin_enforced')]
-    public bool $adminEnforced, #[MapFrom('allow_deletions_enforcement_level')]
-    public string $allowDeletionsEnforcementLevel, #[MapFrom('allow_force_pushes_enforcement_level')]
-    public string $allowForcePushesEnforcementLevel, #[MapFrom('authorized_actor_names')]
-    public array $authorizedActorNames, #[MapFrom('authorized_actors_only')]
-    public bool $authorizedActorsOnly, #[MapFrom('authorized_dismissal_actors_only')]
-    public bool $authorizedDismissalActorsOnly, #[MapFrom('create_protected')]
-    public bool|null $createProtected, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('dismiss_stale_reviews_on_push')]
-    public bool $dismissStaleReviewsOnPush, public int $id, #[MapFrom('ignore_approvals_from_contributors')]
-    public bool $ignoreApprovalsFromContributors, #[MapFrom('linear_history_requirement_enforcement_level')]
-    public string $linearHistoryRequirementEnforcementLevel, #[MapFrom('lock_branch_enforcement_level')]
-    public string $lockBranchEnforcementLevel, #[MapFrom('lock_allows_fork_sync')]
-    public bool|null $lockAllowsForkSync, #[MapFrom('merge_queue_enforcement_level')]
-    public string $mergeQueueEnforcementLevel, public string $name, #[MapFrom('pull_request_reviews_enforcement_level')]
-    public string $pullRequestReviewsEnforcementLevel, #[MapFrom('repository_id')]
-    public int $repositoryId, #[MapFrom('require_code_owner_review')]
-    public bool $requireCodeOwnerReview, #[MapFrom('require_last_push_approval')]
-    public bool|null $requireLastPushApproval, #[MapFrom('required_approving_review_count')]
-    public int $requiredApprovingReviewCount, #[MapFrom('required_conversation_resolution_level')]
-    public string $requiredConversationResolutionLevel, #[MapFrom('required_deployments_enforcement_level')]
-    public string $requiredDeploymentsEnforcementLevel, #[MapFrom('required_status_checks')]
-    public array $requiredStatusChecks, #[MapFrom('required_status_checks_enforcement_level')]
-    public string $requiredStatusChecksEnforcementLevel, #[MapFrom('signature_requirement_enforcement_level')]
-    public string $signatureRequirementEnforcementLevel, #[MapFrom('strict_required_status_checks_policy')]
-    public bool $strictRequiredStatusChecksPolicy, #[MapFrom('updated_at')]
-    public string $updatedAt,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('admin_enforced')] public bool $adminEnforced, #[\EventSauce\ObjectHydrator\MapFrom('allow_deletions_enforcement_level')] public string $allowDeletionsEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('allow_force_pushes_enforcement_level')] public string $allowForcePushesEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('authorized_actor_names')] public array $authorizedActorNames, #[\EventSauce\ObjectHydrator\MapFrom('authorized_actors_only')] public bool $authorizedActorsOnly, #[\EventSauce\ObjectHydrator\MapFrom('authorized_dismissal_actors_only')] public bool $authorizedDismissalActorsOnly, #[\EventSauce\ObjectHydrator\MapFrom('create_protected')] public ?bool $createProtected, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('dismiss_stale_reviews_on_push')] public bool $dismissStaleReviewsOnPush, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('ignore_approvals_from_contributors')] public bool $ignoreApprovalsFromContributors, #[\EventSauce\ObjectHydrator\MapFrom('linear_history_requirement_enforcement_level')] public string $linearHistoryRequirementEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('lock_branch_enforcement_level')] public string $lockBranchEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('lock_allows_fork_sync')] public ?bool $lockAllowsForkSync, #[\EventSauce\ObjectHydrator\MapFrom('merge_queue_enforcement_level')] public string $mergeQueueEnforcementLevel, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('pull_request_reviews_enforcement_level')] public string $pullRequestReviewsEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('repository_id')] public int $repositoryId, #[\EventSauce\ObjectHydrator\MapFrom('require_code_owner_review')] public bool $requireCodeOwnerReview, #[\EventSauce\ObjectHydrator\MapFrom('require_last_push_approval')] public ?bool $requireLastPushApproval, #[\EventSauce\ObjectHydrator\MapFrom('required_approving_review_count')] public int $requiredApprovingReviewCount, #[\EventSauce\ObjectHydrator\MapFrom('required_conversation_resolution_level')] public string $requiredConversationResolutionLevel, #[\EventSauce\ObjectHydrator\MapFrom('required_deployments_enforcement_level')] public string $requiredDeploymentsEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('required_status_checks')] public array $requiredStatusChecks, #[\EventSauce\ObjectHydrator\MapFrom('required_status_checks_enforcement_level')] public string $requiredStatusChecksEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('signature_requirement_enforcement_level')] public string $signatureRequirementEnforcementLevel, #[\EventSauce\ObjectHydrator\MapFrom('strict_required_status_checks_policy')] public bool $strictRequiredStatusChecksPolicy, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt)
     {
     }
 }

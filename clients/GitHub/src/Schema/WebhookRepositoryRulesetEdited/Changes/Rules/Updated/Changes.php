@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "configuration": {
@@ -38,9 +34,9 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "configuration": {
         "from": "generated"
     },
@@ -51,9 +47,7 @@ final readonly class Changes
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Configuration|null $configuration, #[MapFrom('rule_type')]
-    public Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\RuleType|null $ruleType, public Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Pattern|null $pattern,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Configuration $configuration, #[\EventSauce\ObjectHydrator\MapFrom('rule_type')] public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\RuleType $ruleType, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules\Updated\Changes\Pattern $pattern)
     {
     }
 }

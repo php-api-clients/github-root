@@ -1,0 +1,23 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Contract;
+
+/**
+ * @property string $authorAssociation
+ * @property string $body
+ * @property int $childCommentCount
+ * @property string $createdAt
+ * @property int $discussionId
+ * @property string $htmlUrl
+ * @property int $id
+ * @property string $nodeId
+ * @property ?int $parentId
+ * @property \ApiClients\Client\GitHub\Schema\WebhooksComment\Reactions $reactions
+ * @property string $repositoryUrl
+ * @property string $updatedAt
+ * @property ?\ApiClients\Client\GitHub\Schema\WebhooksComment\User $user
+ */
+interface WebhooksComment
+{
+}

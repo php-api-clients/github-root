@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Eighteen
+final readonly class Eighteen implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Eighteen
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "max_file_size",
     "required": [
         "type"
@@ -38,16 +35,15 @@ final readonly class Eighteen
     },
     "description": "Prevent commits that exceed a specified file size limit from being pushed to the commit."
 }';
-    public const SCHEMA_TITLE        = 'max_file_size';
-    public const SCHEMA_DESCRIPTION  = 'Prevent commits that exceed a specified file size limit from being pushed to the commit.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'max_file_size';
+    public const SCHEMA_DESCRIPTION = 'Prevent commits that exceed a specified file size limit from being pushed to the commit.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "max_file_size",
     "parameters": {
         "max_file_size": 13
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleset\Rules\Eighteen\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen\Parameters $parameters)
     {
     }
 }

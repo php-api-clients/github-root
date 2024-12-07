@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Codespaces\ListDevcontainersInRepositoryForAuthenticatedUser\Response\ApplicationJson\Ok;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Devcontainers
+final readonly class Devcontainers implements \ApiClients\Client\GitHub\Contract\Operations\Codespaces\ListDevcontainersInRepositoryForAuthenticatedUser\Response\ApplicationJson\Ok\Devcontainers
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "path"
     ],
@@ -25,16 +22,14 @@ final readonly class Devcontainers
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "path": "generated",
     "name": "generated",
     "display_name": "generated"
 }';
-
-    public function __construct(public string $path, public string|null $name, #[MapFrom('display_name')]
-    public string|null $displayName,)
+    public function __construct(public string $path, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('display_name')] public ?string $displayName)
     {
     }
 }

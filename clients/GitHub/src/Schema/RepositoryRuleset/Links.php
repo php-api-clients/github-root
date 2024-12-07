@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Links
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "self": {
@@ -34,9 +31,9 @@ final readonly class Links
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "self": {
         "href": "generated"
     },
@@ -44,8 +41,7 @@ final readonly class Links
         "href": "generated"
     }
 }';
-
-    public function __construct(public Schema\RepositoryRuleset\Links\Self_|null $self, public Schema\RepositoryRuleset\Links\Html|null $html)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links\Self_ $self, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Links\Html $html)
     {
     }
 }

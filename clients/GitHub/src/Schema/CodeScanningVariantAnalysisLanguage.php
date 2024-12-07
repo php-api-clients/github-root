@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningVariantAnalysisLanguage
+final readonly class CodeScanningVariantAnalysisLanguage implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysisLanguage
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "cpp",
         "csharp",
@@ -20,10 +19,9 @@ final readonly class CodeScanningVariantAnalysisLanguage
     "type": "string",
     "description": "The language targeted by the CodeQL query"
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The language targeted by the CodeQL query';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The language targeted by the CodeQL query';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

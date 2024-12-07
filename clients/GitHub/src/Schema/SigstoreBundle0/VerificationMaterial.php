@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class VerificationMaterial
+final readonly class VerificationMaterial implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\VerificationMaterial
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "x509CertificateChain": {
@@ -86,9 +82,9 @@ final readonly class VerificationMaterial
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "x509CertificateChain": {
         "certificates": [
             {
@@ -135,9 +131,7 @@ final readonly class VerificationMaterial
     ],
     "timestampVerificationData": "generated"
 }';
-
-    public function __construct(#[MapFrom('x509CertificateChain')]
-    public Schema\SigstoreBundle0\VerificationMaterial\XFiveHundredNineCertificatechain|null $xFiveHundredNineCertificatechain, public array|null $tlogEntries, public string|null $timestampVerificationData,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('x509CertificateChain')] public ?\ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\XFiveHundredNineCertificatechain $xFiveHundredNineCertificatechain, public ?array $tlogEntries, public ?string $timestampVerificationData)
     {
     }
 }

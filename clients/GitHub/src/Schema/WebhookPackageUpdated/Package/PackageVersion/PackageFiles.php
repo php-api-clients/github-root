@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\PackageVersion;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PackageFiles
+final readonly class PackageFiles implements \ApiClients\Client\GitHub\Contract\WebhookPackageUpdated\Package\PackageVersion\PackageFiles
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "download_url",
         "id",
@@ -66,9 +63,9 @@ final readonly class PackageFiles
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "content_type": "generated",
     "created_at": "generated",
     "download_url": "https:\\/\\/example.com\\/",
@@ -81,15 +78,7 @@ final readonly class PackageFiles
     "state": "generated",
     "updated_at": "generated"
 }';
-
-    public function __construct(#[MapFrom('content_type')]
-    public string $contentType, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('download_url')]
-    public string $downloadUrl, public int $id, #[MapFrom('md5')]
-    public string|null $mdFive, public string $name, #[MapFrom('sha1')]
-    public string|null $shaOne, #[MapFrom('sha256')]
-    public string $shaTwoHundredFiftySix, public int $size, public string $state, #[MapFrom('updated_at')]
-    public string $updatedAt,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('content_type')] public string $contentType, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('download_url')] public string $downloadUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('md5')] public ?string $mdFive, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('sha1')] public ?string $shaOne, #[\EventSauce\ObjectHydrator\MapFrom('sha256')] public string $shaTwoHundredFiftySix, public int $size, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt)
     {
     }
 }

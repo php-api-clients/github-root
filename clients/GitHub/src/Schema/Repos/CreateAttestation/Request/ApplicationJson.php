@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateAttestation\Request;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateAttestation\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "bundle"
     ],
@@ -35,21 +32,20 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "bundle": {
         "mediaType": "generated",
         "verificationMaterial": [],
         "dsseEnvelope": []
     }
 }';
-
     /**
-     * bundle: The attestation's Sigstore Bundle.
+    * bundle: The attestation's Sigstore Bundle.
     Refer to the [Sigstore Bundle Specification](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto) for more information.
-     */
-    public function __construct(public Schema\Repos\CreateAttestation\Request\ApplicationJson\Bundle $bundle)
+    */
+    public function __construct(public \ApiClients\Client\GitHub\Schema\Repos\CreateAttestation\Request\ApplicationJson\Bundle $bundle)
     {
     }
 }

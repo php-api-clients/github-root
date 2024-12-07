@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class From
+final readonly class From implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryTransferred\Changes\Owner\From
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "organization": {
@@ -184,9 +181,9 @@ final readonly class From
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "organization": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "description": "generated",
@@ -222,13 +219,12 @@ final readonly class From
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookRepositoryTransferred\Changes\Owner\From\Organization|null $organization, public Schema\WebhookRepositoryTransferred\Changes\Owner\From\User|null $user)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner\From\Organization $organization, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryTransferred\Changes\Owner\From\User $user)
     {
     }
 }

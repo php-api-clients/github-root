@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis\SkippedRepositories;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class NotFoundRepos
+final readonly class NotFoundRepos implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysis\SkippedRepositories\NotFoundRepos
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "repository_count",
         "repository_full_names"
@@ -31,23 +28,20 @@ final readonly class NotFoundRepos
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "repository_count": 2,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "repository_count": 16,
     "repository_full_names": [
         "generated",
         "generated"
     ]
 }';
-
     /**
      * repositoryCount: The total number of repositories that were skipped for this reason.
      * repositoryFullNames: A list of full repository names that were skipped. This list may not include all repositories that were skipped.
      */
-    public function __construct(#[MapFrom('repository_count')]
-    public int $repositoryCount, #[MapFrom('repository_full_names')]
-    public array $repositoryFullNames,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('repository_count')] public int $repositoryCount, #[\EventSauce\ObjectHydrator\MapFrom('repository_full_names')] public array $repositoryFullNames)
     {
     }
 }

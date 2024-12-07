@@ -1,0 +1,22 @@
+name: "Release Management: GitHubEnterprise-3.13"
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/ci-GitHubEnterprise-3.13.yaml"
+      - ".github/workflows/generate-GitHubEnterprise-3.13.yaml"
+      - ".github/workflows/release-management-GitHubEnterprise-3.13.yaml"
+      - "clients/GitHubEnterprise-3.13/**"
+    types:
+      - opened
+      - labeled
+      - unlabeled
+      - synchronize
+      - reopened
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+jobs:
+  release-managment:
+    name: Release Management
+    uses: WyriHaximus/github-workflows/.github/workflows/package-release-managment.yaml@main

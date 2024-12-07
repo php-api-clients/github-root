@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookDiscussionEdited;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookDiscussionEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "body": {
@@ -35,9 +32,9 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "body": {
         "from": "generated"
     },
@@ -45,8 +42,7 @@ final readonly class Changes
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookDiscussionEdited\Changes\Body|null $body, public Schema\WebhookDiscussionEdited\Changes\Title|null $title)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookDiscussionEdited\Changes\Body $body, public ?\ApiClients\Client\GitHub\Schema\WebhookDiscussionEdited\Changes\Title $title)
     {
     }
 }

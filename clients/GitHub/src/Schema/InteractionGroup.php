@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class InteractionGroup
+final readonly class InteractionGroup implements \ApiClients\Client\GitHub\Contract\InteractionGroup
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "existing_users",
         "contributors_only",
@@ -18,10 +17,9 @@ final readonly class InteractionGroup
         "collaborators_only"
     ]
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

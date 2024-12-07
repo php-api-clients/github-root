@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningSarifsReceipt
+final readonly class CodeScanningSarifsReceipt implements \ApiClients\Client\GitHub\Contract\CodeScanningSarifsReceipt
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -24,18 +23,17 @@ final readonly class CodeScanningSarifsReceipt
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": "6c81cd8e-b078-4ac3-a3be-1dad7dbd0b53",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * id: An identifier for the upload.
      * url: The REST API URL for checking the status of the upload.
      */
-    public function __construct(public string|null $id, public string|null $url)
+    public function __construct(public ?string $id, public ?string $url)
     {
     }
 }

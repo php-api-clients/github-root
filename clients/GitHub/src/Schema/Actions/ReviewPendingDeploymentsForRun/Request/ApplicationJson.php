@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Actions\ReviewPendingDeploymentsForRun\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\ReviewPendingDeploymentsForRun\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "environment_ids",
         "state",
@@ -50,24 +47,22 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "environment_ids": [
-        161171787,
-        161171787
+        16,
+        17
     ],
     "state": "approved",
-    "comment": "Ship it!"
+    "comment": "generated"
 }';
-
     /**
      * environmentIds: The list of environment ids to approve or reject
      * state: Whether to approve or reject deployment to the specified environments.
      * comment: A comment to accompany the deployment review
      */
-    public function __construct(#[MapFrom('environment_ids')]
-    public array $environmentIds, public string $state, public string $comment,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('environment_ids')] public array $environmentIds, public string $state, public string $comment)
     {
     }
 }

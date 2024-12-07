@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookReleaseEdited;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookReleaseEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "body": {
@@ -50,9 +46,9 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "body": {
         "from": "generated"
     },
@@ -63,9 +59,7 @@ final readonly class Changes
         "to": false
     }
 }';
-
-    public function __construct(public Schema\WebhookReleaseEdited\Changes\Body|null $body, public Schema\WebhookReleaseEdited\Changes\Name|null $name, #[MapFrom('make_latest')]
-    public Schema\WebhookReleaseEdited\Changes\MakeLatest|null $makeLatest,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes\Body $body, public ?\ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes\Name $name, #[\EventSauce\ObjectHydrator\MapFrom('make_latest')] public ?\ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes\MakeLatest $makeLatest)
     {
     }
 }

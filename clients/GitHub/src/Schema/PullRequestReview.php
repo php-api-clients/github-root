@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PullRequestReview
+final readonly class PullRequestReview implements \ApiClients\Client\GitHub\Contract\PullRequestReview
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Pull Request Review",
     "required": [
         "id",
@@ -313,39 +309,39 @@ final readonly class PullRequestReview
     },
     "description": "Pull Request Reviews are reviews on pull requests."
 }';
-    public const SCHEMA_TITLE        = 'Pull Request Review';
-    public const SCHEMA_DESCRIPTION  = 'Pull Request Reviews are reviews on pull requests.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "node_id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3ODA=",
+    public const SCHEMA_TITLE = 'Pull Request Review';
+    public const SCHEMA_DESCRIPTION = 'Pull Request Reviews are reviews on pull requests.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
     "user": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "body": "This looks great.",
-    "state": "CHANGES_REQUESTED",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/12#pullrequestreview-80",
-    "pull_request_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/12",
+    "body": "generated",
+    "state": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "pull_request_url": "https:\\/\\/example.com\\/",
     "_links": {
         "html": {
             "href": "generated"
@@ -355,28 +351,18 @@ final readonly class PullRequestReview
         }
     },
     "submitted_at": "1970-01-01T00:00:00+00:00",
-    "commit_id": "54bb654c9e6025347f57900a4a5c2313a96b8035",
+    "commit_id": "generated",
     "body_html": "generated",
     "body_text": "generated",
-    "author_association": "OWNER"
+    "author_association": "COLLABORATOR"
 }';
-
     /**
      * id: Unique identifier of the review
      * body: The text of the review.
      * commitId: A commit SHA for the review. If the commit object was garbage collected or forcibly deleted, then it no longer exists in Git and this value will be `null`.
      * authorAssociation: How the author is associated with the repository.
      */
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public Schema\SimpleUser|null $user, public string $body, public string $state, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('pull_request_url')]
-    public string $pullRequestUrl, #[MapFrom('_links')]
-    public Schema\PullRequestReview\Links $links, #[MapFrom('submitted_at')]
-    public string|null $submittedAt, #[MapFrom('commit_id')]
-    public string|null $commitId, #[MapFrom('body_html')]
-    public string|null $bodyHtml, #[MapFrom('body_text')]
-    public string|null $bodyText, #[MapFrom('author_association')]
-    public string $authorAssociation,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public ?\ApiClients\Client\GitHub\Schema\SimpleUser $user, public string $body, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('pull_request_url')] public string $pullRequestUrl, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\PullRequestReview\Links $links, #[\EventSauce\ObjectHydrator\MapFrom('submitted_at')] public ?string $submittedAt, #[\EventSauce\ObjectHydrator\MapFrom('commit_id')] public ?string $commitId, #[\EventSauce\ObjectHydrator\MapFrom('body_html')] public ?string $bodyHtml, #[\EventSauce\ObjectHydrator\MapFrom('body_text')] public ?string $bodyText, #[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation)
     {
     }
 }

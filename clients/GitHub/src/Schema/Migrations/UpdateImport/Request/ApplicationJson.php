@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Migrations\UpdateImport\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Migrations\UpdateImport\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -44,25 +41,21 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "vcs_username": "generated",
     "vcs_password": "generated",
-    "vcs": "\\"git\\"",
-    "tfvc_project": "\\"project1\\""
+    "vcs": "subversion",
+    "tfvc_project": "generated"
 }';
-
     /**
      * vcsUsername: The username to provide to the originating repository.
      * vcsPassword: The password to provide to the originating repository.
      * vcs: The type of version control system you are migrating from.
      * tfvcProject: For a tfvc import, the name of the project that is being imported.
      */
-    public function __construct(#[MapFrom('vcs_username')]
-    public string|null $vcsUsername, #[MapFrom('vcs_password')]
-    public string|null $vcsPassword, public string|null $vcs, #[MapFrom('tfvc_project')]
-    public string|null $tfvcProject,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('vcs_username')] public ?string $vcsUsername, #[\EventSauce\ObjectHydrator\MapFrom('vcs_password')] public ?string $vcsPassword, public ?string $vcs, #[\EventSauce\ObjectHydrator\MapFrom('tfvc_project')] public ?string $tfvcProject)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CopilotDotcomPullRequests
+final readonly class CopilotDotcomPullRequests implements \ApiClients\Client\GitHub\Contract\CopilotDotcomPullRequests
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -71,9 +68,9 @@ final readonly class CopilotDotcomPullRequests
     "description": "Usage metrics for Copilot for pull requests.",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Usage metrics for Copilot for pull requests.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Usage metrics for Copilot for pull requests.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_engaged_users": 19,
     "repositories": [
         {
@@ -118,13 +115,11 @@ final readonly class CopilotDotcomPullRequests
         }
     ]
 }';
-
     /**
      * totalEngagedUsers: The number of users who used Copilot for Pull Requests on github.com to generate a pull request summary at least once.
      * repositories: Repositories in which users used Copilot for Pull Requests to generate pull request summaries
      */
-    public function __construct(#[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, public array|null $repositories,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, public ?array $repositories)
     {
     }
 }

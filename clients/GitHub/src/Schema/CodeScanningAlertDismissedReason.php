@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertDismissedReason
+final readonly class CodeScanningAlertDismissedReason implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertDismissedReason
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "false positive",
         "won\'t fix",
@@ -19,10 +18,9 @@ final readonly class CodeScanningAlertDismissedReason
     ],
     "description": "**Required when the state is dismissed.** The reason for dismissing or closing the alert."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '**Required when the state is dismissed.** The reason for dismissing or closing the alert.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '**Required when the state is dismissed.** The reason for dismissing or closing the alert.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

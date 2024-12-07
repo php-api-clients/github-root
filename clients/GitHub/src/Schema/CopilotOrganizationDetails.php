@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CopilotOrganizationDetails
+final readonly class CopilotOrganizationDetails implements \ApiClients\Client\GitHub\Contract\CopilotOrganizationDetails
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Copilot Organization Details",
     "required": [
         "seat_breakdown",
@@ -109,9 +105,9 @@ final readonly class CopilotOrganizationDetails
     "description": "Information about the seat breakdown and policies set for an organization with a Copilot Business or Copilot Enterprise subscription.",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = 'Copilot Organization Details';
-    public const SCHEMA_DESCRIPTION  = 'Information about the seat breakdown and policies set for an organization with a Copilot Business or Copilot Enterprise subscription.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Copilot Organization Details';
+    public const SCHEMA_DESCRIPTION = 'Information about the seat breakdown and policies set for an organization with a Copilot Business or Copilot Enterprise subscription.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "seat_breakdown": {
         "total": 5,
         "added_this_cycle": 16,
@@ -121,13 +117,12 @@ final readonly class CopilotOrganizationDetails
         "inactive_this_cycle": 19
     },
     "public_code_suggestions": "allow",
-    "ide_chat": "unconfigured",
+    "ide_chat": "enabled",
     "platform_chat": "enabled",
     "cli": "enabled",
     "seat_management_setting": "assign_all",
     "plan_type": "business"
 }';
-
     /**
      * seatBreakdown: The breakdown of Copilot Business seats for the organization.
      * publicCodeSuggestions: The organization policy for allowing or disallowing Copilot to make suggestions that match public code.
@@ -137,13 +132,7 @@ final readonly class CopilotOrganizationDetails
      * seatManagementSetting: The mode of assigning new seats.
      * planType: The Copilot plan of the organization, or the parent enterprise, when applicable.
      */
-    public function __construct(#[MapFrom('seat_breakdown')]
-    public Schema\CopilotSeatBreakdown $seatBreakdown, #[MapFrom('public_code_suggestions')]
-    public string $publicCodeSuggestions, #[MapFrom('ide_chat')]
-    public string|null $ideChat, #[MapFrom('platform_chat')]
-    public string|null $platformChat, public string|null $cli, #[MapFrom('seat_management_setting')]
-    public string $seatManagementSetting, #[MapFrom('plan_type')]
-    public string|null $planType,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('seat_breakdown')] public \ApiClients\Client\GitHub\Schema\CopilotSeatBreakdown $seatBreakdown, #[\EventSauce\ObjectHydrator\MapFrom('public_code_suggestions')] public string $publicCodeSuggestions, #[\EventSauce\ObjectHydrator\MapFrom('ide_chat')] public ?string $ideChat, #[\EventSauce\ObjectHydrator\MapFrom('platform_chat')] public ?string $platformChat, public ?string $cli, #[\EventSauce\ObjectHydrator\MapFrom('seat_management_setting')] public string $seatManagementSetting, #[\EventSauce\ObjectHydrator\MapFrom('plan_type')] public ?string $planType)
     {
     }
 }

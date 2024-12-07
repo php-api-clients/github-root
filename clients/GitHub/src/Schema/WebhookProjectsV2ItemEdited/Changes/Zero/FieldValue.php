@@ -1,17 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemEdited\Changes\Zero;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue\From;
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue\To;
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class FieldValue
+final readonly class FieldValue implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "field_node_id": {
@@ -176,24 +170,27 @@ final readonly class FieldValue
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "field_node_id": "generated",
     "field_type": "generated",
     "field_name": "generated",
     "project_number": 14,
-    "from": null,
-    "to": null
+    "from": {
+        "id": "generated",
+        "title": "generated",
+        "duration": 8,
+        "start_date": "generated"
+    },
+    "to": {
+        "id": "generated",
+        "title": "generated",
+        "duration": 8,
+        "start_date": "generated"
+    }
 }';
-
-    public function __construct(#[MapFrom('field_node_id')]
-    public string|null $fieldNodeId, #[MapFrom('field_type')]
-    public string|null $fieldType, #[MapFrom('field_name')]
-    public string|null $fieldName, #[MapFrom('project_number')]
-    public int|null $projectNumber, #[From]
-    public string|int|Schema\ProjectsV2SingleSelectOption|Schema\ProjectsV2IterationSetting|null $from, #[To]
-    public string|int|Schema\ProjectsV2SingleSelectOption|Schema\ProjectsV2IterationSetting|null $to,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('field_node_id')] public ?string $fieldNodeId, #[\EventSauce\ObjectHydrator\MapFrom('field_type')] public ?string $fieldType, #[\EventSauce\ObjectHydrator\MapFrom('field_name')] public ?string $fieldName, #[\EventSauce\ObjectHydrator\MapFrom('project_number')] public ?int $projectNumber, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue\From] public null|string|int|\ApiClients\Client\GitHub\Schema\ProjectsV2SingleSelectOption|\ApiClients\Client\GitHub\Schema\ProjectsV2IterationSetting $from, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue\To] public null|string|int|\ApiClients\Client\GitHub\Schema\ProjectsV2SingleSelectOption|\ApiClients\Client\GitHub\Schema\ProjectsV2IterationSetting $to)
     {
     }
 }

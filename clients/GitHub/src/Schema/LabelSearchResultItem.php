@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class LabelSearchResultItem
+final readonly class LabelSearchResultItem implements \ApiClients\Client\GitHub\Contract\LabelSearchResultItem
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Label Search Result Item",
     "required": [
         "id",
@@ -94,9 +91,9 @@ final readonly class LabelSearchResultItem
     },
     "description": "Label Search Result Item"
 }';
-    public const SCHEMA_TITLE        = 'Label Search Result Item';
-    public const SCHEMA_DESCRIPTION  = 'Label Search Result Item';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Label Search Result Item';
+    public const SCHEMA_DESCRIPTION = 'Label Search Result Item';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "node_id": "generated",
     "url": "https:\\/\\/example.com\\/",
@@ -104,7 +101,7 @@ final readonly class LabelSearchResultItem
     "color": "generated",
     "default": false,
     "description": "generated",
-    "score": 0.5,
+    "score": 5,
     "text_matches": [
         {
             "object_url": "generated",
@@ -152,10 +149,7 @@ final readonly class LabelSearchResultItem
         }
     ]
 }';
-
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $url, public string $name, public string $color, public bool $default, public string|null $description, public int|float $score, #[MapFrom('text_matches')]
-    public array|null $textMatches,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $url, public string $name, public string $color, public bool $default, public ?string $description, public int|float $score, #[\EventSauce\ObjectHydrator\MapFrom('text_matches')] public ?array $textMatches)
     {
     }
 }

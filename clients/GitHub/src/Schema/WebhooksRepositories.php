@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksRepositories
+final readonly class WebhooksRepositories implements \ApiClients\Client\GitHub\Contract\WebhooksRepositories
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "node_id",
@@ -38,24 +35,21 @@ final readonly class WebhooksRepositories
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "full_name": "generated",
     "id": 2,
     "name": "generated",
     "node_id": "generated",
     "private": false
 }';
-
     /**
      * id: Unique identifier of the repository
      * name: The name of the repository.
      * private: Whether the repository is private or public.
      */
-    public function __construct(#[MapFrom('full_name')]
-    public string $fullName, public int $id, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, public bool $private,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('full_name')] public string $fullName, public int $id, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public bool $private)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Activity\SetRepoSubscription\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Activity\SetRepoSubscription\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "subscribed": {
@@ -19,18 +18,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "subscribed": false,
     "ignored": false
 }';
-
     /**
      * subscribed: Determines if notifications should be received from this repository.
      * ignored: Determines if all notifications should be blocked from this repository.
      */
-    public function __construct(public bool|null $subscribed, public bool|null $ignored)
+    public function __construct(public ?bool $subscribed, public ?bool $ignored)
     {
     }
 }

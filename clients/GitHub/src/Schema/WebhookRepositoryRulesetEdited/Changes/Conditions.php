@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes;
 
-final readonly class Conditions
+final readonly class Conditions implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes\Conditions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "added": {
@@ -146,9 +145,9 @@ final readonly class Conditions
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "added": [
         {
             "ref_name": {
@@ -272,8 +271,7 @@ final readonly class Conditions
         }
     ]
 }';
-
-    public function __construct(public array|null $added, public array|null $deleted, public array|null $updated)
+    public function __construct(public ?array $added, public ?array $deleted, public ?array $updated)
     {
     }
 }

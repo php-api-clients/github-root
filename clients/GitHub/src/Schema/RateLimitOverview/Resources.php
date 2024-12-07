@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RateLimitOverview;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Resources
+final readonly class Resources implements \ApiClients\Client\GitHub\Contract\RateLimitOverview\Resources
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "core",
         "search"
@@ -258,9 +254,9 @@ final readonly class Resources
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "core": {
         "limit": 5,
         "remaining": 9,
@@ -322,14 +318,7 @@ final readonly class Resources
         "used": 4
     }
 }';
-
-    public function __construct(public Schema\RateLimit $core, public Schema\RateLimit|null $graphql, public Schema\RateLimit $search, #[MapFrom('code_search')]
-    public Schema\RateLimit|null $codeSearch, #[MapFrom('source_import')]
-    public Schema\RateLimit|null $sourceImport, #[MapFrom('integration_manifest')]
-    public Schema\RateLimit|null $integrationManifest, #[MapFrom('code_scanning_upload')]
-    public Schema\RateLimit|null $codeScanningUpload, #[MapFrom('actions_runner_registration')]
-    public Schema\RateLimit|null $actionsRunnerRegistration, public Schema\RateLimit|null $scim, #[MapFrom('dependency_snapshots')]
-    public Schema\RateLimit|null $dependencySnapshots,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\RateLimit $core, public ?\ApiClients\Client\GitHub\Schema\RateLimit $graphql, public \ApiClients\Client\GitHub\Schema\RateLimit $search, #[\EventSauce\ObjectHydrator\MapFrom('code_search')] public ?\ApiClients\Client\GitHub\Schema\RateLimit $codeSearch, #[\EventSauce\ObjectHydrator\MapFrom('source_import')] public ?\ApiClients\Client\GitHub\Schema\RateLimit $sourceImport, #[\EventSauce\ObjectHydrator\MapFrom('integration_manifest')] public ?\ApiClients\Client\GitHub\Schema\RateLimit $integrationManifest, #[\EventSauce\ObjectHydrator\MapFrom('code_scanning_upload')] public ?\ApiClients\Client\GitHub\Schema\RateLimit $codeScanningUpload, #[\EventSauce\ObjectHydrator\MapFrom('actions_runner_registration')] public ?\ApiClients\Client\GitHub\Schema\RateLimit $actionsRunnerRegistration, public ?\ApiClients\Client\GitHub\Schema\RateLimit $scim, #[\EventSauce\ObjectHydrator\MapFrom('dependency_snapshots')] public ?\ApiClients\Client\GitHub\Schema\RateLimit $dependencySnapshots)
     {
     }
 }

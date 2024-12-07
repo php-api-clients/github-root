@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackagePublished\RegistryPackage;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Registry
+final readonly class Registry implements \ApiClients\Client\GitHub\Contract\WebhookRegistryPackagePublished\RegistryPackage\Registry
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -31,18 +28,16 @@ final readonly class Registry
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "about_url": "generated",
     "name": "generated",
     "type": "generated",
     "url": "generated",
     "vendor": "generated"
 }';
-
-    public function __construct(#[MapFrom('about_url')]
-    public string|null $aboutUrl, public string|null $name, public string|null $type, public string|null $url, public string|null $vendor,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('about_url')] public ?string $aboutUrl, public ?string $name, public ?string $type, public ?string $url, public ?string $vendor)
     {
     }
 }

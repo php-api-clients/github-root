@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamEdited\Changes\Repository\Permissions;
 
-final readonly class From
+final readonly class From implements \ApiClients\Client\GitHub\Contract\WebhookTeamEdited\Changes\Repository\Permissions\From
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "admin": {
@@ -23,20 +22,19 @@ final readonly class From
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "admin": false,
     "pull": false,
     "push": false
 }';
-
     /**
      * admin: The previous version of the team member's `admin` permission on a repository, if the action was `edited`.
      * pull: The previous version of the team member's `pull` permission on a repository, if the action was `edited`.
      * push: The previous version of the team member's `push` permission on a repository, if the action was `edited`.
      */
-    public function __construct(public bool|null $admin, public bool|null $pull, public bool|null $push)
+    public function __construct(public ?bool $admin, public ?bool $pull, public ?bool $push)
     {
     }
 }

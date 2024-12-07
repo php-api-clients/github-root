@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApiInsightsTimeStats
+final readonly class ApiInsightsTimeStats implements \ApiClients\Client\GitHub\Contract\ApiInsightsTimeStats
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "timestamp": {
@@ -24,17 +21,14 @@ final readonly class ApiInsightsTimeStats
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "timestamp": "generated",
     "total_request_count": 19,
     "rate_limited_request_count": 26
 }';
-
-    public function __construct(public string|null $timestamp, #[MapFrom('total_request_count')]
-    public int|null $totalRequestCount, #[MapFrom('rate_limited_request_count')]
-    public int|null $rateLimitedRequestCount,)
+    public function __construct(public ?string $timestamp, #[\EventSauce\ObjectHydrator\MapFrom('total_request_count')] public ?int $totalRequestCount, #[\EventSauce\ObjectHydrator\MapFrom('rate_limited_request_count')] public ?int $rateLimitedRequestCount)
     {
     }
 }

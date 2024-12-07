@@ -49,7 +49,7 @@
                 "\ud83e\udeb5"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -66,7 +66,7 @@
                 "\ud83e\udeb5"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -134,7 +134,41 @@
                 "\ud83e\udeb5"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "composer.json"
+            ],
+            "branchPrefix": "renovate/root/php/",
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "composer.json"
+            ],
+            "branchPrefix": "renovate/root/php/",
+            "commitMessagePrefix": "[\ud83e\udeb5]",
+            "labels": [
+                "\ud83e\udeb5"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -202,7 +236,7 @@
                 "\u2620\ufe0f"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -219,7 +253,7 @@
                 "\u2620\ufe0f"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -287,7 +321,41 @@
                 "\u2620\ufe0f"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "skelleton/composer.json"
+            ],
+            "branchPrefix": "renovate/skelleton/php/",
+            "commitMessagePrefix": "[\u2620\ufe0f]",
+            "labels": [
+                "\u2620\ufe0f"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchManagers": [
+                "composer"
+            ],
+            "rangeStrategy": "in-range-only",
+            "matchFileNames": [
+                "skelleton/composer.json"
+            ],
+            "branchPrefix": "renovate/skelleton/php/",
+            "commitMessagePrefix": "[\u2620\ufe0f]",
+            "labels": [
+                "\u2620\ufe0f"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -371,7 +439,7 @@
                 "GitHubEnterprise-3.0"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -384,7 +452,7 @@
                 "GitHubEnterprise-3.0"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -436,7 +504,33 @@
                 "GitHubEnterprise-3.0"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.0/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.0/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]",
+            "labels": [
+                "GitHubEnterprise-3.0"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.0/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.0/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.0]",
+            "labels": [
+                "GitHubEnterprise-3.0"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -502,7 +596,7 @@
                 "GitHubEnterprise-3.1"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -515,7 +609,7 @@
                 "GitHubEnterprise-3.1"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -567,7 +661,33 @@
                 "GitHubEnterprise-3.1"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.1/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.1/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]",
+            "labels": [
+                "GitHubEnterprise-3.1"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.1/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.1/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.1]",
+            "labels": [
+                "GitHubEnterprise-3.1"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -633,7 +753,7 @@
                 "GitHubEnterprise-3.10"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -646,7 +766,7 @@
                 "GitHubEnterprise-3.10"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -698,7 +818,33 @@
                 "GitHubEnterprise-3.10"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.10/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.10/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.10]",
+            "labels": [
+                "GitHubEnterprise-3.10"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.10/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.10/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.10]",
+            "labels": [
+                "GitHubEnterprise-3.10"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -764,7 +910,7 @@
                 "GitHubEnterprise-3.11"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -777,7 +923,7 @@
                 "GitHubEnterprise-3.11"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -829,7 +975,33 @@
                 "GitHubEnterprise-3.11"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.11/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.11/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.11]",
+            "labels": [
+                "GitHubEnterprise-3.11"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.11/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.11/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.11]",
+            "labels": [
+                "GitHubEnterprise-3.11"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -895,7 +1067,7 @@
                 "GitHubEnterprise-3.12"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -908,7 +1080,7 @@
                 "GitHubEnterprise-3.12"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -960,7 +1132,33 @@
                 "GitHubEnterprise-3.12"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.12/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.12/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.12]",
+            "labels": [
+                "GitHubEnterprise-3.12"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -992,6 +1190,1105 @@
         },
         {
             "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.13/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.13.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.13/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.13]",
+            "labels": [
+                "GitHubEnterprise-3.13"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.14/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.14.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.14/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.14]",
+            "labels": [
+                "GitHubEnterprise-3.14"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.15/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.15.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.15/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.15]",
+            "labels": [
+                "GitHubEnterprise-3.15"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.16/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.16.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.16/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.16]",
+            "labels": [
+                "GitHubEnterprise-3.16"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.17/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.17.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.17/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.17]",
+            "labels": [
+                "GitHubEnterprise-3.17"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.18/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.18.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.18/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.18]",
+            "labels": [
+                "GitHubEnterprise-3.18"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.19/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.19.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.19/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.19]",
+            "labels": [
+                "GitHubEnterprise-3.19"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
                 "clients/GitHubEnterprise-3.2/composer.json"
             ],
             "branchPrefix": "renovate/GitHubEnterprise-3.2/php/",
@@ -1026,7 +2323,7 @@
                 "GitHubEnterprise-3.2"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1039,7 +2336,7 @@
                 "GitHubEnterprise-3.2"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -1091,7 +2388,33 @@
                 "GitHubEnterprise-3.2"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.2/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.2/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]",
+            "labels": [
+                "GitHubEnterprise-3.2"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.2/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.2/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.2]",
+            "labels": [
+                "GitHubEnterprise-3.2"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -1118,6 +2441,320 @@
             "commitMessagePrefix": "[GitHubEnterprise-3.2]",
             "labels": [
                 "GitHubEnterprise-3.2"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.20/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.20.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.20/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.20]",
+            "labels": [
+                "GitHubEnterprise-3.20"
+            ],
+            "enabled": false
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/do-not-update-php"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/in-range"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/mammatus"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpstan"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/phpunit"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/psr"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/react"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.21/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-react"
+            ]
+        },
+        {
+            "matchManagers": [
+                "github-actions"
+            ],
+            "matchFileNames": [
+                ".github/workflows/**GitHubEnterprise-3.21.yaml"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.21/github-actions/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.21]",
+            "labels": [
+                "GitHubEnterprise-3.21"
             ],
             "enabled": false
         },
@@ -1157,7 +2794,7 @@
                 "GitHubEnterprise-3.3"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1170,7 +2807,7 @@
                 "GitHubEnterprise-3.3"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -1222,7 +2859,33 @@
                 "GitHubEnterprise-3.3"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.3/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.3/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]",
+            "labels": [
+                "GitHubEnterprise-3.3"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.3/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.3/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.3]",
+            "labels": [
+                "GitHubEnterprise-3.3"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -1288,7 +2951,7 @@
                 "GitHubEnterprise-3.4"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1301,7 +2964,7 @@
                 "GitHubEnterprise-3.4"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -1353,7 +3016,33 @@
                 "GitHubEnterprise-3.4"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.4/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.4/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]",
+            "labels": [
+                "GitHubEnterprise-3.4"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.4/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.4/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.4]",
+            "labels": [
+                "GitHubEnterprise-3.4"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -1419,7 +3108,7 @@
                 "GitHubEnterprise-3.5"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1432,7 +3121,7 @@
                 "GitHubEnterprise-3.5"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -1484,7 +3173,33 @@
                 "GitHubEnterprise-3.5"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.5/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.5/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]",
+            "labels": [
+                "GitHubEnterprise-3.5"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.5/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.5/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.5]",
+            "labels": [
+                "GitHubEnterprise-3.5"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -1550,7 +3265,7 @@
                 "GitHubEnterprise-3.6"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1563,7 +3278,7 @@
                 "GitHubEnterprise-3.6"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -1615,7 +3330,33 @@
                 "GitHubEnterprise-3.6"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.6/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.6/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]",
+            "labels": [
+                "GitHubEnterprise-3.6"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.6/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.6/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.6]",
+            "labels": [
+                "GitHubEnterprise-3.6"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -1681,7 +3422,7 @@
                 "GitHubEnterprise-3.7"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1694,7 +3435,7 @@
                 "GitHubEnterprise-3.7"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -1746,7 +3487,33 @@
                 "GitHubEnterprise-3.7"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.7/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.7/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]",
+            "labels": [
+                "GitHubEnterprise-3.7"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.7/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.7/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.7]",
+            "labels": [
+                "GitHubEnterprise-3.7"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -1812,7 +3579,7 @@
                 "GitHubEnterprise-3.8"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1825,7 +3592,7 @@
                 "GitHubEnterprise-3.8"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -1877,7 +3644,33 @@
                 "GitHubEnterprise-3.8"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.8/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.8/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]",
+            "labels": [
+                "GitHubEnterprise-3.8"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.8/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.8/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.8]",
+            "labels": [
+                "GitHubEnterprise-3.8"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -1943,7 +3736,7 @@
                 "GitHubEnterprise-3.9"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -1956,7 +3749,7 @@
                 "GitHubEnterprise-3.9"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -2008,7 +3801,33 @@
                 "GitHubEnterprise-3.9"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.9/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.9/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]",
+            "labels": [
+                "GitHubEnterprise-3.9"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterprise-3.9/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterprise-3.9/php/",
+            "commitMessagePrefix": "[GitHubEnterprise-3.9]",
+            "labels": [
+                "GitHubEnterprise-3.9"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -2074,7 +3893,7 @@
                 "GitHub"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -2087,7 +3906,7 @@
                 "GitHub"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -2139,7 +3958,33 @@
                 "GitHub"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHub/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHub/php/",
+            "commitMessagePrefix": "[GitHub]",
+            "labels": [
+                "GitHub"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHub/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHub/php/",
+            "commitMessagePrefix": "[GitHub]",
+            "labels": [
+                "GitHub"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -2205,7 +4050,7 @@
                 "GitHubEnterpriseCloud"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -2218,7 +4063,7 @@
                 "GitHubEnterpriseCloud"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -2270,7 +4115,33 @@
                 "GitHubEnterpriseCloud"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterpriseCloud/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterpriseCloud/php/",
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]",
+            "labels": [
+                "GitHubEnterpriseCloud"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubEnterpriseCloud/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubEnterpriseCloud/php/",
+            "commitMessagePrefix": "[GitHubEnterpriseCloud]",
+            "labels": [
+                "GitHubEnterpriseCloud"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {
@@ -2336,7 +4207,7 @@
                 "GitHubAE"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/infection"
+                "github>wyrihaximus/renovate-config//composer/mammatus"
             ]
         },
         {
@@ -2349,7 +4220,7 @@
                 "GitHubAE"
             ],
             "extends": [
-                "github>wyrihaximus/renovate-config//composer/php"
+                "github>wyrihaximus/renovate-config//composer/phpstan"
             ]
         },
         {
@@ -2401,7 +4272,33 @@
                 "GitHubAE"
             ],
             "extends": [
+                "github>wyrihaximus/renovate-config//composer/voku"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubAE/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubAE/php/",
+            "commitMessagePrefix": "[GitHubAE]",
+            "labels": [
+                "GitHubAE"
+            ],
+            "extends": [
                 "github>wyrihaximus/renovate-config//composer/widen"
+            ]
+        },
+        {
+            "matchFileNames": [
+                "clients/GitHubAE/composer.json"
+            ],
+            "branchPrefix": "renovate/GitHubAE/php/",
+            "commitMessagePrefix": "[GitHubAE]",
+            "labels": [
+                "GitHubAE"
+            ],
+            "extends": [
+                "github>wyrihaximus/renovate-config//composer/wyrihaximus-qa-tools"
             ]
         },
         {

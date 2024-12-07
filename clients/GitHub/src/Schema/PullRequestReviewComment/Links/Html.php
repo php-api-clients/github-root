@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\PullRequestReviewComment\Links;
 
-final readonly class Html
+final readonly class Html implements \ApiClients\Client\GitHub\Contract\PullRequestReviewComment\Links\Html
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "href"
     ],
@@ -21,12 +20,11 @@ final readonly class Html
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "href": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1#discussion-diff-1"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "href": "https:\\/\\/example.com\\/"
 }';
-
     public function __construct(public string $href)
     {
     }

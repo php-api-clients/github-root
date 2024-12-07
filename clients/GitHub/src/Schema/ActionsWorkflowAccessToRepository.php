@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ActionsWorkflowAccessToRepository
+final readonly class ActionsWorkflowAccessToRepository implements \ApiClients\Client\GitHub\Contract\ActionsWorkflowAccessToRepository
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "access_level"
     ],
@@ -25,20 +22,18 @@ final readonly class ActionsWorkflowAccessToRepository
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "access_level": "organization"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "access_level": "none"
 }';
-
     /**
-     * accessLevel: Defines the level of access that workflows outside of the repository have to actions and reusable workflows within the
+    * accessLevel: Defines the level of access that workflows outside of the repository have to actions and reusable workflows within the
     repository.
-
+    
     `none` means the access is only possible from workflows in this repository. `user` level access allows sharing across user owned private repositories only. `organization` level access allows sharing across the organization.
-     */
-    public function __construct(#[MapFrom('access_level')]
-    public string $accessLevel,)
+    */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('access_level')] public string $accessLevel)
     {
     }
 }

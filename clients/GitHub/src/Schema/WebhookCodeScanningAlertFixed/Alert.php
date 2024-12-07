@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertFixed;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Alert
+final readonly class Alert implements \ApiClients\Client\GitHub\Contract\WebhookCodeScanningAlertFixed\Alert
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "number",
         "created_at",
@@ -339,9 +335,9 @@ final readonly class Alert
     },
     "description": "The code scanning alert involved in the event."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The code scanning alert involved in the event.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The code scanning alert involved in the event.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "created_at": "1970-01-01T00:00:00+00:00",
     "dismissed_at": "1970-01-01T00:00:00+00:00",
     "dismissed_by": {
@@ -364,11 +360,11 @@ final readonly class Alert
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
-    "dismissed_reason": "used in tests",
+    "dismissed_reason": "false positive",
     "html_url": "https:\\/\\/example.com\\/",
     "instances_url": "https:\\/\\/example.com\\/",
     "most_recent_instance": {
@@ -401,8 +397,7 @@ final readonly class Alert
         "help_uri": "generated",
         "id": "generated",
         "name": "generated",
-        "severity": "error",
-        "tags": null
+        "severity": "none"
     },
     "state": "fixed",
     "tool": {
@@ -412,7 +407,6 @@ final readonly class Alert
     },
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * createdAt: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ.`
      * dismissedAt: The time that the alert was dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -421,14 +415,7 @@ final readonly class Alert
      * number: The code scanning alert number.
      * state: State of a code scanning alert.
      */
-    public function __construct(#[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('dismissed_at')]
-    public string|null $dismissedAt, #[MapFrom('dismissed_by')]
-    public Schema\WebhookCodeScanningAlertFixed\Alert\DismissedBy|null $dismissedBy, #[MapFrom('dismissed_reason')]
-    public string|null $dismissedReason, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('instances_url')]
-    public string|null $instancesUrl, #[MapFrom('most_recent_instance')]
-    public Schema\WebhookCodeScanningAlertFixed\Alert\MostRecentInstance|null $mostRecentInstance, public int $number, public Schema\WebhookCodeScanningAlertFixed\Alert\Rule $rule, public string $state, public Schema\WebhookCodeScanningAlertFixed\Alert\Tool $tool, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_at')] public ?string $dismissedAt, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_by')] public ?\ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertFixed\Alert\DismissedBy $dismissedBy, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_reason')] public ?string $dismissedReason, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('instances_url')] public ?string $instancesUrl, #[\EventSauce\ObjectHydrator\MapFrom('most_recent_instance')] public ?\ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertFixed\Alert\MostRecentInstance $mostRecentInstance, public int $number, public \ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertFixed\Alert\Rule $rule, public string $state, public \ApiClients\Client\GitHub\Schema\WebhookCodeScanningAlertFixed\Alert\Tool $tool, public string $url)
     {
     }
 }

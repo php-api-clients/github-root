@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookSecurityAdvisoryWithdrawn\SecurityAdvisory;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Identifiers extends Schema\AliasAbstract\TietBCF0AA24\Tiet9CE55B8F\Tiet7911DF47\Tiet9F4CD41A
+final readonly class Identifiers extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TBCF0AA24\T9CE55B8F\T7911DF47\T9F4CD41A
 {
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Copilot\ListCopilotSeatsForEnterprise\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Copilot\ListCopilotSeatsForEnterprise\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "total_seats": {
@@ -632,51 +629,62 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_seats": 11,
     "seats": [
         {
             "assignee": {
                 "name": "generated",
                 "email": "generated",
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                "html_url": "https:\\/\\/github.com\\/octocat",
-                "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                "type": "User",
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "avatar_url": "https:\\/\\/example.com\\/",
+                "gravatar_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "followers_url": "https:\\/\\/example.com\\/",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "https:\\/\\/example.com\\/",
+                "organizations_url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "generated",
+                "received_events_url": "https:\\/\\/example.com\\/",
+                "type": "generated",
                 "site_admin": false,
-                "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                "user_view_type": "public"
+                "starred_at": "generated",
+                "user_view_type": "generated"
             },
             "organization": {
-                "login": "github",
-                "id": 1,
-                "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-                "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-                "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-                "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-                "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-                "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-                "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-                "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-                "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                "description": "A great organization"
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "https:\\/\\/example.com\\/",
+                "hooks_url": "generated",
+                "issues_url": "generated",
+                "members_url": "generated",
+                "public_members_url": "generated",
+                "avatar_url": "generated",
+                "description": "generated"
             },
-            "assigning_team": null,
+            "assigning_team": {
+                "id": 2,
+                "name": "generated",
+                "slug": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "sync_to_organizations": "generated",
+                "group_id": "generated",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "created_at": "1970-01-01T00:00:00+00:00",
+                "updated_at": "1970-01-01T00:00:00+00:00"
+            },
             "pending_cancellation_date": "generated",
             "last_activity_at": "1970-01-01T00:00:00+00:00",
             "last_activity_editor": "generated",
@@ -688,42 +696,53 @@ final readonly class Ok
             "assignee": {
                 "name": "generated",
                 "email": "generated",
-                "login": "octocat",
-                "id": 1,
-                "node_id": "MDQ6VXNlcjE=",
-                "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-                "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-                "html_url": "https:\\/\\/github.com\\/octocat",
-                "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-                "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-                "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-                "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-                "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-                "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-                "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-                "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-                "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-                "type": "User",
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "avatar_url": "https:\\/\\/example.com\\/",
+                "gravatar_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "followers_url": "https:\\/\\/example.com\\/",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "https:\\/\\/example.com\\/",
+                "organizations_url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "generated",
+                "received_events_url": "https:\\/\\/example.com\\/",
+                "type": "generated",
                 "site_admin": false,
-                "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-                "user_view_type": "public"
+                "starred_at": "generated",
+                "user_view_type": "generated"
             },
             "organization": {
-                "login": "github",
-                "id": 1,
-                "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-                "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-                "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-                "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-                "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-                "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-                "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-                "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-                "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-                "description": "A great organization"
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "https:\\/\\/example.com\\/",
+                "hooks_url": "generated",
+                "issues_url": "generated",
+                "members_url": "generated",
+                "public_members_url": "generated",
+                "avatar_url": "generated",
+                "description": "generated"
             },
-            "assigning_team": null,
+            "assigning_team": {
+                "id": 2,
+                "name": "generated",
+                "slug": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "sync_to_organizations": "generated",
+                "group_id": "generated",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "created_at": "1970-01-01T00:00:00+00:00",
+                "updated_at": "1970-01-01T00:00:00+00:00"
+            },
             "pending_cancellation_date": "generated",
             "last_activity_at": "1970-01-01T00:00:00+00:00",
             "last_activity_editor": "generated",
@@ -733,12 +752,10 @@ final readonly class Ok
         }
     ]
 }';
-
     /**
      * totalSeats: The total number of Copilot seats the enterprise is being billed for. Users with access through multiple organizations or enterprise teams are only counted once.
      */
-    public function __construct(#[MapFrom('total_seats')]
-    public int|null $totalSeats, public array|null $seats,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_seats')] public ?int $totalSeats, public ?array $seats)
     {
     }
 }

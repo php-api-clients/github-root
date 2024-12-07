@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRulePullRequest\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "dismiss_stale_reviews_on_push",
         "require_code_owner_review",
@@ -42,16 +39,15 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "dismiss_stale_reviews_on_push": false,
     "require_code_owner_review": false,
     "require_last_push_approval": false,
     "required_approving_review_count": 31,
     "required_review_thread_resolution": false
 }';
-
     /**
      * dismissStaleReviewsOnPush: New, reviewable commits pushed will dismiss previous pull request review approvals.
      * requireCodeOwnerReview: Require an approving review in pull requests that modify files that have a designated code owner.
@@ -59,12 +55,7 @@ final readonly class Parameters
      * requiredApprovingReviewCount: The number of approving reviews that are required before a pull request can be merged.
      * requiredReviewThreadResolution: All conversations on code must be resolved before a pull request can be merged.
      */
-    public function __construct(#[MapFrom('dismiss_stale_reviews_on_push')]
-    public bool $dismissStaleReviewsOnPush, #[MapFrom('require_code_owner_review')]
-    public bool $requireCodeOwnerReview, #[MapFrom('require_last_push_approval')]
-    public bool $requireLastPushApproval, #[MapFrom('required_approving_review_count')]
-    public int $requiredApprovingReviewCount, #[MapFrom('required_review_thread_resolution')]
-    public bool $requiredReviewThreadResolution,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('dismiss_stale_reviews_on_push')] public bool $dismissStaleReviewsOnPush, #[\EventSauce\ObjectHydrator\MapFrom('require_code_owner_review')] public bool $requireCodeOwnerReview, #[\EventSauce\ObjectHydrator\MapFrom('require_last_push_approval')] public bool $requireLastPushApproval, #[\EventSauce\ObjectHydrator\MapFrom('required_approving_review_count')] public int $requiredApprovingReviewCount, #[\EventSauce\ObjectHydrator\MapFrom('required_review_thread_resolution')] public bool $requiredReviewThreadResolution)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SimpleCommitStatus
+final readonly class SimpleCommitStatus implements \ApiClients\Client\GitHub\Contract\SimpleCommitStatus
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Simple Commit Status",
     "required": [
         "description",
@@ -76,9 +73,9 @@ final readonly class SimpleCommitStatus
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Simple Commit Status';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Simple Commit Status';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "description": "generated",
     "id": 2,
     "node_id": "generated",
@@ -91,13 +88,7 @@ final readonly class SimpleCommitStatus
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"
 }';
-
-    public function __construct(public string|null $description, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $state, public string $context, #[MapFrom('target_url')]
-    public string|null $targetUrl, public bool|null $required, #[MapFrom('avatar_url')]
-    public string|null $avatarUrl, public string $url, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt,)
+    public function __construct(public ?string $description, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $state, public string $context, #[\EventSauce\ObjectHydrator\MapFrom('target_url')] public ?string $targetUrl, public ?bool $required, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public ?string $avatarUrl, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt)
     {
     }
 }

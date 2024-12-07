@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Repos\ListDeploymentBranchPolicies\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "total_count",
         "branch_policies"
@@ -65,32 +62,29 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 2,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "total_count": 11,
     "branch_policies": [
         {
-            "id": 361471,
-            "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjE0NzE=",
-            "name": "release\\/*",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
             "type": "branch"
         },
         {
-            "id": 361471,
-            "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjE0NzE=",
-            "name": "release\\/*",
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
             "type": "branch"
         }
     ]
 }';
-
     /**
      * totalCount: The number of deployment branch policies for the environment.
      */
-    public function __construct(#[MapFrom('total_count')]
-    public int $totalCount, #[MapFrom('branch_policies')]
-    public array $branchPolicies,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('branch_policies')] public array $branchPolicies)
     {
     }
 }

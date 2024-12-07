@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class LicenseSimple
+final readonly class LicenseSimple implements \ApiClients\Client\GitHub\Contract\LicenseSimple
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "License Simple",
     "required": [
         "key",
@@ -63,21 +60,17 @@ final readonly class LicenseSimple
     },
     "description": "License Simple"
 }';
-    public const SCHEMA_TITLE        = 'License Simple';
-    public const SCHEMA_DESCRIPTION  = 'License Simple';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "key": "mit",
-    "name": "MIT License",
-    "url": "https:\\/\\/api.github.com\\/licenses\\/mit",
-    "spdx_id": "MIT",
-    "node_id": "MDc6TGljZW5zZW1pdA==",
+    public const SCHEMA_TITLE = 'License Simple';
+    public const SCHEMA_DESCRIPTION = 'License Simple';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "key": "generated",
+    "name": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "spdx_id": "generated",
+    "node_id": "generated",
     "html_url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public string $key, public string $name, public string|null $url, #[MapFrom('spdx_id')]
-    public string|null $spdxId, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('html_url')]
-    public string|null $htmlUrl,)
+    public function __construct(public string $key, public string $name, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('spdx_id')] public ?string $spdxId, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl)
     {
     }
 }

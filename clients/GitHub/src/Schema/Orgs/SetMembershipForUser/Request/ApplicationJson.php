@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\SetMembershipForUser\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\SetMembershipForUser\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "role": {
@@ -20,18 +19,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "role": "member"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "role": "admin"
 }';
-
     /**
-     * role: The role to give the user in the organization. Can be one of:
-     * `admin` - The user will become an owner of the organization.
+     * role: The role to give the user in the organization. Can be one of:  
+     * `admin` - The user will become an owner of the organization.  
      * `member` - The user will become a non-owner member of the organization.
      */
-    public function __construct(public string|null $role)
+    public function __construct(public ?string $role)
     {
     }
 }

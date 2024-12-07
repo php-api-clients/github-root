@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CommitSearchResultItem;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\CommitSearchResultItem\Commit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "author",
         "committer",
@@ -136,18 +132,18 @@ final readonly class Commit
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "author": {
         "name": "generated",
         "email": "generated",
         "date": "1970-01-01T00:00:00+00:00"
     },
     "committer": {
-        "name": "\\"Chris Wanstrath\\"",
-        "email": "\\"chris@ozmm.org\\"",
-        "date": "\\"2007-10-29T02:42:39.000-07:00\\""
+        "name": "generated",
+        "email": "generated",
+        "date": "generated"
     },
     "comment_count": 13,
     "message": "generated",
@@ -164,9 +160,7 @@ final readonly class Commit
         "verified_at": "generated"
     }
 }';
-
-    public function __construct(public Schema\CommitSearchResultItem\Commit\Author $author, public Schema\GitUser|null $committer, #[MapFrom('comment_count')]
-    public int $commentCount, public string $message, public Schema\CommitSearchResultItem\Commit\Tree $tree, public string $url, public Schema\Verification|null $verification,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\CommitSearchResultItem\Commit\Author $author, public ?\ApiClients\Client\GitHub\Schema\GitUser $committer, #[\EventSauce\ObjectHydrator\MapFrom('comment_count')] public int $commentCount, public string $message, public \ApiClients\Client\GitHub\Schema\CommitSearchResultItem\Commit\Tree $tree, public string $url, public ?\ApiClients\Client\GitHub\Schema\Verification $verification)
     {
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PublicUser
+final readonly class PublicUser implements \ApiClients\Client\GitHub\Contract\PublicUser
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Public User",
     "required": [
         "avatar_url",
@@ -248,9 +244,9 @@ final readonly class PublicUser
     "description": "Public User",
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = 'Public User';
-    public const SCHEMA_DESCRIPTION  = 'Public User';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Public User';
+    public const SCHEMA_DESCRIPTION = 'Public User';
+    const SCHEMA_EXAMPLE_DATA = '{
     "login": "generated",
     "id": 2,
     "user_view_type": "generated",
@@ -291,39 +287,13 @@ final readonly class PublicUser
         "space": 5,
         "private_repos": 13
     },
-    "private_gists": 1,
-    "total_private_repos": 2,
-    "owned_private_repos": 2,
-    "disk_usage": 1,
-    "collaborators": 3
+    "private_gists": 13,
+    "total_private_repos": 19,
+    "owned_private_repos": 19,
+    "disk_usage": 10,
+    "collaborators": 13
 }';
-
-    public function __construct(public string $login, public int $id, #[MapFrom('user_view_type')]
-    public string|null $userViewType, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('avatar_url')]
-    public string $avatarUrl, #[MapFrom('gravatar_id')]
-    public string|null $gravatarId, public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('followers_url')]
-    public string $followersUrl, #[MapFrom('following_url')]
-    public string $followingUrl, #[MapFrom('gists_url')]
-    public string $gistsUrl, #[MapFrom('starred_url')]
-    public string $starredUrl, #[MapFrom('subscriptions_url')]
-    public string $subscriptionsUrl, #[MapFrom('organizations_url')]
-    public string $organizationsUrl, #[MapFrom('repos_url')]
-    public string $reposUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('received_events_url')]
-    public string $receivedEventsUrl, public string $type, #[MapFrom('site_admin')]
-    public bool $siteAdmin, public string|null $name, public string|null $company, public string|null $blog, public string|null $location, public string|null $email, #[MapFrom('notification_email')]
-    public string|null $notificationEmail, public bool|null $hireable, public string|null $bio, #[MapFrom('twitter_username')]
-    public string|null $twitterUsername, #[MapFrom('public_repos')]
-    public int $publicRepos, #[MapFrom('public_gists')]
-    public int $publicGists, public int $followers, public int $following, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\PublicUser\Plan|null $plan, #[MapFrom('private_gists')]
-    public int|null $privateGists, #[MapFrom('total_private_repos')]
-    public int|null $totalPrivateRepos, #[MapFrom('owned_private_repos')]
-    public int|null $ownedPrivateRepos, #[MapFrom('disk_usage')]
-    public int|null $diskUsage, public int|null $collaborators,)
+    public function __construct(public string $login, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('user_view_type')] public ?string $userViewType, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl, #[\EventSauce\ObjectHydrator\MapFrom('gravatar_id')] public ?string $gravatarId, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('followers_url')] public string $followersUrl, #[\EventSauce\ObjectHydrator\MapFrom('following_url')] public string $followingUrl, #[\EventSauce\ObjectHydrator\MapFrom('gists_url')] public string $gistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('starred_url')] public string $starredUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscriptions_url')] public string $subscriptionsUrl, #[\EventSauce\ObjectHydrator\MapFrom('organizations_url')] public string $organizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('repos_url')] public string $reposUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('received_events_url')] public string $receivedEventsUrl, public string $type, #[\EventSauce\ObjectHydrator\MapFrom('site_admin')] public bool $siteAdmin, public ?string $name, public ?string $company, public ?string $blog, public ?string $location, public ?string $email, #[\EventSauce\ObjectHydrator\MapFrom('notification_email')] public ?string $notificationEmail, public ?bool $hireable, public ?string $bio, #[\EventSauce\ObjectHydrator\MapFrom('twitter_username')] public ?string $twitterUsername, #[\EventSauce\ObjectHydrator\MapFrom('public_repos')] public int $publicRepos, #[\EventSauce\ObjectHydrator\MapFrom('public_gists')] public int $publicGists, public int $followers, public int $following, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public ?\ApiClients\Client\GitHub\Schema\PublicUser\Plan $plan, #[\EventSauce\ObjectHydrator\MapFrom('private_gists')] public ?int $privateGists, #[\EventSauce\ObjectHydrator\MapFrom('total_private_repos')] public ?int $totalPrivateRepos, #[\EventSauce\ObjectHydrator\MapFrom('owned_private_repos')] public ?int $ownedPrivateRepos, #[\EventSauce\ObjectHydrator\MapFrom('disk_usage')] public ?int $diskUsage, public ?int $collaborators)
     {
     }
 }

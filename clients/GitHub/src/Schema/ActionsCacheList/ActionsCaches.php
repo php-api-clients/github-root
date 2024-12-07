@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\ActionsCacheList;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ActionsCaches
+final readonly class ActionsCaches implements \ApiClients\Client\GitHub\Contract\ActionsCacheList\ActionsCaches
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -57,22 +54,18 @@ final readonly class ActionsCaches
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
-    "ref": "refs\\/heads\\/main",
-    "key": "Linux-node-958aff96db2d75d67787d1e634ae70b659de937b",
-    "version": "73885106f58cc52a7df9ec4d4a5622a5614813162cb516c759a30af6bf56e6f0",
-    "last_accessed_at": "2019-01-24T22:45:36.000Z",
-    "created_at": "2019-01-24T22:45:36.000Z",
-    "size_in_bytes": 1024
+    "ref": "generated",
+    "key": "generated",
+    "version": "generated",
+    "last_accessed_at": "1970-01-01T00:00:00+00:00",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "size_in_bytes": 13
 }';
-
-    public function __construct(public int|null $id, public string|null $ref, public string|null $key, public string|null $version, #[MapFrom('last_accessed_at')]
-    public string|null $lastAccessedAt, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('size_in_bytes')]
-    public int|null $sizeInBytes,)
+    public function __construct(public ?int $id, public ?string $ref, public ?string $key, public ?string $version, #[\EventSauce\ObjectHydrator\MapFrom('last_accessed_at')] public ?string $lastAccessedAt, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('size_in_bytes')] public ?int $sizeInBytes)
     {
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class LicenseContent
+final readonly class LicenseContent implements \ApiClients\Client\GitHub\Contract\LicenseContent
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "License Content",
     "required": [
         "_links",
@@ -167,9 +163,9 @@ final readonly class LicenseContent
     },
     "description": "License Content"
 }';
-    public const SCHEMA_TITLE        = 'License Content';
-    public const SCHEMA_DESCRIPTION  = 'License Content';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'License Content';
+    public const SCHEMA_DESCRIPTION = 'License Content';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "path": "generated",
     "sha": "generated",
@@ -187,20 +183,15 @@ final readonly class LicenseContent
         "self": "https:\\/\\/example.com\\/"
     },
     "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "url": "https:\\/\\/api.github.com\\/licenses\\/mit",
-        "spdx_id": "MIT",
-        "node_id": "MDc6TGljZW5zZW1pdA==",
+        "key": "generated",
+        "name": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "spdx_id": "generated",
+        "node_id": "generated",
         "html_url": "https:\\/\\/example.com\\/"
     }
 }';
-
-    public function __construct(public string $name, public string $path, public string $sha, public int $size, public string $url, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('git_url')]
-    public string|null $gitUrl, #[MapFrom('download_url')]
-    public string|null $downloadUrl, public string $type, public string $content, public string $encoding, #[MapFrom('_links')]
-    public Schema\LicenseContent\Links $links, public Schema\LicenseSimple|null $license,)
+    public function __construct(public string $name, public string $path, public string $sha, public int $size, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public ?string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('download_url')] public ?string $downloadUrl, public string $type, public string $content, public string $encoding, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\LicenseContent\Links $links, public ?\ApiClients\Client\GitHub\Schema\LicenseSimple $license)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CopilotIdeCodeCompletions\Editors;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Models
+final readonly class Models implements \ApiClients\Client\GitHub\Contract\CopilotIdeCodeCompletions\Editors\Models
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -66,9 +63,9 @@ final readonly class Models
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "is_custom_model": false,
     "custom_model_training_date": "generated",
@@ -92,7 +89,6 @@ final readonly class Models
         }
     ]
 }';
-
     /**
      * name: Name of the model used for Copilot code completion suggestions. If the default model is used will appear as 'default'.
      * isCustomModel: Indicates whether a model is custom or default.
@@ -100,10 +96,7 @@ final readonly class Models
      * totalEngagedUsers: Number of users who accepted at least one Copilot code completion suggestion for the given editor, for the given language and model. Includes both full and partial acceptances.
      * languages: Code completion metrics for active languages, for the given editor.
      */
-    public function __construct(public string|null $name, #[MapFrom('is_custom_model')]
-    public bool|null $isCustomModel, #[MapFrom('custom_model_training_date')]
-    public string|null $customModelTrainingDate, #[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, public array|null $languages,)
+    public function __construct(public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('is_custom_model')] public ?bool $isCustomModel, #[\EventSauce\ObjectHydrator\MapFrom('custom_model_training_date')] public ?string $customModelTrainingDate, #[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, public ?array $languages)
     {
     }
 }

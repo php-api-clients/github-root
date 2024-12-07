@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\GistSimple;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Forks
+final readonly class Forks implements \ApiClients\Client\GitHub\Contract\GistSimple\Forks
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -268,9 +264,9 @@ final readonly class Forks
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": "generated",
     "url": "https:\\/\\/example.com\\/",
     "user": {
@@ -314,22 +310,19 @@ final readonly class Forks
             "space": 5,
             "private_repos": 13
         },
-        "private_gists": 1,
-        "total_private_repos": 2,
-        "owned_private_repos": 2,
-        "disk_usage": 1,
-        "collaborators": 3
+        "private_gists": 13,
+        "total_private_repos": 19,
+        "owned_private_repos": 19,
+        "disk_usage": 10,
+        "collaborators": 13
     },
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * user: Public User
      */
-    public function __construct(public string|null $id, public string|null $url, public Schema\PublicUser|null $user, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt,)
+    public function __construct(public ?string $id, public ?string $url, public ?\ApiClients\Client\GitHub\Schema\PublicUser $user, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt)
     {
     }
 }

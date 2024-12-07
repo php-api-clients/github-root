@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ReleaseNotesContent
+final readonly class ReleaseNotesContent implements \ApiClients\Client\GitHub\Contract\ReleaseNotesContent
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Generated Release Notes Content",
     "required": [
         "name",
@@ -28,13 +27,12 @@ final readonly class ReleaseNotesContent
     },
     "description": "Generated name and body describing a release"
 }';
-    public const SCHEMA_TITLE        = 'Generated Release Notes Content';
-    public const SCHEMA_DESCRIPTION  = 'Generated name and body describing a release';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Release v1.0.0 is now available!",
+    public const SCHEMA_TITLE = 'Generated Release Notes Content';
+    public const SCHEMA_DESCRIPTION = 'Generated name and body describing a release';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
     "body": "generated"
 }';
-
     /**
      * name: The generated name of the release
      * body: The generated body describing the contents of the release supporting markdown formatting

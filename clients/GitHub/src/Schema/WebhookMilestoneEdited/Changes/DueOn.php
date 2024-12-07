@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMilestoneEdited\Changes;
 
-final readonly class DueOn
+final readonly class DueOn implements \ApiClients\Client\GitHub\Contract\WebhookMilestoneEdited\Changes\DueOn
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "from"
     ],
@@ -18,12 +17,11 @@ final readonly class DueOn
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": "generated"
 }';
-
     /**
      * from: The previous version of the due date if the action was `edited`.
      */

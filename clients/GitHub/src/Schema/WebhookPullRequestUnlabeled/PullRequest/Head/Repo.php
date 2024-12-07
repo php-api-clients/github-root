@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Repo
+final readonly class Repo implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestUnlabeled\PullRequest\Head\Repo
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository",
     "required": [
         "id",
@@ -675,9 +671,9 @@ final readonly class Repo
     },
     "description": "A git repository"
 }';
-    public const SCHEMA_TITLE        = 'Repository';
-    public const SCHEMA_DESCRIPTION  = 'A git repository';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository';
+    public const SCHEMA_DESCRIPTION = 'A git repository';
+    const SCHEMA_EXAMPLE_DATA = '{
     "allow_auto_merge": false,
     "allow_forking": false,
     "allow_merge_commit": false,
@@ -696,7 +692,7 @@ final readonly class Repo
     "compare_url": "generated",
     "contents_url": "generated",
     "contributors_url": "https:\\/\\/example.com\\/",
-    "created_at": null,
+    "created_at": "1970-01-01T00:00:00+00:00",
     "default_branch": "generated",
     "delete_branch_on_merge": false,
     "deployments_url": "https:\\/\\/example.com\\/",
@@ -739,8 +735,8 @@ final readonly class Repo
         "url": "https:\\/\\/example.com\\/"
     },
     "master_branch": "generated",
-    "merge_commit_message": "BLANK",
-    "merge_commit_title": "MERGE_MESSAGE",
+    "merge_commit_message": "PR_BODY",
+    "merge_commit_title": "PR_TITLE",
     "merges_url": "https:\\/\\/example.com\\/",
     "milestones_url": "generated",
     "mirror_url": "https:\\/\\/example.com\\/",
@@ -770,7 +766,7 @@ final readonly class Repo
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -784,7 +780,7 @@ final readonly class Repo
     "private": false,
     "public": false,
     "pulls_url": "generated",
-    "pushed_at": null,
+    "pushed_at": "1970-01-01T00:00:00+00:00",
     "releases_url": "generated",
     "role_name": "generated",
     "size": 4,
@@ -808,120 +804,44 @@ final readonly class Repo
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/",
     "use_squash_pr_title_as_default": false,
-    "visibility": "internal",
+    "visibility": "public",
     "watchers": 8,
     "watchers_count": 14,
     "web_commit_signoff_required": false
 }';
-
     /**
-     * allowAutoMerge: Whether to allow auto-merge for pull requests.
-     * allowForking: Whether to allow private forks
-     * allowMergeCommit: Whether to allow merge commits for pull requests.
-     * allowRebaseMerge: Whether to allow rebase merges for pull requests.
-     * allowSquashMerge: Whether to allow squash merges for pull requests.
-     * archived: Whether the repository is archived.
-     * defaultBranch: The default branch of the repository.
-     * deleteBranchOnMerge: Whether to delete head branches when pull requests are merged
-     * disabled: Returns whether or not this repository is disabled.
-     * hasDownloads: Whether downloads are enabled.
-     * hasIssues: Whether issues are enabled.
-     * hasProjects: Whether projects are enabled.
-     * hasWiki: Whether the wiki is enabled.
-     * hasDiscussions: Whether discussions are enabled.
-     * id: Unique identifier of the repository
-     * mergeCommitMessage: The default value for a merge commit message.
-     * mergeCommitTitle: The default value for a merge commit message title.
-     * name: The name of the repository.
-     * private: Whether the repository is private or public.
-     * squashMergeCommitMessage: The default value for a squash merge commit message:
-
+    * allowAutoMerge: Whether to allow auto-merge for pull requests.
+    * allowForking: Whether to allow private forks
+    * allowMergeCommit: Whether to allow merge commits for pull requests.
+    * allowRebaseMerge: Whether to allow rebase merges for pull requests.
+    * allowSquashMerge: Whether to allow squash merges for pull requests.
+    * archived: Whether the repository is archived.
+    * defaultBranch: The default branch of the repository.
+    * deleteBranchOnMerge: Whether to delete head branches when pull requests are merged
+    * disabled: Returns whether or not this repository is disabled.
+    * hasDownloads: Whether downloads are enabled.
+    * hasIssues: Whether issues are enabled.
+    * hasProjects: Whether projects are enabled.
+    * hasWiki: Whether the wiki is enabled.
+    * hasDiscussions: Whether discussions are enabled.
+    * id: Unique identifier of the repository
+    * mergeCommitMessage: The default value for a merge commit message.
+    * mergeCommitTitle: The default value for a merge commit message title.
+    * name: The name of the repository.
+    * private: Whether the repository is private or public.
+    * squashMergeCommitMessage: The default value for a squash merge commit message:
+    
     - `PR_BODY` - default to the pull request's body.
     - `COMMIT_MESSAGES` - default to the branch's commit messages.
     - `BLANK` - default to a blank commit message.
-     * squashMergeCommitTitle: The default value for a squash merge commit title:
-
+    * squashMergeCommitTitle: The default value for a squash merge commit title:
+    
     - `PR_TITLE` - default to the pull request's title.
     - `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
-     * useSquashPrTitleAsDefault: Whether a squash merge commit can use the pull request title as default. **This property is closing down. Please use `squash_merge_commit_title` instead.
-     * webCommitSignoffRequired: Whether to require contributors to sign off on web-based commits
-     */
-    public function __construct(#[MapFrom('allow_auto_merge')]
-    public bool|null $allowAutoMerge, #[MapFrom('allow_forking')]
-    public bool|null $allowForking, #[MapFrom('allow_merge_commit')]
-    public bool|null $allowMergeCommit, #[MapFrom('allow_rebase_merge')]
-    public bool|null $allowRebaseMerge, #[MapFrom('allow_squash_merge')]
-    public bool|null $allowSquashMerge, #[MapFrom('allow_update_branch')]
-    public bool|null $allowUpdateBranch, #[MapFrom('archive_url')]
-    public string $archiveUrl, public bool $archived, #[MapFrom('assignees_url')]
-    public string $assigneesUrl, #[MapFrom('blobs_url')]
-    public string $blobsUrl, #[MapFrom('branches_url')]
-    public string $branchesUrl, #[MapFrom('clone_url')]
-    public string $cloneUrl, #[MapFrom('collaborators_url')]
-    public string $collaboratorsUrl, #[MapFrom('comments_url')]
-    public string $commentsUrl, #[MapFrom('commits_url')]
-    public string $commitsUrl, #[MapFrom('compare_url')]
-    public string $compareUrl, #[MapFrom('contents_url')]
-    public string $contentsUrl, #[MapFrom('contributors_url')]
-    public string $contributorsUrl, #[MapFrom('created_at')]
-    public int|string $createdAt, #[MapFrom('default_branch')]
-    public string $defaultBranch, #[MapFrom('delete_branch_on_merge')]
-    public bool|null $deleteBranchOnMerge, #[MapFrom('deployments_url')]
-    public string $deploymentsUrl, public string|null $description, public bool|null $disabled, #[MapFrom('downloads_url')]
-    public string $downloadsUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, public bool $fork, public int $forks, #[MapFrom('forks_count')]
-    public int $forksCount, #[MapFrom('forks_url')]
-    public string $forksUrl, #[MapFrom('full_name')]
-    public string $fullName, #[MapFrom('git_commits_url')]
-    public string $gitCommitsUrl, #[MapFrom('git_refs_url')]
-    public string $gitRefsUrl, #[MapFrom('git_tags_url')]
-    public string $gitTagsUrl, #[MapFrom('git_url')]
-    public string $gitUrl, #[MapFrom('has_downloads')]
-    public bool $hasDownloads, #[MapFrom('has_issues')]
-    public bool $hasIssues, #[MapFrom('has_pages')]
-    public bool $hasPages, #[MapFrom('has_projects')]
-    public bool $hasProjects, #[MapFrom('has_wiki')]
-    public bool $hasWiki, #[MapFrom('has_discussions')]
-    public bool $hasDiscussions, public string|null $homepage, #[MapFrom('hooks_url')]
-    public string $hooksUrl, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('is_template')]
-    public bool|null $isTemplate, #[MapFrom('issue_comment_url')]
-    public string $issueCommentUrl, #[MapFrom('issue_events_url')]
-    public string $issueEventsUrl, #[MapFrom('issues_url')]
-    public string $issuesUrl, #[MapFrom('keys_url')]
-    public string $keysUrl, #[MapFrom('labels_url')]
-    public string $labelsUrl, public string|null $language, #[MapFrom('languages_url')]
-    public string $languagesUrl, public Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\License|null $license, #[MapFrom('master_branch')]
-    public string|null $masterBranch, #[MapFrom('merge_commit_message')]
-    public string|null $mergeCommitMessage, #[MapFrom('merge_commit_title')]
-    public string|null $mergeCommitTitle, #[MapFrom('merges_url')]
-    public string $mergesUrl, #[MapFrom('milestones_url')]
-    public string $milestonesUrl, #[MapFrom('mirror_url')]
-    public string|null $mirrorUrl, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('notifications_url')]
-    public string $notificationsUrl, #[MapFrom('open_issues')]
-    public int $openIssues, #[MapFrom('open_issues_count')]
-    public int $openIssuesCount, public string|null $organization, public Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Owner|null $owner, public Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Permissions|null $permissions, public bool $private, public bool|null $public, #[MapFrom('pulls_url')]
-    public string $pullsUrl, #[MapFrom('pushed_at')]
-    public int|string $pushedAt, #[MapFrom('releases_url')]
-    public string $releasesUrl, #[MapFrom('role_name')]
-    public string|null $roleName, public int $size, #[MapFrom('squash_merge_commit_message')]
-    public string|null $squashMergeCommitMessage, #[MapFrom('squash_merge_commit_title')]
-    public string|null $squashMergeCommitTitle, #[MapFrom('ssh_url')]
-    public string $sshUrl, public int|null $stargazers, #[MapFrom('stargazers_count')]
-    public int $stargazersCount, #[MapFrom('stargazers_url')]
-    public string $stargazersUrl, #[MapFrom('statuses_url')]
-    public string $statusesUrl, #[MapFrom('subscribers_url')]
-    public string $subscribersUrl, #[MapFrom('subscription_url')]
-    public string $subscriptionUrl, #[MapFrom('svn_url')]
-    public string $svnUrl, #[MapFrom('tags_url')]
-    public string $tagsUrl, #[MapFrom('teams_url')]
-    public string $teamsUrl, public array $topics, #[MapFrom('trees_url')]
-    public string $treesUrl, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, #[MapFrom('use_squash_pr_title_as_default')]
-    public bool|null $useSquashPrTitleAsDefault, public string $visibility, public int $watchers, #[MapFrom('watchers_count')]
-    public int $watchersCount, #[MapFrom('web_commit_signoff_required')]
-    public bool|null $webCommitSignoffRequired,)
+    * useSquashPrTitleAsDefault: Whether a squash merge commit can use the pull request title as default. **This property is closing down. Please use `squash_merge_commit_title` instead.
+    * webCommitSignoffRequired: Whether to require contributors to sign off on web-based commits
+    */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('allow_auto_merge')] public ?bool $allowAutoMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_forking')] public ?bool $allowForking, #[\EventSauce\ObjectHydrator\MapFrom('allow_merge_commit')] public ?bool $allowMergeCommit, #[\EventSauce\ObjectHydrator\MapFrom('allow_rebase_merge')] public ?bool $allowRebaseMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_squash_merge')] public ?bool $allowSquashMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_update_branch')] public ?bool $allowUpdateBranch, #[\EventSauce\ObjectHydrator\MapFrom('archive_url')] public string $archiveUrl, public bool $archived, #[\EventSauce\ObjectHydrator\MapFrom('assignees_url')] public string $assigneesUrl, #[\EventSauce\ObjectHydrator\MapFrom('blobs_url')] public string $blobsUrl, #[\EventSauce\ObjectHydrator\MapFrom('branches_url')] public string $branchesUrl, #[\EventSauce\ObjectHydrator\MapFrom('clone_url')] public string $cloneUrl, #[\EventSauce\ObjectHydrator\MapFrom('collaborators_url')] public string $collaboratorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public string $commitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('compare_url')] public string $compareUrl, #[\EventSauce\ObjectHydrator\MapFrom('contents_url')] public string $contentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('contributors_url')] public string $contributorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public int|string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('default_branch')] public string $defaultBranch, #[\EventSauce\ObjectHydrator\MapFrom('delete_branch_on_merge')] public ?bool $deleteBranchOnMerge, #[\EventSauce\ObjectHydrator\MapFrom('deployments_url')] public string $deploymentsUrl, public ?string $description, public ?bool $disabled, #[\EventSauce\ObjectHydrator\MapFrom('downloads_url')] public string $downloadsUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, public bool $fork, public int $forks, #[\EventSauce\ObjectHydrator\MapFrom('forks_count')] public int $forksCount, #[\EventSauce\ObjectHydrator\MapFrom('forks_url')] public string $forksUrl, #[\EventSauce\ObjectHydrator\MapFrom('full_name')] public string $fullName, #[\EventSauce\ObjectHydrator\MapFrom('git_commits_url')] public string $gitCommitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_refs_url')] public string $gitRefsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_tags_url')] public string $gitTagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('has_downloads')] public bool $hasDownloads, #[\EventSauce\ObjectHydrator\MapFrom('has_issues')] public bool $hasIssues, #[\EventSauce\ObjectHydrator\MapFrom('has_pages')] public bool $hasPages, #[\EventSauce\ObjectHydrator\MapFrom('has_projects')] public bool $hasProjects, #[\EventSauce\ObjectHydrator\MapFrom('has_wiki')] public bool $hasWiki, #[\EventSauce\ObjectHydrator\MapFrom('has_discussions')] public bool $hasDiscussions, public ?string $homepage, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('is_template')] public ?bool $isTemplate, #[\EventSauce\ObjectHydrator\MapFrom('issue_comment_url')] public string $issueCommentUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_events_url')] public string $issueEventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public string $issuesUrl, #[\EventSauce\ObjectHydrator\MapFrom('keys_url')] public string $keysUrl, #[\EventSauce\ObjectHydrator\MapFrom('labels_url')] public string $labelsUrl, public ?string $language, #[\EventSauce\ObjectHydrator\MapFrom('languages_url')] public string $languagesUrl, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\License $license, #[\EventSauce\ObjectHydrator\MapFrom('master_branch')] public ?string $masterBranch, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_message')] public ?string $mergeCommitMessage, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_title')] public ?string $mergeCommitTitle, #[\EventSauce\ObjectHydrator\MapFrom('merges_url')] public string $mergesUrl, #[\EventSauce\ObjectHydrator\MapFrom('milestones_url')] public string $milestonesUrl, #[\EventSauce\ObjectHydrator\MapFrom('mirror_url')] public ?string $mirrorUrl, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('notifications_url')] public string $notificationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('open_issues')] public int $openIssues, #[\EventSauce\ObjectHydrator\MapFrom('open_issues_count')] public int $openIssuesCount, public ?string $organization, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Owner $owner, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestUnlabeled\PullRequest\Head\Repo\Permissions $permissions, public bool $private, public ?bool $public, #[\EventSauce\ObjectHydrator\MapFrom('pulls_url')] public string $pullsUrl, #[\EventSauce\ObjectHydrator\MapFrom('pushed_at')] public int|string $pushedAt, #[\EventSauce\ObjectHydrator\MapFrom('releases_url')] public string $releasesUrl, #[\EventSauce\ObjectHydrator\MapFrom('role_name')] public ?string $roleName, public int $size, #[\EventSauce\ObjectHydrator\MapFrom('squash_merge_commit_message')] public ?string $squashMergeCommitMessage, #[\EventSauce\ObjectHydrator\MapFrom('squash_merge_commit_title')] public ?string $squashMergeCommitTitle, #[\EventSauce\ObjectHydrator\MapFrom('ssh_url')] public string $sshUrl, public ?int $stargazers, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_count')] public int $stargazersCount, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_url')] public string $stargazersUrl, #[\EventSauce\ObjectHydrator\MapFrom('statuses_url')] public string $statusesUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscribers_url')] public string $subscribersUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscription_url')] public string $subscriptionUrl, #[\EventSauce\ObjectHydrator\MapFrom('svn_url')] public string $svnUrl, #[\EventSauce\ObjectHydrator\MapFrom('tags_url')] public string $tagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('teams_url')] public string $teamsUrl, public array $topics, #[\EventSauce\ObjectHydrator\MapFrom('trees_url')] public string $treesUrl, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('use_squash_pr_title_as_default')] public ?bool $useSquashPrTitleAsDefault, public string $visibility, public int $watchers, #[\EventSauce\ObjectHydrator\MapFrom('watchers_count')] public int $watchersCount, #[\EventSauce\ObjectHydrator\MapFrom('web_commit_signoff_required')] public ?bool $webCommitSignoffRequired)
     {
     }
 }

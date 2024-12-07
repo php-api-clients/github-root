@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class WebhooksChanges8
+final readonly class WebhooksChanges8 implements \ApiClients\Client\GitHub\Contract\WebhooksChanges8
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "tier"
     ],
@@ -67,9 +64,9 @@ final readonly class WebhooksChanges8
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "tier": {
         "from": {
             "created_at": "generated",
@@ -84,8 +81,7 @@ final readonly class WebhooksChanges8
         }
     }
 }';
-
-    public function __construct(public Schema\WebhooksChanges8\Tier $tier)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhooksChanges8\Tier $tier)
     {
     }
 }

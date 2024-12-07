@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class OrganizationProgrammaticAccessGrantRequest
+final readonly class OrganizationProgrammaticAccessGrantRequest implements \ApiClients\Client\GitHub\Contract\OrganizationProgrammaticAccessGrantRequest
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Simple Organization Programmatic Access Grant Request",
     "required": [
         "id",
@@ -276,36 +272,36 @@ final readonly class OrganizationProgrammaticAccessGrantRequest
     },
     "description": "Minimal representation of an organization programmatic access grant request for enumerations"
 }';
-    public const SCHEMA_TITLE        = 'Simple Organization Programmatic Access Grant Request';
-    public const SCHEMA_DESCRIPTION  = 'Minimal representation of an organization programmatic access grant request for enumerations';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Simple Organization Programmatic Access Grant Request';
+    public const SCHEMA_DESCRIPTION = 'Minimal representation of an organization programmatic access grant request for enumerations';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "reason": "generated",
     "owner": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
-    "repository_selection": "subset",
+    "repository_selection": "none",
     "repositories_url": "generated",
     "permissions": {
         "organization": [],
@@ -319,7 +315,6 @@ final readonly class OrganizationProgrammaticAccessGrantRequest
     "token_expires_at": "generated",
     "token_last_used_at": "generated"
 }';
-
     /**
      * id: Unique identifier of the request for access via fine-grained personal access token. The `pat_request_id` used to review PAT requests.
      * reason: Reason for requesting access.
@@ -334,15 +329,7 @@ final readonly class OrganizationProgrammaticAccessGrantRequest
      * tokenExpiresAt: Date and time when the associated fine-grained personal access token expires.
      * tokenLastUsedAt: Date and time when the associated fine-grained personal access token was last used for authentication.
      */
-    public function __construct(public int $id, public string|null $reason, public Schema\SimpleUser $owner, #[MapFrom('repository_selection')]
-    public string $repositorySelection, #[MapFrom('repositories_url')]
-    public string $repositoriesUrl, public Schema\OrganizationProgrammaticAccessGrantRequest\Permissions $permissions, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('token_id')]
-    public int $tokenId, #[MapFrom('token_name')]
-    public string $tokenName, #[MapFrom('token_expired')]
-    public bool $tokenExpired, #[MapFrom('token_expires_at')]
-    public string|null $tokenExpiresAt, #[MapFrom('token_last_used_at')]
-    public string|null $tokenLastUsedAt,)
+    public function __construct(public int $id, public ?string $reason, public \ApiClients\Client\GitHub\Schema\SimpleUser $owner, #[\EventSauce\ObjectHydrator\MapFrom('repository_selection')] public string $repositorySelection, #[\EventSauce\ObjectHydrator\MapFrom('repositories_url')] public string $repositoriesUrl, public \ApiClients\Client\GitHub\Schema\OrganizationProgrammaticAccessGrantRequest\Permissions $permissions, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('token_id')] public int $tokenId, #[\EventSauce\ObjectHydrator\MapFrom('token_name')] public string $tokenName, #[\EventSauce\ObjectHydrator\MapFrom('token_expired')] public bool $tokenExpired, #[\EventSauce\ObjectHydrator\MapFrom('token_expires_at')] public ?string $tokenExpiresAt, #[\EventSauce\ObjectHydrator\MapFrom('token_last_used_at')] public ?string $tokenLastUsedAt)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DependencyGraphDiff
+final readonly class DependencyGraphDiff implements \ApiClients\Client\GitHub\Contract\DependencyGraphDiff
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "change_type",
         "manifest",
@@ -130,41 +127,37 @@ final readonly class DependencyGraphDiff
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "change_type": "added",
-    "manifest": "path\\/to\\/package-lock.json",
-    "ecosystem": "npm",
-    "name": "@actions\\/core",
-    "version": "1.0.0",
-    "package_url": "pkg:\\/npm\\/%40actions\\/core@1.1.0",
-    "license": "MIT",
-    "source_repository_url": "https:\\/\\/github.com\\/github\\/actions",
+    "manifest": "generated",
+    "ecosystem": "generated",
+    "name": "generated",
+    "version": "generated",
+    "package_url": "generated",
+    "license": "generated",
+    "source_repository_url": "generated",
     "vulnerabilities": [
         {
-            "severity": "critical",
-            "advisory_ghsa_id": "GHSA-rf4j-j272-fj86",
-            "advisory_summary": "A summary of the advisory.",
-            "advisory_url": "https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"
+            "severity": "generated",
+            "advisory_ghsa_id": "generated",
+            "advisory_summary": "generated",
+            "advisory_url": "generated"
         },
         {
-            "severity": "critical",
-            "advisory_ghsa_id": "GHSA-rf4j-j272-fj86",
-            "advisory_summary": "A summary of the advisory.",
-            "advisory_url": "https:\\/\\/github.com\\/advisories\\/GHSA-rf4j-j272-fj86"
+            "severity": "generated",
+            "advisory_ghsa_id": "generated",
+            "advisory_summary": "generated",
+            "advisory_url": "generated"
         }
     ],
     "scope": "unknown"
 }';
-
     /**
      * scope: Where the dependency is utilized. `development` means that the dependency is only utilized in the development environment. `runtime` means that the dependency is utilized at runtime and in the development environment.
      */
-    public function __construct(#[MapFrom('change_type')]
-    public string $changeType, public string $manifest, public string $ecosystem, public string $name, public string $version, #[MapFrom('package_url')]
-    public string|null $packageUrl, public string|null $license, #[MapFrom('source_repository_url')]
-    public string|null $sourceRepositoryUrl, public array $vulnerabilities, public string $scope,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('change_type')] public string $changeType, public string $manifest, public string $ecosystem, public string $name, public string $version, #[\EventSauce\ObjectHydrator\MapFrom('package_url')] public ?string $packageUrl, public ?string $license, #[\EventSauce\ObjectHydrator\MapFrom('source_repository_url')] public ?string $sourceRepositoryUrl, public array $vulnerabilities, public string $scope)
     {
     }
 }

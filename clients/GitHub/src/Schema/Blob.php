@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Blob
+final readonly class Blob implements \ApiClients\Client\GitHub\Contract\Blob
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Blob",
     "required": [
         "sha",
@@ -48,9 +45,9 @@ final readonly class Blob
     },
     "description": "Blob"
 }';
-    public const SCHEMA_TITLE        = 'Blob';
-    public const SCHEMA_DESCRIPTION  = 'Blob';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Blob';
+    public const SCHEMA_DESCRIPTION = 'Blob';
+    const SCHEMA_EXAMPLE_DATA = '{
     "content": "generated",
     "encoding": "generated",
     "url": "https:\\/\\/example.com\\/",
@@ -59,10 +56,7 @@ final readonly class Blob
     "node_id": "generated",
     "highlighted_content": "generated"
 }';
-
-    public function __construct(public string $content, public string $encoding, public string $url, public string $sha, public int|null $size, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('highlighted_content')]
-    public string|null $highlightedContent,)
+    public function __construct(public string $content, public string $encoding, public string $url, public string $sha, public ?int $size, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('highlighted_content')] public ?string $highlightedContent)
     {
     }
 }

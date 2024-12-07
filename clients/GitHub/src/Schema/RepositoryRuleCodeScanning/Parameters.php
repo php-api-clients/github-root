@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCodeScanning\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "code_scanning_tools"
     ],
@@ -57,28 +54,26 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "code_scanning_tools": [
         {
-            "alerts_threshold": "all",
+            "alerts_threshold": "none",
             "security_alerts_threshold": "none",
             "tool": "generated"
         },
         {
-            "alerts_threshold": "all",
+            "alerts_threshold": "none",
             "security_alerts_threshold": "none",
             "tool": "generated"
         }
     ]
 }';
-
     /**
      * codeScanningTools: Tools that must provide code scanning results for this rule to pass.
      */
-    public function __construct(#[MapFrom('code_scanning_tools')]
-    public array $codeScanningTools,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('code_scanning_tools')] public array $codeScanningTools)
     {
     }
 }

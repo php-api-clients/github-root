@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPush;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Commits
+final readonly class Commits implements \ApiClients\Client\GitHub\Contract\WebhookPush\Commits
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Commit",
     "required": [
         "id",
@@ -128,9 +124,9 @@ final readonly class Commits
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Commit';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Commit';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "added": [
         "generated",
         "generated"
@@ -162,7 +158,6 @@ final readonly class Commits
     "tree_id": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * added: An array of files added in the commit. A maximum of 3000 changed files will be reported per commit.
      * author: Metaproperties for Git author/committer information.
@@ -174,8 +169,7 @@ final readonly class Commits
      * timestamp: The ISO 8601 timestamp of the commit.
      * url: URL that points to the commit API resource.
      */
-    public function __construct(public array|null $added, public Schema\WebhookPush\Commits\Author $author, public Schema\WebhookPush\Commits\Committer $committer, public bool $distinct, public string $id, public string $message, public array|null $modified, public array|null $removed, public string $timestamp, #[MapFrom('tree_id')]
-    public string $treeId, public string $url,)
+    public function __construct(public ?array $added, public \ApiClients\Client\GitHub\Schema\WebhookPush\Commits\Author $author, public \ApiClients\Client\GitHub\Schema\WebhookPush\Commits\Committer $committer, public bool $distinct, public string $id, public string $message, public ?array $modified, public ?array $removed, public string $timestamp, #[\EventSauce\ObjectHydrator\MapFrom('tree_id')] public string $treeId, public string $url)
     {
     }
 }

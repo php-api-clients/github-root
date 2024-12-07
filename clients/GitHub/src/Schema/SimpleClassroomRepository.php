@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SimpleClassroomRepository
+final readonly class SimpleClassroomRepository implements \ApiClients\Client\GitHub\Contract\SimpleClassroomRepository
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Simple Classroom Repository",
     "required": [
         "id",
@@ -63,17 +60,16 @@ final readonly class SimpleClassroomRepository
     },
     "description": "A GitHub repository view for Classroom"
 }';
-    public const SCHEMA_TITLE        = 'Simple Classroom Repository';
-    public const SCHEMA_DESCRIPTION  = 'A GitHub repository view for Classroom';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1296269,
-    "full_name": "octocat\\/Hello-World",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
-    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+    public const SCHEMA_TITLE = 'Simple Classroom Repository';
+    public const SCHEMA_DESCRIPTION = 'A GitHub repository view for Classroom';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "full_name": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "node_id": "generated",
     "private": false,
-    "default_branch": "main"
+    "default_branch": "generated"
 }';
-
     /**
      * id: A unique identifier of the repository.
      * fullName: The full, globally unique name of the repository.
@@ -82,11 +78,7 @@ final readonly class SimpleClassroomRepository
      * private: Whether the repository is private.
      * defaultBranch: The default branch for the repository.
      */
-    public function __construct(public int $id, #[MapFrom('full_name')]
-    public string $fullName, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('node_id')]
-    public string $nodeId, public bool $private, #[MapFrom('default_branch')]
-    public string $defaultBranch,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('full_name')] public string $fullName, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public bool $private, #[\EventSauce\ObjectHydrator\MapFrom('default_branch')] public string $defaultBranch)
     {
     }
 }

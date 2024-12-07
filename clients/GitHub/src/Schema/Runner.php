@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Runner
+final readonly class Runner implements \ApiClients\Client\GitHub\Contract\Runner
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Self hosted runners",
     "required": [
         "id",
@@ -90,29 +87,28 @@ final readonly class Runner
     },
     "description": "A self hosted runner"
 }';
-    public const SCHEMA_TITLE        = 'Self hosted runners';
-    public const SCHEMA_DESCRIPTION  = 'A self hosted runner';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 5,
-    "runner_group_id": 1,
-    "name": "iMac",
-    "os": "macos",
-    "status": "online",
+    public const SCHEMA_TITLE = 'Self hosted runners';
+    public const SCHEMA_DESCRIPTION = 'A self hosted runner';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "runner_group_id": 15,
+    "name": "generated",
+    "os": "generated",
+    "status": "generated",
     "busy": false,
     "labels": [
         {
             "id": 2,
             "name": "generated",
-            "type": "custom"
+            "type": "read-only"
         },
         {
             "id": 2,
             "name": "generated",
-            "type": "custom"
+            "type": "read-only"
         }
     ]
 }';
-
     /**
      * id: The id of the runner.
      * runnerGroupId: The id of the runner group.
@@ -120,8 +116,7 @@ final readonly class Runner
      * os: The Operating System of the runner.
      * status: The status of the runner.
      */
-    public function __construct(public int $id, #[MapFrom('runner_group_id')]
-    public int|null $runnerGroupId, public string $name, public string $os, public string $status, public bool $busy, public array $labels,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('runner_group_id')] public ?int $runnerGroupId, public string $name, public string $os, public string $status, public bool $busy, public array $labels)
     {
     }
 }

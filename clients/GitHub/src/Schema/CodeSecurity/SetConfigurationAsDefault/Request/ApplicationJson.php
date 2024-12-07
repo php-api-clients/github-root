@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CodeSecurity\SetConfigurationAsDefault\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\CodeSecurity\SetConfigurationAsDefault\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "default_for_new_repos": {
@@ -23,17 +20,15 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "default_for_new_repos": "all"
 }';
-
     /**
      * defaultForNewRepos: Specify which types of repository this security configuration should be applied to by default.
      */
-    public function __construct(#[MapFrom('default_for_new_repos')]
-    public string|null $defaultForNewRepos,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('default_for_new_repos')] public ?string $defaultForNewRepos)
     {
     }
 }

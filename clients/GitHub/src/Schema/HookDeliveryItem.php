@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class HookDeliveryItem
+final readonly class HookDeliveryItem implements \ApiClients\Client\GitHub\Contract\HookDeliveryItem
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Simple webhook delivery",
     "required": [
         "id",
@@ -126,23 +123,22 @@ final readonly class HookDeliveryItem
     },
     "description": "Delivery made by a webhook, without request and response information."
 }';
-    public const SCHEMA_TITLE        = 'Simple webhook delivery';
-    public const SCHEMA_DESCRIPTION  = 'Delivery made by a webhook, without request and response information.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "guid": "58474f00-b361-11eb-836d-0e4f3503ccbe",
-    "delivered_at": "2021-05-12T20:33:44Z",
+    public const SCHEMA_TITLE = 'Simple webhook delivery';
+    public const SCHEMA_DESCRIPTION = 'Delivery made by a webhook, without request and response information.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "guid": "generated",
+    "delivered_at": "1970-01-01T00:00:00+00:00",
     "redelivery": false,
-    "duration": 0.03,
-    "status": "failed to connect",
-    "status_code": 502,
-    "event": "issues",
-    "action": "opened",
-    "installation_id": 123,
-    "repository_id": 123,
-    "throttled_at": "2021-05-12T20:33:44Z"
+    "duration": 8,
+    "status": "generated",
+    "status_code": 11,
+    "event": "generated",
+    "action": "generated",
+    "installation_id": 15,
+    "repository_id": 13,
+    "throttled_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * id: Unique identifier of the webhook delivery.
      * guid: Unique identifier for the event (shared with all deliveries for all webhooks that subscribe to this event).
@@ -157,12 +153,7 @@ final readonly class HookDeliveryItem
      * repositoryId: The id of the repository associated with this event.
      * throttledAt: Time when the webhook delivery was throttled.
      */
-    public function __construct(public int $id, public string $guid, #[MapFrom('delivered_at')]
-    public string $deliveredAt, public bool $redelivery, public int|float $duration, public string $status, #[MapFrom('status_code')]
-    public int $statusCode, public string $event, public string|null $action, #[MapFrom('installation_id')]
-    public int|null $installationId, #[MapFrom('repository_id')]
-    public int|null $repositoryId, #[MapFrom('throttled_at')]
-    public string|null $throttledAt,)
+    public function __construct(public int $id, public string $guid, #[\EventSauce\ObjectHydrator\MapFrom('delivered_at')] public string $deliveredAt, public bool $redelivery, public int|float $duration, public string $status, #[\EventSauce\ObjectHydrator\MapFrom('status_code')] public int $statusCode, public string $event, public ?string $action, #[\EventSauce\ObjectHydrator\MapFrom('installation_id')] public ?int $installationId, #[\EventSauce\ObjectHydrator\MapFrom('repository_id')] public ?int $repositoryId, #[\EventSauce\ObjectHydrator\MapFrom('throttled_at')] public ?string $throttledAt)
     {
     }
 }

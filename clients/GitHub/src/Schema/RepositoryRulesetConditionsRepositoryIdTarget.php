@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRulesetConditionsRepositoryIdTarget
+final readonly class RepositoryRulesetConditionsRepositoryIdTarget implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryIdTarget
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository ruleset conditions for repository IDs",
     "required": [
         "repository_id"
@@ -31,9 +27,9 @@ final readonly class RepositoryRulesetConditionsRepositoryIdTarget
     },
     "description": "Parameters for a repository ID condition"
 }';
-    public const SCHEMA_TITLE        = 'Repository ruleset conditions for repository IDs';
-    public const SCHEMA_DESCRIPTION  = 'Parameters for a repository ID condition';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository ruleset conditions for repository IDs';
+    public const SCHEMA_DESCRIPTION = 'Parameters for a repository ID condition';
+    const SCHEMA_EXAMPLE_DATA = '{
     "repository_id": {
         "repository_ids": [
             15,
@@ -41,9 +37,7 @@ final readonly class RepositoryRulesetConditionsRepositoryIdTarget
         ]
     }
 }';
-
-    public function __construct(#[MapFrom('repository_id')]
-    public Schema\RepositoryRulesetConditionsRepositoryIdTarget\RepositoryId $repositoryId,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('repository_id')] public \ApiClients\Client\GitHub\Schema\RepositoryRulesetConditionsRepositoryIdTarget\RepositoryId $repositoryId)
     {
     }
 }

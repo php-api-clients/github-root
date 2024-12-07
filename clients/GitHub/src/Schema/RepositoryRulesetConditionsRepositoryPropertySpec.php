@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRulesetConditionsRepositoryPropertySpec
+final readonly class RepositoryRulesetConditionsRepositoryPropertySpec implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryPropertySpec
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository ruleset property targeting definition",
     "required": [
         "name",
@@ -38,24 +35,22 @@ final readonly class RepositoryRulesetConditionsRepositoryPropertySpec
     },
     "description": "Parameters for a targeting a repository property"
 }';
-    public const SCHEMA_TITLE        = 'Repository ruleset property targeting definition';
-    public const SCHEMA_DESCRIPTION  = 'Parameters for a targeting a repository property';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository ruleset property targeting definition';
+    public const SCHEMA_DESCRIPTION = 'Parameters for a targeting a repository property';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "property_values": [
         "generated",
         "generated"
     ],
-    "source": "system"
+    "source": "custom"
 }';
-
     /**
      * name: The name of the repository property to target
      * propertyValues: The values to match for the repository property
      * source: The source of the repository property. Defaults to 'custom' if not specified.
      */
-    public function __construct(public string $name, #[MapFrom('property_values')]
-    public array $propertyValues, public string|null $source,)
+    public function __construct(public string $name, #[\EventSauce\ObjectHydrator\MapFrom('property_values')] public array $propertyValues, public ?string $source)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Snapshot;
 
-final readonly class Manifests
+final readonly class Manifests implements \ApiClients\Client\GitHub\Contract\Snapshot\Manifests
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "description": "A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.",
     "additionalProperties": {
@@ -139,10 +138,9 @@ final readonly class Manifests
         "additionalProperties": false
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'A collection of package manifests, which are a collection of related dependencies declared in a file or representing a logical group of dependencies.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RuleSuite;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RuleEvaluations
+final readonly class RuleEvaluations implements \ApiClients\Client\GitHub\Contract\RuleSuite\RuleEvaluations
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "rule_source": {
@@ -65,29 +61,26 @@ final readonly class RuleEvaluations
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "rule_source": {
         "type": "generated",
         "id": 2,
         "name": "generated"
     },
     "enforcement": "active",
-    "result": "fail",
+    "result": "pass",
     "rule_type": "generated",
     "details": "generated"
 }';
-
     /**
      * enforcement: The enforcement level of this rule source.
      * result: The result of the evaluation of the individual rule.
      * ruleType: The type of rule.
      * details: The detailed failure message for the rule. Null if the rule passed.
      */
-    public function __construct(#[MapFrom('rule_source')]
-    public Schema\RuleSuite\RuleEvaluations\RuleSource|null $ruleSource, public string|null $enforcement, public string|null $result, #[MapFrom('rule_type')]
-    public string|null $ruleType, public string|null $details,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('rule_source')] public ?\ApiClients\Client\GitHub\Schema\RuleSuite\RuleEvaluations\RuleSource $ruleSource, public ?string $enforcement, public ?string $result, #[\EventSauce\ObjectHydrator\MapFrom('rule_type')] public ?string $ruleType, public ?string $details)
     {
     }
 }

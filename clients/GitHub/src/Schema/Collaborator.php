@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Collaborator
+final readonly class Collaborator implements \ApiClients\Client\GitHub\Contract\Collaborator
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Collaborator",
     "required": [
         "avatar_url",
@@ -203,28 +199,28 @@ final readonly class Collaborator
     },
     "description": "Collaborator"
 }';
-    public const SCHEMA_TITLE        = 'Collaborator';
-    public const SCHEMA_DESCRIPTION  = 'Collaborator';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "login": "octocat",
-    "id": 1,
+    public const SCHEMA_TITLE = 'Collaborator';
+    public const SCHEMA_DESCRIPTION = 'Collaborator';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "login": "generated",
+    "id": 2,
     "email": "generated",
     "name": "generated",
-    "node_id": "MDQ6VXNlcjE=",
-    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-    "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-    "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-    "html_url": "https:\\/\\/github.com\\/octocat",
-    "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-    "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-    "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-    "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-    "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-    "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-    "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-    "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-    "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-    "type": "User",
+    "node_id": "generated",
+    "avatar_url": "https:\\/\\/example.com\\/",
+    "gravatar_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "html_url": "https:\\/\\/example.com\\/",
+    "followers_url": "https:\\/\\/example.com\\/",
+    "following_url": "generated",
+    "gists_url": "generated",
+    "starred_url": "generated",
+    "subscriptions_url": "https:\\/\\/example.com\\/",
+    "organizations_url": "https:\\/\\/example.com\\/",
+    "repos_url": "https:\\/\\/example.com\\/",
+    "events_url": "generated",
+    "received_events_url": "https:\\/\\/example.com\\/",
+    "type": "generated",
     "site_admin": false,
     "permissions": {
         "pull": false,
@@ -233,27 +229,10 @@ final readonly class Collaborator
         "maintain": false,
         "admin": false
     },
-    "role_name": "admin",
-    "user_view_type": "public"
+    "role_name": "generated",
+    "user_view_type": "generated"
 }';
-
-    public function __construct(public string $login, public int $id, public string|null $email, public string|null $name, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('avatar_url')]
-    public string $avatarUrl, #[MapFrom('gravatar_id')]
-    public string|null $gravatarId, public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('followers_url')]
-    public string $followersUrl, #[MapFrom('following_url')]
-    public string $followingUrl, #[MapFrom('gists_url')]
-    public string $gistsUrl, #[MapFrom('starred_url')]
-    public string $starredUrl, #[MapFrom('subscriptions_url')]
-    public string $subscriptionsUrl, #[MapFrom('organizations_url')]
-    public string $organizationsUrl, #[MapFrom('repos_url')]
-    public string $reposUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('received_events_url')]
-    public string $receivedEventsUrl, public string $type, #[MapFrom('site_admin')]
-    public bool $siteAdmin, public Schema\Collaborator\Permissions|null $permissions, #[MapFrom('role_name')]
-    public string $roleName, #[MapFrom('user_view_type')]
-    public string|null $userViewType,)
+    public function __construct(public string $login, public int $id, public ?string $email, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl, #[\EventSauce\ObjectHydrator\MapFrom('gravatar_id')] public ?string $gravatarId, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('followers_url')] public string $followersUrl, #[\EventSauce\ObjectHydrator\MapFrom('following_url')] public string $followingUrl, #[\EventSauce\ObjectHydrator\MapFrom('gists_url')] public string $gistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('starred_url')] public string $starredUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscriptions_url')] public string $subscriptionsUrl, #[\EventSauce\ObjectHydrator\MapFrom('organizations_url')] public string $organizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('repos_url')] public string $reposUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('received_events_url')] public string $receivedEventsUrl, public string $type, #[\EventSauce\ObjectHydrator\MapFrom('site_admin')] public bool $siteAdmin, public ?\ApiClients\Client\GitHub\Schema\Collaborator\Permissions $permissions, #[\EventSauce\ObjectHydrator\MapFrom('role_name')] public string $roleName, #[\EventSauce\ObjectHydrator\MapFrom('user_view_type')] public ?string $userViewType)
     {
     }
 }

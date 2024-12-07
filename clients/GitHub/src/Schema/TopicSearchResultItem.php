@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class TopicSearchResultItem
+final readonly class TopicSearchResultItem implements \ApiClients\Client\GitHub\Contract\TopicSearchResultItem
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Topic Search Result Item",
     "required": [
         "name",
@@ -188,9 +185,9 @@ final readonly class TopicSearchResultItem
     },
     "description": "Topic Search Result Item"
 }';
-    public const SCHEMA_TITLE        = 'Topic Search Result Item';
-    public const SCHEMA_DESCRIPTION  = 'Topic Search Result Item';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Topic Search Result Item';
+    public const SCHEMA_DESCRIPTION = 'Topic Search Result Item';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "display_name": "generated",
     "short_description": "generated",
@@ -201,7 +198,7 @@ final readonly class TopicSearchResultItem
     "updated_at": "1970-01-01T00:00:00+00:00",
     "featured": false,
     "curated": false,
-    "score": 0.5,
+    "score": 5,
     "repository_count": 16,
     "logo_url": "https:\\/\\/example.com\\/",
     "text_matches": [
@@ -249,20 +246,9 @@ final readonly class TopicSearchResultItem
                 }
             ]
         }
-    ],
-    "related": null,
-    "aliases": null
+    ]
 }';
-
-    public function __construct(public string $name, #[MapFrom('display_name')]
-    public string|null $displayName, #[MapFrom('short_description')]
-    public string|null $shortDescription, public string|null $description, #[MapFrom('created_by')]
-    public string|null $createdBy, public string|null $released, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public bool $featured, public bool $curated, public int|float $score, #[MapFrom('repository_count')]
-    public int|null $repositoryCount, #[MapFrom('logo_url')]
-    public string|null $logoUrl, #[MapFrom('text_matches')]
-    public array|null $textMatches, public array|null $related, public array|null $aliases,)
+    public function __construct(public string $name, #[\EventSauce\ObjectHydrator\MapFrom('display_name')] public ?string $displayName, #[\EventSauce\ObjectHydrator\MapFrom('short_description')] public ?string $shortDescription, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('created_by')] public ?string $createdBy, public ?string $released, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public bool $featured, public bool $curated, public int|float $score, #[\EventSauce\ObjectHydrator\MapFrom('repository_count')] public ?int $repositoryCount, #[\EventSauce\ObjectHydrator\MapFrom('logo_url')] public ?string $logoUrl, #[\EventSauce\ObjectHydrator\MapFrom('text_matches')] public ?array $textMatches, public ?array $related, public ?array $aliases)
     {
     }
 }

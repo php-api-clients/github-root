@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class IssueEventForIssue
+final readonly class IssueEventForIssue implements \ApiClients\Client\GitHub\Contract\IssueEventForIssue
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Issue Event for Issue",
     "anyOf": [
         {
@@ -10329,10 +10328,9 @@ final readonly class IssueEventForIssue
     ],
     "description": "Issue Event for Issue"
 }';
-    public const SCHEMA_TITLE        = 'Issue Event for Issue';
-    public const SCHEMA_DESCRIPTION  = 'Issue Event for Issue';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'Issue Event for Issue';
+    public const SCHEMA_DESCRIPTION = 'Issue Event for Issue';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

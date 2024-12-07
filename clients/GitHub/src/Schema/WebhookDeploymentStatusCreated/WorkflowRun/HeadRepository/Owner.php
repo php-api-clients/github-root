@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\WorkflowRun\HeadRepository;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Owner extends Schema\AliasAbstract\TietF9F083E1\Tiet067C6DCB\Tiet2FB6AC3D\TietDB318BE9
+final readonly class Owner extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TF9F083E1\T067C6DCB\T2FB6AC3D\TDB318BE9
 {
 }

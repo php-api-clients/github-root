@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookReleaseEdited\Changes;
 
-final readonly class MakeLatest
+final readonly class MakeLatest implements \ApiClients\Client\GitHub\Contract\WebhookReleaseEdited\Changes\MakeLatest
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "to"
     ],
@@ -18,12 +17,11 @@ final readonly class MakeLatest
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "to": false
 }';
-
     /**
      * to: Whether this release was explicitly `edited` to be the latest.
      */

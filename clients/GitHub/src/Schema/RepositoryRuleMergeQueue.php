@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleMergeQueue
+final readonly class RepositoryRuleMergeQueue implements \ApiClients\Client\GitHub\Contract\RepositoryRuleMergeQueue
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "merge_queue",
     "required": [
         "type"
@@ -85,22 +82,21 @@ final readonly class RepositoryRuleMergeQueue
     },
     "description": "Merges must be performed via a merge queue."
 }';
-    public const SCHEMA_TITLE        = 'merge_queue';
-    public const SCHEMA_DESCRIPTION  = 'Merges must be performed via a merge queue.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'merge_queue';
+    public const SCHEMA_DESCRIPTION = 'Merges must be performed via a merge queue.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "merge_queue",
     "parameters": {
         "check_response_timeout_minutes": 30,
         "grouping_strategy": "ALLGREEN",
         "max_entries_to_build": 20,
         "max_entries_to_merge": 20,
-        "merge_method": "REBASE",
+        "merge_method": "MERGE",
         "min_entries_to_merge": 20,
         "min_entries_to_merge_wait_minutes": 33
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleMergeQueue\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue\Parameters $parameters)
     {
     }
 }

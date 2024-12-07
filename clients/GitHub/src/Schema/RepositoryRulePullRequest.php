@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRulePullRequest
+final readonly class RepositoryRulePullRequest implements \ApiClients\Client\GitHub\Contract\RepositoryRulePullRequest
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "pull_request",
     "required": [
         "type"
@@ -58,9 +55,9 @@ final readonly class RepositoryRulePullRequest
     },
     "description": "Require all commits be made to a non-target branch and submitted via a pull request before they can be merged."
 }';
-    public const SCHEMA_TITLE        = 'pull_request';
-    public const SCHEMA_DESCRIPTION  = 'Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'pull_request';
+    public const SCHEMA_DESCRIPTION = 'Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "pull_request",
     "parameters": {
         "dismiss_stale_reviews_on_push": false,
@@ -70,8 +67,7 @@ final readonly class RepositoryRulePullRequest
         "required_review_thread_resolution": false
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRulePullRequest\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest\Parameters $parameters)
     {
     }
 }

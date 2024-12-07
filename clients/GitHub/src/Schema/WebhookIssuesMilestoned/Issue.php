@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Issue
+final readonly class Issue implements \ApiClients\Client\GitHub\Contract\WebhookIssuesMilestoned\Issue
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Issue",
     "required": [
         "active_lock_reason",
@@ -1268,10 +1264,10 @@ final readonly class Issue
     },
     "description": "The [issue](https:\\/\\/docs.github.com\\/rest\\/issues\\/issues#get-an-issue) itself."
 }';
-    public const SCHEMA_TITLE        = 'Issue';
-    public const SCHEMA_DESCRIPTION  = 'The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) itself.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "active_lock_reason": "spam",
+    public const SCHEMA_TITLE = 'Issue';
+    public const SCHEMA_DESCRIPTION = 'The [issue](https://docs.github.com/rest/issues/issues#get-an-issue) itself.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "active_lock_reason": "resolved",
     "assignee": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -1292,7 +1288,7 @@ final readonly class Issue
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "assignees": [
@@ -1316,7 +1312,7 @@ final readonly class Issue
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/"
         },
         {
@@ -1339,11 +1335,11 @@ final readonly class Issue
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/"
         }
     ],
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "closed_at": "1970-01-01T00:00:00+00:00",
     "comments": 8,
@@ -1399,7 +1395,7 @@ final readonly class Issue
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Mannequin",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
@@ -1450,45 +1446,45 @@ final readonly class Issue
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
         "permissions": {
             "actions": "read",
-            "administration": "write",
-            "checks": "write",
-            "content_references": "write",
-            "contents": "write",
+            "administration": "read",
+            "checks": "read",
+            "content_references": "read",
+            "contents": "read",
             "deployments": "read",
             "discussions": "read",
-            "emails": "write",
-            "environments": "write",
-            "issues": "write",
-            "keys": "write",
+            "emails": "read",
+            "environments": "read",
+            "issues": "read",
+            "keys": "read",
             "members": "read",
-            "metadata": "write",
+            "metadata": "read",
             "organization_administration": "read",
-            "organization_hooks": "write",
+            "organization_hooks": "read",
             "organization_packages": "read",
             "organization_plan": "read",
             "organization_projects": "read",
-            "organization_secrets": "write",
-            "organization_self_hosted_runners": "write",
-            "organization_user_blocking": "write",
-            "packages": "write",
+            "organization_secrets": "read",
+            "organization_self_hosted_runners": "read",
+            "organization_user_blocking": "read",
+            "packages": "read",
             "pages": "read",
             "pull_requests": "read",
-            "repository_hooks": "write",
+            "repository_hooks": "read",
             "repository_projects": "read",
-            "secret_scanning_alerts": "write",
+            "secret_scanning_alerts": "read",
             "secrets": "read",
             "security_events": "read",
             "security_scanning_alert": "read",
             "single_file": "read",
-            "statuses": "write",
-            "team_discussions": "write",
-            "vulnerability_alerts": "write",
+            "statuses": "read",
+            "team_discussions": "read",
+            "vulnerability_alerts": "read",
             "workflows": "read"
         },
         "slug": "generated",
@@ -1545,12 +1541,11 @@ final readonly class Issue
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
     /**
      * authorAssociation: How the author is associated with the repository.
      * body: Contents of the issue
@@ -1560,23 +1555,7 @@ final readonly class Issue
      * title: Title of the issue
      * url: URL for the issue
      */
-    public function __construct(#[MapFrom('active_lock_reason')]
-    public string|null $activeLockReason, public Schema\WebhookIssuesMilestoned\Issue\Assignee|null $assignee, public array $assignees, #[MapFrom('author_association')]
-    public string $authorAssociation, public string|null $body, #[MapFrom('closed_at')]
-    public string|null $closedAt, public int $comments, #[MapFrom('comments_url')]
-    public string $commentsUrl, #[MapFrom('created_at')]
-    public string $createdAt, public bool|null $draft, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public array|null $labels, #[MapFrom('labels_url')]
-    public string $labelsUrl, public bool|null $locked, public Schema\WebhookIssuesMilestoned\Issue\Milestone|null $milestone, #[MapFrom('node_id')]
-    public string $nodeId, public int $number, #[MapFrom('performed_via_github_app')]
-    public Schema\WebhookIssuesMilestoned\Issue\PerformedViaGithubApp|null $performedViaGithubApp, #[MapFrom('pull_request')]
-    public Schema\WebhookIssuesMilestoned\Issue\PullRequest|null $pullRequest, public Schema\WebhookIssuesMilestoned\Issue\Reactions $reactions, #[MapFrom('repository_url')]
-    public string $repositoryUrl, #[MapFrom('sub_issues_summary')]
-    public Schema\WebhookIssuesMilestoned\Issue\SubIssuesSummary|null $subIssuesSummary, public string|null $state, #[MapFrom('state_reason')]
-    public string|null $stateReason, #[MapFrom('timeline_url')]
-    public string|null $timelineUrl, public string $title, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, public Schema\WebhookIssuesMilestoned\Issue\User|null $user,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('active_lock_reason')] public ?string $activeLockReason, public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue\Assignee $assignee, public array $assignees, #[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, public ?string $body, #[\EventSauce\ObjectHydrator\MapFrom('closed_at')] public ?string $closedAt, public int $comments, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public ?bool $draft, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public ?array $labels, #[\EventSauce\ObjectHydrator\MapFrom('labels_url')] public string $labelsUrl, public ?bool $locked, public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue\Milestone $milestone, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public int $number, #[\EventSauce\ObjectHydrator\MapFrom('performed_via_github_app')] public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue\PerformedViaGithubApp $performedViaGithubApp, #[\EventSauce\ObjectHydrator\MapFrom('pull_request')] public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue\PullRequest $pullRequest, public \ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue\Reactions $reactions, #[\EventSauce\ObjectHydrator\MapFrom('repository_url')] public string $repositoryUrl, #[\EventSauce\ObjectHydrator\MapFrom('sub_issues_summary')] public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue\SubIssuesSummary $subIssuesSummary, public ?string $state, #[\EventSauce\ObjectHydrator\MapFrom('state_reason')] public ?string $stateReason, #[\EventSauce\ObjectHydrator\MapFrom('timeline_url')] public ?string $timelineUrl, public string $title, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url, public ?\ApiClients\Client\GitHub\Schema\WebhookIssuesMilestoned\Issue\User $user)
     {
     }
 }

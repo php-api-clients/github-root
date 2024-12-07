@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Eighteen\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "max_file_size"
     ],
@@ -22,17 +19,15 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "max_file_size": 13
 }';
-
     /**
      * maxFileSize: The maximum file size allowed in megabytes. This limit does not apply to Git Large File Storage (Git LFS).
      */
-    public function __construct(#[MapFrom('max_file_size')]
-    public int $maxFileSize,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('max_file_size')] public int $maxFileSize)
     {
     }
 }

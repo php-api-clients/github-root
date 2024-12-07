@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Comment
+final readonly class Comment implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewCommentCreated\Comment
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Pull Request Review Comment",
     "required": [
         "url",
@@ -386,9 +382,9 @@ final readonly class Comment
     },
     "description": "The [comment](https:\\/\\/docs.github.com\\/rest\\/pulls\\/comments#get-a-review-comment-for-a-pull-request) itself."
 }';
-    public const SCHEMA_TITLE        = 'Pull Request Review Comment';
-    public const SCHEMA_DESCRIPTION  = 'The [comment](https://docs.github.com/rest/pulls/comments#get-a-review-comment-for-a-pull-request) itself.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Pull Request Review Comment';
+    public const SCHEMA_DESCRIPTION = 'The [comment](https://docs.github.com/rest/pulls/comments#get-a-review-comment-for-a-pull-request) itself.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "_links": {
         "html": {
             "href": "generated"
@@ -400,7 +396,7 @@ final readonly class Comment
             "href": "generated"
         }
     },
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "commit_id": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -430,10 +426,10 @@ final readonly class Comment
         "total_count": 11,
         "url": "https:\\/\\/example.com\\/"
     },
-    "side": "RIGHT",
+    "side": "LEFT",
     "start_line": 10,
-    "start_side": "RIGHT",
-    "subject_type": "file",
+    "start_side": "LEFT",
+    "subject_type": "line",
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/",
     "user": {
@@ -456,12 +452,11 @@ final readonly class Comment
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
     /**
      * authorAssociation: How the author is associated with the repository.
      * body: The text of the comment.
@@ -486,25 +481,7 @@ final readonly class Comment
      * subjectType: The level at which the comment is targeted, can be a diff line or a file.
      * url: URL for the pull request review comment
      */
-    public function __construct(#[MapFrom('_links')]
-    public Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $links, #[MapFrom('author_association')]
-    public string $authorAssociation, public string $body, #[MapFrom('commit_id')]
-    public string $commitId, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('diff_hunk')]
-    public string $diffHunk, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('in_reply_to_id')]
-    public int|null $inReplyToId, public int|null $line, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('original_commit_id')]
-    public string $originalCommitId, #[MapFrom('original_line')]
-    public int|null $originalLine, #[MapFrom('original_position')]
-    public int $originalPosition, #[MapFrom('original_start_line')]
-    public int|null $originalStartLine, public string $path, public int|null $position, #[MapFrom('pull_request_review_id')]
-    public int|null $pullRequestReviewId, #[MapFrom('pull_request_url')]
-    public string $pullRequestUrl, public Schema\WebhookPullRequestReviewCommentCreated\Comment\Reactions $reactions, public string $side, #[MapFrom('start_line')]
-    public int|null $startLine, #[MapFrom('start_side')]
-    public string|null $startSide, #[MapFrom('subject_type')]
-    public string|null $subjectType, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url, public Schema\WebhookPullRequestReviewCommentCreated\Comment\User|null $user,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated\Comment\Links $links, #[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, public string $body, #[\EventSauce\ObjectHydrator\MapFrom('commit_id')] public string $commitId, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('diff_hunk')] public string $diffHunk, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('in_reply_to_id')] public ?int $inReplyToId, public ?int $line, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('original_commit_id')] public string $originalCommitId, #[\EventSauce\ObjectHydrator\MapFrom('original_line')] public ?int $originalLine, #[\EventSauce\ObjectHydrator\MapFrom('original_position')] public int $originalPosition, #[\EventSauce\ObjectHydrator\MapFrom('original_start_line')] public ?int $originalStartLine, public string $path, public ?int $position, #[\EventSauce\ObjectHydrator\MapFrom('pull_request_review_id')] public ?int $pullRequestReviewId, #[\EventSauce\ObjectHydrator\MapFrom('pull_request_url')] public string $pullRequestUrl, public \ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated\Comment\Reactions $reactions, public string $side, #[\EventSauce\ObjectHydrator\MapFrom('start_line')] public ?int $startLine, #[\EventSauce\ObjectHydrator\MapFrom('start_side')] public ?string $startSide, #[\EventSauce\ObjectHydrator\MapFrom('subject_type')] public ?string $subjectType, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewCommentCreated\Comment\User $user)
     {
     }
 }

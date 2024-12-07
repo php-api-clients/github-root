@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ProjectsV2ItemContentType
+final readonly class ProjectsV2ItemContentType implements \ApiClients\Client\GitHub\Contract\ProjectsV2ItemContentType
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Projects v2 Item Content Type",
     "enum": [
         "Issue",
@@ -16,10 +15,9 @@ final readonly class ProjectsV2ItemContentType
     "type": "string",
     "description": "The type of content tracked in a project item"
 }';
-    public const SCHEMA_TITLE        = 'Projects v2 Item Content Type';
-    public const SCHEMA_DESCRIPTION  = 'The type of content tracked in a project item';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'Projects v2 Item Content Type';
+    public const SCHEMA_DESCRIPTION = 'The type of content tracked in a project item';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

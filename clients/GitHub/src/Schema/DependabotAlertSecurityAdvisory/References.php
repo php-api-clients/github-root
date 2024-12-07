@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
-final readonly class References
+final readonly class References implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\References
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "url"
     ],
@@ -23,12 +22,11 @@ final readonly class References
     "readOnly": true,
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'A link to additional advisory information.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'A link to additional advisory information.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * url: The URL of the reference.
      */

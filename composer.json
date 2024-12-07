@@ -9,11 +9,22 @@
     }
   ],
   "require": {
-    "php": "^8.2",
+    "php": "^8.4",
     "api-clients/contracts": "^0.1",
     "api-clients/github": "^0.2@dev",
-    "api-clients/openapi-client-generator": "dev-master",
+    "api-clients/openapi-client-generator": "dev-switch-to-openapi-tools",
     "api-clients/openapi-client-utils": "dev-main",
+    "openapi-tools/configuration": "^0.1.0",
+    "openapi-tools/contract": "^0.1.0",
+    "openapi-tools/representation": "^0.1.0",
+    "openapi-tools/utils": "^0.1.0",
+    "openapi-tools/gatherer": "^0.1.0",
+    "openapi-tools/registry": "^0.1.0",
+    "openapi-tools/generator": "^0.1.0",
+    "openapi-tools/generator-hydrator": "^0.1.0",
+    "openapi-tools/generator-psr-15-webhook-middleware": "dev-do-not-use-example-values-for-header-based-resolving",
+    "openapi-tools/generator-schema": "^0.1.0",
+    "openapi-tools/generator-templates": "^0.1.0",
     "devizzent/cebe-php-openapi": "^1",
     "eventsauce/object-hydrator": "^1.3.1",
     "react/async": "^4.1.0",
@@ -32,7 +43,7 @@
   "config": {
     "sort-packages": true,
     "platform": {
-      "php": "8.2.13"
+      "php": "8.4.13"
     },
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true,

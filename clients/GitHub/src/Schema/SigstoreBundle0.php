@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class SigstoreBundle0
+final readonly class SigstoreBundle0 implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Sigstore Bundle v0.1",
     "type": "object",
     "properties": {
@@ -120,9 +117,9 @@ final readonly class SigstoreBundle0
     },
     "description": "Sigstore Bundle v0.1"
 }';
-    public const SCHEMA_TITLE        = 'Sigstore Bundle v0.1';
-    public const SCHEMA_DESCRIPTION  = 'Sigstore Bundle v0.1';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Sigstore Bundle v0.1';
+    public const SCHEMA_DESCRIPTION = 'Sigstore Bundle v0.1';
+    const SCHEMA_EXAMPLE_DATA = '{
     "mediaType": "generated",
     "verificationMaterial": {
         "x509CertificateChain": {
@@ -186,8 +183,7 @@ final readonly class SigstoreBundle0
         ]
     }
 }';
-
-    public function __construct(public string|null $mediaType, public Schema\SigstoreBundle0\VerificationMaterial|null $verificationMaterial, public Schema\SigstoreBundle0\DsseEnvelope|null $dsseEnvelope)
+    public function __construct(public ?string $mediaType, public ?\ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial $verificationMaterial, public ?\ApiClients\Client\GitHub\Schema\SigstoreBundle0\DsseEnvelope $dsseEnvelope)
     {
     }
 }

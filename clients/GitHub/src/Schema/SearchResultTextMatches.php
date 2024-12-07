@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SearchResultTextMatches
+final readonly class SearchResultTextMatches implements \ApiClients\Client\GitHub\Contract\SearchResultTextMatches
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "object_url": {
@@ -45,9 +42,9 @@ final readonly class SearchResultTextMatches
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "object_url": "generated",
     "object_type": "generated",
     "property": "generated",
@@ -69,10 +66,7 @@ final readonly class SearchResultTextMatches
         }
     ]
 }';
-
-    public function __construct(#[MapFrom('object_url')]
-    public string|null $objectUrl, #[MapFrom('object_type')]
-    public string|null $objectType, public string|null $property, public string|null $fragment, public array|null $matches,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('object_url')] public ?string $objectUrl, #[\EventSauce\ObjectHydrator\MapFrom('object_type')] public ?string $objectType, public ?string $property, public ?string $fragment, public ?array $matches)
     {
     }
 }

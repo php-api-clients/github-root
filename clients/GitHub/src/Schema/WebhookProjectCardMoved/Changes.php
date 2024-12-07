@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectCardMoved;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookProjectCardMoved\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "column_id"
     ],
@@ -28,16 +24,14 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "column_id": {
         "from": 4
     }
 }';
-
-    public function __construct(#[MapFrom('column_id')]
-    public Schema\WebhookProjectCardMoved\Changes\ColumnId $columnId,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('column_id')] public \ApiClients\Client\GitHub\Schema\WebhookProjectCardMoved\Changes\ColumnId $columnId)
     {
     }
 }

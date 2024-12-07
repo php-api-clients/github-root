@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\ReviewPatGrantRequest\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\ReviewPatGrantRequest\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "action"
     ],
@@ -30,18 +29,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "action": "deny",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "action": "approve",
     "reason": "generated"
 }';
-
     /**
      * action: Action to apply to the request.
      * reason: Reason for approving or denying the request. Max 1024 characters.
      */
-    public function __construct(public string $action, public string|null $reason)
+    public function __construct(public string $action, public ?string $reason)
     {
     }
 }

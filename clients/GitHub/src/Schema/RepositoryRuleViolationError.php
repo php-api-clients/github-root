@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRuleViolationError
+final readonly class RepositoryRuleViolationError implements \ApiClients\Client\GitHub\Contract\RepositoryRuleViolationError
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "message": {
@@ -49,9 +45,9 @@ final readonly class RepositoryRuleViolationError
     },
     "description": "Repository rule violation was detected"
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Repository rule violation was detected';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Repository rule violation was detected';
+    const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
     "documentation_url": "generated",
     "status": "generated",
@@ -70,9 +66,7 @@ final readonly class RepositoryRuleViolationError
         }
     }
 }';
-
-    public function __construct(public string|null $message, #[MapFrom('documentation_url')]
-    public string|null $documentationUrl, public string|null $status, public Schema\RepositoryRuleViolationError\Metadata|null $metadata,)
+    public function __construct(public ?string $message, #[\EventSauce\ObjectHydrator\MapFrom('documentation_url')] public ?string $documentationUrl, public ?string $status, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleViolationError\Metadata $metadata)
     {
     }
 }

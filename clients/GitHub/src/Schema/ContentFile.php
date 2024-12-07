@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ContentFile
+final readonly class ContentFile implements \ApiClients\Client\GitHub\Contract\ContentFile
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Content File",
     "required": [
         "_links",
@@ -119,9 +115,9 @@ final readonly class ContentFile
     },
     "description": "Content File"
 }';
-    public const SCHEMA_TITLE        = 'Content File';
-    public const SCHEMA_DESCRIPTION  = 'Content File';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Content File';
+    public const SCHEMA_DESCRIPTION = 'Content File';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "file",
     "encoding": "generated",
     "size": 4,
@@ -138,16 +134,10 @@ final readonly class ContentFile
         "html": "https:\\/\\/example.com\\/",
         "self": "https:\\/\\/example.com\\/"
     },
-    "target": "\\"actual\\/actual.md\\"",
-    "submodule_git_url": "\\"git:\\/\\/example.com\\/defunkt\\/dotjs.git\\""
+    "target": "generated",
+    "submodule_git_url": "generated"
 }';
-
-    public function __construct(public string $type, public string $encoding, public int $size, public string $name, public string $path, public string $content, public string $sha, public string $url, #[MapFrom('git_url')]
-    public string|null $gitUrl, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('download_url')]
-    public string|null $downloadUrl, #[MapFrom('_links')]
-    public Schema\ContentFile\Links $links, public string|null $target, #[MapFrom('submodule_git_url')]
-    public string|null $submoduleGitUrl,)
+    public function __construct(public string $type, public string $encoding, public int $size, public string $name, public string $path, public string $content, public string $sha, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public ?string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('download_url')] public ?string $downloadUrl, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\ContentFile\Links $links, public ?string $target, #[\EventSauce\ObjectHydrator\MapFrom('submodule_git_url')] public ?string $submoduleGitUrl)
     {
     }
 }

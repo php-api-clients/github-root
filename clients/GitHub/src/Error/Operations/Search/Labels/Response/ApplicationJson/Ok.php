@@ -1,0 +1,11 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Error\Operations\Search\Labels\Response\ApplicationJson;
+
+final class Ok extends \Error
+{
+    public function __construct(public int $status, public \ApiClients\Client\GitHub\Schema\Operations\Search\Labels\Response\ApplicationJson\Ok $error)
+    {
+    }
+}

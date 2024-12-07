@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DeploymentBranchPolicy
+final readonly class DeploymentBranchPolicy implements \ApiClients\Client\GitHub\Contract\DeploymentBranchPolicy
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Deployment branch policy",
     "type": "object",
     "properties": {
@@ -46,22 +43,20 @@ final readonly class DeploymentBranchPolicy
     },
     "description": "Details of a deployment branch or tag policy."
 }';
-    public const SCHEMA_TITLE        = 'Deployment branch policy';
-    public const SCHEMA_DESCRIPTION  = 'Details of a deployment branch or tag policy.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 361471,
-    "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjE0NzE=",
-    "name": "release\\/*",
+    public const SCHEMA_TITLE = 'Deployment branch policy';
+    public const SCHEMA_DESCRIPTION = 'Details of a deployment branch or tag policy.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
     "type": "branch"
 }';
-
     /**
      * id: The unique identifier of the branch or tag policy.
      * name: The name pattern that branches or tags must match in order to deploy to the environment.
      * type: Whether this rule targets a branch or tag.
      */
-    public function __construct(public int|null $id, #[MapFrom('node_id')]
-    public string|null $nodeId, public string|null $name, public string|null $type,)
+    public function __construct(public ?int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, public ?string $name, public ?string $type)
     {
     }
 }

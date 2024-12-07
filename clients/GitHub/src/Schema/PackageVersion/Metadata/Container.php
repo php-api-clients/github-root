@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\PackageVersion\Metadata;
 
-final readonly class Container
+final readonly class Container implements \ApiClients\Client\GitHub\Contract\PackageVersion\Metadata\Container
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Container Metadata",
     "required": [
         "tags"
@@ -21,15 +20,14 @@ final readonly class Container
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Container Metadata';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Container Metadata';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "tags": [
         "generated",
         "generated"
     ]
 }';
-
     public function __construct(public array $tags)
     {
     }

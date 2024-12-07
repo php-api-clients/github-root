@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookMemberEdited;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookMemberEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "old_permission": {
@@ -44,9 +40,9 @@ final readonly class Changes
     },
     "description": "The changes to the collaborator permissions"
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The changes to the collaborator permissions';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The changes to the collaborator permissions';
+    const SCHEMA_EXAMPLE_DATA = '{
     "old_permission": {
         "from": "generated"
     },
@@ -55,9 +51,7 @@ final readonly class Changes
         "to": "generated"
     }
 }';
-
-    public function __construct(#[MapFrom('old_permission')]
-    public Schema\WebhookMemberEdited\Changes\OldPermission|null $oldPermission, public Schema\WebhookMemberEdited\Changes\Permission|null $permission,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('old_permission')] public ?\ApiClients\Client\GitHub\Schema\WebhookMemberEdited\Changes\OldPermission $oldPermission, public ?\ApiClients\Client\GitHub\Schema\WebhookMemberEdited\Changes\Permission $permission)
     {
     }
 }

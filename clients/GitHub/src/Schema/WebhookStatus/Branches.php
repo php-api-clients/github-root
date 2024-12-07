@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Branches
+final readonly class Branches implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Branches
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name",
         "commit",
@@ -46,9 +43,9 @@ final readonly class Branches
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "commit": {
         "sha": "generated",
         "url": "https:\\/\\/example.com\\/"
@@ -56,8 +53,7 @@ final readonly class Branches
     "name": "generated",
     "protected": false
 }';
-
-    public function __construct(public Schema\WebhookStatus\Branches\Commit $commit, public string $name, public bool $protected)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhookStatus\Branches\Commit $commit, public string $name, public bool $protected)
     {
     }
 }

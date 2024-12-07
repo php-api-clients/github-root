@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class AlertAutoDismissedAt
+final readonly class AlertAutoDismissedAt implements \ApiClients\Client\GitHub\Contract\AlertAutoDismissedAt
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "string",
         "null"
@@ -15,10 +14,9 @@ final readonly class AlertAutoDismissedAt
     "format": "date-time",
     "readOnly": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The time that the alert was auto-dismissed in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

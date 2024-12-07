@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\BranchWithProtection;
 
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\BranchWithProtection\Links
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "html",
         "self"
@@ -22,13 +21,12 @@ final readonly class Links
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "html": "generated",
     "self": "https:\\/\\/example.com\\/"
 }';
-
     public function __construct(public string $html, public string $self)
     {
     }

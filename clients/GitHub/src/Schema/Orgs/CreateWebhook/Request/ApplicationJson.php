@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\CreateWebhook\Request;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\CreateWebhook\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name",
         "config"
@@ -93,17 +90,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "config": {
-        "url": "https:\\/\\/example.com\\/webhook",
-        "content_type": "\\"json\\"",
-        "secret": "\\"********\\"",
-        "insecure_ssl": null,
-        "username": "\\"kdaigle\\"",
-        "password": "\\"password\\""
+        "url": "https:\\/\\/example.com\\/",
+        "content_type": "generated",
+        "secret": "generated",
+        "insecure_ssl": 14,
+        "username": "generated",
+        "password": "generated"
     },
     "events": [
         "generated",
@@ -111,14 +108,13 @@ final readonly class ApplicationJson
     ],
     "active": false
 }';
-
     /**
      * name: Must be passed as "web".
      * config: Key/value pairs to provide settings for this webhook.
      * events: Determines what [events](https://docs.github.com/webhooks/event-payloads) the hook is triggered for. Set to `["*"]` to receive all possible events.
      * active: Determines if notifications are sent when the webhook is triggered. Set to `true` to send notifications.
      */
-    public function __construct(public string $name, public Schema\Orgs\CreateWebhook\Request\ApplicationJson\Config $config, public array|null $events, public bool|null $active)
+    public function __construct(public string $name, public \ApiClients\Client\GitHub\Schema\Orgs\CreateWebhook\Request\ApplicationJson\Config $config, public ?array $events, public ?bool $active)
     {
     }
 }

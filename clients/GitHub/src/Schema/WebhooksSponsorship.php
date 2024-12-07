@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksSponsorship
+final readonly class WebhooksSponsorship implements \ApiClients\Client\GitHub\Contract\WebhooksSponsorship
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "node_id",
         "created_at",
@@ -334,9 +330,9 @@ final readonly class WebhooksSponsorship
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "created_at": "generated",
     "maintainer": {
         "avatar_url": "generated",
@@ -381,7 +377,7 @@ final readonly class WebhooksSponsorship
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -405,7 +401,7 @@ final readonly class WebhooksSponsorship
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -421,14 +417,10 @@ final readonly class WebhooksSponsorship
         "node_id": "generated"
     }
 }';
-
     /**
      * tier: The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
      */
-    public function __construct(#[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhooksSponsorship\Maintainer|null $maintainer, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('privacy_level')]
-    public string $privacyLevel, public Schema\WebhooksSponsorship\Sponsor|null $sponsor, public Schema\WebhooksSponsorship\Sponsorable|null $sponsorable, public Schema\WebhooksSponsorship\Tier $tier,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public ?\ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Maintainer $maintainer, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('privacy_level')] public string $privacyLevel, public ?\ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Sponsor $sponsor, public ?\ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Sponsorable $sponsorable, public \ApiClients\Client\GitHub\Schema\WebhooksSponsorship\Tier $tier)
     {
     }
 }

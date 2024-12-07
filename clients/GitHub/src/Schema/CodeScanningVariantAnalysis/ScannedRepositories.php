@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysis;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ScannedRepositories
+final readonly class ScannedRepositories implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysis\ScannedRepositories
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "repository",
         "analysis_status"
@@ -98,23 +94,22 @@ final readonly class ScannedRepositories
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "repository": {
-        "id": 1296269,
-        "name": "Hello-World",
-        "full_name": "octocat\\/Hello-World",
+        "id": 2,
+        "name": "generated",
+        "full_name": "generated",
         "private": false,
-        "stargazers_count": 80,
-        "updated_at": "2011-01-26T19:14:43Z"
+        "stargazers_count": 16,
+        "updated_at": "1970-01-01T00:00:00+00:00"
     },
     "analysis_status": "pending",
     "result_count": 12,
     "artifact_size_in_bytes": 22,
     "failure_message": "generated"
 }';
-
     /**
      * repository: Repository Identifier
      * analysisStatus: The new status of the CodeQL variant analysis repository task.
@@ -122,11 +117,7 @@ final readonly class ScannedRepositories
      * artifactSizeInBytes: The size of the artifact. This is only available for successful analyses.
      * failureMessage: The reason of the failure of this repo task. This is only available if the repository task has failed.
      */
-    public function __construct(public Schema\CodeScanningVariantAnalysisRepository $repository, #[MapFrom('analysis_status')]
-    public string $analysisStatus, #[MapFrom('result_count')]
-    public int|null $resultCount, #[MapFrom('artifact_size_in_bytes')]
-    public int|null $artifactSizeInBytes, #[MapFrom('failure_message')]
-    public string|null $failureMessage,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\CodeScanningVariantAnalysisRepository $repository, #[\EventSauce\ObjectHydrator\MapFrom('analysis_status')] public string $analysisStatus, #[\EventSauce\ObjectHydrator\MapFrom('result_count')] public ?int $resultCount, #[\EventSauce\ObjectHydrator\MapFrom('artifact_size_in_bytes')] public ?int $artifactSizeInBytes, #[\EventSauce\ObjectHydrator\MapFrom('failure_message')] public ?string $failureMessage)
     {
     }
 }

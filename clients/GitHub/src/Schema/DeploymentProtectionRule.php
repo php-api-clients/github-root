@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DeploymentProtectionRule
+final readonly class DeploymentProtectionRule implements \ApiClients\Client\GitHub\Contract\DeploymentProtectionRule
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Deployment protection rule",
     "required": [
         "id",
@@ -84,28 +80,26 @@ final readonly class DeploymentProtectionRule
     },
     "description": "Deployment protection rule"
 }';
-    public const SCHEMA_TITLE        = 'Deployment protection rule';
-    public const SCHEMA_DESCRIPTION  = 'Deployment protection rule';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3515,
-    "node_id": "MDQ6R2F0ZTM1MTU=",
-    "enabled": true,
+    public const SCHEMA_TITLE = 'Deployment protection rule';
+    public const SCHEMA_DESCRIPTION = 'Deployment protection rule';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
+    "enabled": false,
     "app": {
-        "id": 3515,
-        "slug": "my-custom-app",
-        "integration_url": "https:\\/\\/api.github.com\\/apps\\/custom-app-slug",
-        "node_id": "MDQ6R2F0ZTM1MTU="
+        "id": 2,
+        "slug": "generated",
+        "integration_url": "generated",
+        "node_id": "generated"
     }
 }';
-
     /**
      * id: The unique identifier for the deployment protection rule.
      * nodeId: The node ID for the deployment protection rule.
      * enabled: Whether the deployment protection rule is enabled for the environment.
      * app: A GitHub App that is providing a custom deployment protection rule.
      */
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public bool $enabled, public Schema\CustomDeploymentRuleApp $app,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public bool $enabled, public \ApiClients\Client\GitHub\Schema\CustomDeploymentRuleApp $app)
     {
     }
 }

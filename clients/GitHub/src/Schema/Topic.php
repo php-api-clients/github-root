@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class Topic
+final readonly class Topic implements \ApiClients\Client\GitHub\Contract\Topic
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Topic",
     "required": [
         "names"
@@ -22,15 +21,14 @@ final readonly class Topic
     },
     "description": "A topic aggregates entities that are related to a subject."
 }';
-    public const SCHEMA_TITLE        = 'Topic';
-    public const SCHEMA_DESCRIPTION  = 'A topic aggregates entities that are related to a subject.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Topic';
+    public const SCHEMA_DESCRIPTION = 'A topic aggregates entities that are related to a subject.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "names": [
         "generated",
         "generated"
     ]
 }';
-
     public function __construct(public array $names)
     {
     }

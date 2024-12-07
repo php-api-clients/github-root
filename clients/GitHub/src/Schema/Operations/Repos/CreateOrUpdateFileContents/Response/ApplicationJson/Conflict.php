@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Repos\CreateOrUpdateFileContents\Response\ApplicationJson;
 
-final readonly class Conflict
+final readonly class Conflict implements \ApiClients\Client\GitHub\Contract\Operations\Repos\CreateOrUpdateFileContents\Response\ApplicationJson\Conflict
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "oneOf": [
         {
             "title": "Basic Error",
@@ -69,10 +68,9 @@ final readonly class Conflict
         }
     ]
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

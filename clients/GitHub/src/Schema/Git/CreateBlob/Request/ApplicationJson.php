@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Git\CreateBlob\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Git\CreateBlob\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "content"
     ],
@@ -23,18 +22,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "content": "generated",
     "encoding": "generated"
 }';
-
     /**
      * content: The new blob's content.
      * encoding: The encoding used for `content`. Currently, `"utf-8"` and `"base64"` are supported.
      */
-    public function __construct(public string $content, public string|null $encoding)
+    public function __construct(public string $content, public ?string $encoding)
     {
     }
 }

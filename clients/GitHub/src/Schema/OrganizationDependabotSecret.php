@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class OrganizationDependabotSecret
+final readonly class OrganizationDependabotSecret implements \ApiClients\Client\GitHub\Contract\OrganizationDependabotSecret
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Dependabot Secret for an Organization",
     "required": [
         "name",
@@ -52,24 +49,20 @@ final readonly class OrganizationDependabotSecret
     },
     "description": "Secrets for GitHub Dependabot for an organization."
 }';
-    public const SCHEMA_TITLE        = 'Dependabot Secret for an Organization';
-    public const SCHEMA_DESCRIPTION  = 'Secrets for GitHub Dependabot for an organization.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "SECRET_TOKEN",
+    public const SCHEMA_TITLE = 'Dependabot Secret for an Organization';
+    public const SCHEMA_DESCRIPTION = 'Secrets for GitHub Dependabot for an organization.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00",
-    "visibility": "selected",
-    "selected_repositories_url": "https:\\/\\/api.github.com\\/organizations\\/org\\/dependabot\\/secrets\\/my_secret\\/repositories"
+    "visibility": "all",
+    "selected_repositories_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * name: The name of the secret.
      * visibility: Visibility of a secret
      */
-    public function __construct(public string $name, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $visibility, #[MapFrom('selected_repositories_url')]
-    public string|null $selectedRepositoriesUrl,)
+    public function __construct(public string $name, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $visibility, #[\EventSauce\ObjectHydrator\MapFrom('selected_repositories_url')] public ?string $selectedRepositoriesUrl)
     {
     }
 }

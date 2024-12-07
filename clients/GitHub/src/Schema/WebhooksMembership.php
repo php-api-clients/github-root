@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksMembership
+final readonly class WebhooksMembership implements \ApiClients\Client\GitHub\Contract\WebhooksMembership
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Membership",
     "required": [
         "url",
@@ -137,9 +133,9 @@ final readonly class WebhooksMembership
     },
     "description": "The membership between the user and the organization. Not present when the action is `member_invited`."
 }';
-    public const SCHEMA_TITLE        = 'Membership';
-    public const SCHEMA_DESCRIPTION  = 'The membership between the user and the organization. Not present when the action is `member_invited`.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Membership';
+    public const SCHEMA_DESCRIPTION = 'The membership between the user and the organization. Not present when the action is `member_invited`.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "organization_url": "https:\\/\\/example.com\\/",
     "role": "generated",
     "state": "generated",
@@ -164,14 +160,12 @@ final readonly class WebhooksMembership
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     }
 }';
-
-    public function __construct(#[MapFrom('organization_url')]
-    public string $organizationUrl, public string $role, public string $state, public string $url, public Schema\WebhooksMembership\User|null $user,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('organization_url')] public string $organizationUrl, public string $role, public string $state, public string $url, public ?\ApiClients\Client\GitHub\Schema\WebhooksMembership\User $user)
     {
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksMilestone3
+final readonly class WebhooksMilestone3 implements \ApiClients\Client\GitHub\Contract\WebhooksMilestone3
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Milestone",
     "required": [
         "url",
@@ -201,9 +197,9 @@ final readonly class WebhooksMilestone3
     },
     "description": "A collection of related issues and pull requests."
 }';
-    public const SCHEMA_TITLE        = 'Milestone';
-    public const SCHEMA_DESCRIPTION  = 'A collection of related issues and pull requests.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Milestone';
+    public const SCHEMA_DESCRIPTION = 'A collection of related issues and pull requests.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "closed_at": "1970-01-01T00:00:00+00:00",
     "closed_issues": 13,
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -227,7 +223,7 @@ final readonly class WebhooksMilestone3
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -244,22 +240,12 @@ final readonly class WebhooksMilestone3
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * number: The number of the milestone.
      * state: The state of the milestone.
      * title: The title of the milestone.
      */
-    public function __construct(#[MapFrom('closed_at')]
-    public string|null $closedAt, #[MapFrom('closed_issues')]
-    public int $closedIssues, #[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhooksMilestone3\Creator|null $creator, public string|null $description, #[MapFrom('due_on')]
-    public string|null $dueOn, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, #[MapFrom('labels_url')]
-    public string $labelsUrl, #[MapFrom('node_id')]
-    public string $nodeId, public int $number, #[MapFrom('open_issues')]
-    public int $openIssues, public string $state, public string $title, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('closed_at')] public ?string $closedAt, #[\EventSauce\ObjectHydrator\MapFrom('closed_issues')] public int $closedIssues, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public ?\ApiClients\Client\GitHub\Schema\WebhooksMilestone3\Creator $creator, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('due_on')] public ?string $dueOn, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('labels_url')] public string $labelsUrl, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public int $number, #[\EventSauce\ObjectHydrator\MapFrom('open_issues')] public int $openIssues, public string $state, public string $title, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url)
     {
     }
 }

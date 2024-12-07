@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\MarketplacePurchase;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class MarketplacePurchase
+final readonly class MarketplacePurchase implements \ApiClients\Client\GitHub\Contract\MarketplacePurchase\MarketplacePurchase
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "billing_cycle": {
@@ -155,9 +151,9 @@ final readonly class MarketplacePurchase
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "billing_cycle": "generated",
     "next_billing_date": "generated",
     "is_installed": false,
@@ -166,36 +162,28 @@ final readonly class MarketplacePurchase
     "free_trial_ends_on": "generated",
     "updated_at": "generated",
     "plan": {
-        "url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313",
-        "accounts_url": "https:\\/\\/api.github.com\\/marketplace_listing\\/plans\\/1313\\/accounts",
-        "id": 1313,
-        "number": 3,
-        "name": "Pro",
-        "description": "A professional-grade CI solution",
-        "monthly_price_in_cents": 1099,
-        "yearly_price_in_cents": 11870,
-        "price_model": "FLAT_RATE",
-        "has_free_trial": true,
+        "url": "https:\\/\\/example.com\\/",
+        "accounts_url": "https:\\/\\/example.com\\/",
+        "id": 2,
+        "number": 6,
+        "name": "generated",
+        "description": "generated",
+        "monthly_price_in_cents": 22,
+        "yearly_price_in_cents": 21,
+        "price_model": "FREE",
+        "has_free_trial": false,
         "unit_name": "generated",
-        "state": "published",
+        "state": "generated",
         "bullets": [
-            "Up to 25 private repositories",
-            "Up to 25 private repositories"
+            "generated",
+            "generated"
         ]
     }
 }';
-
     /**
      * plan: Marketplace Listing Plan
      */
-    public function __construct(#[MapFrom('billing_cycle')]
-    public string|null $billingCycle, #[MapFrom('next_billing_date')]
-    public string|null $nextBillingDate, #[MapFrom('is_installed')]
-    public bool|null $isInstalled, #[MapFrom('unit_count')]
-    public int|null $unitCount, #[MapFrom('on_free_trial')]
-    public bool|null $onFreeTrial, #[MapFrom('free_trial_ends_on')]
-    public string|null $freeTrialEndsOn, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public Schema\MarketplaceListingPlan|null $plan,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('billing_cycle')] public ?string $billingCycle, #[\EventSauce\ObjectHydrator\MapFrom('next_billing_date')] public ?string $nextBillingDate, #[\EventSauce\ObjectHydrator\MapFrom('is_installed')] public ?bool $isInstalled, #[\EventSauce\ObjectHydrator\MapFrom('unit_count')] public ?int $unitCount, #[\EventSauce\ObjectHydrator\MapFrom('on_free_trial')] public ?bool $onFreeTrial, #[\EventSauce\ObjectHydrator\MapFrom('free_trial_ends_on')] public ?string $freeTrialEndsOn, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?\ApiClients\Client\GitHub\Schema\MarketplaceListingPlan $plan)
     {
     }
 }

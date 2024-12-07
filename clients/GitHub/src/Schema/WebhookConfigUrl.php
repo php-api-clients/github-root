@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookConfigUrl
+final readonly class WebhookConfigUrl implements \ApiClients\Client\GitHub\Contract\WebhookConfigUrl
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "string",
     "description": "The URL to which the payloads will be delivered.",
     "format": "uri",
@@ -14,10 +13,9 @@ final readonly class WebhookConfigUrl
         "https:\\/\\/example.com\\/webhook"
     ]
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The URL to which the payloads will be delivered.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The URL to which the payloads will be delivered.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

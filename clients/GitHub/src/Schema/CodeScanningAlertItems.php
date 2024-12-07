@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningAlertItems
+final readonly class CodeScanningAlertItems implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertItems
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "number",
         "created_at",
@@ -476,9 +472,9 @@ final readonly class CodeScanningAlertItems
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "number": 6,
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00",
@@ -490,38 +486,37 @@ final readonly class CodeScanningAlertItems
     "dismissed_by": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "dismissed_at": "1970-01-01T00:00:00+00:00",
-    "dismissed_reason": "used in tests",
+    "dismissed_reason": "false positive",
     "dismissed_comment": "generated",
     "rule": {
         "id": "generated",
         "name": "generated",
-        "severity": "error",
+        "severity": "none",
         "security_severity_level": "low",
         "description": "generated",
         "full_description": "generated",
-        "tags": null,
         "help": "generated",
         "help_uri": "generated"
     },
@@ -554,7 +549,6 @@ final readonly class CodeScanningAlertItems
         ]
     }
 }';
-
     /**
      * number: The security alert number.
      * createdAt: The time that the alert was created in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
@@ -568,17 +562,7 @@ final readonly class CodeScanningAlertItems
      * dismissedReason: **Required when the state is dismissed.** The reason for dismissing or closing the alert.
      * dismissedComment: The dismissal comment associated with the dismissal of the alert.
      */
-    public function __construct(public int $number, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('instances_url')]
-    public string $instancesUrl, public string|null $state, #[MapFrom('fixed_at')]
-    public string|null $fixedAt, #[MapFrom('dismissed_by')]
-    public Schema\SimpleUser|null $dismissedBy, #[MapFrom('dismissed_at')]
-    public string|null $dismissedAt, #[MapFrom('dismissed_reason')]
-    public string|null $dismissedReason, #[MapFrom('dismissed_comment')]
-    public string|null $dismissedComment, public Schema\CodeScanningAlertRuleSummary $rule, public Schema\CodeScanningAnalysisTool $tool, #[MapFrom('most_recent_instance')]
-    public Schema\CodeScanningAlertInstance $mostRecentInstance,)
+    public function __construct(public int $number, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('instances_url')] public string $instancesUrl, public ?string $state, #[\EventSauce\ObjectHydrator\MapFrom('fixed_at')] public ?string $fixedAt, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_by')] public ?\ApiClients\Client\GitHub\Schema\SimpleUser $dismissedBy, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_at')] public ?string $dismissedAt, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_reason')] public ?string $dismissedReason, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_comment')] public ?string $dismissedComment, public \ApiClients\Client\GitHub\Schema\CodeScanningAlertRuleSummary $rule, public \ApiClients\Client\GitHub\Schema\CodeScanningAnalysisTool $tool, #[\EventSauce\ObjectHydrator\MapFrom('most_recent_instance')] public \ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance $mostRecentInstance)
     {
     }
 }

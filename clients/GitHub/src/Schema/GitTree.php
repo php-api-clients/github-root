@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class GitTree
+final readonly class GitTree implements \ApiClients\Client\GitHub\Contract\GitTree
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Git Tree",
     "required": [
         "sha",
@@ -112,88 +111,31 @@ final readonly class GitTree
     },
     "description": "The hierarchy between files in a Git repository."
 }';
-    public const SCHEMA_TITLE        = 'Git Tree';
-    public const SCHEMA_DESCRIPTION  = 'The hierarchy between files in a Git repository.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Git Tree';
+    public const SCHEMA_DESCRIPTION = 'The hierarchy between files in a Git repository.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "sha": "generated",
     "url": "https:\\/\\/example.com\\/",
     "truncated": false,
     "tree": [
         {
-            "path": "file.rb",
-            "mode": "100644",
-            "type": "blob",
-            "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
-            "size": 30,
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs\\/44b4fc6d56897b048c772eb4087f854f46256132",
-            "properties": {
-                "path": {
-                    "type": "string"
-                },
-                "mode": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "sha": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "path",
-                "mode",
-                "type",
-                "sha",
-                "url",
-                "size"
-            ]
+            "path": "generated",
+            "mode": "generated",
+            "type": "generated",
+            "sha": "generated",
+            "size": 4,
+            "url": "generated"
         },
         {
-            "path": "file.rb",
-            "mode": "100644",
-            "type": "blob",
-            "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
-            "size": 30,
-            "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/git\\/blobs\\/44b4fc6d56897b048c772eb4087f854f46256132",
-            "properties": {
-                "path": {
-                    "type": "string"
-                },
-                "mode": {
-                    "type": "string"
-                },
-                "type": {
-                    "type": "string"
-                },
-                "size": {
-                    "type": "integer"
-                },
-                "sha": {
-                    "type": "string"
-                },
-                "url": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "path",
-                "mode",
-                "type",
-                "sha",
-                "url",
-                "size"
-            ]
+            "path": "generated",
+            "mode": "generated",
+            "type": "generated",
+            "sha": "generated",
+            "size": 4,
+            "url": "generated"
         }
     ]
 }';
-
     /**
      * tree: Objects specifying a tree structure
      */

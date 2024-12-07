@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Pulls\CreateReviewComment\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\CreateReviewComment\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "body",
         "commit_id",
@@ -78,21 +75,20 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "body": "generated",
     "commit_id": "generated",
     "path": "generated",
     "position": 8,
-    "side": "RIGHT",
+    "side": "LEFT",
     "line": 4,
     "start_line": 10,
-    "start_side": "side",
-    "in_reply_to": 2,
-    "subject_type": "file"
+    "start_side": "LEFT",
+    "in_reply_to": 11,
+    "subject_type": "line"
 }';
-
     /**
      * body: The text of the review comment.
      * commitId: The SHA of the commit needing a comment. Not using the latest commit SHA may render your comment outdated if a subsequent commit modifies the line you specify as the `position`.
@@ -105,12 +101,7 @@ final readonly class ApplicationJson
      * inReplyTo: The ID of the review comment to reply to. To find the ID of a review comment with ["List review comments on a pull request"](#list-review-comments-on-a-pull-request). When specified, all parameters other than `body` in the request body are ignored.
      * subjectType: The level at which the comment is targeted.
      */
-    public function __construct(public string $body, #[MapFrom('commit_id')]
-    public string $commitId, public string $path, public int|null $position, public string|null $side, public int|null $line, #[MapFrom('start_line')]
-    public int|null $startLine, #[MapFrom('start_side')]
-    public string|null $startSide, #[MapFrom('in_reply_to')]
-    public int|null $inReplyTo, #[MapFrom('subject_type')]
-    public string|null $subjectType,)
+    public function __construct(public string $body, #[\EventSauce\ObjectHydrator\MapFrom('commit_id')] public string $commitId, public string $path, public ?int $position, public ?string $side, public ?int $line, #[\EventSauce\ObjectHydrator\MapFrom('start_line')] public ?int $startLine, #[\EventSauce\ObjectHydrator\MapFrom('start_side')] public ?string $startSide, #[\EventSauce\ObjectHydrator\MapFrom('in_reply_to')] public ?int $inReplyTo, #[\EventSauce\ObjectHydrator\MapFrom('subject_type')] public ?string $subjectType)
     {
     }
 }

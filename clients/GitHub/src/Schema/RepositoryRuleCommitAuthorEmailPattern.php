@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleCommitAuthorEmailPattern
+final readonly class RepositoryRuleCommitAuthorEmailPattern implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCommitAuthorEmailPattern
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "commit_author_email_pattern",
     "required": [
         "type"
@@ -55,19 +52,18 @@ final readonly class RepositoryRuleCommitAuthorEmailPattern
     },
     "description": "Parameters to be used for the commit_author_email_pattern rule"
 }';
-    public const SCHEMA_TITLE        = 'commit_author_email_pattern';
-    public const SCHEMA_DESCRIPTION  = 'Parameters to be used for the commit_author_email_pattern rule';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'commit_author_email_pattern';
+    public const SCHEMA_DESCRIPTION = 'Parameters to be used for the commit_author_email_pattern rule';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "commit_author_email_pattern",
     "parameters": {
         "name": "generated",
         "negate": false,
-        "operator": "regex",
+        "operator": "starts_with",
         "pattern": "generated"
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleCommitAuthorEmailPattern\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern\Parameters $parameters)
     {
     }
 }

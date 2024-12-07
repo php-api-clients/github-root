@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Projects\Update\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Projects\Update\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -51,16 +48,15 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Week One Sprint",
-    "body": "This project represents the sprint of the first week in January",
-    "state": "open",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
+    "body": "generated",
+    "state": "generated",
     "organization_permission": "read",
     "private": false
 }';
-
     /**
      * name: Name of the project
      * body: Body of the project
@@ -68,8 +64,7 @@ final readonly class ApplicationJson
      * organizationPermission: The baseline permission that all organization members have on this project
      * private: Whether or not this project can be seen by everyone.
      */
-    public function __construct(public string|null $name, public string|null $body, public string|null $state, #[MapFrom('organization_permission')]
-    public string|null $organizationPermission, public bool|null $private,)
+    public function __construct(public ?string $name, public ?string $body, public ?string $state, #[\EventSauce\ObjectHydrator\MapFrom('organization_permission')] public ?string $organizationPermission, public ?bool $private)
     {
     }
 }

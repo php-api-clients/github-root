@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CodeownersErrors;
 
-final readonly class Errors
+final readonly class Errors implements \ApiClients\Client\GitHub\Contract\CodeownersErrors\Errors
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "line",
         "column",
@@ -70,18 +69,17 @@ final readonly class Errors
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "line": 7,
-    "column": 3,
-    "source": "* user",
-    "kind": "Invalid owner",
-    "suggestion": "The pattern `\\/` will never match anything, did you mean `*` instead?",
-    "message": "Invalid owner on line 7:\\n\\n  * user\\n    ^",
-    "path": ".github\\/CODEOWNERS"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "line": 4,
+    "column": 6,
+    "source": "generated",
+    "kind": "generated",
+    "suggestion": "generated",
+    "message": "generated",
+    "path": "generated"
 }';
-
     /**
      * line: The line number where this errors occurs.
      * column: The column number where this errors occurs.
@@ -91,7 +89,7 @@ final readonly class Errors
      * message: A human-readable description of the error, combining information from multiple fields, laid out for display in a monospaced typeface (for example, a command-line setting).
      * path: The path of the file where the error occured.
      */
-    public function __construct(public int $line, public int $column, public string|null $source, public string $kind, public string|null $suggestion, public string $message, public string $path)
+    public function __construct(public int $line, public int $column, public ?string $source, public string $kind, public ?string $suggestion, public string $message, public string $path)
     {
     }
 }

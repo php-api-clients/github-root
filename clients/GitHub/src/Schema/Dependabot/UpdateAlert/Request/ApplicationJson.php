@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Dependabot\UpdateAlert\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Dependabot\UpdateAlert\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "state"
     ],
@@ -41,23 +38,20 @@ final readonly class ApplicationJson
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "state": "dismissed",
-    "dismissed_reason": "tolerable_risk",
+    "dismissed_reason": "fix_started",
     "dismissed_comment": "generated"
 }';
-
     /**
-     * state: The state of the Dependabot alert.
+    * state: The state of the Dependabot alert.
     A `dismissed_reason` must be provided when setting the state to `dismissed`.
-     * dismissedReason: **Required when `state` is `dismissed`.** A reason for dismissing the alert.
-     * dismissedComment: An optional comment associated with dismissing the alert.
-     */
-    public function __construct(public string $state, #[MapFrom('dismissed_reason')]
-    public string|null $dismissedReason, #[MapFrom('dismissed_comment')]
-    public string|null $dismissedComment,)
+    * dismissedReason: **Required when `state` is `dismissed`.** A reason for dismissing the alert.
+    * dismissedComment: An optional comment associated with dismissing the alert.
+    */
+    public function __construct(public string $state, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_reason')] public ?string $dismissedReason, #[\EventSauce\ObjectHydrator\MapFrom('dismissed_comment')] public ?string $dismissedComment)
     {
     }
 }

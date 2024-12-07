@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningAlertInstance
+final readonly class CodeScanningAlertInstance implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertInstance
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "ref": {
@@ -96,9 +92,9 @@ final readonly class CodeScanningAlertInstance
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ref": "generated",
     "analysis_key": "generated",
     "environment": "generated",
@@ -121,22 +117,18 @@ final readonly class CodeScanningAlertInstance
         "generated"
     ]
 }';
-
     /**
-     * ref: The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,
+    * ref: The Git reference, formatted as `refs/pull/<number>/merge`, `refs/pull/<number>/head`,
     `refs/heads/<branch name>` or simply `<branch name>`.
-     * analysisKey: Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
-     * environment: Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.
-     * category: Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.
-     * state: State of a code scanning alert.
-     * location: Describe a region within a file for the alert.
-     * classifications: Classifications that have been applied to the file that triggered the alert.
+    * analysisKey: Identifies the configuration under which the analysis was executed. For example, in GitHub Actions this includes the workflow filename and job name.
+    * environment: Identifies the variable values associated with the environment in which the analysis that generated this alert instance was performed, such as the language that was analyzed.
+    * category: Identifies the configuration under which the analysis was executed. Used to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.
+    * state: State of a code scanning alert.
+    * location: Describe a region within a file for the alert.
+    * classifications: Classifications that have been applied to the file that triggered the alert.
     For example identifying it as documentation, or a generated file.
-     */
-    public function __construct(public string|null $ref, #[MapFrom('analysis_key')]
-    public string|null $analysisKey, public string|null $environment, public string|null $category, public string|null $state, #[MapFrom('commit_sha')]
-    public string|null $commitSha, public Schema\CodeScanningAlertInstance\Message|null $message, public Schema\CodeScanningAlertLocation|null $location, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public array|null $classifications,)
+    */
+    public function __construct(public ?string $ref, #[\EventSauce\ObjectHydrator\MapFrom('analysis_key')] public ?string $analysisKey, public ?string $environment, public ?string $category, public ?string $state, #[\EventSauce\ObjectHydrator\MapFrom('commit_sha')] public ?string $commitSha, public ?\ApiClients\Client\GitHub\Schema\CodeScanningAlertInstance\Message $message, public ?\ApiClients\Client\GitHub\Schema\CodeScanningAlertLocation $location, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public ?array $classifications)
     {
     }
 }

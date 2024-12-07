@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Created
+final readonly class Created implements \ApiClients\Client\GitHub\Contract\Operations\Copilot\AddCopilotSeatsForTeams\Response\ApplicationJson\Created
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "seats_created"
     ],
@@ -20,14 +17,12 @@ final readonly class Created
     },
     "description": "The total number of seats created for members of the specified team(s)."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The total number of seats created for members of the specified team(s).';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The total number of seats created for members of the specified team(s).';
+    const SCHEMA_EXAMPLE_DATA = '{
     "seats_created": 13
 }';
-
-    public function __construct(#[MapFrom('seats_created')]
-    public int $seatsCreated,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('seats_created')] public int $seatsCreated)
     {
     }
 }

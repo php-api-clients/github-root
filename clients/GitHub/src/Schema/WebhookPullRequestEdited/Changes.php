@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "base": {
@@ -69,9 +66,9 @@ final readonly class Changes
     },
     "description": "The changes to the comment if the action was `edited`."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The changes to the comment if the action was `edited`.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The changes to the comment if the action was `edited`.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "base": {
         "ref": {
             "from": "generated"
@@ -87,8 +84,7 @@ final readonly class Changes
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookPullRequestEdited\Changes\Base|null $base, public Schema\WebhookPullRequestEdited\Changes\Body|null $body, public Schema\WebhookPullRequestEdited\Changes\Title|null $title)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Base $base, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Body $body, public ?\ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Title $title)
     {
     }
 }

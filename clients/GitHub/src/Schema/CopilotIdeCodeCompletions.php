@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CopilotIdeCodeCompletions
+final readonly class CopilotIdeCodeCompletions implements \ApiClients\Client\GitHub\Contract\CopilotIdeCodeCompletions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -120,9 +117,9 @@ final readonly class CopilotIdeCodeCompletions
     "description": "Usage metrics for Copilot editor code completions in the IDE.",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Usage metrics for Copilot editor code completions in the IDE.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Usage metrics for Copilot editor code completions in the IDE.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_engaged_users": 19,
     "languages": [
         {
@@ -245,13 +242,11 @@ final readonly class CopilotIdeCodeCompletions
         }
     ]
 }';
-
     /**
      * totalEngagedUsers: Number of users who accepted at least one Copilot code suggestion, across all active editors. Includes both full and partial acceptances.
      * languages: Code completion metrics for active languages.
      */
-    public function __construct(#[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, public array|null $languages, public array|null $editors,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, public ?array $languages, public ?array $editors)
     {
     }
 }

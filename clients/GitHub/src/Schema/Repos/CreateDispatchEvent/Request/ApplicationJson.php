@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateDispatchEvent\Request;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateDispatchEvent\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "event_type"
     ],
@@ -29,20 +25,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "event_type": "generated",
     "client_payload": []
 }';
-
     /**
      * eventType: A custom webhook event name. Must be 100 characters or fewer.
      * clientPayload: JSON payload with extra information about the webhook event that your action or workflow may use. The maximum number of top-level properties is 10. The total size of the JSON payload must be less than 64KB.
      */
-    public function __construct(#[MapFrom('event_type')]
-    public string $eventType, #[MapFrom('client_payload')]
-    public Schema\Repos\CreateDispatchEvent\Request\ApplicationJson\ClientPayload|null $clientPayload,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('event_type')] public string $eventType, #[\EventSauce\ObjectHydrator\MapFrom('client_payload')] public ?\ApiClients\Client\GitHub\Schema\Repos\CreateDispatchEvent\Request\ApplicationJson\ClientPayload $clientPayload)
     {
     }
 }

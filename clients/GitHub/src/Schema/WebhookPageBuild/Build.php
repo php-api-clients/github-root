@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPageBuild;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Build
+final readonly class Build implements \ApiClients\Client\GitHub\Contract\WebhookPageBuild\Build
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "url",
         "status",
@@ -160,9 +156,9 @@ final readonly class Build
     },
     "description": "The [List GitHub Pages builds](https:\\/\\/docs.github.com\\/rest\\/pages\\/pages#list-github-pages-builds) itself."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The [List GitHub Pages builds](https://docs.github.com/rest/pages/pages#list-github-pages-builds) itself.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The [List GitHub Pages builds](https://docs.github.com/rest/pages/pages#list-github-pages-builds) itself.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "commit": "generated",
     "created_at": "generated",
     "duration": 8,
@@ -189,7 +185,7 @@ final readonly class Build
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -197,10 +193,7 @@ final readonly class Build
     "updated_at": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public string|null $commit, #[MapFrom('created_at')]
-    public string $createdAt, public int $duration, public Schema\WebhookPageBuild\Build\Error $error, public Schema\WebhookPageBuild\Build\Pusher|null $pusher, public string $status, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url,)
+    public function __construct(public ?string $commit, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public int $duration, public \ApiClients\Client\GitHub\Schema\WebhookPageBuild\Build\Error $error, public ?\ApiClients\Client\GitHub\Schema\WebhookPageBuild\Build\Pusher $pusher, public string $status, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url)
     {
     }
 }

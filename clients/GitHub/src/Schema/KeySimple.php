@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class KeySimple
+final readonly class KeySimple implements \ApiClients\Client\GitHub\Contract\KeySimple
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Key Simple",
     "required": [
         "key",
@@ -23,13 +22,12 @@ final readonly class KeySimple
     },
     "description": "Key Simple"
 }';
-    public const SCHEMA_TITLE        = 'Key Simple';
-    public const SCHEMA_DESCRIPTION  = 'Key Simple';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Key Simple';
+    public const SCHEMA_DESCRIPTION = 'Key Simple';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "key": "generated"
 }';
-
     public function __construct(public int $id, public string $key)
     {
     }

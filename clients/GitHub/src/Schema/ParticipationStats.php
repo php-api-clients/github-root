@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ParticipationStats
+final readonly class ParticipationStats implements \ApiClients\Client\GitHub\Contract\ParticipationStats
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Participation Stats",
     "required": [
         "all",
@@ -28,9 +27,9 @@ final readonly class ParticipationStats
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Participation Stats';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Participation Stats';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "all": [
         4,
         5
@@ -40,7 +39,6 @@ final readonly class ParticipationStats
         7
     ]
 }';
-
     public function __construct(public array $all, public array $owner)
     {
     }

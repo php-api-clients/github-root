@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRubygemsMetadata;
 
-final readonly class VersionInfo
+final readonly class VersionInfo implements \ApiClients\Client\GitHub\Contract\WebhookRubygemsMetadata\VersionInfo
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "version": {
@@ -14,13 +13,12 @@ final readonly class VersionInfo
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "version": "generated"
 }';
-
-    public function __construct(public string|null $version)
+    public function __construct(public ?string $version)
     {
     }
 }

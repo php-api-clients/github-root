@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ReferencedWorkflow
+final readonly class ReferencedWorkflow implements \ApiClients\Client\GitHub\Contract\ReferencedWorkflow
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Referenced workflow",
     "required": [
         "path",
@@ -26,15 +25,14 @@ final readonly class ReferencedWorkflow
     },
     "description": "A workflow referenced\\/reused by the initial caller workflow"
 }';
-    public const SCHEMA_TITLE        = 'Referenced workflow';
-    public const SCHEMA_DESCRIPTION  = 'A workflow referenced/reused by the initial caller workflow';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Referenced workflow';
+    public const SCHEMA_DESCRIPTION = 'A workflow referenced/reused by the initial caller workflow';
+    const SCHEMA_EXAMPLE_DATA = '{
     "path": "generated",
     "sha": "generated",
     "ref": "generated"
 }';
-
-    public function __construct(public string $path, public string $sha, public string|null $ref)
+    public function __construct(public string $path, public string $sha, public ?string $ref)
     {
     }
 }

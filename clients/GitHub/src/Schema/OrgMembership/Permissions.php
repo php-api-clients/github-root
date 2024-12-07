@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\OrgMembership;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\OrgMembership\Permissions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "can_create_repository"
     ],
@@ -19,14 +16,12 @@ final readonly class Permissions
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "can_create_repository": false
 }';
-
-    public function __construct(#[MapFrom('can_create_repository')]
-    public bool $canCreateRepository,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('can_create_repository')] public bool $canCreateRepository)
     {
     }
 }

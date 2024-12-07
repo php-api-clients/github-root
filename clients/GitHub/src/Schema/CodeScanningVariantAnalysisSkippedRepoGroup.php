@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningVariantAnalysisSkippedRepoGroup
+final readonly class CodeScanningVariantAnalysisSkippedRepoGroup implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysisSkippedRepoGroup
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "repository_count",
         "repositories"
@@ -84,36 +81,34 @@ final readonly class CodeScanningVariantAnalysisSkippedRepoGroup
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "repository_count": 2,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "repository_count": 16,
     "repositories": [
         {
-            "id": 1296269,
-            "name": "Hello-World",
-            "full_name": "octocat\\/Hello-World",
+            "id": 2,
+            "name": "generated",
+            "full_name": "generated",
             "private": false,
-            "stargazers_count": 80,
-            "updated_at": "2011-01-26T19:14:43Z"
+            "stargazers_count": 16,
+            "updated_at": "1970-01-01T00:00:00+00:00"
         },
         {
-            "id": 1296269,
-            "name": "Hello-World",
-            "full_name": "octocat\\/Hello-World",
+            "id": 2,
+            "name": "generated",
+            "full_name": "generated",
             "private": false,
-            "stargazers_count": 80,
-            "updated_at": "2011-01-26T19:14:43Z"
+            "stargazers_count": 16,
+            "updated_at": "1970-01-01T00:00:00+00:00"
         }
     ]
 }';
-
     /**
      * repositoryCount: The total number of repositories that were skipped for this reason.
      * repositories: A list of repositories that were skipped. This list may not include all repositories that were skipped. This is only available when the repository was found and the user has access to it.
      */
-    public function __construct(#[MapFrom('repository_count')]
-    public int $repositoryCount, public array $repositories,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('repository_count')] public int $repositoryCount, public array $repositories)
     {
     }
 }

@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookTeamRemovedFromRepository;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Repository extends Schema\AliasAbstract\TietA99A6D6C\TietF3AA3BF8\Tiet793FB56D\TietEF92E31A
+final readonly class Repository extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TA99A6D6C\TF3AA3BF8\T793FB56D\TEF92E31A
 {
 }

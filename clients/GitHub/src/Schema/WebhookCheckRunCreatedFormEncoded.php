@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookCheckRunCreatedFormEncoded
+final readonly class WebhookCheckRunCreatedFormEncoded implements \ApiClients\Client\GitHub\Contract\WebhookCheckRunCreatedFormEncoded
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Check Run Created Event",
     "required": [
         "payload"
@@ -20,12 +19,11 @@ final readonly class WebhookCheckRunCreatedFormEncoded
     },
     "description": "The check_run.created webhook encoded with URL encoding"
 }';
-    public const SCHEMA_TITLE        = 'Check Run Created Event';
-    public const SCHEMA_DESCRIPTION  = 'The check_run.created webhook encoded with URL encoding';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Check Run Created Event';
+    public const SCHEMA_DESCRIPTION = 'The check_run.created webhook encoded with URL encoding';
+    const SCHEMA_EXAMPLE_DATA = '{
     "payload": "generated"
 }';
-
     /**
      * payload: A URL-encoded string of the check_run.created JSON payload. The decoded payload is a JSON object.
      */

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ActionsBillingUsage
+final readonly class ActionsBillingUsage implements \ApiClients\Client\GitHub\Contract\ActionsBillingUsage
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "total_minutes_used",
         "total_paid_minutes_used",
@@ -97,9 +93,9 @@ final readonly class ActionsBillingUsage
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_minutes_used": 18,
     "total_paid_minutes_used": 23,
     "included_minutes": 16,
@@ -121,17 +117,12 @@ final readonly class ActionsBillingUsage
         "total": 5
     }
 }';
-
     /**
      * totalMinutesUsed: The sum of the free and paid GitHub Actions minutes used.
      * totalPaidMinutesUsed: The total paid GitHub Actions minutes used.
      * includedMinutes: The amount of free GitHub Actions minutes available.
      */
-    public function __construct(#[MapFrom('total_minutes_used')]
-    public int $totalMinutesUsed, #[MapFrom('total_paid_minutes_used')]
-    public int $totalPaidMinutesUsed, #[MapFrom('included_minutes')]
-    public int $includedMinutes, #[MapFrom('minutes_used_breakdown')]
-    public Schema\ActionsBillingUsage\MinutesUsedBreakdown $minutesUsedBreakdown,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_minutes_used')] public int $totalMinutesUsed, #[\EventSauce\ObjectHydrator\MapFrom('total_paid_minutes_used')] public int $totalPaidMinutesUsed, #[\EventSauce\ObjectHydrator\MapFrom('included_minutes')] public int $includedMinutes, #[\EventSauce\ObjectHydrator\MapFrom('minutes_used_breakdown')] public \ApiClients\Client\GitHub\Schema\ActionsBillingUsage\MinutesUsedBreakdown $minutesUsedBreakdown)
     {
     }
 }

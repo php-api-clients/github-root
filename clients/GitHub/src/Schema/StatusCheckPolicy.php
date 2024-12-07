@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class StatusCheckPolicy
+final readonly class StatusCheckPolicy implements \ApiClients\Client\GitHub\Contract\StatusCheckPolicy
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Status Check Policy",
     "required": [
         "url",
@@ -75,30 +72,28 @@ final readonly class StatusCheckPolicy
     },
     "description": "Status Check Policy"
 }';
-    public const SCHEMA_TITLE        = 'Status Check Policy';
-    public const SCHEMA_DESCRIPTION  = 'Status Check Policy';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/required_status_checks",
-    "strict": true,
+    public const SCHEMA_TITLE = 'Status Check Policy';
+    public const SCHEMA_DESCRIPTION = 'Status Check Policy';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "url": "https:\\/\\/example.com\\/",
+    "strict": false,
     "contexts": [
-        "continuous-integration\\/travis-ci",
-        "continuous-integration\\/travis-ci"
+        "generated",
+        "generated"
     ],
     "checks": [
         {
-            "context": "continuous-integration\\/travis-ci",
+            "context": "generated",
             "app_id": 6
         },
         {
-            "context": "continuous-integration\\/travis-ci",
+            "context": "generated",
             "app_id": 6
         }
     ],
-    "contexts_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/required_status_checks\\/contexts"
+    "contexts_url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public string $url, public bool $strict, public array $contexts, public array $checks, #[MapFrom('contexts_url')]
-    public string $contextsUrl,)
+    public function __construct(public string $url, public bool $strict, public array $contexts, public array $checks, #[\EventSauce\ObjectHydrator\MapFrom('contexts_url')] public string $contextsUrl)
     {
     }
 }

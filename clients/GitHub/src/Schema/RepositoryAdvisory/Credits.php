@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryAdvisory;
 
-final readonly class Credits
+final readonly class Credits implements \ApiClients\Client\GitHub\Contract\RepositoryAdvisory\Credits
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "login": {
@@ -31,18 +30,17 @@ final readonly class Credits
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "login": "generated",
-    "type": "other"
+    "type": "analyst"
 }';
-
     /**
      * login: The username of the user credited.
      * type: The type of credit the user is receiving.
      */
-    public function __construct(public string|null $login, public string|null $type)
+    public function __construct(public ?string $login, public ?string $type)
     {
     }
 }

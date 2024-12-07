@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DependabotAlertSecurityAdvisory
+final readonly class DependabotAlertSecurityAdvisory implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "ghsa_id",
         "cve_id",
@@ -337,9 +333,9 @@ final readonly class DependabotAlertSecurityAdvisory
     "readOnly": true,
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Details for the GitHub Security Advisory.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Details for the GitHub Security Advisory.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ghsa_id": "generated",
     "cve_id": "generated",
     "summary": "generated",
@@ -350,7 +346,7 @@ final readonly class DependabotAlertSecurityAdvisory
                 "ecosystem": "generated",
                 "name": "generated"
             },
-            "severity": "critical",
+            "severity": "low",
             "vulnerable_version_range": "generated",
             "first_patched_version": {
                 "identifier": "generated"
@@ -361,26 +357,26 @@ final readonly class DependabotAlertSecurityAdvisory
                 "ecosystem": "generated",
                 "name": "generated"
             },
-            "severity": "critical",
+            "severity": "low",
             "vulnerable_version_range": "generated",
             "first_patched_version": {
                 "identifier": "generated"
             }
         }
     ],
-    "severity": "critical",
+    "severity": "low",
     "cvss": {
-        "score": 0.5,
+        "score": 5,
         "vector_string": "generated"
     },
     "cvss_severities": {
         "cvss_v3": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         },
         "cvss_v4": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         }
     },
     "cwes": [
@@ -395,11 +391,11 @@ final readonly class DependabotAlertSecurityAdvisory
     ],
     "identifiers": [
         {
-            "type": "GHSA",
+            "type": "CVE",
             "value": "generated"
         },
         {
-            "type": "GHSA",
+            "type": "CVE",
             "value": "generated"
         }
     ],
@@ -415,7 +411,6 @@ final readonly class DependabotAlertSecurityAdvisory
     "updated_at": "1970-01-01T00:00:00+00:00",
     "withdrawn_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * ghsaId: The unique GitHub Security Advisory ID assigned to the advisory.
      * cveId: The unique CVE ID assigned to the advisory.
@@ -431,13 +426,7 @@ final readonly class DependabotAlertSecurityAdvisory
      * updatedAt: The time that the advisory was last modified in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      * withdrawnAt: The time that the advisory was withdrawn in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`.
      */
-    public function __construct(#[MapFrom('ghsa_id')]
-    public string $ghsaId, #[MapFrom('cve_id')]
-    public string|null $cveId, public string $summary, public string $description, public array $vulnerabilities, public string $severity, public Schema\DependabotAlertSecurityAdvisory\Cvss $cvss, #[MapFrom('cvss_severities')]
-    public Schema\CvssSeverities|null $cvssSeverities, public array $cwes, public array $identifiers, public array $references, #[MapFrom('published_at')]
-    public string $publishedAt, #[MapFrom('updated_at')]
-    public string $updatedAt, #[MapFrom('withdrawn_at')]
-    public string|null $withdrawnAt,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('ghsa_id')] public string $ghsaId, #[\EventSauce\ObjectHydrator\MapFrom('cve_id')] public ?string $cveId, public string $summary, public string $description, public array $vulnerabilities, public string $severity, public \ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory\Cvss $cvss, #[\EventSauce\ObjectHydrator\MapFrom('cvss_severities')] public ?\ApiClients\Client\GitHub\Schema\CvssSeverities $cvssSeverities, public array $cwes, public array $identifiers, public array $references, #[\EventSauce\ObjectHydrator\MapFrom('published_at')] public string $publishedAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, #[\EventSauce\ObjectHydrator\MapFrom('withdrawn_at')] public ?string $withdrawnAt)
     {
     }
 }

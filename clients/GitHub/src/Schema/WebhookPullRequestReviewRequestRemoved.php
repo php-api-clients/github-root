@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhookPullRequestReviewRequestRemoved
+final readonly class WebhookPullRequestReviewRequestRemoved implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestReviewRequestRemoved
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "pull_request review_request_removed event",
     "oneOf": [
         {
@@ -10204,10 +10203,9 @@ final readonly class WebhookPullRequestReviewRequestRemoved
         }
     ]
 }';
-    public const SCHEMA_TITLE        = 'pull_request review_request_removed event';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'pull_request review_request_removed event';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\PullRequestReviewComment;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\PullRequestReviewComment\Links
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "self",
         "html",
@@ -64,22 +60,20 @@ final readonly class Links
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "self": {
-        "href": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/comments\\/1"
+        "href": "https:\\/\\/example.com\\/"
     },
     "html": {
-        "href": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/pull\\/1#discussion-diff-1"
+        "href": "https:\\/\\/example.com\\/"
     },
     "pull_request": {
-        "href": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/1"
+        "href": "https:\\/\\/example.com\\/"
     }
 }';
-
-    public function __construct(public Schema\PullRequestReviewComment\Links\Self_ $self, public Schema\PullRequestReviewComment\Links\Html $html, #[MapFrom('pull_request')]
-    public Schema\PullRequestReviewComment\Links\PullRequest $pullRequest,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\PullRequestReviewComment\Links\Self_ $self, public \ApiClients\Client\GitHub\Schema\PullRequestReviewComment\Links\Html $html, #[\EventSauce\ObjectHydrator\MapFrom('pull_request')] public \ApiClients\Client\GitHub\Schema\PullRequestReviewComment\Links\PullRequest $pullRequest)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Pulls\Merge\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\Merge\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -37,25 +34,21 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "commit_title": "generated",
     "commit_message": "generated",
     "sha": "generated",
-    "merge_method": "rebase"
+    "merge_method": "merge"
 }';
-
     /**
      * commitTitle: Title for the automatic commit message.
      * commitMessage: Extra detail to append to automatic commit message.
      * sha: SHA that pull request head must match to allow merge.
      * mergeMethod: The merge method to use.
      */
-    public function __construct(#[MapFrom('commit_title')]
-    public string|null $commitTitle, #[MapFrom('commit_message')]
-    public string|null $commitMessage, public string|null $sha, #[MapFrom('merge_method')]
-    public string|null $mergeMethod,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('commit_title')] public ?string $commitTitle, #[\EventSauce\ObjectHydrator\MapFrom('commit_message')] public ?string $commitMessage, public ?string $sha, #[\EventSauce\ObjectHydrator\MapFrom('merge_method')] public ?string $mergeMethod)
     {
     }
 }

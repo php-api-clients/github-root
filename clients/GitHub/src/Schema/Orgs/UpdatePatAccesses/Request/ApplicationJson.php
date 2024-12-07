@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\UpdatePatAccesses\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\UpdatePatAccesses\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "action",
         "pat_ids"
@@ -34,9 +31,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "action": "revoke",
     "pat_ids": [
         8,
@@ -141,13 +138,11 @@ final readonly class ApplicationJson
         107
     ]
 }';
-
     /**
      * action: Action to apply to the fine-grained personal access token.
      * patIds: The IDs of the fine-grained personal access tokens.
      */
-    public function __construct(public string $action, #[MapFrom('pat_ids')]
-    public array $patIds,)
+    public function __construct(public string $action, #[\EventSauce\ObjectHydrator\MapFrom('pat_ids')] public array $patIds)
     {
     }
 }

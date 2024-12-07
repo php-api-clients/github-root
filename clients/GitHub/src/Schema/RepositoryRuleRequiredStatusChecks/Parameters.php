@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredStatusChecks\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "required_status_checks",
         "strict_required_status_checks_policy"
@@ -47,9 +44,9 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "do_not_enforce_on_create": false,
     "required_status_checks": [
         {
@@ -63,16 +60,12 @@ final readonly class Parameters
     ],
     "strict_required_status_checks_policy": false
 }';
-
     /**
      * doNotEnforceOnCreate: Allow repositories and branches to be created if a check would otherwise prohibit it.
      * requiredStatusChecks: Status checks that are required.
      * strictRequiredStatusChecksPolicy: Whether pull requests targeting a matching branch must be tested with the latest code. This setting will not take effect unless at least one status check is enabled.
      */
-    public function __construct(#[MapFrom('do_not_enforce_on_create')]
-    public bool|null $doNotEnforceOnCreate, #[MapFrom('required_status_checks')]
-    public array $requiredStatusChecks, #[MapFrom('strict_required_status_checks_policy')]
-    public bool $strictRequiredStatusChecksPolicy,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('do_not_enforce_on_create')] public ?bool $doNotEnforceOnCreate, #[\EventSauce\ObjectHydrator\MapFrom('required_status_checks')] public array $requiredStatusChecks, #[\EventSauce\ObjectHydrator\MapFrom('strict_required_status_checks_policy')] public bool $strictRequiredStatusChecksPolicy)
     {
     }
 }

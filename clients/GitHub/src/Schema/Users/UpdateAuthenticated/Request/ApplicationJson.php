@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Users\UpdateAuthenticated\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Users\UpdateAuthenticated\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -66,19 +63,18 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Omar Jahandar",
-    "email": "omar@example.com",
-    "blog": "blog.example.com",
-    "twitter_username": "therealomarj",
-    "company": "Acme corporation",
-    "location": "Berlin, Germany",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
+    "email": "generated",
+    "blog": "generated",
+    "twitter_username": "generated",
+    "company": "generated",
+    "location": "generated",
     "hireable": false,
     "bio": "generated"
 }';
-
     /**
      * name: The new name of the user.
      * email: The publicly visible email address of the user.
@@ -89,8 +85,7 @@ final readonly class ApplicationJson
      * hireable: The new hiring availability of the user.
      * bio: The new short biography of the user.
      */
-    public function __construct(public string|null $name, public string|null $email, public string|null $blog, #[MapFrom('twitter_username')]
-    public string|null $twitterUsername, public string|null $company, public string|null $location, public bool|null $hireable, public string|null $bio,)
+    public function __construct(public ?string $name, public ?string $email, public ?string $blog, #[\EventSauce\ObjectHydrator\MapFrom('twitter_username')] public ?string $twitterUsername, public ?string $company, public ?string $location, public ?bool $hireable, public ?string $bio)
     {
     }
 }

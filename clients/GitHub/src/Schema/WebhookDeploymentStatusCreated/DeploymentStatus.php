@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DeploymentStatus
+final readonly class DeploymentStatus implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentStatusCreated\DeploymentStatus
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "url",
         "id",
@@ -654,9 +650,9 @@ final readonly class DeploymentStatus
     },
     "description": "The [deployment status](https:\\/\\/docs.github.com\\/rest\\/deployments\\/statuses#list-deployment-statuses)."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The [deployment status](https://docs.github.com/rest/deployments/statuses#list-deployment-statuses).';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The [deployment status](https://docs.github.com/rest/deployments/statuses#list-deployment-statuses).';
+    const SCHEMA_EXAMPLE_DATA = '{
     "created_at": "generated",
     "creator": {
         "avatar_url": "https:\\/\\/example.com\\/",
@@ -678,7 +674,7 @@ final readonly class DeploymentStatus
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -721,45 +717,45 @@ final readonly class DeploymentStatus
             "site_admin": false,
             "starred_url": "generated",
             "subscriptions_url": "https:\\/\\/example.com\\/",
-            "type": "Organization",
+            "type": "Bot",
             "url": "https:\\/\\/example.com\\/",
             "user_view_type": "generated"
         },
         "permissions": {
             "actions": "read",
-            "administration": "write",
-            "checks": "write",
-            "content_references": "write",
-            "contents": "write",
+            "administration": "read",
+            "checks": "read",
+            "content_references": "read",
+            "contents": "read",
             "deployments": "read",
             "discussions": "read",
-            "emails": "write",
-            "environments": "write",
-            "issues": "write",
-            "keys": "write",
+            "emails": "read",
+            "environments": "read",
+            "issues": "read",
+            "keys": "read",
             "members": "read",
-            "metadata": "write",
+            "metadata": "read",
             "organization_administration": "read",
-            "organization_hooks": "write",
+            "organization_hooks": "read",
             "organization_packages": "read",
             "organization_plan": "read",
             "organization_projects": "read",
-            "organization_secrets": "write",
-            "organization_self_hosted_runners": "write",
-            "organization_user_blocking": "write",
-            "packages": "write",
+            "organization_secrets": "read",
+            "organization_self_hosted_runners": "read",
+            "organization_user_blocking": "read",
+            "packages": "read",
             "pages": "read",
             "pull_requests": "read",
-            "repository_hooks": "write",
+            "repository_hooks": "read",
             "repository_projects": "read",
-            "secret_scanning_alerts": "write",
+            "secret_scanning_alerts": "read",
             "secrets": "read",
             "security_events": "read",
             "security_scanning_alert": "read",
             "single_file": "read",
-            "statuses": "write",
-            "team_discussions": "write",
-            "vulnerability_alerts": "write",
+            "statuses": "read",
+            "team_discussions": "read",
+            "vulnerability_alerts": "read",
             "workflows": "read"
         },
         "slug": "generated",
@@ -771,23 +767,13 @@ final readonly class DeploymentStatus
     "updated_at": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * description: The optional human-readable description added to the status.
      * performedViaGithubApp: GitHub apps are a new way to extend GitHub. They can be installed directly on organizations and user accounts and granted access to specific repositories. They come with granular permissions and built-in webhooks. GitHub apps are first class actors within GitHub.
      * state: The new state. Can be `pending`, `success`, `failure`, or `error`.
      * targetUrl: The optional link added to the status.
      */
-    public function __construct(#[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhookDeploymentStatusCreated\DeploymentStatus\Creator|null $creator, #[MapFrom('deployment_url')]
-    public string $deploymentUrl, public string $description, public string $environment, #[MapFrom('environment_url')]
-    public string|null $environmentUrl, public int $id, #[MapFrom('log_url')]
-    public string|null $logUrl, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('performed_via_github_app')]
-    public Schema\WebhookDeploymentStatusCreated\DeploymentStatus\PerformedViaGithubApp|null $performedViaGithubApp, #[MapFrom('repository_url')]
-    public string $repositoryUrl, public string $state, #[MapFrom('target_url')]
-    public string $targetUrl, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public ?\ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\DeploymentStatus\Creator $creator, #[\EventSauce\ObjectHydrator\MapFrom('deployment_url')] public string $deploymentUrl, public string $description, public string $environment, #[\EventSauce\ObjectHydrator\MapFrom('environment_url')] public ?string $environmentUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('log_url')] public ?string $logUrl, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('performed_via_github_app')] public ?\ApiClients\Client\GitHub\Schema\WebhookDeploymentStatusCreated\DeploymentStatus\PerformedViaGithubApp $performedViaGithubApp, #[\EventSauce\ObjectHydrator\MapFrom('repository_url')] public string $repositoryUrl, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('target_url')] public string $targetUrl, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url)
     {
     }
 }

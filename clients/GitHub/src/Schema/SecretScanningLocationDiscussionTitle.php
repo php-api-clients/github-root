@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationDiscussionTitle
+final readonly class SecretScanningLocationDiscussionTitle implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationDiscussionTitle
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "discussion_title_url"
     ],
@@ -25,17 +22,15 @@ final readonly class SecretScanningLocationDiscussionTitle
     },
     "description": "Represents a \'discussion_title\' secret scanning location type. This location type shows that a secret was detected in the title of a discussion."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents a \'discussion_title\' secret scanning location type. This location type shows that a secret was detected in the title of a discussion.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "discussion_title_url": "https:\\/\\/github.com\\/community\\/community\\/discussions\\/39082"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents a \'discussion_title\' secret scanning location type. This location type shows that a secret was detected in the title of a discussion.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "discussion_title_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * discussionTitleUrl: The URL to the discussion where the secret was detected.
      */
-    public function __construct(#[MapFrom('discussion_title_url')]
-    public string $discussionTitleUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('discussion_title_url')] public string $discussionTitleUrl)
     {
     }
 }

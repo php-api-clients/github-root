@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Fifteen
+final readonly class Fifteen implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Fifteen
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "file_path_restriction",
     "required": [
         "type"
@@ -39,9 +36,9 @@ final readonly class Fifteen
     },
     "description": "Prevent commits that include changes in specified file paths from being pushed to the commit graph."
 }';
-    public const SCHEMA_TITLE        = 'file_path_restriction';
-    public const SCHEMA_DESCRIPTION  = 'Prevent commits that include changes in specified file paths from being pushed to the commit graph.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'file_path_restriction';
+    public const SCHEMA_DESCRIPTION = 'Prevent commits that include changes in specified file paths from being pushed to the commit graph.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "file_path_restriction",
     "parameters": {
         "restricted_file_paths": [
@@ -50,8 +47,7 @@ final readonly class Fifteen
         ]
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleset\Rules\Fifteen\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen\Parameters $parameters)
     {
     }
 }

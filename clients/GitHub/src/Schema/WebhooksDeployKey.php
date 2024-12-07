@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksDeployKey
+final readonly class WebhooksDeployKey implements \ApiClients\Client\GitHub\Contract\WebhooksDeployKey
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "key",
@@ -60,9 +57,9 @@ final readonly class WebhooksDeployKey
     },
     "description": "The [`deploy key`](https:\\/\\/docs.github.com\\/rest\\/deploy-keys\\/deploy-keys#get-a-deploy-key) resource."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The [`deploy key`](https://docs.github.com/rest/deploy-keys/deploy-keys#get-a-deploy-key) resource.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The [`deploy key`](https://docs.github.com/rest/deploy-keys/deploy-keys#get-a-deploy-key) resource.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "added_by": "generated",
     "created_at": "generated",
     "id": 2,
@@ -74,12 +71,7 @@ final readonly class WebhooksDeployKey
     "verified": false,
     "enabled": false
 }';
-
-    public function __construct(#[MapFrom('added_by')]
-    public string|null $addedBy, #[MapFrom('created_at')]
-    public string $createdAt, public int $id, public string $key, #[MapFrom('last_used')]
-    public string|null $lastUsed, #[MapFrom('read_only')]
-    public bool $readOnly, public string $title, public string $url, public bool $verified, public bool|null $enabled,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('added_by')] public ?string $addedBy, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public int $id, public string $key, #[\EventSauce\ObjectHydrator\MapFrom('last_used')] public ?string $lastUsed, #[\EventSauce\ObjectHydrator\MapFrom('read_only')] public bool $readOnly, public string $title, public string $url, public bool $verified, public ?bool $enabled)
     {
     }
 }

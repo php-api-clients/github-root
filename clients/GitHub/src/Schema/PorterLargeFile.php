@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PorterLargeFile
+final readonly class PorterLargeFile implements \ApiClients\Client\GitHub\Contract\PorterLargeFile
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Porter Large File",
     "required": [
         "oid",
@@ -33,17 +30,15 @@ final readonly class PorterLargeFile
     },
     "description": "Porter Large File"
 }';
-    public const SCHEMA_TITLE        = 'Porter Large File';
-    public const SCHEMA_DESCRIPTION  = 'Porter Large File';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Porter Large File';
+    public const SCHEMA_DESCRIPTION = 'Porter Large File';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ref_name": "generated",
     "path": "generated",
     "oid": "generated",
     "size": 4
 }';
-
-    public function __construct(#[MapFrom('ref_name')]
-    public string $refName, public string $path, public string $oid, public int $size,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('ref_name')] public string $refName, public string $path, public string $oid, public int $size)
     {
     }
 }

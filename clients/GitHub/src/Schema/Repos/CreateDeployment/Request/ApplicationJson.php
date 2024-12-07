@@ -1,16 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateDeployment\Request;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload;
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateDeployment\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "ref"
     ],
@@ -74,9 +69,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ref": "generated",
     "task": "generated",
     "auto_merge": false,
@@ -84,13 +79,12 @@ final readonly class ApplicationJson
         "generated",
         "generated"
     ],
-    "payload": null,
+    "payload": "generated",
     "environment": "generated",
     "description": "generated",
     "transient_environment": false,
     "production_environment": false
 }';
-
     /**
      * ref: The ref to deploy. This can be a branch, tag, or SHA.
      * task: Specifies a task to execute (e.g., `deploy` or `deploy:migrations`).
@@ -101,12 +95,7 @@ final readonly class ApplicationJson
      * transientEnvironment: Specifies if the given environment is specific to the deployment and will no longer exist at some point in the future. Default: `false`
      * productionEnvironment: Specifies if the given environment is one that end-users directly interact with. Default: `true` when `environment` is `production` and `false` otherwise.
      */
-    public function __construct(public string $ref, public string|null $task, #[MapFrom('auto_merge')]
-    public bool|null $autoMerge, #[MapFrom('required_contexts')]
-    public array|null $requiredContexts, #[Payload]
-    public Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload\Zero|string|null $payload, public string|null $environment, public string|null $description, #[MapFrom('transient_environment')]
-    public bool|null $transientEnvironment, #[MapFrom('production_environment')]
-    public bool|null $productionEnvironment,)
+    public function __construct(public string $ref, public ?string $task, #[\EventSauce\ObjectHydrator\MapFrom('auto_merge')] public ?bool $autoMerge, #[\EventSauce\ObjectHydrator\MapFrom('required_contexts')] public ?array $requiredContexts, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload] public null|\ApiClients\Client\GitHub\Schema\Repos\CreateDeployment\Request\ApplicationJson\Payload\Zero|string $payload, public ?string $environment, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('transient_environment')] public ?bool $transientEnvironment, #[\EventSauce\ObjectHydrator\MapFrom('production_environment')] public ?bool $productionEnvironment)
     {
     }
 }

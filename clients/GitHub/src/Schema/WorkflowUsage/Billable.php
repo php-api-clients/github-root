@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WorkflowUsage;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Billable
+final readonly class Billable implements \ApiClients\Client\GitHub\Contract\WorkflowUsage\Billable
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "UBUNTU": {
@@ -38,9 +34,9 @@ final readonly class Billable
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "UBUNTU": {
         "total_ms": 8
     },
@@ -51,11 +47,7 @@ final readonly class Billable
         "total_ms": 8
     }
 }';
-
-    public function __construct(#[MapFrom('UBUNTU')]
-    public Schema\WorkflowUsage\Billable\Ubuntu|null $ubuntu, #[MapFrom('MACOS')]
-    public Schema\WorkflowUsage\Billable\Macos|null $macos, #[MapFrom('WINDOWS')]
-    public Schema\WorkflowUsage\Billable\Windows|null $windows,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('UBUNTU')] public ?\ApiClients\Client\GitHub\Schema\WorkflowUsage\Billable\Ubuntu $ubuntu, #[\EventSauce\ObjectHydrator\MapFrom('MACOS')] public ?\ApiClients\Client\GitHub\Schema\WorkflowUsage\Billable\Macos $macos, #[\EventSauce\ObjectHydrator\MapFrom('WINDOWS')] public ?\ApiClients\Client\GitHub\Schema\WorkflowUsage\Billable\Windows $windows)
     {
     }
 }

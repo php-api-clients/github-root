@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\ProtectedBranch;
 
-final readonly class RequiredConversationResolution
+final readonly class RequiredConversationResolution implements \ApiClients\Client\GitHub\Contract\ProtectedBranch\RequiredConversationResolution
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "enabled": {
@@ -15,13 +14,12 @@ final readonly class RequiredConversationResolution
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "enabled": false
 }';
-
-    public function __construct(public bool|null $enabled)
+    public function __construct(public ?bool $enabled)
     {
     }
 }

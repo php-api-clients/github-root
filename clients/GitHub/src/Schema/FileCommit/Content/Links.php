@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\FileCommit\Content;
 
-final readonly class Links
+final readonly class Links implements \ApiClients\Client\GitHub\Contract\FileCommit\Content\Links
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "self": {
@@ -20,15 +19,14 @@ final readonly class Links
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "self": "generated",
     "git": "generated",
     "html": "generated"
 }';
-
-    public function __construct(public string|null $self, public string|null $git, public string|null $html)
+    public function __construct(public ?string $self, public ?string $git, public ?string $html)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Base
+final readonly class Base implements \ApiClients\Client\GitHub\Contract\WebhookPullRequestEdited\Changes\Base
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "ref",
         "sha"
@@ -39,9 +36,9 @@ final readonly class Base
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ref": {
         "from": "generated"
     },
@@ -49,8 +46,7 @@ final readonly class Base
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookPullRequestEdited\Changes\Base\Ref $ref, public Schema\WebhookPullRequestEdited\Changes\Base\Sha $sha)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Base\Ref $ref, public \ApiClients\Client\GitHub\Schema\WebhookPullRequestEdited\Changes\Base\Sha $sha)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\GlobalAdvisory;
 
-final readonly class Epss
+final readonly class Epss implements \ApiClients\Client\GitHub\Contract\GlobalAdvisory\Epss
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -20,14 +19,13 @@ final readonly class Epss
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "percentage": 1,
-    "percentile": 1
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "percentage": 10,
+    "percentile": 10
 }';
-
-    public function __construct(public int|float|null $percentage, public int|float|null $percentile)
+    public function __construct(public null|int|float $percentage, public null|int|float $percentile)
     {
     }
 }

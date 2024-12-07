@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Root
+final readonly class Root implements \ApiClients\Client\GitHub\Contract\Root
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "current_user_url",
         "current_user_authorizations_html_url",
@@ -179,9 +176,9 @@ final readonly class Root
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "current_user_url": "generated",
     "current_user_authorizations_html_url": "generated",
     "authorizations_url": "generated",
@@ -216,41 +213,7 @@ final readonly class Root
     "user_repositories_url": "generated",
     "user_search_url": "generated"
 }';
-
-    public function __construct(#[MapFrom('current_user_url')]
-    public string $currentUserUrl, #[MapFrom('current_user_authorizations_html_url')]
-    public string $currentUserAuthorizationsHtmlUrl, #[MapFrom('authorizations_url')]
-    public string $authorizationsUrl, #[MapFrom('code_search_url')]
-    public string $codeSearchUrl, #[MapFrom('commit_search_url')]
-    public string $commitSearchUrl, #[MapFrom('emails_url')]
-    public string $emailsUrl, #[MapFrom('emojis_url')]
-    public string $emojisUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('feeds_url')]
-    public string $feedsUrl, #[MapFrom('followers_url')]
-    public string $followersUrl, #[MapFrom('following_url')]
-    public string $followingUrl, #[MapFrom('gists_url')]
-    public string $gistsUrl, #[MapFrom('hub_url')]
-    public string|null $hubUrl, #[MapFrom('issue_search_url')]
-    public string $issueSearchUrl, #[MapFrom('issues_url')]
-    public string $issuesUrl, #[MapFrom('keys_url')]
-    public string $keysUrl, #[MapFrom('label_search_url')]
-    public string $labelSearchUrl, #[MapFrom('notifications_url')]
-    public string $notificationsUrl, #[MapFrom('organization_url')]
-    public string $organizationUrl, #[MapFrom('organization_repositories_url')]
-    public string $organizationRepositoriesUrl, #[MapFrom('organization_teams_url')]
-    public string $organizationTeamsUrl, #[MapFrom('public_gists_url')]
-    public string $publicGistsUrl, #[MapFrom('rate_limit_url')]
-    public string $rateLimitUrl, #[MapFrom('repository_url')]
-    public string $repositoryUrl, #[MapFrom('repository_search_url')]
-    public string $repositorySearchUrl, #[MapFrom('current_user_repositories_url')]
-    public string $currentUserRepositoriesUrl, #[MapFrom('starred_url')]
-    public string $starredUrl, #[MapFrom('starred_gists_url')]
-    public string $starredGistsUrl, #[MapFrom('topic_search_url')]
-    public string|null $topicSearchUrl, #[MapFrom('user_url')]
-    public string $userUrl, #[MapFrom('user_organizations_url')]
-    public string $userOrganizationsUrl, #[MapFrom('user_repositories_url')]
-    public string $userRepositoriesUrl, #[MapFrom('user_search_url')]
-    public string $userSearchUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('current_user_url')] public string $currentUserUrl, #[\EventSauce\ObjectHydrator\MapFrom('current_user_authorizations_html_url')] public string $currentUserAuthorizationsHtmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('authorizations_url')] public string $authorizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('code_search_url')] public string $codeSearchUrl, #[\EventSauce\ObjectHydrator\MapFrom('commit_search_url')] public string $commitSearchUrl, #[\EventSauce\ObjectHydrator\MapFrom('emails_url')] public string $emailsUrl, #[\EventSauce\ObjectHydrator\MapFrom('emojis_url')] public string $emojisUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('feeds_url')] public string $feedsUrl, #[\EventSauce\ObjectHydrator\MapFrom('followers_url')] public string $followersUrl, #[\EventSauce\ObjectHydrator\MapFrom('following_url')] public string $followingUrl, #[\EventSauce\ObjectHydrator\MapFrom('gists_url')] public string $gistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('hub_url')] public ?string $hubUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_search_url')] public string $issueSearchUrl, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public string $issuesUrl, #[\EventSauce\ObjectHydrator\MapFrom('keys_url')] public string $keysUrl, #[\EventSauce\ObjectHydrator\MapFrom('label_search_url')] public string $labelSearchUrl, #[\EventSauce\ObjectHydrator\MapFrom('notifications_url')] public string $notificationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('organization_url')] public string $organizationUrl, #[\EventSauce\ObjectHydrator\MapFrom('organization_repositories_url')] public string $organizationRepositoriesUrl, #[\EventSauce\ObjectHydrator\MapFrom('organization_teams_url')] public string $organizationTeamsUrl, #[\EventSauce\ObjectHydrator\MapFrom('public_gists_url')] public string $publicGistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('rate_limit_url')] public string $rateLimitUrl, #[\EventSauce\ObjectHydrator\MapFrom('repository_url')] public string $repositoryUrl, #[\EventSauce\ObjectHydrator\MapFrom('repository_search_url')] public string $repositorySearchUrl, #[\EventSauce\ObjectHydrator\MapFrom('current_user_repositories_url')] public string $currentUserRepositoriesUrl, #[\EventSauce\ObjectHydrator\MapFrom('starred_url')] public string $starredUrl, #[\EventSauce\ObjectHydrator\MapFrom('starred_gists_url')] public string $starredGistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('topic_search_url')] public ?string $topicSearchUrl, #[\EventSauce\ObjectHydrator\MapFrom('user_url')] public string $userUrl, #[\EventSauce\ObjectHydrator\MapFrom('user_organizations_url')] public string $userOrganizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('user_repositories_url')] public string $userRepositoriesUrl, #[\EventSauce\ObjectHydrator\MapFrom('user_search_url')] public string $userSearchUrl)
     {
     }
 }

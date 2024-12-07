@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodespaceExportDetails
+final readonly class CodespaceExportDetails implements \ApiClients\Client\GitHub\Contract\CodespaceExportDetails
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Fetches information about an export of a codespace.",
     "type": "object",
     "properties": {
@@ -80,18 +77,17 @@ final readonly class CodespaceExportDetails
     },
     "description": "An export of a codespace. Also, latest export details for a codespace can be fetched with id = latest"
 }';
-    public const SCHEMA_TITLE        = 'Fetches information about an export of a codespace.';
-    public const SCHEMA_DESCRIPTION  = 'An export of a codespace. Also, latest export details for a codespace can be fetched with id = latest';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "state": "succeeded | failed | in_progress",
-    "completed_at": "2021-01-01T19:01:12Z",
-    "branch": "codespace-monalisa-octocat-hello-world-g4wpq6h95q",
-    "sha": "fd95a81ca01e48ede9f39c799ecbcef817b8a3b2",
-    "id": "latest",
-    "export_url": "https:\\/\\/api.github.com\\/user\\/codespaces\\/:name\\/exports\\/latest",
-    "html_url": "https:\\/\\/github.com\\/octocat\\/hello-world\\/tree\\/:branch"
+    public const SCHEMA_TITLE = 'Fetches information about an export of a codespace.';
+    public const SCHEMA_DESCRIPTION = 'An export of a codespace. Also, latest export details for a codespace can be fetched with id = latest';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "state": "generated",
+    "completed_at": "1970-01-01T00:00:00+00:00",
+    "branch": "generated",
+    "sha": "generated",
+    "id": "generated",
+    "export_url": "generated",
+    "html_url": "generated"
 }';
-
     /**
      * state: State of the latest export
      * completedAt: Completion time of the last export operation
@@ -101,10 +97,7 @@ final readonly class CodespaceExportDetails
      * exportUrl: Url for fetching export details
      * htmlUrl: Web url for the exported branch
      */
-    public function __construct(public string|null $state, #[MapFrom('completed_at')]
-    public string|null $completedAt, public string|null $branch, public string|null $sha, public string|null $id, #[MapFrom('export_url')]
-    public string|null $exportUrl, #[MapFrom('html_url')]
-    public string|null $htmlUrl,)
+    public function __construct(public ?string $state, #[\EventSauce\ObjectHydrator\MapFrom('completed_at')] public ?string $completedAt, public ?string $branch, public ?string $sha, public ?string $id, #[\EventSauce\ObjectHydrator\MapFrom('export_url')] public ?string $exportUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl)
     {
     }
 }

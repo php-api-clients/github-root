@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DeployKey
+final readonly class DeployKey implements \ApiClients\Client\GitHub\Contract\DeployKey
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Deploy Key",
     "required": [
         "id",
@@ -60,9 +57,9 @@ final readonly class DeployKey
     },
     "description": "An SSH key granting access to a single repository."
 }';
-    public const SCHEMA_TITLE        = 'Deploy Key';
-    public const SCHEMA_DESCRIPTION  = 'An SSH key granting access to a single repository.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Deploy Key';
+    public const SCHEMA_DESCRIPTION = 'An SSH key granting access to a single repository.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "key": "generated",
     "url": "generated",
@@ -74,12 +71,7 @@ final readonly class DeployKey
     "last_used": "generated",
     "enabled": false
 }';
-
-    public function __construct(public int $id, public string $key, public string $url, public string $title, public bool $verified, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('read_only')]
-    public bool $readOnly, #[MapFrom('added_by')]
-    public string|null $addedBy, #[MapFrom('last_used')]
-    public string|null $lastUsed, public bool|null $enabled,)
+    public function __construct(public int $id, public string $key, public string $url, public string $title, public bool $verified, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('read_only')] public bool $readOnly, #[\EventSauce\ObjectHydrator\MapFrom('added_by')] public ?string $addedBy, #[\EventSauce\ObjectHydrator\MapFrom('last_used')] public ?string $lastUsed, public ?bool $enabled)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\ReviewDismissedIssueEvent;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DismissedReview
+final readonly class DismissedReview implements \ApiClients\Client\GitHub\Contract\ReviewDismissedIssueEvent\DismissedReview
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "state",
         "review_id",
@@ -33,19 +30,15 @@ final readonly class DismissedReview
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "state": "generated",
     "review_id": 9,
     "dismissal_message": "generated",
     "dismissal_commit_id": "generated"
 }';
-
-    public function __construct(public string $state, #[MapFrom('review_id')]
-    public int $reviewId, #[MapFrom('dismissal_message')]
-    public string|null $dismissalMessage, #[MapFrom('dismissal_commit_id')]
-    public string|null $dismissalCommitId,)
+    public function __construct(public string $state, #[\EventSauce\ObjectHydrator\MapFrom('review_id')] public int $reviewId, #[\EventSauce\ObjectHydrator\MapFrom('dismissal_message')] public ?string $dismissalMessage, #[\EventSauce\ObjectHydrator\MapFrom('dismissal_commit_id')] public ?string $dismissalCommitId)
     {
     }
 }

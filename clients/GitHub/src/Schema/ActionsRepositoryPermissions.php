@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ActionsRepositoryPermissions
+final readonly class ActionsRepositoryPermissions implements \ApiClients\Client\GitHub\Contract\ActionsRepositoryPermissions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "enabled"
     ],
@@ -33,22 +30,19 @@ final readonly class ActionsRepositoryPermissions
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "enabled": false,
     "allowed_actions": "all",
     "selected_actions_url": "generated"
 }';
-
     /**
      * enabled: Whether GitHub Actions is enabled on the repository.
      * allowedActions: The permissions policy that controls the actions and reusable workflows that are allowed to run.
      * selectedActionsUrl: The API URL to use to get or set the actions and reusable workflows that are allowed to run, when `allowed_actions` is set to `selected`.
      */
-    public function __construct(public bool $enabled, #[MapFrom('allowed_actions')]
-    public string|null $allowedActions, #[MapFrom('selected_actions_url')]
-    public string|null $selectedActionsUrl,)
+    public function __construct(public bool $enabled, #[\EventSauce\ObjectHydrator\MapFrom('allowed_actions')] public ?string $allowedActions, #[\EventSauce\ObjectHydrator\MapFrom('selected_actions_url')] public ?string $selectedActionsUrl)
     {
     }
 }

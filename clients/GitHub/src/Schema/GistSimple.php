@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class GistSimple
+final readonly class GistSimple implements \ApiClients\Client\GitHub\Contract\GistSimple
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Gist Simple",
     "type": "object",
     "properties": {
@@ -1221,11 +1217,9 @@ final readonly class GistSimple
     },
     "description": "Gist Simple"
 }';
-    public const SCHEMA_TITLE        = 'Gist Simple';
-    public const SCHEMA_DESCRIPTION  = 'Gist Simple';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "forks": null,
-    "history": null,
+    public const SCHEMA_TITLE = 'Gist Simple';
+    public const SCHEMA_DESCRIPTION = 'Gist Simple';
+    const SCHEMA_EXAMPLE_DATA = '{
     "fork_of": {
         "url": "https:\\/\\/example.com\\/",
         "forks_url": "https:\\/\\/example.com\\/",
@@ -1244,51 +1238,51 @@ final readonly class GistSimple
         "user": {
             "name": "generated",
             "email": "generated",
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-            "html_url": "https:\\/\\/github.com\\/octocat",
-            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-            "type": "User",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
             "site_admin": false,
-            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-            "user_view_type": "public"
+            "starred_at": "generated",
+            "user_view_type": "generated"
         },
         "comments_url": "https:\\/\\/example.com\\/",
         "owner": {
             "name": "generated",
             "email": "generated",
-            "login": "octocat",
-            "id": 1,
-            "node_id": "MDQ6VXNlcjE=",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-            "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-            "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-            "html_url": "https:\\/\\/github.com\\/octocat",
-            "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-            "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-            "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-            "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-            "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-            "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-            "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-            "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-            "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-            "type": "User",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
             "site_admin": false,
-            "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-            "user_view_type": "public"
+            "starred_at": "generated",
+            "user_view_type": "generated"
         },
         "truncated": false,
         "forks": [
@@ -1319,45 +1313,34 @@ final readonly class GistSimple
     "owner": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "truncated": false
 }';
-
     /**
      * forkOf: Gist
      * owner: A GitHub user.
      */
-    public function __construct(public array|null $forks, public array|null $history, #[MapFrom('fork_of')]
-    public Schema\GistSimple\ForkOf|null $forkOf, public string|null $url, #[MapFrom('forks_url')]
-    public string|null $forksUrl, #[MapFrom('commits_url')]
-    public string|null $commitsUrl, public string|null $id, #[MapFrom('node_id')]
-    public string|null $nodeId, #[MapFrom('git_pull_url')]
-    public string|null $gitPullUrl, #[MapFrom('git_push_url')]
-    public string|null $gitPushUrl, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public Schema\GistSimple\Files|null $files, public bool|null $public, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string|null $description, public int|null $comments, public string|null $user, #[MapFrom('comments_url')]
-    public string|null $commentsUrl, public Schema\SimpleUser|null $owner, public bool|null $truncated,)
+    public function __construct(public ?array $forks, public ?array $history, #[\EventSauce\ObjectHydrator\MapFrom('fork_of')] public ?\ApiClients\Client\GitHub\Schema\GistSimple\ForkOf $forkOf, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('forks_url')] public ?string $forksUrl, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public ?string $commitsUrl, public ?string $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('git_pull_url')] public ?string $gitPullUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_push_url')] public ?string $gitPushUrl, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public ?\ApiClients\Client\GitHub\Schema\GistSimple\Files $files, public ?bool $public, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?string $description, public ?int $comments, public ?string $user, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public ?string $commentsUrl, public ?\ApiClients\Client\GitHub\Schema\SimpleUser $owner, public ?bool $truncated)
     {
     }
 }

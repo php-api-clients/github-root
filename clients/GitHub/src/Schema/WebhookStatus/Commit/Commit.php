@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookStatus\Commit;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Commit
+final readonly class Commit implements \ApiClients\Client\GitHub\Contract\WebhookStatus\Commit\Commit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "author",
         "committer",
@@ -201,19 +197,19 @@ final readonly class Commit
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "author": {
-        "date": "1970-01-01T00:00:00+00:00",
-        "email": "hi@example.com",
+        "date": "generated",
+        "email": "generated",
         "name": "generated",
         "username": "generated"
     },
     "comment_count": 13,
     "committer": {
-        "date": "1970-01-01T00:00:00+00:00",
-        "email": "hi@example.com",
+        "date": "generated",
+        "email": "generated",
         "name": "generated",
         "username": "generated"
     },
@@ -225,15 +221,13 @@ final readonly class Commit
     "url": "https:\\/\\/example.com\\/",
     "verification": {
         "payload": "generated",
-        "reason": "ocsp_pending",
+        "reason": "expired_key",
         "signature": "generated",
         "verified": false,
         "verified_at": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookStatus\Commit\Commit\Author $author, #[MapFrom('comment_count')]
-    public int $commentCount, public Schema\WebhookStatus\Commit\Commit\Committer $committer, public string $message, public Schema\WebhookStatus\Commit\Commit\Tree $tree, public string $url, public Schema\WebhookStatus\Commit\Commit\Verification $verification,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Author $author, #[\EventSauce\ObjectHydrator\MapFrom('comment_count')] public int $commentCount, public \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Committer $committer, public string $message, public \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Tree $tree, public string $url, public \ApiClients\Client\GitHub\Schema\WebhookStatus\Commit\Commit\Verification $verification)
     {
     }
 }

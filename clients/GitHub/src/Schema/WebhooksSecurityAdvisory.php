@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksSecurityAdvisory
+final readonly class WebhooksSecurityAdvisory implements \ApiClients\Client\GitHub\Contract\WebhooksSecurityAdvisory
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "cvss",
         "cwes",
@@ -237,21 +233,21 @@ final readonly class WebhooksSecurityAdvisory
     },
     "description": "The details of the security advisory, including summary, description, and severity."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The details of the security advisory, including summary, description, and severity.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The details of the security advisory, including summary, description, and severity.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "cvss": {
-        "score": 0.5,
+        "score": 5,
         "vector_string": "generated"
     },
     "cvss_severities": {
         "cvss_v3": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         },
         "cvss_v4": {
             "vector_string": "generated",
-            "score": 0.5
+            "score": 5
         }
     },
     "cwes": [
@@ -314,13 +310,7 @@ final readonly class WebhooksSecurityAdvisory
     ],
     "withdrawn_at": "generated"
 }';
-
-    public function __construct(public Schema\WebhooksSecurityAdvisory\Cvss $cvss, #[MapFrom('cvss_severities')]
-    public Schema\CvssSeverities|null $cvssSeverities, public array $cwes, public string $description, #[MapFrom('ghsa_id')]
-    public string $ghsaId, public array $identifiers, #[MapFrom('published_at')]
-    public string $publishedAt, public array $references, public string $severity, public string $summary, #[MapFrom('updated_at')]
-    public string $updatedAt, public array $vulnerabilities, #[MapFrom('withdrawn_at')]
-    public string|null $withdrawnAt,)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhooksSecurityAdvisory\Cvss $cvss, #[\EventSauce\ObjectHydrator\MapFrom('cvss_severities')] public ?\ApiClients\Client\GitHub\Schema\CvssSeverities $cvssSeverities, public array $cwes, public string $description, #[\EventSauce\ObjectHydrator\MapFrom('ghsa_id')] public string $ghsaId, public array $identifiers, #[\EventSauce\ObjectHydrator\MapFrom('published_at')] public string $publishedAt, public array $references, public string $severity, public string $summary, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public array $vulnerabilities, #[\EventSauce\ObjectHydrator\MapFrom('withdrawn_at')] public ?string $withdrawnAt)
     {
     }
 }

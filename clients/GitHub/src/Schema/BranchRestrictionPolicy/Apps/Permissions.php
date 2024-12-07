@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\BranchRestrictionPolicy\Apps;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\BranchRestrictionPolicy\Apps\Permissions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "metadata": {
@@ -25,17 +22,15 @@ final readonly class Permissions
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "metadata": "generated",
     "contents": "generated",
     "issues": "generated",
     "single_file": "generated"
 }';
-
-    public function __construct(public string|null $metadata, public string|null $contents, public string|null $issues, #[MapFrom('single_file')]
-    public string|null $singleFile,)
+    public function __construct(public ?string $metadata, public ?string $contents, public ?string $issues, #[\EventSauce\ObjectHydrator\MapFrom('single_file')] public ?string $singleFile)
     {
     }
 }

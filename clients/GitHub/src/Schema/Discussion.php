@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Discussion
+final readonly class Discussion implements \ApiClients\Client\GitHub\Contract\Discussion
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Discussion",
     "required": [
         "repository_url",
@@ -504,9 +500,9 @@ final readonly class Discussion
     },
     "description": "A Discussion in a repository."
 }';
-    public const SCHEMA_TITLE        = 'Discussion';
-    public const SCHEMA_DESCRIPTION  = 'A Discussion in a repository.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Discussion';
+    public const SCHEMA_DESCRIPTION = 'A Discussion in a repository.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "active_lock_reason": "generated",
     "answer_chosen_at": "generated",
     "answer_chosen_by": {
@@ -529,12 +525,12 @@ final readonly class Discussion
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
     "answer_html_url": "generated",
-    "author_association": "OWNER",
+    "author_association": "COLLABORATOR",
     "body": "generated",
     "category": {
         "created_at": "1970-01-01T00:00:00+00:00",
@@ -593,52 +589,39 @@ final readonly class Discussion
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
     "labels": [
         {
-            "id": 208045946,
-            "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
-            "url": "https:\\/\\/api.github.com\\/repositories\\/42\\/labels\\/bug",
-            "name": "bug",
-            "description": "Something isn\'t working",
-            "color": "FFFFFF",
-            "default": true
+            "id": 2,
+            "node_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "name": "generated",
+            "description": "generated",
+            "color": "generated",
+            "default": false
         },
         {
-            "id": 208045946,
-            "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
-            "url": "https:\\/\\/api.github.com\\/repositories\\/42\\/labels\\/bug",
-            "name": "bug",
-            "description": "Something isn\'t working",
-            "color": "FFFFFF",
-            "default": true
+            "id": 2,
+            "node_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "name": "generated",
+            "description": "generated",
+            "color": "generated",
+            "default": false
         }
     ]
 }';
-
     /**
-     * authorAssociation: How the author is associated with the repository.
-     * state: The current state of the discussion.
+    * authorAssociation: How the author is associated with the repository.
+    * state: The current state of the discussion.
     `converting` means that the discussion is being converted from an issue.
     `transferring` means that the discussion is being transferred from another repository.
-     * stateReason: The reason for the current state
-     */
-    public function __construct(#[MapFrom('active_lock_reason')]
-    public string|null $activeLockReason, #[MapFrom('answer_chosen_at')]
-    public string|null $answerChosenAt, #[MapFrom('answer_chosen_by')]
-    public Schema\Discussion\AnswerChosenBy|null $answerChosenBy, #[MapFrom('answer_html_url')]
-    public string|null $answerHtmlUrl, #[MapFrom('author_association')]
-    public string $authorAssociation, public string $body, public Schema\Discussion\Category $category, public int $comments, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public bool $locked, #[MapFrom('node_id')]
-    public string $nodeId, public int $number, public Schema\Discussion\Reactions|null $reactions, #[MapFrom('repository_url')]
-    public string $repositoryUrl, public string $state, #[MapFrom('state_reason')]
-    public string|null $stateReason, #[MapFrom('timeline_url')]
-    public string|null $timelineUrl, public string $title, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\Discussion\User|null $user, public array|null $labels,)
+    * stateReason: The reason for the current state
+    */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('active_lock_reason')] public ?string $activeLockReason, #[\EventSauce\ObjectHydrator\MapFrom('answer_chosen_at')] public ?string $answerChosenAt, #[\EventSauce\ObjectHydrator\MapFrom('answer_chosen_by')] public ?\ApiClients\Client\GitHub\Schema\Discussion\AnswerChosenBy $answerChosenBy, #[\EventSauce\ObjectHydrator\MapFrom('answer_html_url')] public ?string $answerHtmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, public string $body, public \ApiClients\Client\GitHub\Schema\Discussion\Category $category, public int $comments, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public bool $locked, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public int $number, public ?\ApiClients\Client\GitHub\Schema\Discussion\Reactions $reactions, #[\EventSauce\ObjectHydrator\MapFrom('repository_url')] public string $repositoryUrl, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('state_reason')] public ?string $stateReason, #[\EventSauce\ObjectHydrator\MapFrom('timeline_url')] public ?string $timelineUrl, public string $title, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public ?\ApiClients\Client\GitHub\Schema\Discussion\User $user, public ?array $labels)
     {
     }
 }

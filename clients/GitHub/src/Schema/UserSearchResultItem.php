@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class UserSearchResultItem
+final readonly class UserSearchResultItem implements \ApiClients\Client\GitHub\Contract\UserSearchResultItem
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "User Search Result Item",
     "required": [
         "avatar_url",
@@ -219,9 +216,9 @@ final readonly class UserSearchResultItem
     },
     "description": "User Search Result Item"
 }';
-    public const SCHEMA_TITLE        = 'User Search Result Item';
-    public const SCHEMA_DESCRIPTION  = 'User Search Result Item';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'User Search Result Item';
+    public const SCHEMA_DESCRIPTION = 'User Search Result Item';
+    const SCHEMA_EXAMPLE_DATA = '{
     "login": "generated",
     "id": 2,
     "node_id": "generated",
@@ -235,7 +232,7 @@ final readonly class UserSearchResultItem
     "repos_url": "https:\\/\\/example.com\\/",
     "received_events_url": "https:\\/\\/example.com\\/",
     "type": "generated",
-    "score": 0.5,
+    "score": 5,
     "following_url": "generated",
     "gists_url": "generated",
     "starred_url": "generated",
@@ -303,29 +300,7 @@ final readonly class UserSearchResultItem
     "suspended_at": "1970-01-01T00:00:00+00:00",
     "user_view_type": "generated"
 }';
-
-    public function __construct(public string $login, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('avatar_url')]
-    public string $avatarUrl, #[MapFrom('gravatar_id')]
-    public string|null $gravatarId, public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('followers_url')]
-    public string $followersUrl, #[MapFrom('subscriptions_url')]
-    public string $subscriptionsUrl, #[MapFrom('organizations_url')]
-    public string $organizationsUrl, #[MapFrom('repos_url')]
-    public string $reposUrl, #[MapFrom('received_events_url')]
-    public string $receivedEventsUrl, public string $type, public int|float $score, #[MapFrom('following_url')]
-    public string $followingUrl, #[MapFrom('gists_url')]
-    public string $gistsUrl, #[MapFrom('starred_url')]
-    public string $starredUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('public_repos')]
-    public int|null $publicRepos, #[MapFrom('public_gists')]
-    public int|null $publicGists, public int|null $followers, public int|null $following, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string|null $name, public string|null $bio, public string|null $email, public string|null $location, #[MapFrom('site_admin')]
-    public bool $siteAdmin, public bool|null $hireable, #[MapFrom('text_matches')]
-    public array|null $textMatches, public string|null $blog, public string|null $company, #[MapFrom('suspended_at')]
-    public string|null $suspendedAt, #[MapFrom('user_view_type')]
-    public string|null $userViewType,)
+    public function __construct(public string $login, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl, #[\EventSauce\ObjectHydrator\MapFrom('gravatar_id')] public ?string $gravatarId, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('followers_url')] public string $followersUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscriptions_url')] public string $subscriptionsUrl, #[\EventSauce\ObjectHydrator\MapFrom('organizations_url')] public string $organizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('repos_url')] public string $reposUrl, #[\EventSauce\ObjectHydrator\MapFrom('received_events_url')] public string $receivedEventsUrl, public string $type, public int|float $score, #[\EventSauce\ObjectHydrator\MapFrom('following_url')] public string $followingUrl, #[\EventSauce\ObjectHydrator\MapFrom('gists_url')] public string $gistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('starred_url')] public string $starredUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('public_repos')] public ?int $publicRepos, #[\EventSauce\ObjectHydrator\MapFrom('public_gists')] public ?int $publicGists, public ?int $followers, public ?int $following, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?string $name, public ?string $bio, public ?string $email, public ?string $location, #[\EventSauce\ObjectHydrator\MapFrom('site_admin')] public bool $siteAdmin, public ?bool $hireable, #[\EventSauce\ObjectHydrator\MapFrom('text_matches')] public ?array $textMatches, public ?string $blog, public ?string $company, #[\EventSauce\ObjectHydrator\MapFrom('suspended_at')] public ?string $suspendedAt, #[\EventSauce\ObjectHydrator\MapFrom('user_view_type')] public ?string $userViewType)
     {
     }
 }

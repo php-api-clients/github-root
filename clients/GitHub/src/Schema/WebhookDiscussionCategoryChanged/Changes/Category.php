@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookDiscussionCategoryChanged\Changes;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Category
+final readonly class Category implements \ApiClients\Client\GitHub\Contract\WebhookDiscussionCategoryChanged\Changes\Category
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "from"
     ],
@@ -63,9 +60,9 @@ final readonly class Category
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": {
         "created_at": "1970-01-01T00:00:00+00:00",
         "description": "generated",
@@ -79,8 +76,7 @@ final readonly class Category
         "updated_at": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookDiscussionCategoryChanged\Changes\Category\From $from)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhookDiscussionCategoryChanged\Changes\Category\From $from)
     {
     }
 }

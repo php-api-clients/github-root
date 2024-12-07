@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepoSearchResultItem
+final readonly class RepoSearchResultItem implements \ApiClients\Client\GitHub\Contract\RepoSearchResultItem
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repo Search Result Item",
     "required": [
         "archive_url",
@@ -691,9 +687,9 @@ final readonly class RepoSearchResultItem
     },
     "description": "Repo Search Result Item"
 }';
-    public const SCHEMA_TITLE        = 'Repo Search Result Item';
-    public const SCHEMA_DESCRIPTION  = 'Repo Search Result Item';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repo Search Result Item';
+    public const SCHEMA_DESCRIPTION = 'Repo Search Result Item';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "node_id": "generated",
     "name": "generated",
@@ -701,26 +697,26 @@ final readonly class RepoSearchResultItem
     "owner": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "private": false,
     "html_url": "https:\\/\\/example.com\\/",
@@ -739,7 +735,7 @@ final readonly class RepoSearchResultItem
     "open_issues_count": 17,
     "master_branch": "generated",
     "default_branch": "generated",
-    "score": 0.5,
+    "score": 5,
     "forks_url": "https:\\/\\/example.com\\/",
     "keys_url": "generated",
     "collaborators_url": "generated",
@@ -798,11 +794,11 @@ final readonly class RepoSearchResultItem
     "disabled": false,
     "visibility": "generated",
     "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "url": "https:\\/\\/api.github.com\\/licenses\\/mit",
-        "spdx_id": "MIT",
-        "node_id": "MDc6TGljZW5zZW1pdA==",
+        "key": "generated",
+        "name": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "spdx_id": "generated",
+        "node_id": "generated",
         "html_url": "https:\\/\\/example.com\\/"
     },
     "permissions": {
@@ -868,82 +864,11 @@ final readonly class RepoSearchResultItem
     "is_template": false,
     "web_commit_signoff_required": false
 }';
-
     /**
      * disabled: Returns whether or not this repository disabled.
      * visibility: The repository visibility: public, private, or internal.
      */
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $name, #[MapFrom('full_name')]
-    public string $fullName, public Schema\SimpleUser|null $owner, public bool $private, #[MapFrom('html_url')]
-    public string $htmlUrl, public string|null $description, public bool $fork, public string $url, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, #[MapFrom('pushed_at')]
-    public string $pushedAt, public string|null $homepage, public int $size, #[MapFrom('stargazers_count')]
-    public int $stargazersCount, #[MapFrom('watchers_count')]
-    public int $watchersCount, public string|null $language, #[MapFrom('forks_count')]
-    public int $forksCount, #[MapFrom('open_issues_count')]
-    public int $openIssuesCount, #[MapFrom('master_branch')]
-    public string|null $masterBranch, #[MapFrom('default_branch')]
-    public string $defaultBranch, public int|float $score, #[MapFrom('forks_url')]
-    public string $forksUrl, #[MapFrom('keys_url')]
-    public string $keysUrl, #[MapFrom('collaborators_url')]
-    public string $collaboratorsUrl, #[MapFrom('teams_url')]
-    public string $teamsUrl, #[MapFrom('hooks_url')]
-    public string $hooksUrl, #[MapFrom('issue_events_url')]
-    public string $issueEventsUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('assignees_url')]
-    public string $assigneesUrl, #[MapFrom('branches_url')]
-    public string $branchesUrl, #[MapFrom('tags_url')]
-    public string $tagsUrl, #[MapFrom('blobs_url')]
-    public string $blobsUrl, #[MapFrom('git_tags_url')]
-    public string $gitTagsUrl, #[MapFrom('git_refs_url')]
-    public string $gitRefsUrl, #[MapFrom('trees_url')]
-    public string $treesUrl, #[MapFrom('statuses_url')]
-    public string $statusesUrl, #[MapFrom('languages_url')]
-    public string $languagesUrl, #[MapFrom('stargazers_url')]
-    public string $stargazersUrl, #[MapFrom('contributors_url')]
-    public string $contributorsUrl, #[MapFrom('subscribers_url')]
-    public string $subscribersUrl, #[MapFrom('subscription_url')]
-    public string $subscriptionUrl, #[MapFrom('commits_url')]
-    public string $commitsUrl, #[MapFrom('git_commits_url')]
-    public string $gitCommitsUrl, #[MapFrom('comments_url')]
-    public string $commentsUrl, #[MapFrom('issue_comment_url')]
-    public string $issueCommentUrl, #[MapFrom('contents_url')]
-    public string $contentsUrl, #[MapFrom('compare_url')]
-    public string $compareUrl, #[MapFrom('merges_url')]
-    public string $mergesUrl, #[MapFrom('archive_url')]
-    public string $archiveUrl, #[MapFrom('downloads_url')]
-    public string $downloadsUrl, #[MapFrom('issues_url')]
-    public string $issuesUrl, #[MapFrom('pulls_url')]
-    public string $pullsUrl, #[MapFrom('milestones_url')]
-    public string $milestonesUrl, #[MapFrom('notifications_url')]
-    public string $notificationsUrl, #[MapFrom('labels_url')]
-    public string $labelsUrl, #[MapFrom('releases_url')]
-    public string $releasesUrl, #[MapFrom('deployments_url')]
-    public string $deploymentsUrl, #[MapFrom('git_url')]
-    public string $gitUrl, #[MapFrom('ssh_url')]
-    public string $sshUrl, #[MapFrom('clone_url')]
-    public string $cloneUrl, #[MapFrom('svn_url')]
-    public string $svnUrl, public int $forks, #[MapFrom('open_issues')]
-    public int $openIssues, public int $watchers, public array|null $topics, #[MapFrom('mirror_url')]
-    public string|null $mirrorUrl, #[MapFrom('has_issues')]
-    public bool $hasIssues, #[MapFrom('has_projects')]
-    public bool $hasProjects, #[MapFrom('has_pages')]
-    public bool $hasPages, #[MapFrom('has_wiki')]
-    public bool $hasWiki, #[MapFrom('has_downloads')]
-    public bool $hasDownloads, #[MapFrom('has_discussions')]
-    public bool|null $hasDiscussions, public bool $archived, public bool $disabled, public string|null $visibility, public Schema\LicenseSimple|null $license, public Schema\RepoSearchResultItem\Permissions|null $permissions, #[MapFrom('text_matches')]
-    public array|null $textMatches, #[MapFrom('temp_clone_token')]
-    public string|null $tempCloneToken, #[MapFrom('allow_merge_commit')]
-    public bool|null $allowMergeCommit, #[MapFrom('allow_squash_merge')]
-    public bool|null $allowSquashMerge, #[MapFrom('allow_rebase_merge')]
-    public bool|null $allowRebaseMerge, #[MapFrom('allow_auto_merge')]
-    public bool|null $allowAutoMerge, #[MapFrom('delete_branch_on_merge')]
-    public bool|null $deleteBranchOnMerge, #[MapFrom('allow_forking')]
-    public bool|null $allowForking, #[MapFrom('is_template')]
-    public bool|null $isTemplate, #[MapFrom('web_commit_signoff_required')]
-    public bool|null $webCommitSignoffRequired,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('full_name')] public string $fullName, public ?\ApiClients\Client\GitHub\Schema\SimpleUser $owner, public bool $private, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public ?string $description, public bool $fork, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, #[\EventSauce\ObjectHydrator\MapFrom('pushed_at')] public string $pushedAt, public ?string $homepage, public int $size, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_count')] public int $stargazersCount, #[\EventSauce\ObjectHydrator\MapFrom('watchers_count')] public int $watchersCount, public ?string $language, #[\EventSauce\ObjectHydrator\MapFrom('forks_count')] public int $forksCount, #[\EventSauce\ObjectHydrator\MapFrom('open_issues_count')] public int $openIssuesCount, #[\EventSauce\ObjectHydrator\MapFrom('master_branch')] public ?string $masterBranch, #[\EventSauce\ObjectHydrator\MapFrom('default_branch')] public string $defaultBranch, public int|float $score, #[\EventSauce\ObjectHydrator\MapFrom('forks_url')] public string $forksUrl, #[\EventSauce\ObjectHydrator\MapFrom('keys_url')] public string $keysUrl, #[\EventSauce\ObjectHydrator\MapFrom('collaborators_url')] public string $collaboratorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('teams_url')] public string $teamsUrl, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_events_url')] public string $issueEventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('assignees_url')] public string $assigneesUrl, #[\EventSauce\ObjectHydrator\MapFrom('branches_url')] public string $branchesUrl, #[\EventSauce\ObjectHydrator\MapFrom('tags_url')] public string $tagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('blobs_url')] public string $blobsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_tags_url')] public string $gitTagsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_refs_url')] public string $gitRefsUrl, #[\EventSauce\ObjectHydrator\MapFrom('trees_url')] public string $treesUrl, #[\EventSauce\ObjectHydrator\MapFrom('statuses_url')] public string $statusesUrl, #[\EventSauce\ObjectHydrator\MapFrom('languages_url')] public string $languagesUrl, #[\EventSauce\ObjectHydrator\MapFrom('stargazers_url')] public string $stargazersUrl, #[\EventSauce\ObjectHydrator\MapFrom('contributors_url')] public string $contributorsUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscribers_url')] public string $subscribersUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscription_url')] public string $subscriptionUrl, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public string $commitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_commits_url')] public string $gitCommitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_comment_url')] public string $issueCommentUrl, #[\EventSauce\ObjectHydrator\MapFrom('contents_url')] public string $contentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('compare_url')] public string $compareUrl, #[\EventSauce\ObjectHydrator\MapFrom('merges_url')] public string $mergesUrl, #[\EventSauce\ObjectHydrator\MapFrom('archive_url')] public string $archiveUrl, #[\EventSauce\ObjectHydrator\MapFrom('downloads_url')] public string $downloadsUrl, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public string $issuesUrl, #[\EventSauce\ObjectHydrator\MapFrom('pulls_url')] public string $pullsUrl, #[\EventSauce\ObjectHydrator\MapFrom('milestones_url')] public string $milestonesUrl, #[\EventSauce\ObjectHydrator\MapFrom('notifications_url')] public string $notificationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('labels_url')] public string $labelsUrl, #[\EventSauce\ObjectHydrator\MapFrom('releases_url')] public string $releasesUrl, #[\EventSauce\ObjectHydrator\MapFrom('deployments_url')] public string $deploymentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('git_url')] public string $gitUrl, #[\EventSauce\ObjectHydrator\MapFrom('ssh_url')] public string $sshUrl, #[\EventSauce\ObjectHydrator\MapFrom('clone_url')] public string $cloneUrl, #[\EventSauce\ObjectHydrator\MapFrom('svn_url')] public string $svnUrl, public int $forks, #[\EventSauce\ObjectHydrator\MapFrom('open_issues')] public int $openIssues, public int $watchers, public ?array $topics, #[\EventSauce\ObjectHydrator\MapFrom('mirror_url')] public ?string $mirrorUrl, #[\EventSauce\ObjectHydrator\MapFrom('has_issues')] public bool $hasIssues, #[\EventSauce\ObjectHydrator\MapFrom('has_projects')] public bool $hasProjects, #[\EventSauce\ObjectHydrator\MapFrom('has_pages')] public bool $hasPages, #[\EventSauce\ObjectHydrator\MapFrom('has_wiki')] public bool $hasWiki, #[\EventSauce\ObjectHydrator\MapFrom('has_downloads')] public bool $hasDownloads, #[\EventSauce\ObjectHydrator\MapFrom('has_discussions')] public ?bool $hasDiscussions, public bool $archived, public bool $disabled, public ?string $visibility, public ?\ApiClients\Client\GitHub\Schema\LicenseSimple $license, public ?\ApiClients\Client\GitHub\Schema\RepoSearchResultItem\Permissions $permissions, #[\EventSauce\ObjectHydrator\MapFrom('text_matches')] public ?array $textMatches, #[\EventSauce\ObjectHydrator\MapFrom('temp_clone_token')] public ?string $tempCloneToken, #[\EventSauce\ObjectHydrator\MapFrom('allow_merge_commit')] public ?bool $allowMergeCommit, #[\EventSauce\ObjectHydrator\MapFrom('allow_squash_merge')] public ?bool $allowSquashMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_rebase_merge')] public ?bool $allowRebaseMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_auto_merge')] public ?bool $allowAutoMerge, #[\EventSauce\ObjectHydrator\MapFrom('delete_branch_on_merge')] public ?bool $deleteBranchOnMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_forking')] public ?bool $allowForking, #[\EventSauce\ObjectHydrator\MapFrom('is_template')] public ?bool $isTemplate, #[\EventSauce\ObjectHydrator\MapFrom('web_commit_signoff_required')] public ?bool $webCommitSignoffRequired)
     {
     }
 }

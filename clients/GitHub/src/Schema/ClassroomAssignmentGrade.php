@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ClassroomAssignmentGrade
+final readonly class ClassroomAssignmentGrade implements \ApiClients\Client\GitHub\Contract\ClassroomAssignmentGrade
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Classroom Assignment Grade",
     "required": [
         "assignment_name",
@@ -71,9 +68,9 @@ final readonly class ClassroomAssignmentGrade
     },
     "description": "Grade for a student or groups GitHub Classroom assignment"
 }';
-    public const SCHEMA_TITLE        = 'Classroom Assignment Grade';
-    public const SCHEMA_DESCRIPTION  = 'Grade for a student or groups GitHub Classroom assignment';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Classroom Assignment Grade';
+    public const SCHEMA_DESCRIPTION = 'Grade for a student or groups GitHub Classroom assignment';
+    const SCHEMA_EXAMPLE_DATA = '{
     "assignment_name": "generated",
     "assignment_url": "generated",
     "starter_code_url": "generated",
@@ -86,7 +83,6 @@ final readonly class ClassroomAssignmentGrade
     "points_available": 16,
     "group_name": "generated"
 }';
-
     /**
      * assignmentName: Name of the assignment
      * assignmentUrl: URL of the assignment
@@ -100,18 +96,7 @@ final readonly class ClassroomAssignmentGrade
      * pointsAvailable: Number of points available for the assignment
      * groupName: If a group assignment, name of the group the student is in
      */
-    public function __construct(#[MapFrom('assignment_name')]
-    public string $assignmentName, #[MapFrom('assignment_url')]
-    public string $assignmentUrl, #[MapFrom('starter_code_url')]
-    public string $starterCodeUrl, #[MapFrom('github_username')]
-    public string $githubUsername, #[MapFrom('roster_identifier')]
-    public string $rosterIdentifier, #[MapFrom('student_repository_name')]
-    public string $studentRepositoryName, #[MapFrom('student_repository_url')]
-    public string $studentRepositoryUrl, #[MapFrom('submission_timestamp')]
-    public string $submissionTimestamp, #[MapFrom('points_awarded')]
-    public int $pointsAwarded, #[MapFrom('points_available')]
-    public int $pointsAvailable, #[MapFrom('group_name')]
-    public string|null $groupName,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('assignment_name')] public string $assignmentName, #[\EventSauce\ObjectHydrator\MapFrom('assignment_url')] public string $assignmentUrl, #[\EventSauce\ObjectHydrator\MapFrom('starter_code_url')] public string $starterCodeUrl, #[\EventSauce\ObjectHydrator\MapFrom('github_username')] public string $githubUsername, #[\EventSauce\ObjectHydrator\MapFrom('roster_identifier')] public string $rosterIdentifier, #[\EventSauce\ObjectHydrator\MapFrom('student_repository_name')] public string $studentRepositoryName, #[\EventSauce\ObjectHydrator\MapFrom('student_repository_url')] public string $studentRepositoryUrl, #[\EventSauce\ObjectHydrator\MapFrom('submission_timestamp')] public string $submissionTimestamp, #[\EventSauce\ObjectHydrator\MapFrom('points_awarded')] public int $pointsAwarded, #[\EventSauce\ObjectHydrator\MapFrom('points_available')] public int $pointsAvailable, #[\EventSauce\ObjectHydrator\MapFrom('group_name')] public ?string $groupName)
     {
     }
 }

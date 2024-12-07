@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2StatusUpdateEdited\Changes;
 
-final readonly class Status
+final readonly class Status implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2StatusUpdateEdited\Changes\Status
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "from": {
@@ -39,14 +38,13 @@ final readonly class Status
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "from": "COMPLETE",
-    "to": "COMPLETE"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "from": "INACTIVE",
+    "to": "INACTIVE"
 }';
-
-    public function __construct(public string|null $from, public string|null $to)
+    public function __construct(public ?string $from, public ?string $to)
     {
     }
 }

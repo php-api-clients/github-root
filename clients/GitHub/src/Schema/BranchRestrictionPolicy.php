@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class BranchRestrictionPolicy
+final readonly class BranchRestrictionPolicy implements \ApiClients\Client\GitHub\Contract\BranchRestrictionPolicy
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Branch Restriction Policy",
     "required": [
         "url",
@@ -333,9 +330,9 @@ final readonly class BranchRestrictionPolicy
     },
     "description": "Branch Restriction Policy"
 }';
-    public const SCHEMA_TITLE        = 'Branch Restriction Policy';
-    public const SCHEMA_DESCRIPTION  = 'Branch Restriction Policy';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Branch Restriction Policy';
+    public const SCHEMA_DESCRIPTION = 'Branch Restriction Policy';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/",
     "users_url": "https:\\/\\/example.com\\/",
     "teams_url": "https:\\/\\/example.com\\/",
@@ -434,18 +431,18 @@ final readonly class BranchRestrictionPolicy
                 "public_members_url": "generated",
                 "avatar_url": "generated",
                 "description": "generated",
-                "gravatar_id": "\\"\\"",
-                "html_url": "\\"https:\\/\\/github.com\\/testorg-ea8ec76d71c3af4b\\"",
-                "followers_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/followers\\"",
-                "following_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/following{\\/other_user}\\"",
-                "gists_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/gists{\\/gist_id}\\"",
-                "starred_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/starred{\\/owner}{\\/repo}\\"",
-                "subscriptions_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/subscriptions\\"",
-                "organizations_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/orgs\\"",
-                "received_events_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/received_events\\"",
-                "type": "\\"Organization\\"",
+                "gravatar_id": "generated",
+                "html_url": "generated",
+                "followers_url": "generated",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "generated",
+                "organizations_url": "generated",
+                "received_events_url": "generated",
+                "type": "generated",
                 "site_admin": false,
-                "user_view_type": "public"
+                "user_view_type": "generated"
             },
             "name": "generated",
             "client_id": "generated",
@@ -482,18 +479,18 @@ final readonly class BranchRestrictionPolicy
                 "public_members_url": "generated",
                 "avatar_url": "generated",
                 "description": "generated",
-                "gravatar_id": "\\"\\"",
-                "html_url": "\\"https:\\/\\/github.com\\/testorg-ea8ec76d71c3af4b\\"",
-                "followers_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/followers\\"",
-                "following_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/following{\\/other_user}\\"",
-                "gists_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/gists{\\/gist_id}\\"",
-                "starred_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/starred{\\/owner}{\\/repo}\\"",
-                "subscriptions_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/subscriptions\\"",
-                "organizations_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/orgs\\"",
-                "received_events_url": "\\"https:\\/\\/api.github.com\\/users\\/testorg-ea8ec76d71c3af4b\\/received_events\\"",
-                "type": "\\"Organization\\"",
+                "gravatar_id": "generated",
+                "html_url": "generated",
+                "followers_url": "generated",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "generated",
+                "organizations_url": "generated",
+                "received_events_url": "generated",
+                "type": "generated",
                 "site_admin": false,
-                "user_view_type": "public"
+                "user_view_type": "generated"
             },
             "name": "generated",
             "client_id": "generated",
@@ -515,11 +512,7 @@ final readonly class BranchRestrictionPolicy
         }
     ]
 }';
-
-    public function __construct(public string $url, #[MapFrom('users_url')]
-    public string $usersUrl, #[MapFrom('teams_url')]
-    public string $teamsUrl, #[MapFrom('apps_url')]
-    public string $appsUrl, public array $users, public array $teams, public array $apps,)
+    public function __construct(public string $url, #[\EventSauce\ObjectHydrator\MapFrom('users_url')] public string $usersUrl, #[\EventSauce\ObjectHydrator\MapFrom('teams_url')] public string $teamsUrl, #[\EventSauce\ObjectHydrator\MapFrom('apps_url')] public string $appsUrl, public array $users, public array $teams, public array $apps)
     {
     }
 }

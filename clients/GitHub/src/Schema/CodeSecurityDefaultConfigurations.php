@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeSecurityDefaultConfigurations
+final readonly class CodeSecurityDefaultConfigurations implements \ApiClients\Client\GitHub\Contract\CodeSecurityDefaultConfigurations
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "default_for_new_repos": {
@@ -223,9 +219,9 @@ final readonly class CodeSecurityDefaultConfigurations
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "default_for_new_repos": "public",
     "configuration": {
         "id": 2,
@@ -233,8 +229,8 @@ final readonly class CodeSecurityDefaultConfigurations
         "target_type": "global",
         "description": "generated",
         "advanced_security": "enabled",
-        "dependency_graph": "not_set",
-        "dependency_graph_autosubmit_action": "not_set",
+        "dependency_graph": "enabled",
+        "dependency_graph_autosubmit_action": "enabled",
         "dependency_graph_autosubmit_action_options": {
             "labeled_runners": false
         },
@@ -243,7 +239,7 @@ final readonly class CodeSecurityDefaultConfigurations
         "code_scanning_default_setup": "enabled",
         "secret_scanning": "enabled",
         "secret_scanning_push_protection": "enabled",
-        "secret_scanning_delegated_bypass": "not_set",
+        "secret_scanning_delegated_bypass": "enabled",
         "secret_scanning_delegated_bypass_options": {
             "reviewers": [
                 {
@@ -266,13 +262,11 @@ final readonly class CodeSecurityDefaultConfigurations
         "updated_at": "1970-01-01T00:00:00+00:00"
     }
 }';
-
     /**
      * defaultForNewRepos: The visibility of newly created repositories for which the code security configuration will be applied to by default
      * configuration: A code security configuration
      */
-    public function __construct(#[MapFrom('default_for_new_repos')]
-    public string $defaultForNewRepos, public Schema\CodeSecurityConfiguration|null $configuration,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('default_for_new_repos')] public string $defaultForNewRepos, public ?\ApiClients\Client\GitHub\Schema\CodeSecurityConfiguration $configuration)
     {
     }
 }

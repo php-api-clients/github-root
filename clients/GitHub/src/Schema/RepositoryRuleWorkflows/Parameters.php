@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleWorkflows\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "workflows"
     ],
@@ -51,9 +48,9 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "do_not_enforce_on_create": false,
     "workflows": [
         {
@@ -70,13 +67,11 @@ final readonly class Parameters
         }
     ]
 }';
-
     /**
      * doNotEnforceOnCreate: Allow repositories and branches to be created if a check would otherwise prohibit it.
      * workflows: Workflows that must pass for this rule to pass.
      */
-    public function __construct(#[MapFrom('do_not_enforce_on_create')]
-    public bool|null $doNotEnforceOnCreate, public array $workflows,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('do_not_enforce_on_create')] public ?bool $doNotEnforceOnCreate, public array $workflows)
     {
     }
 }

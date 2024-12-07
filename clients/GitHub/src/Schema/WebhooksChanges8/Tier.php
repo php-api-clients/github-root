@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhooksChanges8;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Tier
+final readonly class Tier implements \ApiClients\Client\GitHub\Contract\WebhooksChanges8\Tier
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "from"
     ],
@@ -59,9 +56,9 @@ final readonly class Tier
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": {
         "created_at": "generated",
         "description": "generated",
@@ -74,11 +71,10 @@ final readonly class Tier
         "node_id": "generated"
     }
 }';
-
     /**
      * from: The `tier_changed` and `pending_tier_change` will include the original tier before the change or pending change. For more information, see the pending tier change payload.
      */
-    public function __construct(public Schema\WebhooksChanges8\Tier\From $from)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WebhooksChanges8\Tier\From $from)
     {
     }
 }

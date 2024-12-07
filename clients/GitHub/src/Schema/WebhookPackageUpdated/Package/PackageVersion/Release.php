@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Release
+final readonly class Release implements \ApiClients\Client\GitHub\Contract\WebhookPackageUpdated\Package\PackageVersion\Release
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "url",
         "html_url",
@@ -158,9 +154,9 @@ final readonly class Release
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "author": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -181,7 +177,7 @@ final readonly class Release
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -196,13 +192,7 @@ final readonly class Release
     "target_commitish": "generated",
     "url": "https:\\/\\/example.com\\/"
 }';
-
-    public function __construct(public Schema\WebhookPackageUpdated\Package\PackageVersion\Release\Author|null $author, #[MapFrom('created_at')]
-    public string $createdAt, public bool $draft, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public string $name, public bool $prerelease, #[MapFrom('published_at')]
-    public string $publishedAt, #[MapFrom('tag_name')]
-    public string $tagName, #[MapFrom('target_commitish')]
-    public string $targetCommitish, public string $url,)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookPackageUpdated\Package\PackageVersion\Release\Author $author, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public bool $draft, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public string $name, public bool $prerelease, #[\EventSauce\ObjectHydrator\MapFrom('published_at')] public string $publishedAt, #[\EventSauce\ObjectHydrator\MapFrom('tag_name')] public string $tagName, #[\EventSauce\ObjectHydrator\MapFrom('target_commitish')] public string $targetCommitish, public string $url)
     {
     }
 }

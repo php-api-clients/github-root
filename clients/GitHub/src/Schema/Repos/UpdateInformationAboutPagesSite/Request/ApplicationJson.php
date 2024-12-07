@@ -1,16 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateInformationAboutPagesSite\Request;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source;
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "anyOf": [
         {
@@ -96,24 +91,23 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "cname": "generated",
     "https_enforced": false,
-    "build_type": "workflow",
-    "source": null
+    "build_type": "legacy",
+    "source": {
+        "branch": "generated",
+        "path": "\\/"
+    }
 }';
-
     /**
      * cname: Specify a custom domain for the repository. Sending a `null` value will remove the custom domain. For more about custom domains, see "[Using a custom domain with GitHub Pages](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site)."
      * httpsEnforced: Specify whether HTTPS should be enforced for the repository.
      * buildType: The process by which the GitHub Pages site will be built. `workflow` means that the site is built by a custom GitHub Actions workflow. `legacy` means that the site is built by GitHub when changes are pushed to a specific branch.
      */
-    public function __construct(public string|null $cname, #[MapFrom('https_enforced')]
-    public bool|null $httpsEnforced, #[MapFrom('build_type')]
-    public string|null $buildType, #[Source]
-    public string|Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One|null $source,)
+    public function __construct(public ?string $cname, #[\EventSauce\ObjectHydrator\MapFrom('https_enforced')] public ?bool $httpsEnforced, #[\EventSauce\ObjectHydrator\MapFrom('build_type')] public ?string $buildType, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source] public null|string|\ApiClients\Client\GitHub\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One $source)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class AppPermissions
+final readonly class AppPermissions implements \ApiClients\Client\GitHub\Contract\AppPermissions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "App Permissions",
     "type": "object",
     "properties": {
@@ -403,59 +400,58 @@ final readonly class AppPermissions
         "single_file": "read"
     }
 }';
-    public const SCHEMA_TITLE        = 'App Permissions';
-    public const SCHEMA_DESCRIPTION  = 'The permissions granted to the user access token.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'App Permissions';
+    public const SCHEMA_DESCRIPTION = 'The permissions granted to the user access token.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "actions": "read",
-    "administration": "write",
-    "checks": "write",
-    "codespaces": "write",
-    "contents": "write",
-    "dependabot_secrets": "write",
+    "administration": "read",
+    "checks": "read",
+    "codespaces": "read",
+    "contents": "read",
+    "dependabot_secrets": "read",
     "deployments": "read",
-    "environments": "write",
-    "issues": "write",
-    "metadata": "write",
-    "packages": "write",
+    "environments": "read",
+    "issues": "read",
+    "metadata": "read",
+    "packages": "read",
     "pages": "read",
     "pull_requests": "read",
-    "repository_custom_properties": "write",
-    "repository_hooks": "write",
+    "repository_custom_properties": "read",
+    "repository_hooks": "read",
     "repository_projects": "read",
-    "secret_scanning_alerts": "write",
+    "secret_scanning_alerts": "read",
     "secrets": "read",
     "security_events": "read",
     "single_file": "read",
-    "statuses": "write",
-    "vulnerability_alerts": "write",
+    "statuses": "read",
+    "vulnerability_alerts": "read",
     "workflows": "write",
     "members": "read",
     "organization_administration": "read",
     "organization_custom_roles": "read",
     "organization_custom_org_roles": "read",
-    "organization_custom_properties": "admin",
+    "organization_custom_properties": "read",
     "organization_copilot_seat_management": "write",
     "organization_announcement_banners": "read",
     "organization_events": "read",
-    "organization_hooks": "write",
+    "organization_hooks": "read",
     "organization_personal_access_tokens": "read",
     "organization_personal_access_token_requests": "read",
     "organization_plan": "read",
     "organization_projects": "read",
     "organization_packages": "read",
-    "organization_secrets": "write",
-    "organization_self_hosted_runners": "write",
-    "organization_user_blocking": "write",
-    "team_discussions": "write",
+    "organization_secrets": "read",
+    "organization_self_hosted_runners": "read",
+    "organization_user_blocking": "read",
+    "team_discussions": "read",
     "email_addresses": "read",
     "followers": "read",
-    "git_ssh_keys": "write",
-    "gpg_keys": "write",
-    "interaction_limits": "write",
+    "git_ssh_keys": "read",
+    "gpg_keys": "read",
+    "interaction_limits": "read",
     "profile": "write",
-    "starring": "write"
+    "starring": "read"
 }';
-
     /**
      * actions: The level of permission to grant the access token for GitHub Actions workflows, workflow runs, and artifacts.
      * administration: The level of permission to grant the access token for repository creation, deletion, settings, teams, and collaborators creation.
@@ -506,37 +502,7 @@ final readonly class AppPermissions
      * profile: The level of permission to grant the access token to manage the profile settings belonging to a user.
      * starring: The level of permission to grant the access token to list and manage repositories a user is starring.
      */
-    public function __construct(public string|null $actions, public string|null $administration, public string|null $checks, public string|null $codespaces, public string|null $contents, #[MapFrom('dependabot_secrets')]
-    public string|null $dependabotSecrets, public string|null $deployments, public string|null $environments, public string|null $issues, public string|null $metadata, public string|null $packages, public string|null $pages, #[MapFrom('pull_requests')]
-    public string|null $pullRequests, #[MapFrom('repository_custom_properties')]
-    public string|null $repositoryCustomProperties, #[MapFrom('repository_hooks')]
-    public string|null $repositoryHooks, #[MapFrom('repository_projects')]
-    public string|null $repositoryProjects, #[MapFrom('secret_scanning_alerts')]
-    public string|null $secretScanningAlerts, public string|null $secrets, #[MapFrom('security_events')]
-    public string|null $securityEvents, #[MapFrom('single_file')]
-    public string|null $singleFile, public string|null $statuses, #[MapFrom('vulnerability_alerts')]
-    public string|null $vulnerabilityAlerts, public string|null $workflows, public string|null $members, #[MapFrom('organization_administration')]
-    public string|null $organizationAdministration, #[MapFrom('organization_custom_roles')]
-    public string|null $organizationCustomRoles, #[MapFrom('organization_custom_org_roles')]
-    public string|null $organizationCustomOrgRoles, #[MapFrom('organization_custom_properties')]
-    public string|null $organizationCustomProperties, #[MapFrom('organization_copilot_seat_management')]
-    public string|null $organizationCopilotSeatManagement, #[MapFrom('organization_announcement_banners')]
-    public string|null $organizationAnnouncementBanners, #[MapFrom('organization_events')]
-    public string|null $organizationEvents, #[MapFrom('organization_hooks')]
-    public string|null $organizationHooks, #[MapFrom('organization_personal_access_tokens')]
-    public string|null $organizationPersonalAccessTokens, #[MapFrom('organization_personal_access_token_requests')]
-    public string|null $organizationPersonalAccessTokenRequests, #[MapFrom('organization_plan')]
-    public string|null $organizationPlan, #[MapFrom('organization_projects')]
-    public string|null $organizationProjects, #[MapFrom('organization_packages')]
-    public string|null $organizationPackages, #[MapFrom('organization_secrets')]
-    public string|null $organizationSecrets, #[MapFrom('organization_self_hosted_runners')]
-    public string|null $organizationSelfHostedRunners, #[MapFrom('organization_user_blocking')]
-    public string|null $organizationUserBlocking, #[MapFrom('team_discussions')]
-    public string|null $teamDiscussions, #[MapFrom('email_addresses')]
-    public string|null $emailAddresses, public string|null $followers, #[MapFrom('git_ssh_keys')]
-    public string|null $gitSshKeys, #[MapFrom('gpg_keys')]
-    public string|null $gpgKeys, #[MapFrom('interaction_limits')]
-    public string|null $interactionLimits, public string|null $profile, public string|null $starring,)
+    public function __construct(public ?string $actions, public ?string $administration, public ?string $checks, public ?string $codespaces, public ?string $contents, #[\EventSauce\ObjectHydrator\MapFrom('dependabot_secrets')] public ?string $dependabotSecrets, public ?string $deployments, public ?string $environments, public ?string $issues, public ?string $metadata, public ?string $packages, public ?string $pages, #[\EventSauce\ObjectHydrator\MapFrom('pull_requests')] public ?string $pullRequests, #[\EventSauce\ObjectHydrator\MapFrom('repository_custom_properties')] public ?string $repositoryCustomProperties, #[\EventSauce\ObjectHydrator\MapFrom('repository_hooks')] public ?string $repositoryHooks, #[\EventSauce\ObjectHydrator\MapFrom('repository_projects')] public ?string $repositoryProjects, #[\EventSauce\ObjectHydrator\MapFrom('secret_scanning_alerts')] public ?string $secretScanningAlerts, public ?string $secrets, #[\EventSauce\ObjectHydrator\MapFrom('security_events')] public ?string $securityEvents, #[\EventSauce\ObjectHydrator\MapFrom('single_file')] public ?string $singleFile, public ?string $statuses, #[\EventSauce\ObjectHydrator\MapFrom('vulnerability_alerts')] public ?string $vulnerabilityAlerts, public ?string $workflows, public ?string $members, #[\EventSauce\ObjectHydrator\MapFrom('organization_administration')] public ?string $organizationAdministration, #[\EventSauce\ObjectHydrator\MapFrom('organization_custom_roles')] public ?string $organizationCustomRoles, #[\EventSauce\ObjectHydrator\MapFrom('organization_custom_org_roles')] public ?string $organizationCustomOrgRoles, #[\EventSauce\ObjectHydrator\MapFrom('organization_custom_properties')] public ?string $organizationCustomProperties, #[\EventSauce\ObjectHydrator\MapFrom('organization_copilot_seat_management')] public ?string $organizationCopilotSeatManagement, #[\EventSauce\ObjectHydrator\MapFrom('organization_announcement_banners')] public ?string $organizationAnnouncementBanners, #[\EventSauce\ObjectHydrator\MapFrom('organization_events')] public ?string $organizationEvents, #[\EventSauce\ObjectHydrator\MapFrom('organization_hooks')] public ?string $organizationHooks, #[\EventSauce\ObjectHydrator\MapFrom('organization_personal_access_tokens')] public ?string $organizationPersonalAccessTokens, #[\EventSauce\ObjectHydrator\MapFrom('organization_personal_access_token_requests')] public ?string $organizationPersonalAccessTokenRequests, #[\EventSauce\ObjectHydrator\MapFrom('organization_plan')] public ?string $organizationPlan, #[\EventSauce\ObjectHydrator\MapFrom('organization_projects')] public ?string $organizationProjects, #[\EventSauce\ObjectHydrator\MapFrom('organization_packages')] public ?string $organizationPackages, #[\EventSauce\ObjectHydrator\MapFrom('organization_secrets')] public ?string $organizationSecrets, #[\EventSauce\ObjectHydrator\MapFrom('organization_self_hosted_runners')] public ?string $organizationSelfHostedRunners, #[\EventSauce\ObjectHydrator\MapFrom('organization_user_blocking')] public ?string $organizationUserBlocking, #[\EventSauce\ObjectHydrator\MapFrom('team_discussions')] public ?string $teamDiscussions, #[\EventSauce\ObjectHydrator\MapFrom('email_addresses')] public ?string $emailAddresses, public ?string $followers, #[\EventSauce\ObjectHydrator\MapFrom('git_ssh_keys')] public ?string $gitSshKeys, #[\EventSauce\ObjectHydrator\MapFrom('gpg_keys')] public ?string $gpgKeys, #[\EventSauce\ObjectHydrator\MapFrom('interaction_limits')] public ?string $interactionLimits, public ?string $profile, public ?string $starring)
     {
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPing;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Hook
+final readonly class Hook implements \ApiClients\Client\GitHub\Contract\WebhookPing\Hook
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Webhook",
     "required": [
         "id",
@@ -149,16 +145,16 @@ final readonly class Hook
     },
     "description": "The webhook that is being pinged"
 }';
-    public const SCHEMA_TITLE        = 'Webhook';
-    public const SCHEMA_DESCRIPTION  = 'The webhook that is being pinged';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Webhook';
+    public const SCHEMA_DESCRIPTION = 'The webhook that is being pinged';
+    const SCHEMA_EXAMPLE_DATA = '{
     "active": false,
     "app_id": 6,
     "config": {
-        "content_type": "\\"json\\"",
-        "insecure_ssl": null,
-        "secret": "\\"********\\"",
-        "url": "https:\\/\\/example.com\\/webhook"
+        "content_type": "generated",
+        "insecure_ssl": 14,
+        "secret": "generated",
+        "url": "https:\\/\\/example.com\\/"
     },
     "created_at": "1970-01-01T00:00:00+00:00",
     "deliveries_url": "https:\\/\\/example.com\\/",
@@ -179,7 +175,6 @@ final readonly class Hook
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * active: Determines whether the hook is actually triggered for the events it subscribes to.
      * appId: Only included for GitHub Apps. When you register a new GitHub App, GitHub sends a ping event to the webhook URL you specified during registration. The GitHub App ID sent in this field is required for authenticating an app.
@@ -187,14 +182,7 @@ final readonly class Hook
      * id: Unique identifier of the webhook.
      * name: The type of webhook. The only valid value is 'web'.
      */
-    public function __construct(public bool $active, #[MapFrom('app_id')]
-    public int|null $appId, public Schema\WebhookPing\Hook\Config $config, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('deliveries_url')]
-    public string|null $deliveriesUrl, public array $events, public int $id, #[MapFrom('last_response')]
-    public Schema\HookResponse|null $lastResponse, public string $name, #[MapFrom('ping_url')]
-    public string|null $pingUrl, #[MapFrom('test_url')]
-    public string|null $testUrl, public string $type, #[MapFrom('updated_at')]
-    public string $updatedAt, public string|null $url,)
+    public function __construct(public bool $active, #[\EventSauce\ObjectHydrator\MapFrom('app_id')] public ?int $appId, public \ApiClients\Client\GitHub\Schema\WebhookPing\Hook\Config $config, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('deliveries_url')] public ?string $deliveriesUrl, public array $events, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('last_response')] public ?\ApiClients\Client\GitHub\Schema\HookResponse $lastResponse, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('ping_url')] public ?string $pingUrl, #[\EventSauce\ObjectHydrator\MapFrom('test_url')] public ?string $testUrl, public string $type, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public ?string $url)
     {
     }
 }

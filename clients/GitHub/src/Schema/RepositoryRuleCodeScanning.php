@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleCodeScanning
+final readonly class RepositoryRuleCodeScanning implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCodeScanning
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "code_scanning",
     "required": [
         "type"
@@ -73,27 +70,26 @@ final readonly class RepositoryRuleCodeScanning
     },
     "description": "Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated."
 }';
-    public const SCHEMA_TITLE        = 'code_scanning';
-    public const SCHEMA_DESCRIPTION  = 'Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'code_scanning';
+    public const SCHEMA_DESCRIPTION = 'Choose which tools must provide code scanning results before the reference is updated. When configured, code scanning must be enabled and have results for both the commit and the reference being updated.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "code_scanning",
     "parameters": {
         "code_scanning_tools": [
             {
-                "alerts_threshold": "all",
+                "alerts_threshold": "none",
                 "security_alerts_threshold": "none",
                 "tool": "generated"
             },
             {
-                "alerts_threshold": "all",
+                "alerts_threshold": "none",
                 "security_alerts_threshold": "none",
                 "tool": "generated"
             }
         ]
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleCodeScanning\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning\Parameters $parameters)
     {
     }
 }

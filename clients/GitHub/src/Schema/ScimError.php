@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ScimError
+final readonly class ScimError implements \ApiClients\Client\GitHub\Contract\ScimError
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Scim Error",
     "type": "object",
     "properties": {
@@ -48,9 +45,9 @@ final readonly class ScimError
     },
     "description": "Scim Error"
 }';
-    public const SCHEMA_TITLE        = 'Scim Error';
-    public const SCHEMA_DESCRIPTION  = 'Scim Error';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Scim Error';
+    public const SCHEMA_DESCRIPTION = 'Scim Error';
+    const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
     "documentation_url": "generated",
     "detail": "generated",
@@ -61,9 +58,7 @@ final readonly class ScimError
         "generated"
     ]
 }';
-
-    public function __construct(public string|null $message, #[MapFrom('documentation_url')]
-    public string|null $documentationUrl, public string|null $detail, public int|null $status, public string|null $scimType, public array|null $schemas,)
+    public function __construct(public ?string $message, #[\EventSauce\ObjectHydrator\MapFrom('documentation_url')] public ?string $documentationUrl, public ?string $detail, public ?int $status, public ?string $scimType, public ?array $schemas)
     {
     }
 }

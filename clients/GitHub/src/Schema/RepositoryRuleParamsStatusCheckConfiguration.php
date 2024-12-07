@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRuleParamsStatusCheckConfiguration
+final readonly class RepositoryRuleParamsStatusCheckConfiguration implements \ApiClients\Client\GitHub\Contract\RepositoryRuleParamsStatusCheckConfiguration
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "StatusCheckConfiguration",
     "required": [
         "context"
@@ -26,19 +23,17 @@ final readonly class RepositoryRuleParamsStatusCheckConfiguration
     },
     "description": "Required status check"
 }';
-    public const SCHEMA_TITLE        = 'StatusCheckConfiguration';
-    public const SCHEMA_DESCRIPTION  = 'Required status check';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'StatusCheckConfiguration';
+    public const SCHEMA_DESCRIPTION = 'Required status check';
+    const SCHEMA_EXAMPLE_DATA = '{
     "context": "generated",
     "integration_id": 14
 }';
-
     /**
      * context: The status check context name that must be present on the commit.
      * integrationId: The optional integration ID that this status check must originate from.
      */
-    public function __construct(public string $context, #[MapFrom('integration_id')]
-    public int|null $integrationId,)
+    public function __construct(public string $context, #[\EventSauce\ObjectHydrator\MapFrom('integration_id')] public ?int $integrationId)
     {
     }
 }

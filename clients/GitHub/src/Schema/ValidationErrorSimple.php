@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ValidationErrorSimple
+final readonly class ValidationErrorSimple implements \ApiClients\Client\GitHub\Contract\ValidationErrorSimple
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Validation Error Simple",
     "required": [
         "message",
@@ -31,9 +28,9 @@ final readonly class ValidationErrorSimple
     },
     "description": "Validation Error Simple"
 }';
-    public const SCHEMA_TITLE        = 'Validation Error Simple';
-    public const SCHEMA_DESCRIPTION  = 'Validation Error Simple';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Validation Error Simple';
+    public const SCHEMA_DESCRIPTION = 'Validation Error Simple';
+    const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
     "documentation_url": "generated",
     "errors": [
@@ -41,9 +38,7 @@ final readonly class ValidationErrorSimple
         "generated"
     ]
 }';
-
-    public function __construct(public string $message, #[MapFrom('documentation_url')]
-    public string $documentationUrl, public array|null $errors,)
+    public function __construct(public string $message, #[\EventSauce\ObjectHydrator\MapFrom('documentation_url')] public string $documentationUrl, public ?array $errors)
     {
     }
 }

@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class TeamProject
+final readonly class TeamProject implements \ApiClients\Client\GitHub\Contract\TeamProject
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Team Project",
     "required": [
         "owner_url",
@@ -266,9 +262,9 @@ final readonly class TeamProject
     },
     "description": "A team\'s access to a project."
 }';
-    public const SCHEMA_TITLE        = 'Team Project';
-    public const SCHEMA_DESCRIPTION  = 'A team\'s access to a project.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Team Project';
+    public const SCHEMA_DESCRIPTION = 'A team\'s access to a project.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "owner_url": "generated",
     "url": "generated",
     "html_url": "generated",
@@ -282,26 +278,26 @@ final readonly class TeamProject
     "creator": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     },
     "created_at": "generated",
     "updated_at": "generated",
@@ -313,20 +309,12 @@ final readonly class TeamProject
         "admin": false
     }
 }';
-
     /**
      * creator: A GitHub user.
      * organizationPermission: The organization permission for this project. Only present when owner is an organization.
      * private: Whether the project is private or not. Only present when owner is an organization.
      */
-    public function __construct(#[MapFrom('owner_url')]
-    public string $ownerUrl, public string $url, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('columns_url')]
-    public string $columnsUrl, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $name, public string|null $body, public int $number, public string $state, public Schema\SimpleUser $creator, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, #[MapFrom('organization_permission')]
-    public string|null $organizationPermission, public bool|null $private, public Schema\TeamProject\Permissions $permissions,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('owner_url')] public string $ownerUrl, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('columns_url')] public string $columnsUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $name, public ?string $body, public int $number, public string $state, public \ApiClients\Client\GitHub\Schema\SimpleUser $creator, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, #[\EventSauce\ObjectHydrator\MapFrom('organization_permission')] public ?string $organizationPermission, public ?bool $private, public \ApiClients\Client\GitHub\Schema\TeamProject\Permissions $permissions)
     {
     }
 }

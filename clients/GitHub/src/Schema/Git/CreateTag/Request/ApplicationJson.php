@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Git\CreateTag\Request;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Git\CreateTag\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "tag",
         "message",
@@ -63,20 +60,19 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "tag": "generated",
     "message": "generated",
     "object": "generated",
-    "type": "blob",
+    "type": "commit",
     "tagger": {
         "name": "generated",
         "email": "generated",
         "date": "1970-01-01T00:00:00+00:00"
     }
 }';
-
     /**
      * tag: The tag's name. This is typically a version (e.g., "v0.0.1").
      * message: The tag message.
@@ -84,7 +80,7 @@ final readonly class ApplicationJson
      * type: The type of the object we're tagging. Normally this is a `commit` but it can also be a `tree` or a `blob`.
      * tagger: An object with information about the individual creating the tag.
      */
-    public function __construct(public string $tag, public string $message, public string $object, public string $type, public Schema\Git\CreateTag\Request\ApplicationJson\Tagger|null $tagger)
+    public function __construct(public string $tag, public string $message, public string $object, public string $type, public ?\ApiClients\Client\GitHub\Schema\Git\CreateTag\Request\ApplicationJson\Tagger $tagger)
     {
     }
 }

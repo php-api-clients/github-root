@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Orgs\CreateOrUpdateCustomPropertiesValuesForRepos\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Orgs\CreateOrUpdateCustomPropertiesValuesForRepos\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "repository_names",
         "properties"
@@ -64,9 +61,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "repository_names": [
         "generated",
         "generated",
@@ -110,13 +107,11 @@ final readonly class ApplicationJson
         }
     ]
 }';
-
     /**
      * repositoryNames: The names of repositories that the custom property values will be applied to.
      * properties: List of custom property names and associated values to apply to the repositories.
      */
-    public function __construct(#[MapFrom('repository_names')]
-    public array $repositoryNames, public array $properties,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('repository_names')] public array $repositoryNames, public array $properties)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Repos\GetAllDeploymentProtectionRules\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Repos\GetAllDeploymentProtectionRules\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "total_count": {
@@ -131,42 +128,39 @@ final readonly class Ok
         ]
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "total_count": 10,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "total_count": 11,
     "custom_deployment_protection_rules": [
         {
-            "id": 3515,
-            "node_id": "MDQ6R2F0ZTM1MTU=",
-            "enabled": true,
+            "id": 2,
+            "node_id": "generated",
+            "enabled": false,
             "app": {
-                "id": 3515,
-                "slug": "my-custom-app",
-                "integration_url": "https:\\/\\/api.github.com\\/apps\\/custom-app-slug",
-                "node_id": "MDQ6R2F0ZTM1MTU="
+                "id": 2,
+                "slug": "generated",
+                "integration_url": "generated",
+                "node_id": "generated"
             }
         },
         {
-            "id": 3515,
-            "node_id": "MDQ6R2F0ZTM1MTU=",
-            "enabled": true,
+            "id": 2,
+            "node_id": "generated",
+            "enabled": false,
             "app": {
-                "id": 3515,
-                "slug": "my-custom-app",
-                "integration_url": "https:\\/\\/api.github.com\\/apps\\/custom-app-slug",
-                "node_id": "MDQ6R2F0ZTM1MTU="
+                "id": 2,
+                "slug": "generated",
+                "integration_url": "generated",
+                "node_id": "generated"
             }
         }
     ]
 }';
-
     /**
      * totalCount: The number of enabled custom deployment protection rules for this environment
      */
-    public function __construct(#[MapFrom('total_count')]
-    public int|null $totalCount, #[MapFrom('custom_deployment_protection_rules')]
-    public array|null $customDeploymentProtectionRules,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public ?int $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('custom_deployment_protection_rules')] public ?array $customDeploymentProtectionRules)
     {
     }
 }

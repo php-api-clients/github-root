@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SshSigningKey
+final readonly class SshSigningKey implements \ApiClients\Client\GitHub\Contract\SshSigningKey
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "SSH Signing Key",
     "required": [
         "key",
@@ -34,17 +31,15 @@ final readonly class SshSigningKey
     },
     "description": "A public SSH key used to sign Git commits"
 }';
-    public const SCHEMA_TITLE        = 'SSH Signing Key';
-    public const SCHEMA_DESCRIPTION  = 'A public SSH key used to sign Git commits';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'SSH Signing Key';
+    public const SCHEMA_DESCRIPTION = 'A public SSH key used to sign Git commits';
+    const SCHEMA_EXAMPLE_DATA = '{
     "key": "generated",
     "id": 2,
     "title": "generated",
     "created_at": "1970-01-01T00:00:00+00:00"
 }';
-
-    public function __construct(public string $key, public int $id, public string $title, #[MapFrom('created_at')]
-    public string $createdAt,)
+    public function __construct(public string $key, public int $id, public string $title, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt)
     {
     }
 }

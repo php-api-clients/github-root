@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApiInsightsUserStats
+final readonly class ApiInsightsUserStats implements \ApiClients\Client\GitHub\Contract\ApiInsightsUserStats
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "actor_type": {
@@ -52,9 +49,9 @@ final readonly class ApiInsightsUserStats
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "actor_type": "generated",
     "actor_name": "generated",
     "actor_id": 8,
@@ -65,17 +62,7 @@ final readonly class ApiInsightsUserStats
     "last_rate_limited_timestamp": "generated",
     "last_request_timestamp": "generated"
 }';
-
-    public function __construct(#[MapFrom('actor_type')]
-    public string|null $actorType, #[MapFrom('actor_name')]
-    public string|null $actorName, #[MapFrom('actor_id')]
-    public int|null $actorId, #[MapFrom('integration_id')]
-    public int|null $integrationId, #[MapFrom('oauth_application_id')]
-    public int|null $oauthApplicationId, #[MapFrom('total_request_count')]
-    public int|null $totalRequestCount, #[MapFrom('rate_limited_request_count')]
-    public int|null $rateLimitedRequestCount, #[MapFrom('last_rate_limited_timestamp')]
-    public string|null $lastRateLimitedTimestamp, #[MapFrom('last_request_timestamp')]
-    public string|null $lastRequestTimestamp,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('actor_type')] public ?string $actorType, #[\EventSauce\ObjectHydrator\MapFrom('actor_name')] public ?string $actorName, #[\EventSauce\ObjectHydrator\MapFrom('actor_id')] public ?int $actorId, #[\EventSauce\ObjectHydrator\MapFrom('integration_id')] public ?int $integrationId, #[\EventSauce\ObjectHydrator\MapFrom('oauth_application_id')] public ?int $oauthApplicationId, #[\EventSauce\ObjectHydrator\MapFrom('total_request_count')] public ?int $totalRequestCount, #[\EventSauce\ObjectHydrator\MapFrom('rate_limited_request_count')] public ?int $rateLimitedRequestCount, #[\EventSauce\ObjectHydrator\MapFrom('last_rate_limited_timestamp')] public ?string $lastRateLimitedTimestamp, #[\EventSauce\ObjectHydrator\MapFrom('last_request_timestamp')] public ?string $lastRequestTimestamp)
     {
     }
 }

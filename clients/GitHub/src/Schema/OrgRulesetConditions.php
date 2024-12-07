@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class OrgRulesetConditions
+final readonly class OrgRulesetConditions implements \ApiClients\Client\GitHub\Contract\OrgRulesetConditions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Organization ruleset conditions",
     "type": "object",
     "oneOf": [
@@ -250,12 +249,11 @@ final readonly class OrgRulesetConditions
     ],
     "description": "Conditions for an organization ruleset.\\nThe branch and tag rulesets conditions object should contain both `repository_name` and `ref_name` properties, or both `repository_id` and `ref_name` properties, or both `repository_property` and `ref_name` properties.\\nThe push rulesets conditions object does not require the `ref_name` property."
 }';
-    public const SCHEMA_TITLE        = 'Organization ruleset conditions';
-    public const SCHEMA_DESCRIPTION  = 'Conditions for an organization ruleset.
+    public const SCHEMA_TITLE = 'Organization ruleset conditions';
+    public const SCHEMA_DESCRIPTION = 'Conditions for an organization ruleset.
 The branch and tag rulesets conditions object should contain both `repository_name` and `ref_name` properties, or both `repository_id` and `ref_name` properties, or both `repository_property` and `ref_name` properties.
 The push rulesets conditions object does not require the `ref_name` property.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

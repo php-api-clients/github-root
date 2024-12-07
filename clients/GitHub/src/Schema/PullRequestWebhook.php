@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class PullRequestWebhook
+final readonly class PullRequestWebhook implements \ApiClients\Client\GitHub\Contract\PullRequest, \ApiClients\Client\GitHub\Contract\PullRequestWebhook
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "allOf": [
         {
             "title": "Pull Request",
@@ -4306,11 +4305,601 @@ final readonly class PullRequestWebhook
         }
     ]
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
-    public function __construct()
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "url": "https:\\/\\/example.com\\/",
+    "id": 2,
+    "node_id": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "diff_url": "https:\\/\\/example.com\\/",
+    "patch_url": "https:\\/\\/example.com\\/",
+    "issue_url": "https:\\/\\/example.com\\/",
+    "commits_url": "https:\\/\\/example.com\\/",
+    "review_comments_url": "https:\\/\\/example.com\\/",
+    "review_comment_url": "generated",
+    "comments_url": "https:\\/\\/example.com\\/",
+    "statuses_url": "https:\\/\\/example.com\\/",
+    "number": 6,
+    "state": "open",
+    "locked": false,
+    "title": "generated",
+    "user": {
+        "name": "generated",
+        "email": "generated",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
+        "site_admin": false,
+        "starred_at": "generated",
+        "user_view_type": "generated"
+    },
+    "body": "generated",
+    "labels": [
+        {
+            "id": 2,
+            "node_id": "generated",
+            "url": "generated",
+            "name": "generated",
+            "description": "generated",
+            "color": "generated",
+            "default": false
+        },
+        {
+            "id": 2,
+            "node_id": "generated",
+            "url": "generated",
+            "name": "generated",
+            "description": "generated",
+            "color": "generated",
+            "default": false
+        }
+    ],
+    "milestone": {
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "labels_url": "https:\\/\\/example.com\\/",
+        "id": 2,
+        "node_id": "generated",
+        "number": 6,
+        "state": "open",
+        "title": "generated",
+        "description": "generated",
+        "creator": {
+            "name": "generated",
+            "email": "generated",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
+            "site_admin": false,
+            "starred_at": "generated",
+            "user_view_type": "generated"
+        },
+        "open_issues": 11,
+        "closed_issues": 13,
+        "created_at": "1970-01-01T00:00:00+00:00",
+        "updated_at": "1970-01-01T00:00:00+00:00",
+        "closed_at": "1970-01-01T00:00:00+00:00",
+        "due_on": "1970-01-01T00:00:00+00:00"
+    },
+    "active_lock_reason": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
+    "closed_at": "1970-01-01T00:00:00+00:00",
+    "merged_at": "1970-01-01T00:00:00+00:00",
+    "merge_commit_sha": "generated",
+    "assignee": {
+        "name": "generated",
+        "email": "generated",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
+        "site_admin": false,
+        "starred_at": "generated",
+        "user_view_type": "generated"
+    },
+    "head": {
+        "label": "generated",
+        "ref": "generated",
+        "repo": {
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "full_name": "generated",
+            "license": {
+                "key": "generated",
+                "name": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "spdx_id": "generated",
+                "node_id": "generated",
+                "html_url": "https:\\/\\/example.com\\/"
+            },
+            "forks": 5,
+            "permissions": {
+                "admin": false,
+                "pull": false,
+                "triage": false,
+                "push": false,
+                "maintain": false
+            },
+            "owner": {
+                "name": "generated",
+                "email": "generated",
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "avatar_url": "https:\\/\\/example.com\\/",
+                "gravatar_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "followers_url": "https:\\/\\/example.com\\/",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "https:\\/\\/example.com\\/",
+                "organizations_url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "generated",
+                "received_events_url": "https:\\/\\/example.com\\/",
+                "type": "generated",
+                "site_admin": false,
+                "starred_at": "generated",
+                "user_view_type": "generated"
+            },
+            "private": false,
+            "html_url": "https:\\/\\/example.com\\/",
+            "description": "generated",
+            "fork": false,
+            "url": "https:\\/\\/example.com\\/",
+            "archive_url": "generated",
+            "assignees_url": "generated",
+            "blobs_url": "generated",
+            "branches_url": "generated",
+            "collaborators_url": "generated",
+            "comments_url": "generated",
+            "commits_url": "generated",
+            "compare_url": "generated",
+            "contents_url": "generated",
+            "contributors_url": "https:\\/\\/example.com\\/",
+            "deployments_url": "https:\\/\\/example.com\\/",
+            "downloads_url": "https:\\/\\/example.com\\/",
+            "events_url": "https:\\/\\/example.com\\/",
+            "forks_url": "https:\\/\\/example.com\\/",
+            "git_commits_url": "generated",
+            "git_refs_url": "generated",
+            "git_tags_url": "generated",
+            "git_url": "generated",
+            "issue_comment_url": "generated",
+            "issue_events_url": "generated",
+            "issues_url": "generated",
+            "keys_url": "generated",
+            "labels_url": "generated",
+            "languages_url": "https:\\/\\/example.com\\/",
+            "merges_url": "https:\\/\\/example.com\\/",
+            "milestones_url": "generated",
+            "notifications_url": "generated",
+            "pulls_url": "generated",
+            "releases_url": "generated",
+            "ssh_url": "generated",
+            "stargazers_url": "https:\\/\\/example.com\\/",
+            "statuses_url": "generated",
+            "subscribers_url": "https:\\/\\/example.com\\/",
+            "subscription_url": "https:\\/\\/example.com\\/",
+            "tags_url": "https:\\/\\/example.com\\/",
+            "teams_url": "https:\\/\\/example.com\\/",
+            "trees_url": "generated",
+            "clone_url": "generated",
+            "mirror_url": "https:\\/\\/example.com\\/",
+            "hooks_url": "https:\\/\\/example.com\\/",
+            "svn_url": "https:\\/\\/example.com\\/",
+            "homepage": "https:\\/\\/example.com\\/",
+            "language": "generated",
+            "forks_count": 11,
+            "stargazers_count": 16,
+            "watchers_count": 14,
+            "size": 4,
+            "default_branch": "generated",
+            "open_issues_count": 17,
+            "is_template": false,
+            "topics": [
+                "generated",
+                "generated"
+            ],
+            "has_issues": false,
+            "has_projects": false,
+            "has_wiki": false,
+            "has_pages": false,
+            "has_downloads": false,
+            "has_discussions": false,
+            "archived": false,
+            "disabled": false,
+            "visibility": "generated",
+            "pushed_at": "1970-01-01T00:00:00+00:00",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "allow_rebase_merge": false,
+            "temp_clone_token": "generated",
+            "allow_squash_merge": false,
+            "allow_auto_merge": false,
+            "delete_branch_on_merge": false,
+            "allow_update_branch": false,
+            "use_squash_pr_title_as_default": false,
+            "squash_merge_commit_title": "PR_TITLE",
+            "squash_merge_commit_message": "PR_BODY",
+            "merge_commit_title": "PR_TITLE",
+            "merge_commit_message": "PR_BODY",
+            "allow_merge_commit": false,
+            "allow_forking": false,
+            "web_commit_signoff_required": false,
+            "open_issues": 11,
+            "watchers": 8,
+            "master_branch": "generated",
+            "starred_at": "generated",
+            "anonymous_access_enabled": false
+        },
+        "sha": "generated",
+        "user": {
+            "name": "generated",
+            "email": "generated",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
+            "site_admin": false,
+            "starred_at": "generated",
+            "user_view_type": "generated"
+        }
+    },
+    "base": {
+        "label": "generated",
+        "ref": "generated",
+        "repo": {
+            "id": 2,
+            "node_id": "generated",
+            "name": "generated",
+            "full_name": "generated",
+            "license": {
+                "key": "generated",
+                "name": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "spdx_id": "generated",
+                "node_id": "generated",
+                "html_url": "https:\\/\\/example.com\\/"
+            },
+            "forks": 5,
+            "permissions": {
+                "admin": false,
+                "pull": false,
+                "triage": false,
+                "push": false,
+                "maintain": false
+            },
+            "owner": {
+                "name": "generated",
+                "email": "generated",
+                "login": "generated",
+                "id": 2,
+                "node_id": "generated",
+                "avatar_url": "https:\\/\\/example.com\\/",
+                "gravatar_id": "generated",
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "followers_url": "https:\\/\\/example.com\\/",
+                "following_url": "generated",
+                "gists_url": "generated",
+                "starred_url": "generated",
+                "subscriptions_url": "https:\\/\\/example.com\\/",
+                "organizations_url": "https:\\/\\/example.com\\/",
+                "repos_url": "https:\\/\\/example.com\\/",
+                "events_url": "generated",
+                "received_events_url": "https:\\/\\/example.com\\/",
+                "type": "generated",
+                "site_admin": false,
+                "starred_at": "generated",
+                "user_view_type": "generated"
+            },
+            "private": false,
+            "html_url": "https:\\/\\/example.com\\/",
+            "description": "generated",
+            "fork": false,
+            "url": "https:\\/\\/example.com\\/",
+            "archive_url": "generated",
+            "assignees_url": "generated",
+            "blobs_url": "generated",
+            "branches_url": "generated",
+            "collaborators_url": "generated",
+            "comments_url": "generated",
+            "commits_url": "generated",
+            "compare_url": "generated",
+            "contents_url": "generated",
+            "contributors_url": "https:\\/\\/example.com\\/",
+            "deployments_url": "https:\\/\\/example.com\\/",
+            "downloads_url": "https:\\/\\/example.com\\/",
+            "events_url": "https:\\/\\/example.com\\/",
+            "forks_url": "https:\\/\\/example.com\\/",
+            "git_commits_url": "generated",
+            "git_refs_url": "generated",
+            "git_tags_url": "generated",
+            "git_url": "generated",
+            "issue_comment_url": "generated",
+            "issue_events_url": "generated",
+            "issues_url": "generated",
+            "keys_url": "generated",
+            "labels_url": "generated",
+            "languages_url": "https:\\/\\/example.com\\/",
+            "merges_url": "https:\\/\\/example.com\\/",
+            "milestones_url": "generated",
+            "notifications_url": "generated",
+            "pulls_url": "generated",
+            "releases_url": "generated",
+            "ssh_url": "generated",
+            "stargazers_url": "https:\\/\\/example.com\\/",
+            "statuses_url": "generated",
+            "subscribers_url": "https:\\/\\/example.com\\/",
+            "subscription_url": "https:\\/\\/example.com\\/",
+            "tags_url": "https:\\/\\/example.com\\/",
+            "teams_url": "https:\\/\\/example.com\\/",
+            "trees_url": "generated",
+            "clone_url": "generated",
+            "mirror_url": "https:\\/\\/example.com\\/",
+            "hooks_url": "https:\\/\\/example.com\\/",
+            "svn_url": "https:\\/\\/example.com\\/",
+            "homepage": "https:\\/\\/example.com\\/",
+            "language": "generated",
+            "forks_count": 11,
+            "stargazers_count": 16,
+            "watchers_count": 14,
+            "size": 4,
+            "default_branch": "generated",
+            "open_issues_count": 17,
+            "is_template": false,
+            "topics": [
+                "generated",
+                "generated"
+            ],
+            "has_issues": false,
+            "has_projects": false,
+            "has_wiki": false,
+            "has_pages": false,
+            "has_downloads": false,
+            "has_discussions": false,
+            "archived": false,
+            "disabled": false,
+            "visibility": "generated",
+            "pushed_at": "1970-01-01T00:00:00+00:00",
+            "created_at": "1970-01-01T00:00:00+00:00",
+            "updated_at": "1970-01-01T00:00:00+00:00",
+            "allow_rebase_merge": false,
+            "temp_clone_token": "generated",
+            "allow_squash_merge": false,
+            "allow_auto_merge": false,
+            "delete_branch_on_merge": false,
+            "allow_update_branch": false,
+            "use_squash_pr_title_as_default": false,
+            "squash_merge_commit_title": "PR_TITLE",
+            "squash_merge_commit_message": "PR_BODY",
+            "merge_commit_title": "PR_TITLE",
+            "merge_commit_message": "PR_BODY",
+            "allow_merge_commit": false,
+            "allow_forking": false,
+            "web_commit_signoff_required": false,
+            "open_issues": 11,
+            "watchers": 8,
+            "master_branch": "generated",
+            "starred_at": "generated",
+            "anonymous_access_enabled": false
+        },
+        "sha": "generated",
+        "user": {
+            "name": "generated",
+            "email": "generated",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
+            "site_admin": false,
+            "starred_at": "generated",
+            "user_view_type": "generated"
+        }
+    },
+    "_links": {
+        "comments": {
+            "href": "generated"
+        },
+        "commits": {
+            "href": "generated"
+        },
+        "statuses": {
+            "href": "generated"
+        },
+        "html": {
+            "href": "generated"
+        },
+        "issue": {
+            "href": "generated"
+        },
+        "review_comments": {
+            "href": "generated"
+        },
+        "review_comment": {
+            "href": "generated"
+        },
+        "self": {
+            "href": "generated"
+        }
+    },
+    "author_association": "COLLABORATOR",
+    "auto_merge": {
+        "enabled_by": {
+            "name": "generated",
+            "email": "generated",
+            "login": "generated",
+            "id": 2,
+            "node_id": "generated",
+            "avatar_url": "https:\\/\\/example.com\\/",
+            "gravatar_id": "generated",
+            "url": "https:\\/\\/example.com\\/",
+            "html_url": "https:\\/\\/example.com\\/",
+            "followers_url": "https:\\/\\/example.com\\/",
+            "following_url": "generated",
+            "gists_url": "generated",
+            "starred_url": "generated",
+            "subscriptions_url": "https:\\/\\/example.com\\/",
+            "organizations_url": "https:\\/\\/example.com\\/",
+            "repos_url": "https:\\/\\/example.com\\/",
+            "events_url": "generated",
+            "received_events_url": "https:\\/\\/example.com\\/",
+            "type": "generated",
+            "site_admin": false,
+            "starred_at": "generated",
+            "user_view_type": "generated"
+        },
+        "merge_method": "merge",
+        "commit_title": "generated",
+        "commit_message": "generated"
+    },
+    "draft": false,
+    "merged": false,
+    "mergeable": false,
+    "rebaseable": false,
+    "mergeable_state": "generated",
+    "merged_by": {
+        "name": "generated",
+        "email": "generated",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
+        "site_admin": false,
+        "starred_at": "generated",
+        "user_view_type": "generated"
+    },
+    "comments": 8,
+    "review_comments": 15,
+    "maintainer_can_modify": false,
+    "commits": 7,
+    "additions": 9,
+    "deletions": 9,
+    "changed_files": 13,
+    "allow_auto_merge": false,
+    "allow_update_branch": false,
+    "delete_branch_on_merge": false,
+    "merge_commit_message": "PR_BODY",
+    "merge_commit_title": "PR_TITLE",
+    "squash_merge_commit_message": "PR_BODY",
+    "squash_merge_commit_title": "PR_TITLE",
+    "use_squash_pr_title_as_default": false
+}';
+    /**
+    * number: Number uniquely identifying the pull request within its repository.
+    * state: State of this Pull Request. Either `open` or `closed`.
+    * title: The title of the pull request.
+    * user: A GitHub user.
+    * authorAssociation: How the author is associated with the repository.
+    * autoMerge: The status of auto merging a pull request.
+    * draft: Indicates whether or not the pull request is a draft.
+    * maintainerCanModify: Indicates whether maintainers can modify the pull request.
+    * allowAutoMerge: Whether to allow auto-merge for pull requests.
+    * allowUpdateBranch: Whether to allow updating the pull request's branch.
+    * deleteBranchOnMerge: Whether to delete head branches when pull requests are merged.
+    * mergeCommitMessage: The default value for a merge commit message.
+    - `PR_TITLE` - default to the pull request's title.
+    - `PR_BODY` - default to the pull request's body.
+    - `BLANK` - default to a blank commit message.
+    * mergeCommitTitle: The default value for a merge commit title.
+    - `PR_TITLE` - default to the pull request's title.
+    - `MERGE_MESSAGE` - default to the classic title for a merge message (e.g., "Merge pull request #123 from branch-name").
+    * squashMergeCommitMessage: The default value for a squash merge commit message:
+    - `PR_BODY` - default to the pull request's body.
+    - `COMMIT_MESSAGES` - default to the branch's commit messages.
+    - `BLANK` - default to a blank commit message.
+    * squashMergeCommitTitle: The default value for a squash merge commit title:
+    - `PR_TITLE` - default to the pull request's title.
+    - `COMMIT_OR_PR_TITLE` - default to the commit's title (if only one commit) or the pull request's title (when more than one commit).
+    * useSquashPrTitleAsDefault: Whether a squash merge commit can use the pull request title as default. **This property is closing down. Please use `squash_merge_commit_title` instead.**
+    */
+    public function __construct(public string $url, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('diff_url')] public string $diffUrl, #[\EventSauce\ObjectHydrator\MapFrom('patch_url')] public string $patchUrl, #[\EventSauce\ObjectHydrator\MapFrom('issue_url')] public string $issueUrl, #[\EventSauce\ObjectHydrator\MapFrom('commits_url')] public string $commitsUrl, #[\EventSauce\ObjectHydrator\MapFrom('review_comments_url')] public string $reviewCommentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('review_comment_url')] public string $reviewCommentUrl, #[\EventSauce\ObjectHydrator\MapFrom('comments_url')] public string $commentsUrl, #[\EventSauce\ObjectHydrator\MapFrom('statuses_url')] public string $statusesUrl, public int $number, public string $state, public bool $locked, public string $title, public \ApiClients\Client\GitHub\Schema\SimpleUser $user, public ?string $body, public array $labels, public ?\ApiClients\Client\GitHub\Schema\Milestone $milestone, #[\EventSauce\ObjectHydrator\MapFrom('active_lock_reason')] public ?string $activeLockReason, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, #[\EventSauce\ObjectHydrator\MapFrom('closed_at')] public ?string $closedAt, #[\EventSauce\ObjectHydrator\MapFrom('merged_at')] public ?string $mergedAt, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_sha')] public ?string $mergeCommitSha, public ?\ApiClients\Client\GitHub\Schema\SimpleUser $assignee, public ?array $assignees, #[\EventSauce\ObjectHydrator\MapFrom('requested_reviewers')] public ?array $requestedReviewers, #[\EventSauce\ObjectHydrator\MapFrom('requested_teams')] public ?array $requestedTeams, public \ApiClients\Client\GitHub\Schema\PullRequest\Head $head, public \ApiClients\Client\GitHub\Schema\PullRequestWebhook\Base $base, #[\EventSauce\ObjectHydrator\MapFrom('_links')] public \ApiClients\Client\GitHub\Schema\PullRequestWebhook\Links $links, #[\EventSauce\ObjectHydrator\MapFrom('author_association')] public string $authorAssociation, #[\EventSauce\ObjectHydrator\MapFrom('auto_merge')] public ?\ApiClients\Client\GitHub\Schema\AutoMerge $autoMerge, public ?bool $draft, public bool $merged, public ?bool $mergeable, public ?bool $rebaseable, #[\EventSauce\ObjectHydrator\MapFrom('mergeable_state')] public string $mergeableState, #[\EventSauce\ObjectHydrator\MapFrom('merged_by')] public ?\ApiClients\Client\GitHub\Schema\SimpleUser $mergedBy, public int $comments, #[\EventSauce\ObjectHydrator\MapFrom('review_comments')] public int $reviewComments, #[\EventSauce\ObjectHydrator\MapFrom('maintainer_can_modify')] public bool $maintainerCanModify, public int $commits, public int $additions, public int $deletions, #[\EventSauce\ObjectHydrator\MapFrom('changed_files')] public int $changedFiles, #[\EventSauce\ObjectHydrator\MapFrom('allow_auto_merge')] public ?bool $allowAutoMerge, #[\EventSauce\ObjectHydrator\MapFrom('allow_update_branch')] public ?bool $allowUpdateBranch, #[\EventSauce\ObjectHydrator\MapFrom('delete_branch_on_merge')] public ?bool $deleteBranchOnMerge, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_message')] public ?string $mergeCommitMessage, #[\EventSauce\ObjectHydrator\MapFrom('merge_commit_title')] public ?string $mergeCommitTitle, #[\EventSauce\ObjectHydrator\MapFrom('squash_merge_commit_message')] public ?string $squashMergeCommitMessage, #[\EventSauce\ObjectHydrator\MapFrom('squash_merge_commit_title')] public ?string $squashMergeCommitTitle, #[\EventSauce\ObjectHydrator\MapFrom('use_squash_pr_title_as_default')] public ?bool $useSquashPrTitleAsDefault)
     {
     }
 }

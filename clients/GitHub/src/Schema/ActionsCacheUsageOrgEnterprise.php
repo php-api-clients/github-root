@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ActionsCacheUsageOrgEnterprise
+final readonly class ActionsCacheUsageOrgEnterprise implements \ApiClients\Client\GitHub\Contract\ActionsCacheUsageOrgEnterprise
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "total_active_caches_count",
         "total_active_caches_size_in_bytes"
@@ -25,20 +22,17 @@ final readonly class ActionsCacheUsageOrgEnterprise
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_active_caches_count": 25,
     "total_active_caches_size_in_bytes": 33
 }';
-
     /**
      * totalActiveCachesCount: The count of active caches across all repositories of an enterprise or an organization.
      * totalActiveCachesSizeInBytes: The total size in bytes of all active cache items across all repositories of an enterprise or an organization.
      */
-    public function __construct(#[MapFrom('total_active_caches_count')]
-    public int $totalActiveCachesCount, #[MapFrom('total_active_caches_size_in_bytes')]
-    public int $totalActiveCachesSizeInBytes,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_active_caches_count')] public int $totalActiveCachesCount, #[\EventSauce\ObjectHydrator\MapFrom('total_active_caches_size_in_bytes')] public int $totalActiveCachesSizeInBytes)
     {
     }
 }

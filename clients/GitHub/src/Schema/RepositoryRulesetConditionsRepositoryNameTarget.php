@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryRulesetConditionsRepositoryNameTarget
+final readonly class RepositoryRulesetConditionsRepositoryNameTarget implements \ApiClients\Client\GitHub\Contract\RepositoryRulesetConditionsRepositoryNameTarget
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Repository ruleset conditions for repository names",
     "required": [
         "repository_name"
@@ -42,9 +38,9 @@ final readonly class RepositoryRulesetConditionsRepositoryNameTarget
     },
     "description": "Parameters for a repository name condition"
 }';
-    public const SCHEMA_TITLE        = 'Repository ruleset conditions for repository names';
-    public const SCHEMA_DESCRIPTION  = 'Parameters for a repository name condition';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Repository ruleset conditions for repository names';
+    public const SCHEMA_DESCRIPTION = 'Parameters for a repository name condition';
+    const SCHEMA_EXAMPLE_DATA = '{
     "repository_name": {
         "include": [
             "generated",
@@ -57,9 +53,7 @@ final readonly class RepositoryRulesetConditionsRepositoryNameTarget
         "protected": false
     }
 }';
-
-    public function __construct(#[MapFrom('repository_name')]
-    public Schema\RepositoryRulesetConditionsRepositoryNameTarget\RepositoryName $repositoryName,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('repository_name')] public \ApiClients\Client\GitHub\Schema\RepositoryRulesetConditionsRepositoryNameTarget\RepositoryName $repositoryName)
     {
     }
 }

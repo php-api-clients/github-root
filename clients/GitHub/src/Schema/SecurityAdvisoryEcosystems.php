@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class SecurityAdvisoryEcosystems
+final readonly class SecurityAdvisoryEcosystems implements \ApiClients\Client\GitHub\Contract\SecurityAdvisoryEcosystems
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "rubygems",
         "npm",
@@ -25,10 +24,9 @@ final readonly class SecurityAdvisoryEcosystems
     "type": "string",
     "description": "The package\'s language or package management ecosystem."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The package\'s language or package management ecosystem.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The package\'s language or package management ecosystem.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

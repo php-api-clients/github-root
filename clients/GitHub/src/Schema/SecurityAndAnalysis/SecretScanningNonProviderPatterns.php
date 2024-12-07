@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\SecurityAndAnalysis;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class SecretScanningNonProviderPatterns extends Schema\AliasAbstract\TietBB00E1D0\Tiet5E9A25B2\Tiet94F90620\TietEC1A306B
+final readonly class SecretScanningNonProviderPatterns extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TBB00E1D0\T5E9A25B2\T94F90620\TEC1A306B
 {
 }

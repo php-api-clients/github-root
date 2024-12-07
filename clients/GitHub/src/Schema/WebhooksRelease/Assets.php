@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhooksRelease;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Assets
+final readonly class Assets implements \ApiClients\Client\GitHub\Contract\WebhooksRelease\Assets
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Release Asset",
     "required": [
         "url",
@@ -174,9 +170,9 @@ final readonly class Assets
     },
     "description": "Data related to a release."
 }';
-    public const SCHEMA_TITLE        = 'Release Asset';
-    public const SCHEMA_DESCRIPTION  = 'Data related to a release.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Release Asset';
+    public const SCHEMA_DESCRIPTION = 'Data related to a release.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "browser_download_url": "https:\\/\\/example.com\\/",
     "content_type": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -208,23 +204,16 @@ final readonly class Assets
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * name: The file name of the asset.
      * state: State of the release asset.
      */
-    public function __construct(#[MapFrom('browser_download_url')]
-    public string $browserDownloadUrl, #[MapFrom('content_type')]
-    public string $contentType, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('download_count')]
-    public int $downloadCount, public int $id, public string|null $label, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, public int $size, public string $state, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\WebhooksRelease\Assets\Uploader|null $uploader, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('browser_download_url')] public string $browserDownloadUrl, #[\EventSauce\ObjectHydrator\MapFrom('content_type')] public string $contentType, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('download_count')] public int $downloadCount, public int $id, public ?string $label, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public int $size, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public ?\ApiClients\Client\GitHub\Schema\WebhooksRelease\Assets\Uploader $uploader, public string $url)
     {
     }
 }

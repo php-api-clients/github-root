@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepoCodespacesSecret
+final readonly class RepoCodespacesSecret implements \ApiClients\Client\GitHub\Contract\RepoCodespacesSecret
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Codespaces Secret",
     "required": [
         "name",
@@ -35,20 +32,17 @@ final readonly class RepoCodespacesSecret
     },
     "description": "Set repository secrets for GitHub Codespaces."
 }';
-    public const SCHEMA_TITLE        = 'Codespaces Secret';
-    public const SCHEMA_DESCRIPTION  = 'Set repository secrets for GitHub Codespaces.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "SECRET_TOKEN",
+    public const SCHEMA_TITLE = 'Codespaces Secret';
+    public const SCHEMA_DESCRIPTION = 'Set repository secrets for GitHub Codespaces.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
     "created_at": "1970-01-01T00:00:00+00:00",
     "updated_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * name: The name of the secret.
      */
-    public function __construct(public string $name, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt,)
+    public function __construct(public string $name, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt)
     {
     }
 }

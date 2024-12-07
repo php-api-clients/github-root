@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookGollum;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Pages
+final readonly class Pages implements \ApiClients\Client\GitHub\Contract\WebhookGollum\Pages
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "page_name",
         "title",
@@ -52,17 +49,16 @@ final readonly class Pages
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "action": "edited",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "action": "created",
     "html_url": "https:\\/\\/example.com\\/",
     "page_name": "generated",
     "sha": "generated",
     "summary": "generated",
     "title": "generated"
 }';
-
     /**
      * action: The action that was performed on the page. Can be `created` or `edited`.
      * htmlUrl: Points to the HTML wiki page.
@@ -70,9 +66,7 @@ final readonly class Pages
      * sha: The latest commit SHA of the page.
      * title: The current page title.
      */
-    public function __construct(public string $action, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('page_name')]
-    public string $pageName, public string $sha, public string|null $summary, public string $title,)
+    public function __construct(public string $action, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('page_name')] public string $pageName, public string $sha, public ?string $summary, public string $title)
     {
     }
 }

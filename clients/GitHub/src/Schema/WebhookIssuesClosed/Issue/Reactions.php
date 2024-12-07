@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookIssuesClosed\Issue;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Reactions extends Schema\AliasAbstract\Tiet559AE5A2\Tiet1A070067\Tiet14156653\TietD2E15261
+final readonly class Reactions extends \ApiClients\Client\GitHub\Schema\AliasAbstract\T89C23EBB\TF4647739\T0234F250\T247FFEEA
 {
 }

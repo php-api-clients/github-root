@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Integration;
 
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\Integration\Permissions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "issues": {
@@ -34,17 +33,16 @@ final readonly class Permissions
         "type": "string"
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The set of permissions for the GitHub app';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The set of permissions for the GitHub app';
+    const SCHEMA_EXAMPLE_DATA = '{
     "issues": "generated",
     "checks": "generated",
     "metadata": "generated",
     "contents": "generated",
     "deployments": "generated"
 }';
-
-    public function __construct(public string|null $issues, public string|null $checks, public string|null $metadata, public string|null $contents, public string|null $deployments)
+    public function __construct(public ?string $issues, public ?string $checks, public ?string $metadata, public ?string $contents, public ?string $deployments)
     {
     }
 }

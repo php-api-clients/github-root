@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRegistryPackageUpdated\RegistryPackage\PackageVersion\Release;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Author extends Schema\AliasAbstract\TietE1F3188F\TietB5552136\Tiet2A39D2D7\Tiet623FADA2
+final readonly class Author extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TE1F3188F\TB5552136\T2A39D2D7\T623FADA2
 {
 }

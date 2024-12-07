@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class WorkflowUsage
+final readonly class WorkflowUsage implements \ApiClients\Client\GitHub\Contract\WorkflowUsage
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Workflow Usage",
     "required": [
         "billable"
@@ -47,9 +44,9 @@ final readonly class WorkflowUsage
     },
     "description": "Workflow Usage"
 }';
-    public const SCHEMA_TITLE        = 'Workflow Usage';
-    public const SCHEMA_DESCRIPTION  = 'Workflow Usage';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Workflow Usage';
+    public const SCHEMA_DESCRIPTION = 'Workflow Usage';
+    const SCHEMA_EXAMPLE_DATA = '{
     "billable": {
         "UBUNTU": {
             "total_ms": 8
@@ -62,8 +59,7 @@ final readonly class WorkflowUsage
         }
     }
 }';
-
-    public function __construct(public Schema\WorkflowUsage\Billable $billable)
+    public function __construct(public \ApiClients\Client\GitHub\Schema\WorkflowUsage\Billable $billable)
     {
     }
 }

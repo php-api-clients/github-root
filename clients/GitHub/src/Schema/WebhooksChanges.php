@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class WebhooksChanges
+final readonly class WebhooksChanges implements \ApiClients\Client\GitHub\Contract\WebhooksChanges
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "body": {
@@ -26,15 +23,14 @@ final readonly class WebhooksChanges
     },
     "description": "The changes to the comment."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The changes to the comment.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The changes to the comment.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "body": {
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhooksChanges\Body|null $body)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhooksChanges\Body $body)
     {
     }
 }

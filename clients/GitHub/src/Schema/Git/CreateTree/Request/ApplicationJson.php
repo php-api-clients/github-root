@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Git\CreateTree\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Git\CreateTree\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "tree"
     ],
@@ -64,35 +61,33 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "tree": [
         {
             "path": "generated",
-            "mode": "120000",
-            "type": "commit",
+            "mode": "100644",
+            "type": "blob",
             "sha": "generated",
             "content": "generated"
         },
         {
             "path": "generated",
-            "mode": "120000",
-            "type": "commit",
+            "mode": "100644",
+            "type": "blob",
             "sha": "generated",
             "content": "generated"
         }
     ],
     "base_tree": "generated"
 }';
-
     /**
-     * tree: Objects (of `path`, `mode`, `type`, and `sha`) specifying a tree structure.
-     * baseTree: The SHA1 of an existing Git tree object which will be used as the base for the new tree. If provided, a new Git tree object will be created from entries in the Git tree object pointed to by `base_tree` and entries defined in the `tree` parameter. Entries defined in the `tree` parameter will overwrite items from `base_tree` with the same `path`. If you're creating new changes on a branch, then normally you'd set `base_tree` to the SHA1 of the Git tree object of the current latest commit on the branch you're working on.
+    * tree: Objects (of `path`, `mode`, `type`, and `sha`) specifying a tree structure.
+    * baseTree: The SHA1 of an existing Git tree object which will be used as the base for the new tree. If provided, a new Git tree object will be created from entries in the Git tree object pointed to by `base_tree` and entries defined in the `tree` parameter. Entries defined in the `tree` parameter will overwrite items from `base_tree` with the same `path`. If you're creating new changes on a branch, then normally you'd set `base_tree` to the SHA1 of the Git tree object of the current latest commit on the branch you're working on.
     If not provided, GitHub will create a new Git tree object from only the entries defined in the `tree` parameter. If you create a new commit pointing to such a tree, then all files which were a part of the parent commit's tree and were not defined in the `tree` parameter will be listed as deleted by the new commit.
-     */
-    public function __construct(public array $tree, #[MapFrom('base_tree')]
-    public string|null $baseTree,)
+    */
+    public function __construct(public array $tree, #[\EventSauce\ObjectHydrator\MapFrom('base_tree')] public ?string $baseTree)
     {
     }
 }

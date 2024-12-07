@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class InteractionLimitResponse
+final readonly class InteractionLimitResponse implements \ApiClients\Client\GitHub\Contract\InteractionLimitResponse
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Interaction Limits",
     "required": [
         "limit",
@@ -45,19 +42,17 @@ final readonly class InteractionLimitResponse
     },
     "description": "Interaction limit settings."
 }';
-    public const SCHEMA_TITLE        = 'Interaction Limits';
-    public const SCHEMA_DESCRIPTION  = 'Interaction limit settings.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "limit": "collaborators_only",
-    "origin": "repository",
-    "expires_at": "2018-08-17T04:18:39Z"
+    public const SCHEMA_TITLE = 'Interaction Limits';
+    public const SCHEMA_DESCRIPTION = 'Interaction limit settings.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "limit": "existing_users",
+    "origin": "generated",
+    "expires_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * limit: The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.
      */
-    public function __construct(public string $limit, public string $origin, #[MapFrom('expires_at')]
-    public string $expiresAt,)
+    public function __construct(public string $limit, public string $origin, #[\EventSauce\ObjectHydrator\MapFrom('expires_at')] public string $expiresAt)
     {
     }
 }

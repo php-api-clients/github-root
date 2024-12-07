@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class GpgKey
+final readonly class GpgKey implements \ApiClients\Client\GitHub\Contract\GpgKey
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "GPG Key",
     "required": [
         "id",
@@ -214,30 +211,30 @@ final readonly class GpgKey
     },
     "description": "A unique encryption key"
 }';
-    public const SCHEMA_TITLE        = 'GPG Key';
-    public const SCHEMA_DESCRIPTION  = 'A unique encryption key';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3,
-    "name": "Octocat\'s GPG Key",
+    public const SCHEMA_TITLE = 'GPG Key';
+    public const SCHEMA_DESCRIPTION = 'A unique encryption key';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "name": "generated",
     "primary_key_id": 14,
-    "key_id": "3262EFF25BA0D270",
-    "public_key": "xsBNBFayYZ...",
+    "key_id": "generated",
+    "public_key": "generated",
     "emails": [
         {
-            "email": "octocat@users.noreply.github.com",
-            "verified": true
+            "email": "generated",
+            "verified": false
         },
         {
-            "email": "octocat@users.noreply.github.com",
-            "verified": true
+            "email": "generated",
+            "verified": false
         }
     ],
     "subkeys": [
         {
-            "id": 4,
-            "primary_key_id": 3,
-            "key_id": "4A595D4C72EE49C7",
-            "public_key": "zsBNBFayYZ...",
+            "id": 2,
+            "primary_key_id": 14,
+            "key_id": "generated",
+            "public_key": "generated",
             "emails": [
                 {
                     "email": "generated",
@@ -253,19 +250,19 @@ final readonly class GpgKey
                 "generated"
             ],
             "can_sign": false,
-            "can_encrypt_comms": true,
-            "can_encrypt_storage": true,
+            "can_encrypt_comms": false,
+            "can_encrypt_storage": false,
             "can_certify": false,
-            "created_at": "2016-03-24T11:31:04-06:00",
-            "expires_at": null,
+            "created_at": "generated",
+            "expires_at": "generated",
             "raw_key": "generated",
             "revoked": false
         },
         {
-            "id": 4,
-            "primary_key_id": 3,
-            "key_id": "4A595D4C72EE49C7",
-            "public_key": "zsBNBFayYZ...",
+            "id": 2,
+            "primary_key_id": 14,
+            "key_id": "generated",
+            "public_key": "generated",
             "emails": [
                 {
                     "email": "generated",
@@ -281,36 +278,25 @@ final readonly class GpgKey
                 "generated"
             ],
             "can_sign": false,
-            "can_encrypt_comms": true,
-            "can_encrypt_storage": true,
+            "can_encrypt_comms": false,
+            "can_encrypt_storage": false,
             "can_certify": false,
-            "created_at": "2016-03-24T11:31:04-06:00",
-            "expires_at": null,
+            "created_at": "generated",
+            "expires_at": "generated",
             "raw_key": "generated",
             "revoked": false
         }
     ],
-    "can_sign": true,
+    "can_sign": false,
     "can_encrypt_comms": false,
     "can_encrypt_storage": false,
-    "can_certify": true,
-    "created_at": "2016-03-24T11:31:04-06:00",
+    "can_certify": false,
+    "created_at": "1970-01-01T00:00:00+00:00",
     "expires_at": "1970-01-01T00:00:00+00:00",
-    "revoked": true,
+    "revoked": false,
     "raw_key": "generated"
 }';
-
-    public function __construct(public int $id, public string|null $name, #[MapFrom('primary_key_id')]
-    public int|null $primaryKeyId, #[MapFrom('key_id')]
-    public string $keyId, #[MapFrom('public_key')]
-    public string $publicKey, public array $emails, public array $subkeys, #[MapFrom('can_sign')]
-    public bool $canSign, #[MapFrom('can_encrypt_comms')]
-    public bool $canEncryptComms, #[MapFrom('can_encrypt_storage')]
-    public bool $canEncryptStorage, #[MapFrom('can_certify')]
-    public bool $canCertify, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('expires_at')]
-    public string|null $expiresAt, public bool $revoked, #[MapFrom('raw_key')]
-    public string|null $rawKey,)
+    public function __construct(public int $id, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('primary_key_id')] public ?int $primaryKeyId, #[\EventSauce\ObjectHydrator\MapFrom('key_id')] public string $keyId, #[\EventSauce\ObjectHydrator\MapFrom('public_key')] public string $publicKey, public array $emails, public array $subkeys, #[\EventSauce\ObjectHydrator\MapFrom('can_sign')] public bool $canSign, #[\EventSauce\ObjectHydrator\MapFrom('can_encrypt_comms')] public bool $canEncryptComms, #[\EventSauce\ObjectHydrator\MapFrom('can_encrypt_storage')] public bool $canEncryptStorage, #[\EventSauce\ObjectHydrator\MapFrom('can_certify')] public bool $canCertify, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('expires_at')] public ?string $expiresAt, public bool $revoked, #[\EventSauce\ObjectHydrator\MapFrom('raw_key')] public ?string $rawKey)
     {
     }
 }

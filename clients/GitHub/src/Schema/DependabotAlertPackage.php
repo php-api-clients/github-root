@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class DependabotAlertPackage
+final readonly class DependabotAlertPackage implements \ApiClients\Client\GitHub\Contract\DependabotAlertPackage
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "ecosystem",
         "name"
@@ -28,13 +27,12 @@ final readonly class DependabotAlertPackage
     "readOnly": true,
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Details for the vulnerable package.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Details for the vulnerable package.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "ecosystem": "generated",
     "name": "generated"
 }';
-
     /**
      * ecosystem: The package's language or package management ecosystem.
      * name: The unique package name within its ecosystem.

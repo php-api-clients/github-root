@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Gists\Get\Response\ApplicationJson\Forbidden;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Block
+final readonly class Block implements \ApiClients\Client\GitHub\Contract\Operations\Gists\Get\Response\ApplicationJson\Forbidden\Block
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "reason": {
@@ -25,17 +22,14 @@ final readonly class Block
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "reason": "generated",
     "created_at": "generated",
     "html_url": "generated"
 }';
-
-    public function __construct(public string|null $reason, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('html_url')]
-    public string|null $htmlUrl,)
+    public function __construct(public ?string $reason, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl)
     {
     }
 }

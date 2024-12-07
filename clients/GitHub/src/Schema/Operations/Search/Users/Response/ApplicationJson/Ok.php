@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Search\Users\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Search\Users\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "total_count",
         "incomplete_results",
@@ -238,9 +235,9 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_count": 11,
     "incomplete_results": false,
     "items": [
@@ -258,7 +255,7 @@ final readonly class Ok
             "repos_url": "https:\\/\\/example.com\\/",
             "received_events_url": "https:\\/\\/example.com\\/",
             "type": "generated",
-            "score": 0.5,
+            "score": 5,
             "following_url": "generated",
             "gists_url": "generated",
             "starred_url": "generated",
@@ -340,7 +337,7 @@ final readonly class Ok
             "repos_url": "https:\\/\\/example.com\\/",
             "received_events_url": "https:\\/\\/example.com\\/",
             "type": "generated",
-            "score": 0.5,
+            "score": 5,
             "following_url": "generated",
             "gists_url": "generated",
             "starred_url": "generated",
@@ -410,10 +407,7 @@ final readonly class Ok
         }
     ]
 }';
-
-    public function __construct(#[MapFrom('total_count')]
-    public int $totalCount, #[MapFrom('incomplete_results')]
-    public bool $incompleteResults, public array $items,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('incomplete_results')] public bool $incompleteResults, public array $items)
     {
     }
 }

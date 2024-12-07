@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Migrations\StartForOrg\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Migrations\StartForOrg\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "repositories"
     ],
@@ -83,26 +80,25 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "repositories": [
         "generated",
         "generated"
     ],
-    "lock_repositories": true,
+    "lock_repositories": false,
     "exclude_metadata": false,
     "exclude_git_data": false,
-    "exclude_attachments": true,
-    "exclude_releases": true,
-    "exclude_owner_projects": true,
-    "org_metadata_only": true,
+    "exclude_attachments": false,
+    "exclude_releases": false,
+    "exclude_owner_projects": false,
+    "org_metadata_only": false,
     "exclude": [
         "generated",
         "generated"
     ]
 }';
-
     /**
      * repositories: A list of arrays indicating which repositories should be migrated.
      * lockRepositories: Indicates whether repositories should be locked (to prevent manipulation) while migrating data.
@@ -114,14 +110,7 @@ final readonly class ApplicationJson
      * orgMetadataOnly: Indicates whether this should only include organization metadata (repositories array should be empty and will ignore other flags).
      * exclude: Exclude related items from being returned in the response in order to improve performance of the request.
      */
-    public function __construct(public array $repositories, #[MapFrom('lock_repositories')]
-    public bool|null $lockRepositories, #[MapFrom('exclude_metadata')]
-    public bool|null $excludeMetadata, #[MapFrom('exclude_git_data')]
-    public bool|null $excludeGitData, #[MapFrom('exclude_attachments')]
-    public bool|null $excludeAttachments, #[MapFrom('exclude_releases')]
-    public bool|null $excludeReleases, #[MapFrom('exclude_owner_projects')]
-    public bool|null $excludeOwnerProjects, #[MapFrom('org_metadata_only')]
-    public bool|null $orgMetadataOnly, public array|null $exclude,)
+    public function __construct(public array $repositories, #[\EventSauce\ObjectHydrator\MapFrom('lock_repositories')] public ?bool $lockRepositories, #[\EventSauce\ObjectHydrator\MapFrom('exclude_metadata')] public ?bool $excludeMetadata, #[\EventSauce\ObjectHydrator\MapFrom('exclude_git_data')] public ?bool $excludeGitData, #[\EventSauce\ObjectHydrator\MapFrom('exclude_attachments')] public ?bool $excludeAttachments, #[\EventSauce\ObjectHydrator\MapFrom('exclude_releases')] public ?bool $excludeReleases, #[\EventSauce\ObjectHydrator\MapFrom('exclude_owner_projects')] public ?bool $excludeOwnerProjects, #[\EventSauce\ObjectHydrator\MapFrom('org_metadata_only')] public ?bool $orgMetadataOnly, public ?array $exclude)
     {
     }
 }

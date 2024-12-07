@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class TimelineIssueEvents
+final readonly class TimelineIssueEvents implements \ApiClients\Client\GitHub\Contract\TimelineIssueEvents
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Timeline Event",
     "type": "object",
     "anyOf": [
@@ -15564,10 +15563,9 @@ final readonly class TimelineIssueEvents
     ],
     "description": "Timeline Event"
 }';
-    public const SCHEMA_TITLE        = 'Timeline Event';
-    public const SCHEMA_DESCRIPTION  = 'Timeline Event';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'Timeline Event';
+    public const SCHEMA_DESCRIPTION = 'Timeline Event';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

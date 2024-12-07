@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateOrUpdateEnvironment\Request;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateOrUpdateEnvironment\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -83,28 +79,23 @@ final readonly class ApplicationJson
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "wait_timer": 30,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "wait_timer": 10,
     "prevent_self_review": false,
-    "reviewers": null,
     "deployment_branch_policy": {
         "protected_branches": false,
         "custom_branch_policies": false
     }
 }';
-
     /**
      * waitTimer: The amount of time to delay a job after the job is initially triggered. The time (in minutes) must be an integer between 0 and 43,200 (30 days).
      * preventSelfReview: Whether or not a user who created the job is prevented from approving their own job.
      * reviewers: The people or teams that may review jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
      * deploymentBranchPolicy: The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.
      */
-    public function __construct(#[MapFrom('wait_timer')]
-    public int|null $waitTimer, #[MapFrom('prevent_self_review')]
-    public bool|null $preventSelfReview, public array|null $reviewers, #[MapFrom('deployment_branch_policy')]
-    public Schema\DeploymentBranchPolicySettings|null $deploymentBranchPolicy,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('wait_timer')] public ?int $waitTimer, #[\EventSauce\ObjectHydrator\MapFrom('prevent_self_review')] public ?bool $preventSelfReview, public ?array $reviewers, #[\EventSauce\ObjectHydrator\MapFrom('deployment_branch_policy')] public ?\ApiClients\Client\GitHub\Schema\DeploymentBranchPolicySettings $deploymentBranchPolicy)
     {
     }
 }

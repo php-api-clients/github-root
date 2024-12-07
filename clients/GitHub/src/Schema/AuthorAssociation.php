@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class AuthorAssociation
+final readonly class AuthorAssociation implements \ApiClients\Client\GitHub\Contract\AuthorAssociation
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "author_association",
     "enum": [
         "COLLABORATOR",
@@ -24,10 +23,9 @@ final readonly class AuthorAssociation
         "OWNER"
     ]
 }';
-    public const SCHEMA_TITLE        = 'author_association';
-    public const SCHEMA_DESCRIPTION  = 'How the author is associated with the repository.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = 'author_association';
+    public const SCHEMA_DESCRIPTION = 'How the author is associated with the repository.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

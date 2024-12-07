@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateBranchProtection\Request;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateBranchProtection\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "required_status_checks",
         "enforce_admins",
@@ -219,9 +215,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "required_status_checks": {
         "strict": false,
         "contexts": [
@@ -296,7 +292,6 @@ final readonly class ApplicationJson
     "lock_branch": false,
     "allow_fork_syncing": false
 }';
-
     /**
      * requiredStatusChecks: Require status checks to pass before merging. Set to `null` to disable.
      * enforceAdmins: Enforce all configured restrictions for administrators. Set to `true` to enforce required status checks for repository administrators. Set to `null` to disable.
@@ -310,17 +305,7 @@ final readonly class ApplicationJson
      * lockBranch: Whether to set the branch as read-only. If this is true, users will not be able to push to the branch. Default: `false`.
      * allowForkSyncing: Whether users can pull changes from upstream when the branch is locked. Set to `true` to allow fork syncing. Set to `false` to prevent fork syncing. Default: `false`.
      */
-    public function __construct(#[MapFrom('required_status_checks')]
-    public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredStatusChecks|null $requiredStatusChecks, #[MapFrom('enforce_admins')]
-    public bool|null $enforceAdmins, #[MapFrom('required_pull_request_reviews')]
-    public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews|null $requiredPullRequestReviews, public Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\Restrictions|null $restrictions, #[MapFrom('required_linear_history')]
-    public bool|null $requiredLinearHistory, #[MapFrom('allow_force_pushes')]
-    public bool|null $allowForcePushes, #[MapFrom('allow_deletions')]
-    public bool|null $allowDeletions, #[MapFrom('block_creations')]
-    public bool|null $blockCreations, #[MapFrom('required_conversation_resolution')]
-    public bool|null $requiredConversationResolution, #[MapFrom('lock_branch')]
-    public bool|null $lockBranch, #[MapFrom('allow_fork_syncing')]
-    public bool|null $allowForkSyncing,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('required_status_checks')] public ?\ApiClients\Client\GitHub\Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredStatusChecks $requiredStatusChecks, #[\EventSauce\ObjectHydrator\MapFrom('enforce_admins')] public ?bool $enforceAdmins, #[\EventSauce\ObjectHydrator\MapFrom('required_pull_request_reviews')] public ?\ApiClients\Client\GitHub\Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\RequiredPullRequestReviews $requiredPullRequestReviews, public ?\ApiClients\Client\GitHub\Schema\Repos\UpdateBranchProtection\Request\ApplicationJson\Restrictions $restrictions, #[\EventSauce\ObjectHydrator\MapFrom('required_linear_history')] public ?bool $requiredLinearHistory, #[\EventSauce\ObjectHydrator\MapFrom('allow_force_pushes')] public ?bool $allowForcePushes, #[\EventSauce\ObjectHydrator\MapFrom('allow_deletions')] public ?bool $allowDeletions, #[\EventSauce\ObjectHydrator\MapFrom('block_creations')] public ?bool $blockCreations, #[\EventSauce\ObjectHydrator\MapFrom('required_conversation_resolution')] public ?bool $requiredConversationResolution, #[\EventSauce\ObjectHydrator\MapFrom('lock_branch')] public ?bool $lockBranch, #[\EventSauce\ObjectHydrator\MapFrom('allow_fork_syncing')] public ?bool $allowForkSyncing)
     {
     }
 }

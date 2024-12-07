@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Actions\SetGithubActionsPermissionsOrganization\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Actions\SetGithubActionsPermissionsOrganization\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "enabled_repositories"
     ],
@@ -34,20 +31,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "enabled_repositories": "selected",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "enabled_repositories": "all",
     "allowed_actions": "all"
 }';
-
     /**
      * enabledRepositories: The policy that controls the repositories in the organization that are allowed to run GitHub Actions.
      * allowedActions: The permissions policy that controls the actions and reusable workflows that are allowed to run.
      */
-    public function __construct(#[MapFrom('enabled_repositories')]
-    public string $enabledRepositories, #[MapFrom('allowed_actions')]
-    public string|null $allowedActions,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('enabled_repositories')] public string $enabledRepositories, #[\EventSauce\ObjectHydrator\MapFrom('allowed_actions')] public ?string $allowedActions)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RunnerApplication
+final readonly class RunnerApplication implements \ApiClients\Client\GitHub\Contract\RunnerApplication
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Runner Application",
     "required": [
         "os",
@@ -40,9 +37,9 @@ final readonly class RunnerApplication
     },
     "description": "Runner Application"
 }';
-    public const SCHEMA_TITLE        = 'Runner Application';
-    public const SCHEMA_DESCRIPTION  = 'Runner Application';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Runner Application';
+    public const SCHEMA_DESCRIPTION = 'Runner Application';
+    const SCHEMA_EXAMPLE_DATA = '{
     "os": "generated",
     "architecture": "generated",
     "download_url": "generated",
@@ -50,14 +47,10 @@ final readonly class RunnerApplication
     "temp_download_token": "generated",
     "sha256_checksum": "generated"
 }';
-
     /**
      * tempDownloadToken: A short lived bearer token used to download the runner, if needed.
      */
-    public function __construct(public string $os, public string $architecture, #[MapFrom('download_url')]
-    public string $downloadUrl, public string $filename, #[MapFrom('temp_download_token')]
-    public string|null $tempDownloadToken, #[MapFrom('sha256_checksum')]
-    public string|null $shaTwoHundredFiftySixChecksum,)
+    public function __construct(public string $os, public string $architecture, #[\EventSauce\ObjectHydrator\MapFrom('download_url')] public string $downloadUrl, public string $filename, #[\EventSauce\ObjectHydrator\MapFrom('temp_download_token')] public ?string $tempDownloadToken, #[\EventSauce\ObjectHydrator\MapFrom('sha256_checksum')] public ?string $shaTwoHundredFiftySixChecksum)
     {
     }
 }

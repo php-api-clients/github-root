@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAnalysisTool
+final readonly class CodeScanningAnalysisTool implements \ApiClients\Client\GitHub\Contract\CodeScanningAnalysisTool
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -29,20 +28,19 @@ final readonly class CodeScanningAnalysisTool
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "version": "generated",
     "guid": "generated"
 }';
-
     /**
      * name: The name of the tool used to generate the code scanning analysis.
      * version: The version of the tool used to generate the code scanning analysis.
      * guid: The GUID of the tool used to generate the code scanning analysis, if provided in the uploaded SARIF data.
      */
-    public function __construct(public string|null $name, public string|null $version, public string|null $guid)
+    public function __construct(public ?string $name, public ?string $version, public ?string $guid)
     {
     }
 }

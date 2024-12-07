@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Sixteen
+final readonly class Sixteen implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Sixteen
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "max_file_path_length",
     "required": [
         "type"
@@ -38,16 +35,15 @@ final readonly class Sixteen
     },
     "description": "Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph."
 }';
-    public const SCHEMA_TITLE        = 'max_file_path_length';
-    public const SCHEMA_DESCRIPTION  = 'Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'max_file_path_length';
+    public const SCHEMA_DESCRIPTION = 'Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "max_file_path_length",
     "parameters": {
         "max_file_path_length": 20
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleset\Rules\Sixteen\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen\Parameters $parameters)
     {
     }
 }

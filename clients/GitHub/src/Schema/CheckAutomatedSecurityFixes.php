@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CheckAutomatedSecurityFixes
+final readonly class CheckAutomatedSecurityFixes implements \ApiClients\Client\GitHub\Contract\CheckAutomatedSecurityFixes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Check Automated Security Fixes",
     "required": [
         "enabled",
@@ -31,13 +30,12 @@ final readonly class CheckAutomatedSecurityFixes
     },
     "description": "Check Automated Security Fixes"
 }';
-    public const SCHEMA_TITLE        = 'Check Automated Security Fixes';
-    public const SCHEMA_DESCRIPTION  = 'Check Automated Security Fixes';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "enabled": true,
+    public const SCHEMA_TITLE = 'Check Automated Security Fixes';
+    public const SCHEMA_DESCRIPTION = 'Check Automated Security Fixes';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "enabled": false,
     "paused": false
 }';
-
     /**
      * enabled: Whether automated security fixes are enabled for the repository.
      * paused: Whether automated security fixes are paused for the repository.

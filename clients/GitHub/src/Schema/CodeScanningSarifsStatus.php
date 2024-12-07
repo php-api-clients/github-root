@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningSarifsStatus
+final readonly class CodeScanningSarifsStatus implements \ApiClients\Client\GitHub\Contract\CodeScanningSarifsStatus
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "processing_status": {
@@ -42,22 +39,18 @@ final readonly class CodeScanningSarifsStatus
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "processing_status": "pending",
-    "analyses_url": "https:\\/\\/example.com\\/",
-    "errors": null
+    "analyses_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * processingStatus: `pending` files have not yet been processed, while `complete` means results from the SARIF have been stored. `failed` files have either not been processed at all, or could only be partially processed.
      * analysesUrl: The REST API URL for getting the analyses associated with the upload.
      * errors: Any errors that ocurred during processing of the delivery.
      */
-    public function __construct(#[MapFrom('processing_status')]
-    public string|null $processingStatus, #[MapFrom('analyses_url')]
-    public string|null $analysesUrl, public array|null $errors,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('processing_status')] public ?string $processingStatus, #[\EventSauce\ObjectHydrator\MapFrom('analyses_url')] public ?string $analysesUrl, public ?array $errors)
     {
     }
 }

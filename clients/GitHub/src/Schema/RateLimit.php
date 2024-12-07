@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RateLimit
+final readonly class RateLimit implements \ApiClients\Client\GitHub\Contract\RateLimit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Rate Limit",
     "required": [
         "limit",
@@ -30,15 +29,14 @@ final readonly class RateLimit
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Rate Limit';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Rate Limit';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "limit": 5,
     "remaining": 9,
     "reset": 5,
     "used": 4
 }';
-
     public function __construct(public int $limit, public int $remaining, public int $reset, public int $used)
     {
     }

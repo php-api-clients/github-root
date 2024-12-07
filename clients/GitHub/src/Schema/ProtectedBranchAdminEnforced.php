@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ProtectedBranchAdminEnforced
+final readonly class ProtectedBranchAdminEnforced implements \ApiClients\Client\GitHub\Contract\ProtectedBranchAdminEnforced
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Protected Branch Admin Enforced",
     "required": [
         "url",
@@ -30,13 +29,12 @@ final readonly class ProtectedBranchAdminEnforced
     },
     "description": "Protected Branch Admin Enforced"
 }';
-    public const SCHEMA_TITLE        = 'Protected Branch Admin Enforced';
-    public const SCHEMA_DESCRIPTION  = 'Protected Branch Admin Enforced';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/branches\\/master\\/protection\\/enforce_admins",
-    "enabled": true
+    public const SCHEMA_TITLE = 'Protected Branch Admin Enforced';
+    public const SCHEMA_DESCRIPTION = 'Protected Branch Admin Enforced';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "url": "https:\\/\\/example.com\\/",
+    "enabled": false
 }';
-
     public function __construct(public string $url, public bool $enabled)
     {
     }

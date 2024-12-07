@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleCreation
+final readonly class RepositoryRuleCreation implements \ApiClients\Client\GitHub\Contract\RepositoryRuleCreation
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "creation",
     "required": [
         "type"
@@ -22,12 +21,11 @@ final readonly class RepositoryRuleCreation
     },
     "description": "Only allow users with bypass permission to create matching refs."
 }';
-    public const SCHEMA_TITLE        = 'creation';
-    public const SCHEMA_DESCRIPTION  = 'Only allow users with bypass permission to create matching refs.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'creation';
+    public const SCHEMA_DESCRIPTION = 'Only allow users with bypass permission to create matching refs.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "creation"
 }';
-
     public function __construct(public string $type)
     {
     }

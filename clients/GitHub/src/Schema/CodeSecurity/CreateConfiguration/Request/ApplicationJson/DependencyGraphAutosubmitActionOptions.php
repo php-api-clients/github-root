@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\CodeSecurity\CreateConfiguration\Request\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class DependencyGraphAutosubmitActionOptions
+final readonly class DependencyGraphAutosubmitActionOptions implements \ApiClients\Client\GitHub\Contract\CodeSecurity\CreateConfiguration\Request\ApplicationJson\DependencyGraphAutosubmitActionOptions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "labeled_runners": {
@@ -19,17 +16,15 @@ final readonly class DependencyGraphAutosubmitActionOptions
     },
     "description": "Feature options for Automatic dependency submission"
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Feature options for Automatic dependency submission';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Feature options for Automatic dependency submission';
+    const SCHEMA_EXAMPLE_DATA = '{
     "labeled_runners": false
 }';
-
     /**
      * labeledRunners: Whether to use runners labeled with 'dependency-submission' or standard GitHub runners.
      */
-    public function __construct(#[MapFrom('labeled_runners')]
-    public bool|null $labeledRunners,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('labeled_runners')] public ?bool $labeledRunners)
     {
     }
 }

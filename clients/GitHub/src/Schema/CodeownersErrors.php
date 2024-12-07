@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeownersErrors
+final readonly class CodeownersErrors implements \ApiClients\Client\GitHub\Contract\CodeownersErrors
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "CODEOWNERS errors",
     "required": [
         "errors"
@@ -83,31 +82,30 @@ final readonly class CodeownersErrors
     },
     "description": "A list of errors found in a repo\'s CODEOWNERS file"
 }';
-    public const SCHEMA_TITLE        = 'CODEOWNERS errors';
-    public const SCHEMA_DESCRIPTION  = 'A list of errors found in a repo\'s CODEOWNERS file';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'CODEOWNERS errors';
+    public const SCHEMA_DESCRIPTION = 'A list of errors found in a repo\'s CODEOWNERS file';
+    const SCHEMA_EXAMPLE_DATA = '{
     "errors": [
         {
-            "line": 7,
-            "column": 3,
-            "source": "* user",
-            "kind": "Invalid owner",
-            "suggestion": "The pattern `\\/` will never match anything, did you mean `*` instead?",
-            "message": "Invalid owner on line 7:\\n\\n  * user\\n    ^",
-            "path": ".github\\/CODEOWNERS"
+            "line": 4,
+            "column": 6,
+            "source": "generated",
+            "kind": "generated",
+            "suggestion": "generated",
+            "message": "generated",
+            "path": "generated"
         },
         {
-            "line": 7,
-            "column": 3,
-            "source": "* user",
-            "kind": "Invalid owner",
-            "suggestion": "The pattern `\\/` will never match anything, did you mean `*` instead?",
-            "message": "Invalid owner on line 7:\\n\\n  * user\\n    ^",
-            "path": ".github\\/CODEOWNERS"
+            "line": 4,
+            "column": 6,
+            "source": "generated",
+            "kind": "generated",
+            "suggestion": "generated",
+            "message": "generated",
+            "path": "generated"
         }
     ]
 }';
-
     public function __construct(public array $errors)
     {
     }

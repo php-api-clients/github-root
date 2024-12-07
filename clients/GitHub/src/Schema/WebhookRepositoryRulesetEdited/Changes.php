@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookRepositoryRulesetEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "name": {
@@ -2644,9 +2641,9 @@ final readonly class Changes
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": {
         "from": "generated"
     },
@@ -2779,16 +2776,46 @@ final readonly class Changes
     },
     "rules": {
         "added": [
-            null,
-            null
+            {
+                "type": "creation"
+            },
+            {
+                "type": "update",
+                "parameters": {
+                    "update_allows_fetch_and_merge": false
+                }
+            }
         ],
         "deleted": [
-            null,
-            null
+            {
+                "type": "creation"
+            },
+            {
+                "type": "update",
+                "parameters": {
+                    "update_allows_fetch_and_merge": false
+                }
+            }
         ],
         "updated": [
             {
-                "rule": null,
+                "rule": {
+                    "type": "code_scanning",
+                    "parameters": {
+                        "code_scanning_tools": [
+                            {
+                                "alerts_threshold": "none",
+                                "security_alerts_threshold": "none",
+                                "tool": "generated"
+                            },
+                            {
+                                "alerts_threshold": "none",
+                                "security_alerts_threshold": "none",
+                                "tool": "generated"
+                            }
+                        ]
+                    }
+                },
                 "changes": {
                     "configuration": {
                         "from": "generated"
@@ -2802,7 +2829,23 @@ final readonly class Changes
                 }
             },
             {
-                "rule": null,
+                "rule": {
+                    "type": "code_scanning",
+                    "parameters": {
+                        "code_scanning_tools": [
+                            {
+                                "alerts_threshold": "none",
+                                "security_alerts_threshold": "none",
+                                "tool": "generated"
+                            },
+                            {
+                                "alerts_threshold": "none",
+                                "security_alerts_threshold": "none",
+                                "tool": "generated"
+                            }
+                        ]
+                    }
+                },
                 "changes": {
                     "configuration": {
                         "from": "generated"
@@ -2818,8 +2861,7 @@ final readonly class Changes
         ]
     }
 }';
-
-    public function __construct(public Schema\WebhookRepositoryRulesetEdited\Changes\Name|null $name, public Schema\WebhookRepositoryRulesetEdited\Changes\Enforcement|null $enforcement, public Schema\WebhookRepositoryRulesetEdited\Changes\Conditions|null $conditions, public Schema\WebhookRepositoryRulesetEdited\Changes\Rules|null $rules)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Name $name, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Enforcement $enforcement, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Conditions $conditions, public ?\ApiClients\Client\GitHub\Schema\WebhookRepositoryRulesetEdited\Changes\Rules $rules)
     {
     }
 }

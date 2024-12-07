@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\MinimalRepository;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class License
+final readonly class License implements \ApiClients\Client\GitHub\Contract\MinimalRepository\License
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -31,19 +28,16 @@ final readonly class License
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "key": "generated",
     "name": "generated",
     "spdx_id": "generated",
     "url": "generated",
     "node_id": "generated"
 }';
-
-    public function __construct(public string|null $key, public string|null $name, #[MapFrom('spdx_id')]
-    public string|null $spdxId, public string|null $url, #[MapFrom('node_id')]
-    public string|null $nodeId,)
+    public function __construct(public ?string $key, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('spdx_id')] public ?string $spdxId, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId)
     {
     }
 }

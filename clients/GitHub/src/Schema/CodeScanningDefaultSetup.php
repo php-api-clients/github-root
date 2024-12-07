@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningDefaultSetup
+final readonly class CodeScanningDefaultSetup implements \ApiClients\Client\GitHub\Contract\CodeScanningDefaultSetup
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "state": {
@@ -71,19 +68,18 @@ final readonly class CodeScanningDefaultSetup
     },
     "description": "Configuration for code scanning default setup."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Configuration for code scanning default setup.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Configuration for code scanning default setup.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "state": "configured",
     "languages": [
         "generated",
         "generated"
     ],
     "query_suite": "default",
-    "updated_at": "2023-12-06T14:20:20.000Z",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "schedule": "weekly"
 }';
-
     /**
      * state: Code scanning default setup has been configured or not.
      * languages: Languages to be analyzed.
@@ -91,9 +87,7 @@ final readonly class CodeScanningDefaultSetup
      * updatedAt: Timestamp of latest configuration update.
      * schedule: The frequency of the periodic analysis.
      */
-    public function __construct(public string|null $state, public array|null $languages, #[MapFrom('query_suite')]
-    public string|null $querySuite, #[MapFrom('updated_at')]
-    public string|null $updatedAt, public string|null $schedule,)
+    public function __construct(public ?string $state, public ?array $languages, #[\EventSauce\ObjectHydrator\MapFrom('query_suite')] public ?string $querySuite, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, public ?string $schedule)
     {
     }
 }

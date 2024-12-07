@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
-final readonly class Identifiers
+final readonly class Identifiers implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\Identifiers
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "value",
         "type"
@@ -32,13 +31,12 @@ final readonly class Identifiers
     "readOnly": true,
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'An advisory identifier.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "type": "GHSA",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'An advisory identifier.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "type": "CVE",
     "value": "generated"
 }';
-
     /**
      * type: The type of advisory identifier.
      * value: The value of the advisory identifer.

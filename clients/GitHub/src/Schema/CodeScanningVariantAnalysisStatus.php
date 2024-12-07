@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningVariantAnalysisStatus
+final readonly class CodeScanningVariantAnalysisStatus implements \ApiClients\Client\GitHub\Contract\CodeScanningVariantAnalysisStatus
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "pending",
         "in_progress",
@@ -18,10 +17,9 @@ final readonly class CodeScanningVariantAnalysisStatus
     "type": "string",
     "description": "The new status of the CodeQL variant analysis repository task."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The new status of the CodeQL variant analysis repository task.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The new status of the CodeQL variant analysis repository task.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

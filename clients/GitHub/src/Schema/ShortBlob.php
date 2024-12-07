@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ShortBlob
+final readonly class ShortBlob implements \ApiClients\Client\GitHub\Contract\ShortBlob
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Short Blob",
     "required": [
         "url",
@@ -23,13 +22,12 @@ final readonly class ShortBlob
     },
     "description": "Short Blob"
 }';
-    public const SCHEMA_TITLE        = 'Short Blob';
-    public const SCHEMA_DESCRIPTION  = 'Short Blob';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Short Blob';
+    public const SCHEMA_DESCRIPTION = 'Short Blob';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "generated",
     "sha": "generated"
 }';
-
     public function __construct(public string $url, public string $sha)
     {
     }

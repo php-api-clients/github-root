@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependabotAlertSecurityAdvisory;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Cwes
+final readonly class Cwes implements \ApiClients\Client\GitHub\Contract\DependabotAlertSecurityAdvisory\Cwes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "cwe_id",
         "name"
@@ -30,19 +27,17 @@ final readonly class Cwes
     "readOnly": true,
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'A CWE weakness assigned to the advisory.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'A CWE weakness assigned to the advisory.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "cwe_id": "generated",
     "name": "generated"
 }';
-
     /**
      * cweId: The unique CWE ID.
      * name: The short, plain text name of the CWE.
      */
-    public function __construct(#[MapFrom('cwe_id')]
-    public string $cweId, public string $name,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('cwe_id')] public string $cweId, public string $name)
     {
     }
 }

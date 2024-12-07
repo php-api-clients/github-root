@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class PagesHttpsCertificate
+final readonly class PagesHttpsCertificate implements \ApiClients\Client\GitHub\Contract\PagesHttpsCertificate
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Pages Https Certificate",
     "required": [
         "state",
@@ -60,23 +57,21 @@ final readonly class PagesHttpsCertificate
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Pages Https Certificate';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "state": "approved",
-    "description": "Certificate is approved",
+    public const SCHEMA_TITLE = 'Pages Https Certificate';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "state": "new",
+    "description": "generated",
     "domains": [
-        "example.com",
-        "example.com"
+        "generated",
+        "generated"
     ],
     "expires_at": "generated"
 }';
-
     /**
      * domains: Array of the domain set and its alternate name (if it is configured)
      */
-    public function __construct(public string $state, public string $description, public array $domains, #[MapFrom('expires_at')]
-    public string|null $expiresAt,)
+    public function __construct(public string $state, public string $description, public array $domains, #[\EventSauce\ObjectHydrator\MapFrom('expires_at')] public ?string $expiresAt)
     {
     }
 }

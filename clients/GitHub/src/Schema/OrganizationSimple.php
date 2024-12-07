@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class OrganizationSimple
+final readonly class OrganizationSimple implements \ApiClients\Client\GitHub\Contract\OrganizationSimple
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Organization Simple",
     "required": [
         "login",
@@ -107,32 +104,23 @@ final readonly class OrganizationSimple
     },
     "description": "A GitHub organization."
 }';
-    public const SCHEMA_TITLE        = 'Organization Simple';
-    public const SCHEMA_DESCRIPTION  = 'A GitHub organization.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "login": "github",
-    "id": 1,
-    "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-    "url": "https:\\/\\/api.github.com\\/orgs\\/github",
-    "repos_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/repos",
-    "events_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/events",
-    "hooks_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/hooks",
-    "issues_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/issues",
-    "members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/members{\\/member}",
-    "public_members_url": "https:\\/\\/api.github.com\\/orgs\\/github\\/public_members{\\/member}",
-    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-    "description": "A great organization"
+    public const SCHEMA_TITLE = 'Organization Simple';
+    public const SCHEMA_DESCRIPTION = 'A GitHub organization.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "login": "generated",
+    "id": 2,
+    "node_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "repos_url": "https:\\/\\/example.com\\/",
+    "events_url": "https:\\/\\/example.com\\/",
+    "hooks_url": "generated",
+    "issues_url": "generated",
+    "members_url": "generated",
+    "public_members_url": "generated",
+    "avatar_url": "generated",
+    "description": "generated"
 }';
-
-    public function __construct(public string $login, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $url, #[MapFrom('repos_url')]
-    public string $reposUrl, #[MapFrom('events_url')]
-    public string $eventsUrl, #[MapFrom('hooks_url')]
-    public string $hooksUrl, #[MapFrom('issues_url')]
-    public string $issuesUrl, #[MapFrom('members_url')]
-    public string $membersUrl, #[MapFrom('public_members_url')]
-    public string $publicMembersUrl, #[MapFrom('avatar_url')]
-    public string $avatarUrl, public string|null $description,)
+    public function __construct(public string $login, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $url, #[\EventSauce\ObjectHydrator\MapFrom('repos_url')] public string $reposUrl, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('hooks_url')] public string $hooksUrl, #[\EventSauce\ObjectHydrator\MapFrom('issues_url')] public string $issuesUrl, #[\EventSauce\ObjectHydrator\MapFrom('members_url')] public string $membersUrl, #[\EventSauce\ObjectHydrator\MapFrom('public_members_url')] public string $publicMembersUrl, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl, public ?string $description)
     {
     }
 }

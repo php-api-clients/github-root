@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookDeploymentReviewRequested\Reviewers;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Reviewer
+final readonly class Reviewer implements \ApiClients\Client\GitHub\Contract\WebhookDeploymentReviewRequested\Reviewers\Reviewer
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "User",
     "required": [
         "id"
@@ -106,9 +103,9 @@ final readonly class Reviewer
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'User';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'User';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "avatar_url": "https:\\/\\/example.com\\/",
     "deleted": false,
     "email": "generated",
@@ -128,27 +125,11 @@ final readonly class Reviewer
     "site_admin": false,
     "starred_url": "generated",
     "subscriptions_url": "https:\\/\\/example.com\\/",
-    "type": "Organization",
+    "type": "Bot",
     "url": "https:\\/\\/example.com\\/",
     "user_view_type": "generated"
 }';
-
-    public function __construct(#[MapFrom('avatar_url')]
-    public string|null $avatarUrl, public bool|null $deleted, public string|null $email, #[MapFrom('events_url')]
-    public string|null $eventsUrl, #[MapFrom('followers_url')]
-    public string|null $followersUrl, #[MapFrom('following_url')]
-    public string|null $followingUrl, #[MapFrom('gists_url')]
-    public string|null $gistsUrl, #[MapFrom('gravatar_id')]
-    public string|null $gravatarId, #[MapFrom('html_url')]
-    public string|null $htmlUrl, public int $id, public string|null $login, public string|null $name, #[MapFrom('node_id')]
-    public string|null $nodeId, #[MapFrom('organizations_url')]
-    public string|null $organizationsUrl, #[MapFrom('received_events_url')]
-    public string|null $receivedEventsUrl, #[MapFrom('repos_url')]
-    public string|null $reposUrl, #[MapFrom('site_admin')]
-    public bool|null $siteAdmin, #[MapFrom('starred_url')]
-    public string|null $starredUrl, #[MapFrom('subscriptions_url')]
-    public string|null $subscriptionsUrl, public string|null $type, public string|null $url, #[MapFrom('user_view_type')]
-    public string|null $userViewType,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public ?string $avatarUrl, public ?bool $deleted, public ?string $email, #[\EventSauce\ObjectHydrator\MapFrom('events_url')] public ?string $eventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('followers_url')] public ?string $followersUrl, #[\EventSauce\ObjectHydrator\MapFrom('following_url')] public ?string $followingUrl, #[\EventSauce\ObjectHydrator\MapFrom('gists_url')] public ?string $gistsUrl, #[\EventSauce\ObjectHydrator\MapFrom('gravatar_id')] public ?string $gravatarId, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, public int $id, public ?string $login, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public ?string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('organizations_url')] public ?string $organizationsUrl, #[\EventSauce\ObjectHydrator\MapFrom('received_events_url')] public ?string $receivedEventsUrl, #[\EventSauce\ObjectHydrator\MapFrom('repos_url')] public ?string $reposUrl, #[\EventSauce\ObjectHydrator\MapFrom('site_admin')] public ?bool $siteAdmin, #[\EventSauce\ObjectHydrator\MapFrom('starred_url')] public ?string $starredUrl, #[\EventSauce\ObjectHydrator\MapFrom('subscriptions_url')] public ?string $subscriptionsUrl, public ?string $type, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('user_view_type')] public ?string $userViewType)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class InteractionLimit
+final readonly class InteractionLimit implements \ApiClients\Client\GitHub\Contract\InteractionLimit
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Interaction Restrictions",
     "required": [
         "limit"
@@ -42,18 +41,17 @@ final readonly class InteractionLimit
     },
     "description": "Limit interactions to a specific type of user for a specified duration"
 }';
-    public const SCHEMA_TITLE        = 'Interaction Restrictions';
-    public const SCHEMA_DESCRIPTION  = 'Limit interactions to a specific type of user for a specified duration';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "limit": "collaborators_only",
-    "expiry": "one_month"
+    public const SCHEMA_TITLE = 'Interaction Restrictions';
+    public const SCHEMA_DESCRIPTION = 'Limit interactions to a specific type of user for a specified duration';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "limit": "existing_users",
+    "expiry": "one_day"
 }';
-
     /**
      * limit: The type of GitHub user that can comment, open issues, or create pull requests while the interaction limit is in effect.
      * expiry: The duration of the interaction restriction. Default: `one_day`.
      */
-    public function __construct(public string $limit, public string|null $expiry)
+    public function __construct(public string $limit, public ?string $expiry)
     {
     }
 }

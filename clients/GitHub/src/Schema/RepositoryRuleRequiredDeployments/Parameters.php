@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredDeployments\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "required_deployment_environments"
     ],
@@ -23,20 +20,18 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "required_deployment_environments": [
         "generated",
         "generated"
     ]
 }';
-
     /**
      * requiredDeploymentEnvironments: The environments that must be successfully deployed to before branches can be merged.
      */
-    public function __construct(#[MapFrom('required_deployment_environments')]
-    public array $requiredDeploymentEnvironments,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('required_deployment_environments')] public array $requiredDeploymentEnvironments)
     {
     }
 }

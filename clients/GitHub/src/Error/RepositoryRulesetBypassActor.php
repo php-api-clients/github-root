@@ -1,0 +1,11 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Error;
+
+final class RepositoryRulesetBypassActor extends \Error
+{
+    public function __construct(public int $status, public \ApiClients\Client\GitHub\Schema\RepositoryRulesetBypassActor $error)
+    {
+    }
+}

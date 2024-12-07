@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\PagesHealthCheck;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Domain
+final readonly class Domain implements \ApiClients\Client\GitHub\Contract\PagesHealthCheck\Domain
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "host": {
@@ -151,9 +148,9 @@ final readonly class Domain
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "host": "generated",
     "uri": "generated",
     "nameservers": "generated",
@@ -183,32 +180,7 @@ final readonly class Domain
     "is_https_eligible": false,
     "caa_error": "generated"
 }';
-
-    public function __construct(public string|null $host, public string|null $uri, public string|null $nameservers, #[MapFrom('dns_resolves')]
-    public bool|null $dnsResolves, #[MapFrom('is_proxied')]
-    public bool|null $isProxied, #[MapFrom('is_cloudflare_ip')]
-    public bool|null $isCloudflareIp, #[MapFrom('is_fastly_ip')]
-    public bool|null $isFastlyIp, #[MapFrom('is_old_ip_address')]
-    public bool|null $isOldIpAddress, #[MapFrom('is_a_record')]
-    public bool|null $isARecord, #[MapFrom('has_cname_record')]
-    public bool|null $hasCnameRecord, #[MapFrom('has_mx_records_present')]
-    public bool|null $hasMxRecordsPresent, #[MapFrom('is_valid_domain')]
-    public bool|null $isValidDomain, #[MapFrom('is_apex_domain')]
-    public bool|null $isApexDomain, #[MapFrom('should_be_a_record')]
-    public bool|null $shouldBeARecord, #[MapFrom('is_cname_to_github_user_domain')]
-    public bool|null $isCnameToGithubUserDomain, #[MapFrom('is_cname_to_pages_dot_github_dot_com')]
-    public bool|null $isCnameToPagesDotGithubDotCom, #[MapFrom('is_cname_to_fastly')]
-    public bool|null $isCnameToFastly, #[MapFrom('is_pointed_to_github_pages_ip')]
-    public bool|null $isPointedToGithubPagesIp, #[MapFrom('is_non_github_pages_ip_present')]
-    public bool|null $isNonGithubPagesIpPresent, #[MapFrom('is_pages_domain')]
-    public bool|null $isPagesDomain, #[MapFrom('is_served_by_pages')]
-    public bool|null $isServedByPages, #[MapFrom('is_valid')]
-    public bool|null $isValid, public string|null $reason, #[MapFrom('responds_to_https')]
-    public bool|null $respondsToHttps, #[MapFrom('enforces_https')]
-    public bool|null $enforcesHttps, #[MapFrom('https_error')]
-    public string|null $httpsError, #[MapFrom('is_https_eligible')]
-    public bool|null $isHttpsEligible, #[MapFrom('caa_error')]
-    public string|null $caaError,)
+    public function __construct(public ?string $host, public ?string $uri, public ?string $nameservers, #[\EventSauce\ObjectHydrator\MapFrom('dns_resolves')] public ?bool $dnsResolves, #[\EventSauce\ObjectHydrator\MapFrom('is_proxied')] public ?bool $isProxied, #[\EventSauce\ObjectHydrator\MapFrom('is_cloudflare_ip')] public ?bool $isCloudflareIp, #[\EventSauce\ObjectHydrator\MapFrom('is_fastly_ip')] public ?bool $isFastlyIp, #[\EventSauce\ObjectHydrator\MapFrom('is_old_ip_address')] public ?bool $isOldIpAddress, #[\EventSauce\ObjectHydrator\MapFrom('is_a_record')] public ?bool $isARecord, #[\EventSauce\ObjectHydrator\MapFrom('has_cname_record')] public ?bool $hasCnameRecord, #[\EventSauce\ObjectHydrator\MapFrom('has_mx_records_present')] public ?bool $hasMxRecordsPresent, #[\EventSauce\ObjectHydrator\MapFrom('is_valid_domain')] public ?bool $isValidDomain, #[\EventSauce\ObjectHydrator\MapFrom('is_apex_domain')] public ?bool $isApexDomain, #[\EventSauce\ObjectHydrator\MapFrom('should_be_a_record')] public ?bool $shouldBeARecord, #[\EventSauce\ObjectHydrator\MapFrom('is_cname_to_github_user_domain')] public ?bool $isCnameToGithubUserDomain, #[\EventSauce\ObjectHydrator\MapFrom('is_cname_to_pages_dot_github_dot_com')] public ?bool $isCnameToPagesDotGithubDotCom, #[\EventSauce\ObjectHydrator\MapFrom('is_cname_to_fastly')] public ?bool $isCnameToFastly, #[\EventSauce\ObjectHydrator\MapFrom('is_pointed_to_github_pages_ip')] public ?bool $isPointedToGithubPagesIp, #[\EventSauce\ObjectHydrator\MapFrom('is_non_github_pages_ip_present')] public ?bool $isNonGithubPagesIpPresent, #[\EventSauce\ObjectHydrator\MapFrom('is_pages_domain')] public ?bool $isPagesDomain, #[\EventSauce\ObjectHydrator\MapFrom('is_served_by_pages')] public ?bool $isServedByPages, #[\EventSauce\ObjectHydrator\MapFrom('is_valid')] public ?bool $isValid, public ?string $reason, #[\EventSauce\ObjectHydrator\MapFrom('responds_to_https')] public ?bool $respondsToHttps, #[\EventSauce\ObjectHydrator\MapFrom('enforces_https')] public ?bool $enforcesHttps, #[\EventSauce\ObjectHydrator\MapFrom('https_error')] public ?string $httpsError, #[\EventSauce\ObjectHydrator\MapFrom('is_https_eligible')] public ?bool $isHttpsEligible, #[\EventSauce\ObjectHydrator\MapFrom('caa_error')] public ?string $caaError)
     {
     }
 }

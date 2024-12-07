@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationPullRequestReviewComment
+final readonly class SecretScanningLocationPullRequestReviewComment implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationPullRequestReviewComment
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "pull_request_review_comment_url"
     ],
@@ -25,17 +22,15 @@ final readonly class SecretScanningLocationPullRequestReviewComment
     },
     "description": "Represents a \'pull_request_review_comment\' secret scanning location type. This location type shows that a secret was detected in a review comment on a pull request."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents a \'pull_request_review_comment\' secret scanning location type. This location type shows that a secret was detected in a review comment on a pull request.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "pull_request_review_comment_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/pulls\\/comments\\/12"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents a \'pull_request_review_comment\' secret scanning location type. This location type shows that a secret was detected in a review comment on a pull request.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "pull_request_review_comment_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * pullRequestReviewCommentUrl: The API URL to get the pull request review comment where the secret was detected.
      */
-    public function __construct(#[MapFrom('pull_request_review_comment_url')]
-    public string $pullRequestReviewCommentUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('pull_request_review_comment_url')] public string $pullRequestReviewCommentUrl)
     {
     }
 }

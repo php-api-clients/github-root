@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\DeleteFile\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "message",
         "sha"
@@ -57,9 +54,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "message": "generated",
     "sha": "generated",
     "branch": "generated",
@@ -72,7 +69,6 @@ final readonly class ApplicationJson
         "email": "generated"
     }
 }';
-
     /**
      * message: The commit message.
      * sha: The blob SHA of the file being deleted.
@@ -80,7 +76,7 @@ final readonly class ApplicationJson
      * committer: object containing information about the committer.
      * author: object containing information about the author.
      */
-    public function __construct(public string $message, public string $sha, public string|null $branch, public Schema\Repos\DeleteFile\Request\ApplicationJson\Committer|null $committer, public Schema\Repos\DeleteFile\Request\ApplicationJson\Author|null $author)
+    public function __construct(public string $message, public string $sha, public ?string $branch, public ?\ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request\ApplicationJson\Committer $committer, public ?\ApiClients\Client\GitHub\Schema\Repos\DeleteFile\Request\ApplicationJson\Author $author)
     {
     }
 }

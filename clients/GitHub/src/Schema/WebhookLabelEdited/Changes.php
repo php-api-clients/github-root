@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookLabelEdited;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Changes
+final readonly class Changes implements \ApiClients\Client\GitHub\Contract\WebhookLabelEdited\Changes
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "color": {
@@ -50,9 +47,9 @@ final readonly class Changes
     },
     "description": "The changes to the label if the action was `edited`."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The changes to the label if the action was `edited`.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The changes to the label if the action was `edited`.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "color": {
         "from": "generated"
     },
@@ -63,8 +60,7 @@ final readonly class Changes
         "from": "generated"
     }
 }';
-
-    public function __construct(public Schema\WebhookLabelEdited\Changes\Color|null $color, public Schema\WebhookLabelEdited\Changes\Description|null $description, public Schema\WebhookLabelEdited\Changes\Name|null $name)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhookLabelEdited\Changes\Color $color, public ?\ApiClients\Client\GitHub\Schema\WebhookLabelEdited\Changes\Description $description, public ?\ApiClients\Client\GitHub\Schema\WebhookLabelEdited\Changes\Name $name)
     {
     }
 }

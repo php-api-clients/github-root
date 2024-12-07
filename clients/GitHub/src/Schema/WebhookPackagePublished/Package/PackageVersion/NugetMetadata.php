@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion;
 
-use ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value;
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class NugetMetadata
+final readonly class NugetMetadata implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion\NugetMetadata
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -57,16 +53,19 @@ final readonly class NugetMetadata
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": null,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": "generated",
     "name": "generated",
-    "value": null
+    "value": {
+        "url": "generated",
+        "branch": "generated",
+        "commit": "generated",
+        "type": "generated"
+    }
 }';
-
-    public function __construct(public int|string|null $id, public string|null $name, #[Value]
-    public bool|string|int|Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value\Three|null $value,)
+    public function __construct(public null|int|string $id, public ?string $name, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Single\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value] public null|bool|string|int|\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NugetMetadata\Value\Three $value)
     {
     }
 }

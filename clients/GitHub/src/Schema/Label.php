@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Label
+final readonly class Label implements \ApiClients\Client\GitHub\Contract\Label
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Label",
     "required": [
         "id",
@@ -77,18 +74,17 @@ final readonly class Label
     },
     "description": "Color-coded labels help you categorize and filter your issues (just like labels in Gmail)."
 }';
-    public const SCHEMA_TITLE        = 'Label';
-    public const SCHEMA_DESCRIPTION  = 'Color-coded labels help you categorize and filter your issues (just like labels in Gmail).';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 208045946,
-    "node_id": "MDU6TGFiZWwyMDgwNDU5NDY=",
-    "url": "https:\\/\\/api.github.com\\/repositories\\/42\\/labels\\/bug",
-    "name": "bug",
-    "description": "Something isn\'t working",
-    "color": "FFFFFF",
-    "default": true
+    public const SCHEMA_TITLE = 'Label';
+    public const SCHEMA_DESCRIPTION = 'Color-coded labels help you categorize and filter your issues (just like labels in Gmail).';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
+    "url": "https:\\/\\/example.com\\/",
+    "name": "generated",
+    "description": "generated",
+    "color": "generated",
+    "default": false
 }';
-
     /**
      * id: Unique identifier for the label.
      * url: URL for the label
@@ -97,8 +93,7 @@ final readonly class Label
      * color: 6-character hex code, without the leading #, identifying the color
      * default: Whether this label comes by default in a new repository.
      */
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $url, public string $name, public string|null $description, public string $color, public bool $default,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $url, public string $name, public ?string $description, public string $color, public bool $default)
     {
     }
 }

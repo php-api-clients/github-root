@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ClassroomAssignment
+final readonly class ClassroomAssignment implements \ApiClients\Client\GitHub\Contract\ClassroomAssignment
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Classroom Assignment",
     "required": [
         "id",
@@ -322,50 +318,49 @@ final readonly class ClassroomAssignment
     },
     "description": "A GitHub Classroom assignment"
 }';
-    public const SCHEMA_TITLE        = 'Classroom Assignment';
-    public const SCHEMA_DESCRIPTION  = 'A GitHub Classroom assignment';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 42,
-    "public_repo": true,
-    "title": "Intro to Binaries",
+    public const SCHEMA_TITLE = 'Classroom Assignment';
+    public const SCHEMA_DESCRIPTION = 'A GitHub Classroom assignment';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "public_repo": false,
+    "title": "generated",
     "type": "individual",
-    "invite_link": "https:\\/\\/classroom.github.com\\/a\\/Lx7jiUgx",
-    "invitations_enabled": true,
-    "slug": "intro-to-binaries",
-    "students_are_repo_admins": true,
-    "feedback_pull_requests_enabled": true,
-    "max_teams": 0,
-    "max_members": 0,
-    "editor": "codespaces",
-    "accepted": 25,
-    "submitted": 10,
-    "passing": 10,
-    "language": "elixir",
-    "deadline": "2011-01-26T19:06:43Z",
+    "invite_link": "generated",
+    "invitations_enabled": false,
+    "slug": "generated",
+    "students_are_repo_admins": false,
+    "feedback_pull_requests_enabled": false,
+    "max_teams": 9,
+    "max_members": 11,
+    "editor": "generated",
+    "accepted": 8,
+    "submitted": 9,
+    "passing": 7,
+    "language": "generated",
+    "deadline": "1970-01-01T00:00:00+00:00",
     "starter_code_repository": {
-        "id": 1296269,
-        "full_name": "octocat\\/Hello-World",
-        "html_url": "https:\\/\\/github.com\\/octocat\\/Hello-World",
-        "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+        "id": 2,
+        "full_name": "generated",
+        "html_url": "https:\\/\\/example.com\\/",
+        "node_id": "generated",
         "private": false,
-        "default_branch": "main"
+        "default_branch": "generated"
     },
     "classroom": {
-        "id": 42,
-        "name": "Programming Elixir",
+        "id": 2,
+        "name": "generated",
         "archived": false,
         "organization": {
-            "id": 1,
-            "login": "github",
-            "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-            "html_url": "https:\\/\\/github.com\\/github",
-            "name": "Github - Code thigns happen here",
-            "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif"
+            "id": 2,
+            "login": "generated",
+            "node_id": "generated",
+            "html_url": "https:\\/\\/example.com\\/",
+            "name": "generated",
+            "avatar_url": "generated"
         },
-        "url": "https:\\/\\/classroom.github.com\\/classrooms\\/1-programming-elixir"
+        "url": "generated"
     }
 }';
-
     /**
      * id: Unique identifier of the repository.
      * publicRepo: Whether an accepted assignment creates a public repository.
@@ -387,15 +382,7 @@ final readonly class ClassroomAssignment
      * starterCodeRepository: A GitHub repository view for Classroom
      * classroom: A GitHub Classroom classroom
      */
-    public function __construct(public int $id, #[MapFrom('public_repo')]
-    public bool $publicRepo, public string $title, public string $type, #[MapFrom('invite_link')]
-    public string $inviteLink, #[MapFrom('invitations_enabled')]
-    public bool $invitationsEnabled, public string $slug, #[MapFrom('students_are_repo_admins')]
-    public bool $studentsAreRepoAdmins, #[MapFrom('feedback_pull_requests_enabled')]
-    public bool $feedbackPullRequestsEnabled, #[MapFrom('max_teams')]
-    public int|null $maxTeams, #[MapFrom('max_members')]
-    public int|null $maxMembers, public string $editor, public int $accepted, public int $submitted, public int $passing, public string $language, public string|null $deadline, #[MapFrom('starter_code_repository')]
-    public Schema\SimpleClassroomRepository $starterCodeRepository, public Schema\Classroom $classroom,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('public_repo')] public bool $publicRepo, public string $title, public string $type, #[\EventSauce\ObjectHydrator\MapFrom('invite_link')] public string $inviteLink, #[\EventSauce\ObjectHydrator\MapFrom('invitations_enabled')] public bool $invitationsEnabled, public string $slug, #[\EventSauce\ObjectHydrator\MapFrom('students_are_repo_admins')] public bool $studentsAreRepoAdmins, #[\EventSauce\ObjectHydrator\MapFrom('feedback_pull_requests_enabled')] public bool $feedbackPullRequestsEnabled, #[\EventSauce\ObjectHydrator\MapFrom('max_teams')] public ?int $maxTeams, #[\EventSauce\ObjectHydrator\MapFrom('max_members')] public ?int $maxMembers, public string $editor, public int $accepted, public int $submitted, public int $passing, public string $language, public ?string $deadline, #[\EventSauce\ObjectHydrator\MapFrom('starter_code_repository')] public \ApiClients\Client\GitHub\Schema\SimpleClassroomRepository $starterCodeRepository, public \ApiClients\Client\GitHub\Schema\Classroom $classroom)
     {
     }
 }

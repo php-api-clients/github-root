@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectCardDeleted;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ProjectCard
+final readonly class ProjectCard implements \ApiClients\Client\GitHub\Contract\WebhookProjectCardDeleted\ProjectCard
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Project Card",
     "required": [
         "url",
@@ -181,9 +177,9 @@ final readonly class ProjectCard
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Project Card';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Project Card';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "after_id": 8,
     "archived": false,
     "column_id": 9,
@@ -210,7 +206,7 @@ final readonly class ProjectCard
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Mannequin",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/",
         "user_view_type": "generated"
     },
@@ -221,20 +217,11 @@ final readonly class ProjectCard
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * archived: Whether or not the card is archived
      * id: The project card's ID
      */
-    public function __construct(#[MapFrom('after_id')]
-    public int|null $afterId, public bool $archived, #[MapFrom('column_id')]
-    public int|null $columnId, #[MapFrom('column_url')]
-    public string $columnUrl, #[MapFrom('content_url')]
-    public string|null $contentUrl, #[MapFrom('created_at')]
-    public string $createdAt, public Schema\WebhookProjectCardDeleted\ProjectCard\Creator|null $creator, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string|null $note, #[MapFrom('project_url')]
-    public string $projectUrl, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('after_id')] public ?int $afterId, public bool $archived, #[\EventSauce\ObjectHydrator\MapFrom('column_id')] public ?int $columnId, #[\EventSauce\ObjectHydrator\MapFrom('column_url')] public string $columnUrl, #[\EventSauce\ObjectHydrator\MapFrom('content_url')] public ?string $contentUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public ?\ApiClients\Client\GitHub\Schema\WebhookProjectCardDeleted\ProjectCard\Creator $creator, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public ?string $note, #[\EventSauce\ObjectHydrator\MapFrom('project_url')] public string $projectUrl, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url)
     {
     }
 }

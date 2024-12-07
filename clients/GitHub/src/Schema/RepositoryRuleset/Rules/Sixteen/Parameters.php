@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleset\Rules\Sixteen\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "max_file_path_length"
     ],
@@ -22,17 +19,15 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "max_file_path_length": 20
 }';
-
     /**
      * maxFilePathLength: The maximum amount of characters allowed in file paths
      */
-    public function __construct(#[MapFrom('max_file_path_length')]
-    public int $maxFilePathLength,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('max_file_path_length')] public int $maxFilePathLength)
     {
     }
 }

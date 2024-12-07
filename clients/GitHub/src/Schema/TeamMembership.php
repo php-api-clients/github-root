@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class TeamMembership
+final readonly class TeamMembership implements \ApiClients\Client\GitHub\Contract\TeamMembership
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Team Membership",
     "required": [
         "role",
@@ -42,14 +41,13 @@ final readonly class TeamMembership
     },
     "description": "Team Membership"
 }';
-    public const SCHEMA_TITLE        = 'Team Membership';
-    public const SCHEMA_DESCRIPTION  = 'Team Membership';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Team Membership';
+    public const SCHEMA_DESCRIPTION = 'Team Membership';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/",
     "role": "member",
     "state": "active"
 }';
-
     /**
      * role: The role of the user in the team.
      * state: The state of the user's membership in the team.

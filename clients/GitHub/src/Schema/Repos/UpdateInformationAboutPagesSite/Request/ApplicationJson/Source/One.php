@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source;
 
-final readonly class One
+final readonly class One implements \ApiClients\Client\GitHub\Contract\Repos\UpdateInformationAboutPagesSite\Request\ApplicationJson\Source\One
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "branch",
         "path"
@@ -28,13 +27,12 @@ final readonly class One
     },
     "description": "Update the source for the repository. Must include the branch name and path."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Update the source for the repository. Must include the branch name and path.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Update the source for the repository. Must include the branch name and path.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "branch": "generated",
-    "path": "\\/docs"
+    "path": "\\/"
 }';
-
     /**
      * branch: The repository branch used to publish your site's source files.
      * path: The repository directory that includes the source files for the Pages site. Allowed paths are `/` or `/docs`.

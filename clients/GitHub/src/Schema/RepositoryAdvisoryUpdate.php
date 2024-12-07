@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RepositoryAdvisoryUpdate
+final readonly class RepositoryAdvisoryUpdate implements \ApiClients\Client\GitHub\Contract\RepositoryAdvisoryUpdate
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "summary": {
@@ -200,9 +197,9 @@ final readonly class RepositoryAdvisoryUpdate
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "summary": "generated",
     "description": "generated",
     "cve_id": "generated",
@@ -213,8 +210,7 @@ final readonly class RepositoryAdvisoryUpdate
                 "name": "generated"
             },
             "vulnerable_version_range": "generated",
-            "patched_versions": "generated",
-            "vulnerable_functions": null
+            "patched_versions": "generated"
         },
         {
             "package": {
@@ -222,19 +218,13 @@ final readonly class RepositoryAdvisoryUpdate
                 "name": "generated"
             },
             "vulnerable_version_range": "generated",
-            "patched_versions": "generated",
-            "vulnerable_functions": null
+            "patched_versions": "generated"
         }
     ],
-    "cwe_ids": null,
-    "credits": null,
-    "severity": "low",
+    "severity": "critical",
     "cvss_vector_string": "generated",
-    "state": "published",
-    "collaborating_users": null,
-    "collaborating_teams": null
+    "state": "published"
 }';
-
     /**
      * summary: A short summary of the advisory.
      * description: A detailed description of what the advisory impacts.
@@ -248,12 +238,7 @@ final readonly class RepositoryAdvisoryUpdate
      * collaboratingUsers: A list of usernames who have been granted write access to the advisory.
      * collaboratingTeams: A list of team slugs which have been granted write access to the advisory.
      */
-    public function __construct(public string|null $summary, public string|null $description, #[MapFrom('cve_id')]
-    public string|null $cveId, public array|null $vulnerabilities, #[MapFrom('cwe_ids')]
-    public array|null $cweIds, public array|null $credits, public string|null $severity, #[MapFrom('cvss_vector_string')]
-    public string|null $cvssVectorString, public string|null $state, #[MapFrom('collaborating_users')]
-    public array|null $collaboratingUsers, #[MapFrom('collaborating_teams')]
-    public array|null $collaboratingTeams,)
+    public function __construct(public ?string $summary, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('cve_id')] public ?string $cveId, public ?array $vulnerabilities, #[\EventSauce\ObjectHydrator\MapFrom('cwe_ids')] public ?array $cweIds, public ?array $credits, public ?string $severity, #[\EventSauce\ObjectHydrator\MapFrom('cvss_vector_string')] public ?string $cvssVectorString, public ?string $state, #[\EventSauce\ObjectHydrator\MapFrom('collaborating_users')] public ?array $collaboratingUsers, #[\EventSauce\ObjectHydrator\MapFrom('collaborating_teams')] public ?array $collaboratingTeams)
     {
     }
 }

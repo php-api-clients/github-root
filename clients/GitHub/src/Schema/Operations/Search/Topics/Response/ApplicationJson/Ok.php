@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Operations\Search\Topics\Response\ApplicationJson;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Ok
+final readonly class Ok implements \ApiClients\Client\GitHub\Contract\Operations\Search\Topics\Response\ApplicationJson\Ok
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "total_count",
         "incomplete_results",
@@ -207,9 +204,9 @@ final readonly class Ok
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "total_count": 11,
     "incomplete_results": false,
     "items": [
@@ -224,7 +221,7 @@ final readonly class Ok
             "updated_at": "1970-01-01T00:00:00+00:00",
             "featured": false,
             "curated": false,
-            "score": 0.5,
+            "score": 5,
             "repository_count": 16,
             "logo_url": "https:\\/\\/example.com\\/",
             "text_matches": [
@@ -272,9 +269,7 @@ final readonly class Ok
                         }
                     ]
                 }
-            ],
-            "related": null,
-            "aliases": null
+            ]
         },
         {
             "name": "generated",
@@ -287,7 +282,7 @@ final readonly class Ok
             "updated_at": "1970-01-01T00:00:00+00:00",
             "featured": false,
             "curated": false,
-            "score": 0.5,
+            "score": 5,
             "repository_count": 16,
             "logo_url": "https:\\/\\/example.com\\/",
             "text_matches": [
@@ -335,16 +330,11 @@ final readonly class Ok
                         }
                     ]
                 }
-            ],
-            "related": null,
-            "aliases": null
+            ]
         }
     ]
 }';
-
-    public function __construct(#[MapFrom('total_count')]
-    public int $totalCount, #[MapFrom('incomplete_results')]
-    public bool $incompleteResults, public array $items,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('total_count')] public int $totalCount, #[\EventSauce\ObjectHydrator\MapFrom('incomplete_results')] public bool $incompleteResults, public array $items)
     {
     }
 }

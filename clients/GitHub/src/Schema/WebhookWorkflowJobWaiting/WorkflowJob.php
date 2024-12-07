@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookWorkflowJobWaiting;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WorkflowJob
+final readonly class WorkflowJob implements \ApiClients\Client\GitHub\Contract\WebhookWorkflowJobWaiting\WorkflowJob
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "run_id",
@@ -203,9 +200,9 @@ final readonly class WorkflowJob
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "check_run_url": "https:\\/\\/example.com\\/",
     "completed_at": "generated",
     "conclusion": "generated",
@@ -220,7 +217,7 @@ final readonly class WorkflowJob
     "name": "generated",
     "node_id": "generated",
     "run_attempt": 11,
-    "run_id": 0.6,
+    "run_id": 6,
     "run_url": "https:\\/\\/example.com\\/",
     "runner_group_id": 15,
     "runner_group_name": "generated",
@@ -229,50 +226,33 @@ final readonly class WorkflowJob
     "started_at": "1970-01-01T00:00:00+00:00",
     "head_branch": "generated",
     "workflow_name": "generated",
-    "status": "waiting",
+    "status": "queued",
     "steps": [
         {
             "completed_at": "generated",
-            "conclusion": "cancelled",
+            "conclusion": "failure",
             "name": "generated",
             "number": 6,
             "started_at": "generated",
-            "status": "waiting"
+            "status": "completed"
         },
         {
             "completed_at": "generated",
-            "conclusion": "cancelled",
+            "conclusion": "failure",
             "name": "generated",
             "number": 6,
             "started_at": "generated",
-            "status": "waiting"
+            "status": "completed"
         }
     ],
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * createdAt: The time that the job created.
      * headBranch: The name of the current branch.
      * workflowName: The name of the workflow.
      */
-    public function __construct(#[MapFrom('check_run_url')]
-    public string $checkRunUrl, #[MapFrom('completed_at')]
-    public string|null $completedAt, public string|null $conclusion, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('head_sha')]
-    public string $headSha, #[MapFrom('html_url')]
-    public string $htmlUrl, public int $id, public array $labels, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('run_attempt')]
-    public int $runAttempt, #[MapFrom('run_id')]
-    public int|float $runId, #[MapFrom('run_url')]
-    public string $runUrl, #[MapFrom('runner_group_id')]
-    public int|null $runnerGroupId, #[MapFrom('runner_group_name')]
-    public string|null $runnerGroupName, #[MapFrom('runner_id')]
-    public int|null $runnerId, #[MapFrom('runner_name')]
-    public string|null $runnerName, #[MapFrom('started_at')]
-    public string $startedAt, #[MapFrom('head_branch')]
-    public string|null $headBranch, #[MapFrom('workflow_name')]
-    public string|null $workflowName, public string $status, public array $steps, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('check_run_url')] public string $checkRunUrl, #[\EventSauce\ObjectHydrator\MapFrom('completed_at')] public ?string $completedAt, public ?string $conclusion, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('head_sha')] public string $headSha, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public int $id, public array $labels, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('run_attempt')] public int $runAttempt, #[\EventSauce\ObjectHydrator\MapFrom('run_id')] public int|float $runId, #[\EventSauce\ObjectHydrator\MapFrom('run_url')] public string $runUrl, #[\EventSauce\ObjectHydrator\MapFrom('runner_group_id')] public ?int $runnerGroupId, #[\EventSauce\ObjectHydrator\MapFrom('runner_group_name')] public ?string $runnerGroupName, #[\EventSauce\ObjectHydrator\MapFrom('runner_id')] public ?int $runnerId, #[\EventSauce\ObjectHydrator\MapFrom('runner_name')] public ?string $runnerName, #[\EventSauce\ObjectHydrator\MapFrom('started_at')] public string $startedAt, #[\EventSauce\ObjectHydrator\MapFrom('head_branch')] public ?string $headBranch, #[\EventSauce\ObjectHydrator\MapFrom('workflow_name')] public ?string $workflowName, public string $status, public array $steps, public string $url)
     {
     }
 }

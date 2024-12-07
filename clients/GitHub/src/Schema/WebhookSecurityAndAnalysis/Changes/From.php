@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookSecurityAndAnalysis\Changes;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class From
+final readonly class From implements \ApiClients\Client\GitHub\Contract\WebhookSecurityAndAnalysis\Changes\From
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "security_and_analysis": {
@@ -96,33 +92,31 @@ final readonly class From
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "security_and_analysis": {
         "advanced_security": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "dependabot_security_updates": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning_push_protection": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning_non_provider_patterns": {
-            "status": "disabled"
+            "status": "enabled"
         },
         "secret_scanning_ai_detection": {
-            "status": "disabled"
+            "status": "enabled"
         }
     }
 }';
-
-    public function __construct(#[MapFrom('security_and_analysis')]
-    public Schema\SecurityAndAnalysis|null $securityAndAnalysis,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('security_and_analysis')] public ?\ApiClients\Client\GitHub\Schema\SecurityAndAnalysis $securityAndAnalysis)
     {
     }
 }

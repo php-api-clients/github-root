@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\HookDelivery;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Request
+final readonly class Request implements \ApiClients\Client\GitHub\Contract\HookDelivery\Request
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "headers",
         "payload"
@@ -33,18 +30,17 @@ final readonly class Request
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "headers": [],
     "payload": []
 }';
-
     /**
      * headers: The request headers sent with the webhook delivery.
      * payload: The webhook payload.
      */
-    public function __construct(public Schema\HookDelivery\Request\Headers|null $headers, public Schema\HookDelivery\Request\Payload|null $payload)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\HookDelivery\Request\Headers $headers, public ?\ApiClients\Client\GitHub\Schema\HookDelivery\Request\Payload $payload)
     {
     }
 }

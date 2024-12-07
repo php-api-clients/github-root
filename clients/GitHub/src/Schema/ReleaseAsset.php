@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ReleaseAsset
+final readonly class ReleaseAsset implements \ApiClients\Client\GitHub\Contract\ReleaseAsset
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Release Asset",
     "required": [
         "id",
@@ -258,14 +254,14 @@ final readonly class ReleaseAsset
     },
     "description": "Data related to a release."
 }';
-    public const SCHEMA_TITLE        = 'Release Asset';
-    public const SCHEMA_DESCRIPTION  = 'Data related to a release.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Release Asset';
+    public const SCHEMA_DESCRIPTION = 'Data related to a release.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "url": "https:\\/\\/example.com\\/",
     "browser_download_url": "https:\\/\\/example.com\\/",
     "id": 2,
     "node_id": "generated",
-    "name": "Team Environment",
+    "name": "generated",
     "label": "generated",
     "state": "uploaded",
     "content_type": "generated",
@@ -276,40 +272,33 @@ final readonly class ReleaseAsset
     "uploader": {
         "name": "generated",
         "email": "generated",
-        "login": "octocat",
-        "id": 1,
-        "node_id": "MDQ6VXNlcjE=",
-        "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif",
-        "gravatar_id": "41d064eb2195891e12d0413f63227ea7",
-        "url": "https:\\/\\/api.github.com\\/users\\/octocat",
-        "html_url": "https:\\/\\/github.com\\/octocat",
-        "followers_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/followers",
-        "following_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/following{\\/other_user}",
-        "gists_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/gists{\\/gist_id}",
-        "starred_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/starred{\\/owner}{\\/repo}",
-        "subscriptions_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/subscriptions",
-        "organizations_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/orgs",
-        "repos_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/repos",
-        "events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/events{\\/privacy}",
-        "received_events_url": "https:\\/\\/api.github.com\\/users\\/octocat\\/received_events",
-        "type": "User",
+        "login": "generated",
+        "id": 2,
+        "node_id": "generated",
+        "avatar_url": "https:\\/\\/example.com\\/",
+        "gravatar_id": "generated",
+        "url": "https:\\/\\/example.com\\/",
+        "html_url": "https:\\/\\/example.com\\/",
+        "followers_url": "https:\\/\\/example.com\\/",
+        "following_url": "generated",
+        "gists_url": "generated",
+        "starred_url": "generated",
+        "subscriptions_url": "https:\\/\\/example.com\\/",
+        "organizations_url": "https:\\/\\/example.com\\/",
+        "repos_url": "https:\\/\\/example.com\\/",
+        "events_url": "generated",
+        "received_events_url": "https:\\/\\/example.com\\/",
+        "type": "generated",
         "site_admin": false,
-        "starred_at": "\\"2020-07-09T00:17:55Z\\"",
-        "user_view_type": "public"
+        "starred_at": "generated",
+        "user_view_type": "generated"
     }
 }';
-
     /**
      * name: The file name of the asset.
      * state: State of the release asset.
      */
-    public function __construct(public string $url, #[MapFrom('browser_download_url')]
-    public string $browserDownloadUrl, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $name, public string|null $label, public string $state, #[MapFrom('content_type')]
-    public string $contentType, public int $size, #[MapFrom('download_count')]
-    public int $downloadCount, #[MapFrom('created_at')]
-    public string $createdAt, #[MapFrom('updated_at')]
-    public string $updatedAt, public Schema\SimpleUser|null $uploader,)
+    public function __construct(public string $url, #[\EventSauce\ObjectHydrator\MapFrom('browser_download_url')] public string $browserDownloadUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $name, public ?string $label, public string $state, #[\EventSauce\ObjectHydrator\MapFrom('content_type')] public string $contentType, public int $size, #[\EventSauce\ObjectHydrator\MapFrom('download_count')] public int $downloadCount, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public ?\ApiClients\Client\GitHub\Schema\SimpleUser $uploader)
     {
     }
 }

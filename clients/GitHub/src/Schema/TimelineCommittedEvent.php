@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class TimelineCommittedEvent
+final readonly class TimelineCommittedEvent implements \ApiClients\Client\GitHub\Contract\TimelineCommittedEvent
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Timeline Committed Event",
     "required": [
         "sha",
@@ -205,36 +201,36 @@ final readonly class TimelineCommittedEvent
     },
     "description": "Timeline Committed Event"
 }';
-    public const SCHEMA_TITLE        = 'Timeline Committed Event';
-    public const SCHEMA_DESCRIPTION  = 'Timeline Committed Event';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Timeline Committed Event';
+    public const SCHEMA_DESCRIPTION = 'Timeline Committed Event';
+    const SCHEMA_EXAMPLE_DATA = '{
     "event": "generated",
-    "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+    "sha": "generated",
     "node_id": "generated",
     "url": "https:\\/\\/example.com\\/",
     "author": {
-        "date": "2014-08-09T08:02:04+12:00",
-        "email": "monalisa.octocat@example.com",
-        "name": "Monalisa Octocat"
+        "date": "1970-01-01T00:00:00+00:00",
+        "email": "generated",
+        "name": "generated"
     },
     "committer": {
-        "date": "2014-08-09T08:02:04+12:00",
-        "email": "monalisa.octocat@example.com",
-        "name": "Monalisa Octocat"
+        "date": "1970-01-01T00:00:00+00:00",
+        "email": "generated",
+        "name": "generated"
     },
-    "message": "Fix #42",
+    "message": "generated",
     "tree": {
-        "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+        "sha": "generated",
         "url": "https:\\/\\/example.com\\/"
     },
     "parents": [
         {
-            "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+            "sha": "generated",
             "url": "https:\\/\\/example.com\\/",
             "html_url": "https:\\/\\/example.com\\/"
         },
         {
-            "sha": "7638417db6d59f3c431d3e1f261cc637155684cd",
+            "sha": "generated",
             "url": "https:\\/\\/example.com\\/",
             "html_url": "https:\\/\\/example.com\\/"
         }
@@ -248,16 +244,13 @@ final readonly class TimelineCommittedEvent
     },
     "html_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * sha: SHA for the commit
      * author: Identifying information for the git-user
      * committer: Identifying information for the git-user
      * message: Message describing the purpose of the commit
      */
-    public function __construct(public string|null $event, public string $sha, #[MapFrom('node_id')]
-    public string $nodeId, public string $url, public Schema\TimelineCommittedEvent\Author $author, public Schema\TimelineCommittedEvent\Committer $committer, public string $message, public Schema\TimelineCommittedEvent\Tree $tree, public array $parents, public Schema\TimelineCommittedEvent\Verification $verification, #[MapFrom('html_url')]
-    public string $htmlUrl,)
+    public function __construct(public ?string $event, public string $sha, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $url, public \ApiClients\Client\GitHub\Schema\TimelineCommittedEvent\Author $author, public \ApiClients\Client\GitHub\Schema\TimelineCommittedEvent\Committer $committer, public string $message, public \ApiClients\Client\GitHub\Schema\TimelineCommittedEvent\Tree $tree, public array $parents, public \ApiClients\Client\GitHub\Schema\TimelineCommittedEvent\Verification $verification, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl)
     {
     }
 }

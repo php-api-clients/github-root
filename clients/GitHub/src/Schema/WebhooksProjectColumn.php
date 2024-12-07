@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class WebhooksProjectColumn
+final readonly class WebhooksProjectColumn implements \ApiClients\Client\GitHub\Contract\WebhooksProjectColumn
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Project Column",
     "required": [
         "url",
@@ -61,9 +58,9 @@ final readonly class WebhooksProjectColumn
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Project Column';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Project Column';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "after_id": 8,
     "cards_url": "https:\\/\\/example.com\\/",
     "created_at": "1970-01-01T00:00:00+00:00",
@@ -74,18 +71,11 @@ final readonly class WebhooksProjectColumn
     "updated_at": "1970-01-01T00:00:00+00:00",
     "url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * id: The unique identifier of the project column
      * name: Name of the project column
      */
-    public function __construct(#[MapFrom('after_id')]
-    public int|null $afterId, #[MapFrom('cards_url')]
-    public string $cardsUrl, #[MapFrom('created_at')]
-    public string $createdAt, public int $id, public string $name, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('project_url')]
-    public string $projectUrl, #[MapFrom('updated_at')]
-    public string $updatedAt, public string $url,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('after_id')] public ?int $afterId, #[\EventSauce\ObjectHydrator\MapFrom('cards_url')] public string $cardsUrl, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public string $createdAt, public int $id, public string $name, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('project_url')] public string $projectUrl, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public string $updatedAt, public string $url)
     {
     }
 }

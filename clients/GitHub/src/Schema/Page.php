@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Page
+final readonly class Page implements \ApiClients\Client\GitHub\Contract\Page
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "GitHub Pages",
     "required": [
         "url",
@@ -194,34 +190,33 @@ final readonly class Page
     },
     "description": "The configuration for GitHub Pages for a repository."
 }';
-    public const SCHEMA_TITLE        = 'GitHub Pages';
-    public const SCHEMA_DESCRIPTION  = 'The configuration for GitHub Pages for a repository.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "url": "https:\\/\\/api.github.com\\/repos\\/github\\/hello-world\\/pages",
+    public const SCHEMA_TITLE = 'GitHub Pages';
+    public const SCHEMA_DESCRIPTION = 'The configuration for GitHub Pages for a repository.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "url": "https:\\/\\/example.com\\/",
     "status": "built",
-    "cname": "example.com",
+    "cname": "generated",
     "protected_domain_state": "pending",
     "pending_domain_unverified_at": "1970-01-01T00:00:00+00:00",
     "custom_404": false,
-    "html_url": "https:\\/\\/example.com",
+    "html_url": "https:\\/\\/example.com\\/",
     "build_type": "legacy",
     "source": {
         "branch": "generated",
         "path": "generated"
     },
-    "public": true,
+    "public": false,
     "https_certificate": {
-        "state": "approved",
-        "description": "Certificate is approved",
+        "state": "new",
+        "description": "generated",
         "domains": [
-            "example.com",
-            "example.com"
+            "generated",
+            "generated"
         ],
         "expires_at": "generated"
     },
-    "https_enforced": true
+    "https_enforced": false
 }';
-
     /**
      * url: The API address for accessing this Page resource.
      * status: The status of the most recent build of the Page.
@@ -234,14 +229,7 @@ final readonly class Page
      * public: Whether the GitHub Pages site is publicly visible. If set to `true`, the site is accessible to anyone on the internet. If set to `false`, the site will only be accessible to users who have at least `read` access to the repository that published the site.
      * httpsEnforced: Whether https is enabled on the domain
      */
-    public function __construct(public string $url, public string|null $status, public string|null $cname, #[MapFrom('protected_domain_state')]
-    public string|null $protectedDomainState, #[MapFrom('pending_domain_unverified_at')]
-    public string|null $pendingDomainUnverifiedAt, #[MapFrom('custom_404')]
-    public bool $customFourHundredFour, #[MapFrom('html_url')]
-    public string|null $htmlUrl, #[MapFrom('build_type')]
-    public string|null $buildType, public Schema\PagesSourceHash|null $source, public bool $public, #[MapFrom('https_certificate')]
-    public Schema\PagesHttpsCertificate|null $httpsCertificate, #[MapFrom('https_enforced')]
-    public bool|null $httpsEnforced,)
+    public function __construct(public string $url, public ?string $status, public ?string $cname, #[\EventSauce\ObjectHydrator\MapFrom('protected_domain_state')] public ?string $protectedDomainState, #[\EventSauce\ObjectHydrator\MapFrom('pending_domain_unverified_at')] public ?string $pendingDomainUnverifiedAt, #[\EventSauce\ObjectHydrator\MapFrom('custom_404')] public bool $customFourHundredFour, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public ?string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('build_type')] public ?string $buildType, public ?\ApiClients\Client\GitHub\Schema\PagesSourceHash $source, public bool $public, #[\EventSauce\ObjectHydrator\MapFrom('https_certificate')] public ?\ApiClients\Client\GitHub\Schema\PagesHttpsCertificate $httpsCertificate, #[\EventSauce\ObjectHydrator\MapFrom('https_enforced')] public ?bool $httpsEnforced)
     {
     }
 }

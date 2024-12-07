@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Checks\Create\Request\ApplicationJson;
 
-final readonly class Output
+final readonly class Output implements \ApiClients\Client\GitHub\Contract\Checks\Create\Request\ApplicationJson\Output
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "title",
         "summary"
@@ -113,9 +112,9 @@ final readonly class Output
     },
     "description": "Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Check runs can accept a variety of data in the `output` object, including a `title` and `summary` and can optionally provide descriptive details about the run.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "title": "generated",
     "summary": "generated",
     "text": "generated",
@@ -126,7 +125,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -137,7 +136,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -148,7 +147,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -159,7 +158,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -170,7 +169,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -181,7 +180,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -192,7 +191,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -203,7 +202,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -214,7 +213,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -225,7 +224,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -236,7 +235,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -247,7 +246,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -258,7 +257,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -269,7 +268,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -280,7 +279,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -291,7 +290,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -302,7 +301,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -313,7 +312,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -324,7 +323,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -335,7 +334,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -346,7 +345,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -357,7 +356,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -368,7 +367,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -379,7 +378,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -390,7 +389,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -401,7 +400,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -412,7 +411,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -423,7 +422,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -434,7 +433,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -445,7 +444,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -456,7 +455,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -467,7 +466,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -478,7 +477,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -489,7 +488,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -500,7 +499,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -511,7 +510,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -522,7 +521,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -533,7 +532,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -544,7 +543,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -555,7 +554,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -566,7 +565,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -577,7 +576,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -588,7 +587,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -599,7 +598,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -610,7 +609,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -621,7 +620,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -632,7 +631,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -643,7 +642,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -654,7 +653,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -665,7 +664,7 @@ final readonly class Output
             "end_line": 8,
             "start_column": 12,
             "end_column": 10,
-            "annotation_level": "failure",
+            "annotation_level": "notice",
             "message": "generated",
             "title": "generated",
             "raw_details": "generated"
@@ -684,7 +683,6 @@ final readonly class Output
         }
     ]
 }';
-
     /**
      * title: The title of the check run.
      * summary: The summary of the check run. This parameter supports Markdown. **Maximum length**: 65535 characters.
@@ -692,7 +690,7 @@ final readonly class Output
      * annotations: Adds information from your analysis to specific lines of code. Annotations are visible on GitHub in the **Checks** and **Files changed** tab of the pull request. The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](https://docs.github.com/rest/checks/runs#update-a-check-run) endpoint. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run. GitHub Actions are limited to 10 warning annotations and 10 error annotations per step. For details about how you can view annotations on GitHub, see "[About status checks](https://docs.github.com/articles/about-status-checks#checks)".
      * images: Adds images to the output displayed in the GitHub pull request UI.
      */
-    public function __construct(public string $title, public string $summary, public string|null $text, public array|null $annotations, public array|null $images)
+    public function __construct(public string $title, public string $summary, public ?string $text, public ?array $annotations, public ?array $images)
     {
     }
 }

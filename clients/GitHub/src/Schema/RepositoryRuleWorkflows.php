@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleWorkflows
+final readonly class RepositoryRuleWorkflows implements \ApiClients\Client\GitHub\Contract\RepositoryRuleWorkflows
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "workflows",
     "required": [
         "type"
@@ -67,9 +64,9 @@ final readonly class RepositoryRuleWorkflows
     },
     "description": "Require all changes made to a targeted branch to pass the specified workflows before they can be merged."
 }';
-    public const SCHEMA_TITLE        = 'workflows';
-    public const SCHEMA_DESCRIPTION  = 'Require all changes made to a targeted branch to pass the specified workflows before they can be merged.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'workflows';
+    public const SCHEMA_DESCRIPTION = 'Require all changes made to a targeted branch to pass the specified workflows before they can be merged.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "workflows",
     "parameters": {
         "do_not_enforce_on_create": false,
@@ -89,8 +86,7 @@ final readonly class RepositoryRuleWorkflows
         ]
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleWorkflows\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows\Parameters $parameters)
     {
     }
 }

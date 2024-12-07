@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\SigstoreBundle0\VerificationMaterial\TlogEntries;
 
-final readonly class KindVersion
+final readonly class KindVersion implements \ApiClients\Client\GitHub\Contract\SigstoreBundle0\VerificationMaterial\TlogEntries\KindVersion
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "kind": {
@@ -17,14 +16,13 @@ final readonly class KindVersion
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "kind": "generated",
     "version": "generated"
 }';
-
-    public function __construct(public string|null $kind, public string|null $version)
+    public function __construct(public ?string $kind, public ?string $version)
     {
     }
 }

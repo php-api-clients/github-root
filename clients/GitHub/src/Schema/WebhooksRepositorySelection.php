@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class WebhooksRepositorySelection
+final readonly class WebhooksRepositorySelection implements \ApiClients\Client\GitHub\Contract\WebhooksRepositorySelection
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "all",
         "selected"
@@ -14,10 +13,9 @@ final readonly class WebhooksRepositorySelection
     "type": "string",
     "description": "Describe whether all repositories have been selected or there\'s a selection involved"
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Describe whether all repositories have been selected or there\'s a selection involved';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Describe whether all repositories have been selected or there\'s a selection involved';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

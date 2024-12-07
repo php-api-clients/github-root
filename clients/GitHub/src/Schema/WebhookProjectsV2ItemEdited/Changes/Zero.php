@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemEdited\Changes;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Zero
+final readonly class Zero implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ItemEdited\Changes\Zero
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "field_value"
     ],
@@ -182,21 +178,29 @@ final readonly class Zero
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "field_value": {
         "field_node_id": "generated",
         "field_type": "generated",
         "field_name": "generated",
         "project_number": 14,
-        "from": null,
-        "to": null
+        "from": {
+            "id": "generated",
+            "title": "generated",
+            "duration": 8,
+            "start_date": "generated"
+        },
+        "to": {
+            "id": "generated",
+            "title": "generated",
+            "duration": 8,
+            "start_date": "generated"
+        }
     }
 }';
-
-    public function __construct(#[MapFrom('field_value')]
-    public Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue $fieldValue,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('field_value')] public \ApiClients\Client\GitHub\Schema\WebhookProjectsV2ItemEdited\Changes\Zero\FieldValue $fieldValue)
     {
     }
 }

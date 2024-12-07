@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\CreateRepoRuleset\Request;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\CreateRepoRuleset\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name",
         "enforcement"
@@ -921,21 +917,21 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
-    "target": "push",
+    "target": "branch",
     "enforcement": "disabled",
     "bypass_actors": [
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         },
         {
             "actor_id": 8,
-            "actor_type": "DeployKey",
+            "actor_type": "Integration",
             "bypass_mode": "always"
         }
     ],
@@ -952,11 +948,17 @@ final readonly class ApplicationJson
         }
     },
     "rules": [
-        null,
-        null
+        {
+            "type": "creation"
+        },
+        {
+            "type": "update",
+            "parameters": {
+                "update_allows_fetch_and_merge": false
+            }
+        }
     ]
 }';
-
     /**
      * name: The name of the ruleset.
      * target: The target of the ruleset
@@ -964,9 +966,9 @@ final readonly class ApplicationJson
      * bypassActors: The actors that can bypass the rules in this ruleset
      * conditions: Parameters for a repository ruleset ref name condition
      * rules: An array of rules within the ruleset.
+     * @param ?array<\ApiClients\Client\GitHub\Schema\RepositoryRuleCreation|\ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate|\ApiClients\Client\GitHub\Schema\RepositoryRuleDeletion|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredLinearHistory|\ApiClients\Client\GitHub\Schema\RepositoryRuleMergeQueue|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredSignatures|\ApiClients\Client\GitHub\Schema\RepositoryRulePullRequest|\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredStatusChecks|\ApiClients\Client\GitHub\Schema\RepositoryRuleNonFastForward|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitMessagePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitAuthorEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleCommitterEmailPattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleBranchNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleTagNamePattern|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Fifteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Sixteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Seventeen|\ApiClients\Client\GitHub\Schema\RepositoryRuleset\Rules\Eighteen|\ApiClients\Client\GitHub\Schema\RepositoryRuleWorkflows|\ApiClients\Client\GitHub\Schema\RepositoryRuleCodeScanning> $rules
      */
-    public function __construct(public string $name, public string|null $target, public string $enforcement, #[MapFrom('bypass_actors')]
-    public array|null $bypassActors, public Schema\RepositoryRulesetConditions|null $conditions, public array|null $rules,)
+    public function __construct(public string $name, public ?string $target, public string $enforcement, #[\EventSauce\ObjectHydrator\MapFrom('bypass_actors')] public ?array $bypassActors, public ?\ApiClients\Client\GitHub\Schema\RepositoryRulesetConditions $conditions, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Repos\CreateRepoRuleset\Request\ApplicationJson\Rules] public ?array $rules)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class InteractionExpiry
+final readonly class InteractionExpiry implements \ApiClients\Client\GitHub\Contract\InteractionExpiry
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "one_day",
         "three_days",
@@ -20,10 +19,9 @@ final readonly class InteractionExpiry
         "one_month"
     ]
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'The duration of the interaction restriction. Default: `one_day`.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'The duration of the interaction restriction. Default: `one_day`.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }

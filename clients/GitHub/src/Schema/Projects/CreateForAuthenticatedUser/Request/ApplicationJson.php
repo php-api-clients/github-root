@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Projects\CreateForAuthenticatedUser\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Projects\CreateForAuthenticatedUser\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name"
     ],
@@ -31,18 +30,17 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "Week One Sprint",
-    "body": "This project represents the sprint of the first week in January"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
+    "body": "generated"
 }';
-
     /**
      * name: Name of the project
      * body: Body of the project
      */
-    public function __construct(public string $name, public string|null $body)
+    public function __construct(public string $name, public ?string $body)
     {
     }
 }

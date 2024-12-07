@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class RepositoryRuleRequiredLinearHistory
+final readonly class RepositoryRuleRequiredLinearHistory implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredLinearHistory
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "required_linear_history",
     "required": [
         "type"
@@ -22,12 +21,11 @@ final readonly class RepositoryRuleRequiredLinearHistory
     },
     "description": "Prevent merge commits from being pushed to matching refs."
 }';
-    public const SCHEMA_TITLE        = 'required_linear_history';
-    public const SCHEMA_DESCRIPTION  = 'Prevent merge commits from being pushed to matching refs.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'required_linear_history';
+    public const SCHEMA_DESCRIPTION = 'Prevent merge commits from being pushed to matching refs.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "required_linear_history"
 }';
-
     public function __construct(public string $type)
     {
     }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Repos\UpdateRelease\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Repos\UpdateRelease\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "tag_name": {
@@ -51,9 +48,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "tag_name": "generated",
     "target_commitish": "generated",
     "name": "generated",
@@ -63,7 +60,6 @@ final readonly class ApplicationJson
     "make_latest": "true",
     "discussion_category_name": "generated"
 }';
-
     /**
      * tagName: The name of the tag.
      * targetCommitish: Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch.
@@ -74,11 +70,7 @@ final readonly class ApplicationJson
      * makeLatest: Specifies whether this release should be set as the latest release for the repository. Drafts and prereleases cannot be set as latest. Defaults to `true` for newly published releases. `legacy` specifies that the latest release should be determined based on the release creation date and higher semantic version.
      * discussionCategoryName: If specified, a discussion of the specified category is created and linked to the release. The value must be a category that already exists in the repository. If there is already a discussion linked to the release, this parameter is ignored. For more information, see "[Managing categories for discussions in your repository](https://docs.github.com/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)."
      */
-    public function __construct(#[MapFrom('tag_name')]
-    public string|null $tagName, #[MapFrom('target_commitish')]
-    public string|null $targetCommitish, public string|null $name, public string|null $body, public bool|null $draft, public bool|null $prerelease, #[MapFrom('make_latest')]
-    public string|null $makeLatest, #[MapFrom('discussion_category_name')]
-    public string|null $discussionCategoryName,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('tag_name')] public ?string $tagName, #[\EventSauce\ObjectHydrator\MapFrom('target_commitish')] public ?string $targetCommitish, public ?string $name, public ?string $body, public ?bool $draft, public ?bool $prerelease, #[\EventSauce\ObjectHydrator\MapFrom('make_latest')] public ?string $makeLatest, #[\EventSauce\ObjectHydrator\MapFrom('discussion_category_name')] public ?string $discussionCategoryName)
     {
     }
 }

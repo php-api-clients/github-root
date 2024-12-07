@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\DependencyGraphSpdxSbom\Sbom;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Packages
+final readonly class Packages implements \ApiClients\Client\GitHub\Contract\DependencyGraphSpdxSbom\Sbom\Packages
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "SPDXID": {
@@ -110,49 +107,47 @@ final readonly class Packages
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "SPDXID": "SPDXRef-Package",
-    "name": "github\\/github",
-    "versionInfo": "1.0.0",
-    "downloadLocation": "NOASSERTION",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "SPDXID": "generated",
+    "name": "generated",
+    "versionInfo": "generated",
+    "downloadLocation": "generated",
     "filesAnalyzed": false,
-    "licenseConcluded": "MIT",
-    "licenseDeclared": "NOASSERTION",
-    "supplier": "NOASSERTION",
-    "copyrightText": "Copyright (c) 1985 GitHub.com",
+    "licenseConcluded": "generated",
+    "licenseDeclared": "generated",
+    "supplier": "generated",
+    "copyrightText": "generated",
     "externalRefs": [
         {
-            "referenceCategory": "PACKAGE-MANAGER",
-            "referenceLocator": "pkg:gem\\/rails@6.0.1",
-            "referenceType": "purl"
+            "referenceCategory": "generated",
+            "referenceLocator": "generated",
+            "referenceType": "generated"
         },
         {
-            "referenceCategory": "PACKAGE-MANAGER",
-            "referenceLocator": "pkg:gem\\/rails@6.0.1",
-            "referenceType": "purl"
+            "referenceCategory": "generated",
+            "referenceLocator": "generated",
+            "referenceType": "generated"
         }
     ]
 }';
-
     /**
-     * spdxid: A unique SPDX identifier for the package.
-     * name: The name of the package.
-     * versionInfo: The version of the package. If the package does not have an exact version specified,
+    * spdxid: A unique SPDX identifier for the package.
+    * name: The name of the package.
+    * versionInfo: The version of the package. If the package does not have an exact version specified,
     a version range is given.
-     * downloadLocation: The location where the package can be downloaded,
+    * downloadLocation: The location where the package can be downloaded,
     or NOASSERTION if this has not been determined.
-     * filesAnalyzed: Whether the package's file content has been subjected to
+    * filesAnalyzed: Whether the package's file content has been subjected to
     analysis during the creation of the SPDX document.
-     * licenseConcluded: The license of the package as determined while creating the SPDX document.
-     * licenseDeclared: The license of the package as declared by its author, or NOASSERTION if this information
+    * licenseConcluded: The license of the package as determined while creating the SPDX document.
+    * licenseDeclared: The license of the package as declared by its author, or NOASSERTION if this information
     was not available when the SPDX document was created.
-     * supplier: The distribution source of this package, or NOASSERTION if this was not determined.
-     * copyrightText: The copyright holders of the package, and any dates present with those notices, if available.
-     */
-    public function __construct(#[MapFrom('SPDXID')]
-    public string|null $spdxid, public string|null $name, public string|null $versionInfo, public string|null $downloadLocation, public bool|null $filesAnalyzed, public string|null $licenseConcluded, public string|null $licenseDeclared, public string|null $supplier, public string|null $copyrightText, public array|null $externalRefs,)
+    * supplier: The distribution source of this package, or NOASSERTION if this was not determined.
+    * copyrightText: The copyright holders of the package, and any dates present with those notices, if available.
+    */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('SPDXID')] public ?string $spdxid, public ?string $name, public ?string $versionInfo, public ?string $downloadLocation, public ?bool $filesAnalyzed, public ?string $licenseConcluded, public ?string $licenseDeclared, public ?string $supplier, public ?string $copyrightText, public ?array $externalRefs)
     {
     }
 }

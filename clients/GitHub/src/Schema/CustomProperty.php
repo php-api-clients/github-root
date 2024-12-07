@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CustomProperty
+final readonly class CustomProperty implements \ApiClients\Client\GitHub\Contract\CustomProperty
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Organization Custom Property",
     "required": [
         "property_name",
@@ -109,39 +106,30 @@ final readonly class CustomProperty
     },
     "description": "Custom property defined on an organization"
 }';
-    public const SCHEMA_TITLE        = 'Organization Custom Property';
-    public const SCHEMA_DESCRIPTION  = 'Custom property defined on an organization';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Organization Custom Property';
+    public const SCHEMA_DESCRIPTION = 'Custom property defined on an organization';
+    const SCHEMA_EXAMPLE_DATA = '{
     "property_name": "generated",
     "url": "https:\\/\\/example.com\\/",
     "source_type": "organization",
-    "value_type": "single_select",
+    "value_type": "string",
     "required": false,
-    "default_value": null,
     "description": "generated",
-    "allowed_values": null,
     "values_editable_by": "org_actors"
 }';
-
     /**
-     * propertyName: The name of the property
-     * url: The URL that can be used to fetch, update, or delete info about this property via the API.
-     * sourceType: The source type of the property
-     * valueType: The type of the value for the property
-     * required: Whether the property is required.
-     * defaultValue: Default value of the property
-     * description: Short description of the property
-     * allowedValues: An ordered list of the allowed values of the property.
+    * propertyName: The name of the property
+    * url: The URL that can be used to fetch, update, or delete info about this property via the API.
+    * sourceType: The source type of the property
+    * valueType: The type of the value for the property
+    * required: Whether the property is required.
+    * defaultValue: Default value of the property
+    * description: Short description of the property
+    * allowedValues: An ordered list of the allowed values of the property.
     The property can have up to 200 allowed values.
-     * valuesEditableBy: Who can edit the values of the property
-     */
-    public function __construct(#[MapFrom('property_name')]
-    public string $propertyName, public string|null $url, #[MapFrom('source_type')]
-    public string|null $sourceType, #[MapFrom('value_type')]
-    public string $valueType, public bool|null $required, #[MapFrom('default_value')]
-    public string|array|null $defaultValue, public string|null $description, #[MapFrom('allowed_values')]
-    public array|null $allowedValues, #[MapFrom('values_editable_by')]
-    public string|null $valuesEditableBy,)
+    * valuesEditableBy: Who can edit the values of the property
+    */
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('property_name')] public string $propertyName, public ?string $url, #[\EventSauce\ObjectHydrator\MapFrom('source_type')] public ?string $sourceType, #[\EventSauce\ObjectHydrator\MapFrom('value_type')] public string $valueType, public ?bool $required, #[\EventSauce\ObjectHydrator\MapFrom('default_value')] public null|string|array $defaultValue, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('allowed_values')] public ?array $allowedValues, #[\EventSauce\ObjectHydrator\MapFrom('values_editable_by')] public ?string $valuesEditableBy)
     {
     }
 }

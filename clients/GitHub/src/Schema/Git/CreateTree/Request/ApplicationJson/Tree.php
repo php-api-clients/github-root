@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Git\CreateTree\Request\ApplicationJson;
 
-final readonly class Tree
+final readonly class Tree implements \ApiClients\Client\GitHub\Contract\Git\CreateTree\Request\ApplicationJson\Tree
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "path": {
@@ -46,26 +45,25 @@ final readonly class Tree
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "path": "generated",
-    "mode": "120000",
-    "type": "commit",
+    "mode": "100644",
+    "type": "blob",
     "sha": "generated",
     "content": "generated"
 }';
-
     /**
      * path: The file referenced in the tree.
      * mode: The file mode; one of `100644` for file (blob), `100755` for executable (blob), `040000` for subdirectory (tree), `160000` for submodule (commit), or `120000` for a blob that specifies the path of a symlink.
      * type: Either `blob`, `tree`, or `commit`.
-     * sha: The SHA1 checksum ID of the object in the tree. Also called `tree.sha`. If the value is `null` then the file will be deleted.
-     * *Note:** Use either `tree.sha` or `content` to specify the contents of the entry. Using both `tree.sha` and `content` will return an error.
-     * content: The content you want this file to have. GitHub will write this blob out and use that SHA for this entry. Use either this, or `tree.sha`.
-     * *Note:** Use either `tree.sha` or `content` to specify the contents of the entry. Using both `tree.sha` and `content` will return an error.
+     * sha: The SHA1 checksum ID of the object in the tree. Also called `tree.sha`. If the value is `null` then the file will be deleted.  
+     **Note:** Use either `tree.sha` or `content` to specify the contents of the entry. Using both `tree.sha` and `content` will return an error.
+     * content: The content you want this file to have. GitHub will write this blob out and use that SHA for this entry. Use either this, or `tree.sha`.  
+     **Note:** Use either `tree.sha` or `content` to specify the contents of the entry. Using both `tree.sha` and `content` will return an error.
      */
-    public function __construct(public string|null $path, public string|null $mode, public string|null $type, public string|null $sha, public string|null $content)
+    public function __construct(public ?string $path, public ?string $mode, public ?string $type, public ?string $sha, public ?string $content)
     {
     }
 }

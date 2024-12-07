@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CopilotUsageMetricsDay
+final readonly class CopilotUsageMetricsDay implements \ApiClients\Client\GitHub\Contract\CopilotUsageMetricsDay
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Copilot Usage Metrics",
     "required": [
         "date"
@@ -325,9 +321,9 @@ final readonly class CopilotUsageMetricsDay
     "description": "Copilot usage metrics for a given day.",
     "additionalProperties": true
 }';
-    public const SCHEMA_TITLE        = 'Copilot Usage Metrics';
-    public const SCHEMA_DESCRIPTION  = 'Copilot usage metrics for a given day.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Copilot Usage Metrics';
+    public const SCHEMA_DESCRIPTION = 'Copilot usage metrics for a given day.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "date": "generated",
     "total_active_users": 18,
     "total_engaged_users": 19,
@@ -572,7 +568,6 @@ final readonly class CopilotUsageMetricsDay
         ]
     }
 }';
-
     /**
      * date: The date for which the usage metrics are aggregated, in `YYYY-MM-DD` format.
      * totalActiveUsers: The total number of Copilot users with activity belonging to any Copilot feature, globally, for the given day. Includes passive activity such as receiving a code suggestion, as well as engagement activity such as accepting a code suggestion or prompting chat. Does not include authentication events. Is not limited to the individual features detailed on the endpoint.
@@ -582,13 +577,7 @@ final readonly class CopilotUsageMetricsDay
      * copilotDotcomChat: Usage metrics for Copilot Chat in github.com
      * copilotDotcomPullRequests: Usage metrics for Copilot for pull requests.
      */
-    public function __construct(public string $date, #[MapFrom('total_active_users')]
-    public int|null $totalActiveUsers, #[MapFrom('total_engaged_users')]
-    public int|null $totalEngagedUsers, #[MapFrom('copilot_ide_code_completions')]
-    public Schema\CopilotIdeCodeCompletions|null $copilotIdeCodeCompletions, #[MapFrom('copilot_ide_chat')]
-    public Schema\CopilotIdeChat|null $copilotIdeChat, #[MapFrom('copilot_dotcom_chat')]
-    public Schema\CopilotDotcomChat|null $copilotDotcomChat, #[MapFrom('copilot_dotcom_pull_requests')]
-    public Schema\CopilotDotcomPullRequests|null $copilotDotcomPullRequests,)
+    public function __construct(public string $date, #[\EventSauce\ObjectHydrator\MapFrom('total_active_users')] public ?int $totalActiveUsers, #[\EventSauce\ObjectHydrator\MapFrom('total_engaged_users')] public ?int $totalEngagedUsers, #[\EventSauce\ObjectHydrator\MapFrom('copilot_ide_code_completions')] public ?\ApiClients\Client\GitHub\Schema\CopilotIdeCodeCompletions $copilotIdeCodeCompletions, #[\EventSauce\ObjectHydrator\MapFrom('copilot_ide_chat')] public ?\ApiClients\Client\GitHub\Schema\CopilotIdeChat $copilotIdeChat, #[\EventSauce\ObjectHydrator\MapFrom('copilot_dotcom_chat')] public ?\ApiClients\Client\GitHub\Schema\CopilotDotcomChat $copilotDotcomChat, #[\EventSauce\ObjectHydrator\MapFrom('copilot_dotcom_pull_requests')] public ?\ApiClients\Client\GitHub\Schema\CopilotDotcomPullRequests $copilotDotcomPullRequests)
     {
     }
 }

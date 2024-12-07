@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class RepositoryRuleRequiredDeployments
+final readonly class RepositoryRuleRequiredDeployments implements \ApiClients\Client\GitHub\Contract\RepositoryRuleRequiredDeployments
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "required_deployments",
     "required": [
         "type"
@@ -39,9 +36,9 @@ final readonly class RepositoryRuleRequiredDeployments
     },
     "description": "Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule."
 }';
-    public const SCHEMA_TITLE        = 'required_deployments';
-    public const SCHEMA_DESCRIPTION  = 'Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'required_deployments';
+    public const SCHEMA_DESCRIPTION = 'Choose which environments must be successfully deployed to before refs can be pushed into a ref that matches this rule.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "type": "required_deployments",
     "parameters": {
         "required_deployment_environments": [
@@ -50,8 +47,7 @@ final readonly class RepositoryRuleRequiredDeployments
         ]
     }
 }';
-
-    public function __construct(public string $type, public Schema\RepositoryRuleRequiredDeployments\Parameters|null $parameters)
+    public function __construct(public string $type, public ?\ApiClients\Client\GitHub\Schema\RepositoryRuleRequiredDeployments\Parameters $parameters)
     {
     }
 }

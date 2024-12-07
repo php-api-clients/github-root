@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Issues\Create\Request;
 
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Issues\Create\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "title"
     ],
@@ -93,31 +92,36 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "title": null,
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "title": 7,
     "body": "generated",
     "assignee": "generated",
-    "milestone": null,
+    "milestone": 11,
     "labels": [
-        null,
-        null
+        "generated",
+        {
+            "id": 2,
+            "name": "generated",
+            "description": "generated",
+            "color": "generated"
+        }
     ],
     "assignees": [
         "generated",
         "generated"
     ]
 }';
-
     /**
      * title: The title of the issue.
      * body: The contents of the issue.
      * assignee: Login for the user that this issue should be assigned to. _NOTE: Only users with push access can set the assignee for new issues. The assignee is silently dropped otherwise. **This field is closing down.**_
      * labels: Labels to associate with this issue. _NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise._
+     * @param ?array<\ApiClients\Client\GitHub\Schema\Issues\Create\Request\ApplicationJson\Labels\One> $labels
      * assignees: Logins for Users to assign to this issue. _NOTE: Only users with push access can set assignees for new issues. Assignees are silently dropped otherwise._
      */
-    public function __construct(public string|int $title, public string|null $body, public string|null $assignee, public string|int|null $milestone, public array|null $labels, public array|null $assignees)
+    public function __construct(public string|int $title, public ?string $body, public ?string $assignee, public null|string|int $milestone, #[\ApiClients\Client\GitHub\Internal\Attribute\CastUnionToType\Multiple\Schema\Issues\Create\Request\ApplicationJson\Labels] public ?array $labels, public ?array $assignees)
     {
     }
 }

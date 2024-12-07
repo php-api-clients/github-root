@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\RepositoryRuleUpdate;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Parameters
+final readonly class Parameters implements \ApiClients\Client\GitHub\Contract\RepositoryRuleUpdate\Parameters
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "update_allows_fetch_and_merge"
     ],
@@ -20,17 +17,15 @@ final readonly class Parameters
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "update_allows_fetch_and_merge": false
 }';
-
     /**
      * updateAllowsFetchAndMerge: Branch can pull changes from its upstream repository
      */
-    public function __construct(#[MapFrom('update_allows_fetch_and_merge')]
-    public bool $updateAllowsFetchAndMerge,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('update_allows_fetch_and_merge')] public bool $updateAllowsFetchAndMerge)
     {
     }
 }

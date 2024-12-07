@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Dependency
+final readonly class Dependency implements \ApiClients\Client\GitHub\Contract\Dependency
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "package_url": {
@@ -80,19 +76,18 @@ final readonly class Dependency
     },
     "additionalProperties": false
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "package_url": "pkg:\\/npm\\/%40actions\\/http-client@1.0.11",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "package_url": "pkg",
     "metadata": [],
     "relationship": "direct",
     "scope": "runtime",
     "dependencies": [
-        "@actions\\/http-client",
-        "@actions\\/http-client"
+        "generated",
+        "generated"
     ]
 }';
-
     /**
      * packageUrl: Package-url (PURL) of dependency. See https://github.com/package-url/purl-spec for more details.
      * metadata: User-defined metadata to store domain-specific information limited to 8 keys with scalar values.
@@ -100,8 +95,7 @@ final readonly class Dependency
      * scope: A notation of whether the dependency is required for the primary build artifact (runtime) or is only used for development. Future versions of this specification may allow for more granular scopes.
      * dependencies: Array of package-url (PURLs) of direct child dependencies.
      */
-    public function __construct(#[MapFrom('package_url')]
-    public string|null $packageUrl, public Schema\Metadata|null $metadata, public string|null $relationship, public string|null $scope, public array|null $dependencies,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('package_url')] public ?string $packageUrl, public ?\ApiClients\Client\GitHub\Schema\Metadata $metadata, public ?string $relationship, public ?string $scope, public ?array $dependencies)
     {
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookProjectsV2ProjectEdited\Changes;
 
-final readonly class Title
+final readonly class Title implements \ApiClients\Client\GitHub\Contract\WebhookProjectsV2ProjectEdited\Changes\Title
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "from": {
@@ -17,14 +16,13 @@ final readonly class Title
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "from": "generated",
     "to": "generated"
 }';
-
-    public function __construct(public string|null $from, public string|null $to)
+    public function __construct(public ?string $from, public ?string $to)
     {
     }
 }

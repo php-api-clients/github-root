@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Commit;
 
-final readonly class Stats
+final readonly class Stats implements \ApiClients\Client\GitHub\Contract\Commit\Stats
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "additions": {
@@ -20,15 +19,14 @@ final readonly class Stats
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "additions": 9,
     "deletions": 9,
     "total": 5
 }';
-
-    public function __construct(public int|null $additions, public int|null $deletions, public int|null $total)
+    public function __construct(public ?int $additions, public ?int $deletions, public ?int $total)
     {
     }
 }

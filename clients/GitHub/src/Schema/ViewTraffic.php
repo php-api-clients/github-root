@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class ViewTraffic
+final readonly class ViewTraffic implements \ApiClients\Client\GitHub\Contract\ViewTraffic
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "View Traffic",
     "required": [
         "uniques",
@@ -54,11 +53,11 @@ final readonly class ViewTraffic
     },
     "description": "View Traffic"
 }';
-    public const SCHEMA_TITLE        = 'View Traffic';
-    public const SCHEMA_DESCRIPTION  = 'View Traffic';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "count": 14850,
-    "uniques": 3782,
+    public const SCHEMA_TITLE = 'View Traffic';
+    public const SCHEMA_DESCRIPTION = 'View Traffic';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "count": 5,
+    "uniques": 7,
     "views": [
         {
             "timestamp": "1970-01-01T00:00:00+00:00",
@@ -72,7 +71,6 @@ final readonly class ViewTraffic
         }
     ]
 }';
-
     public function __construct(public int $count, public int $uniques, public array $views)
     {
     }

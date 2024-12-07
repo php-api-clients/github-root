@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Tag
+final readonly class Tag implements \ApiClients\Client\GitHub\Contract\Tag
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Tag",
     "required": [
         "name",
@@ -62,23 +58,19 @@ final readonly class Tag
     },
     "description": "Tag"
 }';
-    public const SCHEMA_TITLE        = 'Tag';
-    public const SCHEMA_DESCRIPTION  = 'Tag';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "name": "v0.1",
+    public const SCHEMA_TITLE = 'Tag';
+    public const SCHEMA_DESCRIPTION = 'Tag';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "name": "generated",
     "commit": {
         "sha": "generated",
         "url": "https:\\/\\/example.com\\/"
     },
-    "zipball_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/zipball\\/v0.1",
-    "tarball_url": "https:\\/\\/github.com\\/octocat\\/Hello-World\\/tarball\\/v0.1",
+    "zipball_url": "https:\\/\\/example.com\\/",
+    "tarball_url": "https:\\/\\/example.com\\/",
     "node_id": "generated"
 }';
-
-    public function __construct(public string $name, public Schema\Tag\Commit $commit, #[MapFrom('zipball_url')]
-    public string $zipballUrl, #[MapFrom('tarball_url')]
-    public string $tarballUrl, #[MapFrom('node_id')]
-    public string $nodeId,)
+    public function __construct(public string $name, public \ApiClients\Client\GitHub\Schema\Tag\Commit $commit, #[\EventSauce\ObjectHydrator\MapFrom('zipball_url')] public string $zipballUrl, #[\EventSauce\ObjectHydrator\MapFrom('tarball_url')] public string $tarballUrl, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId)
     {
     }
 }

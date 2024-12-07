@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Collaborator;
 
-final readonly class Permissions
+final readonly class Permissions implements \ApiClients\Client\GitHub\Contract\Collaborator\Permissions
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "pull",
         "push",
@@ -31,17 +30,16 @@ final readonly class Permissions
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "pull": false,
     "triage": false,
     "push": false,
     "maintain": false,
     "admin": false
 }';
-
-    public function __construct(public bool $pull, public bool|null $triage, public bool $push, public bool|null $maintain, public bool $admin)
+    public function __construct(public bool $pull, public ?bool $triage, public bool $push, public ?bool $maintain, public bool $admin)
     {
     }
 }

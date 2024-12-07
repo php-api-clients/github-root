@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Job;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Steps
+final readonly class Steps implements \ApiClients\Client\GitHub\Contract\Job\Steps
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "name",
         "status",
@@ -76,17 +73,16 @@ final readonly class Steps
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "status": "queued",
-    "conclusion": "success",
-    "name": "test-coverage",
-    "number": 1,
-    "started_at": "2019-08-08T08:00:00-07:00",
-    "completed_at": "2019-08-08T08:00:00-07:00"
+    "conclusion": "generated",
+    "name": "generated",
+    "number": 6,
+    "started_at": "1970-01-01T00:00:00+00:00",
+    "completed_at": "1970-01-01T00:00:00+00:00"
 }';
-
     /**
      * status: The phase of the lifecycle that the job is currently in.
      * conclusion: The outcome of the job.
@@ -94,9 +90,7 @@ final readonly class Steps
      * startedAt: The time that the step started, in ISO 8601 format.
      * completedAt: The time that the job finished, in ISO 8601 format.
      */
-    public function __construct(public string $status, public string|null $conclusion, public string $name, public int $number, #[MapFrom('started_at')]
-    public string|null $startedAt, #[MapFrom('completed_at')]
-    public string|null $completedAt,)
+    public function __construct(public string $status, public ?string $conclusion, public string $name, public int $number, #[\EventSauce\ObjectHydrator\MapFrom('started_at')] public ?string $startedAt, #[\EventSauce\ObjectHydrator\MapFrom('completed_at')] public ?string $completedAt)
     {
     }
 }

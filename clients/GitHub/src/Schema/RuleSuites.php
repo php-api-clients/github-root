@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class RuleSuites
+final readonly class RuleSuites implements \ApiClients\Client\GitHub\Contract\RuleSuites
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -70,9 +67,9 @@ final readonly class RuleSuites
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": 2,
     "actor_id": 8,
     "actor_name": "generated",
@@ -81,11 +78,10 @@ final readonly class RuleSuites
     "ref": "generated",
     "repository_id": 13,
     "repository_name": "generated",
-    "pushed_at": "2011-01-26T19:06:43Z",
-    "result": "bypass",
+    "pushed_at": "1970-01-01T00:00:00+00:00",
+    "result": "pass",
     "evaluation_result": "pass"
 }';
-
     /**
      * id: The unique identifier of the rule insight.
      * actorId: The number that identifies the user.
@@ -98,15 +94,7 @@ final readonly class RuleSuites
      * result: The result of the rule evaluations for rules with the `active` enforcement status.
      * evaluationResult: The result of the rule evaluations for rules with the `active` and `evaluate` enforcement statuses, demonstrating whether rules would pass or fail if all rules in the rule suite were `active`.
      */
-    public function __construct(public int|null $id, #[MapFrom('actor_id')]
-    public int|null $actorId, #[MapFrom('actor_name')]
-    public string|null $actorName, #[MapFrom('before_sha')]
-    public string|null $beforeSha, #[MapFrom('after_sha')]
-    public string|null $afterSha, public string|null $ref, #[MapFrom('repository_id')]
-    public int|null $repositoryId, #[MapFrom('repository_name')]
-    public string|null $repositoryName, #[MapFrom('pushed_at')]
-    public string|null $pushedAt, public string|null $result, #[MapFrom('evaluation_result')]
-    public string|null $evaluationResult,)
+    public function __construct(public ?int $id, #[\EventSauce\ObjectHydrator\MapFrom('actor_id')] public ?int $actorId, #[\EventSauce\ObjectHydrator\MapFrom('actor_name')] public ?string $actorName, #[\EventSauce\ObjectHydrator\MapFrom('before_sha')] public ?string $beforeSha, #[\EventSauce\ObjectHydrator\MapFrom('after_sha')] public ?string $afterSha, public ?string $ref, #[\EventSauce\ObjectHydrator\MapFrom('repository_id')] public ?int $repositoryId, #[\EventSauce\ObjectHydrator\MapFrom('repository_name')] public ?string $repositoryName, #[\EventSauce\ObjectHydrator\MapFrom('pushed_at')] public ?string $pushedAt, public ?string $result, #[\EventSauce\ObjectHydrator\MapFrom('evaluation_result')] public ?string $evaluationResult)
     {
     }
 }

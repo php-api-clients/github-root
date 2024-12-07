@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CommitActivity
+final readonly class CommitActivity implements \ApiClients\Client\GitHub\Contract\CommitActivity
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Commit Activity",
     "required": [
         "days",
@@ -45,17 +44,16 @@ final readonly class CommitActivity
     },
     "description": "Commit Activity"
 }';
-    public const SCHEMA_TITLE        = 'Commit Activity';
-    public const SCHEMA_DESCRIPTION  = 'Commit Activity';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Commit Activity';
+    public const SCHEMA_DESCRIPTION = 'Commit Activity';
+    const SCHEMA_EXAMPLE_DATA = '{
     "days": [
-        0,
-        0
+        5,
+        6
     ],
-    "total": 89,
-    "week": 1336280400
+    "total": 5,
+    "week": 4
 }';
-
     public function __construct(public array $days, public int $total, public int $week)
     {
     }

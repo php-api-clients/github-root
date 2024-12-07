@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class CodeScanningAlertRuleSummary
+final readonly class CodeScanningAlertRuleSummary implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertRuleSummary
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "id": {
@@ -84,20 +81,18 @@ final readonly class CodeScanningAlertRuleSummary
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "id": "generated",
     "name": "generated",
-    "severity": "error",
+    "severity": "none",
     "security_severity_level": "low",
     "description": "generated",
     "full_description": "generated",
-    "tags": null,
     "help": "generated",
     "help_uri": "generated"
 }';
-
     /**
      * id: A unique identifier for the rule used to detect the alert.
      * name: The name of the rule used to detect the alert.
@@ -109,10 +104,7 @@ final readonly class CodeScanningAlertRuleSummary
      * help: Detailed documentation for the rule as GitHub Flavored Markdown.
      * helpUri: A link to the documentation for the rule used to detect the alert.
      */
-    public function __construct(public string|null $id, public string|null $name, public string|null $severity, #[MapFrom('security_severity_level')]
-    public string|null $securitySeverityLevel, public string|null $description, #[MapFrom('full_description')]
-    public string|null $fullDescription, public array|null $tags, public string|null $help, #[MapFrom('help_uri')]
-    public string|null $helpUri,)
+    public function __construct(public ?string $id, public ?string $name, public ?string $severity, #[\EventSauce\ObjectHydrator\MapFrom('security_severity_level')] public ?string $securitySeverityLevel, public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('full_description')] public ?string $fullDescription, public ?array $tags, public ?string $help, #[\EventSauce\ObjectHydrator\MapFrom('help_uri')] public ?string $helpUri)
     {
     }
 }

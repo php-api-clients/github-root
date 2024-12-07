@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Enterprise
+final readonly class Enterprise implements \ApiClients\Client\GitHub\Contract\Enterprise
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Enterprise",
     "required": [
         "id",
@@ -98,21 +95,20 @@ final readonly class Enterprise
     },
     "description": "An enterprise on GitHub."
 }';
-    public const SCHEMA_TITLE        = 'Enterprise';
-    public const SCHEMA_DESCRIPTION  = 'An enterprise on GitHub.';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Enterprise';
+    public const SCHEMA_DESCRIPTION = 'An enterprise on GitHub.';
+    const SCHEMA_EXAMPLE_DATA = '{
     "description": "generated",
-    "html_url": "https:\\/\\/github.com\\/enterprises\\/octo-business",
+    "html_url": "https:\\/\\/example.com\\/",
     "website_url": "https:\\/\\/example.com\\/",
-    "id": 42,
-    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
-    "name": "Octo Business",
-    "slug": "octo-business",
-    "created_at": "2019-01-26T19:01:12Z",
-    "updated_at": "2019-01-26T19:14:43Z",
+    "id": 2,
+    "node_id": "generated",
+    "name": "generated",
+    "slug": "generated",
+    "created_at": "1970-01-01T00:00:00+00:00",
+    "updated_at": "1970-01-01T00:00:00+00:00",
     "avatar_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * description: A short description of the enterprise.
      * websiteUrl: The enterprise's website URL.
@@ -120,13 +116,7 @@ final readonly class Enterprise
      * name: The name of the enterprise.
      * slug: The slug url identifier for the enterprise.
      */
-    public function __construct(public string|null $description, #[MapFrom('html_url')]
-    public string $htmlUrl, #[MapFrom('website_url')]
-    public string|null $websiteUrl, public int $id, #[MapFrom('node_id')]
-    public string $nodeId, public string $name, public string $slug, #[MapFrom('created_at')]
-    public string|null $createdAt, #[MapFrom('updated_at')]
-    public string|null $updatedAt, #[MapFrom('avatar_url')]
-    public string $avatarUrl,)
+    public function __construct(public ?string $description, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, #[\EventSauce\ObjectHydrator\MapFrom('website_url')] public ?string $websiteUrl, public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, public string $name, public string $slug, #[\EventSauce\ObjectHydrator\MapFrom('created_at')] public ?string $createdAt, #[\EventSauce\ObjectHydrator\MapFrom('updated_at')] public ?string $updatedAt, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl)
     {
     }
 }

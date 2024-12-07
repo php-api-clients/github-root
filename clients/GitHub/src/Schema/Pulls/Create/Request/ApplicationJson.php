@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Pulls\Create\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Pulls\Create\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "head",
         "base"
@@ -57,19 +54,18 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "title": "generated",
     "head": "generated",
-    "head_repo": "octo-org\\/octo-repo",
+    "head_repo": "generated",
     "base": "generated",
     "body": "generated",
     "maintainer_can_modify": false,
     "draft": false,
-    "issue": 1
+    "issue": 5
 }';
-
     /**
      * title: The title of the new pull request. Required unless `issue` is specified.
      * head: The name of the branch where your changes are implemented. For cross-repository pull requests in the same network, namespace `head` with a user like this: `username:branch`.
@@ -80,9 +76,7 @@ final readonly class ApplicationJson
      * draft: Indicates whether the pull request is a draft. See "[Draft Pull Requests](https://docs.github.com/articles/about-pull-requests#draft-pull-requests)" in the GitHub Help documentation to learn more.
      * issue: An issue in the repository to convert to a pull request. The issue title, body, and comments will become the title, body, and comments on the new pull request. Required unless `title` is specified.
      */
-    public function __construct(public string|null $title, public string $head, #[MapFrom('head_repo')]
-    public string|null $headRepo, public string $base, public string|null $body, #[MapFrom('maintainer_can_modify')]
-    public bool|null $maintainerCanModify, public bool|null $draft, public int|null $issue,)
+    public function __construct(public ?string $title, public string $head, #[\EventSauce\ObjectHydrator\MapFrom('head_repo')] public ?string $headRepo, public string $base, public ?string $body, #[\EventSauce\ObjectHydrator\MapFrom('maintainer_can_modify')] public ?bool $maintainerCanModify, public ?bool $draft, public ?int $issue)
     {
     }
 }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Codespaces\CreateWithPrForAuthenticatedUser\Request;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class ApplicationJson
+final readonly class ApplicationJson implements \ApiClients\Client\GitHub\Contract\Codespaces\CreateWithPrForAuthenticatedUser\Request\ApplicationJson
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -62,9 +59,9 @@ final readonly class ApplicationJson
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "location": "generated",
     "geo": "EuropeWest",
     "client_ip": "generated",
@@ -76,7 +73,6 @@ final readonly class ApplicationJson
     "display_name": "generated",
     "retention_period_minutes": 24
 }';
-
     /**
      * location: The requested location for a new codespace. Best efforts are made to respect this upon creation. Assigned by IP if not provided.
      * geo: The geographic area for this codespace. If not specified, the value is assigned by IP. This property replaces `location`, which is closing down.
@@ -89,14 +85,7 @@ final readonly class ApplicationJson
      * displayName: Display name for this codespace
      * retentionPeriodMinutes: Duration in minutes after codespace has gone idle in which it will be deleted. Must be integer minutes between 0 and 43200 (30 days).
      */
-    public function __construct(public string|null $location, public string|null $geo, #[MapFrom('client_ip')]
-    public string|null $clientIp, public string|null $machine, #[MapFrom('devcontainer_path')]
-    public string|null $devcontainerPath, #[MapFrom('multi_repo_permissions_opt_out')]
-    public bool|null $multiRepoPermissionsOptOut, #[MapFrom('working_directory')]
-    public string|null $workingDirectory, #[MapFrom('idle_timeout_minutes')]
-    public int|null $idleTimeoutMinutes, #[MapFrom('display_name')]
-    public string|null $displayName, #[MapFrom('retention_period_minutes')]
-    public int|null $retentionPeriodMinutes,)
+    public function __construct(public ?string $location, public ?string $geo, #[\EventSauce\ObjectHydrator\MapFrom('client_ip')] public ?string $clientIp, public ?string $machine, #[\EventSauce\ObjectHydrator\MapFrom('devcontainer_path')] public ?string $devcontainerPath, #[\EventSauce\ObjectHydrator\MapFrom('multi_repo_permissions_opt_out')] public ?bool $multiRepoPermissionsOptOut, #[\EventSauce\ObjectHydrator\MapFrom('working_directory')] public ?string $workingDirectory, #[\EventSauce\ObjectHydrator\MapFrom('idle_timeout_minutes')] public ?int $idleTimeoutMinutes, #[\EventSauce\ObjectHydrator\MapFrom('display_name')] public ?string $displayName, #[\EventSauce\ObjectHydrator\MapFrom('retention_period_minutes')] public ?int $retentionPeriodMinutes)
     {
     }
 }

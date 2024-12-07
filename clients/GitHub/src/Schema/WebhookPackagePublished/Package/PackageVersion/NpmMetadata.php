@@ -1,15 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion;
 
-use ApiClients\Client\GitHub\Schema;
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class NpmMetadata
+final readonly class NpmMetadata implements \ApiClients\Client\GitHub\Contract\WebhookPackagePublished\Package\PackageVersion\NpmMetadata
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": [
         "object",
         "null"
@@ -161,9 +157,9 @@ final readonly class NpmMetadata
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "name": "generated",
     "version": "generated",
     "npm_user": "generated",
@@ -220,21 +216,7 @@ final readonly class NpmMetadata
     "published_via_actions": false,
     "deleted_by_id": 13
 }';
-
-    public function __construct(public string|null $name, public string|null $version, #[MapFrom('npm_user')]
-    public string|null $npmUser, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Author|null $author, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bugs|null $bugs, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies|null $dependencies, #[MapFrom('dev_dependencies')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\DevDependencies|null $devDependencies, #[MapFrom('peer_dependencies')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\PeerDependencies|null $peerDependencies, #[MapFrom('optional_dependencies')]
-    public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\OptionalDependencies|null $optionalDependencies, public string|null $description, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dist|null $dist, #[MapFrom('git_head')]
-    public string|null $gitHead, public string|null $homepage, public string|null $license, public string|null $main, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Repository|null $repository, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Scripts|null $scripts, public string|null $id, #[MapFrom('node_version')]
-    public string|null $nodeVersion, #[MapFrom('npm_version')]
-    public string|null $npmVersion, #[MapFrom('has_shrinkwrap')]
-    public bool|null $hasShrinkwrap, public array|null $maintainers, public array|null $contributors, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Engines|null $engines, public array|null $keywords, public array|null $files, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bin|null $bin, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Man|null $man, public Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Directories|null $directories, public array|null $os, public array|null $cpu, public string|null $readme, #[MapFrom('installation_command')]
-    public string|null $installationCommand, #[MapFrom('release_id')]
-    public int|null $releaseId, #[MapFrom('commit_oid')]
-    public string|null $commitOid, #[MapFrom('published_via_actions')]
-    public bool|null $publishedViaActions, #[MapFrom('deleted_by_id')]
-    public int|null $deletedById,)
+    public function __construct(public ?string $name, public ?string $version, #[\EventSauce\ObjectHydrator\MapFrom('npm_user')] public ?string $npmUser, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Author $author, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bugs $bugs, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dependencies $dependencies, #[\EventSauce\ObjectHydrator\MapFrom('dev_dependencies')] public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\DevDependencies $devDependencies, #[\EventSauce\ObjectHydrator\MapFrom('peer_dependencies')] public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\PeerDependencies $peerDependencies, #[\EventSauce\ObjectHydrator\MapFrom('optional_dependencies')] public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\OptionalDependencies $optionalDependencies, public ?string $description, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Dist $dist, #[\EventSauce\ObjectHydrator\MapFrom('git_head')] public ?string $gitHead, public ?string $homepage, public ?string $license, public ?string $main, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Repository $repository, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Scripts $scripts, public ?string $id, #[\EventSauce\ObjectHydrator\MapFrom('node_version')] public ?string $nodeVersion, #[\EventSauce\ObjectHydrator\MapFrom('npm_version')] public ?string $npmVersion, #[\EventSauce\ObjectHydrator\MapFrom('has_shrinkwrap')] public ?bool $hasShrinkwrap, public ?array $maintainers, public ?array $contributors, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Engines $engines, public ?array $keywords, public ?array $files, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Bin $bin, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Man $man, public ?\ApiClients\Client\GitHub\Schema\WebhookPackagePublished\Package\PackageVersion\NpmMetadata\Directories $directories, public ?array $os, public ?array $cpu, public ?string $readme, #[\EventSauce\ObjectHydrator\MapFrom('installation_command')] public ?string $installationCommand, #[\EventSauce\ObjectHydrator\MapFrom('release_id')] public ?int $releaseId, #[\EventSauce\ObjectHydrator\MapFrom('commit_oid')] public ?string $commitOid, #[\EventSauce\ObjectHydrator\MapFrom('published_via_actions')] public ?bool $publishedViaActions, #[\EventSauce\ObjectHydrator\MapFrom('deleted_by_id')] public ?int $deletedById)
     {
     }
 }

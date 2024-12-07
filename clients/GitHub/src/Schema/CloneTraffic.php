@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CloneTraffic
+final readonly class CloneTraffic implements \ApiClients\Client\GitHub\Contract\CloneTraffic
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Clone Traffic",
     "required": [
         "uniques",
@@ -54,11 +53,11 @@ final readonly class CloneTraffic
     },
     "description": "Clone Traffic"
 }';
-    public const SCHEMA_TITLE        = 'Clone Traffic';
-    public const SCHEMA_DESCRIPTION  = 'Clone Traffic';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "count": 173,
-    "uniques": 128,
+    public const SCHEMA_TITLE = 'Clone Traffic';
+    public const SCHEMA_DESCRIPTION = 'Clone Traffic';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "count": 5,
+    "uniques": 7,
     "clones": [
         {
             "timestamp": "1970-01-01T00:00:00+00:00",
@@ -72,7 +71,6 @@ final readonly class CloneTraffic
         }
     ]
 }';
-
     public function __construct(public int $count, public int $uniques, public array $clones)
     {
     }

@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SecretScanningLocationIssueTitle
+final readonly class SecretScanningLocationIssueTitle implements \ApiClients\Client\GitHub\Contract\SecretScanningLocationIssueTitle
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "issue_title_url"
     ],
@@ -25,17 +22,15 @@ final readonly class SecretScanningLocationIssueTitle
     },
     "description": "Represents an \'issue_title\' secret scanning location type. This location type shows that a secret was detected in the title of an issue."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Represents an \'issue_title\' secret scanning location type. This location type shows that a secret was detected in the title of an issue.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "issue_title_url": "https:\\/\\/api.github.com\\/repos\\/octocat\\/Hello-World\\/issues\\/1347"
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Represents an \'issue_title\' secret scanning location type. This location type shows that a secret was detected in the title of an issue.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "issue_title_url": "https:\\/\\/example.com\\/"
 }';
-
     /**
      * issueTitleUrl: The API URL to get the issue where the secret was detected.
      */
-    public function __construct(#[MapFrom('issue_title_url')]
-    public string $issueTitleUrl,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('issue_title_url')] public string $issueTitleUrl)
     {
     }
 }

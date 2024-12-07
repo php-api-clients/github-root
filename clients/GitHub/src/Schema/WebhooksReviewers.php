@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class WebhooksReviewers
+final readonly class WebhooksReviewers implements \ApiClients\Client\GitHub\Contract\WebhooksReviewers
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "reviewer": {
@@ -115,9 +112,9 @@ final readonly class WebhooksReviewers
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "reviewer": {
         "avatar_url": "https:\\/\\/example.com\\/",
         "deleted": false,
@@ -138,13 +135,12 @@ final readonly class WebhooksReviewers
         "site_admin": false,
         "starred_url": "generated",
         "subscriptions_url": "https:\\/\\/example.com\\/",
-        "type": "Organization",
+        "type": "Bot",
         "url": "https:\\/\\/example.com\\/"
     },
     "type": "User"
 }';
-
-    public function __construct(public Schema\WebhooksReviewers\Reviewer|null $reviewer, public string|null $type)
+    public function __construct(public ?\ApiClients\Client\GitHub\Schema\WebhooksReviewers\Reviewer $reviewer, public ?string $type)
     {
     }
 }

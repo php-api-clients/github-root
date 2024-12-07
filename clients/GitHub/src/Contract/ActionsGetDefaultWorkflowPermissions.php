@@ -1,0 +1,12 @@
+<?php
+
+declare (strict_types=1);
+namespace ApiClients\Client\GitHub\Contract;
+
+/**
+ * @property string $defaultWorkflowPermissions
+ * @property bool $canApprovePullRequestReviews
+ */
+interface ActionsGetDefaultWorkflowPermissions
+{
+}

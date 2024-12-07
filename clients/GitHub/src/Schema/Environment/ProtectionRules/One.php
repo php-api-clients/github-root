@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\Environment\ProtectionRules;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class One
+final readonly class One implements \ApiClients\Client\GitHub\Contract\Environment\ProtectionRules\One
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "required": [
         "id",
         "node_id",
@@ -445,32 +442,99 @@ final readonly class One
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 3755,
-    "node_id": "MDQ6R2F0ZTM3NTU=",
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "node_id": "generated",
     "prevent_self_review": false,
-    "type": "required_reviewers",
+    "type": "generated",
     "reviewers": [
         {
             "type": "User",
-            "reviewer": null
+            "reviewer": {
+                "id": 2,
+                "node_id": "generated",
+                "name": "generated",
+                "slug": "generated",
+                "description": "generated",
+                "privacy": "generated",
+                "notification_setting": "generated",
+                "permission": "generated",
+                "permissions": {
+                    "pull": false,
+                    "triage": false,
+                    "push": false,
+                    "maintain": false,
+                    "admin": false
+                },
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "repositories_url": "https:\\/\\/example.com\\/",
+                "parent": {
+                    "id": 2,
+                    "node_id": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "members_url": "generated",
+                    "name": "generated",
+                    "description": "generated",
+                    "permission": "generated",
+                    "privacy": "generated",
+                    "notification_setting": "generated",
+                    "html_url": "https:\\/\\/example.com\\/",
+                    "repositories_url": "https:\\/\\/example.com\\/",
+                    "slug": "generated",
+                    "ldap_dn": "generated"
+                }
+            }
         },
         {
             "type": "User",
-            "reviewer": null
+            "reviewer": {
+                "id": 2,
+                "node_id": "generated",
+                "name": "generated",
+                "slug": "generated",
+                "description": "generated",
+                "privacy": "generated",
+                "notification_setting": "generated",
+                "permission": "generated",
+                "permissions": {
+                    "pull": false,
+                    "triage": false,
+                    "push": false,
+                    "maintain": false,
+                    "admin": false
+                },
+                "url": "https:\\/\\/example.com\\/",
+                "html_url": "https:\\/\\/example.com\\/",
+                "members_url": "generated",
+                "repositories_url": "https:\\/\\/example.com\\/",
+                "parent": {
+                    "id": 2,
+                    "node_id": "generated",
+                    "url": "https:\\/\\/example.com\\/",
+                    "members_url": "generated",
+                    "name": "generated",
+                    "description": "generated",
+                    "permission": "generated",
+                    "privacy": "generated",
+                    "notification_setting": "generated",
+                    "html_url": "https:\\/\\/example.com\\/",
+                    "repositories_url": "https:\\/\\/example.com\\/",
+                    "slug": "generated",
+                    "ldap_dn": "generated"
+                }
+            }
         }
     ]
 }';
-
     /**
      * preventSelfReview: Whether deployments to this environment can be approved by the user who created the deployment.
      * reviewers: The people or teams that may approve jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
      */
-    public function __construct(public int $id, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('prevent_self_review')]
-    public bool|null $preventSelfReview, public string $type, public array|null $reviewers,)
+    public function __construct(public int $id, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('prevent_self_review')] public ?bool $preventSelfReview, public string $type, public ?array $reviewers)
     {
     }
 }

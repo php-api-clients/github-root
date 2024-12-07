@@ -1,11 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\WebhookPullRequestReviewThreadResolved\PullRequest;
 
-use ApiClients\Client\GitHub\Schema;
-
-final readonly class Base extends Schema\AliasAbstract\TietDD3A8F60\Tiet5469B35D\Tiet20CEE77F\Tiet915EA812
+final readonly class Base extends \ApiClients\Client\GitHub\Schema\AliasAbstract\TDD3A8F60\T5469B35D\T20CEE77F\T915EA812
 {
 }

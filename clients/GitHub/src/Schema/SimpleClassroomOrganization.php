@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class SimpleClassroomOrganization
+final readonly class SimpleClassroomOrganization implements \ApiClients\Client\GitHub\Contract\SimpleClassroomOrganization
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Organization Simple for Classroom",
     "required": [
         "id",
@@ -63,21 +60,17 @@ final readonly class SimpleClassroomOrganization
     },
     "description": "A GitHub organization."
 }';
-    public const SCHEMA_TITLE        = 'Organization Simple for Classroom';
-    public const SCHEMA_DESCRIPTION  = 'A GitHub organization.';
-    public const SCHEMA_EXAMPLE_DATA = '{
-    "id": 1,
-    "login": "github",
-    "node_id": "MDEyOk9yZ2FuaXphdGlvbjE=",
-    "html_url": "https:\\/\\/github.com\\/github",
-    "name": "Github - Code thigns happen here",
-    "avatar_url": "https:\\/\\/github.com\\/images\\/error\\/octocat_happy.gif"
+    public const SCHEMA_TITLE = 'Organization Simple for Classroom';
+    public const SCHEMA_DESCRIPTION = 'A GitHub organization.';
+    const SCHEMA_EXAMPLE_DATA = '{
+    "id": 2,
+    "login": "generated",
+    "node_id": "generated",
+    "html_url": "https:\\/\\/example.com\\/",
+    "name": "generated",
+    "avatar_url": "generated"
 }';
-
-    public function __construct(public int $id, public string $login, #[MapFrom('node_id')]
-    public string $nodeId, #[MapFrom('html_url')]
-    public string $htmlUrl, public string|null $name, #[MapFrom('avatar_url')]
-    public string $avatarUrl,)
+    public function __construct(public int $id, public string $login, #[\EventSauce\ObjectHydrator\MapFrom('node_id')] public string $nodeId, #[\EventSauce\ObjectHydrator\MapFrom('html_url')] public string $htmlUrl, public ?string $name, #[\EventSauce\ObjectHydrator\MapFrom('avatar_url')] public string $avatarUrl)
     {
     }
 }

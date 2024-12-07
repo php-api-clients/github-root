@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema\ActionsBillingUsage;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class MinutesUsedBreakdown
+final readonly class MinutesUsedBreakdown implements \ApiClients\Client\GitHub\Contract\ActionsBillingUsage\MinutesUsedBreakdown
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "type": "object",
     "properties": {
         "UBUNTU": {
@@ -73,9 +70,9 @@ final readonly class MinutesUsedBreakdown
         }
     }
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "UBUNTU": 6,
     "MACOS": 5,
     "WINDOWS": 7,
@@ -92,7 +89,6 @@ final readonly class MinutesUsedBreakdown
     "macos_12_core": 19,
     "total": 5
 }';
-
     /**
      * ubuntu: Total minutes used on Ubuntu runner machines.
      * macos: Total minutes used on macOS runner machines.
@@ -110,21 +106,7 @@ final readonly class MinutesUsedBreakdown
      * macosTwelveCore: Total minutes used on macOS 12 core runner machines.
      * total: Total minutes used on all runner machines.
      */
-    public function __construct(#[MapFrom('UBUNTU')]
-    public int|null $ubuntu, #[MapFrom('MACOS')]
-    public int|null $macos, #[MapFrom('WINDOWS')]
-    public int|null $windows, #[MapFrom('ubuntu_4_core')]
-    public int|null $ubuntuFourCore, #[MapFrom('ubuntu_8_core')]
-    public int|null $ubuntuEightCore, #[MapFrom('ubuntu_16_core')]
-    public int|null $ubuntuSixteenCore, #[MapFrom('ubuntu_32_core')]
-    public int|null $ubuntuThirtyTwoCore, #[MapFrom('ubuntu_64_core')]
-    public int|null $ubuntuSixtyFourCore, #[MapFrom('windows_4_core')]
-    public int|null $windowsFourCore, #[MapFrom('windows_8_core')]
-    public int|null $windowsEightCore, #[MapFrom('windows_16_core')]
-    public int|null $windowsSixteenCore, #[MapFrom('windows_32_core')]
-    public int|null $windowsThirtyTwoCore, #[MapFrom('windows_64_core')]
-    public int|null $windowsSixtyFourCore, #[MapFrom('macos_12_core')]
-    public int|null $macosTwelveCore, public int|null $total,)
+    public function __construct(#[\EventSauce\ObjectHydrator\MapFrom('UBUNTU')] public ?int $ubuntu, #[\EventSauce\ObjectHydrator\MapFrom('MACOS')] public ?int $macos, #[\EventSauce\ObjectHydrator\MapFrom('WINDOWS')] public ?int $windows, #[\EventSauce\ObjectHydrator\MapFrom('ubuntu_4_core')] public ?int $ubuntuFourCore, #[\EventSauce\ObjectHydrator\MapFrom('ubuntu_8_core')] public ?int $ubuntuEightCore, #[\EventSauce\ObjectHydrator\MapFrom('ubuntu_16_core')] public ?int $ubuntuSixteenCore, #[\EventSauce\ObjectHydrator\MapFrom('ubuntu_32_core')] public ?int $ubuntuThirtyTwoCore, #[\EventSauce\ObjectHydrator\MapFrom('ubuntu_64_core')] public ?int $ubuntuSixtyFourCore, #[\EventSauce\ObjectHydrator\MapFrom('windows_4_core')] public ?int $windowsFourCore, #[\EventSauce\ObjectHydrator\MapFrom('windows_8_core')] public ?int $windowsEightCore, #[\EventSauce\ObjectHydrator\MapFrom('windows_16_core')] public ?int $windowsSixteenCore, #[\EventSauce\ObjectHydrator\MapFrom('windows_32_core')] public ?int $windowsThirtyTwoCore, #[\EventSauce\ObjectHydrator\MapFrom('windows_64_core')] public ?int $windowsSixtyFourCore, #[\EventSauce\ObjectHydrator\MapFrom('macos_12_core')] public ?int $macosTwelveCore, public ?int $total)
     {
     }
 }

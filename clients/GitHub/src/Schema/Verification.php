@@ -1,14 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-use EventSauce\ObjectHydrator\MapFrom;
-
-final readonly class Verification
+final readonly class Verification implements \ApiClients\Client\GitHub\Contract\Verification
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "title": "Verification",
     "required": [
         "verified",
@@ -44,18 +41,16 @@ final readonly class Verification
         }
     }
 }';
-    public const SCHEMA_TITLE        = 'Verification';
-    public const SCHEMA_DESCRIPTION  = '';
-    public const SCHEMA_EXAMPLE_DATA = '{
+    public const SCHEMA_TITLE = 'Verification';
+    public const SCHEMA_DESCRIPTION = '';
+    const SCHEMA_EXAMPLE_DATA = '{
     "verified": false,
     "reason": "generated",
     "payload": "generated",
     "signature": "generated",
     "verified_at": "generated"
 }';
-
-    public function __construct(public bool $verified, public string $reason, public string|null $payload, public string|null $signature, #[MapFrom('verified_at')]
-    public string|null $verifiedAt,)
+    public function __construct(public bool $verified, public string $reason, public ?string $payload, public ?string $signature, #[\EventSauce\ObjectHydrator\MapFrom('verified_at')] public ?string $verifiedAt)
     {
     }
 }

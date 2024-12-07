@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 namespace ApiClients\Client\GitHub\Schema;
 
-final readonly class CodeScanningAlertSetState
+final readonly class CodeScanningAlertSetState implements \ApiClients\Client\GitHub\Contract\CodeScanningAlertSetState
 {
-    public const SCHEMA_JSON         = '{
+    const SCHEMA_JSON = '{
     "enum": [
         "open",
         "dismissed"
@@ -14,10 +13,9 @@ final readonly class CodeScanningAlertSetState
     "type": "string",
     "description": "Sets the state of the code scanning alert. You must provide `dismissed_reason` when you set the state to `dismissed`."
 }';
-    public const SCHEMA_TITLE        = '';
-    public const SCHEMA_DESCRIPTION  = 'Sets the state of the code scanning alert. You must provide `dismissed_reason` when you set the state to `dismissed`.';
-    public const SCHEMA_EXAMPLE_DATA = '[]';
-
+    public const SCHEMA_TITLE = '';
+    public const SCHEMA_DESCRIPTION = 'Sets the state of the code scanning alert. You must provide `dismissed_reason` when you set the state to `dismissed`.';
+    const SCHEMA_EXAMPLE_DATA = '[]';
     public function __construct()
     {
     }
